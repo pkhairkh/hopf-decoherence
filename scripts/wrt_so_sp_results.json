@@ -1,0 +1,88 @@
+{
+  "so5": {
+    "name": "so5 (B2)",
+    "hvee": 3,
+    "rank": 2,
+    "dim": 10,
+    "num_pos_roots": 4,
+    "pos_root_rho_inner": [
+      1.5,
+      0.5,
+      2,
+      1
+    ],
+    "predicted_exponent": 5.0,
+    "fitted_exponent": 4.9988164101593915,
+    "fitted_exponent_error": 0.00011021634106745538,
+    "asymptotic_constant": 2337.818184816058,
+    "fitted_constant": 2321.5484295565793,
+    "formula": "S_00 = (k+3)^(-1.0) \u00d7 prod_{alpha in Delta+} 2*sin(pi*<alpha,rho>/(k+3))"
+  },
+  "sp4": {
+    "name": "sp4 (C2)",
+    "hvee": 3,
+    "rank": 2,
+    "dim": 10,
+    "num_pos_roots": 4,
+    "pos_root_rho_inner": [
+      1,
+      3,
+      4,
+      2
+    ],
+    "predicted_exponent": 5.0,
+    "fitted_exponent": 4.995262444609848,
+    "fitted_exponent_error": 0.00044139180525826216,
+    "asymptotic_constant": 37405.09095705693,
+    "fitted_constant": 36373.97639603404,
+    "formula": "S_00 = (k+3)^(-1.0) \u00d7 prod_{alpha in Delta+} 2*sin(pi*<alpha,rho>/(k+3))"
+  },
+  "so7": {
+    "name": "so7 (B3)",
+    "hvee": 5,
+    "rank": 3,
+    "dim": 21,
+    "num_pos_roots": 9,
+    "pos_root_rho_inner": [
+      2.5,
+      1.5,
+      0.5,
+      4,
+      1,
+      3,
+      2,
+      2,
+      1
+    ],
+    "predicted_exponent": 10.5,
+    "fitted_exponent": 10.493422111688984,
+    "fitted_exponent_error": 0.0006022509750787477,
+    "asymptotic_constant": 1373603297.285201,
+    "fitted_constant": 1321206756.4951134,
+    "formula": "S_00 = (k+5)^(-1.5) \u00d7 prod_{alpha in Delta+} 2*sin(pi*<alpha,rho>/(k+5))"
+  },
+  "sp6": {
+    "name": "sp6 (C3)",
+    "hvee": 4,
+    "rank": 3,
+    "dim": 21,
+    "num_pos_roots": 9,
+    "pos_root_rho_inner": [
+      1,
+      5,
+      2,
+      4,
+      1,
+      3,
+      6,
+      4,
+      2
+    ],
+    "predicted_exponent": 10.5,
+    "fitted_exponent": 10.48273076303255,
+    "fitted_exponent_error": 0.0015959666797653192,
+    "asymptotic_constant": 87910611026.25287,
+    "fitted_constant": 79386036996.19275,
+    "formula": "S_00 = (k+4)^(-1.5) \u00d7 prod_{alpha in Delta+} 2*sin(pi*<alpha,rho>/(k+4))"
+  }
+}

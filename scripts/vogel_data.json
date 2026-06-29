@@ -1,0 +1,4418 @@
+{
+  "metadata": {
+    "description": "Vogel parameter table for all simple Lie algebras",
+    "references": [
+      "Vogel (1999) hep-th/9912204",
+      "Mkrtchyan arXiv:1109.1668",
+      "Landsberg-Manivel math/0401296",
+      "Bishler-Mironov-Morozov arXiv:2311.05358"
+    ],
+    "conventions": {
+      "unnorm": "\u03b1=-2, \u03b1+\u03b2+\u03b3=h\u2228, dim=(\u03b1-2h\u2228)(\u03b2-2h\u2228)(\u03b3-2h\u2228)/(\u03b1\u03b2\u03b3)",
+      "norm_t_half": "\u03b1\u0302+\u03b2\u0302+\u03b3\u0302=1/2, dim=(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)",
+      "norm_sum_minus2": "\u03b1\u0302+\u03b2\u0302+\u03b3\u0302=-2, dim=(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)"
+    }
+  },
+  "algebras": [
+    {
+      "name": "A_1 (sl_2)",
+      "cartan_type": "A",
+      "rank": 1,
+      "dim": 3,
+      "h_vee": 2,
+      "pos_roots": 1,
+      "pos_roots_ns": 0,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 2,
+          "denominator": 1,
+          "value": "2"
+        },
+        "gamma": {
+          "numerator": 2,
+          "denominator": 1,
+          "value": "2"
+        },
+        "h_vee": 2
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 2,
+          "value": "-1/2"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 2,
+          "denominator": 1,
+          "value": "2"
+        },
+        "beta_hat": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        }
+      },
+      "d_tilde_sq_power": 3,
+      "z_raw_power": {
+        "numerator": 3,
+        "denominator": 2,
+        "value": "3/2"
+      },
+      "norm_exponent": 0
+    },
+    {
+      "name": "A_2 (sl_3)",
+      "cartan_type": "A",
+      "rank": 2,
+      "dim": 8,
+      "h_vee": 3,
+      "pos_roots": 3,
+      "pos_roots_ns": 1,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 2,
+          "denominator": 1,
+          "value": "2"
+        },
+        "gamma": {
+          "numerator": 3,
+          "denominator": 1,
+          "value": "3"
+        },
+        "h_vee": 3
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 3,
+          "value": "-1/3"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 3,
+          "value": "1/3"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 3,
+          "value": "4/3"
+        },
+        "beta_hat": {
+          "numerator": -4,
+          "denominator": 3,
+          "value": "-4/3"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        }
+      },
+      "d_tilde_sq_power": 10,
+      "z_raw_power": {
+        "numerator": 3,
+        "denominator": 1,
+        "value": "3"
+      },
+      "norm_exponent": 3
+    },
+    {
+      "name": "A_3 (sl_4)",
+      "cartan_type": "A",
+      "rank": 3,
+      "dim": 15,
+      "h_vee": 4,
+      "pos_roots": 6,
+      "pos_roots_ns": 3,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 2,
+          "denominator": 1,
+          "value": "2"
+        },
+        "gamma": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "h_vee": 4
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 4,
+          "value": "-1/4"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 4,
+          "value": "1/4"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "beta_hat": {
+          "numerator": -1,
+          "denominator": 1,
+          "value": "-1"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        }
+      },
+      "d_tilde_sq_power": 21,
+      "z_raw_power": {
+        "numerator": 9,
+        "denominator": 2,
+        "value": "9/2"
+      },
+      "norm_exponent": 9
+    },
+    {
+      "name": "A_4 (sl_5)",
+      "cartan_type": "A",
+      "rank": 4,
+      "dim": 24,
+      "h_vee": 5,
+      "pos_roots": 10,
+      "pos_roots_ns": 6,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 2,
+          "denominator": 1,
+          "value": "2"
+        },
+        "gamma": {
+          "numerator": 5,
+          "denominator": 1,
+          "value": "5"
+        },
+        "h_vee": 5
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 5,
+          "value": "-1/5"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 5,
+          "value": "1/5"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 5,
+          "value": "4/5"
+        },
+        "beta_hat": {
+          "numerator": -4,
+          "denominator": 5,
+          "value": "-4/5"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        }
+      },
+      "d_tilde_sq_power": 36,
+      "z_raw_power": {
+        "numerator": 6,
+        "denominator": 1,
+        "value": "6"
+      },
+      "norm_exponent": 18
+    },
+    {
+      "name": "A_5 (sl_6)",
+      "cartan_type": "A",
+      "rank": 5,
+      "dim": 35,
+      "h_vee": 6,
+      "pos_roots": 15,
+      "pos_roots_ns": 10,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 2,
+          "denominator": 1,
+          "value": "2"
+        },
+        "gamma": {
+          "numerator": 6,
+          "denominator": 1,
+          "value": "6"
+        },
+        "h_vee": 6
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 6,
+          "value": "-1/6"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 6,
+          "value": "1/6"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 2,
+          "denominator": 3,
+          "value": "2/3"
+        },
+        "beta_hat": {
+          "numerator": -2,
+          "denominator": 3,
+          "value": "-2/3"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        }
+      },
+      "d_tilde_sq_power": 55,
+      "z_raw_power": {
+        "numerator": 15,
+        "denominator": 2,
+        "value": "15/2"
+      },
+      "norm_exponent": 30
+    },
+    {
+      "name": "A_6 (sl_7)",
+      "cartan_type": "A",
+      "rank": 6,
+      "dim": 48,
+      "h_vee": 7,
+      "pos_roots": 21,
+      "pos_roots_ns": 15,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 2,
+          "denominator": 1,
+          "value": "2"
+        },
+        "gamma": {
+          "numerator": 7,
+          "denominator": 1,
+          "value": "7"
+        },
+        "h_vee": 7
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 7,
+          "value": "-1/7"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 7,
+          "value": "1/7"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 7,
+          "value": "4/7"
+        },
+        "beta_hat": {
+          "numerator": -4,
+          "denominator": 7,
+          "value": "-4/7"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        }
+      },
+      "d_tilde_sq_power": 78,
+      "z_raw_power": {
+        "numerator": 9,
+        "denominator": 1,
+        "value": "9"
+      },
+      "norm_exponent": 45
+    },
+    {
+      "name": "A_7 (sl_8)",
+      "cartan_type": "A",
+      "rank": 7,
+      "dim": 63,
+      "h_vee": 8,
+      "pos_roots": 28,
+      "pos_roots_ns": 21,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 2,
+          "denominator": 1,
+          "value": "2"
+        },
+        "gamma": {
+          "numerator": 8,
+          "denominator": 1,
+          "value": "8"
+        },
+        "h_vee": 8
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 8,
+          "value": "-1/8"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 8,
+          "value": "1/8"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        },
+        "beta_hat": {
+          "numerator": -1,
+          "denominator": 2,
+          "value": "-1/2"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        }
+      },
+      "d_tilde_sq_power": 105,
+      "z_raw_power": {
+        "numerator": 21,
+        "denominator": 2,
+        "value": "21/2"
+      },
+      "norm_exponent": 63
+    },
+    {
+      "name": "A_8 (sl_9)",
+      "cartan_type": "A",
+      "rank": 8,
+      "dim": 80,
+      "h_vee": 9,
+      "pos_roots": 36,
+      "pos_roots_ns": 28,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 2,
+          "denominator": 1,
+          "value": "2"
+        },
+        "gamma": {
+          "numerator": 9,
+          "denominator": 1,
+          "value": "9"
+        },
+        "h_vee": 9
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 9,
+          "value": "-1/9"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 9,
+          "value": "1/9"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 9,
+          "value": "4/9"
+        },
+        "beta_hat": {
+          "numerator": -4,
+          "denominator": 9,
+          "value": "-4/9"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        }
+      },
+      "d_tilde_sq_power": 136,
+      "z_raw_power": {
+        "numerator": 12,
+        "denominator": 1,
+        "value": "12"
+      },
+      "norm_exponent": 84
+    },
+    {
+      "name": "B_2 (so_5)",
+      "cartan_type": "B",
+      "rank": 2,
+      "dim": 10,
+      "h_vee": 3,
+      "pos_roots": 4,
+      "pos_roots_ns": 2,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "h_vee": 3
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 3,
+          "value": "-1/3"
+        },
+        "beta_hat": {
+          "numerator": 2,
+          "denominator": 3,
+          "value": "2/3"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 6,
+          "value": "1/6"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 3,
+          "value": "4/3"
+        },
+        "beta_hat": {
+          "numerator": -8,
+          "denominator": 3,
+          "value": "-8/3"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 3,
+          "value": "-2/3"
+        }
+      },
+      "d_tilde_sq_power": 14,
+      "z_raw_power": {
+        "numerator": 3,
+        "denominator": 1,
+        "value": "3"
+      },
+      "norm_exponent": 6
+    },
+    {
+      "name": "B_3 (so_7)",
+      "cartan_type": "B",
+      "rank": 3,
+      "dim": 21,
+      "h_vee": 5,
+      "pos_roots": 9,
+      "pos_roots_ns": 6,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 3,
+          "denominator": 1,
+          "value": "3"
+        },
+        "h_vee": 5
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 5,
+          "value": "-1/5"
+        },
+        "beta_hat": {
+          "numerator": 2,
+          "denominator": 5,
+          "value": "2/5"
+        },
+        "gamma_hat": {
+          "numerator": 3,
+          "denominator": 10,
+          "value": "3/10"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 5,
+          "value": "4/5"
+        },
+        "beta_hat": {
+          "numerator": -8,
+          "denominator": 5,
+          "value": "-8/5"
+        },
+        "gamma_hat": {
+          "numerator": -6,
+          "denominator": 5,
+          "value": "-6/5"
+        }
+      },
+      "d_tilde_sq_power": 33,
+      "z_raw_power": {
+        "numerator": 9,
+        "denominator": 2,
+        "value": "9/2"
+      },
+      "norm_exponent": 18
+    },
+    {
+      "name": "B_4 (so_9)",
+      "cartan_type": "B",
+      "rank": 4,
+      "dim": 36,
+      "h_vee": 7,
+      "pos_roots": 16,
+      "pos_roots_ns": 12,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 5,
+          "denominator": 1,
+          "value": "5"
+        },
+        "h_vee": 7
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 7,
+          "value": "-1/7"
+        },
+        "beta_hat": {
+          "numerator": 2,
+          "denominator": 7,
+          "value": "2/7"
+        },
+        "gamma_hat": {
+          "numerator": 5,
+          "denominator": 14,
+          "value": "5/14"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 7,
+          "value": "4/7"
+        },
+        "beta_hat": {
+          "numerator": -8,
+          "denominator": 7,
+          "value": "-8/7"
+        },
+        "gamma_hat": {
+          "numerator": -10,
+          "denominator": 7,
+          "value": "-10/7"
+        }
+      },
+      "d_tilde_sq_power": 60,
+      "z_raw_power": {
+        "numerator": 6,
+        "denominator": 1,
+        "value": "6"
+      },
+      "norm_exponent": 36
+    },
+    {
+      "name": "B_5 (so_11)",
+      "cartan_type": "B",
+      "rank": 5,
+      "dim": 55,
+      "h_vee": 9,
+      "pos_roots": 25,
+      "pos_roots_ns": 20,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 7,
+          "denominator": 1,
+          "value": "7"
+        },
+        "h_vee": 9
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 9,
+          "value": "-1/9"
+        },
+        "beta_hat": {
+          "numerator": 2,
+          "denominator": 9,
+          "value": "2/9"
+        },
+        "gamma_hat": {
+          "numerator": 7,
+          "denominator": 18,
+          "value": "7/18"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 9,
+          "value": "4/9"
+        },
+        "beta_hat": {
+          "numerator": -8,
+          "denominator": 9,
+          "value": "-8/9"
+        },
+        "gamma_hat": {
+          "numerator": -14,
+          "denominator": 9,
+          "value": "-14/9"
+        }
+      },
+      "d_tilde_sq_power": 95,
+      "z_raw_power": {
+        "numerator": 15,
+        "denominator": 2,
+        "value": "15/2"
+      },
+      "norm_exponent": 60
+    },
+    {
+      "name": "B_6 (so_13)",
+      "cartan_type": "B",
+      "rank": 6,
+      "dim": 78,
+      "h_vee": 11,
+      "pos_roots": 36,
+      "pos_roots_ns": 30,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 9,
+          "denominator": 1,
+          "value": "9"
+        },
+        "h_vee": 11
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 11,
+          "value": "-1/11"
+        },
+        "beta_hat": {
+          "numerator": 2,
+          "denominator": 11,
+          "value": "2/11"
+        },
+        "gamma_hat": {
+          "numerator": 9,
+          "denominator": 22,
+          "value": "9/22"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 11,
+          "value": "4/11"
+        },
+        "beta_hat": {
+          "numerator": -8,
+          "denominator": 11,
+          "value": "-8/11"
+        },
+        "gamma_hat": {
+          "numerator": -18,
+          "denominator": 11,
+          "value": "-18/11"
+        }
+      },
+      "d_tilde_sq_power": 138,
+      "z_raw_power": {
+        "numerator": 9,
+        "denominator": 1,
+        "value": "9"
+      },
+      "norm_exponent": 90
+    },
+    {
+      "name": "B_7 (so_15)",
+      "cartan_type": "B",
+      "rank": 7,
+      "dim": 105,
+      "h_vee": 13,
+      "pos_roots": 49,
+      "pos_roots_ns": 42,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 11,
+          "denominator": 1,
+          "value": "11"
+        },
+        "h_vee": 13
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 13,
+          "value": "-1/13"
+        },
+        "beta_hat": {
+          "numerator": 2,
+          "denominator": 13,
+          "value": "2/13"
+        },
+        "gamma_hat": {
+          "numerator": 11,
+          "denominator": 26,
+          "value": "11/26"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 13,
+          "value": "4/13"
+        },
+        "beta_hat": {
+          "numerator": -8,
+          "denominator": 13,
+          "value": "-8/13"
+        },
+        "gamma_hat": {
+          "numerator": -22,
+          "denominator": 13,
+          "value": "-22/13"
+        }
+      },
+      "d_tilde_sq_power": 189,
+      "z_raw_power": {
+        "numerator": 21,
+        "denominator": 2,
+        "value": "21/2"
+      },
+      "norm_exponent": 126
+    },
+    {
+      "name": "B_8 (so_17)",
+      "cartan_type": "B",
+      "rank": 8,
+      "dim": 136,
+      "h_vee": 15,
+      "pos_roots": 64,
+      "pos_roots_ns": 56,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 13,
+          "denominator": 1,
+          "value": "13"
+        },
+        "h_vee": 15
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 15,
+          "value": "-1/15"
+        },
+        "beta_hat": {
+          "numerator": 2,
+          "denominator": 15,
+          "value": "2/15"
+        },
+        "gamma_hat": {
+          "numerator": 13,
+          "denominator": 30,
+          "value": "13/30"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 15,
+          "value": "4/15"
+        },
+        "beta_hat": {
+          "numerator": -8,
+          "denominator": 15,
+          "value": "-8/15"
+        },
+        "gamma_hat": {
+          "numerator": -26,
+          "denominator": 15,
+          "value": "-26/15"
+        }
+      },
+      "d_tilde_sq_power": 248,
+      "z_raw_power": {
+        "numerator": 12,
+        "denominator": 1,
+        "value": "12"
+      },
+      "norm_exponent": 168
+    },
+    {
+      "name": "C_2 (sp_4)",
+      "cartan_type": "C",
+      "rank": 2,
+      "dim": 10,
+      "h_vee": 3,
+      "pos_roots": 4,
+      "pos_roots_ns": 2,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "h_vee": 3
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 3,
+          "value": "-1/3"
+        },
+        "beta_hat": {
+          "numerator": 2,
+          "denominator": 3,
+          "value": "2/3"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 6,
+          "value": "1/6"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 3,
+          "value": "4/3"
+        },
+        "beta_hat": {
+          "numerator": -8,
+          "denominator": 3,
+          "value": "-8/3"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 3,
+          "value": "-2/3"
+        }
+      },
+      "d_tilde_sq_power": 14,
+      "z_raw_power": {
+        "numerator": 3,
+        "denominator": 1,
+        "value": "3"
+      },
+      "norm_exponent": 6
+    },
+    {
+      "name": "C_3 (sp_6)",
+      "cartan_type": "C",
+      "rank": 3,
+      "dim": 21,
+      "h_vee": 4,
+      "pos_roots": 9,
+      "pos_roots_ns": 6,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 5,
+          "denominator": 1,
+          "value": "5"
+        },
+        "gamma": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "h_vee": 4
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 4,
+          "value": "-1/4"
+        },
+        "beta_hat": {
+          "numerator": 5,
+          "denominator": 8,
+          "value": "5/8"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 8,
+          "value": "1/8"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "beta_hat": {
+          "numerator": -5,
+          "denominator": 2,
+          "value": "-5/2"
+        },
+        "gamma_hat": {
+          "numerator": -1,
+          "denominator": 2,
+          "value": "-1/2"
+        }
+      },
+      "d_tilde_sq_power": 33,
+      "z_raw_power": {
+        "numerator": 9,
+        "denominator": 2,
+        "value": "9/2"
+      },
+      "norm_exponent": 18
+    },
+    {
+      "name": "C_4 (sp_8)",
+      "cartan_type": "C",
+      "rank": 4,
+      "dim": 36,
+      "h_vee": 5,
+      "pos_roots": 16,
+      "pos_roots_ns": 12,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 6,
+          "denominator": 1,
+          "value": "6"
+        },
+        "gamma": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "h_vee": 5
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 5,
+          "value": "-1/5"
+        },
+        "beta_hat": {
+          "numerator": 3,
+          "denominator": 5,
+          "value": "3/5"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 10,
+          "value": "1/10"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 5,
+          "value": "4/5"
+        },
+        "beta_hat": {
+          "numerator": -12,
+          "denominator": 5,
+          "value": "-12/5"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 5,
+          "value": "-2/5"
+        }
+      },
+      "d_tilde_sq_power": 60,
+      "z_raw_power": {
+        "numerator": 6,
+        "denominator": 1,
+        "value": "6"
+      },
+      "norm_exponent": 36
+    },
+    {
+      "name": "C_5 (sp_10)",
+      "cartan_type": "C",
+      "rank": 5,
+      "dim": 55,
+      "h_vee": 6,
+      "pos_roots": 25,
+      "pos_roots_ns": 20,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 7,
+          "denominator": 1,
+          "value": "7"
+        },
+        "gamma": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "h_vee": 6
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 6,
+          "value": "-1/6"
+        },
+        "beta_hat": {
+          "numerator": 7,
+          "denominator": 12,
+          "value": "7/12"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 12,
+          "value": "1/12"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 2,
+          "denominator": 3,
+          "value": "2/3"
+        },
+        "beta_hat": {
+          "numerator": -7,
+          "denominator": 3,
+          "value": "-7/3"
+        },
+        "gamma_hat": {
+          "numerator": -1,
+          "denominator": 3,
+          "value": "-1/3"
+        }
+      },
+      "d_tilde_sq_power": 95,
+      "z_raw_power": {
+        "numerator": 15,
+        "denominator": 2,
+        "value": "15/2"
+      },
+      "norm_exponent": 60
+    },
+    {
+      "name": "C_6 (sp_12)",
+      "cartan_type": "C",
+      "rank": 6,
+      "dim": 78,
+      "h_vee": 7,
+      "pos_roots": 36,
+      "pos_roots_ns": 30,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 8,
+          "denominator": 1,
+          "value": "8"
+        },
+        "gamma": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "h_vee": 7
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 7,
+          "value": "-1/7"
+        },
+        "beta_hat": {
+          "numerator": 4,
+          "denominator": 7,
+          "value": "4/7"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 14,
+          "value": "1/14"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 7,
+          "value": "4/7"
+        },
+        "beta_hat": {
+          "numerator": -16,
+          "denominator": 7,
+          "value": "-16/7"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 7,
+          "value": "-2/7"
+        }
+      },
+      "d_tilde_sq_power": 138,
+      "z_raw_power": {
+        "numerator": 9,
+        "denominator": 1,
+        "value": "9"
+      },
+      "norm_exponent": 90
+    },
+    {
+      "name": "C_7 (sp_14)",
+      "cartan_type": "C",
+      "rank": 7,
+      "dim": 105,
+      "h_vee": 8,
+      "pos_roots": 49,
+      "pos_roots_ns": 42,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 9,
+          "denominator": 1,
+          "value": "9"
+        },
+        "gamma": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "h_vee": 8
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 8,
+          "value": "-1/8"
+        },
+        "beta_hat": {
+          "numerator": 9,
+          "denominator": 16,
+          "value": "9/16"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 16,
+          "value": "1/16"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        },
+        "beta_hat": {
+          "numerator": -9,
+          "denominator": 4,
+          "value": "-9/4"
+        },
+        "gamma_hat": {
+          "numerator": -1,
+          "denominator": 4,
+          "value": "-1/4"
+        }
+      },
+      "d_tilde_sq_power": 189,
+      "z_raw_power": {
+        "numerator": 21,
+        "denominator": 2,
+        "value": "21/2"
+      },
+      "norm_exponent": 126
+    },
+    {
+      "name": "C_8 (sp_16)",
+      "cartan_type": "C",
+      "rank": 8,
+      "dim": 136,
+      "h_vee": 9,
+      "pos_roots": 64,
+      "pos_roots_ns": 56,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 10,
+          "denominator": 1,
+          "value": "10"
+        },
+        "gamma": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "h_vee": 9
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 9,
+          "value": "-1/9"
+        },
+        "beta_hat": {
+          "numerator": 5,
+          "denominator": 9,
+          "value": "5/9"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 18,
+          "value": "1/18"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 9,
+          "value": "4/9"
+        },
+        "beta_hat": {
+          "numerator": -20,
+          "denominator": 9,
+          "value": "-20/9"
+        },
+        "gamma_hat": {
+          "numerator": -2,
+          "denominator": 9,
+          "value": "-2/9"
+        }
+      },
+      "d_tilde_sq_power": 248,
+      "z_raw_power": {
+        "numerator": 12,
+        "denominator": 1,
+        "value": "12"
+      },
+      "norm_exponent": 168
+    },
+    {
+      "name": "D_3 (so_6)",
+      "cartan_type": "D",
+      "rank": 3,
+      "dim": 15,
+      "h_vee": 4,
+      "pos_roots": 6,
+      "pos_roots_ns": 3,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 2,
+          "denominator": 1,
+          "value": "2"
+        },
+        "h_vee": 4
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 4,
+          "value": "-1/4"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 4,
+          "value": "1/4"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "beta_hat": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "gamma_hat": {
+          "numerator": -1,
+          "denominator": 1,
+          "value": "-1"
+        }
+      },
+      "d_tilde_sq_power": 21,
+      "z_raw_power": {
+        "numerator": 9,
+        "denominator": 2,
+        "value": "9/2"
+      },
+      "norm_exponent": 9
+    },
+    {
+      "name": "D_4 (so_8)",
+      "cartan_type": "D",
+      "rank": 4,
+      "dim": 28,
+      "h_vee": 6,
+      "pos_roots": 12,
+      "pos_roots_ns": 8,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "h_vee": 6
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 6,
+          "value": "-1/6"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 3,
+          "value": "1/3"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 3,
+          "value": "1/3"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 2,
+          "denominator": 3,
+          "value": "2/3"
+        },
+        "beta_hat": {
+          "numerator": -4,
+          "denominator": 3,
+          "value": "-4/3"
+        },
+        "gamma_hat": {
+          "numerator": -4,
+          "denominator": 3,
+          "value": "-4/3"
+        }
+      },
+      "d_tilde_sq_power": 44,
+      "z_raw_power": {
+        "numerator": 6,
+        "denominator": 1,
+        "value": "6"
+      },
+      "norm_exponent": 24
+    },
+    {
+      "name": "D_5 (so_10)",
+      "cartan_type": "D",
+      "rank": 5,
+      "dim": 45,
+      "h_vee": 8,
+      "pos_roots": 20,
+      "pos_roots_ns": 15,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 6,
+          "denominator": 1,
+          "value": "6"
+        },
+        "h_vee": 8
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 8,
+          "value": "-1/8"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 4,
+          "value": "1/4"
+        },
+        "gamma_hat": {
+          "numerator": 3,
+          "denominator": 8,
+          "value": "3/8"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 1,
+          "denominator": 2,
+          "value": "1/2"
+        },
+        "beta_hat": {
+          "numerator": -1,
+          "denominator": 1,
+          "value": "-1"
+        },
+        "gamma_hat": {
+          "numerator": -3,
+          "denominator": 2,
+          "value": "-3/2"
+        }
+      },
+      "d_tilde_sq_power": 75,
+      "z_raw_power": {
+        "numerator": 15,
+        "denominator": 2,
+        "value": "15/2"
+      },
+      "norm_exponent": 45
+    },
+    {
+      "name": "D_6 (so_12)",
+      "cartan_type": "D",
+      "rank": 6,
+      "dim": 66,
+      "h_vee": 10,
+      "pos_roots": 30,
+      "pos_roots_ns": 24,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 8,
+          "denominator": 1,
+          "value": "8"
+        },
+        "h_vee": 10
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 10,
+          "value": "-1/10"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 5,
+          "value": "1/5"
+        },
+        "gamma_hat": {
+          "numerator": 2,
+          "denominator": 5,
+          "value": "2/5"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 2,
+          "denominator": 5,
+          "value": "2/5"
+        },
+        "beta_hat": {
+          "numerator": -4,
+          "denominator": 5,
+          "value": "-4/5"
+        },
+        "gamma_hat": {
+          "numerator": -8,
+          "denominator": 5,
+          "value": "-8/5"
+        }
+      },
+      "d_tilde_sq_power": 114,
+      "z_raw_power": {
+        "numerator": 9,
+        "denominator": 1,
+        "value": "9"
+      },
+      "norm_exponent": 72
+    },
+    {
+      "name": "D_7 (so_14)",
+      "cartan_type": "D",
+      "rank": 7,
+      "dim": 91,
+      "h_vee": 12,
+      "pos_roots": 42,
+      "pos_roots_ns": 35,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 10,
+          "denominator": 1,
+          "value": "10"
+        },
+        "h_vee": 12
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 12,
+          "value": "-1/12"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 6,
+          "value": "1/6"
+        },
+        "gamma_hat": {
+          "numerator": 5,
+          "denominator": 12,
+          "value": "5/12"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 1,
+          "denominator": 3,
+          "value": "1/3"
+        },
+        "beta_hat": {
+          "numerator": -2,
+          "denominator": 3,
+          "value": "-2/3"
+        },
+        "gamma_hat": {
+          "numerator": -5,
+          "denominator": 3,
+          "value": "-5/3"
+        }
+      },
+      "d_tilde_sq_power": 161,
+      "z_raw_power": {
+        "numerator": 21,
+        "denominator": 2,
+        "value": "21/2"
+      },
+      "norm_exponent": 105
+    },
+    {
+      "name": "D_8 (so_16)",
+      "cartan_type": "D",
+      "rank": 8,
+      "dim": 120,
+      "h_vee": 14,
+      "pos_roots": 56,
+      "pos_roots_ns": 48,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 4,
+          "denominator": 1,
+          "value": "4"
+        },
+        "gamma": {
+          "numerator": 12,
+          "denominator": 1,
+          "value": "12"
+        },
+        "h_vee": 14
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 14,
+          "value": "-1/14"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 7,
+          "value": "1/7"
+        },
+        "gamma_hat": {
+          "numerator": 3,
+          "denominator": 7,
+          "value": "3/7"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 2,
+          "denominator": 7,
+          "value": "2/7"
+        },
+        "beta_hat": {
+          "numerator": -4,
+          "denominator": 7,
+          "value": "-4/7"
+        },
+        "gamma_hat": {
+          "numerator": -12,
+          "denominator": 7,
+          "value": "-12/7"
+        }
+      },
+      "d_tilde_sq_power": 216,
+      "z_raw_power": {
+        "numerator": 12,
+        "denominator": 1,
+        "value": "12"
+      },
+      "norm_exponent": 144
+    },
+    {
+      "name": "G_2",
+      "cartan_type": "G2",
+      "rank": 2,
+      "dim": 14,
+      "h_vee": 4,
+      "pos_roots": 6,
+      "pos_roots_ns": 4,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 10,
+          "denominator": 3,
+          "value": "10/3"
+        },
+        "gamma": {
+          "numerator": 8,
+          "denominator": 3,
+          "value": "8/3"
+        },
+        "h_vee": 4
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 4,
+          "value": "-1/4"
+        },
+        "beta_hat": {
+          "numerator": 5,
+          "denominator": 12,
+          "value": "5/12"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 3,
+          "value": "1/3"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": "1"
+        },
+        "beta_hat": {
+          "numerator": -5,
+          "denominator": 3,
+          "value": "-5/3"
+        },
+        "gamma_hat": {
+          "numerator": -4,
+          "denominator": 3,
+          "value": "-4/3"
+        }
+      },
+      "d_tilde_sq_power": 22,
+      "z_raw_power": {
+        "numerator": 3,
+        "denominator": 1,
+        "value": "3"
+      },
+      "norm_exponent": 12
+    },
+    {
+      "name": "F_4",
+      "cartan_type": "F4",
+      "rank": 4,
+      "dim": 52,
+      "h_vee": 9,
+      "pos_roots": 24,
+      "pos_roots_ns": 20,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 5,
+          "denominator": 1,
+          "value": "5"
+        },
+        "gamma": {
+          "numerator": 6,
+          "denominator": 1,
+          "value": "6"
+        },
+        "h_vee": 9
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 9,
+          "value": "-1/9"
+        },
+        "beta_hat": {
+          "numerator": 5,
+          "denominator": 18,
+          "value": "5/18"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 3,
+          "value": "1/3"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 4,
+          "denominator": 9,
+          "value": "4/9"
+        },
+        "beta_hat": {
+          "numerator": -10,
+          "denominator": 9,
+          "value": "-10/9"
+        },
+        "gamma_hat": {
+          "numerator": -4,
+          "denominator": 3,
+          "value": "-4/3"
+        }
+      },
+      "d_tilde_sq_power": 92,
+      "z_raw_power": {
+        "numerator": 6,
+        "denominator": 1,
+        "value": "6"
+      },
+      "norm_exponent": 60
+    },
+    {
+      "name": "E_6",
+      "cartan_type": "E6",
+      "rank": 6,
+      "dim": 78,
+      "h_vee": 12,
+      "pos_roots": 36,
+      "pos_roots_ns": 30,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 6,
+          "denominator": 1,
+          "value": "6"
+        },
+        "gamma": {
+          "numerator": 8,
+          "denominator": 1,
+          "value": "8"
+        },
+        "h_vee": 12
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 12,
+          "value": "-1/12"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 4,
+          "value": "1/4"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 3,
+          "value": "1/3"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 1,
+          "denominator": 3,
+          "value": "1/3"
+        },
+        "beta_hat": {
+          "numerator": -1,
+          "denominator": 1,
+          "value": "-1"
+        },
+        "gamma_hat": {
+          "numerator": -4,
+          "denominator": 3,
+          "value": "-4/3"
+        }
+      },
+      "d_tilde_sq_power": 138,
+      "z_raw_power": {
+        "numerator": 9,
+        "denominator": 1,
+        "value": "9"
+      },
+      "norm_exponent": 90
+    },
+    {
+      "name": "E_7",
+      "cartan_type": "E7",
+      "rank": 7,
+      "dim": 133,
+      "h_vee": 18,
+      "pos_roots": 63,
+      "pos_roots_ns": 56,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 8,
+          "denominator": 1,
+          "value": "8"
+        },
+        "gamma": {
+          "numerator": 12,
+          "denominator": 1,
+          "value": "12"
+        },
+        "h_vee": 18
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 18,
+          "value": "-1/18"
+        },
+        "beta_hat": {
+          "numerator": 2,
+          "denominator": 9,
+          "value": "2/9"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 3,
+          "value": "1/3"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 2,
+          "denominator": 9,
+          "value": "2/9"
+        },
+        "beta_hat": {
+          "numerator": -8,
+          "denominator": 9,
+          "value": "-8/9"
+        },
+        "gamma_hat": {
+          "numerator": -4,
+          "denominator": 3,
+          "value": "-4/3"
+        }
+      },
+      "d_tilde_sq_power": 245,
+      "z_raw_power": {
+        "numerator": 21,
+        "denominator": 2,
+        "value": "21/2"
+      },
+      "norm_exponent": 168
+    },
+    {
+      "name": "E_8",
+      "cartan_type": "E8",
+      "rank": 8,
+      "dim": 248,
+      "h_vee": 30,
+      "pos_roots": 120,
+      "pos_roots_ns": 112,
+      "unnorm_vogel": {
+        "alpha": {
+          "numerator": -2,
+          "denominator": 1,
+          "value": "-2"
+        },
+        "beta": {
+          "numerator": 12,
+          "denominator": 1,
+          "value": "12"
+        },
+        "gamma": {
+          "numerator": 20,
+          "denominator": 1,
+          "value": "20"
+        },
+        "h_vee": 30
+      },
+      "norm_vogel_t_half": {
+        "alpha_hat": {
+          "numerator": -1,
+          "denominator": 30,
+          "value": "-1/30"
+        },
+        "beta_hat": {
+          "numerator": 1,
+          "denominator": 5,
+          "value": "1/5"
+        },
+        "gamma_hat": {
+          "numerator": 1,
+          "denominator": 3,
+          "value": "1/3"
+        }
+      },
+      "norm_vogel_sum_minus2": {
+        "alpha_hat": {
+          "numerator": 2,
+          "denominator": 15,
+          "value": "2/15"
+        },
+        "beta_hat": {
+          "numerator": -4,
+          "denominator": 5,
+          "value": "-4/5"
+        },
+        "gamma_hat": {
+          "numerator": -4,
+          "denominator": 3,
+          "value": "-4/3"
+        }
+      },
+      "d_tilde_sq_power": 472,
+      "z_raw_power": {
+        "numerator": 12,
+        "denominator": 1,
+        "value": "12"
+      },
+      "norm_exponent": 336
+    }
+  ],
+  "verification": {
+    "identity_checks": [
+      {
+        "algebra": "A_1 (sl_2)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "0",
+        "RHS": "0",
+        "passed": true
+      },
+      {
+        "algebra": "A_1 (sl_2)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "0",
+        "RHS": "0",
+        "passed": true
+      },
+      {
+        "algebra": "A_1 (sl_2)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "3",
+        "RHS": "3",
+        "passed": true
+      },
+      {
+        "algebra": "A_1 (sl_2)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "3",
+        "RHS": "3",
+        "passed": true
+      },
+      {
+        "algebra": "A_1 (sl_2)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "0",
+        "RHS": "0",
+        "passed": true
+      },
+      {
+        "algebra": "A_1 (sl_2)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "0",
+        "Z_raw_deficit": "0",
+        "sum": "0",
+        "norm_exponent": "0",
+        "passed": true
+      },
+      {
+        "algebra": "A_2 (sl_3)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "1",
+        "RHS": "1",
+        "passed": true
+      },
+      {
+        "algebra": "A_2 (sl_3)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "1",
+        "RHS": "1",
+        "passed": true
+      },
+      {
+        "algebra": "A_2 (sl_3)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "10",
+        "RHS": "10",
+        "passed": true
+      },
+      {
+        "algebra": "A_2 (sl_3)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "10",
+        "RHS": "10",
+        "passed": true
+      },
+      {
+        "algebra": "A_2 (sl_3)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "3",
+        "RHS": "3",
+        "passed": true
+      },
+      {
+        "algebra": "A_2 (sl_3)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "2",
+        "Z_raw_deficit": "1",
+        "sum": "3",
+        "norm_exponent": "3",
+        "passed": true
+      },
+      {
+        "algebra": "A_3 (sl_4)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "3",
+        "RHS": "3",
+        "passed": true
+      },
+      {
+        "algebra": "A_3 (sl_4)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "3",
+        "RHS": "3",
+        "passed": true
+      },
+      {
+        "algebra": "A_3 (sl_4)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "21",
+        "RHS": "21",
+        "passed": true
+      },
+      {
+        "algebra": "A_3 (sl_4)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "21",
+        "RHS": "21",
+        "passed": true
+      },
+      {
+        "algebra": "A_3 (sl_4)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "9",
+        "RHS": "9",
+        "passed": true
+      },
+      {
+        "algebra": "A_3 (sl_4)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "6",
+        "Z_raw_deficit": "3",
+        "sum": "9",
+        "norm_exponent": "9",
+        "passed": true
+      },
+      {
+        "algebra": "A_4 (sl_5)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "6",
+        "RHS": "6",
+        "passed": true
+      },
+      {
+        "algebra": "A_4 (sl_5)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "6",
+        "RHS": "6",
+        "passed": true
+      },
+      {
+        "algebra": "A_4 (sl_5)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "36",
+        "RHS": "36",
+        "passed": true
+      },
+      {
+        "algebra": "A_4 (sl_5)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "36",
+        "RHS": "36",
+        "passed": true
+      },
+      {
+        "algebra": "A_4 (sl_5)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "18",
+        "RHS": "18",
+        "passed": true
+      },
+      {
+        "algebra": "A_4 (sl_5)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "12",
+        "Z_raw_deficit": "6",
+        "sum": "18",
+        "norm_exponent": "18",
+        "passed": true
+      },
+      {
+        "algebra": "A_5 (sl_6)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "10",
+        "RHS": "10",
+        "passed": true
+      },
+      {
+        "algebra": "A_5 (sl_6)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "10",
+        "RHS": "10",
+        "passed": true
+      },
+      {
+        "algebra": "A_5 (sl_6)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "55",
+        "RHS": "55",
+        "passed": true
+      },
+      {
+        "algebra": "A_5 (sl_6)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "55",
+        "RHS": "55",
+        "passed": true
+      },
+      {
+        "algebra": "A_5 (sl_6)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "30",
+        "RHS": "30",
+        "passed": true
+      },
+      {
+        "algebra": "A_5 (sl_6)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "20",
+        "Z_raw_deficit": "10",
+        "sum": "30",
+        "norm_exponent": "30",
+        "passed": true
+      },
+      {
+        "algebra": "A_6 (sl_7)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "15",
+        "RHS": "15",
+        "passed": true
+      },
+      {
+        "algebra": "A_6 (sl_7)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "15",
+        "RHS": "15",
+        "passed": true
+      },
+      {
+        "algebra": "A_6 (sl_7)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "78",
+        "RHS": "78",
+        "passed": true
+      },
+      {
+        "algebra": "A_6 (sl_7)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "78",
+        "RHS": "78",
+        "passed": true
+      },
+      {
+        "algebra": "A_6 (sl_7)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "45",
+        "RHS": "45",
+        "passed": true
+      },
+      {
+        "algebra": "A_6 (sl_7)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "30",
+        "Z_raw_deficit": "15",
+        "sum": "45",
+        "norm_exponent": "45",
+        "passed": true
+      },
+      {
+        "algebra": "A_7 (sl_8)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "21",
+        "RHS": "21",
+        "passed": true
+      },
+      {
+        "algebra": "A_7 (sl_8)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "21",
+        "RHS": "21",
+        "passed": true
+      },
+      {
+        "algebra": "A_7 (sl_8)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "105",
+        "RHS": "105",
+        "passed": true
+      },
+      {
+        "algebra": "A_7 (sl_8)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "105",
+        "RHS": "105",
+        "passed": true
+      },
+      {
+        "algebra": "A_7 (sl_8)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "63",
+        "RHS": "63",
+        "passed": true
+      },
+      {
+        "algebra": "A_7 (sl_8)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "42",
+        "Z_raw_deficit": "21",
+        "sum": "63",
+        "norm_exponent": "63",
+        "passed": true
+      },
+      {
+        "algebra": "A_8 (sl_9)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "28",
+        "RHS": "28",
+        "passed": true
+      },
+      {
+        "algebra": "A_8 (sl_9)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "28",
+        "RHS": "28",
+        "passed": true
+      },
+      {
+        "algebra": "A_8 (sl_9)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "136",
+        "RHS": "136",
+        "passed": true
+      },
+      {
+        "algebra": "A_8 (sl_9)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "136",
+        "RHS": "136",
+        "passed": true
+      },
+      {
+        "algebra": "A_8 (sl_9)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "84",
+        "RHS": "84",
+        "passed": true
+      },
+      {
+        "algebra": "A_8 (sl_9)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "56",
+        "Z_raw_deficit": "28",
+        "sum": "84",
+        "norm_exponent": "84",
+        "passed": true
+      },
+      {
+        "algebra": "B_2 (so_5)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "2",
+        "RHS": "2",
+        "passed": true
+      },
+      {
+        "algebra": "B_2 (so_5)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "2",
+        "RHS": "2",
+        "passed": true
+      },
+      {
+        "algebra": "B_2 (so_5)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "14",
+        "RHS": "14",
+        "passed": true
+      },
+      {
+        "algebra": "B_2 (so_5)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "14",
+        "RHS": "14",
+        "passed": true
+      },
+      {
+        "algebra": "B_2 (so_5)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "6",
+        "RHS": "6",
+        "passed": true
+      },
+      {
+        "algebra": "B_2 (so_5)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "4",
+        "Z_raw_deficit": "2",
+        "sum": "6",
+        "norm_exponent": "6",
+        "passed": true
+      },
+      {
+        "algebra": "B_3 (so_7)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "6",
+        "RHS": "6",
+        "passed": true
+      },
+      {
+        "algebra": "B_3 (so_7)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "6",
+        "RHS": "6",
+        "passed": true
+      },
+      {
+        "algebra": "B_3 (so_7)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "33",
+        "RHS": "33",
+        "passed": true
+      },
+      {
+        "algebra": "B_3 (so_7)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "33",
+        "RHS": "33",
+        "passed": true
+      },
+      {
+        "algebra": "B_3 (so_7)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "18",
+        "RHS": "18",
+        "passed": true
+      },
+      {
+        "algebra": "B_3 (so_7)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "12",
+        "Z_raw_deficit": "6",
+        "sum": "18",
+        "norm_exponent": "18",
+        "passed": true
+      },
+      {
+        "algebra": "B_4 (so_9)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "12",
+        "RHS": "12",
+        "passed": true
+      },
+      {
+        "algebra": "B_4 (so_9)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "12",
+        "RHS": "12",
+        "passed": true
+      },
+      {
+        "algebra": "B_4 (so_9)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "60",
+        "RHS": "60",
+        "passed": true
+      },
+      {
+        "algebra": "B_4 (so_9)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "60",
+        "RHS": "60",
+        "passed": true
+      },
+      {
+        "algebra": "B_4 (so_9)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "36",
+        "RHS": "36",
+        "passed": true
+      },
+      {
+        "algebra": "B_4 (so_9)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "24",
+        "Z_raw_deficit": "12",
+        "sum": "36",
+        "norm_exponent": "36",
+        "passed": true
+      },
+      {
+        "algebra": "B_5 (so_11)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "20",
+        "RHS": "20",
+        "passed": true
+      },
+      {
+        "algebra": "B_5 (so_11)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "20",
+        "RHS": "20",
+        "passed": true
+      },
+      {
+        "algebra": "B_5 (so_11)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "95",
+        "RHS": "95",
+        "passed": true
+      },
+      {
+        "algebra": "B_5 (so_11)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "95",
+        "RHS": "95",
+        "passed": true
+      },
+      {
+        "algebra": "B_5 (so_11)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "60",
+        "RHS": "60",
+        "passed": true
+      },
+      {
+        "algebra": "B_5 (so_11)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "40",
+        "Z_raw_deficit": "20",
+        "sum": "60",
+        "norm_exponent": "60",
+        "passed": true
+      },
+      {
+        "algebra": "B_6 (so_13)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "30",
+        "RHS": "30",
+        "passed": true
+      },
+      {
+        "algebra": "B_6 (so_13)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "30",
+        "RHS": "30",
+        "passed": true
+      },
+      {
+        "algebra": "B_6 (so_13)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "138",
+        "RHS": "138",
+        "passed": true
+      },
+      {
+        "algebra": "B_6 (so_13)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "138",
+        "RHS": "138",
+        "passed": true
+      },
+      {
+        "algebra": "B_6 (so_13)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "90",
+        "RHS": "90",
+        "passed": true
+      },
+      {
+        "algebra": "B_6 (so_13)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "60",
+        "Z_raw_deficit": "30",
+        "sum": "90",
+        "norm_exponent": "90",
+        "passed": true
+      },
+      {
+        "algebra": "B_7 (so_15)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "42",
+        "RHS": "42",
+        "passed": true
+      },
+      {
+        "algebra": "B_7 (so_15)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "42",
+        "RHS": "42",
+        "passed": true
+      },
+      {
+        "algebra": "B_7 (so_15)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "189",
+        "RHS": "189",
+        "passed": true
+      },
+      {
+        "algebra": "B_7 (so_15)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "189",
+        "RHS": "189",
+        "passed": true
+      },
+      {
+        "algebra": "B_7 (so_15)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "126",
+        "RHS": "126",
+        "passed": true
+      },
+      {
+        "algebra": "B_7 (so_15)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "84",
+        "Z_raw_deficit": "42",
+        "sum": "126",
+        "norm_exponent": "126",
+        "passed": true
+      },
+      {
+        "algebra": "B_8 (so_17)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "56",
+        "RHS": "56",
+        "passed": true
+      },
+      {
+        "algebra": "B_8 (so_17)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "56",
+        "RHS": "56",
+        "passed": true
+      },
+      {
+        "algebra": "B_8 (so_17)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "248",
+        "RHS": "248",
+        "passed": true
+      },
+      {
+        "algebra": "B_8 (so_17)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "248",
+        "RHS": "248",
+        "passed": true
+      },
+      {
+        "algebra": "B_8 (so_17)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "168",
+        "RHS": "168",
+        "passed": true
+      },
+      {
+        "algebra": "B_8 (so_17)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "112",
+        "Z_raw_deficit": "56",
+        "sum": "168",
+        "norm_exponent": "168",
+        "passed": true
+      },
+      {
+        "algebra": "C_2 (sp_4)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "2",
+        "RHS": "2",
+        "passed": true
+      },
+      {
+        "algebra": "C_2 (sp_4)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "2",
+        "RHS": "2",
+        "passed": true
+      },
+      {
+        "algebra": "C_2 (sp_4)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "14",
+        "RHS": "14",
+        "passed": true
+      },
+      {
+        "algebra": "C_2 (sp_4)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "14",
+        "RHS": "14",
+        "passed": true
+      },
+      {
+        "algebra": "C_2 (sp_4)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "6",
+        "RHS": "6",
+        "passed": true
+      },
+      {
+        "algebra": "C_2 (sp_4)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "4",
+        "Z_raw_deficit": "2",
+        "sum": "6",
+        "norm_exponent": "6",
+        "passed": true
+      },
+      {
+        "algebra": "C_3 (sp_6)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "6",
+        "RHS": "6",
+        "passed": true
+      },
+      {
+        "algebra": "C_3 (sp_6)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "6",
+        "RHS": "6",
+        "passed": true
+      },
+      {
+        "algebra": "C_3 (sp_6)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "33",
+        "RHS": "33",
+        "passed": true
+      },
+      {
+        "algebra": "C_3 (sp_6)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "33",
+        "RHS": "33",
+        "passed": true
+      },
+      {
+        "algebra": "C_3 (sp_6)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "18",
+        "RHS": "18",
+        "passed": true
+      },
+      {
+        "algebra": "C_3 (sp_6)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "12",
+        "Z_raw_deficit": "6",
+        "sum": "18",
+        "norm_exponent": "18",
+        "passed": true
+      },
+      {
+        "algebra": "C_4 (sp_8)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "12",
+        "RHS": "12",
+        "passed": true
+      },
+      {
+        "algebra": "C_4 (sp_8)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "12",
+        "RHS": "12",
+        "passed": true
+      },
+      {
+        "algebra": "C_4 (sp_8)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "60",
+        "RHS": "60",
+        "passed": true
+      },
+      {
+        "algebra": "C_4 (sp_8)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "60",
+        "RHS": "60",
+        "passed": true
+      },
+      {
+        "algebra": "C_4 (sp_8)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "36",
+        "RHS": "36",
+        "passed": true
+      },
+      {
+        "algebra": "C_4 (sp_8)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "24",
+        "Z_raw_deficit": "12",
+        "sum": "36",
+        "norm_exponent": "36",
+        "passed": true
+      },
+      {
+        "algebra": "C_5 (sp_10)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "20",
+        "RHS": "20",
+        "passed": true
+      },
+      {
+        "algebra": "C_5 (sp_10)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "20",
+        "RHS": "20",
+        "passed": true
+      },
+      {
+        "algebra": "C_5 (sp_10)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "95",
+        "RHS": "95",
+        "passed": true
+      },
+      {
+        "algebra": "C_5 (sp_10)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "95",
+        "RHS": "95",
+        "passed": true
+      },
+      {
+        "algebra": "C_5 (sp_10)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "60",
+        "RHS": "60",
+        "passed": true
+      },
+      {
+        "algebra": "C_5 (sp_10)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "40",
+        "Z_raw_deficit": "20",
+        "sum": "60",
+        "norm_exponent": "60",
+        "passed": true
+      },
+      {
+        "algebra": "C_6 (sp_12)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "30",
+        "RHS": "30",
+        "passed": true
+      },
+      {
+        "algebra": "C_6 (sp_12)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "30",
+        "RHS": "30",
+        "passed": true
+      },
+      {
+        "algebra": "C_6 (sp_12)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "138",
+        "RHS": "138",
+        "passed": true
+      },
+      {
+        "algebra": "C_6 (sp_12)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "138",
+        "RHS": "138",
+        "passed": true
+      },
+      {
+        "algebra": "C_6 (sp_12)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "90",
+        "RHS": "90",
+        "passed": true
+      },
+      {
+        "algebra": "C_6 (sp_12)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "60",
+        "Z_raw_deficit": "30",
+        "sum": "90",
+        "norm_exponent": "90",
+        "passed": true
+      },
+      {
+        "algebra": "C_7 (sp_14)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "42",
+        "RHS": "42",
+        "passed": true
+      },
+      {
+        "algebra": "C_7 (sp_14)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "42",
+        "RHS": "42",
+        "passed": true
+      },
+      {
+        "algebra": "C_7 (sp_14)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "189",
+        "RHS": "189",
+        "passed": true
+      },
+      {
+        "algebra": "C_7 (sp_14)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "189",
+        "RHS": "189",
+        "passed": true
+      },
+      {
+        "algebra": "C_7 (sp_14)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "126",
+        "RHS": "126",
+        "passed": true
+      },
+      {
+        "algebra": "C_7 (sp_14)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "84",
+        "Z_raw_deficit": "42",
+        "sum": "126",
+        "norm_exponent": "126",
+        "passed": true
+      },
+      {
+        "algebra": "C_8 (sp_16)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "56",
+        "RHS": "56",
+        "passed": true
+      },
+      {
+        "algebra": "C_8 (sp_16)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "56",
+        "RHS": "56",
+        "passed": true
+      },
+      {
+        "algebra": "C_8 (sp_16)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "248",
+        "RHS": "248",
+        "passed": true
+      },
+      {
+        "algebra": "C_8 (sp_16)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "248",
+        "RHS": "248",
+        "passed": true
+      },
+      {
+        "algebra": "C_8 (sp_16)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "168",
+        "RHS": "168",
+        "passed": true
+      },
+      {
+        "algebra": "C_8 (sp_16)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "112",
+        "Z_raw_deficit": "56",
+        "sum": "168",
+        "norm_exponent": "168",
+        "passed": true
+      },
+      {
+        "algebra": "D_3 (so_6)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "3",
+        "RHS": "3",
+        "passed": true
+      },
+      {
+        "algebra": "D_3 (so_6)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "3",
+        "RHS": "3",
+        "passed": true
+      },
+      {
+        "algebra": "D_3 (so_6)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "21",
+        "RHS": "21",
+        "passed": true
+      },
+      {
+        "algebra": "D_3 (so_6)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "21",
+        "RHS": "21",
+        "passed": true
+      },
+      {
+        "algebra": "D_3 (so_6)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "9",
+        "RHS": "9",
+        "passed": true
+      },
+      {
+        "algebra": "D_3 (so_6)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "6",
+        "Z_raw_deficit": "3",
+        "sum": "9",
+        "norm_exponent": "9",
+        "passed": true
+      },
+      {
+        "algebra": "D_4 (so_8)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "8",
+        "RHS": "8",
+        "passed": true
+      },
+      {
+        "algebra": "D_4 (so_8)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "8",
+        "RHS": "8",
+        "passed": true
+      },
+      {
+        "algebra": "D_4 (so_8)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "44",
+        "RHS": "44",
+        "passed": true
+      },
+      {
+        "algebra": "D_4 (so_8)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "44",
+        "RHS": "44",
+        "passed": true
+      },
+      {
+        "algebra": "D_4 (so_8)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "24",
+        "RHS": "24",
+        "passed": true
+      },
+      {
+        "algebra": "D_4 (so_8)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "16",
+        "Z_raw_deficit": "8",
+        "sum": "24",
+        "norm_exponent": "24",
+        "passed": true
+      },
+      {
+        "algebra": "D_5 (so_10)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "15",
+        "RHS": "15",
+        "passed": true
+      },
+      {
+        "algebra": "D_5 (so_10)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "15",
+        "RHS": "15",
+        "passed": true
+      },
+      {
+        "algebra": "D_5 (so_10)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "75",
+        "RHS": "75",
+        "passed": true
+      },
+      {
+        "algebra": "D_5 (so_10)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "75",
+        "RHS": "75",
+        "passed": true
+      },
+      {
+        "algebra": "D_5 (so_10)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "45",
+        "RHS": "45",
+        "passed": true
+      },
+      {
+        "algebra": "D_5 (so_10)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "30",
+        "Z_raw_deficit": "15",
+        "sum": "45",
+        "norm_exponent": "45",
+        "passed": true
+      },
+      {
+        "algebra": "D_6 (so_12)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "24",
+        "RHS": "24",
+        "passed": true
+      },
+      {
+        "algebra": "D_6 (so_12)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "24",
+        "RHS": "24",
+        "passed": true
+      },
+      {
+        "algebra": "D_6 (so_12)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "114",
+        "RHS": "114",
+        "passed": true
+      },
+      {
+        "algebra": "D_6 (so_12)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "114",
+        "RHS": "114",
+        "passed": true
+      },
+      {
+        "algebra": "D_6 (so_12)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "72",
+        "RHS": "72",
+        "passed": true
+      },
+      {
+        "algebra": "D_6 (so_12)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "48",
+        "Z_raw_deficit": "24",
+        "sum": "72",
+        "norm_exponent": "72",
+        "passed": true
+      },
+      {
+        "algebra": "D_7 (so_14)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "35",
+        "RHS": "35",
+        "passed": true
+      },
+      {
+        "algebra": "D_7 (so_14)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "35",
+        "RHS": "35",
+        "passed": true
+      },
+      {
+        "algebra": "D_7 (so_14)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "161",
+        "RHS": "161",
+        "passed": true
+      },
+      {
+        "algebra": "D_7 (so_14)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "161",
+        "RHS": "161",
+        "passed": true
+      },
+      {
+        "algebra": "D_7 (so_14)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "105",
+        "RHS": "105",
+        "passed": true
+      },
+      {
+        "algebra": "D_7 (so_14)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "70",
+        "Z_raw_deficit": "35",
+        "sum": "105",
+        "norm_exponent": "105",
+        "passed": true
+      },
+      {
+        "algebra": "D_8 (so_16)",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "48",
+        "RHS": "48",
+        "passed": true
+      },
+      {
+        "algebra": "D_8 (so_16)",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "48",
+        "RHS": "48",
+        "passed": true
+      },
+      {
+        "algebra": "D_8 (so_16)",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "216",
+        "RHS": "216",
+        "passed": true
+      },
+      {
+        "algebra": "D_8 (so_16)",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "216",
+        "RHS": "216",
+        "passed": true
+      },
+      {
+        "algebra": "D_8 (so_16)",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "144",
+        "RHS": "144",
+        "passed": true
+      },
+      {
+        "algebra": "D_8 (so_16)",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "96",
+        "Z_raw_deficit": "48",
+        "sum": "144",
+        "norm_exponent": "144",
+        "passed": true
+      },
+      {
+        "algebra": "G_2",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "4",
+        "RHS": "4",
+        "passed": true
+      },
+      {
+        "algebra": "G_2",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "4",
+        "RHS": "4",
+        "passed": true
+      },
+      {
+        "algebra": "G_2",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "22",
+        "RHS": "22",
+        "passed": true
+      },
+      {
+        "algebra": "G_2",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "22",
+        "RHS": "22",
+        "passed": true
+      },
+      {
+        "algebra": "G_2",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "12",
+        "RHS": "12",
+        "passed": true
+      },
+      {
+        "algebra": "G_2",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "8",
+        "Z_raw_deficit": "4",
+        "sum": "12",
+        "norm_exponent": "12",
+        "passed": true
+      },
+      {
+        "algebra": "F_4",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "20",
+        "RHS": "20",
+        "passed": true
+      },
+      {
+        "algebra": "F_4",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "20",
+        "RHS": "20",
+        "passed": true
+      },
+      {
+        "algebra": "F_4",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "92",
+        "RHS": "92",
+        "passed": true
+      },
+      {
+        "algebra": "F_4",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "92",
+        "RHS": "92",
+        "passed": true
+      },
+      {
+        "algebra": "F_4",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "60",
+        "RHS": "60",
+        "passed": true
+      },
+      {
+        "algebra": "F_4",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "40",
+        "Z_raw_deficit": "20",
+        "sum": "60",
+        "norm_exponent": "60",
+        "passed": true
+      },
+      {
+        "algebra": "E_6",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "30",
+        "RHS": "30",
+        "passed": true
+      },
+      {
+        "algebra": "E_6",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "30",
+        "RHS": "30",
+        "passed": true
+      },
+      {
+        "algebra": "E_6",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "138",
+        "RHS": "138",
+        "passed": true
+      },
+      {
+        "algebra": "E_6",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "138",
+        "RHS": "138",
+        "passed": true
+      },
+      {
+        "algebra": "E_6",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "90",
+        "RHS": "90",
+        "passed": true
+      },
+      {
+        "algebra": "E_6",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "60",
+        "Z_raw_deficit": "30",
+        "sum": "90",
+        "norm_exponent": "90",
+        "passed": true
+      },
+      {
+        "algebra": "E_7",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "56",
+        "RHS": "56",
+        "passed": true
+      },
+      {
+        "algebra": "E_7",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "56",
+        "RHS": "56",
+        "passed": true
+      },
+      {
+        "algebra": "E_7",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "245",
+        "RHS": "245",
+        "passed": true
+      },
+      {
+        "algebra": "E_7",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "245",
+        "RHS": "245",
+        "passed": true
+      },
+      {
+        "algebra": "E_7",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "168",
+        "RHS": "168",
+        "passed": true
+      },
+      {
+        "algebra": "E_7",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "112",
+        "Z_raw_deficit": "56",
+        "sum": "168",
+        "norm_exponent": "168",
+        "passed": true
+      },
+      {
+        "algebra": "E_8",
+        "check": "|Phi^+_ns| = |Phi^+| - rank",
+        "LHS": "112",
+        "RHS": "112",
+        "passed": true
+      },
+      {
+        "algebra": "E_8",
+        "check": "|Phi^+_ns| = (dim - 3*rank)/2",
+        "LHS": "112",
+        "RHS": "112",
+        "passed": true
+      },
+      {
+        "algebra": "E_8",
+        "check": "D~^2 power = 2*dim - 3*rank",
+        "LHS": "472",
+        "RHS": "472",
+        "passed": true
+      },
+      {
+        "algebra": "E_8",
+        "check": "D~^2 = dim + 2*|Phi^+_ns|",
+        "LHS": "472",
+        "RHS": "472",
+        "passed": true
+      },
+      {
+        "algebra": "E_8",
+        "check": "norm_exponent = 3*|Phi^+_ns|",
+        "LHS": "336",
+        "RHS": "336",
+        "passed": true
+      },
+      {
+        "algebra": "E_8",
+        "check": "3|Phi^+_ns| = D~^2_excess + Z_raw_deficit",
+        "D~^2_excess": "224",
+        "Z_raw_deficit": "112",
+        "sum": "336",
+        "norm_exponent": "336",
+        "passed": true
+      }
+    ],
+    "dim_formula_checks_unnorm": [
+      {
+        "algebra": "A_1 (sl_2)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "3",
+        "expected": "3",
+        "passed": true
+      },
+      {
+        "algebra": "A_2 (sl_3)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "8",
+        "expected": "8",
+        "passed": true
+      },
+      {
+        "algebra": "A_3 (sl_4)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "15",
+        "expected": "15",
+        "passed": true
+      },
+      {
+        "algebra": "A_4 (sl_5)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "24",
+        "expected": "24",
+        "passed": true
+      },
+      {
+        "algebra": "A_5 (sl_6)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "35",
+        "expected": "35",
+        "passed": true
+      },
+      {
+        "algebra": "A_6 (sl_7)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "48",
+        "expected": "48",
+        "passed": true
+      },
+      {
+        "algebra": "A_7 (sl_8)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "63",
+        "expected": "63",
+        "passed": true
+      },
+      {
+        "algebra": "A_8 (sl_9)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "80",
+        "expected": "80",
+        "passed": true
+      },
+      {
+        "algebra": "B_2 (so_5)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "10",
+        "expected": "10",
+        "passed": true
+      },
+      {
+        "algebra": "B_3 (so_7)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "21",
+        "expected": "21",
+        "passed": true
+      },
+      {
+        "algebra": "B_4 (so_9)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "36",
+        "expected": "36",
+        "passed": true
+      },
+      {
+        "algebra": "B_5 (so_11)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "55",
+        "expected": "55",
+        "passed": true
+      },
+      {
+        "algebra": "B_6 (so_13)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "78",
+        "expected": "78",
+        "passed": true
+      },
+      {
+        "algebra": "B_7 (so_15)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "105",
+        "expected": "105",
+        "passed": true
+      },
+      {
+        "algebra": "B_8 (so_17)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "136",
+        "expected": "136",
+        "passed": true
+      },
+      {
+        "algebra": "C_2 (sp_4)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "10",
+        "expected": "10",
+        "passed": true
+      },
+      {
+        "algebra": "C_3 (sp_6)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "21",
+        "expected": "21",
+        "passed": true
+      },
+      {
+        "algebra": "C_4 (sp_8)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "36",
+        "expected": "36",
+        "passed": true
+      },
+      {
+        "algebra": "C_5 (sp_10)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "55",
+        "expected": "55",
+        "passed": true
+      },
+      {
+        "algebra": "C_6 (sp_12)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "78",
+        "expected": "78",
+        "passed": true
+      },
+      {
+        "algebra": "C_7 (sp_14)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "105",
+        "expected": "105",
+        "passed": true
+      },
+      {
+        "algebra": "C_8 (sp_16)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "136",
+        "expected": "136",
+        "passed": true
+      },
+      {
+        "algebra": "D_3 (so_6)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "15",
+        "expected": "15",
+        "passed": true
+      },
+      {
+        "algebra": "D_4 (so_8)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "28",
+        "expected": "28",
+        "passed": true
+      },
+      {
+        "algebra": "D_5 (so_10)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "45",
+        "expected": "45",
+        "passed": true
+      },
+      {
+        "algebra": "D_6 (so_12)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "66",
+        "expected": "66",
+        "passed": true
+      },
+      {
+        "algebra": "D_7 (so_14)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "91",
+        "expected": "91",
+        "passed": true
+      },
+      {
+        "algebra": "D_8 (so_16)",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "120",
+        "expected": "120",
+        "passed": true
+      },
+      {
+        "algebra": "G_2",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "14",
+        "expected": "14",
+        "passed": true
+      },
+      {
+        "algebra": "F_4",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "52",
+        "expected": "52",
+        "passed": true
+      },
+      {
+        "algebra": "E_6",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "78",
+        "expected": "78",
+        "passed": true
+      },
+      {
+        "algebra": "E_7",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "133",
+        "expected": "133",
+        "passed": true
+      },
+      {
+        "algebra": "E_8",
+        "formula": "(alpha-2h\u2228)(beta-2h\u2228)(gamma-2h\u2228)/(alpha*beta*gamma)",
+        "computed": "248",
+        "expected": "248",
+        "passed": true
+      }
+    ],
+    "dim_formula_checks_norm_t_half": [
+      {
+        "algebra": "A_1 (sl_2)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "3",
+        "expected": "3",
+        "passed": true
+      },
+      {
+        "algebra": "A_2 (sl_3)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "8",
+        "expected": "8",
+        "passed": true
+      },
+      {
+        "algebra": "A_3 (sl_4)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "15",
+        "expected": "15",
+        "passed": true
+      },
+      {
+        "algebra": "A_4 (sl_5)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "24",
+        "expected": "24",
+        "passed": true
+      },
+      {
+        "algebra": "A_5 (sl_6)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "35",
+        "expected": "35",
+        "passed": true
+      },
+      {
+        "algebra": "A_6 (sl_7)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "48",
+        "expected": "48",
+        "passed": true
+      },
+      {
+        "algebra": "A_7 (sl_8)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "63",
+        "expected": "63",
+        "passed": true
+      },
+      {
+        "algebra": "A_8 (sl_9)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "80",
+        "expected": "80",
+        "passed": true
+      },
+      {
+        "algebra": "B_2 (so_5)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "10",
+        "expected": "10",
+        "passed": true
+      },
+      {
+        "algebra": "B_3 (so_7)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "21",
+        "expected": "21",
+        "passed": true
+      },
+      {
+        "algebra": "B_4 (so_9)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "36",
+        "expected": "36",
+        "passed": true
+      },
+      {
+        "algebra": "B_5 (so_11)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "55",
+        "expected": "55",
+        "passed": true
+      },
+      {
+        "algebra": "B_6 (so_13)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "78",
+        "expected": "78",
+        "passed": true
+      },
+      {
+        "algebra": "B_7 (so_15)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "105",
+        "expected": "105",
+        "passed": true
+      },
+      {
+        "algebra": "B_8 (so_17)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "136",
+        "expected": "136",
+        "passed": true
+      },
+      {
+        "algebra": "C_2 (sp_4)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "10",
+        "expected": "10",
+        "passed": true
+      },
+      {
+        "algebra": "C_3 (sp_6)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "21",
+        "expected": "21",
+        "passed": true
+      },
+      {
+        "algebra": "C_4 (sp_8)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "36",
+        "expected": "36",
+        "passed": true
+      },
+      {
+        "algebra": "C_5 (sp_10)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "55",
+        "expected": "55",
+        "passed": true
+      },
+      {
+        "algebra": "C_6 (sp_12)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "78",
+        "expected": "78",
+        "passed": true
+      },
+      {
+        "algebra": "C_7 (sp_14)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "105",
+        "expected": "105",
+        "passed": true
+      },
+      {
+        "algebra": "C_8 (sp_16)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "136",
+        "expected": "136",
+        "passed": true
+      },
+      {
+        "algebra": "D_3 (so_6)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "15",
+        "expected": "15",
+        "passed": true
+      },
+      {
+        "algebra": "D_4 (so_8)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "28",
+        "expected": "28",
+        "passed": true
+      },
+      {
+        "algebra": "D_5 (so_10)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "45",
+        "expected": "45",
+        "passed": true
+      },
+      {
+        "algebra": "D_6 (so_12)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "66",
+        "expected": "66",
+        "passed": true
+      },
+      {
+        "algebra": "D_7 (so_14)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "91",
+        "expected": "91",
+        "passed": true
+      },
+      {
+        "algebra": "D_8 (so_16)",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "120",
+        "expected": "120",
+        "passed": true
+      },
+      {
+        "algebra": "G_2",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "14",
+        "expected": "14",
+        "passed": true
+      },
+      {
+        "algebra": "F_4",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "52",
+        "expected": "52",
+        "passed": true
+      },
+      {
+        "algebra": "E_6",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "78",
+        "expected": "78",
+        "passed": true
+      },
+      {
+        "algebra": "E_7",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "133",
+        "expected": "133",
+        "passed": true
+      },
+      {
+        "algebra": "E_8",
+        "formula": "(\u03b1\u0302-1)(\u03b2\u0302-1)(\u03b3\u0302-1)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=1/2]",
+        "computed": "248",
+        "expected": "248",
+        "passed": true
+      }
+    ],
+    "dim_formula_checks_norm_sum_minus2": [
+      {
+        "algebra": "A_1 (sl_2)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "3",
+        "expected": "3",
+        "passed": true
+      },
+      {
+        "algebra": "A_2 (sl_3)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "8",
+        "expected": "8",
+        "passed": true
+      },
+      {
+        "algebra": "A_3 (sl_4)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "15",
+        "expected": "15",
+        "passed": true
+      },
+      {
+        "algebra": "A_4 (sl_5)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "24",
+        "expected": "24",
+        "passed": true
+      },
+      {
+        "algebra": "A_5 (sl_6)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "35",
+        "expected": "35",
+        "passed": true
+      },
+      {
+        "algebra": "A_6 (sl_7)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "48",
+        "expected": "48",
+        "passed": true
+      },
+      {
+        "algebra": "A_7 (sl_8)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "63",
+        "expected": "63",
+        "passed": true
+      },
+      {
+        "algebra": "A_8 (sl_9)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "80",
+        "expected": "80",
+        "passed": true
+      },
+      {
+        "algebra": "B_2 (so_5)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "10",
+        "expected": "10",
+        "passed": true
+      },
+      {
+        "algebra": "B_3 (so_7)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "21",
+        "expected": "21",
+        "passed": true
+      },
+      {
+        "algebra": "B_4 (so_9)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "36",
+        "expected": "36",
+        "passed": true
+      },
+      {
+        "algebra": "B_5 (so_11)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "55",
+        "expected": "55",
+        "passed": true
+      },
+      {
+        "algebra": "B_6 (so_13)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "78",
+        "expected": "78",
+        "passed": true
+      },
+      {
+        "algebra": "B_7 (so_15)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "105",
+        "expected": "105",
+        "passed": true
+      },
+      {
+        "algebra": "B_8 (so_17)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "136",
+        "expected": "136",
+        "passed": true
+      },
+      {
+        "algebra": "C_2 (sp_4)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "10",
+        "expected": "10",
+        "passed": true
+      },
+      {
+        "algebra": "C_3 (sp_6)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "21",
+        "expected": "21",
+        "passed": true
+      },
+      {
+        "algebra": "C_4 (sp_8)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "36",
+        "expected": "36",
+        "passed": true
+      },
+      {
+        "algebra": "C_5 (sp_10)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "55",
+        "expected": "55",
+        "passed": true
+      },
+      {
+        "algebra": "C_6 (sp_12)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "78",
+        "expected": "78",
+        "passed": true
+      },
+      {
+        "algebra": "C_7 (sp_14)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "105",
+        "expected": "105",
+        "passed": true
+      },
+      {
+        "algebra": "C_8 (sp_16)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "136",
+        "expected": "136",
+        "passed": true
+      },
+      {
+        "algebra": "D_3 (so_6)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "15",
+        "expected": "15",
+        "passed": true
+      },
+      {
+        "algebra": "D_4 (so_8)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "28",
+        "expected": "28",
+        "passed": true
+      },
+      {
+        "algebra": "D_5 (so_10)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "45",
+        "expected": "45",
+        "passed": true
+      },
+      {
+        "algebra": "D_6 (so_12)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "66",
+        "expected": "66",
+        "passed": true
+      },
+      {
+        "algebra": "D_7 (so_14)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "91",
+        "expected": "91",
+        "passed": true
+      },
+      {
+        "algebra": "D_8 (so_16)",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "120",
+        "expected": "120",
+        "passed": true
+      },
+      {
+        "algebra": "G_2",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "14",
+        "expected": "14",
+        "passed": true
+      },
+      {
+        "algebra": "F_4",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "52",
+        "expected": "52",
+        "passed": true
+      },
+      {
+        "algebra": "E_6",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "78",
+        "expected": "78",
+        "passed": true
+      },
+      {
+        "algebra": "E_7",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "133",
+        "expected": "133",
+        "passed": true
+      },
+      {
+        "algebra": "E_8",
+        "formula": "(\u03b1\u0302+4)(\u03b2\u0302+4)(\u03b3\u0302+4)/(\u03b1\u0302\u03b2\u0302\u03b3\u0302)  [sum=-2]",
+        "computed": "248",
+        "expected": "248",
+        "passed": true
+      }
+    ],
+    "all_passed": true
+  }
+}

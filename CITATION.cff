@@ -1,0 +1,67 @@
+cff-version: 1.2.0
+message: "If you use this software or the accompanying paper, please cite both the software and the paper as below."
+title: "hopf-decoherence: Coproduct rank deficiency of u_q(sl_n) at roots of unity and the BCGP non-semisimple TQFT log correction for BTZ black-hole entropy"
+abstract: >-
+  Python implementation of the coproduct-rank-deficiency programme for u_q(sl_n)
+  at roots of unity and of the BCGP non-semisimple TQFT construction for the
+  BTZ black-hole entropy log correction. The repository provides the numerical
+  and formal proofs accompanying the computation of D_2(ell) = (ell^3 - ell)/6
+  and of the master identity -3/2 = -2 (modified trace) + 1/2 (radical sector).
+authors:
+  - family-names: Khairkhah
+    given-names: Parham
+    email: pkhairkh@users.noreply.github.com
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+preferred-citation:
+  type: article
+  title: "Hochschild Cohomology of Small Quantum Groups at Roots of Unity"
+  authors:
+    - family-names: Khairkhah
+      given-names: Parham
+      email: pkhairkh@users.noreply.github.com
+  abstract: >-
+    The principal result of this paper is the computation of HH^2(u_q(g), C)
+    for the full Drinfeld double at an odd root of unity. The main formula
+    dim_C HH^2(u_q(g), C) = binom(n+1, 2) + 2|Phi^+| combines a Cartan-type
+    contribution binom(n+1, 2) arising from the crossed-product structure of
+    the bosonisation B^+ = B(V) # C[G] with two copies of |Phi^+| ell-th-power
+    classes [E_alpha^ell] and [F_alpha^ell] originating from the truncation
+    relations in the Nichols algebra and its dual. The formula is established
+    as a theorem for types A_1 and A_2 via explicit bar-complex computation
+    and a Drinfeld-double spectral sequence that collapses at E_2, and verified
+    structurally for B_2 and G_2. The connection to the BCGP non-semisimple
+    TQFT and the -3/2 logarithmic correction of BTZ black-hole entropy is
+    discussed.
+  keywords:
+    - Hochschild cohomology
+    - quantum groups
+    - roots of unity
+    - Drinfeld double
+    - Nichols algebra
+    - BCGP TQFT
+    - BTZ black hole
+  license: CC-BY-4.0
+  repository-code: "https://github.com/pkhairkh/hopf-decoherence"
+  url: "https://github.com/pkhairkh/hopf-decoherence"
+  date-released: "2026-06-27"
+  version: "1.0.0"
+  notes: >-
+    arXiv submission in preparation. The arXiv identifier will be added
+    here once the paper is announced.
+keywords:
+  - quantum groups
+  - roots of unity
+  - Hopf algebras
+  - non-semisimple TQFT
+  - BCGP
+  - BTZ black hole
+  - logarithmic entropy correction
+  - Chern-Simons theory
+  - modified trace
+  - projective modules
+license: MIT
+repository-code: "https://github.com/pkhairkh/hopf-decoherence"
+url: "https://github.com/pkhairkh/hopf-decoherence"
+date-released: "2026-06-27"
+version: "1.0.0"
+commit: "main"
