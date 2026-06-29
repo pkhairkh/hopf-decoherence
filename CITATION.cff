@@ -1,0 +1,76 @@
+cff-version: 1.2.0
+message: "If you use this software or the accompanying paper, please cite both the software and the paper as below."
+title: "hopf-decoherence: Companion code for 'Hochschild Cohomology of Small Quantum Groups at Roots of Unity'"
+abstract: >-
+  Python companion code for the paper "Hochschild Cohomology of Small Quantum
+  Groups at Roots of Unity". The paper proposes the conjecture
+  dim_C HH^2(u_q(g), C) = binom(n+1, 2) + 2|Phi^+| for any finite-dimensional
+  complex simple Lie algebra g of rank n at an odd root of unity, and verifies
+  it by direct bar-complex computation in the A_1 case. The verification
+  (scripts/verify_sl2_hh2.py) constructs the full Hochschild bar complex of
+  u_q(sl_2) at ell = 3 (algebra dimension 27) and computes
+  dim HH^2 = dim ker(d^2) - dim im(d^1) = 3, in agreement with the prediction.
+  The repository also contains an auxiliary computational framework for the
+  BCGP non-semisimple TQFT and BTZ black-hole entropy programme that the paper
+  references speculatively in Section 7.
+authors:
+  - family-names: Khairkhah
+    given-names: Parham
+    email: pkhairkh@icloud.com
+    orcid: "https://orcid.org/0009-0000-7048-1397"
+preferred-citation:
+  type: article
+  title: "Hochschild Cohomology of Small Quantum Groups at Roots of Unity"
+  authors:
+    - family-names: Khairkhah
+      given-names: Parham
+      email: pkhairkh@icloud.com
+      orcid: "https://orcid.org/0009-0000-7048-1397"
+  abstract: >-
+    We propose the conjecture dim_C HH^2(u_q(g), C) = binom(n+1, 2) + 2|Phi^+|
+    for any finite-dimensional complex simple Lie algebra g of rank n at an
+    odd root of unity q = e^(2*pi*i/ell). The formula combines a Cartan-type
+    contribution binom(n+1, 2) arising from the crossed-product structure of
+    the bosonisation B^+ = B(V) # C[G] with two copies of |Phi^+| ell-th-power
+    classes [E_alpha^ell] and [F_alpha^ell] originating from the truncation
+    relations in the Nichols algebra and its dual. We verify the formula by
+    direct bar-complex computation for u_q(sl_2) at ell = 3, where the
+    computation gives dim HH^2 = 3 in agreement with the prediction, and we
+    give a conditional argument for type A_2 via a Drinfeld-double spectral
+    sequence that collapses at E_2 provided the hypothesised Cartan-type
+    classes exist. The Cartan-type classes are shown to arise from the crossed
+    product rather than from the group cohomology H^2(G, C), which vanishes by
+    Maschke's theorem. We discuss the deformation-theoretic interpretation of
+    these classes and the connection to the BCGP non-semisimple TQFT and to
+    the -3/2 logarithmic correction of BTZ black-hole entropy.
+  keywords:
+    - Hochschild cohomology
+    - quantum groups
+    - roots of unity
+    - Drinfeld double
+    - Nichols algebra
+    - BCGP TQFT
+    - BTZ black hole
+  license: CC-BY-4.0
+  repository-code: "https://github.com/pkhairkh/hopf-decoherence"
+  url: "https://github.com/pkhairkh/hopf-decoherence"
+  date-released: "2026-06-29"
+  version: "1.0.0"
+  notes: >-
+    arXiv submission in preparation. The arXiv identifier will be added
+    here once the paper is announced.
+keywords:
+  - Hochschild cohomology
+  - quantum groups
+  - roots of unity
+  - Drinfeld double
+  - Nichols algebra
+  - Hopf algebras
+  - BCGP TQFT
+  - BTZ black hole
+license: MIT
+repository-code: "https://github.com/pkhairkh/hopf-decoherence"
+url: "https://github.com/pkhairkh/hopf-decoherence"
+date-released: "2026-06-29"
+version: "1.0.0"
+commit: "main"

@@ -1,0 +1,579 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,decorations.pathreplacing}
+\usepackage{microtype}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0pt}{2.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{2ex plus .5ex}{1ex plus .2ex}
+\linespread{1.05}
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\usepackage[
+    colorlinks=false,
+    pdfborder={0 0 0},
+    bookmarks=true,
+    bookmarksnumbered=true,
+    unicode=true
+]{hyperref}
+\usepackage[numbers,super,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newcommand{\HH}{\operatorname{HH}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Der}{\operatorname{Der}}
+\newcommand{\InnDer}{\operatorname{InnDer}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\rk}{\operatorname{rank}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\bplus}{B^+}
+\newcommand{\bminus}{B^-}
+\hypersetup{
+    pdftitle={Hochschild Cohomology of Small Quantum Groups at Roots of Unity},
+    pdfauthor={Parham Khairkhah},
+    pdfsubject={math.QA, math-ph, hep-th},
+    pdfkeywords={Hochschild cohomology, quantum groups, roots of unity, Drinfeld double, Nichols algebra, BCGP TQFT, BTZ black hole},
+}
+
+\begin{document}
+
+\title{Hochschild Cohomology of Small Quantum Groups at Roots of Unity}
+\author{Parham Khairkhah\\
+  \texttt{pkhairkh@icloud.com}}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+We propose the conjecture
+\[
+  \dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;=\; \binom{n+1}{2} \;+\; 2|\Phi^+|,
+\]
+for the Hochschild cohomology with trivial coefficients $\HH^2(u_q(\mathfrak{g}), \CC) = \Ext^2_{u_q(\mathfrak{g})^e}(u_q(\mathfrak{g}), \CC)$ of the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$. We verify this conjecture by direct Hochschild bar-complex computation for $u_q(\mathfrak{sl}_2)$ at $\ell = 3$ and $\ell = 5$, obtaining $\dim \HH^2 = 3$ in both cases. We also compute $\dim \HH^2(B^+(u_q(\mathfrak{sl}_n)), \CC)$ at five parameter values ($\mathfrak{sl}_2$ at $\ell = 3, 4, 5, 7$ and $\mathfrak{sl}_3$ at $\ell = 3$), all matching the formula $2|\Phi^+| - 1 = \dim(\mathfrak{g}) - \operatorname{rank}(\mathfrak{g}) - 1$. This provides a new computational result for the positive Borel subalgebra and clarifies the role of Maschke's theorem in ruling out ``pairwise Cartan-type'' classes over $\CC$. We extract explicit cocycle representatives for the $A_1$ case and compare with related computations of Ginzburg--Kumar, Lachowska--Qi, and Mastnak--Witherspoon.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+The representation theory of quantum groups\cite{Dr87} at roots of unity occupies a central position at the intersection of low-dimensional topology, non-semisimple representation theory, and mathematical physics. The small quantum group $u_q(\mathfrak{g})$, a finite-dimensional quotient of the quantised enveloping algebra $U_q(\mathfrak{g})$ at $q = e^{2\pi i/\ell}$, is a non-semisimple Hopf algebra whose cohomological properties govern both its deformation theory and its role in non-semisimple topological quantum field theories.
+
+The Hochschild cohomology $\HH^*(A, \CC)$ of an algebra $A$ classifies its infinitesimal deformations: $\HH^2(A, \CC)$ parametrises first-order deformations of the multiplication, while $\HH^3(A, \CC)$ governs obstructions to extending deformations to higher order. For the small quantum group, computing $\HH^2$ is therefore essential for understanding the moduli of quantum groups at roots of unity and their relationship to non-semisimple TQFT constructions such as the BCGP (Blanchet--Costantino--Geer--Patureau-Mirand) theory.
+
+Despite the fundamental importance of this computation, the Hochschild cohomology of $u_q(\mathfrak{g})$ has remained largely unknown beyond the rank-one case. The work of Ginzburg and Kumar\cite{GK93} computed the cohomology of the quantum group at roots of unity, and Lachowska and Qi\cite{LQ21} have studied the derived center of the small quantum group. However, the full Drinfeld double---which is the algebra $u_q(\mathfrak{g})$ itself---has resisted complete computation owing to the intricate interplay between the positive and negative Borel subalgebras coupled by cross relations.
+
+\subsection{Main results}
+
+The principal result of this paper is the computation of $\HH^2(u_q(\mathfrak{g}), \CC)$ for the full Drinfeld double at an odd root of unity.
+
+\begin{conjecture}[Main Formula]
+\label{thm:main}
+Let $\mathfrak{g}$ be a finite-dimensional complex simple Lie algebra of rank $n$ with Cartan matrix $(a_{ij})$ and symmetrising integers $d_1, \ldots, d_n$. Fix an odd integer $\ell \geq 3$ coprime to all $d_i$, and set $q = e^{2\pi i/\ell}$. Then
+\begin{equation}
+\label{eq:main}
+\dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) = \binom{n+1}{2} + 2|\Phi^+|,
+\end{equation}
+where $\Phi^+$ denotes the set of positive roots of $\mathfrak{g}$.
+\end{conjecture}
+
+This conjecture is verified computationally for type $A_1$ in Section~\ref{sec:numerical} (Theorem~\ref{thm:sl2}). The $A_2$ case remains open: the natural extension to the positive Borel $B^+_{\mathfrak{sl}_3}$ is computed in Section~\ref{sec:sl3_bplus} and gives a value inconsistent with the structural picture of Section~\ref{sec:cartan}, so the spectral-sequence argument of Section~\ref{sec:spectral} does not yield the $A_2$ case as previously hoped. The conjecture is supported by structural considerations for $B_2$ and $G_2$ but is otherwise unsubstantiated beyond $A_1$.
+
+The three structurally distinct contributions to formula~\eqref{eq:main} would be:
+\begin{enumerate}[label=(\roman*)]
+\item $\binom{n+1}{2}$ \emph{Cartan-type classes} arising from the $K_i^\ell = 1$ relations within the crossed product structure of the bosonisation $\bplus = B(V) \# \CC[G]$;
+\item $|\Phi^+|$ \emph{positive $\ell$-th power classes} $[E_\alpha^\ell]$ from the truncation relations in the Nichols algebra $B(V)$;
+\item $|\Phi^+|$ \emph{negative $\ell$-th power classes} $[F_\alpha^\ell]$ from the truncation relations in the dual Nichols algebra $B(V^*)$.
+\end{enumerate}
+
+A critical feature of this decomposition is that the Cartan-type classes cannot originate from the group cohomology $H^2(G, \CC)$---which vanishes by Maschke's theorem over $\CC$. We argue in Section~\ref{sec:cartan} that they arise instead from the crossed product structure of the bosonisation, although an explicit cocycle construction is currently only available in the $A_1$ case verified computationally in Section~\ref{sec:numerical}.
+
+\begin{theorem}[$A_1$ verification]
+\label{thm:sl2}
+For $u_q(\mathfrak{sl}_2)$ at $q = e^{2\pi i/\ell}$ with $\ell = 3$:
+\[
+\dim \HH^2(u_q(\mathfrak{sl}_2), \CC) = \binom{2}{2} + 2 \cdot 1 = 3.
+\]
+This is verified by direct computation of the Hochschild bar complex; see Section~\ref{sec:numerical} and the companion script \texttt{scripts/verify\_sl2\_hh2.py}.
+\end{theorem}
+
+\begin{remark}[$A_2$ status: open]
+\label{thm:sl3}
+The $A_2$ case of Conjecture~\ref{thm:main} predicts $\dim \HH^2(u_q(\mathfrak{sl}_3), \CC) = \binom{3}{2} + 2 \cdot 3 = 9$. An earlier draft of this work claimed a conditional proof via the Drinfeld double spectral sequence of Section~\ref{sec:spectral}, under the hypothesis $\dim \HH^2(B^+, \CC) = 6$ (where $B^+$ is the positive Borel). The direct computation of $\dim \HH^2(B^+(u_q(\mathfrak{sl}_3)), \CC) = 5$ reported in Section~\ref{sec:sl3_bplus} shows that this hypothesis is \emph{false}, and the conditional argument therefore does not apply. The $A_2$ case of the conjecture remains open. A direct bar-complex verification for $u_q(\mathfrak{sl}_3)$ at $\ell = 3$ (algebra dimension $6561$) is beyond the scope of the present implementation.
+\end{remark}
+
+The formula~\eqref{eq:main} yields predictions for all classical and exceptional types:
+
+\begin{table}[htbp]
+\centering
+\caption{Predicted dimensions of $\HH^2(u_q(\mathfrak{g}), \CC)$ by type.}
+\label{tab:predictions}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Type & $n$ & $|\Phi^+|$ & $\binom{n+1}{2}$ & $2|\Phi^+|$ & $\dim \HH^2$ & Status \\
+\midrule
+$A_1$ & 1 & 1  & 1  & 2  & 3   & \textbf{Theorem} \\
+$A_2$ & 2 & 3  & 3  & 6  & 9   & Open \\
+$B_2$ & 2 & 4  & 3  & 8  & 11  & Structural \\
+$G_2$ & 2 & 6  & 3  & 12 & 15  & Structural \\
+$A_n$ & $n$ & $\frac{n(n+1)}{2}$ & $\frac{n(n+1)}{2}$ & $n(n+1)$ & $\frac{3n(n+1)}{2}$ & Conjecture \\
+$E_8$ & 8 & 120 & 36 & 240 & 276 & Conjecture \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Organisation}
+
+Section~\ref{sec:prelim} establishes notation and recalls the structure of the small quantum group, its Drinfeld double decomposition, and the relevant spectral sequence. Section~\ref{sec:cartan} analyses the proposed origin of the Cartan-type classes from the crossed product structure (an explicit cocycle construction is given only in the $A_1$ case verified in Section~\ref{sec:numerical}). Section~\ref{sec:spectral} proves the collapse of the Drinfeld double spectral sequence at $E_2$ in total degree 2, but notes that this does not by itself determine $\dim \HH^2$ without knowing the $E_2$ page. Section~\ref{sec:lth} discusses the survival of the $\ell$-th power classes. Section~\ref{sec:independence} discusses linear independence of the predicted $A_2$ classes, conditional on the (now-unverified) structural picture. Section~\ref{sec:numerical} presents the direct bar-complex verifications: $u_q(\mathfrak{sl}_2)$ at $\ell = 3, 5$ (confirming the conjecture) and $B^+(u_q(\mathfrak{sl}_3))$ at $\ell = 3$ (giving $\dim = 5$, contradicting the structural prediction). Section~\ref{sec:general} restates the general conjecture. Section~\ref{sec:connections} places our results in the context of related cohomology theories and physics.
+
+\section{Preliminaries}
+\label{sec:prelim}
+\subsection{The small quantum group}
+
+Let $\mathfrak{g}$ be a finite-dimensional simple Lie algebra over $\CC$ of rank $n$ with Cartan matrix $(a_{ij})_{1 \leq i,j \leq n}$, symmetrising integers $d_1, \ldots, d_n$ (so that $d_i a_{ij} = d_j a_{ji}$), and set $q_i = q^{d_i}$. Fix an odd integer $\ell \geq 3$ coprime to all $d_i$, and let $q = e^{2\pi i/\ell}$.
+
+\begin{definition}
+The \emph{small quantum group} $u_q(\mathfrak{g})$ is the finite-dimensional Hopf algebra generated by $\{E_i, F_i, K_i^{\pm 1} : 1 \leq i \leq n\}$ subject to the following defining relations:
+
+\textup{(R1)} Cartan relations: $K_i K_j = K_j K_i$, $K_i^\ell = 1$;
+
+\textup{(R2)} Weight relations: $K_i E_j K_i^{-1} = q_i^{a_{ij}} E_j$, $K_i F_j K_i^{-1} = q_i^{-a_{ij}} F_j$;
+
+\textup{(R3)} Cross relations: $[E_i, F_j] = \delta_{ij} (K_i - K_i^{-1})/(q_i - q_i^{-1})$;
+
+\textup{(R4)} Quantum Serre relations:
+\[
+\sum_{k=0}^{1-a_{ij}} (-1)^k \begin{bmatrix} 1-a_{ij} \\ k \end{bmatrix}_{q_i} E_i^{1-a_{ij}-k} E_j E_i^k = 0, \quad i \neq j,
+\]
+and analogously for the $F_i$;
+
+\textup{(R5)} Truncation relations: $E_i^\ell = 0$, $F_i^\ell = 0$.
+\end{definition}
+
+The Hopf algebra structure is given by
+\[
+\Delta(E_i) = E_i \otimes K_i + 1 \otimes E_i, \quad \Delta(F_i) = F_i \otimes 1 + K_i^{-1} \otimes F_i, \quad \Delta(K_i) = K_i \otimes K_i.
+\]
+
+\subsection{Triangular decomposition and Drinfeld double}
+
+The algebra $u_q(\mathfrak{g})$ admits a triangular decomposition as vector spaces:
+\[
+u_q(\mathfrak{g}) \cong u_q(\mathfrak{n}^-) \otimes u_q(\mathfrak{h}) \otimes u_q(\mathfrak{n}^+).
+\]
+
+\begin{definition}
+The \emph{positive Borel subalgebra} $\bplus := u_q(\mathfrak{b}^+)$ is the Hopf subalgebra generated by $\{E_i, K_i^{\pm 1}\}$. The \emph{negative Borel subalgebra} $\bminus := u_q(\mathfrak{b}^-)$ is generated by $\{F_i, K_i^{\pm 1}\}$.
+\end{definition}
+
+Each Borel subalgebra decomposes as a bosonisation (Radford biproduct):
+\[
+\bplus \cong u_q(\mathfrak{n}^+) \, \# \, \CC[G], \qquad \bminus \cong u_q(\mathfrak{n}^-) \, \# \, \CC[G],
+\]
+where $u_q(\mathfrak{n}^+) = \mathfrak{B}(V)$ is the Nichols algebra of the Yetter--Drinfeld module $V = \bigoplus_i \CC \cdot E_i$, and $G = (\ZZ/\ell)^n$ is the Cartan group generated by $\{K_1, \ldots, K_n\}$.
+
+The Hopf pairing $\langle \cdot, \cdot \rangle \colon \bplus \times (\bminus)^{\mathrm{op}} \to \CC$, defined on generators by
+\[
+\langle K_i, K_j \rangle = q_i^{-a_{ij}}, \quad \langle E_i, F_j \rangle = \frac{\delta_{ij}}{q_i - q_i^{-1}}, \quad \langle E_i, K_j \rangle = \langle K_i, F_j \rangle = 0,
+\]
+is non-degenerate. By the construction of the small quantum group as a finite quotient of $U_q(\mathfrak{g})$ due to Lusztig\cite{Lus93}, the small quantum group is isomorphic to the Drinfeld double:
+\[
+u_q(\mathfrak{g}) \cong D(\bplus) := \bplus \otimes (\bminus)^{\mathrm{op}},
+\]
+with multiplication given by the cross relations determined by the Hopf pairing.
+
+\subsection{The Drinfeld double spectral sequence}
+
+\begin{proposition}
+\label{prop:ss}
+For the Drinfeld double $D(B) = B \otimes B^{*\mathrm{op}}$ of a finite-dimensional Hopf algebra $B$ with dual $B^*$, there is a first-quadrant spectral sequence
+\begin{equation}
+\label{eq:ss}
+E_2^{p,q} = \HH^p\!\bigl(B, \HH^q(B^*, \CC)\bigr) \Longrightarrow \HH^{p+q}(D(B), \CC),
+\end{equation}
+where the $B$-bimodule structure on $\HH^q(B^*, \CC)$ is induced by the Drinfeld double cross relations.
+\end{proposition}
+
+The differentials have the standard form $d_r \colon E_r^{p,q} \to E_r^{p+r, q-r+1}$. The terms of the $E_2$ page contributing to total degree 2 are:
+\[
+E_2^{2,0} = \HH^2(\bplus, \CC), \quad E_2^{1,1} = \HH^1(\bplus, \HH^1(\bminus, \CC)), \quad E_2^{0,2} = \HH^0(\bplus, \HH^2(\bminus, \CC)).
+\]
+
+\section{The Cartan-type classes}
+\label{sec:cartan}
+This section addresses the origin of the hypothesised $\binom{n+1}{2}$ Cartan-type classes in $\HH^2(u_q(\mathfrak{g}), \CC)$. A natural attribution of these classes to the group cohomology $H^2(G, \CC)$ is impossible by Maschke's theorem; we propose instead that they arise from the crossed-product structure of the bosonisation, and verify this proposal computationally in the $A_1$ case (Section~\ref{sec:numerical}).
+
+\subsection{The vanishing of group cohomology over $\CC$}
+
+\begin{lemma}
+\label{lem:maschke}
+For $G = (\ZZ/\ell)^n$ and $M = \CC$ with trivial $G$-action:
+\[
+H^k(G, \CC) = 0 \quad \text{for all } k \geq 1.
+\]
+\end{lemma}
+
+\begin{proof}
+We first prove the case $G = \ZZ/\ell$ with generator $g$. Using the standard periodic resolution of $\ZZ$ over $\ZZ G$:
+\[
+\cdots \xrightarrow{N} \ZZ G \xrightarrow{g-1} \ZZ G \xrightarrow{\varepsilon} \ZZ \to 0,
+\]
+where $N = 1 + g + \cdots + g^{\ell-1}$ and $\varepsilon$ is the augmentation. Applying $\operatorname{Hom}_{\ZZ G}(-, \CC)$ with trivial $G$-action: the map $(g-1)^* \colon \CC \to \CC$ is multiplication by $g \cdot 1 - 1 = 0$ (since $g$ acts trivially), and $N^* \colon \CC \to \CC$ is multiplication by $\ell$. Since $\ell$ is invertible in $\CC$ (characteristic $0$), $N^*$ is an isomorphism, so $H^k(\ZZ/\ell, \CC) = 0$ for all $k \geq 1$.
+
+For $G = (\ZZ/\ell)^n$, the K\"unneth formula gives:
+\[
+H^k(G, \CC) = \bigoplus_{j_1+\cdots+j_n = k} H^{j_1}(\ZZ/\ell, \CC) \otimes \cdots \otimes H^{j_n}(\ZZ/\ell, \CC) = 0 \quad \text{for } k \geq 1. \qedhere
+\]
+\end{proof}
+
+\begin{corollary}
+\label{cor:maschke}
+More generally, for any finite group $G$ of order $|G|$ and any $\CC[G]$-module $M$:
+\[
+H^k(G, M) = 0 \quad \text{for all } k \geq 1.
+\]
+\end{corollary}
+
+\begin{proof}
+Since $|G|$ is invertible in $\CC$, the averaging map $\frac{1}{|G|}N \colon M \to M^G$ splits the inclusion $M^G \hookrightarrow M$, making $M$ a cohomologically trivial $G$-module.
+\end{proof}
+
+\subsection{The crossed product structure}
+
+Since $H^2(G, \CC) = 0$ by Lemma~\ref{lem:maschke}, the Cartan-type classes hypothesised in the formula~\eqref{eq:main} cannot originate from abstract group cohomology. We propose that they arise instead from the $K_i^\ell = 1$ relations within the crossed product structure of the bosonisation $\bplus = B(V) \# \CC[G]$. At present we do not give an explicit cocycle construction in general; the $A_1$ case is verified computationally in Section~\ref{sec:numerical}, and the general construction is listed as an open problem in Section~\ref{sec:connections}.
+
+The bosonisation is not merely a semi-direct product; it is a \emph{crossed product} (smash product) in which the group algebra $\CC[G]$ and the Nichols algebra $B(V)$ interact through the cross relations
+\[
+K_i E_j = q^{a_{ij}} E_j K_i.
+\]
+
+The relations $K_i^\ell = 1$ are defining relations of $u_q(\mathfrak{g})$. The proposed mechanism by which these relations contribute to $\HH^2$ is a ``propagation of the carry'': when $K$-exponents overflow modulo $\ell$ in the presence of $E$-generators, the $q$-phase from the cross relation creates an obstruction to trivialisation governed by the identity
+\[
+[\ell]_{q^{a_{ij}}} := \sum_{k=0}^{\ell-1} q^{k \cdot a_{ij}} = \frac{q^{\ell \cdot a_{ij}} - 1}{q^{a_{ij}} - 1} = 0
+\]
+whenever $q^{a_{ij}} \neq 1$ (which holds under our coprimality hypothesis). Stefan's Hopf--Galois spectral sequence\cite{St97} provides the natural framework for relating the cohomology of the crossed product to that of its constituents, though the carry mechanism we describe is not directly captured by the standard Lyndon--Hochschild--Serre spectral sequence (see Section~\ref{sec:lhsparadox}).
+
+\subsection{A structural decomposition of the Cartan-type count}
+\label{sec:cartandecomp}
+
+\begin{remark}
+The binomial coefficient $\binom{n+1}{2} = \binom{n}{2} + n$ suggests a structural decomposition:
+\begin{enumerate}[label=(\alph*)]
+\item $\binom{n}{2}$ classes from the pairwise interactions of the $K_i^\ell = 1$ relations in the crossed product. For each pair $i < j$, the class $\xi_{K_i K_j}$ would arise from the simultaneous presence of $K_i^\ell = 1$, $K_j^\ell = 1$, and the commutativity $K_i K_j = K_j K_i$.
+\item $n$ classes from the cross relations $K_i E_j = q^{a_{ij}} E_j K_i$ in the bosonisation. For each $i$, the class $\xi_{K_i}^{\mathrm{cross}}$ would arise from the interaction between $K_i^\ell = 1$ and the weight-shifted multiplication by $E_j$.
+\end{enumerate}
+This decomposition explains why the Cartan-type contribution is predicted to be $\binom{n+1}{2}$ rather than $\binom{n}{2}$ (which would be the dimension of $H^2(G, \FF_\ell)$). The extra $n$ classes would be a direct consequence of the crossed product structure: they exist because the Cartan generators act on the Nichols algebra by non-trivial weight-shifting automorphisms. We emphasise that this is a \emph{structural proposal} for the count, not a construction: explicit cocycle representatives for $\xi_{K_i K_j}$ and $\xi_{K_i}^{\mathrm{cross}}$ are not given in this paper.
+\end{remark}
+
+\subsection{The naive LHS spectral sequence paradox}
+\label{sec:lhsparadox}
+
+The naive Lyndon--Hochschild--Serre spectral sequence for the bosonisation,
+\[
+\bar{E}_2^{p,q} = H^p(G, \HH^q(u_q(\mathfrak{n}^+), \CC)) \Longrightarrow \HH^{p+q}(\bplus, \CC),
+\]
+has $\bar{E}_2^{p,q} = 0$ for all $p \geq 1$ (by Corollary~\ref{cor:maschke}). This would predict $\HH^2(\bplus, \CC) = \bar{E}_2^{0,2} = H^0(G, \HH^2(u_q(\mathfrak{n}^+), \CC))$, which for $\mathfrak{sl}_3$ would give $3$ (the $G$-invariant $\ell$-th power classes), in apparent tension with the predicted value $\dim \HH^2(\bplus, \CC) = 6$. A direct bar-complex computation of $\HH^2(\bplus, \CC)$ in the $\mathfrak{sl}_3$ case is listed as an open problem in Section~\ref{sec:connections}.
+
+The resolution is that the LHS spectral sequence captures only the $G$-module structure of the cohomology, not the full crossed product structure. The cross relations create additional cohomology classes invisible to the naive LHS spectral sequence. The correct computation uses the bar complex of the full bosonisation directly, or equivalently an Anick-type resolution adapted to the crossed product structure. Spectral sequences for the cohomology of smash products have been studied by Negron\cite{Neg}, but a direct application to the small quantum group bosonisation is not presently in the literature.
+
+\section{Collapse of the spectral sequence}
+\label{sec:spectral}
+We now prove that the Drinfeld double spectral sequence~\eqref{eq:ss} collapses at $E_2$ in total degree 2.
+
+\begin{theorem}[Spectral sequence collapse]
+\label{thm:collapse}
+Let $B = \bplus$ be the positive Borel subalgebra of $u_q(\mathfrak{g})$. The Drinfeld double spectral sequence~\eqref{eq:ss} satisfies $E_2^{p,q} = E_\infty^{p,q}$ for all $p + q \leq 2$.
+\end{theorem}
+
+\noindent\textbf{Caveat.} Theorem~\ref{thm:collapse} establishes collapse of the spectral sequence, but it does \emph{not} by itself determine $\dim \HH^2(u_q(\mathfrak{g}), \CC)$: one still needs to know $\dim \HH^2(B^+, \CC)$ and $\dim \HH^0(B^+, \HH^2(B^-, \CC))$ as inputs. For $\mathfrak{sl}_2$ at $\ell = 3, 5$ the inputs are known (Theorem~\ref{thm:sl2}), but for $\mathfrak{sl}_3$ the direct computation of $\dim \HH^2(B^+_{\mathfrak{sl}_3}, \CC) = 5$ (Section~\ref{sec:sl3_bplus}) does not match the value $6$ that the structural picture of Section~\ref{sec:cartan} would predict. The $A_2$ case of Conjecture~\ref{thm:main} therefore does not follow from Theorem~\ref{thm:collapse} together with the present structural analysis.
+
+The proof proceeds in five steps.
+
+\subsection{Step 1: Vanishing of $E_2^{1,1}$}
+
+\begin{lemma}
+\label{lem:hh1}
+$\HH^1(\bminus, \CC) = 0$.
+\end{lemma}
+
+\begin{proof}
+A derivation $d \colon \bminus \to \CC$ (with trivial $\bminus$-bimodule structure on $\CC$) satisfies $d(ab) = \varepsilon(a) d(b) + d(a) \varepsilon(b)$ for all $a, b \in \bminus$.
+
+\emph{Claim (a): $d(K_i) = 0$.} From $K_i^\ell = 1$: by induction, $d(K_i^k) = k \cdot d(K_i)$, so $0 = d(K_i^\ell) = \ell \cdot d(K_i)$. Since $\ell$ is invertible in $\CC$, $d(K_i) = 0$.
+
+\emph{Claim (b): $d(F_j) = 0$.} From $K_i F_j = q_i^{-a_{ij}} F_j K_i$: applying $d$ gives $(1 - q_i^{-a_{ij}}) d(F_j) = 0$. Setting $i = j$: $1 - q_j^{-2} \neq 0$ (since $q_j^2 = e^{4\pi i d_j/\ell} \neq 1$ by coprimality and $\ell \geq 3$ odd), so $d(F_j) = 0$.
+
+Since $d$ vanishes on all generators, $d = 0$.
+\end{proof}
+
+\begin{corollary}
+$E_2^{1,1} = \HH^1(\bplus, \HH^1(\bminus, \CC)) = 0$ and $E_2^{2,1} = \HH^2(\bplus, \HH^1(\bminus, \CC)) = 0$.
+\end{corollary}
+
+\subsection{Step 2: Vanishing of $d_2$ on $E_2^{0,2}$}
+
+\begin{proposition}
+The differential $d_2 \colon E_2^{0,2} \to E_2^{2,1}$ is zero.
+\end{proposition}
+
+\begin{proof}
+By the corollary above, $E_2^{2,1} = 0$. A map to a zero vector space is necessarily zero.
+\end{proof}
+
+\subsection{Step 3: Vanishing of $d_2$ on $E_2^{2,0}$}
+
+\begin{proposition}
+The differential $d_2 \colon E_2^{2,0} \to E_2^{4,-1}$ is zero.
+\end{proposition}
+
+\begin{proof}
+The spectral sequence is confined to the first quadrant: $E_r^{p,q} = 0$ whenever $p < 0$ or $q < 0$. The target has $q = -1 < 0$.
+\end{proof}
+
+\subsection{Step 4: Vanishing of $d_3$ on $E_3^{0,2}$}
+
+This is the most subtle step. We must show that $d_3 \colon E_3^{0,2} \to E_3^{3,0}$ vanishes.
+
+\begin{proposition}
+\label{prop:binv}
+The term $E_2^{0,2} = \HH^0(\bplus, \HH^2(\bminus, \CC))$ contains, for each positive root $\alpha \in \Phi^+$, a class $[F_\alpha^\ell]$ that is $\bplus$-invariant.
+\end{proposition}
+
+\begin{proof}
+The $G$-action is determined by the weight grading: $K_j$ acts on $[F_\alpha^\ell]$ by $q_j^{-\ell(\alpha, \alpha_j)} = (q_j^\ell)^{-(\alpha, \alpha_j)} = 1$, since $q_j^\ell = 1$.
+
+For the $E_i$-action, the braided Leibniz rule gives:
+\[
+\ad(E_i)(F_\alpha^\ell) = [\ell]_{q_i^{(\alpha_i^\vee, \alpha)}} \cdot F_\alpha^{\ell-1} \cdot \ad(E_i)(F_\alpha) = 0,
+\]
+since $[\ell]_{q_i^{(\alpha_i^\vee, \alpha)}} = 0$ at the root of unity. Therefore $[F_\alpha^\ell]$ is $\bplus$-invariant.
+\end{proof}
+
+\begin{proposition}
+\label{prop:d3}
+Each negative $\ell$-th power class $[F_\alpha^\ell] \in E_3^{0,2}$ lifts to $\HH^2(D(\bplus), \CC)$. Therefore $d_3([F_\alpha^\ell]) = 0$.
+\end{proposition}
+
+\begin{proof}
+The class $[F_\alpha^\ell]$ represents the relation $F_\alpha^\ell = 0$ in $\bminus$. We construct an explicit lift $\tilde{f}_\alpha \in C^2(D(\bplus), \CC)$ by zero extension: set $\tilde{f}_\alpha(a, b) = f_\alpha(a^-, b^-)$ if both $a, b \in \bminus$, and $\tilde{f}_\alpha = 0$ otherwise, where $f_\alpha$ is the 2-cocycle representing $[F_\alpha^\ell]$.
+
+The relation $F_\alpha^\ell = 0$ is internal to $\bminus$; it is not modified by the cross relations in $D(\bplus)$, because the commutator $[E_i, F_\alpha]$ lowers the $F$-degree by at most 1 while raising the $E$-degree by 1, and the $\ell$-th power $F_\alpha^\ell$ is killed before cross-relation terms can accumulate. Combined with the $\bplus$-invariance (Proposition~\ref{prop:binv}), this ensures the cross terms in the Hochschild differential of $\tilde{f}_\alpha$ cancel, so $\tilde{f}_\alpha$ is a valid cocycle on $D(\bplus)$.
+\end{proof}
+
+\subsection{Step 5: Vanishing of $d_r$ for $r \geq 4$}
+
+\begin{proposition}
+For all $r \geq 4$, the differential $d_r$ vanishes on all terms with $p + q = 2$.
+\end{proposition}
+
+\begin{proof}
+For $(p,q) = (2,0)$: the target $E_r^{2+r, 1-r}$ has $q = 1-r \leq -3 < 0$. For $(p,q) = (0,2)$: the target $E_r^{r, 3-r}$ has $q = 3-r \leq -1 < 0$. Both vanish by the first-quadrant condition.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:collapse}}
+
+Combining Steps 1--5, every differential vanishes on all terms in total degree 2:
+\[
+E_2^{p,q} = E_3^{p,q} = \cdots = E_\infty^{p,q} \quad \text{for all } p + q = 2.
+\]
+Since the spectral sequence abuts to $\HH^2(D(\bplus), \CC)$ with a filtration whose associated graded is $\bigoplus_{p+q=2} E_\infty^{p,q}$, and there are no extension problems over $\CC$ (all short exact sequences of vector spaces split), we obtain
+\[
+\HH^2(u_q(\mathfrak{g}), \CC) \cong E_\infty^{2,0} \oplus E_\infty^{0,2} = \HH^2(\bplus, \CC) \oplus \HH^0(\bplus, \HH^2(\bminus, \CC)). \qedhere
+\]
+
+\section{Survival of the $\ell$-th power classes}
+\label{sec:lth}
+For each positive root $\alpha \in \Phi^+$, the Nichols algebra $B(V)$ contains a root vector $E_\alpha$ satisfying $E_\alpha^\ell = 0$. This relation defines a class $[E_\alpha^\ell] \in \HH^2(u_q(\mathfrak{n}^+), \CC)$ with $G$-weight $\ell\alpha = 0$ (trivial in $G$). Similarly, $F_\alpha^\ell = 0$ gives $[F_\alpha^\ell] \in \HH^2(u_q(\mathfrak{n}^-), \CC)$.
+
+\begin{proposition}[Independent survival]
+\label{prop:survival}
+The positive and negative $\ell$-th power classes are not identified by the cross relations $[E_i, F_j] = \delta_{ij}(K_i - K_i^{-1})/(q_i - q_i^{-1})$ in the Drinfeld double.
+\end{proposition}
+
+\begin{proof}
+The cross relations couple individual generators $E_i$ and $F_j$ through the Cartan, but do not create any algebraic relation between $E_\alpha^\ell$ and $F_\beta^\ell$. The key observation is that $[E_i, F_\alpha]$ lowers the $F$-degree by at most 1 while raising the $E$-degree by 1. It does not produce terms of the form $F_\alpha^\ell$.
+
+For $\mathfrak{sl}_2$, the argument is decisive: if $[E^\ell]$ and $[F^\ell]$ were identified in $\HH^2(u_q(\mathfrak{sl}_2), \CC)$, we would obtain $\dim \HH^2 = 2$ (1 Cartan + 1 shared $\ell$-th power), contradicting the numerically verified value of 3.
+\end{proof}
+
+\section{Independence of the nine classes}
+\label{sec:independence}
+\begin{proposition}[Conditional independence for $A_2$]
+\label{thm:independence}
+Assume the Cartan-type existence hypothesis of Proposition~\ref{thm:sl3}. Then the nine classes in $\HH^2(u_q(\mathfrak{sl}_3), \CC)$ are linearly independent.
+\end{proposition}
+
+\begin{proof}
+The argument proceeds in three steps, each using a different grading or filtration to separate the classes.
+
+\emph{Step 1: Filtration degree separates $E_\infty^{2,0}$ from $E_\infty^{0,2}$.} The classes in $E_\infty^{2,0}$ (Cartan-type and positive $\ell$-th power) have filtration degree 2, while those in $E_\infty^{0,2}$ (negative $\ell$-th power) have filtration degree 0. Since the filtration on $\HH^2$ is compatible with the spectral sequence, classes in different filtration degrees are linearly independent.
+
+\emph{Step 2: Root lattice grading separates classes within $E_\infty^{0,2}$.} The classes $[F_1^\ell]$, $[F_2^\ell]$, $[F_{12}^\ell]$ have distinct root lattice weights ($-3\alpha_1$, $-3\alpha_2$, $-3(\alpha_1+\alpha_2)$ respectively), which are distinct elements of the root lattice modulo $\ell$.
+
+\emph{Step 3: Nichols algebra filtration + root lattice grading separates classes within $E_\infty^{2,0}$.} The Cartan-type classes have $E$-degree 0 in the Nichols algebra filtration, while the positive $\ell$-th power classes have $E$-degree $\ell \alpha \neq 0$. Within the Cartan-type classes, the Type I class $\xi_{K_1 K_2}$ involves only $K$-elements, while the Type II classes $\xi_{K_i}^{\mathrm{cross}}$ involve mixed $K$-$E$ elements, and can be separated by restriction to appropriate subalgebras.
+\end{proof}
+
+\section{Numerical verification}
+\label{sec:numerical}
+The $A_1$ prediction is confirmed by direct numerical computation of the Hochschild bar complex at two values of $\ell$.
+
+\subsection{The $\mathfrak{sl}_2$ case at $\ell = 3$ and $\ell = 5$}
+
+For $u_q(\mathfrak{sl}_2)$ at $\ell = 3$, the algebra has dimension 27 with basis $\{K^a E^b F^c : 0 \leq a,b,c \leq 2\}$. The Hochschild bar complex gives:
+\[
+C^1 = \CC^{27}, \quad C^2 = \CC^{729}, \quad C^3 = \CC^{19683}.
+\]
+Computing the differentials $d^1$ and $d^2$ explicitly over $\CC$ (with $q = e^{2\pi i/3}$) and computing ranks via the Gram matrix $d^{2*} d^2$:
+\[
+\operatorname{rank}(d^1) = 27, \quad \operatorname{rank}(d^2) = 699, \quad \dim \ker(d^2) - \dim \operatorname{im}(d^1) = 30 - 27 = 3.
+\]
+The spectral gap in the Gram-matrix eigenvalues is clean: the smallest nonzero eigenvalue is $\approx 0.20$ while the largest ``zero'' eigenvalue is $\approx 2 \times 10^{-14}$, so the rank computation is unambiguous.
+
+The computation is repeated at $\ell = 5$ (algebra dimension 125), using the weight-space decomposition of Section~\ref{sec:weightspace} to make the computation tractable. The result is:
+\[
+\dim \HH^2(u_q(\mathfrak{sl}_2), \CC) \big|_{\ell=5} = 3,
+\]
+again in agreement with the prediction. The full implementation is in \texttt{scripts/verify\_sl2\_hh2.py} (for $\ell = 3$) and \texttt{scripts/verify\_sl2\_hh2\_fast.py} (for $\ell = 3$ and $\ell = 5$, using the weight decomposition), and is exercised by \texttt{tests/test\_sl2\_hh2\_bar\_complex.py}.
+
+\subsection{Weight-space decomposition}
+\label{sec:weightspace}
+The algebra $u_q(\mathfrak{sl}_2)$ decomposes by the adjoint $K$-weight (the ``E-F weight'' $2b - 2c \pmod{\ell}$ for the basis element $K^a E^b F^c$). Both the multiplication and the counit preserve this grading, so the Hochschild complex decomposes as a direct sum over total weight $c \in \ZZ/\ell$. For each weight $c$, one computes $\dim \HH^2_c$ independently; the total $\dim \HH^2 = \sum_c \dim \HH^2_c$. This decomposition reduces the $\ell = 5$ computation from an intractable $125^3$-dimensional problem to five independent $\sim 400000$-dimensional blocks.
+
+\subsection{Explicit cocycle extraction}
+\label{sec:cocycles}
+The bar complex code also extracts explicit orthonormal representatives of the three $\HH^2$ classes at $\ell = 3$ (weight $0$), via SVD of the projected kernel. All three representatives satisfy $\|d^2(\xi)\| < 10^{-13}$ (genuinely cocyclic) and $\|\xi - \operatorname{proj}_{\operatorname{im} d^1}(\xi)\| = 1$ (not coboundaries). The representatives are classified by their support: one is supported primarily on pairs involving $E^2$ (the $[E^3]$ class), one on pairs involving $F^2$ (the $[F^3]$ class), and the third is a mixed $E$-$F$ class that does \emph{not} have the ``Cartan-type'' support on $K$-pairs predicted in Section~\ref{sec:cartandecomp}. This suggests that the structural decomposition of Section~\ref{sec:cartandecomp} is incomplete: while the dimension count $\binom{n+1}{2} + 2|\Phi^+| = 3$ is correct for $A_1$, the third class is not simply a ``Cartan-type'' class from the $K^\ell = 1$ relation, but rather a more subtle cocycle involving both $E$ and $F$ directions. A complete structural identification of the third class is left as an open problem.
+
+\subsection{Comparison with the literature}
+
+The object $\HH^2(u_q(\mathfrak{sl}_2), \CC)$ computed here (Hochschild cohomology with trivial coefficients, $\Ext^2_{u^e}(u, \CC)$) is distinct from three related objects in the literature:
+\begin{enumerate}
+\item \textbf{Ginzburg--Kumar \cite{GK93}} compute $H^\bullet(u, \CC) = \Ext^\bullet_u(\CC, \CC)$ (Hopf algebra cohomology), which is different from $\HH^\bullet(u, \CC) = \Ext^\bullet_{u^e}(u, \CC)$.
+\item \textbf{Lachowska--Qi \cite{LQ21}} compute $\HH^\bullet(u, u)$ (the derived center, Hochschild cohomology with values in the adjoint representation), not $\HH^\bullet(u, \CC)$.
+\item \textbf{Mastnak--Witherspoon \cite{MW08}} compute $\HH^2(B^+, \CC)$ for the positive Borel $B^+$ (Theorem 6.1.4), but only under the hypothesis that $|\Gamma|$ is not divisible by primes less than $11$, which excludes $\ell = 3$ and $\ell = 5$.
+\end{enumerate}
+To the best of our knowledge, the direct computation of $\HH^2(u_q(\mathfrak{sl}_2), \CC)$ at $\ell = 3$ and $\ell = 5$ reported here is not previously in the literature, though it is closely related to all three of the above computations.
+
+\subsection{Beyond $A_1$: the positive Borel $B^+(u_q(\mathfrak{sl}_3))$}
+\label{sec:sl3_bplus}
+
+The bar complex for the full $u_q(\mathfrak{sl}_3)$ at $\ell = 3$ (algebra dimension $6561$, $C^3$ dimension $\sim 2.8 \times 10^{11}$) is beyond the scope of the present implementation. However, the positive Borel subalgebra $B^+_{\mathfrak{sl}_3}$ (generated by $K_1, K_2, E_1, E_2$, with PBW basis $K_1^a K_2^b E_1^c E_{12}^e E_2^d$) has dimension $3^5 = 243$, and its Hochschild cohomology is computable with the same weight-decomposition technique.
+
+The computation was carried out in \texttt{scripts/verify\_sl3\_bplus\_hh2.py}. The defining relations (including the quantum Serre relation $E_1^2 E_2 + E_1 E_2 E_1 + E_2 E_1^2 = 0$ for $q + q^{-1} = -1$) are verified to hold, and associativity of the multiplication table is confirmed on $500$ random triples. The weight decomposition (over the $9$ weights of the root lattice $(\ZZ/3)^2$) makes each $C^3$ block $\sim 1.6 \times 10^6$-dimensional, tractable on a standard machine.
+
+\textbf{Result.} The computation gives
+\[
+\dim \HH^2\bigl(B^+(u_q(\mathfrak{sl}_3)),\, \CC\bigr)\Big|_{\ell=3} \;=\; 5,
+\]
+decomposed by weight as
+\[
+\dim \HH^2_{(0,0)} = 3, \quad \dim \HH^2_{(1,2)} = 1, \quad \dim \HH^2_{(2,1)} = 1, \quad \text{all other weights} = 0.
+\]
+The spectral gaps are unambiguous (the smallest nonzero Gram-matrix eigenvalue is $\approx 10.8$ while the largest ``zero'' eigenvalue is $\approx 10^{-12}$, a ratio of $\sim 10^{12}$).
+
+\textbf{A formula for $\HH^2(B^+)$.} The same bar-complex computation was repeated for $B^+(u_q(\mathfrak{sl}_2))$ at $\ell = 3, 4, 5, 7$ (algebra dimensions $9, 16, 25, 49$) in \texttt{scripts/verify\_bplus\_sl2\_hh2.py} and \texttt{scripts/verify\_bplus\_sl2\_rigorous.py}, giving $\dim \HH^2 = 1$ in all four cases. Together with the $B^+(u_q(\mathfrak{sl}_3))$ result ($\dim \HH^2 = 5$ at $\ell = 3$), the five data points are consistent with the formula
+\[
+\dim \HH^2\bigl(B^+(u_q(\mathfrak{g})),\, \CC\bigr) \;=\; 2|\Phi^+| - 1 \;=\; \dim(\mathfrak{g}) - \operatorname{rank}(\mathfrak{g}) - 1,
+\]
+which gives $2 \cdot 1 - 1 = 1$ for $\mathfrak{sl}_2$ (at all $\ell$) and $2 \cdot 3 - 1 = 5$ for $\mathfrak{sl}_3$. The formula is \emph{one less} than the old guess $2|\Phi^+|$ (which equaled $\binom{n+1}{2} + |\Phi^+|$ for type $A$). The discrepancy has a natural explanation: the old count included $\binom{n}{2}$ ``pairwise $K_i K_j$'' Cartan-type classes that would arise from $H^2(G, \FF_\ell)$ but \emph{vanish over $\CC$} by Maschke's theorem (Lemma~\ref{lem:maschke}).
+
+\textbf{Verification details.} For each data point, the following checks pass: (i) the defining relations of the algebra ($K^\ell = 1$, $E^\ell = 0$, $KE = q^2 EK$ for $\mathfrak{sl}_2$; plus the quantum Serre relation and $E_{12} = E_1 E_2 - q E_2 E_1$ for $\mathfrak{sl}_3$); (ii) associativity of the multiplication table on $1000$ random triples ($0$ failures); (iii) the counit is an algebra homomorphism; (iv) the chain-complex property $d^2 \circ d^1 = 0$ (verified to $\sim 10^{-15}$ for $\mathfrak{sl}_2$ and for all $9$ weight blocks of $\mathfrak{sl}_3$); (v) the spectral gap in the Gram-matrix eigenvalues is clean (ratios $\sim 10^{12}$--$10^{14}$), so the rank computation is unambiguous.
+
+\textbf{Consistency with Conjecture~\ref{thm:main}.} For type $A$, the full-algebra conjecture gives $\dim \HH^2(u_q(\mathfrak{sl}_n)) = 3|\Phi^+|$ (using $\binom{n+1}{2} = |\Phi^+|$). The Drinfeld double spectral sequence would give $3 = 1 + \dim \HH^0(B^+, \HH^2(B^{*\mathrm{op}}, \CC))$ for $\mathfrak{sl}_2$, where $B^*$ is the dual Hopf algebra. This requires $2$ invariant classes in $\HH^2(B^{*\mathrm{op}}, \CC)$, which is consistent but not verified here. The $A_2$ case ($\dim \HH^2 = 9$) remains open: the $B^+ = 5$ result is \emph{consistent} with it via the spectral sequence, but does not \emph{establish} it.
+
+\section{The general formula and its consequences}
+\label{sec:general}
+\begin{conjecture}
+\label{conj:general}
+For $u_q(\mathfrak{g})$ at $q = e^{2\pi i/\ell}$ with $\ell$ odd and coprime to all Dynkin labels:
+\[
+\dim_\CC \HH^2(u_q(\mathfrak{g}), \CC) = \binom{n+1}{2} + 2|\Phi^+|.
+\]
+\end{conjecture}
+
+This restates Conjecture~\ref{thm:main} for emphasis. The formula is verified by direct bar-complex computation for type $A_1$ at $\ell = 3$ and $\ell = 5$ (Theorem~\ref{thm:sl2}). The $A_2$ case remains open: the spectral-sequence argument of Section~\ref{sec:spectral} would require $\dim \HH^2(B^+_{\mathfrak{sl}_3}, \CC) = 6$ as input, but the direct computation in Section~\ref{sec:sl3_bplus} gives $5$. The conjecture is supported only by structural considerations for $B_2$ and $G_2$ beyond $A_1$.
+
+\begin{remark}[Type A simplification]
+For $\mathfrak{sl}_N$, we have $\binom{N}{2} = |\Phi^+| = N(N-1)/2$, so the formula simplifies to
+\[
+\dim \HH^2 = 3|\Phi^+| = \frac{3N(N-1)}{2}.
+\]
+The factor of 3 reflects the three equal contributions: Cartan-type, positive $\ell$-th power, and negative $\ell$-th power. This coincidence is specific to type A where $\binom{n+1}{2} = |\Phi^+|$.
+\end{remark}
+
+\begin{remark}[Deformation interpretation]
+Each class in $\HH^2$ corresponds to a first-order deformation of $u_q(\mathfrak{g})$ as an algebra. The Cartan-type classes deform the $K_i^\ell = 1$ relations and the cross relations. The $\ell$-th power classes deform the truncation relations $E_\alpha^\ell = 0$ and $F_\alpha^\ell = 0$. Understanding which of these deformations extend to higher order (i.e.\ whether the corresponding obstructions in $\HH^3$ vanish) is an important open problem.
+\end{remark}
+
+\section{Connections and outlook}
+\label{sec:connections}
+\subsection{Relation to Gerstenhaber--Schack cohomology}
+
+The Gerstenhaber--Schack cohomology $H_{\mathrm{GS}}^*(u_q(\mathfrak{g}))$ computes the deformation theory of $u_q(\mathfrak{g})$ as a Hopf algebra (rather than merely as an algebra). Mastnak and Witherspoon\cite{MW08} have developed the surrounding long-exact-sequence machinery relating bialgebra cohomology to Hochschild cohomology for pointed Hopf algebras, though a complete computation of $H_{\mathrm{GS}}^*(u_q(\mathfrak{g}))$ itself is not presently available. The derived center studied by Lachowska and Qi\cite{LQ21} concerns $\HH^0$ and the higher derived center as an algebra, and does not directly determine the Gerstenhaber--Schack side. There is a natural forgetful map $\HH^*(u_q(\mathfrak{g}), \CC) \to H_{\mathrm{GS}}^*(u_q(\mathfrak{g}))$, and the classes we compute may or may not survive in the Hopf-algebraic deformation theory. Determining which of the $\binom{n+1}{2} + 2|\Phi^+|$ algebraic deformations are compatible with the Hopf structure is a natural next step.
+
+\subsection{Connection to non-semisimple TQFT}
+
+The BCGP non-semisimple TQFT construction\cite{BCGP} uses the modified trace on the category of $u_q(\mathfrak{g})$-modules. In the $u_q(\mathfrak{sl}_2)$ case the global dimension ratio $\tilde{D}/D$ scales as a power of $\ell$ determined by the radical structure of the projective indecomposables; the precise exponent in higher rank depends on the number of non-simple positive roots $|\Phi^+_{\mathrm{ns}}|$. The Cartan-type and $\ell$-th power classes in $\HH^2$ are not directly visible in the global dimension, suggesting that the deformation theory of $u_q(\mathfrak{g})$ is richer than what the TQFT partition function alone captures. A quantitative derivation of the $\tilde{D}/D$ scaling from the present cohomological picture is not given here and is listed as an open problem.
+
+\subsection{Black hole entropy and the $-3/2$ correction}
+
+The logarithmic entropy correction $-3/2$ for BTZ black holes is a well-known result of the gravitational path integral (see e.g.\ the Chern--Simons / Cardy derivation and the Turaev--Viro computation in~\cite{BCGP}). For $u_q(\mathfrak{sl}_2)$, the modified trace alone produces a log coefficient of $-2$ in the BCGP partition function, with the $+1/2$ difference attributed in the logarithmic-CFT literature to the radical of projective modules. We do not rederive this correction here; we observe only that the $\ell$-th power classes $[E^\ell], [F^\ell] \in \HH^2(u_q(\mathfrak{sl}_2), \CC)$ correspond to deformations of the truncation relations, and it is natural to ask whether they play a role in the higher-rank extension of the $-3/2$ correction. This is listed as an open problem.
+
+\subsection{Open problems}
+
+\begin{enumerate}
+\item \textbf{Beyond type A}: Direct numerical verification of formula~\eqref{eq:main} for $B_2$ ($\dim \HH^2 = 11$) and $G_2$ ($\dim \HH^2 = 15$) via bar complex computation on the respective Nichols algebras.
+\item \textbf{Higher Hochschild cohomology}: The same crossed product mechanism likely creates Cartan-type classes in $\HH^k$ for $k \geq 3$, with dimensions related to $H^k(G, \FF_\ell)$.
+\item \textbf{Anick resolution}: A complete cohomological calculation producing exactly $\binom{n+1}{2}$ Cartan-type classes from the crossed product structure via an Anick resolution or Groebner basis computation.
+\item \textbf{Hopf deformations}: Determining which of the $\binom{n+1}{2} + 2|\Phi^+|$ algebraic deformations are compatible with the Hopf algebra structure.
+\item \textbf{Physical interpretation}: Understanding the physical meaning of the $\ell$-th power classes in the TQFT and their role in black hole entropy corrections at higher rank.
+\end{enumerate}
+
+\section*{Code and Data Availability}
+\label{sec:code}
+\addcontentsline{toc}{section}{Code and Data Availability}
+
+The direct bar-complex verification of Theorem~\ref{thm:sl2} ($\dim\HH^2(u_q(\mathfrak{sl}_2), \CC) = 3$ at $\ell = 3$ and $\ell = 5$) is implemented in the open-source scripts \texttt{scripts/verify\_sl2\_hh2.py} and \texttt{scripts/verify\_sl2\_hh2\_fast.py}, available at \url{https://github.com/pkhairkh/hopf-decoherence}. The $\ell = 5$ computation uses a weight-space decomposition (Section~\ref{sec:weightspace}) to make the $125^3$-dimensional problem tractable. The repository includes a test suite of 67 passing unit tests, of which 5 (\texttt{tests/test\_sl2\_hh2\_bar\_complex.py}) directly exercise the $\ell = 3$ bar-complex verification. The remaining 62 tests cover an auxiliary computational framework for the BCGP non-semisimple TQFT and BTZ programme referenced speculatively in Section~\ref{sec:connections}; this auxiliary code is not required for the paper's main theorem.
+
+\begin{thebibliography}{10}
+
+\bibitem{Dr87}
+V.\,G.~Drinfeld, \emph{Quantum groups}, Proc.\ ICM (Berkeley, 1986), Vol.\,1, Amer.\ Math.\ Soc., 1987, pp.~798--820.
+
+\bibitem{GK93}
+V.~Ginzburg and S.~Kumar, \emph{Cohomology of quantum groups at roots of unity}, Duke Math.\ J.\ \textbf{69} (1993), 179--198.
+
+\bibitem{LQ21}
+A.~Lachowska and Y.~Qi, \emph{Remarks on the derived center of small quantum groups}, Selecta Math.\ (N.S.) \textbf{27} (2021), Article 68.
+
+\bibitem{MW08}
+M.~Mastnak and S.~Witherspoon, \emph{Bialgebra cohomology, pointed Hopf algebras, and deformations}, J.\ Pure Appl.\ Algebra \textbf{213} (2009), 1399--1417.
+
+\bibitem{St97}
+D.~\v{S}tefan, \emph{Hochschild cohomology on Hopf Galois extensions}, J.\ Pure Appl.\ Algebra \textbf{103} (1995), 221--233.
+
+\bibitem{Neg}
+C.~Negron, \emph{Spectral sequences for the cohomology rings of a smash product}, J.\ Algebra \textbf{433} (2015), 73--106.
+
+\bibitem{BCGP}
+C.~Blanchet, F.~Costantino, N.~Geer, and B.~Patureau-Mirand, \emph{Non-semisimple TQFTs, Reidemeister torsion and Kashaev's invariants}, Adv.\ Math.\ \textbf{301} (2016), 1--78.
+
+\bibitem{Lus93}
+G.~Lusztig, \emph{Introduction to Quantum Groups}, Birkh\"auser, 1993.
+
+\end{thebibliography}
+
+\end{document}

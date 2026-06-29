@@ -1,0 +1,3772 @@
+{
+  "metadata": {
+    "description": "Vogel Sym^2(g) decomposition for all simple Lie algebras",
+    "formula": "dim Y2(a) = -(3a-1)(b-1)(g-1)(a+b-1)(a+g-1) / (2 a^2 b g (a-b)(a-g))",
+    "convention": "t=1/2, a+b+g=1/2",
+    "decomposition": "Sym^2(g) = C + Y2 + Y2' + Y2''",
+    "references": [
+      "arXiv:2311.05358v3 (Bishler, Mironov, Morozov)",
+      "Vogel (1999), The Universal Lie algebra"
+    ],
+    "key_finding": "Sum dim(Y2) = dim(g)(dim(g)+1)/2 - 1, NOT = 3|Phi^+_ns|"
+  },
+  "results": [
+    {
+      "name": "A_1 (sl_2)",
+      "type": "A",
+      "rank": 1,
+      "dim_g": 3,
+      "dim_check": {
+        "numerator": 3,
+        "denominator": 1,
+        "value": "3",
+        "float": 3.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 2,
+        "value": "-1/2",
+        "float": -0.5
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 5,
+        "denominator": 1,
+        "value": "5",
+        "float": 5.0
+      },
+      "dim_Y2_prime": null,
+      "dim_Y2_dprime": null,
+      "sum_Y2": {
+        "numerator": 5,
+        "denominator": 1,
+        "value": "5",
+        "float": 5.0
+      },
+      "sym2_dim": 6,
+      "sym2_minus_trivial": 5,
+      "sym2_minus_g_minus_trivial": 2,
+      "pos_roots_ns": 0,
+      "three_pos_roots_ns": 0,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "A_2 (sl_3)",
+      "type": "A",
+      "rank": 2,
+      "dim_g": 8,
+      "dim_check": {
+        "numerator": 8,
+        "denominator": 1,
+        "value": "8",
+        "float": 8.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 3,
+        "value": "-1/3",
+        "float": -0.3333333333333333
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": "1/3",
+        "float": 0.3333333333333333
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 27,
+        "denominator": 1,
+        "value": "27",
+        "float": 27.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 8,
+        "denominator": 1,
+        "value": "8",
+        "float": 8.0
+      },
+      "sum_Y2": {
+        "numerator": 35,
+        "denominator": 1,
+        "value": "35",
+        "float": 35.0
+      },
+      "sym2_dim": 36,
+      "sym2_minus_trivial": 35,
+      "sym2_minus_g_minus_trivial": 27,
+      "pos_roots_ns": 1,
+      "three_pos_roots_ns": 3,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "A_3 (sl_4)",
+      "type": "A",
+      "rank": 3,
+      "dim_g": 15,
+      "dim_check": {
+        "numerator": 15,
+        "denominator": 1,
+        "value": "15",
+        "float": 15.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 4,
+        "value": "-1/4",
+        "float": -0.25
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 4,
+        "value": "1/4",
+        "float": 0.25
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 84,
+        "denominator": 1,
+        "value": "84",
+        "float": 84.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 20,
+        "denominator": 1,
+        "value": "20",
+        "float": 20.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 15,
+        "denominator": 1,
+        "value": "15",
+        "float": 15.0
+      },
+      "sum_Y2": {
+        "numerator": 119,
+        "denominator": 1,
+        "value": "119",
+        "float": 119.0
+      },
+      "sym2_dim": 120,
+      "sym2_minus_trivial": 119,
+      "sym2_minus_g_minus_trivial": 104,
+      "pos_roots_ns": 3,
+      "three_pos_roots_ns": 9,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "A_4 (sl_5)",
+      "type": "A",
+      "rank": 4,
+      "dim_g": 24,
+      "dim_check": {
+        "numerator": 24,
+        "denominator": 1,
+        "value": "24",
+        "float": 24.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 5,
+        "value": "-1/5",
+        "float": -0.2
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 5,
+        "value": "1/5",
+        "float": 0.2
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 200,
+        "denominator": 1,
+        "value": "200",
+        "float": 200.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 75,
+        "denominator": 1,
+        "value": "75",
+        "float": 75.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 24,
+        "denominator": 1,
+        "value": "24",
+        "float": 24.0
+      },
+      "sum_Y2": {
+        "numerator": 299,
+        "denominator": 1,
+        "value": "299",
+        "float": 299.0
+      },
+      "sym2_dim": 300,
+      "sym2_minus_trivial": 299,
+      "sym2_minus_g_minus_trivial": 275,
+      "pos_roots_ns": 6,
+      "three_pos_roots_ns": 18,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "A_5 (sl_6)",
+      "type": "A",
+      "rank": 5,
+      "dim_g": 35,
+      "dim_check": {
+        "numerator": 35,
+        "denominator": 1,
+        "value": "35",
+        "float": 35.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 6,
+        "value": "-1/6",
+        "float": -0.16666666666666666
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 6,
+        "value": "1/6",
+        "float": 0.16666666666666666
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 405,
+        "denominator": 1,
+        "value": "405",
+        "float": 405.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 189,
+        "denominator": 1,
+        "value": "189",
+        "float": 189.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 35,
+        "denominator": 1,
+        "value": "35",
+        "float": 35.0
+      },
+      "sum_Y2": {
+        "numerator": 629,
+        "denominator": 1,
+        "value": "629",
+        "float": 629.0
+      },
+      "sym2_dim": 630,
+      "sym2_minus_trivial": 629,
+      "sym2_minus_g_minus_trivial": 594,
+      "pos_roots_ns": 10,
+      "three_pos_roots_ns": 30,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "A_6 (sl_7)",
+      "type": "A",
+      "rank": 6,
+      "dim_g": 48,
+      "dim_check": {
+        "numerator": 48,
+        "denominator": 1,
+        "value": "48",
+        "float": 48.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 7,
+        "value": "-1/7",
+        "float": -0.14285714285714285
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 7,
+        "value": "1/7",
+        "float": 0.14285714285714285
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 735,
+        "denominator": 1,
+        "value": "735",
+        "float": 735.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 392,
+        "denominator": 1,
+        "value": "392",
+        "float": 392.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 48,
+        "denominator": 1,
+        "value": "48",
+        "float": 48.0
+      },
+      "sum_Y2": {
+        "numerator": 1175,
+        "denominator": 1,
+        "value": "1175",
+        "float": 1175.0
+      },
+      "sym2_dim": 1176,
+      "sym2_minus_trivial": 1175,
+      "sym2_minus_g_minus_trivial": 1127,
+      "pos_roots_ns": 15,
+      "three_pos_roots_ns": 45,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "A_7 (sl_8)",
+      "type": "A",
+      "rank": 7,
+      "dim_g": 63,
+      "dim_check": {
+        "numerator": 63,
+        "denominator": 1,
+        "value": "63",
+        "float": 63.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 8,
+        "value": "-1/8",
+        "float": -0.125
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 8,
+        "value": "1/8",
+        "float": 0.125
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 1232,
+        "denominator": 1,
+        "value": "1232",
+        "float": 1232.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 720,
+        "denominator": 1,
+        "value": "720",
+        "float": 720.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 63,
+        "denominator": 1,
+        "value": "63",
+        "float": 63.0
+      },
+      "sum_Y2": {
+        "numerator": 2015,
+        "denominator": 1,
+        "value": "2015",
+        "float": 2015.0
+      },
+      "sym2_dim": 2016,
+      "sym2_minus_trivial": 2015,
+      "sym2_minus_g_minus_trivial": 1952,
+      "pos_roots_ns": 21,
+      "three_pos_roots_ns": 63,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "A_8 (sl_9)",
+      "type": "A",
+      "rank": 8,
+      "dim_g": 80,
+      "dim_check": {
+        "numerator": 80,
+        "denominator": 1,
+        "value": "80",
+        "float": 80.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 9,
+        "value": "-1/9",
+        "float": -0.1111111111111111
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 9,
+        "value": "1/9",
+        "float": 0.1111111111111111
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 1944,
+        "denominator": 1,
+        "value": "1944",
+        "float": 1944.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 1215,
+        "denominator": 1,
+        "value": "1215",
+        "float": 1215.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 80,
+        "denominator": 1,
+        "value": "80",
+        "float": 80.0
+      },
+      "sum_Y2": {
+        "numerator": 3239,
+        "denominator": 1,
+        "value": "3239",
+        "float": 3239.0
+      },
+      "sym2_dim": 3240,
+      "sym2_minus_trivial": 3239,
+      "sym2_minus_g_minus_trivial": 3159,
+      "pos_roots_ns": 28,
+      "three_pos_roots_ns": 84,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "B_2 (so_5)",
+      "type": "B",
+      "rank": 2,
+      "dim_g": 10,
+      "dim_check": {
+        "numerator": 10,
+        "denominator": 1,
+        "value": "10",
+        "float": 10.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 3,
+        "value": "-1/3",
+        "float": -0.3333333333333333
+      },
+      "beta_hat": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": "2/3",
+        "float": 0.6666666666666666
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 6,
+        "value": "1/6",
+        "float": 0.16666666666666666
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 35,
+        "denominator": 1,
+        "value": "35",
+        "float": 35.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 5,
+        "denominator": 1,
+        "value": "5",
+        "float": 5.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 14,
+        "denominator": 1,
+        "value": "14",
+        "float": 14.0
+      },
+      "sum_Y2": {
+        "numerator": 54,
+        "denominator": 1,
+        "value": "54",
+        "float": 54.0
+      },
+      "sym2_dim": 55,
+      "sym2_minus_trivial": 54,
+      "sym2_minus_g_minus_trivial": 44,
+      "pos_roots_ns": 2,
+      "three_pos_roots_ns": 6,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "B_3 (so_7)",
+      "type": "B",
+      "rank": 3,
+      "dim_g": 21,
+      "dim_check": {
+        "numerator": 21,
+        "denominator": 1,
+        "value": "21",
+        "float": 21.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 5,
+        "value": "-1/5",
+        "float": -0.2
+      },
+      "beta_hat": {
+        "numerator": 2,
+        "denominator": 5,
+        "value": "2/5",
+        "float": 0.4
+      },
+      "gamma_hat": {
+        "numerator": 3,
+        "denominator": 10,
+        "value": "3/10",
+        "float": 0.3
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 168,
+        "denominator": 1,
+        "value": "168",
+        "float": 168.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 35,
+        "denominator": 1,
+        "value": "35",
+        "float": 35.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 27,
+        "denominator": 1,
+        "value": "27",
+        "float": 27.0
+      },
+      "sum_Y2": {
+        "numerator": 230,
+        "denominator": 1,
+        "value": "230",
+        "float": 230.0
+      },
+      "sym2_dim": 231,
+      "sym2_minus_trivial": 230,
+      "sym2_minus_g_minus_trivial": 209,
+      "pos_roots_ns": 6,
+      "three_pos_roots_ns": 18,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "B_4 (so_9)",
+      "type": "B",
+      "rank": 4,
+      "dim_g": 36,
+      "dim_check": {
+        "numerator": 36,
+        "denominator": 1,
+        "value": "36",
+        "float": 36.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 7,
+        "value": "-1/7",
+        "float": -0.14285714285714285
+      },
+      "beta_hat": {
+        "numerator": 2,
+        "denominator": 7,
+        "value": "2/7",
+        "float": 0.2857142857142857
+      },
+      "gamma_hat": {
+        "numerator": 5,
+        "denominator": 14,
+        "value": "5/14",
+        "float": 0.35714285714285715
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 495,
+        "denominator": 1,
+        "value": "495",
+        "float": 495.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 126,
+        "denominator": 1,
+        "value": "126",
+        "float": 126.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 44,
+        "denominator": 1,
+        "value": "44",
+        "float": 44.0
+      },
+      "sum_Y2": {
+        "numerator": 665,
+        "denominator": 1,
+        "value": "665",
+        "float": 665.0
+      },
+      "sym2_dim": 666,
+      "sym2_minus_trivial": 665,
+      "sym2_minus_g_minus_trivial": 629,
+      "pos_roots_ns": 12,
+      "three_pos_roots_ns": 36,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "B_5 (so_11)",
+      "type": "B",
+      "rank": 5,
+      "dim_g": 55,
+      "dim_check": {
+        "numerator": 55,
+        "denominator": 1,
+        "value": "55",
+        "float": 55.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 9,
+        "value": "-1/9",
+        "float": -0.1111111111111111
+      },
+      "beta_hat": {
+        "numerator": 2,
+        "denominator": 9,
+        "value": "2/9",
+        "float": 0.2222222222222222
+      },
+      "gamma_hat": {
+        "numerator": 7,
+        "denominator": 18,
+        "value": "7/18",
+        "float": 0.3888888888888889
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 1144,
+        "denominator": 1,
+        "value": "1144",
+        "float": 1144.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 330,
+        "denominator": 1,
+        "value": "330",
+        "float": 330.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 65,
+        "denominator": 1,
+        "value": "65",
+        "float": 65.0
+      },
+      "sum_Y2": {
+        "numerator": 1539,
+        "denominator": 1,
+        "value": "1539",
+        "float": 1539.0
+      },
+      "sym2_dim": 1540,
+      "sym2_minus_trivial": 1539,
+      "sym2_minus_g_minus_trivial": 1484,
+      "pos_roots_ns": 20,
+      "three_pos_roots_ns": 60,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "B_6 (so_13)",
+      "type": "B",
+      "rank": 6,
+      "dim_g": 78,
+      "dim_check": {
+        "numerator": 78,
+        "denominator": 1,
+        "value": "78",
+        "float": 78.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 11,
+        "value": "-1/11",
+        "float": -0.09090909090909091
+      },
+      "beta_hat": {
+        "numerator": 2,
+        "denominator": 11,
+        "value": "2/11",
+        "float": 0.18181818181818182
+      },
+      "gamma_hat": {
+        "numerator": 9,
+        "denominator": 22,
+        "value": "9/22",
+        "float": 0.4090909090909091
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 2275,
+        "denominator": 1,
+        "value": "2275",
+        "float": 2275.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 715,
+        "denominator": 1,
+        "value": "715",
+        "float": 715.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 90,
+        "denominator": 1,
+        "value": "90",
+        "float": 90.0
+      },
+      "sum_Y2": {
+        "numerator": 3080,
+        "denominator": 1,
+        "value": "3080",
+        "float": 3080.0
+      },
+      "sym2_dim": 3081,
+      "sym2_minus_trivial": 3080,
+      "sym2_minus_g_minus_trivial": 3002,
+      "pos_roots_ns": 30,
+      "three_pos_roots_ns": 90,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "B_7 (so_15)",
+      "type": "B",
+      "rank": 7,
+      "dim_g": 105,
+      "dim_check": {
+        "numerator": 105,
+        "denominator": 1,
+        "value": "105",
+        "float": 105.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 13,
+        "value": "-1/13",
+        "float": -0.07692307692307693
+      },
+      "beta_hat": {
+        "numerator": 2,
+        "denominator": 13,
+        "value": "2/13",
+        "float": 0.15384615384615385
+      },
+      "gamma_hat": {
+        "numerator": 11,
+        "denominator": 26,
+        "value": "11/26",
+        "float": 0.4230769230769231
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 4080,
+        "denominator": 1,
+        "value": "4080",
+        "float": 4080.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 1365,
+        "denominator": 1,
+        "value": "1365",
+        "float": 1365.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 119,
+        "denominator": 1,
+        "value": "119",
+        "float": 119.0
+      },
+      "sum_Y2": {
+        "numerator": 5564,
+        "denominator": 1,
+        "value": "5564",
+        "float": 5564.0
+      },
+      "sym2_dim": 5565,
+      "sym2_minus_trivial": 5564,
+      "sym2_minus_g_minus_trivial": 5459,
+      "pos_roots_ns": 42,
+      "three_pos_roots_ns": 126,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "B_8 (so_17)",
+      "type": "B",
+      "rank": 8,
+      "dim_g": 136,
+      "dim_check": {
+        "numerator": 136,
+        "denominator": 1,
+        "value": "136",
+        "float": 136.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 15,
+        "value": "-1/15",
+        "float": -0.06666666666666667
+      },
+      "beta_hat": {
+        "numerator": 2,
+        "denominator": 15,
+        "value": "2/15",
+        "float": 0.13333333333333333
+      },
+      "gamma_hat": {
+        "numerator": 13,
+        "denominator": 30,
+        "value": "13/30",
+        "float": 0.43333333333333335
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 6783,
+        "denominator": 1,
+        "value": "6783",
+        "float": 6783.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 2380,
+        "denominator": 1,
+        "value": "2380",
+        "float": 2380.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 152,
+        "denominator": 1,
+        "value": "152",
+        "float": 152.0
+      },
+      "sum_Y2": {
+        "numerator": 9315,
+        "denominator": 1,
+        "value": "9315",
+        "float": 9315.0
+      },
+      "sym2_dim": 9316,
+      "sym2_minus_trivial": 9315,
+      "sym2_minus_g_minus_trivial": 9179,
+      "pos_roots_ns": 56,
+      "three_pos_roots_ns": 168,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "C_2 (sp_4)",
+      "type": "C",
+      "rank": 2,
+      "dim_g": 10,
+      "dim_check": {
+        "numerator": 10,
+        "denominator": 1,
+        "value": "10",
+        "float": 10.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": 1,
+        "denominator": 6,
+        "value": "1/6",
+        "float": 0.16666666666666666
+      },
+      "beta_hat": {
+        "numerator": -1,
+        "denominator": 3,
+        "value": "-1/3",
+        "float": -0.3333333333333333
+      },
+      "gamma_hat": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": "2/3",
+        "float": 0.6666666666666666
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 14,
+        "denominator": 1,
+        "value": "14",
+        "float": 14.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 35,
+        "denominator": 1,
+        "value": "35",
+        "float": 35.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 5,
+        "denominator": 1,
+        "value": "5",
+        "float": 5.0
+      },
+      "sum_Y2": {
+        "numerator": 54,
+        "denominator": 1,
+        "value": "54",
+        "float": 54.0
+      },
+      "sym2_dim": 55,
+      "sym2_minus_trivial": 54,
+      "sym2_minus_g_minus_trivial": 44,
+      "pos_roots_ns": 2,
+      "three_pos_roots_ns": 6,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "C_3 (sp_6)",
+      "type": "C",
+      "rank": 3,
+      "dim_g": 21,
+      "dim_check": {
+        "numerator": 21,
+        "denominator": 1,
+        "value": "21",
+        "float": 21.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": 1,
+        "denominator": 8,
+        "value": "1/8",
+        "float": 0.125
+      },
+      "beta_hat": {
+        "numerator": -1,
+        "denominator": 4,
+        "value": "-1/4",
+        "float": -0.25
+      },
+      "gamma_hat": {
+        "numerator": 5,
+        "denominator": 8,
+        "value": "5/8",
+        "float": 0.625
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 90,
+        "denominator": 1,
+        "value": "90",
+        "float": 90.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 126,
+        "denominator": 1,
+        "value": "126",
+        "float": 126.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 14,
+        "denominator": 1,
+        "value": "14",
+        "float": 14.0
+      },
+      "sum_Y2": {
+        "numerator": 230,
+        "denominator": 1,
+        "value": "230",
+        "float": 230.0
+      },
+      "sym2_dim": 231,
+      "sym2_minus_trivial": 230,
+      "sym2_minus_g_minus_trivial": 209,
+      "pos_roots_ns": 6,
+      "three_pos_roots_ns": 18,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "C_4 (sp_8)",
+      "type": "C",
+      "rank": 4,
+      "dim_g": 36,
+      "dim_check": {
+        "numerator": 36,
+        "denominator": 1,
+        "value": "36",
+        "float": 36.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": 1,
+        "denominator": 10,
+        "value": "1/10",
+        "float": 0.1
+      },
+      "beta_hat": {
+        "numerator": -1,
+        "denominator": 5,
+        "value": "-1/5",
+        "float": -0.2
+      },
+      "gamma_hat": {
+        "numerator": 3,
+        "denominator": 5,
+        "value": "3/5",
+        "float": 0.6
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 308,
+        "denominator": 1,
+        "value": "308",
+        "float": 308.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 330,
+        "denominator": 1,
+        "value": "330",
+        "float": 330.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 27,
+        "denominator": 1,
+        "value": "27",
+        "float": 27.0
+      },
+      "sum_Y2": {
+        "numerator": 665,
+        "denominator": 1,
+        "value": "665",
+        "float": 665.0
+      },
+      "sym2_dim": 666,
+      "sym2_minus_trivial": 665,
+      "sym2_minus_g_minus_trivial": 629,
+      "pos_roots_ns": 12,
+      "three_pos_roots_ns": 36,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "C_5 (sp_10)",
+      "type": "C",
+      "rank": 5,
+      "dim_g": 55,
+      "dim_check": {
+        "numerator": 55,
+        "denominator": 1,
+        "value": "55",
+        "float": 55.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": 1,
+        "denominator": 12,
+        "value": "1/12",
+        "float": 0.08333333333333333
+      },
+      "beta_hat": {
+        "numerator": -1,
+        "denominator": 6,
+        "value": "-1/6",
+        "float": -0.16666666666666666
+      },
+      "gamma_hat": {
+        "numerator": 7,
+        "denominator": 12,
+        "value": "7/12",
+        "float": 0.5833333333333334
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 780,
+        "denominator": 1,
+        "value": "780",
+        "float": 780.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 715,
+        "denominator": 1,
+        "value": "715",
+        "float": 715.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 44,
+        "denominator": 1,
+        "value": "44",
+        "float": 44.0
+      },
+      "sum_Y2": {
+        "numerator": 1539,
+        "denominator": 1,
+        "value": "1539",
+        "float": 1539.0
+      },
+      "sym2_dim": 1540,
+      "sym2_minus_trivial": 1539,
+      "sym2_minus_g_minus_trivial": 1484,
+      "pos_roots_ns": 20,
+      "three_pos_roots_ns": 60,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "C_6 (sp_12)",
+      "type": "C",
+      "rank": 6,
+      "dim_g": 78,
+      "dim_check": {
+        "numerator": 78,
+        "denominator": 1,
+        "value": "78",
+        "float": 78.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": 1,
+        "denominator": 14,
+        "value": "1/14",
+        "float": 0.07142857142857142
+      },
+      "beta_hat": {
+        "numerator": -1,
+        "denominator": 7,
+        "value": "-1/7",
+        "float": -0.14285714285714285
+      },
+      "gamma_hat": {
+        "numerator": 4,
+        "denominator": 7,
+        "value": "4/7",
+        "float": 0.5714285714285714
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 1650,
+        "denominator": 1,
+        "value": "1650",
+        "float": 1650.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 1365,
+        "denominator": 1,
+        "value": "1365",
+        "float": 1365.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 65,
+        "denominator": 1,
+        "value": "65",
+        "float": 65.0
+      },
+      "sum_Y2": {
+        "numerator": 3080,
+        "denominator": 1,
+        "value": "3080",
+        "float": 3080.0
+      },
+      "sym2_dim": 3081,
+      "sym2_minus_trivial": 3080,
+      "sym2_minus_g_minus_trivial": 3002,
+      "pos_roots_ns": 30,
+      "three_pos_roots_ns": 90,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "C_7 (sp_14)",
+      "type": "C",
+      "rank": 7,
+      "dim_g": 105,
+      "dim_check": {
+        "numerator": 105,
+        "denominator": 1,
+        "value": "105",
+        "float": 105.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": 1,
+        "denominator": 16,
+        "value": "1/16",
+        "float": 0.0625
+      },
+      "beta_hat": {
+        "numerator": -1,
+        "denominator": 8,
+        "value": "-1/8",
+        "float": -0.125
+      },
+      "gamma_hat": {
+        "numerator": 9,
+        "denominator": 16,
+        "value": "9/16",
+        "float": 0.5625
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 3094,
+        "denominator": 1,
+        "value": "3094",
+        "float": 3094.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 2380,
+        "denominator": 1,
+        "value": "2380",
+        "float": 2380.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 90,
+        "denominator": 1,
+        "value": "90",
+        "float": 90.0
+      },
+      "sum_Y2": {
+        "numerator": 5564,
+        "denominator": 1,
+        "value": "5564",
+        "float": 5564.0
+      },
+      "sym2_dim": 5565,
+      "sym2_minus_trivial": 5564,
+      "sym2_minus_g_minus_trivial": 5459,
+      "pos_roots_ns": 42,
+      "three_pos_roots_ns": 126,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "C_8 (sp_16)",
+      "type": "C",
+      "rank": 8,
+      "dim_g": 136,
+      "dim_check": {
+        "numerator": 136,
+        "denominator": 1,
+        "value": "136",
+        "float": 136.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": 1,
+        "denominator": 18,
+        "value": "1/18",
+        "float": 0.05555555555555555
+      },
+      "beta_hat": {
+        "numerator": -1,
+        "denominator": 9,
+        "value": "-1/9",
+        "float": -0.1111111111111111
+      },
+      "gamma_hat": {
+        "numerator": 5,
+        "denominator": 9,
+        "value": "5/9",
+        "float": 0.5555555555555556
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 5320,
+        "denominator": 1,
+        "value": "5320",
+        "float": 5320.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 3876,
+        "denominator": 1,
+        "value": "3876",
+        "float": 3876.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 119,
+        "denominator": 1,
+        "value": "119",
+        "float": 119.0
+      },
+      "sum_Y2": {
+        "numerator": 9315,
+        "denominator": 1,
+        "value": "9315",
+        "float": 9315.0
+      },
+      "sym2_dim": 9316,
+      "sym2_minus_trivial": 9315,
+      "sym2_minus_g_minus_trivial": 9179,
+      "pos_roots_ns": 56,
+      "three_pos_roots_ns": 168,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "D_3 (so_6)",
+      "type": "D",
+      "rank": 3,
+      "dim_g": 15,
+      "dim_check": {
+        "numerator": 15,
+        "denominator": 1,
+        "value": "15",
+        "float": 15.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 4,
+        "value": "-1/4",
+        "float": -0.25
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 4,
+        "value": "1/4",
+        "float": 0.25
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 84,
+        "denominator": 1,
+        "value": "84",
+        "float": 84.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 15,
+        "denominator": 1,
+        "value": "15",
+        "float": 15.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 20,
+        "denominator": 1,
+        "value": "20",
+        "float": 20.0
+      },
+      "sum_Y2": {
+        "numerator": 119,
+        "denominator": 1,
+        "value": "119",
+        "float": 119.0
+      },
+      "sym2_dim": 120,
+      "sym2_minus_trivial": 119,
+      "sym2_minus_g_minus_trivial": 104,
+      "pos_roots_ns": 3,
+      "three_pos_roots_ns": 9,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "D_4 (so_8)",
+      "type": "D",
+      "rank": 4,
+      "dim_g": 28,
+      "dim_check": {
+        "numerator": 28,
+        "denominator": 1,
+        "value": "28",
+        "float": 28.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 6,
+        "value": "-1/6",
+        "float": -0.16666666666666666
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": "1/3",
+        "float": 0.3333333333333333
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": "1/3",
+        "float": 0.3333333333333333
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 300,
+        "denominator": 1,
+        "value": "300",
+        "float": 300.0
+      },
+      "dim_Y2_prime": null,
+      "dim_Y2_dprime": null,
+      "sum_Y2": {
+        "numerator": 300,
+        "denominator": 1,
+        "value": "300",
+        "float": 300.0
+      },
+      "sym2_dim": 406,
+      "sym2_minus_trivial": 405,
+      "sym2_minus_g_minus_trivial": 377,
+      "pos_roots_ns": 8,
+      "three_pos_roots_ns": 24,
+      "sum_Y2_vs_sym2_minus_trivial": false,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "D_5 (so_10)",
+      "type": "D",
+      "rank": 5,
+      "dim_g": 45,
+      "dim_check": {
+        "numerator": 45,
+        "denominator": 1,
+        "value": "45",
+        "float": 45.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 8,
+        "value": "-1/8",
+        "float": -0.125
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 4,
+        "value": "1/4",
+        "float": 0.25
+      },
+      "gamma_hat": {
+        "numerator": 3,
+        "denominator": 8,
+        "value": "3/8",
+        "float": 0.375
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 770,
+        "denominator": 1,
+        "value": "770",
+        "float": 770.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 210,
+        "denominator": 1,
+        "value": "210",
+        "float": 210.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 54,
+        "denominator": 1,
+        "value": "54",
+        "float": 54.0
+      },
+      "sum_Y2": {
+        "numerator": 1034,
+        "denominator": 1,
+        "value": "1034",
+        "float": 1034.0
+      },
+      "sym2_dim": 1035,
+      "sym2_minus_trivial": 1034,
+      "sym2_minus_g_minus_trivial": 989,
+      "pos_roots_ns": 15,
+      "three_pos_roots_ns": 45,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "D_6 (so_12)",
+      "type": "D",
+      "rank": 6,
+      "dim_g": 66,
+      "dim_check": {
+        "numerator": 66,
+        "denominator": 1,
+        "value": "66",
+        "float": 66.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 10,
+        "value": "-1/10",
+        "float": -0.1
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 5,
+        "value": "1/5",
+        "float": 0.2
+      },
+      "gamma_hat": {
+        "numerator": 2,
+        "denominator": 5,
+        "value": "2/5",
+        "float": 0.4
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 1638,
+        "denominator": 1,
+        "value": "1638",
+        "float": 1638.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 495,
+        "denominator": 1,
+        "value": "495",
+        "float": 495.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 77,
+        "denominator": 1,
+        "value": "77",
+        "float": 77.0
+      },
+      "sum_Y2": {
+        "numerator": 2210,
+        "denominator": 1,
+        "value": "2210",
+        "float": 2210.0
+      },
+      "sym2_dim": 2211,
+      "sym2_minus_trivial": 2210,
+      "sym2_minus_g_minus_trivial": 2144,
+      "pos_roots_ns": 24,
+      "three_pos_roots_ns": 72,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "D_7 (so_14)",
+      "type": "D",
+      "rank": 7,
+      "dim_g": 91,
+      "dim_check": {
+        "numerator": 91,
+        "denominator": 1,
+        "value": "91",
+        "float": 91.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 12,
+        "value": "-1/12",
+        "float": -0.08333333333333333
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 6,
+        "value": "1/6",
+        "float": 0.16666666666666666
+      },
+      "gamma_hat": {
+        "numerator": 5,
+        "denominator": 12,
+        "value": "5/12",
+        "float": 0.4166666666666667
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 3080,
+        "denominator": 1,
+        "value": "3080",
+        "float": 3080.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 1001,
+        "denominator": 1,
+        "value": "1001",
+        "float": 1001.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 104,
+        "denominator": 1,
+        "value": "104",
+        "float": 104.0
+      },
+      "sum_Y2": {
+        "numerator": 4185,
+        "denominator": 1,
+        "value": "4185",
+        "float": 4185.0
+      },
+      "sym2_dim": 4186,
+      "sym2_minus_trivial": 4185,
+      "sym2_minus_g_minus_trivial": 4094,
+      "pos_roots_ns": 35,
+      "three_pos_roots_ns": 105,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "D_8 (so_16)",
+      "type": "D",
+      "rank": 8,
+      "dim_g": 120,
+      "dim_check": {
+        "numerator": 120,
+        "denominator": 1,
+        "value": "120",
+        "float": 120.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 14,
+        "value": "-1/14",
+        "float": -0.07142857142857142
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 7,
+        "value": "1/7",
+        "float": 0.14285714285714285
+      },
+      "gamma_hat": {
+        "numerator": 3,
+        "denominator": 7,
+        "value": "3/7",
+        "float": 0.42857142857142855
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 5304,
+        "denominator": 1,
+        "value": "5304",
+        "float": 5304.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 1820,
+        "denominator": 1,
+        "value": "1820",
+        "float": 1820.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 135,
+        "denominator": 1,
+        "value": "135",
+        "float": 135.0
+      },
+      "sum_Y2": {
+        "numerator": 7259,
+        "denominator": 1,
+        "value": "7259",
+        "float": 7259.0
+      },
+      "sym2_dim": 7260,
+      "sym2_minus_trivial": 7259,
+      "sym2_minus_g_minus_trivial": 7139,
+      "pos_roots_ns": 48,
+      "three_pos_roots_ns": 144,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "G_2",
+      "type": "G2",
+      "rank": 2,
+      "dim_g": 14,
+      "dim_check": {
+        "numerator": 14,
+        "denominator": 1,
+        "value": "14",
+        "float": 14.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 4,
+        "value": "-1/4",
+        "float": -0.25
+      },
+      "beta_hat": {
+        "numerator": 5,
+        "denominator": 12,
+        "value": "5/12",
+        "float": 0.4166666666666667
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": "1/3",
+        "float": 0.3333333333333333
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 77,
+        "denominator": 1,
+        "value": "77",
+        "float": 77.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 27,
+        "denominator": 1,
+        "value": "27",
+        "float": 27.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "sum_Y2": {
+        "numerator": 104,
+        "denominator": 1,
+        "value": "104",
+        "float": 104.0
+      },
+      "sym2_dim": 105,
+      "sym2_minus_trivial": 104,
+      "sym2_minus_g_minus_trivial": 90,
+      "pos_roots_ns": 4,
+      "three_pos_roots_ns": 12,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "F_4",
+      "type": "F4",
+      "rank": 4,
+      "dim_g": 52,
+      "dim_check": {
+        "numerator": 52,
+        "denominator": 1,
+        "value": "52",
+        "float": 52.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 9,
+        "value": "-1/9",
+        "float": -0.1111111111111111
+      },
+      "beta_hat": {
+        "numerator": 5,
+        "denominator": 18,
+        "value": "5/18",
+        "float": 0.2777777777777778
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": "1/3",
+        "float": 0.3333333333333333
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 1053,
+        "denominator": 1,
+        "value": "1053",
+        "float": 1053.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 324,
+        "denominator": 1,
+        "value": "324",
+        "float": 324.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "sum_Y2": {
+        "numerator": 1377,
+        "denominator": 1,
+        "value": "1377",
+        "float": 1377.0
+      },
+      "sym2_dim": 1378,
+      "sym2_minus_trivial": 1377,
+      "sym2_minus_g_minus_trivial": 1325,
+      "pos_roots_ns": 20,
+      "three_pos_roots_ns": 60,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "E_6",
+      "type": "E6",
+      "rank": 6,
+      "dim_g": 78,
+      "dim_check": {
+        "numerator": 78,
+        "denominator": 1,
+        "value": "78",
+        "float": 78.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 12,
+        "value": "-1/12",
+        "float": -0.08333333333333333
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 4,
+        "value": "1/4",
+        "float": 0.25
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": "1/3",
+        "float": 0.3333333333333333
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 2430,
+        "denominator": 1,
+        "value": "2430",
+        "float": 2430.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 650,
+        "denominator": 1,
+        "value": "650",
+        "float": 650.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "sum_Y2": {
+        "numerator": 3080,
+        "denominator": 1,
+        "value": "3080",
+        "float": 3080.0
+      },
+      "sym2_dim": 3081,
+      "sym2_minus_trivial": 3080,
+      "sym2_minus_g_minus_trivial": 3002,
+      "pos_roots_ns": 30,
+      "three_pos_roots_ns": 90,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "E_7",
+      "type": "E7",
+      "rank": 7,
+      "dim_g": 133,
+      "dim_check": {
+        "numerator": 133,
+        "denominator": 1,
+        "value": "133",
+        "float": 133.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 18,
+        "value": "-1/18",
+        "float": -0.05555555555555555
+      },
+      "beta_hat": {
+        "numerator": 2,
+        "denominator": 9,
+        "value": "2/9",
+        "float": 0.2222222222222222
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": "1/3",
+        "float": 0.3333333333333333
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 7371,
+        "denominator": 1,
+        "value": "7371",
+        "float": 7371.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 1539,
+        "denominator": 1,
+        "value": "1539",
+        "float": 1539.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "sum_Y2": {
+        "numerator": 8910,
+        "denominator": 1,
+        "value": "8910",
+        "float": 8910.0
+      },
+      "sym2_dim": 8911,
+      "sym2_minus_trivial": 8910,
+      "sym2_minus_g_minus_trivial": 8777,
+      "pos_roots_ns": 56,
+      "three_pos_roots_ns": 168,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    },
+    {
+      "name": "E_8",
+      "type": "E8",
+      "rank": 8,
+      "dim_g": 248,
+      "dim_check": {
+        "numerator": 248,
+        "denominator": 1,
+        "value": "248",
+        "float": 248.0
+      },
+      "dim_match": true,
+      "alpha_hat": {
+        "numerator": -1,
+        "denominator": 30,
+        "value": "-1/30",
+        "float": -0.03333333333333333
+      },
+      "beta_hat": {
+        "numerator": 1,
+        "denominator": 5,
+        "value": "1/5",
+        "float": 0.2
+      },
+      "gamma_hat": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": "1/3",
+        "float": 0.3333333333333333
+      },
+      "sum_check": true,
+      "dim_Y2": {
+        "numerator": 27000,
+        "denominator": 1,
+        "value": "27000",
+        "float": 27000.0
+      },
+      "dim_Y2_prime": {
+        "numerator": 3875,
+        "denominator": 1,
+        "value": "3875",
+        "float": 3875.0
+      },
+      "dim_Y2_dprime": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "sum_Y2": {
+        "numerator": 30875,
+        "denominator": 1,
+        "value": "30875",
+        "float": 30875.0
+      },
+      "sym2_dim": 30876,
+      "sym2_minus_trivial": 30875,
+      "sym2_minus_g_minus_trivial": 30627,
+      "pos_roots_ns": 112,
+      "three_pos_roots_ns": 336,
+      "sum_Y2_vs_sym2_minus_trivial": true,
+      "sum_Y2_vs_3ns": false,
+      "sum_Y2_vs_sym2_minus_g_minus_trivial": false
+    }
+  ],
+  "user_formula_check": [
+    {
+      "name": "A_1 (sl_2)",
+      "a_sum_minus2": {
+        "numerator": 2,
+        "denominator": 1,
+        "value": "2",
+        "float": 2.0
+      },
+      "b_sum_minus2": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "g_sum_minus2": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "dY2p_user": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": "1",
+        "float": 1.0
+      },
+      "dY2pp_user": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": "1",
+        "float": 1.0
+      },
+      "sum_user": {
+        "numerator": 2,
+        "denominator": 1,
+        "value": "2",
+        "float": 2.0
+      }
+    },
+    {
+      "name": "A_2 (sl_3)",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 3,
+        "value": "4/3",
+        "float": 1.3333333333333333
+      },
+      "b_sum_minus2": {
+        "numerator": -4,
+        "denominator": 3,
+        "value": "-4/3",
+        "float": -1.3333333333333333
+      },
+      "g_sum_minus2": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": -21,
+        "denominator": 4,
+        "value": "-21/4",
+        "float": -5.25
+      },
+      "dY2p_user": {
+        "numerator": 15,
+        "denominator": 28,
+        "value": "15/28",
+        "float": 0.5357142857142857
+      },
+      "dY2pp_user": {
+        "numerator": 7,
+        "denominator": 12,
+        "value": "7/12",
+        "float": 0.5833333333333334
+      },
+      "sum_user": {
+        "numerator": -347,
+        "denominator": 84,
+        "value": "-347/84",
+        "float": -4.130952380952381
+      }
+    },
+    {
+      "name": "A_3 (sl_4)",
+      "a_sum_minus2": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": "1",
+        "float": 1.0
+      },
+      "b_sum_minus2": {
+        "numerator": -1,
+        "denominator": 1,
+        "value": "-1",
+        "float": -1.0
+      },
+      "g_sum_minus2": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": null,
+      "dY2p_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "dY2pp_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "sum_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      }
+    },
+    {
+      "name": "A_4 (sl_5)",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 5,
+        "value": "4/5",
+        "float": 0.8
+      },
+      "b_sum_minus2": {
+        "numerator": -4,
+        "denominator": 5,
+        "value": "-4/5",
+        "float": -0.8
+      },
+      "g_sum_minus2": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 81,
+        "denominator": 4,
+        "value": "81/4",
+        "float": 20.25
+      },
+      "dY2p_user": {
+        "numerator": -7,
+        "denominator": 12,
+        "value": "-7/12",
+        "float": -0.5833333333333334
+      },
+      "dY2pp_user": {
+        "numerator": -3,
+        "denominator": 4,
+        "value": "-3/4",
+        "float": -0.75
+      },
+      "sum_user": {
+        "numerator": 227,
+        "denominator": 12,
+        "value": "227/12",
+        "float": 18.916666666666668
+      }
+    },
+    {
+      "name": "A_5 (sl_6)",
+      "a_sum_minus2": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": "2/3",
+        "float": 0.6666666666666666
+      },
+      "b_sum_minus2": {
+        "numerator": -2,
+        "denominator": 3,
+        "value": "-2/3",
+        "float": -0.6666666666666666
+      },
+      "g_sum_minus2": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 15,
+        "denominator": 1,
+        "value": "15",
+        "float": 15.0
+      },
+      "dY2p_user": {
+        "numerator": -6,
+        "denominator": 5,
+        "value": "-6/5",
+        "float": -1.2
+      },
+      "dY2pp_user": {
+        "numerator": -5,
+        "denominator": 3,
+        "value": "-5/3",
+        "float": -1.6666666666666667
+      },
+      "sum_user": {
+        "numerator": 182,
+        "denominator": 15,
+        "value": "182/15",
+        "float": 12.133333333333333
+      }
+    },
+    {
+      "name": "A_6 (sl_7)",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 7,
+        "value": "4/7",
+        "float": 0.5714285714285714
+      },
+      "b_sum_minus2": {
+        "numerator": -4,
+        "denominator": 7,
+        "value": "-4/7",
+        "float": -0.5714285714285714
+      },
+      "g_sum_minus2": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 55,
+        "denominator": 4,
+        "value": "55/4",
+        "float": 13.75
+      },
+      "dY2p_user": {
+        "numerator": -81,
+        "denominator": 44,
+        "value": "-81/44",
+        "float": -1.8409090909090908
+      },
+      "dY2pp_user": {
+        "numerator": -11,
+        "denominator": 4,
+        "value": "-11/4",
+        "float": -2.75
+      },
+      "sum_user": {
+        "numerator": 403,
+        "denominator": 44,
+        "value": "403/44",
+        "float": 9.159090909090908
+      }
+    },
+    {
+      "name": "A_7 (sl_8)",
+      "a_sum_minus2": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "b_sum_minus2": {
+        "numerator": -1,
+        "denominator": 2,
+        "value": "-1/2",
+        "float": -0.5
+      },
+      "g_sum_minus2": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 27,
+        "denominator": 2,
+        "value": "27/2",
+        "float": 13.5
+      },
+      "dY2p_user": {
+        "numerator": -5,
+        "denominator": 2,
+        "value": "-5/2",
+        "float": -2.5
+      },
+      "dY2pp_user": {
+        "numerator": -4,
+        "denominator": 1,
+        "value": "-4",
+        "float": -4.0
+      },
+      "sum_user": {
+        "numerator": 7,
+        "denominator": 1,
+        "value": "7",
+        "float": 7.0
+      }
+    },
+    {
+      "name": "A_8 (sl_9)",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 9,
+        "value": "4/9",
+        "float": 0.4444444444444444
+      },
+      "b_sum_minus2": {
+        "numerator": -4,
+        "denominator": 9,
+        "value": "-4/9",
+        "float": -0.4444444444444444
+      },
+      "g_sum_minus2": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 273,
+        "denominator": 20,
+        "value": "273/20",
+        "float": 13.65
+      },
+      "dY2p_user": {
+        "numerator": -165,
+        "denominator": 52,
+        "value": "-165/52",
+        "float": -3.173076923076923
+      },
+      "dY2pp_user": {
+        "numerator": -65,
+        "denominator": 12,
+        "value": "-65/12",
+        "float": -5.416666666666667
+      },
+      "sum_user": {
+        "numerator": 3947,
+        "denominator": 780,
+        "value": "3947/780",
+        "float": 5.06025641025641
+      }
+    },
+    {
+      "name": "B_2 (so_5)",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 3,
+        "value": "4/3",
+        "float": 1.3333333333333333
+      },
+      "b_sum_minus2": {
+        "numerator": -8,
+        "denominator": 3,
+        "value": "-8/3",
+        "float": -2.6666666666666665
+      },
+      "g_sum_minus2": {
+        "numerator": -2,
+        "denominator": 3,
+        "value": "-2/3",
+        "float": -0.6666666666666666
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": -55,
+        "denominator": 8,
+        "value": "-55/8",
+        "float": -6.875
+      },
+      "dY2p_user": {
+        "numerator": 35,
+        "denominator": 44,
+        "value": "35/44",
+        "float": 0.7954545454545454
+      },
+      "dY2pp_user": {
+        "numerator": 11,
+        "denominator": 20,
+        "value": "11/20",
+        "float": 0.55
+      },
+      "sum_user": {
+        "numerator": -2433,
+        "denominator": 440,
+        "value": "-2433/440",
+        "float": -5.529545454545454
+      }
+    },
+    {
+      "name": "B_3 (so_7)",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 5,
+        "value": "4/5",
+        "float": 0.8
+      },
+      "b_sum_minus2": {
+        "numerator": -8,
+        "denominator": 5,
+        "value": "-8/5",
+        "float": -1.6
+      },
+      "g_sum_minus2": {
+        "numerator": -6,
+        "denominator": 5,
+        "value": "-6/5",
+        "float": -1.2
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 143,
+        "denominator": 8,
+        "value": "143/8",
+        "float": 17.875
+      },
+      "dY2p_user": {
+        "numerator": -33,
+        "denominator": 52,
+        "value": "-33/52",
+        "float": -0.6346153846153846
+      },
+      "dY2pp_user": {
+        "numerator": -13,
+        "denominator": 22,
+        "value": "-13/22",
+        "float": -0.5909090909090909
+      },
+      "sum_user": {
+        "numerator": 19047,
+        "denominator": 1144,
+        "value": "19047/1144",
+        "float": 16.649475524475523
+      }
+    },
+    {
+      "name": "B_4 (so_9)",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 7,
+        "value": "4/7",
+        "float": 0.5714285714285714
+      },
+      "b_sum_minus2": {
+        "numerator": -8,
+        "denominator": 7,
+        "value": "-8/7",
+        "float": -1.1428571428571428
+      },
+      "g_sum_minus2": {
+        "numerator": -10,
+        "denominator": 7,
+        "value": "-10/7",
+        "float": -1.4285714285714286
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 85,
+        "denominator": 8,
+        "value": "85/8",
+        "float": 10.625
+      },
+      "dY2p_user": {
+        "numerator": -187,
+        "denominator": 100,
+        "value": "-187/100",
+        "float": -1.87
+      },
+      "dY2pp_user": {
+        "numerator": -135,
+        "denominator": 68,
+        "value": "-135/68",
+        "float": -1.9852941176470589
+      },
+      "sum_user": {
+        "numerator": 23017,
+        "denominator": 3400,
+        "value": "23017/3400",
+        "float": 6.769705882352941
+      }
+    },
+    {
+      "name": "B_5 (so_11)",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 9,
+        "value": "4/9",
+        "float": 0.4444444444444444
+      },
+      "b_sum_minus2": {
+        "numerator": -8,
+        "denominator": 9,
+        "value": "-8/9",
+        "float": -0.8888888888888888
+      },
+      "g_sum_minus2": {
+        "numerator": -14,
+        "denominator": 9,
+        "value": "-14/9",
+        "float": -1.5555555555555556
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 391,
+        "denominator": 40,
+        "value": "391/40",
+        "float": 9.775
+      },
+      "dY2p_user": {
+        "numerator": -1495,
+        "denominator": 476,
+        "value": "-1495/476",
+        "float": -3.1407563025210083
+      },
+      "dY2pp_user": {
+        "numerator": -85,
+        "denominator": 23,
+        "value": "-85/23",
+        "float": -3.6956521739130435
+      },
+      "sum_user": {
+        "numerator": 321717,
+        "denominator": 109480,
+        "value": "321717/109480",
+        "float": 2.938591523565948
+      }
+    },
+    {
+      "name": "B_6 (so_13)",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 11,
+        "value": "4/11",
+        "float": 0.36363636363636365
+      },
+      "b_sum_minus2": {
+        "numerator": -8,
+        "denominator": 11,
+        "value": "-8/11",
+        "float": -0.7272727272727273
+      },
+      "g_sum_minus2": {
+        "numerator": -18,
+        "denominator": 11,
+        "value": "-18/11",
+        "float": -1.6363636363636365
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 551,
+        "denominator": 56,
+        "value": "551/56",
+        "float": 9.839285714285714
+      },
+      "dY2p_user": {
+        "numerator": -1015,
+        "denominator": 228,
+        "value": "-1015/228",
+        "float": -4.451754385964913
+      },
+      "dY2pp_user": {
+        "numerator": -665,
+        "denominator": 116,
+        "value": "-665/116",
+        "float": -5.732758620689655
+      },
+      "sum_user": {
+        "numerator": -31957,
+        "denominator": 92568,
+        "value": "-31957/92568",
+        "float": -0.3452272923688532
+      }
+    },
+    {
+      "name": "B_7 (so_15)",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 13,
+        "value": "4/13",
+        "float": 0.3076923076923077
+      },
+      "b_sum_minus2": {
+        "numerator": -8,
+        "denominator": 13,
+        "value": "-8/13",
+        "float": -0.6153846153846154
+      },
+      "g_sum_minus2": {
+        "numerator": -22,
+        "denominator": 13,
+        "value": "-22/13",
+        "float": -1.6923076923076923
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 245,
+        "denominator": 24,
+        "value": "245/24",
+        "float": 10.208333333333334
+      },
+      "dY2p_user": {
+        "numerator": -255,
+        "denominator": 44,
+        "value": "-255/44",
+        "float": -5.795454545454546
+      },
+      "dY2pp_user": {
+        "numerator": -81,
+        "denominator": 10,
+        "value": "-81/10",
+        "float": -8.1
+      },
+      "sum_user": {
+        "numerator": -4867,
+        "denominator": 1320,
+        "value": "-4867/1320",
+        "float": -3.687121212121212
+      }
+    },
+    {
+      "name": "B_8 (so_17)",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 15,
+        "value": "4/15",
+        "float": 0.26666666666666666
+      },
+      "b_sum_minus2": {
+        "numerator": -8,
+        "denominator": 15,
+        "value": "-8/15",
+        "float": -0.5333333333333333
+      },
+      "g_sum_minus2": {
+        "numerator": -26,
+        "denominator": 15,
+        "value": "-26/15",
+        "float": -1.7333333333333334
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 943,
+        "denominator": 88,
+        "value": "943/88",
+        "float": 10.715909090909092
+      },
+      "dY2p_user": {
+        "numerator": -8569,
+        "denominator": 1196,
+        "value": "-8569/1196",
+        "float": -7.164715719063545
+      },
+      "dY2pp_user": {
+        "numerator": -1771,
+        "denominator": 164,
+        "value": "-1771/164",
+        "float": -10.798780487804878
+      },
+      "sum_user": {
+        "numerator": -7818639,
+        "denominator": 1078792,
+        "value": "-7818639/1078792",
+        "float": -7.247587115959332
+      }
+    },
+    {
+      "name": "C_2 (sp_4)",
+      "a_sum_minus2": {
+        "numerator": -2,
+        "denominator": 3,
+        "value": "-2/3",
+        "float": -0.6666666666666666
+      },
+      "b_sum_minus2": {
+        "numerator": 4,
+        "denominator": 3,
+        "value": "4/3",
+        "float": 1.3333333333333333
+      },
+      "g_sum_minus2": {
+        "numerator": -8,
+        "denominator": 3,
+        "value": "-8/3",
+        "float": -2.6666666666666665
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 11,
+        "denominator": 20,
+        "value": "11/20",
+        "float": 0.55
+      },
+      "dY2p_user": {
+        "numerator": -55,
+        "denominator": 8,
+        "value": "-55/8",
+        "float": -6.875
+      },
+      "dY2pp_user": {
+        "numerator": 35,
+        "denominator": 44,
+        "value": "35/44",
+        "float": 0.7954545454545454
+      },
+      "sum_user": {
+        "numerator": -2433,
+        "denominator": 440,
+        "value": "-2433/440",
+        "float": -5.529545454545454
+      }
+    },
+    {
+      "name": "C_3 (sp_6)",
+      "a_sum_minus2": {
+        "numerator": -1,
+        "denominator": 2,
+        "value": "-1/2",
+        "float": -0.5
+      },
+      "b_sum_minus2": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": "1",
+        "float": 1.0
+      },
+      "g_sum_minus2": {
+        "numerator": -5,
+        "denominator": 2,
+        "value": "-5/2",
+        "float": -2.5
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "dY2p_user": null,
+      "dY2pp_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "sum_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      }
+    },
+    {
+      "name": "C_4 (sp_8)",
+      "a_sum_minus2": {
+        "numerator": -2,
+        "denominator": 5,
+        "value": "-2/5",
+        "float": -0.4
+      },
+      "b_sum_minus2": {
+        "numerator": 4,
+        "denominator": 5,
+        "value": "4/5",
+        "float": 0.8
+      },
+      "g_sum_minus2": {
+        "numerator": -12,
+        "denominator": 5,
+        "value": "-12/5",
+        "float": -2.4
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": -17,
+        "denominator": 28,
+        "value": "-17/28",
+        "float": -0.6071428571428571
+      },
+      "dY2p_user": {
+        "numerator": 119,
+        "denominator": 4,
+        "value": "119/4",
+        "float": 29.75
+      },
+      "dY2pp_user": {
+        "numerator": -77,
+        "denominator": 68,
+        "value": "-77/68",
+        "float": -1.1323529411764706
+      },
+      "sum_user": {
+        "numerator": 13333,
+        "denominator": 476,
+        "value": "13333/476",
+        "float": 28.01050420168067
+      }
+    },
+    {
+      "name": "C_5 (sp_10)",
+      "a_sum_minus2": {
+        "numerator": -1,
+        "denominator": 3,
+        "value": "-1/3",
+        "float": -0.3333333333333333
+      },
+      "b_sum_minus2": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": "2/3",
+        "float": 0.6666666666666666
+      },
+      "g_sum_minus2": {
+        "numerator": -7,
+        "denominator": 3,
+        "value": "-7/3",
+        "float": -2.3333333333333335
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": -5,
+        "denominator": 4,
+        "value": "-5/4",
+        "float": -1.25
+      },
+      "dY2p_user": {
+        "numerator": 160,
+        "denominator": 7,
+        "value": "160/7",
+        "float": 22.857142857142858
+      },
+      "dY2pp_user": {
+        "numerator": -13,
+        "denominator": 5,
+        "value": "-13/5",
+        "float": -2.6
+      },
+      "sum_user": {
+        "numerator": 2661,
+        "denominator": 140,
+        "value": "2661/140",
+        "float": 19.007142857142856
+      }
+    },
+    {
+      "name": "C_6 (sp_12)",
+      "a_sum_minus2": {
+        "numerator": -2,
+        "denominator": 7,
+        "value": "-2/7",
+        "float": -0.2857142857142857
+      },
+      "b_sum_minus2": {
+        "numerator": 4,
+        "denominator": 7,
+        "value": "4/7",
+        "float": 0.5714285714285714
+      },
+      "g_sum_minus2": {
+        "numerator": -16,
+        "denominator": 7,
+        "value": "-16/7",
+        "float": -2.2857142857142856
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": -23,
+        "denominator": 12,
+        "value": "-23/12",
+        "float": -1.9166666666666667
+      },
+      "dY2p_user": {
+        "numerator": 345,
+        "denominator": 16,
+        "value": "345/16",
+        "float": 21.5625
+      },
+      "dY2pp_user": {
+        "numerator": -405,
+        "denominator": 92,
+        "value": "-405/92",
+        "float": -4.4021739130434785
+      },
+      "sum_user": {
+        "numerator": 16829,
+        "denominator": 1104,
+        "value": "16829/1104",
+        "float": 15.243659420289855
+      }
+    },
+    {
+      "name": "C_7 (sp_14)",
+      "a_sum_minus2": {
+        "numerator": -1,
+        "denominator": 4,
+        "value": "-1/4",
+        "float": -0.25
+      },
+      "b_sum_minus2": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "g_sum_minus2": {
+        "numerator": -9,
+        "denominator": 4,
+        "value": "-9/4",
+        "float": -2.25
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": -13,
+        "denominator": 5,
+        "value": "-13/5",
+        "float": -2.6
+      },
+      "dY2p_user": {
+        "numerator": 65,
+        "denominator": 3,
+        "value": "65/3",
+        "float": 21.666666666666668
+      },
+      "dY2pp_user": {
+        "numerator": -85,
+        "denominator": 13,
+        "value": "-85/13",
+        "float": -6.538461538461538
+      },
+      "sum_user": {
+        "numerator": 2443,
+        "denominator": 195,
+        "value": "2443/195",
+        "float": 12.528205128205128
+      }
+    },
+    {
+      "name": "C_8 (sp_16)",
+      "a_sum_minus2": {
+        "numerator": -2,
+        "denominator": 9,
+        "value": "-2/9",
+        "float": -0.2222222222222222
+      },
+      "b_sum_minus2": {
+        "numerator": 4,
+        "denominator": 9,
+        "value": "4/9",
+        "float": 0.4444444444444444
+      },
+      "g_sum_minus2": {
+        "numerator": -20,
+        "denominator": 9,
+        "value": "-20/9",
+        "float": -2.2222222222222223
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": -145,
+        "denominator": 44,
+        "value": "-145/44",
+        "float": -3.2954545454545454
+      },
+      "dY2p_user": {
+        "numerator": 2233,
+        "denominator": 100,
+        "value": "2233/100",
+        "float": 22.33
+      },
+      "dY2pp_user": {
+        "numerator": -1045,
+        "denominator": 116,
+        "value": "-1045/116",
+        "float": -9.008620689655173
+      },
+      "sum_user": {
+        "numerator": 319827,
+        "denominator": 31900,
+        "value": "319827/31900",
+        "float": 10.025924764890283
+      }
+    },
+    {
+      "name": "D_3 (so_6)",
+      "a_sum_minus2": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": "1",
+        "float": 1.0
+      },
+      "b_sum_minus2": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "g_sum_minus2": {
+        "numerator": -1,
+        "denominator": 1,
+        "value": "-1",
+        "float": -1.0
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": null,
+      "dY2p_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "dY2pp_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "sum_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      }
+    },
+    {
+      "name": "D_4 (so_8)",
+      "a_sum_minus2": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": "2/3",
+        "float": 0.6666666666666666
+      },
+      "b_sum_minus2": {
+        "numerator": -4,
+        "denominator": 3,
+        "value": "-4/3",
+        "float": -1.3333333333333333
+      },
+      "g_sum_minus2": {
+        "numerator": -4,
+        "denominator": 3,
+        "value": "-4/3",
+        "float": -1.3333333333333333
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 49,
+        "denominator": 4,
+        "value": "49/4",
+        "float": 12.25
+      },
+      "dY2p_user": {
+        "numerator": -5,
+        "denominator": 4,
+        "value": "-5/4",
+        "float": -1.25
+      },
+      "dY2pp_user": {
+        "numerator": -5,
+        "denominator": 4,
+        "value": "-5/4",
+        "float": -1.25
+      },
+      "sum_user": {
+        "numerator": 39,
+        "denominator": 4,
+        "value": "39/4",
+        "float": 9.75
+      }
+    },
+    {
+      "name": "D_5 (so_10)",
+      "a_sum_minus2": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": "1/2",
+        "float": 0.5
+      },
+      "b_sum_minus2": {
+        "numerator": -1,
+        "denominator": 1,
+        "value": "-1",
+        "float": -1.0
+      },
+      "g_sum_minus2": {
+        "numerator": -3,
+        "denominator": 2,
+        "value": "-3/2",
+        "float": -1.5
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 10,
+        "denominator": 1,
+        "value": "10",
+        "float": 10.0
+      },
+      "dY2p_user": {
+        "numerator": -5,
+        "denominator": 2,
+        "value": "-5/2",
+        "float": -2.5
+      },
+      "dY2pp_user": {
+        "numerator": -14,
+        "denominator": 5,
+        "value": "-14/5",
+        "float": -2.8
+      },
+      "sum_user": {
+        "numerator": 47,
+        "denominator": 10,
+        "value": "47/10",
+        "float": 4.7
+      }
+    },
+    {
+      "name": "D_6 (so_12)",
+      "a_sum_minus2": {
+        "numerator": 2,
+        "denominator": 5,
+        "value": "2/5",
+        "float": 0.4
+      },
+      "b_sum_minus2": {
+        "numerator": -4,
+        "denominator": 5,
+        "value": "-4/5",
+        "float": -0.8
+      },
+      "g_sum_minus2": {
+        "numerator": -8,
+        "denominator": 5,
+        "value": "-8/5",
+        "float": -1.6
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 39,
+        "denominator": 4,
+        "value": "39/4",
+        "float": 9.75
+      },
+      "dY2p_user": {
+        "numerator": -91,
+        "denominator": 24,
+        "value": "-91/24",
+        "float": -3.7916666666666665
+      },
+      "dY2pp_user": {
+        "numerator": -243,
+        "denominator": 52,
+        "value": "-243/52",
+        "float": -4.673076923076923
+      },
+      "sum_user": {
+        "numerator": 401,
+        "denominator": 312,
+        "value": "401/312",
+        "float": 1.2852564102564104
+      }
+    },
+    {
+      "name": "D_7 (so_14)",
+      "a_sum_minus2": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": "1/3",
+        "float": 0.3333333333333333
+      },
+      "b_sum_minus2": {
+        "numerator": -2,
+        "denominator": 3,
+        "value": "-2/3",
+        "float": -0.6666666666666666
+      },
+      "g_sum_minus2": {
+        "numerator": -5,
+        "denominator": 3,
+        "value": "-5/3",
+        "float": -1.6666666666666667
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 10,
+        "denominator": 1,
+        "value": "10",
+        "float": 10.0
+      },
+      "dY2p_user": {
+        "numerator": -128,
+        "denominator": 25,
+        "value": "-128/25",
+        "float": -5.12
+      },
+      "dY2pp_user": {
+        "numerator": -55,
+        "denominator": 8,
+        "value": "-55/8",
+        "float": -6.875
+      },
+      "sum_user": {
+        "numerator": -399,
+        "denominator": 200,
+        "value": "-399/200",
+        "float": -1.995
+      }
+    },
+    {
+      "name": "D_8 (so_16)",
+      "a_sum_minus2": {
+        "numerator": 2,
+        "denominator": 7,
+        "value": "2/7",
+        "float": 0.2857142857142857
+      },
+      "b_sum_minus2": {
+        "numerator": -4,
+        "denominator": 7,
+        "value": "-4/7",
+        "float": -0.5714285714285714
+      },
+      "g_sum_minus2": {
+        "numerator": -12,
+        "denominator": 7,
+        "value": "-12/7",
+        "float": -1.7142857142857142
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 209,
+        "denominator": 20,
+        "value": "209/20",
+        "float": 10.45
+      },
+      "dY2p_user": {
+        "numerator": -285,
+        "denominator": 44,
+        "value": "-285/44",
+        "float": -6.4772727272727275
+      },
+      "dY2pp_user": {
+        "numerator": -715,
+        "denominator": 76,
+        "value": "-715/76",
+        "float": -9.407894736842104
+      },
+      "sum_user": {
+        "numerator": -22719,
+        "denominator": 4180,
+        "value": "-22719/4180",
+        "float": -5.435167464114833
+      }
+    },
+    {
+      "name": "G_2",
+      "a_sum_minus2": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": "1",
+        "float": 1.0
+      },
+      "b_sum_minus2": {
+        "numerator": -5,
+        "denominator": 3,
+        "value": "-5/3",
+        "float": -1.6666666666666667
+      },
+      "g_sum_minus2": {
+        "numerator": -4,
+        "denominator": 3,
+        "value": "-4/3",
+        "float": -1.3333333333333333
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": null,
+      "dY2p_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "dY2pp_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      },
+      "sum_user": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": "0",
+        "float": 0.0
+      }
+    },
+    {
+      "name": "F_4",
+      "a_sum_minus2": {
+        "numerator": 4,
+        "denominator": 9,
+        "value": "4/9",
+        "float": 0.4444444444444444
+      },
+      "b_sum_minus2": {
+        "numerator": -10,
+        "denominator": 9,
+        "value": "-10/9",
+        "float": -1.1111111111111112
+      },
+      "g_sum_minus2": {
+        "numerator": -4,
+        "denominator": 3,
+        "value": "-4/3",
+        "float": -1.3333333333333333
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 931,
+        "denominator": 100,
+        "value": "931/100",
+        "float": 9.31
+      },
+      "dY2p_user": {
+        "numerator": -245,
+        "denominator": 76,
+        "value": "-245/76",
+        "float": -3.223684210526316
+      },
+      "dY2pp_user": {
+        "numerator": -95,
+        "denominator": 28,
+        "value": "-95/28",
+        "float": -3.392857142857143
+      },
+      "sum_user": {
+        "numerator": 35823,
+        "denominator": 13300,
+        "value": "35823/13300",
+        "float": 2.6934586466165413
+      }
+    },
+    {
+      "name": "E_6",
+      "a_sum_minus2": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": "1/3",
+        "float": 0.3333333333333333
+      },
+      "b_sum_minus2": {
+        "numerator": -1,
+        "denominator": 1,
+        "value": "-1",
+        "float": -1.0
+      },
+      "g_sum_minus2": {
+        "numerator": -4,
+        "denominator": 3,
+        "value": "-4/3",
+        "float": -1.3333333333333333
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 35,
+        "denominator": 4,
+        "value": "35/4",
+        "float": 8.75
+      },
+      "dY2p_user": {
+        "numerator": -21,
+        "denominator": 4,
+        "value": "-21/4",
+        "float": -5.25
+      },
+      "dY2pp_user": {
+        "numerator": -40,
+        "denominator": 7,
+        "value": "-40/7",
+        "float": -5.714285714285714
+      },
+      "sum_user": {
+        "numerator": -31,
+        "denominator": 14,
+        "value": "-31/14",
+        "float": -2.2142857142857144
+      }
+    },
+    {
+      "name": "E_7",
+      "a_sum_minus2": {
+        "numerator": 2,
+        "denominator": 9,
+        "value": "2/9",
+        "float": 0.2222222222222222
+      },
+      "b_sum_minus2": {
+        "numerator": -8,
+        "denominator": 9,
+        "value": "-8/9",
+        "float": -0.8888888888888888
+      },
+      "g_sum_minus2": {
+        "numerator": -4,
+        "denominator": 3,
+        "value": "-4/3",
+        "float": -1.3333333333333333
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 17,
+        "denominator": 2,
+        "value": "17/2",
+        "float": 8.5
+      },
+      "dY2p_user": {
+        "numerator": -637,
+        "denominator": 68,
+        "value": "-637/68",
+        "float": -9.367647058823529
+      },
+      "dY2pp_user": {
+        "numerator": -85,
+        "denominator": 8,
+        "value": "-85/8",
+        "float": -10.625
+      },
+      "sum_user": {
+        "numerator": -1563,
+        "denominator": 136,
+        "value": "-1563/136",
+        "float": -11.492647058823529
+      }
+    },
+    {
+      "name": "E_8",
+      "a_sum_minus2": {
+        "numerator": 2,
+        "denominator": 15,
+        "value": "2/15",
+        "float": 0.13333333333333333
+      },
+      "b_sum_minus2": {
+        "numerator": -4,
+        "denominator": 5,
+        "value": "-4/5",
+        "float": -0.8
+      },
+      "g_sum_minus2": {
+        "numerator": -4,
+        "denominator": 3,
+        "value": "-4/3",
+        "float": -1.3333333333333333
+      },
+      "sum_check": {
+        "numerator": -2,
+        "denominator": 1,
+        "value": "-2",
+        "float": -2.0
+      },
+      "dY2_user": {
+        "numerator": 441,
+        "denominator": 52,
+        "value": "441/52",
+        "float": 8.48076923076923
+      },
+      "dY2p_user": {
+        "numerator": -637,
+        "denominator": 36,
+        "value": "-637/36",
+        "float": -17.694444444444443
+      },
+      "dY2pp_user": {
+        "numerator": -585,
+        "denominator": 28,
+        "value": "-585/28",
+        "float": -20.892857142857142
+      },
+      "sum_user": {
+        "numerator": -98629,
+        "denominator": 3276,
+        "value": "-98629/3276",
+        "float": -30.106532356532355
+      }
+    }
+  ]
+}
