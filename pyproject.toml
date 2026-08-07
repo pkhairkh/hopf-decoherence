@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hopf-decoherence"
-version = "1.0.0"
+version = "1.1.0"
 description = "Companion code for 'Hochschild Cohomology of Small Quantum Groups at Roots of Unity' — bar-complex verification of HH^2(u_q(sl_2), C) = 3 at ell = 3, plus auxiliary BCGP/BTZ physics code"
 readme = "README.md"
 requires-python = ">=3.10"

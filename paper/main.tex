@@ -66,7 +66,7 @@ We propose the conjecture
 \[
   \dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;=\; \binom{n+1}{2} \;+\; 2|\Phi^+|,
 \]
-for the Hochschild cohomology with trivial coefficients $\HH^2(u_q(\mathfrak{g}), \CC) = \Ext^2_{u_q(\mathfrak{g})^e}(u_q(\mathfrak{g}), \CC)$ of the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$. We verify this conjecture by direct Hochschild bar-complex computation for $u_q(\mathfrak{sl}_2)$ at $\ell = 3$ and $\ell = 5$, obtaining $\dim \HH^2 = 3$ in both cases. We also compute $\dim \HH^2(B^+(u_q(\mathfrak{sl}_n)), \CC)$ at five parameter values ($\mathfrak{sl}_2$ at $\ell = 3, 4, 5, 7$ and $\mathfrak{sl}_3$ at $\ell = 3$), all matching the formula $2|\Phi^+| - 1 = \dim(\mathfrak{g}) - \operatorname{rank}(\mathfrak{g}) - 1$. This provides a new computational result for the positive Borel subalgebra and clarifies the role of Maschke's theorem in ruling out ``pairwise Cartan-type'' classes over $\CC$. We extract explicit cocycle representatives for the $A_1$ case and compare with related computations of Ginzburg--Kumar, Lachowska--Qi, and Mastnak--Witherspoon.
+for the Hochschild cohomology with trivial coefficients $\HH^2(u_q(\mathfrak{g}), \CC) = \Ext^2_{u_q(\mathfrak{g})^e}(u_q(\mathfrak{g}), \CC)$ of the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$. We verify this conjecture by direct Hochschild bar-complex computation for $u_q(\mathfrak{sl}_2)$ at $\ell = 3$ and $\ell = 5$, obtaining $\dim \HH^2 = 3$ in both cases. We also compute $\dim \HH^2(B^+(u_q(\mathfrak{sl}_n)), \CC)$ at five parameter values ($\mathfrak{sl}_2$ at $\ell = 3, 4, 5, 7$ and $\mathfrak{sl}_3$ at $\ell = 3$), all matching the formula $2|\Phi^+| - 1 = \dim(\mathfrak{g}) - \operatorname{rank}(\mathfrak{g}) - 1$. This provides a new computational result for the positive Borel subalgebra and clarifies the role of Maschke's theorem in ruling out ``pairwise Cartan-type'' classes over $\CC$. We extract explicit cocycle representatives for the $A_1$ case and show, by direct basis-pair support analysis, that none of the three $\HH^2(u_q(\mathfrak{sl}_2), \CC)$ classes is supported on $K$-$K$ pairs as the original structural proposal predicted. We then identify the third (mixed $E$-$F$) class as the image of the connecting homomorphism $\delta: \tilde{H}^1_b(B^+) \to \HH^2(D(B^+))$ in the Mastnak--Witherspoon long exact sequence connecting bialgebra cohomology of the bosonization to Hochschild cohomology of the Drinfeld double. The LES decomposition $\dim \HH^2(D(B^+)) = \dim \operatorname{im} \bar\iota + \dim \operatorname{im} \delta$ is verified numerically at $A_1$ ($2 + 1 = 3$), reducing the conjecture to the computation of $\tilde{H}^1_b(B^+)$ at small odd $\ell$ — the regime where the Mastnak--Witherspoon Theorem 6.1.4 hypothesis on prime divisors of $|\Gamma|$ fails.
 \end{abstract}
 
 \section{Introduction}
@@ -138,7 +138,7 @@ $E_8$ & 8 & 120 & 36 & 240 & 276 & Conjecture \\
 
 \subsection{Organisation}
 
-Section~\ref{sec:prelim} establishes notation and recalls the structure of the small quantum group, its Drinfeld double decomposition, and the relevant spectral sequence. Section~\ref{sec:cartan} analyses the proposed origin of the Cartan-type classes from the crossed product structure (an explicit cocycle construction is given only in the $A_1$ case verified in Section~\ref{sec:numerical}). Section~\ref{sec:spectral} proves the collapse of the Drinfeld double spectral sequence at $E_2$ in total degree 2, but notes that this does not by itself determine $\dim \HH^2$ without knowing the $E_2$ page. Section~\ref{sec:lth} discusses the survival of the $\ell$-th power classes. Section~\ref{sec:independence} discusses linear independence of the predicted $A_2$ classes, conditional on the (now-unverified) structural picture. Section~\ref{sec:numerical} presents the direct bar-complex verifications: $u_q(\mathfrak{sl}_2)$ at $\ell = 3, 5$ (confirming the conjecture) and $B^+(u_q(\mathfrak{sl}_3))$ at $\ell = 3$ (giving $\dim = 5$, contradicting the structural prediction). Section~\ref{sec:general} restates the general conjecture. Section~\ref{sec:connections} places our results in the context of related cohomology theories and physics.
+Section~\ref{sec:prelim} establishes notation and recalls the structure of the small quantum group, its Drinfeld double decomposition, and the relevant spectral sequence. Section~\ref{sec:cartan} analyses the proposed origin of the Cartan-type classes from the crossed product structure (an explicit cocycle construction is given only in the $A_1$ case verified in Section~\ref{sec:numerical}). Section~\ref{sec:spectral} proves the collapse of the Drinfeld double spectral sequence at $E_2$ in total degree 2, but notes that this does not by itself determine $\dim \HH^2$ without knowing the $E_2$ page. Section~\ref{sec:lth} discusses the survival of the $\ell$-th power classes. Section~\ref{sec:independence} discusses linear independence of the predicted $A_2$ classes, conditional on the (now-unverified) structural picture. Section~\ref{sec:numerical} presents the direct bar-complex verifications: $u_q(\mathfrak{sl}_2)$ at $\ell = 3, 5$ (confirming the conjecture) and $B^+(u_q(\mathfrak{sl}_3))$ at $\ell = 3$ (giving $\dim = 5$, contradicting the structural prediction); Section~\ref{sec:cocycles} within Section~\ref{sec:numerical} extracts explicit cocycle representatives at $A_1$ and shows that none of them is Cartan-type in the sense of Section~\ref{sec:cartandecomp}. Section~\ref{sec:general} restates the general conjecture. Section~\ref{sec:les} introduces the Mastnak--Witherspoon long exact sequence as the correct framework: the Cartan-type classes live in degree-1 bialgebra cohomology $\tilde{H}^1_b(B^+)$, and the connecting homomorphism $\delta$ maps them through the Drinfeld double cross-relations into the mixed-support classes observed in $\HH^2$. Section~\ref{sec:connections} places our results in the context of related cohomology theories and physics.
 
 \section{Preliminaries}
 \label{sec:prelim}
@@ -455,7 +455,25 @@ The algebra $u_q(\mathfrak{sl}_2)$ decomposes by the adjoint $K$-weight (the ``E
 
 \subsection{Explicit cocycle extraction}
 \label{sec:cocycles}
-The bar complex code also extracts explicit orthonormal representatives of the three $\HH^2$ classes at $\ell = 3$ (weight $0$), via SVD of the projected kernel. All three representatives satisfy $\|d^2(\xi)\| < 10^{-13}$ (genuinely cocyclic) and $\|\xi - \operatorname{proj}_{\operatorname{im} d^1}(\xi)\| = 1$ (not coboundaries). The representatives are classified by their support: one is supported primarily on pairs involving $E^2$ (the $[E^3]$ class), one on pairs involving $F^2$ (the $[F^3]$ class), and the third is a mixed $E$-$F$ class that does \emph{not} have the ``Cartan-type'' support on $K$-pairs predicted in Section~\ref{sec:cartandecomp}. This suggests that the structural decomposition of Section~\ref{sec:cartandecomp} is incomplete: while the dimension count $\binom{n+1}{2} + 2|\Phi^+| = 3$ is correct for $A_1$, the third class is not simply a ``Cartan-type'' class from the $K^\ell = 1$ relation, but rather a more subtle cocycle involving both $E$ and $F$ directions. A complete structural identification of the third class is left as an open problem.
+The bar complex code also extracts explicit orthonormal representatives of the three $\HH^2$ classes at $\ell = 3$ (weight $0$), via SVD of the projected kernel. All three representatives satisfy $\|d^2(\xi)\| < 10^{-13}$ (genuinely cocyclic) and $\|\xi - \operatorname{proj}_{\operatorname{im} d^1}(\xi)\| = 1$ (not coboundaries). The representatives are classified by their support: one is supported primarily on pairs involving $E^2$ (the $[E^3]$ class), one on pairs involving $F^2$ (the $[F^3]$ class), and the third is a mixed $E$-$F$ class that does \emph{not} have the ``Cartan-type'' support on $K$-pairs predicted in Section~\ref{sec:cartandecomp}.
+
+A systematic analysis of basis-pair support (computed by \texttt{scripts/analyze\_cocycles.py}) confirms the picture quantitatively. Classifying pairs of basis elements $K^a E^b F^c \otimes K^{a'} E^{b'} F^{c'}$ by the categories $K$/$E$/$F$/$EF$ on each side, all three $\HH^2$ cocycles have \emph{zero} $K$-$K$ support (to numerical precision $< 10^{-12}$). The $L^1$-mass distribution is:
+
+\begin{center}
+\begin{tabular}{lcccccc}
+\toprule
+cocycle & $K$-$K$ & $E$-$E$ & $E$-$F$ & $F$-$F$ & mixed & total \\
+\midrule
+$\xi_1$ & 0.000 & 0.432 & 0.015 & 0.184 & 0.370 & 1.000 \\
+$\xi_2$ & 0.000 & 0.032 & 0.185 & 0.003 & 0.780 & 1.000 \\
+$\xi_3$ & 0.000 & 0.192 & 0.006 & 0.453 & 0.349 & 1.000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Furthermore, a direct search for any $K$-$K$-supported 2-cochain that survives in $\HH^2$ returns zero: there is exactly one $K$-$K$-supported 2-cocycle (the uniform one), and it lies entirely in $\operatorname{im} d^1$ (after projecting away from coboundaries, its norm is zero). We conclude that \emph{none of the three $\HH^2(u_q(\mathfrak{sl}_2), \CC)$ classes is Cartan-type in the sense of Section~\ref{sec:cartandecomp}}.
+
+The structural decomposition of Section~\ref{sec:cartandecomp} is therefore incomplete: while the dimension count $\binom{n+1}{2} + 2|\Phi^+| = 3$ is correct for $A_1$, the third class is not simply a ``Cartan-type'' class from the $K^\ell = 1$ relation, but rather a more subtle cocycle involving both $E$ and $F$ directions. Section~\ref{sec:les} identifies this mixed class as the image of the connecting homomorphism $\delta: \tilde{H}^1_b(B^+) \to \HH^2(D(B^+))$ in the Mastnak--Witherspoon long exact sequence (3.3.1); the cross-relations $[E, F] = (K - K^{-1})/(q - q^{-1})$ in the Drinfeld double are precisely what produce the mixed support.
 
 \subsection{Comparison with the literature}
 
@@ -518,6 +536,71 @@ The factor of 3 reflects the three equal contributions: Cartan-type, positive $\
 Each class in $\HH^2$ corresponds to a first-order deformation of $u_q(\mathfrak{g})$ as an algebra. The Cartan-type classes deform the $K_i^\ell = 1$ relations and the cross relations. The $\ell$-th power classes deform the truncation relations $E_\alpha^\ell = 0$ and $F_\alpha^\ell = 0$. Understanding which of these deformations extend to higher order (i.e.\ whether the corresponding obstructions in $\HH^3$ vanish) is an important open problem.
 \end{remark}
 
+\section{The Mastnak--Witherspoon long exact sequence}
+\label{sec:les}
+
+The cocycle support analysis of Section~\ref{sec:cocycles} shows that none of the three $\HH^2(u_q(\mathfrak{sl}_2), \CC)$ classes has the ``Cartan-type'' $K$-$K$ support predicted by Section~\ref{sec:cartandecomp}. This is not a defect of the conjecture, but rather an indication that the Cartan-type classes do not live in $\HH^2$ itself: they live in the \emph{bialgebra cohomology} of the bosonization, and are mapped into $\HH^2$ via the connecting homomorphism of a long exact sequence.
+
+\subsection{The long exact sequence}
+
+Let $B = B^+$ be the positive Borel subalgebra of $u_q(\mathfrak{g})$. Mastnak and Witherspoon~\cite{MW08} (building on Gerstenhaber--Schack) construct a long exact sequence connecting the bialgebra cohomology $\tilde{H}^\bullet_b(B)$ of $B$ to the Hochschild cohomology of $B$, its dual $B^*$, and the Drinfeld double $D(B) \cong u_q(\mathfrak{g})$:
+\begin{equation}
+\label{eq:mwles}
+\cdots \to \HH^i(D(B), \CC) \xrightarrow{\bar\iota} \HH^i(B, \CC) \oplus \HH^i(B^*, \CC) \xrightarrow{\bar\pi} \tilde{H}^i_b(B) \xrightarrow{\delta} \HH^{i+1}(D(B), \CC) \to \cdots
+\end{equation}
+Here $\bar\iota$ is induced by the projections $D(B) \to B$ and $D(B) \to B^*$, and $\delta$ is the connecting homomorphism. The map $\bar\iota$ is computed explicitly in~\cite[\S 3.4]{MW08}, and Theorem~4.2.3 of~\cite{MW08} gives a sufficient condition for $\delta$ to be surjective in degree two.
+
+\subsection{Verification at $A_1$}
+
+For $u_q(\mathfrak{sl}_2)$ at $\ell = 3$, we have verified:
+\begin{itemize}
+\item $\dim \HH^1(D(B^+), \CC) = 0$ (verified by direct rank computation on the weight-zero block of the bar complex; this is also a consequence of the vanishing lemma for $\HH^1(B^\pm)$ in Section~\ref{sec:spectral}).
+\item $\dim \HH^1(B^+, \CC) = 0$ and $\dim \HH^1(B^-, \CC) = 0$ (verified directly).
+\item $\dim \HH^2(D(B^+), \CC) = 3$ (Theorem~\ref{thm:sl2}).
+\item $\dim \HH^2(B^+, \CC) = 1$ and $\dim \HH^2(B^-, \CC) = 1$ (the latter by the $\mathfrak{sl}_2$ self-duality $B^+ \cong (B^-)^*$).
+\end{itemize}
+
+The restriction map $\bar\iota: \HH^2(D(B^+)) \to \HH^2(B^+) \oplus \HH^2(B^-)$ is computed explicitly by \texttt{scripts/test\_restriction\_map.py}. Each of the three $\HH^2(D(B^+))$ cocycles restricts to a cocycle on $B^+$ and on $B^-$ (with $\|d^2(\mathrm{restr})\| / \|\mathrm{restr}\| < 10^{-13}$ in both cases), and after projecting away from $\operatorname{im} d^1$ on each side, the rank of the projected restriction matrix is:
+\[
+\dim \operatorname{im} \bar\iota = 2, \qquad \dim \ker \bar\iota = 3 - 2 = 1.
+\]
+By exactness of~\eqref{eq:mwles} in degree $2$, $\dim \operatorname{im} \delta = \dim \ker \bar\iota = 1$.
+
+\subsection{Interpretation}
+
+The Mastnak--Witherspoon LES~\eqref{eq:mwles} decomposes the count $\dim \HH^2(D(B^+)) = 3$ as
+\[
+\underbrace{2}_{\dim \operatorname{im} \bar\iota} + \underbrace{1}_{\dim \operatorname{im} \delta},
+\]
+where:
+\begin{itemize}
+\item The two classes in $\operatorname{im} \bar\iota$ are the $\ell$-th power classes $[E^\ell]$ (surviving in $\HH^2(B^+)$) and $[F^\ell]$ (surviving in $\HH^2(B^-)$). These are the ``direct'' classes in the sense of Section~\ref{sec:lth}, and their survival is consistent with the rigidity of Nichols algebras of diagonal type proved by Angiono--Kochetov--Mastnak~\cite{AKM15}.
+\item The single class in $\operatorname{im} \delta$ is the mixed $E$-$F$ class identified in Section~\ref{sec:cocycles}. It is the image of a nontrivial bialgebra $1$-cocycle on $B^+$ under the connecting homomorphism. The cross-relations $[E, F] = (K - K^{-1})/(q - q^{-1})$ in $D(B^+)$ are what produce the mixed support: $\delta$ is built from the cross-relations, which couple $K$, $E$, and $F$.
+\end{itemize}
+
+This resolves the apparent anomaly of Section~\ref{sec:cocycles}: the ``Cartan-type'' classes of Section~\ref{sec:cartandecomp} do not live in $\HH^2(D(B^+))$ as $K$-$K$-supported cocycles. They live in $\tilde{H}^1_b(B^+)$, and the connecting homomorphism $\delta$ maps them through the cross-relations into mixed-support classes in $\HH^2(D(B^+))$.
+
+\subsection{Path to the general conjecture}
+
+The LES~\eqref{eq:mwles} reduces Conjecture~\ref{conj:general} to two sub-problems:
+\begin{enumerate}
+\item \textbf{The $\ell$-th power classes (the $2|\Phi^+|$ term).} These survive in $\HH^2(B^+) \oplus \HH^2(B^-)$ by the rigidity theorem of Angiono--Kochetov--Mastnak~\cite{AKM15} for Nichols algebras of diagonal type. The contribution to $\dim \HH^2(D(B^+))$ is $\dim \operatorname{im} \bar\iota = 2|\Phi^+|$.
+\item \textbf{The Cartan-type classes (the $\binom{n+1}{2}$ term).} These come from $\dim \operatorname{im} \delta = \dim \tilde{H}^1_b(B^+) - \dim \operatorname{im}(\HH^1(B^+) \oplus \HH^1(B^-) \to \tilde{H}^1_b(B^+))$. Since $\HH^1(B^\pm) = 0$ (verified at $A_1$, expected in general), this reduces to $\dim \tilde{H}^1_b(B^+)$.
+\end{enumerate}
+
+The conjecture therefore predicts $\dim \tilde{H}^1_b(B^+(u_q(\mathfrak{g}))) = \binom{n+1}{2}$ at odd roots of unity. Mastnak--Witherspoon Theorem~6.1.4~\cite{MW08} computes $\tilde{H}^2_b(B^+)$ under the hypothesis that $|\Gamma|$ is not divisible by primes less than $11$, which excludes $\ell = 3, 5, 7$. The conjecture's home territory is exactly this small-$\ell$ regime, and an extension of~\cite[Theorem 6.1.4]{MW08} to small odd $\ell$ is the key remaining technical input needed.
+
+\subsection{What is verified and what is not}
+
+\begin{itemize}
+\item \textbf{Verified at $A_1$, $\ell = 3$}: $\dim \operatorname{im} \bar\iota = 2$ and $\dim \operatorname{im} \delta = 1$, by the restriction map computation above.
+\item \textbf{Verified at $A_1$, $\ell = 5, 7$}: $\dim \HH^2(B^+) = 1$ at all three $\ell$ values (Section~\ref{sec:sl3_bplus}); the LES decomposition is expected to hold by the same argument but the restriction map computation has only been carried out at $\ell = 3$.
+\item \textbf{Open at $A_2$}: $\dim \tilde{H}^1_b(B^+_{\mathfrak{sl}_3})$ at $\ell = 3$ has not been computed. The conjecture predicts it equals $\binom{3}{2} = 3$, which would give $\dim \HH^2(u_q(\mathfrak{sl}_3)) = 6 + 3 = 9$ via the LES. A direct verification would require either an explicit bialgebra-cochain computation on $B^+_{\mathfrak{sl}_3}$, or a structural extension of~\cite[Theorem 6.1.4]{MW08} to $\ell = 3$.
+\item \textbf{Open at $B_2, G_2$}: only structural considerations.
+\end{itemize}
+
+The $A_1$ case is therefore a theorem-in-waiting, conditional only on an explicit construction of the bialgebra $1$-cocycle on $B^+$ whose $\delta$-image is the mixed $E$-$F$ class. The general conjecture is reduced to computing $\tilde{H}^1_b(B^+)$ at small odd $\ell$ — a well-defined problem in the framework of Mastnak--Witherspoon~\cite{MW08} and Negron--Pevtsova~\cite{NP20}, but one whose solution at $\ell = 3, 5$ is not presently in the literature.
+
 \section{Connections and outlook}
 \label{sec:connections}
 \subsection{Relation to Gerstenhaber--Schack cohomology}
@@ -546,7 +629,7 @@ The logarithmic entropy correction $-3/2$ for BTZ black holes is a well-known re
 \label{sec:code}
 \addcontentsline{toc}{section}{Code and Data Availability}
 
-The direct bar-complex verification of Theorem~\ref{thm:sl2} ($\dim\HH^2(u_q(\mathfrak{sl}_2), \CC) = 3$ at $\ell = 3$ and $\ell = 5$) is implemented in the open-source scripts \texttt{scripts/verify\_sl2\_hh2.py} and \texttt{scripts/verify\_sl2\_hh2\_fast.py}, available at \url{https://github.com/pkhairkh/hopf-decoherence}. The $\ell = 5$ computation uses a weight-space decomposition (Section~\ref{sec:weightspace}) to make the $125^3$-dimensional problem tractable. The repository includes a test suite of 67 passing unit tests, of which 5 (\texttt{tests/test\_sl2\_hh2\_bar\_complex.py}) directly exercise the $\ell = 3$ bar-complex verification. The remaining 62 tests cover an auxiliary computational framework for the BCGP non-semisimple TQFT and BTZ programme referenced speculatively in Section~\ref{sec:connections}; this auxiliary code is not required for the paper's main theorem.
+The direct bar-complex verification of Theorem~\ref{thm:sl2} ($\dim\HH^2(u_q(\mathfrak{sl}_2), \CC) = 3$ at $\ell = 3$ and $\ell = 5$) is implemented in the open-source scripts \texttt{scripts/verify\_sl2\_hh2.py} and \texttt{scripts/verify\_sl2\_hh2\_fast.py}, available at \url{https://github.com/pkhairkh/hopf-decoherence}. The $\ell = 5$ computation uses a weight-space decomposition (Section~\ref{sec:weightspace}) to make the $125^3$-dimensional problem tractable. The cocycle support analysis of Section~\ref{sec:cocycles} is implemented in \texttt{scripts/analyze\_cocycles.py}, and the Mastnak--Witherspoon LES verification of Section~\ref{sec:les} is implemented in \texttt{scripts/test\_restriction\_map.py}. The repository includes a test suite of 69 passing unit tests, of which 5 (\texttt{tests/test\_sl2\_hh2\_bar\_complex.py}) directly exercise the $\ell = 3$ bar-complex verification and 2 (\texttt{tests/test\_les\_restriction.py}) exercise the LES restriction map. The remaining 62 tests cover an auxiliary computational framework for the BCGP non-semisimple TQFT and BTZ programme referenced speculatively in Section~\ref{sec:connections}; this auxiliary code is not required for the paper's main theorem.
 
 \begin{thebibliography}{10}
 
@@ -567,6 +650,24 @@ D.~\v{S}tefan, \emph{Hochschild cohomology on Hopf Galois extensions}, J.\ Pure 
 
 \bibitem{Neg}
 C.~Negron, \emph{Spectral sequences for the cohomology rings of a smash product}, J.\ Algebra \textbf{433} (2015), 73--106.
+
+\bibitem{Neg15}
+C.~Negron, \emph{Braided Hochschild cohomology and Hopf actions}, J.\ Pure Appl.\ Algebra \textbf{223} (2019), 1--47. arXiv:1511.07059.
+
+\bibitem{NP20}
+C.~Negron and J.~Pevtsova, \emph{Support for integrable Hopf algebras via noncommutative hypersurfaces}, J.\ reine angew.\ Math.\ \textbf{2023} (2023). arXiv:2005.02965.
+
+\bibitem{MPSW10}
+M.~Mastnak, J.~Pevtsova, P.~Schauenburg, and S.~Witherspoon, \emph{Cohomology of finite dimensional pointed Hopf algebras}, J.\ Algebra \textbf{323} (2010), 2755--2783. arXiv:0902.0801.
+
+\bibitem{AKM15}
+I.~Angiono, M.~Kochetov, and M.~Mastnak, \emph{On rigidity of Nichols algebras}, J.\ Algebra \textbf{456} (2016), 77--100. arXiv:1412.2147.
+
+\bibitem{GIS21}
+A.~Garc\'ia Iglesias and J.~I.~S\'anchez, \emph{On the computation of Hopf 2-cocycles, with an example of diagonal type}, J.\ Algebra \textbf{614} (2023), 495--522. arXiv:2108.11432.
+
+\bibitem{AJN25}
+N.~Andruskiewitsch, D.~Jaklitsch, V.~C.~Nguyen, A.~Oswald, J.~Plavnik, A.~V.~Shepler, and X.~Wang, \emph{On the finite generation of the cohomology of bosonizations}, 2025 preprint. arXiv:2506.05267.
 
 \bibitem{BCGP}
 C.~Blanchet, F.~Costantino, N.~Geer, and B.~Patureau-Mirand, \emph{Non-semisimple TQFTs, Reidemeister torsion and Kashaev's invariants}, Adv.\ Math.\ \textbf{301} (2016), 1--78.

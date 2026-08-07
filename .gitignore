@@ -36,3 +36,10 @@ env/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# LaTeX build artifacts
+paper/main.pdf
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.toc
