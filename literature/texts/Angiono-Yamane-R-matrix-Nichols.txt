@@ -1,0 +1,2456 @@
+arXiv:1304.5752v2 [math.QA] 26 May 2014
+
+THE R-MATRIX OF QUANTUM DOUBLES OF NICHOLS
+ALGEBRAS OF DIAGONAL TYPE
+IVÁN ANGIONO AND HIROYUKI YAMANE
+Abstract. Let H be the quantum double of a Nichols algebra of diagonal type. We compute the R-matrix of 3-uples of modules for general
+finite-dimensional highest weight modules over H.
+We calculate also a multiplicative formula for the universal R-matrix
+when H is finite dimensional.
+
+1. Introduction
+A remarkable property of quantum groups, introduced by Drinfeld and
+Jimbo in the eighties, is the existence of an R- matrix for their categories
+of modules. This R-matrix is related with the existence of solutions of the
+Yang-Baxter equation. An explicit formula for the universal R-matrix of
+quantum groups was obtained in the nineties [KR, LS, Ro1], and extended
+to quantized enveloping superalgebras [KhT, Y] of finite-dimensional Lie
+superalgebras.
+We can deduce the existence of this R-matrix for quantized enveloping (super)algebras because they can be obtained as quotients of quantum doubles
+of bosonizations of the positive part by group algebras, and these quantum
+doubles are quasi-triangular.
+A natural generalization of the positive part of these quantized enveloping (super)algebras are the Nichols algebras of diagonal type [AS]. They
+admit a root system and a Weyl groupoid [HY1, HS] controlling the structure of these algebras. Moreover, the classification of these Nichols algebras
+with finite root system includes (properly) the positive part of quantized
+enveloping algebras of finite dimensional contragradient Lie superalgebras
+and simple Lie algebras. It is natural then to ask for a formula of the Rmatrix in this general context. We answer this question for the subfamily
+of finite-dimensional representations with a highest weight in a general context, and obtain an explicit formula for the universal R-matrix when the
+Nichols algebra is finite-dimensional.
+Although Nichols algebras appeared as an important tool for the classification of finite dimensional pointed Hopf algebras [AS], they have become
+very attractive for another fields of mathematics. In particular they are
+2010 Mathematics Subject Classification. 16T05.
+The work of I. A. was partially supported by CONICET, FONCyT-ANPCyT, Secyt
+(UNC)..
+1
+
+2
+
+ANGIONO, YAMANE
+
+related with conformal field theories. Indeed they give place to logarithmic examples [ST1, ST2, ST3]. Starting from non-semisimple (logarithmic)
+CFT and the screening operators, we can obtain a braided Hopf algebra
+which is a Nichols algebra [ST1]. Then it becomes interesting how to make
+a reverse construction in order to obtain new examples of vertex operators
+algebras and the corresponding conformal field theories. This was the motivation to their study in Mathematical Physics [ST2]: these authors start
+the translation of some elements from the Nichols algebra context to the
+corresponding ones needed to describe the attached vertex operator algebra. They study the category of Yetter-Drinfeld modules over the Nichols
+algebra into a braided category, which is exactly the category of representations of the quantum double of the bosonization of this Nichols algebra by
+the group algebra of a finite abelian group. They complete the computation
+for a particular example [ST3], describing the projective modules, and they
+give the R-matrix following the present work. The R-matrix encodes the
+M -matrix for the dual algebra of the corresponding quantum double, which
+is responsible of the monodromy on the CFT language [FGST].
+The organization of the paper is as follows. In Section 2 we recall definitions and results needed for our work. They are related with quantum
+doubles and properties of Nichols algebras of diagonal type. We stress the
+importance of the Weyl groupoid and the generalized version of root systems. In Section 3 we work over arbitrary Nichols algebras of diagonal type
+and compute the R-matrix of 3-uples of finite-dimensional modules, generalizing the results in [T]. We restrict our attention to highest weight modules,
+which give maybe the most important subfamily of representations. Finally
+in Section 4 we compute the universal R-matrix for quantum doubles of
+finite-dimensional Nichols algebras. The formula involves the multiplication
+of quantum exponentials of root vector powers, generalizing the classical
+ones for quantum groups.
+Notation. We denote by N the set of natural numbers, and by N0 the set
+of non-negative integers.
+Let k be an algebraically closed field of characteristic zero. All the vector
+spaces, algebras and tensor products are over k. We shall use the usual
+notation for q-combinatorial numbers: for each q ∈ k× , n ∈ N, 0 ≤ k ≤ n,
+(n)q = 1 + q + . . . + q n−1 ,
+ 
+(n)q !
+n
+.
+=
+(k)q !(n − k)q !
+k q
+
+(n)q ! = (1)q (2)q · · · (n)q ,
+
+Let A be an associative algebra. Given an element a ∈ A such that
+aN = 0, we define the q-exponential, for each q which is not a root of unity,
+or it is a root of unity of order ≥ N :
+(1.1)
+
+expq (a) =
+
+N
+−1
+X
+i=0
+
+ai
+.
+(i)q !
+
+R-MATRIX OF QUANTUM DOUBLES OF NICHOLS ALGEBRAS
+
+3
+
+Let θ ∈ N. {αi }1≤i≤θ will denote the canonical Z-basis of Zθ . Given an
+Z-linear automorphism s : Zθ → Zθ and a bicharacter χ : Zθ × Zθ → k× ,
+s∗ χ will denote the bicharacter
+
+(1.2)
+(s∗ χ)(α, β) := χ s−1 (α), s−1 (β) ,
+α, β ∈ Zθ .
+Given a Hopf algebra H with coproduct ∆, we will use the classical
+Sweedler notation ∆(h) = h1 ⊗ h2 , h ∈ H, and denote
+∆(2) := (∆ ⊗ id) ◦ ∆ = (id ⊗ ∆) ◦ ∆.
+P
+Given R = i ai ⊗ bi ∈ H ⊗ H, we set the following elements of H ⊗ H ⊗ H:
+X
+X
+X
+R(1,2) =
+ai ⊗ bi ⊗ 1, R(1,3) =
+ai ⊗ 1 ⊗ bi , R(2,3) =
+1 ⊗ a i ⊗ bi .
+i
+
+i
+
+i
+
+Recall that a (right) coideal subalgebra of H is a subalgebra A of H such
+that ∆(A) ⊆ H ⊗ A.
+2. Preliminaries
+We recall some definitions and results which will be useful in the rest of
+this work. They are mainly related with quantum doubles of Hopf algebras
+and Nichols algebras of diagonal type.
+2.1. Skew-Hopf pairings and R-matrices. Let A, B be two Hopf algebras. A skew Hopf pairing between A and B (see [J, Section 3.2.1], [KS,
+Section 8.2]) is a linear map η : A ⊗ B → k such that
+η(xx′ , y) = η(x′ , y1 )(x, y2 ),
+
+η(x, 1) = ε(x),
+
+η(x, yy ′ ) = η(x1 , y)(x2 , y ′ ),
+
+η(1, y) = ε(y),
+
+η(S(x), y) = η(x, S
+
+−1
+
+(y)),
+
+for all x, x′ ∈ A, y, y ′ ∈ B. In such case, A ⊗ B admits a unique structure of
+Hopf algebra, denoted by D(A, B, η) and called the quantum double associated to η, such that the morphisms A → A ⊗ B, a 7→ a ⊗ 1, B → A ⊗ B,
+b 7→ 1 ⊗ b are Hopf algebra morphisms and
+(a ⊗ 1)(1 ⊗ b) = a ⊗ b,
+
+(1 ⊗ b)(a ⊗ 1) = η (a1 , S(b1 )) (a2 ⊗ b2 )η(a3 , b3 ).
+
+When A is finite-dimensional and η is not degenerate, B is identified with
+the Hopf algebra A∗ . D(A, B, η) = D(A) is the Drinfeld double of A, which
+admits an R-matrix:
+X
+(2.1)
+R :=
+(1 ⊗ bi ) ⊗ (ai ⊗ 1),
+i∈I
+
+where {ai }i∈I , {bi }i∈I are dual bases of A, B: η(ai , bj ) = δij .
+
+4
+
+ANGIONO, YAMANE
+
+2.2. Weyl groupoids and convex orders on finite root systems. We
+recall the definitions of Weyl groupoid and generalized root system following
+[CH]. Fix a set X =
+6 ∅ and a finite set I. Set also for each i ∈ I a map
+ri : X → X , and for each X ∈ X a generalized Cartan matrix AX = (aX
+ij )i,j∈I
+in the sense of [Ka].
+Definition 2.1. [CH, HY1] The quadruple C := C(I, X , (ri )i∈I , (AX )X∈C ) is
+ri (X)
+for all X ∈ X and
+a Cartan scheme if ri2 = id for all i ∈ I, and aX
+ij = aij
+X
+i, j ∈ I. For each i ∈ I and each X ∈ X set si as the Z-linear automorphism
+of ZI determined by
+(2.2)
+
+X
+sX
+i (αj ) = αj − aij αi ,
+
+j ∈ I.
+
+The Weyl groupoid of C is the groupoid W(C) whose set of objects is X and
+X
+whose morphisms are generated by sX
+i ; here we consider si as an element
+in Hom(X, ri (X)), i ∈ I, X ∈ X .
+Given a Cartan scheme C, and for each X ∈ X a set ∆X ⊂ ZI , we say
+that R := R(C, (∆X )X∈X ) is a root system of type C if
+X
+• for all X ∈ X , ∆X = (∆X ∩NI0 )∪−(∆X ∩NI0 ). We call ∆X
++ := ∆ ⊂
+X
+I
+X
+N0 the set of positive roots, and ∆− := −∆+ the set of negative roots.
+• for all i ∈ I and all X ∈ X , ∆X ∩ Zαi = {±αi }.
+X
+ri (X) .
+• for all i ∈ I and all X ∈ X , sX
+i (∆ ) = ∆
+mX
+X
+ij (X) = (X) for all
+• set mX
+ij := |∆ ∩ (N0 αi + N0 αj )|; then (ri rj )
+i 6= j ∈ I and all X ∈ X .
+
+We assume that W(C) is a connected groupoid: Hom(Y, X) 6= ∅, for all
+X, Y ∈ X . For any X ∈ X , let Hom(W, X) := ∪Y ∈X Hom(Y, X), and
+∆X re := {w(αi ) : i ∈ I, w ∈ Hom(W, X)}, the set of real roots of X.
+Clearly, ∆X re ⊆ ∆X , and w(∆X ) = ∆Y for any w ∈ Hom(Y, X). We say
+that R is finite if ∆X is finite for some X ∈ X .
+Xm
+1 X2
+Note that each w ∈ Hom(W, X1 ) is a product sX
+i1 si2 · · · sim , where
+Xj = rij−1 · · · ri1 (X1 ), i ≥ 2; we fix the notation w = idX1 si1 · · · sim to
+mean that w ∈ Hom(W, X1 ), because the elements Xj ∈ X are determined
+by the previous condition. The length of w is
+ℓ(w) = min{n ∈ N0 : ∃i1 , . . . , in ∈ I such that w = idX si1 · · · sin }.
+Proposition 2.2. [CH, Prop. 2.12] Let w = idX si1 · · · sim , ℓ(w) = m. The
+roots βj = si1 · · · sij−1 (αij ) ∈ ∆X are positive and pairwise different.
+Moreover, if R is finite and w is an element of maximal length, then
+
+{βj } = ∆X
++ , so all the roots are real.
+For the last part of this subsection, assume that R is finite.
+Definition 2.3. [A2] Given a root system R and a fixed total order < on
+X
+∆X
++ , we say that it is convex if for each α, β ∈ ∆+ such that α < β and
+X
+α + β ∈ ∆+ , then α < α + β < β. It is said strongly convex if for each
+
+R-MATRIX OF QUANTUM DOUBLES OF NICHOLS ALGEBRAS
+
+ordered subset α1 ≤ . . . ≤ αk of elements of ∆X
++ such that α :=
+it holds that α1 < α < αk .
+
+P
+
+5
+
+αi ∈ ∆X
++,
+
+Theorem 2.4. [A2] Given an order on ∆X
++ , the following are equivalent:
+(1) the order is convex,
+(2) the order is strongly convex,
+(3) the order is associated with a reduced expression of the longest element.
+
+2.3. Weyl groupoid of a Nichols algebra of diagonal type. For each
+bicharacter χ : Zθ × Zθ → k× , set qij (χ) = χ(αi , αj ). Given 1 ≤ i ≤ θ, we
+say that χ is i-finite if for all 1 ≤ j 6= i ≤ θ there exists m ∈ N0 such that
+(m + 1)qii (1 − qii2 qij qji ) = 0. In such case, define
+aχii = 2,
+
+aχij = − min{m ∈ N0 |(m + 1)qii (1 − qii2 qji qij ) = 0},
+
+and set sχi as the Z-linear automorphism of Zθ given by (2.2). If χ is i-finite
+for all i, Aχ = (aχij )1≤i,j≤θ is the generalized Cartan matrix associated to χ.
+Let X be the set of all the bicharacters of Zθ . We define ri : X → X
+by ri (χ) = (sχi )∗ χ if χ is i-finite, or ri (χ) = χ otherwise. Such ri ’s are
+involutions and G(χ) will denote the orbit of χ by the action of the group
+of bijections generated by the ri ’s.
+
+Note that C(χ) = C {1, . . . , θ}, G(χ), (ri )1≤i≤θ , (C υ )υ∈G(χ) is a connected
+Cartan scheme, see [HY1, HY2]. Therefore the associated Weyl groupoid
+W(χ) is called the Weyl groupoid of χ.
+There exists a close relation between the root system and the set K(V )
+of graded coideal subalgebras, as it is stated in [HS]. We refer the reader
+to this reference for the definitions of the coideal subalgebra B(w) and the
+Duflo order.
+Theorem 2.5. [HS] For each w ∈ Hom(W, V ) there exists a unique right
+coideal subalgebra B(w) ∈ K(V ) such that its Hilbert series is
+(2.3)
+
+HB(w) =
+
+Y
+
+qNβ (X β ).
+
+β∈ΛV
++ (w)
+
+Moreover, the correspondence w 7→ B(w) gives an order preserving and
+order reflecting bijection between Hom(W, V ) and K(V ), where we consider
+the Duflo order over Hom(W, V ) and the inclusion order over K(V ); i.e.
+w1 ≤D w2 if and only if B(w1 ) ⊂ B(w2 ).
+
+2.4. Lusztig Isomorphisms of Nichols algebras. Set χ, (qij ) as in Subsection 2.3. U (χ) will denote the algebra presented by generators Ei , Fi ,
+
+6
+
+ANGIONO, YAMANE
+
+Ki , Ki−1 , Li , L−1
+i , 1 ≤ i ≤ θ, and relations
+X, Y ∈{Ki±1 , L±1
+i : 1 ≤ i ≤ θ},
+
+XY = Y X,
+Ki Ki−1 = Li L−1
+i = 1,
+
+Ei Fj − Fj Ei = δi,j (Ki − Li )
+
+Ki Ej Ki−1 = qij Ej ,
+Li Fj Li−1 = qji Fj ,
+
+−1
+Li Ej L−1
+i = qji Ej ,
+−1
+Ki Fj Ki−1 = qij
+Fj .
+
+U +0 (χ) (respectively, U −0 (χ)) will denote the subalgebra generated by Ki ,
+0
+Ki−1 (respectively, Li , L−1
+i ), 1 ≤ i ≤ θ, and U (χ) will denote the subalgebra
++
+−
+generated by Ki , Ki−1 , Li and L−1
+i . Also, U (χ) (respectively, U (χ)) will
+denote the subalgebra generated by Ei (respectively, Fi ), 1 ≤ i ≤ θ.
+U (χ) is a Zθ -graded Hopf algebra, with graduation determined by the
+following conditions:
+deg(Ki ) = deg(Li ) = 0,
+
+deg(Ei ) = αi ,
+
+deg(Fi ) = −αi .
+
+U (χ) admits a Hopf algebra structure, with comultiplication determined by
+∆(Ki ) = Ki ⊗ Ki ,
+
+∆(Ei ) = Ei ⊗ 1 + Ki ⊗ Ei ,
+
+∆(Li ) = Li ⊗ Li ,
+
+∆(Fi ) = Fi ⊗ Li + 1 ⊗ Fi ,
+
+and then ε(Ki ) = ε(Li ) = 1, ε(Ei ) = ε(Fi ) = 0.
+Note that U 0 (χ) is isomorphic to kZ2θ as Hopf algebras, and the subalgebra U ≥0 (χ) (respectively, U ≤0 (χ)) generated by U + (χ), Ki±1 , 1 ≤ i ≤
+θ
+θ, (respectively, U − (χ), L±1
+i ) is isomorphic to T (V )#kZ (respectively,
+T (V ∗ )#kZθ ). U (χ) is the associated quantum double.
+Here, U + (χ) is isomorphic to T (V ) as braided graded Hopf algebras in the
+category of Yetter-Drinfeld modules over kZθ , with actions and coactions
+given by:
+Ki · Ej = qij Ej ,
+δ(Ei ) = Ki ⊗ Ei ,
+and similar equations for Fj , Li . ∆ will denote the braided comultiplication
+of U + (χ). As it is N0 -graded, we will consider ∆n−k,k (E), the component of
+∆(E) in U + (χ)n−k ⊗ U + (χ)k , for each E ∈ U + (χ) homogeneous of degree
+n, and k ∈ {0, 1, . . . , n}.
+By [H2, Prop. 4.14], the multiplication m : U + (χ) ⊗ U 0 (χ) ⊗ U − (χ) →
+U (χ) is an isomorphism of Zθ -graded vector spaces.
+We consider some isomorphisms involving U (χ) [H2, Section 4.1].
+(a) Let a = (a1 , . . . , aθ ) ∈ (k× )θ . There exists a unique algebra automorphism ϕa of U (χ) such that
+(2.4)
+
+ϕa (Ki ) = Ki ,
+
+ϕa (Li ) = Li ,
+
+ϕa (Ei ) = ai Ei ,
+
+ϕa (Fi ) = a−1
+i Fi .
+
+(b) There exists a unique algebra antiautomorphism Ω of U (χ) such that
+(2.5)
+
+Ω(Ki ) = Ki ,
+
+Ω(Li ) = Li ,
+
+It satisfies the relation Ω2 = id.
+
+Ω(Ei ) = Fi ,
+
+Ω(Fi ) = Ei .
+
+R-MATRIX OF QUANTUM DOUBLES OF NICHOLS ALGEBRAS
+
+7
+
+As in [HY2, H2], I + (χ) will denote the ideal of U + (χ) such that the
+quotient U + (χ)/I + (χ) is isomorphic to the Nichols algebra of V ; that is,
+the greatest braided Hopf ideal of U + (χ) generated by elements of degree
+≥ 2. Set I − (χ) = Ω(I + (χ)), where φ4 is the anti-automorphism of algebras
+determined by (2.5), and
+u± (χ) := U ± (χ)/I ± (χ),
+
+u(χ) := U (χ)/(I − (χ) + I + (χ)),
+
+and u≥0 (χ), u≤0 (χ) the corresponding images on the quotient. Note that
+u(χ) is the quantum double of u+ (χ)#kZθ . The following result follows by
+[H2, Lemma 6.5, Theorem 6.12].
+Proposition 2.6. [HY2, Proposition 3.5], [H2, Theorem 5.8] There exists
+a unique non-degenerate skew-Hopf pairing η : u+ (χ) ⊗ u− (χ) such that
+η(Ei , Fj ) = −δij ,
+
+(2.6) η(Ki , Lj ) = qij ,
+
+η(Ei , Lj ) = η(Ki , Fj ) = 0.
+
+for all 1 ≤ i, j ≤ θ. It satisfies the following condition: for all E ∈ u+ (χ),
+F ∈ u− (χ), K ∈ u+0 (χ), L ∈ u−0 (χ)
+(2.7)
+
+η(EK, F L) = η(E, F )η(K, L).
+Moreover, if β =
+6 γ ∈ Nθ , then η|u+ (χ) ⊗u− (χ) ∼
+= 0.
+0
+
+β
+
+
+
+−γ
+
+Assume that all the integers aυij are defined, υ ∈ G(χ), so the automorphisms sυp are defined. For simplicity, we denote E i , F i , K i , Li the generas∗ χ
+
+χ
+tors corresponding to U (s∗p χ), aij = aχij , qij = qij
+, q ij = qijp . We define also
+the scalars
+−api −1
+
+(2.8)
+
+λi (χ) := (−api )qpp
+
+Y
+
+s
+(qpp
+qpi qip − 1),
+
+i 6= p.
+
+s=0
+
+Fix p ∈ {1, . . . , θ}. If i 6= p we consider the elements [H2],
+−
++
+:= Ei ,
+, Ei,0(p)
+Ei,0(p)
+
+−
++
+:= Fi ,
+, Fi,0(p)
+Fi,0(p)
+
+and recursively,
++
++
++
+)Ep = (adc Ep )m+1 Ei ,
+− (Kp · Ei,m(p)
+:= Ep Ei,m(p)
+Ei,m+1(p)
+−
+−
+−
+)Ep ,
+− (Lp · Ei,m(p)
+:= Ep Ei,m(p)
+Ei,m+1(p)
++
++
++
+)Fp ,
+− (Lp · Fi,m(p)
+:= Fp Fi,m(p)
+Fi,m+1(p)
+−
+−
+−
+)Fp .
+− (Kp · Fi,m(p)
+:= Fp Fi,m(p)
+Fi,m+1(p)
+±
+±
+by Ei,m
+. By [H2, Corollary 5.4],
+If p is explicit, we simply denote Ei,m(p)
+
+(2.9)
+
++
++
++
+m−1
+Ei,m
+Fi − Fi Ei,m
+= (m)qpp (qpp
+qpi qip − 1)Lp Ei,m−1
+.
+
+Theorem 2.7. There exist algebra morphisms
+(2.10)
+
+Tp , Tp− : u(χ) → u(s∗p χ)
+
+8
+
+ANGIONO, YAMANE
+
+univocally determined by the following conditions:
+m
+
+Tp (Kp ) = Tp− (Kp ) = K −1
+p ,
+
+Tp (Ki ) = Tp− (Ki ) = K p pi K i ,
+
+Tp (Lp ) = Tp− (Lp ) = L−1
+p ,
+
+Tp (Li ) = Tp− (Li ) = Lp pi Li ,
+
+Tp (Ep ) = F p L−1
+p ,
+
+Tp (Ei ) = E +
+i,mpi ,
+
+Tp (Fp ) = K −1
+p Ep,
+
+Tp (Fi ) = λp (s∗p χ)−1 F +
+i,mpi ,
+
+Tp− (Ep ) = K −1
+p F p,
+
+Tp− (Ei ) = λp (s∗p χ−1 )−1 E −
+i,mpi ,
+
+Tp− (Fp ) = E p L−1
+p ,
+
+Tp− (Fi ) = F −
+i,mpi .
+
+m
+
+for every i 6= p. Moreover, Tp Tp− = Tp− Tp = id, and there exists µ ∈ (k× )θ
+such that
+Tp ◦ φ4 = φ4 ◦ Tp− ◦ ϕµ .
+
+(2.11)
+
+
+By [HY2, Proposition 4.2], we have for all α ∈ Zθ
+
+Tp u(χ)α = u(s∗p χ)sχp (α) .
+(2.12)
+
+3. R-matrix from a version of a universal R-matrix
+
+Most of the ideas we shall give in this section are modifications of [T,
+Section 4]. Let χ : Zθ × Zθ → k× be any bicharacter. We will compute
+an R-matrix for some modules of u(χ) from canonical elements of u(χ). If
+M = |∆χ+ | < ∞, the canonical elements can be obtained by Proposition 4.6.
+3.1. Equations for canonical elements. We recall [HY2, (3.18), (3.19)]:
+(3.1)
+
+Y X = η(X1 , S(Y1 ))η(X3 , Y3 )X2 Y2 ,
+
+(3.2)
+
+XY = η(X1 , Y1 )η(X3 , S(Y3 ))Y2 X2 ,
+
+X ∈ u≥0 (χ), Y ∈ u≤0 (χ).
+
+Define the k-linear homomorphism τ : u(χ) ⊗ u(χ) → u(χ) ⊗ u(χ) by
+τ (X ⊗ Y ) := Y ⊗ X.
+Given X ∈ u≥0 (χ), Y ∈ u≤0 (χ), we define the k-linear homomorphisms
+≤
+η̂X
+: u≤0 (χ) → k,
+
+≤
+η̂X
+(Y ) := η(X, Y ),
+
+Y ∈u≤0 (χ),
+
+≥
+η̂Y
+: u≥0 (χ) → k,
+
+≥
+η̂Y
+(X) := η(X, Y),
+
+X ∈u≥0 (χ).
+
+Lemma 3.1. Let 1 ≤ i ≤ θ and β ∈ Nθ0 . Set
+Nθ0 (β; i) := { γ ∈ Nθ0 − {0, αi }, | β − γ ∈ Nθ0 − {0, αi }}.
+(i) Let β ∈
+/ {0, αi , 2αi }, Y ∈ u− (χ)−β . Set Y ′ , Y ′′ ∈ u− (χ)−β+αi such that
+[Ei , Y ] = Ki Y ′ − Y ′′ Li . Then
+(3.3)
+
+∆(Y )−(Y ⊗ Lβ + 1 ⊗ Y + Fi ⊗ Y ′′ Lαi + Y ′ ⊗ Fi Lβ−αi )
+∈ ⊕γ∈Nθ (β;i) u− (χ)−γ ⊗ u− (χ)−β+γ Lγ .
+0
+
+R-MATRIX OF QUANTUM DOUBLES OF NICHOLS ALGEBRAS
+
+9
+
+In particular,
+≤
+)(∆(Y )) = −Y ′ .
+(id ⊗ η̂E
+i
+
+≤
+⊗ id)(∆(Y )) = −Y ′′ Li ,
+(η̂E
+i
+
+(3.4)
+
+(ii) Let β ∈
+/ {0, αi , 2αi }, X ∈ u+ (χ)β . Set X ′ , X ′′ ∈ u+ (χ)β−αi such that
+[X, Fi ] = X ′′ Ki − Li X ′ . Then
+∆(X)−(X ⊗ 1 + K β ⊗ X + X ′′ K αi ⊗ Ei + Ei K β−αi ⊗ X ′ )
+
+(3.5)
+
+∈ ⊕γ∈Nθ (β;i) u+ (χ)γ K β−γ ⊗ u+ (χ)β−γ .
+0
+
+In particular,
+(3.6)
+
+(id ⊗ η̂F≥i )(∆(X)) = −X ′′ Ki ,
+
+(η̂F≥i ⊗ id)(∆(X)) = −X ′ .
+
+Proof. We prove (i) ; (ii) can be proved analogously. Note that
+∆(2) (Ei ) = Ei ⊗ 1 ⊗ 1 + Ki ⊗ Ei ⊗ 1 + Ki ⊗ Ki ⊗ Ei .
+Define Ȳ ′ , Ȳ ′′ as the elements of u− (χ)−β+αi satisfying the same property
+as (3.3) with Ȳ ′ , Ȳ ′′ in place of Y ′ , Y ′′ . By (3.1), we have
+Y Ei =η(Ei , S(Fi ))η(1, Lβ )Ȳ ′′ Lαi + η(Ki , S(1))η(1, Lβ )Ei Y
++ η(Ki , S(1))η(Ei , Fi Lβ−αi )Ki Ȳ ′
+=η(Ei , −Fi L−αi )η(1, Lβ )Ȳ ′′ Lαi + η(Ki , 1)η(1, Lβ )Ei Y
++ η(Ki , 1)η(Ei , Fi Lβ−αi )Ki Ȳ ′
+=Ȳ ′′ Li + Ei Y − Ki Ȳ ′ ,
+so the proof is complete.
+
+
+(β)
+
+Fix β ∈ Nθ0 and mβ := dim u+ (χ)β = dim u− (χ)−β . Fix also {Ex },
+(β)
+
+{Fy } bases of the spaces u+ (χ)β , u− (χ)−β , which are dual for η. The ma(β)
+
+(β)
+
+(β)
+
+trix [η(Ex , Fy )]1≤x,y≤mβ is invertible, we call [bxy ]1≤x,y≤mβ to its inverse.
+Lemma 3.2. For all X ∈ u+ (χ)β , Y ∈ u− (χ)−β it holds:
+X
+(β)
+(β)
+(3.7)
+X=
+b(β)
+yx η(X, Fy )Ex
+x,y
+
+(3.8)
+
+X=
+
+X
+
+(β)
+(β)
+b(β)
+yx η(Ex , Y )Fy .
+
+x,y
+
+Proof. We prove (3.7); the proof of (3.8) is similar. We have
+!
+X
+X
+(β)
+(β)
+(β)
+(β)
+(β)
+(β)
+(β)
+=
+b(β)
+byx η(X, Fy )Ex , Fz
+η
+yx η(X, Fy )η(Ex , Fz )
+x,y
+
+x,y
+
+=
+
+X
+
+δyz η(X, Fy(β) ) = η(X, Fz(β) ),
+
+y
+
+for all 1 ≤ z ≤ m. (3.7) follows since η|u+ (χ)β ×u− (χ)−β is non-degenerate.
+
+
+
+10
+
+ANGIONO, YAMANE
+
+Let Cβ be the canonical element of u+ (χ)β ⊗ u− (χ)−β , i.e.
+Cβ =
+
+mβ
+X
+
+(β) (β)
+byx
+Ex ⊗ Fy(β) .
+
+x,y=1
+
+Lemma 3.3. Let 1 ≤ i ≤ θ. The following identities hold:
+(3.9)
+
+[1 ⊗ Ei , Cβ+αi ] = Cβ (Ei ⊗ Li ) − (Ei ⊗ Ki )Cβ ,
+
+(3.10)
+
+[Cβ+αi , Fi ⊗ 1] = (Li ⊗ Fi )Cβ − Cβ (Ki ⊗ Fi ).
+
+Proof. We prove (3.9). Let Y ∈ u− (χ)−β−αi . Let Y ′ , Y ′′ ∈ u− (χ)−β be such
+that [Ei , Y ] = Y ′ Ki − Li Y ′′ . Using (3.7), we have
+X
+i)
+b(β+α
+η(Ex(β+αi ) , Y )[Ei , Fy(−β−αi ) ]
+(η̂Y≥ ⊗ id)([1 ⊗ Ei , Cβ+αi ]) =
+yx
+"
+
+(3.11)
+
+x,y
+
+= Ei ,
+
+X
+
+i)
+b(β+α
+η(Ex(β+αi ) , Y )Fy(−β−αi )
+yx
+
+x,y
+
+#
+
+= [Ei , Y ].
+
+Now using (3.4), (3.7) and (3.11), we compute:
+(η̂Y≥ ⊗id)(Cβ (Ei ⊗ Li ) − (Ei ⊗ Ki )Cβ )
+X
+(β)
+(β)
+(β)
+(β)
+=
+b(β)
+yx (η(Ex Ei , Y )Fy Li − η(Ei Ex , Y )Ki Fy )
+x,y
+
+=
+
+X
+
+(β)
+(β)
+(β)
+(β)
+b(β)
+yx (η(Ei ⊗ Ex , ∆(Y ))Fy Li − η(Ex ⊗ Ei , ∆(Y ))Ki Fy )
+
+x,y
+
+=
+
+X
+
+(β)
+′′
+(β)
+(β)
+′
+(β)
+b(β)
+yx (−η(Ex , Y )Fy Li + η(Ex , Y )Ki Fy )
+
+x,y
+
+= −Y ′′ Li + Ki Y ′ = [Ei , Y ] = (η̂Y≥ ⊗ id)([1 ⊗ Ei , Cβ+αi ]).
+Since η|u+ (χ)β ×u− (χ)−β is non-degenerate, we have (3.9). Similarly we obtain
+(3.10).
+
+Lemma 3.4. Let Cβ′ := (K β ⊗ 1)(S ⊗ id)(Cβ ). For every α ∈ Nθ0 ,
+X
+X
+(3.12)
+Cβ Cγ′ = δα,0 =
+Cβ′ Cγ .
+β, γ∈Nθ
+0
+β+γ=α
+
+β, γ∈Nθ
+0
+β+γ=α
+
+Proof. If α = 0, (3.12) is clear. Assume α 6= 0. We show the first equation
+of (3.12). Since η|u+ (χ)α ×u− (χ)−α is non-degenerate, it suffices to show that
+X ≥
+(3.13)
+for all Y ∈ u− (χ)−α .
+(η̂Y ⊗ idu(χ) )(Cβ Cγ′ ) = 0,
+β, γ∈Nθ
+0
+β+γ=α
+
+R-MATRIX OF QUANTUM DOUBLES OF NICHOLS ALGEBRAS
+
+P
+
+11
+
+Y (β,γ) (1 ⊗ Lβ ), where Y (β,γ) ∈ u− (χ)−β ⊗ u− (χ)−γ .
+P
+(β,γ)
+(β,γ)′
+(β,γ)
+Further write Y (β,γ) = m Y−β,m ⊗ Y−γ,m , where Y−β,m ∈ u− (χ)−β and
+
+Write ∆(Y ) =
+
+β, γ∈Nθ
+0
+β+γ=α
+
+(β,γ)′
+
+Y−γ,m ∈ u− (χ)−γ . The left hand side of (3.13) is
+X X
+
+β, γ∈Nθ x,x′ ,
+0
+′
+β+γ=α y,y
+
+=
+
+X
+
+m,x,y,
+x′ ,y ′
+
+X
+
+X
+
+m,x,y,
+x′ ,y ′
+
+X
+
+X
+
+β, γ∈Nθ
+0
+β+γ=α
+
+=
+
+β, γ∈Nθ
+0
+β+γ=α
+
+=
+
+β, γ∈Nθ
+0
+β+γ=α
+
+=
+
+X
+
+β, γ∈Nθ
+0
+β+γ=α
+
+=
+
+X
+
+x,x′ ,
+β, γ∈Nθ
+0
+′
+β+γ=α y,y
+
+X
+
+(β,γ)
+
+(γ)
+
+(γ)
+
+(γ)
+
+(β,γ)
+
+(γ)
+
+γ
+(β)
+(β,γ)′ β
+(β)
+b(β)
+yx by ′ x′ η(Ex , Yγ,m L )η(S(Ex′ K ), Yβ,m )Fy Fy ′
+
+(γ)
+
+(γ)
+
+(β,γ)
+
+(γ)
+
+(γ)
+
+(β,γ)
+
+(γ)
+
+γ
+−1
+(β)
+(β,γ)′ β
+(Yβ,m ))Fy(β) Fy′
+b(β)
+yx by ′ x′ η(Ex , Yγ,m L )η(Ex′ K , S
+
+γ
+−1
+(β,γ)′ β
+(β)
+(Yβ,m ))Lγ
+b(β)
+yx by ′ x′ η(Ex , Yγ,m L )η(Ex′ K , S
+
+m,x,y,
+x′ ,y ′
+
+X
+(γ)
+(γ)
+(β,γ)
+γ
+γ
+(β,γ)′
+by′ x′ b(β)
+η(Ex(β) , Yγ,m
+)η(Ex′ , S −1 (Yβ,m ))Lγ
+yx η(K , L )(
+m
+
+X X
+
+β, γ∈Nθ
+0
+β+γ=α
+
+=
+
+(γ)
+
+(γ)
+
+γ
+(β)
+(β)
+(β,γ)′ β
+b(β)
+yx by ′ x′ η(Ex , Yγ,m L )η(K S(Ex′ ), Yβ,m )Fy Fy ′
+
+m,x,y,
+x′ ,y ′
+
+X X
+=
+
+(γ)
+
+(γ)
+
+(γ)
+
+(β)
+(β) γ
+b(β)
+yx by ′ x′ η(Ex K S(Ex′ ), Y )Fy Fy ′
+
+m
+
+X X
+
+β, γ∈Nθ
+0
+β+γ=α
+
+(β,γ)
+
+(β,γ)′ −1
+χ(γ, γ)Yγ,m
+S (Yβ,m )Lγ
+
+(β,γ)
+
+(β,γ)′ γ −1
+Yγ,m
+L S (Yβ,m ) = ε(Y ) = 0,
+
+m
+
+where we use (3.8) and the graduation of u(χ). The second equation of
+(3.12) is obtained in a similar way.
+
+Lemma 3.5. The following identities hold:
+
+(3.14)
+
+(id ⊗ ∆)(Cα ) =
+
+X
+
+(1,3) (1,2)
+Cγ (1 ⊗ 1 ⊗ Lγ ),
+
+Cβ
+
+β+γ=α
+
+(3.15)
+
+(∆ ⊗ id)(Cα ) =
+
+X
+
+β+γ=α
+
+(1,3) (2,3)
+Cγ (K γ ⊗ 1 ⊗ 1).
+
+Cβ
+
+12
+
+ANGIONO, YAMANE
+
+Proof. We show (3.14). Given X1 ∈ u+ (χ)γ and X2 ∈ u+ (χ)β , we compute
+X
+≤
+≤
+(−α)
+(id ⊗ η̂X
+⊗
+η̂
+)(id
+⊗
+∆)(C
+)
+=
+b(α)
+)Ex(α)
+α
+yx η(X2 X1 , Fy
+X
+1
+2
+= X2 X1 =
+
+X
+
+x,y
+
+(β)
+(γ)
+(β)
+(−γ)
+(β) (γ)
+by′′ x′′ by′ x′ η(X2 , Fy′′ )η(X1 , Fy′ )Ex′′ Ex′
+
+x′′ ,y ′′ ,x′ ,y ′
+(1,3) (1,2)
+Cγ ),
+
+≤
+≤
+)(Cβ
+⊗ η̂X
+= (id ⊗ η̂X
+2
+1
+
+where we use (3.7) twice. Since
+X
+(id ⊗ ∆)(Cα ) ∈
+u+ (χ)α ⊗ u+ (χ)γ ⊗ u+ (χ)β Lγ ,
+β+γ=α
+
+we prove that (3.14) holds. Similarly we obtain (3.15).
+
+
+
+3.2. R-matrix for finite dimensional u(χ)-modules. Fix V1 , V2 , V3
+three finite dimensional u(χ)-modules, with associated k-algebra homomorphisms ρx : u(χ) → Endk (Vx ), x ∈ {1, 2, 3}, such that there exist an element
+vx ∈ Vx and a k-algebra homomorphism Λx : u0 (χ) → k for each x ∈ {1, 2, 3}
+satisfying
+X · vx = Λx (X)vx for all X ∈ u0 (χ),
+Vx = u− (χ) · vx ,
+Ei · vx = 0 for all 1 ≤ i ≤ θ.
+P ′
+If F = z Fz ⊗Fz′′ ∈ Endk (Vx ⊗Vy ) ∼
+= Endk (Vx )⊗Endk (Vy ), 1 ≤ x < y ≤ 3,
+we set F (x,y) ∈ Endk (V1 ⊗ V2 ⊗ V3 ) ∼
+= Endk (V1 ) ⊗ Endk (V2 ) ⊗ Endk (V3 ) as
+X
+Fz′ ⊗ Fz′′ ⊗ idV3
+if x = 1, y = 2,
+F (x,y) =
+z
+
+F
+
+(x,y)
+
+F
+
+(x,y)
+
+=
+
+X
+
+Fz′ ⊗ idV2 ⊗ Fz′′
+
+z
+
+= idV1 ⊗
+
+X
+
+Fz′ ⊗ Fz′′
+
+if x = 1, y = 3,
+
+if x = 2, y = 3.
+
+z
+
+Now define fxy ∈ GLk (Vx ⊗ Vy ) by
+fxy (Xvx ⊗ Y vy ) := χ(β, α)Λx (K −β )Λy (Lα )Xvx ⊗ Y vy
+for α, β ∈ Nθ0 and X ∈ u− (χ)−α , Y ∈ u− (χ)−β . Set also
+X
+−1
+Cxy :=
+(ρx ⊗ ρy )(Cβ ),
+Rxy := Cxy fxy
+.
+β∈Nθ0
+
+Lemma 3.6. For each 1 ≤ i ≤ θ and X̌ ∈ Vx ⊗ Vy ,
+(3.16)
+
+fxy ((Ei ⊗ 1)X̌) = (Ei ⊗ L−1
+i )fxy (X̌),
+
+(3.17)
+
+fxy ((1 ⊗ Ei )X̌) = (Ki ⊗ Ei )fxy (X̌),
+
+(3.18)
+
+fxy ((Fi ⊗ 1)X̌) = (Fi ⊗ Li )fxy (X̌),
+
+(3.19)
+
+fxy ((1 ⊗ Fi )X̌) = (Ki−1 ⊗ Fi )fxy (X̌).
+
+R-MATRIX OF QUANTUM DOUBLES OF NICHOLS ALGEBRAS
+
+13
+
+Proof. We show (3.16). For each X ∈ u− (χ)−β , Y ∈ u− (χ)−γ ,
+fxy ((Ei ⊗ 1)Xvx ⊗ Y vy ) = fxy (Ei Xvx ⊗ Y vy )
+= χ(γ, β − αi )Λx (K −γ )Λy (Lβ−αi )Ei Xvx ⊗ Y vy
+= (Ei ⊗ L−1
+i )fxy (Xvx ⊗ Y vy ).
+Thus we have (3.16). Similarly we obtain (3.17), (3.18) and (3.19).
+
+
+
+Now we are ready to obtain the R-matrix for the modules Vx , 1 ≤ x ≤ 3.
+Theorem 3.7. (i) Cxy ∈ GLk (Vx ⊗ Vy ) and
+X
+−1
+=
+(3.20)
+Cxy
+(ρx ⊗ ρy )(K β ⊗ 1)(S ⊗ id)(Cβ ).
+β∈Nθ0
+
+(ii) For every X ∈ u(χ)
+−1
+Rxy (ρx ⊗ ρy )(∆(X))Rxy
+= (ρx ⊗ ρy )((τ ◦ ∆)(X)).
+
+(3.21)
+
+(iii) The following identities hold:
+X
+(1,3) (1,3)
+(2,3) (1,3)
+(3.22)
+(ρ1 ⊗ ρ2 ⊗ ρ3 )((∆ ⊗ idu(χ) )(Cβ )) = C13 (f13 )−1 C23 f13 ,
+β∈Nθ0
+
+(3.23)
+
+X
+
+(1,3)
+
+(1,3)
+
+(1,2) (1,3)
+
+(ρ1 ⊗ ρ2 ⊗ ρ3 )((idu(χ) ⊗ ∆)(Cβ )) = C13 (f13 )−1 C12 f13 .
+
+β∈Nθ0
+
+(iv) The elements Rxy satisfy:
+(1,2)
+
+(3.24)
+
+(1,3)
+
+(2,3)
+
+R12 R13 R23
+
+(2,3)
+
+(1,3)
+
+(1,2)
+
+= R23 R13 R12 .
+
+Proof. (i) This immediately follows from (3.12).
+(ii) As we have algebra maps on both sides of the identity, it is enough
+to prove it for the generators of u(χ), and it follows by using Lemmata 3.3,
+3.6. For example, for each X̌ ∈ Vx ⊗ Vy , by (3.16), (3.17), (3.9) we have
+−1
+−1
+(Rxy ∆(Ei ) − (τ ◦ ∆)(Ei )Rxy )X̌ = (Cxy fxy
+∆(Ei ) − (τ ◦ ∆)(Ei )Cxy fxy
+)X̌
+X
+−1
+−1
+=
+(Cβ fxy
+(Ei ⊗ 1 + Ki ⊗ Ei ) − (1 ⊗ Ei + Ei ⊗ Ki )Cβ fxy
+)X̌
+β∈Nθ0
+
+=
+
+X
+
+−1
+(Cβ (Ei ⊗ Li + 1 ⊗ Ei ) − (1 ⊗ Ei + Ei ⊗ Ki )Cβ )fxy
+X̌
+
+β∈Nθ0
+
+=
+
+X
+
+β∈Nθ0
+
+=−
+
+−1
+([1 ⊗ Ei , Cβ+αi ] − [1 ⊗ Ei , Cβ ])fxy
+X̌
+
+X
+
+β∈Nθ0 ,β−αi ∈N
+/ θ0
+
+−1
+[1 ⊗ Ei , Cβ ]fxy
+X̌ = 0.
+
+14
+
+ANGIONO, YAMANE
+
+(iii) It can be proved by using Lemmata 3.5, 3.6. In fact, we compute for
+each X̌ ∈ Vx ⊗ Vy :
+X
+(1,3) (1,3)
+(2,3) (1,3)
+(1,3)
+(1,3)
+C13 (f13 )−1 C23 f13 X̌ =
+Cα(1,3) (f13 )−1 (Cγ(2,3) f13 (X̌))
+α, γ∈Nθ0
+
+=
+
+X
+
+Cα(1,3) Cγ(2,3) (K γ ⊗ 1 ⊗ 1)X̌
+
+α, γ∈Nθ0
+
+=
+
+X
+
+(ρ1 ⊗ ρ2 ⊗ ρ3 )((∆ ⊗ idu(χ) )(Cβ ))X̌.
+
+β∈Nθ0
+
+(iv) In this case the proof follows by Lemma 3.3 and the previous claims:
+(1,2)
+
+(1,3)
+
+(2,3)
+
+(1,2) (1,3)
+
+(1,3)
+
+(2,3)
+
+(2,3)
+
+R12 R13 R23 = R12 C13 (f13 )−1 C23 (f23 )−1
+X (1,2)
+(1,3)
+(2,3)
+=
+R12 (ρ1 ⊗ ρ2 ⊗ ρ3 )((∆ ⊗ idu(χ) )(Cβ ))(f13 )−1 (f23 )−1
+β∈Nθ0
+
+=
+
+X
+
+(1,2)
+
+(1,3)
+
+(2,3)
+
+(ρ1 ⊗ ρ2 ⊗ ρ3 )((τ ◦ ∆) ⊗ idu(χ) )(Cβ )R12 (f13 )−1 (f23 )−1
+
+β∈Nθ0
+(2,3)
+
+(2,3)
+
+(1,3) (2,3)
+
+(2,3)
+
+(1,3) (1,3) (2,3)
+
+(2,3)
+
+(1,3)
+
+(1,2)
+
+(1,3)
+
+(2,3)
+
+= C23 (f23 )−1 C13 f23 R12 (f13 )−1 (f23 )−1
+(1,2)
+
+(1,3)
+
+(2,3)
+
+= R23 R13 f13 f23 R12 (f13 )−1 (f23 )−1
+(1,2)
+
+= R23 R13 R12 .
+
+4. R-matrices of quantum doubles of Nichols algebras with
+finite root systems
+For this section we fix χ such that M = |∆χ+ | < ∞. First we recall
+a series of results from [HY2, Section 4], which will be useful to compute
+explicitly the universal R-matrix. Then we relate them with the chains of
+coideal subalgebras of [HS], and compute the desired R-matrices of quantum
+doubles of Nichols algebras with finite root systems. Finally we show some
+applications of the previous results to relate different PBW bases.
+4.1. PBW bases and Lusztig automorphisms. Set an element w =
+1χ si1 si2 · · · siM of maximal length of W(χ). Denote
+(4.1)
+
+βk := si1 · · · sik−1 (αik ),
+
+1 ≤ k ≤ M,
+
+so βk 6= βl if k 6= l, and ∆χ+ = {βk |1 ≤ k ≤ M }. Set qk := χ(βk , βk ), and Nk
+the order of qk , which is possibly infinite. As in [HY2, Section 4], set
+Eβk = Ti1 · · · Tik−1 (Eik ) ∈ u(χ)+
+βk ,
+
+E βk = Ti−1 · · · Ti−k−1 (Eik ) ∈ u(χ)+
+βk ,
+
+Fβk = Ti1 · · · Tik−1 (Fik ) ∈ u(χ)−
+βk ,
+
+F βk = Ti−1 · · · Ti−k−1 (Fik ) ∈ u(χ)−
+βk ,
+
+for 1 ≤ k ≤ M .
+
+R-MATRIX OF QUANTUM DOUBLES OF NICHOLS ALGEBRAS
+
+15
+
+Theorem 4.1. [HY2, Theorems 4.5, 4.8, 4.9] The sets
+a
+
+M −1
+M
+{EβaM
+EβM
+· · · Eβa11 |0 ≤ ak < Nk , 1 ≤ k ≤ M },
+−1
+
+a
+
+a
+
+a
+
+−1
+{E βM
+· · · E β11 |0 ≤ ak < Nk , 1 ≤ k ≤ M },
+E βM
+M
+M −1
+
+are bases of the vector space u+ (χ), and the sets
+a
+
+M −1
+M
+· · · Fβa11 |0 ≤ ak < Nk , 1 ≤ k ≤ M },
+{FβaM
+FβM
+−1
+
+a
+
+a
+
+a
+
+−1
+F βM
+· · · F β11 |0 ≤ ak < Nk , 1 ≤ k ≤ M },
+{F βM
+M
+M −1
+
+are bases of the vector space u− (χ). Moreover, for each pair 1 ≤ k < l ≤ M ,
+X
+ak+1
+al−1
+Eβk Eβl − χ(βk , βl )Eβl Eβk =
+cak+1 ,...,al−1 Eβk+1
+· · · Eβl−1
+∈ u+ (χ),
+X
+al−1
+ak+1
+∈ u+ (χ),
+· · · Eβl−1
+E βk E βl − χ−1 (βk , βl )E βl E βk =
+cak+1 ,...,al−1 Eβk+1
+X
+al−1
+ak+1
+∈ u− (χ),
+· · · Fβl−1
+Fβk Fβl − χ(βk , βl )Fβl Fβk =
+dak+1 ,...,al−1 Fβk+1
+X
+al−1
+ak+1
+∈ u+ (χ),
+· · · Fβl−1
+F βk F βl − χ−1 (βk , βl )F βl F βk =
+dak+1 ,...,al−1 Fβk+1
+for some cak+1 ,...,al−1 , cak+1 ,...,al−1 , dak+1 ,...,al−1 , dak+1 ,...,al−1 ∈ k.
+
+
+
+Note that Eβk Eβl − χ(βk , βl )Eβl Eβk = [Eβk , Eβl ]c .
+Now we want to describe the coproduct of the elements of these PBW
+generators. First we introduce the following subspaces of u(χ):
+a
+
+l−1
+l
+· · · Eβa11 |0 ≤ ak < Nk }i ⊆ u+ (χ),
+:= h{Eβall Eβl−1
+B+
+
+a
+
+M −1
+l
+M
+· · · Eβa11 |∃j > l s.t. aj 6= 0}i ⊆ u+ (χ),
+EβM
+C+
+:= h{EβaM
+−1
+
+a
+
+M −1
+l
+M
+D+
+:= h{EβaM
+EβM
+· · · Eβa11 |∃j < l s.t. aj 6= 0}i ⊆ u+ (χ),
+−1
+
+a
+
+l−1
+l
+· · · Fβa11 |0 ≤ ak < Nk }i ⊆ u− (χ),
+B−
+:= h{Fβall Fβl−1
+
+a
+
+M −1
+l
+M
+FβM
+· · · Fβa11 |∃j > l s.t. aj 6= 0}i ⊆ u− (χ),
+:= h{FβaM
+C−
+−1
+
+a
+
+M −1
+l
+M
+· · · Fβa11 |∃j < l s.t. aj 6= 0}i ⊆ u− (χ),
+:= h{FβaM
+FβM
+D−
+−1
+
+1 ≤ l ≤ M ; hSi denotes the subspace spanned by a subset S of u(χ).
+l (respectively, B l ) is a right (respectively, left) coideal
+Proposition 4.2. B+
+−
++
+subalgebra of u (χ) (respectively, u− (χ)).
+
+Proof. For each 1 ≤ l ≤ M , set wl = 1χ si1 siM −1 · · · sil , and the corresponding right coideal subalgebra B(wl ) of u+ (χ) (for the braided coproduct ∆)
+as in Theorem 2.5; then its Hilbert series is
+HB(wl ) =
+
+l
+Y
+
+qNl (X βl ).
+
+j=1
+
+By the definition of B(wl ) in [HS] (which involves the Tj ’s) it follows that
+l ⊆ B(w ), because B(w ) is a
+Eβj ∈ B(wl ) for each 1 ≤ j ≤ k. Therefore B+
+l
+l
+
+16
+
+ANGIONO, YAMANE
+
+subalgebra. But both N0θ -graded vector subspaces of u+ (χ) have the same
+l = B(w ) is a right coideal subalgebra.
+Hilbert series by Theorem 4.1, so B+
+l
+l is analogous because u− (χ) ≃ B(V ∗ )cop .
+The statement about B−
+
+Corollary 4.3. For each 1 ≤ l ≤ M ,
+l
+l−1
+⊗ C+
+,
+∆(Eβl ) ∈ Eβl ⊗ 1 + 1 ⊗ Eβl + B+
+l
+l−1
+∆(Fβl ) ∈ Fβl ⊗ 1 + 1 ⊗ Fβl + C+
+.
+⊗ B−
+
+Proof. By the previous Proposition and the fact that u+ (χ) is a graded
+connected Hopf algebra,
+X a
+l−1
+· · · Eβa11 ⊗ Xa1 ,...,al−1 ,
+Eβl−1
+∆(Eβl ) = Eβl ⊗ 1 + 1 ⊗ Eβl +
+
+for some Xa1 ,...,al−1 ∈ u+ (χ). Now express these elements in terms of the
+PBW basis:
+X a ,...,a b
+bM −1
+1
+b1
+l−1
+M
+Xa1 ,...,al−1 =
+cbm
+,...,b1 EβM EβM −1 · · · Eβ1 .
+
+P
+al−1 ,...,a1
++ (χ) is Nθ -graded, β =
+Suppose that cbm
+=
+6
+0.
+As
+u
+l
+0
+bi 6=0 bi βi +
+,...,b
+1
+P
+aj 6=0 aj βj . As j runs between 1 and l − 1, Theorem 2.4 implies that there
+exists i > l such that bi 6= 0.
+The proof for Fβl is analogous.
+
+More generally, we can describe the coproduct of each PBW generator.
+In this case we can only describe the left hand side of the tensor product.
+Proposition 4.4. For each 1 ≤ l ≤ M , 1 ≤ al < Nl ,
+al  
+X
+al
+al−1
+al al−1
+a1
+· · · Eβa11
+E p ⊗ Eβall −p Eβl−1
+∆(Eβl Eβl−1 · · · Eβ1 ) ∈
+p ql βl
+p=0
+
+l
+l
+∩ B+
+) ⊗ u+ (χ),
++ Eβall · · · Eβa11 ⊗ 1 + (D+
+al  
+X
+al
+al−1
+al al−1
+a1
+∆(Fβl Fβl−1 · · · Fβ1 ) ∈
+Fβall −p Fβl−1
+· · · Fβa11 ⊗ Fβpl
+p
+ql
+p=0
+l
+l
+∩ B−
+),
++ 1 ⊗ Fβall · · · Fβa11 + u− (χ) ⊗ (D−
+
+Proof. We prove the statement for the Eβk ’s by induction on l; the proof
+for the Fβk ’s is analogous. The case l = 1 is trivial, because Eβ1 = Ei1 is
+primitive, so
+a1  
+X
+a1
+a1
+∆(Eβ1 ) =
+Eβp1 ⊗ Eβa11 −p .
+p q1
+p=0
+Assume that it holds for k < l. Now we use induction on al . If al = 1,
+a
+
+a
+
+l−1
+l−1
+· · · Eβa11 ) = ∆(Eβl )∆(Eβl−1
+· · · Eβa11 ).
+∆(Eβl Eβl−1
+
+R-MATRIX OF QUANTUM DOUBLES OF NICHOLS ALGEBRAS
+
+17
+
+Therefore we use inductive hypothesis, Corollary 4.3 and the fact that Bl−1
+is a subalgebra to conclude the proof. The inductive step on al is completely analogous, and close to the proof of results involving the coproduct
+of hyperletters in [Kh].
+
+4.2. Explicit computation of the universal R-matrix. We will obtain
+now an explicit formula for the universal R- matrix when the Nichols algebra
+is finite-dimensional. By (2.1) it is enough to compute bases of u≥0 (χ) and
+u≤0 (χ), which are dual for η. Such bases will be those of Theorem 4.1.
+The proof is similar to the one of [A2, Proposition 4.2], see also [Ro2].
+Remark 4.5. Set for each α = (a1 , . . . , aθ ) ∈ Zθ
+K α := K1a1 · · · Kθaθ ∈ u+0 (χ),
+
+Lα := La11 · · · Laθ θ ∈ u−0 (χ).
+
+For each Zθ -homogeneous element E ∈ u(χ) let |E| ∈ Zθ be its degree.
+Therefore,
+(4.2)
+
+∆(E) = E(1) K |E(2) | ⊗ E(2) ,
+
+for each homogeneous E ∈ u+ (χ), where ∆(E) = E(1) ⊗ E(2) is the Sweedler
+notation for the braided comultiplication. Analogously, for each homogeneous F ∈ u− (χ),
+(4.3)
+
+∆(F ) = F(1) ⊗ F(2) L|F(1) | .
+
+Proposition 4.6. Let 0 ≤ ai , bi ≤ Ni , for each 1 ≤ i ≤ M . Then
+(4.4)
+
+M
+ Y
+
+bM bM −1
+aM aM −1
+b1
+a1
+δai ,bi (ai )qi !ηiai ,
+η EβM EβM −1 · · · Eβ1 , FβM FβM −1 · · · Fβ1 =
+i=1
+
+where ηi := η(Eβi , Fβi ) is not zero for all i.
+
+P
+P
+Proof. We will prove (4.4) by induction on
+ai ,
+bi ; therefore
+ηi 6= 0
+P
+for
+ai = 0. If
+P all i because η is a non-degenerate pairing. It is clear if
+ai = 1, then the PBW generator is just Eβj for some j. For this case we
+
+
+bM −1
+b1
+M
+·
+·
+·
+F
+FβM
+apply decreasing induction on j. Note that η Eβj , FβbM
+β1 = 0
+−1
+P
+P
+when βj 6= l bl βl , by Proposition 2.6. If βj = l bl βl and βj is a simple
+root, the unique possibility is bj = 1 and bl = 0 for l 6= j. If βj is not a
+simple root, then either bj = 1 and bl = 0 for l 6= j, or there exists k > j
+such that bk > 0 because the order is strongly convex. In the last case,
+
+
+
+
+bk−1
+|(E ) |
+· · · Fβb11 = η (Eβj )(1) K βj (2) , Fβk
+η Eβj , Fβbkk Fβk−1
+
+
+bk−1
+· · · Fβb11 = 0,
+η (Eβj )(2) , Fβbkk −1 Fβk−1
+
+
+|(E ) |
+because η (Eβj )(1) K βj (2) , Fβk = 0 by Corollary 4.3 and the inductive
+hypothesis.
+
+18
+
+ANGIONO, YAMANE
+
+P P
+Assume that
+ai , bi > 0 and we have proved the formula for sums
+smaller than these two. Set k = max{i : ai 6= 0}, l = max{j : bj 6= 0}, and
+suppose that k ≤ l (otherwise the proof is analogous). By Proposition 4.4,
+
+
+bl−1
+ak−1
+· · · Fβb11
+· · · Eβa11 , Fβbll Fβl−1
+η Eβakk Eβk−1
+
+
+a
+a
+a
+|(Eβ k Eβ k−1 ···Eβ 1 )(2) |
+ak ak−1
+a1
+1
+k
+k−1
+, Fβl
+=η (Eβk Eβk−1 · · · Eβ1 )(1) K
+
+
+aM −1
+bl −1 bl−1
+ak
+b1
+)
+,
+F
+F
+·
+·
+·
+F
+η (Eβa11 EβM
+·
+·
+·
+E
+βk (2)
+βl
+βl−1
+β1
+−1
+
+
+b
+a
+l−1
+k−1
+· · · Fβb11 ,
+· · · Eβa11 , Fβbll −1 Fβl−1
+=(bl )ql ηl δl,k η Eβakk −1 Eβk−1
+so the proof follows by inductive hypothesis.
+
+
+
+Now we obtain a formula for the scalars ηi . The algebras u≥0 (χ), u≤0 (χ)
+are canonically N0 -graded; we denote by d(X), d(Y ) the degree of the homogeneous elements X ∈ u≥0 (χ), Y ∈ u≤0 (χ). In fact, if X ∈ u≥0 (χ)β ,
+P
+P
+Y ∈ u≤0 (χ)−β , β = θi=1 ni αi ∈ Nθ0 , then d(X) = d(Y ) = θi=1 ni .
+Lemma 4.7. ηk = (−1)d(Eβk ) for all 1 ≤ k ≤ M .
+Proof. By induction on k, it is easy to prove that
+(4.5)
+
+Eβk Fβk − Fβk Eβk = K βk − Lβk .
+
+On the other hand, by (3.2) we have that
+(4.6)
+
+Eβk Fβk = η ((Eβk )1 , (Fβk )1 ) η ((Eβk )3 , S((Fβk )3 )) (Fβk )2 (Eβk )2 .
+
+Using (4.2) and the fact that u≥0 (χ) is Nθ0 -graded, we deduce that the unique
+term in ∆(2) (Eβk ) where appears K βk in the middle is K βk ⊗ K βk ⊗ Eβk . If
+we want to compute the coefficient of in (4.6), it is enough to look at the
+term 1⊗1⊗Fβk in ∆(2) (Fβk ), because the components of different degree are
+orthogonal for η. Using the antipode axiom and that u≤0 (χ) is graded, we
+have that S(Fβk ) is written as (−1)d(Fβk ) Fβk L−βk plus terms of lower degree.
+Then the coefficient of K βk in the right hand side of (4.6) is (−1)d(Fβk ) ηk ,
+using again the orthogonality of the components of different degree.
+
+We recall a generalization of Proposition 2.6. The main objective is to
+consider bosonizations of Nichols algebras by abelian groups, not only free
+abelian groups, and their quantum doubles. Similar generalizations can be
+found in [ARS, RaS], and also in [B] for finite groups.
+Set a bicharacter χ : Zθ × Zθ → k× , and two abelian groups Γ, Λ. Assume
+b such that γj (gi ) = qij , and elements
+that there exists elements gi ∈ Γ, γj ∈ Γ
+b such that λj (hi ) = qji . Assume that there exists a bicharacter
+hi ∈ Λ, λj ∈ Λ
+µ : Γ×Λ → k× , such that µ(gi , hj ) = qij . Note that this happens for example
+when Γ = Λ = Zθ , as in [H2, Section 4].
+
+R-MATRIX OF QUANTUM DOUBLES OF NICHOLS ALGEBRAS
+
+19
+
+Set V ∈kΓ
+kΓ YD as the vector space with a fixed basis E1 , . . . , Eθ such that
+Ei ∈ Vgγii , W ∈kΛ
+kΛ YD to the vector space with a fixed basis F1 , . . . , Fθ such
+λi
+that Fi ∈ Vhi . Let B = B(V )#kΓ and B ′ = (B(W )#kΛ)cop .
+Theorem 4.8. There exists a unique skew-Hopf pairing η : B ⊗ B ′ → k such
+that for all 1 ≤ i, j ≤ θ and all g ∈ Γ, h ∈ Λ,
+η(Ei , Fj ) = −δij ,
+
+(4.7) η(g, h) = µ(g, h),
+
+It satisfies the following condition:
+h ∈ B′,
+(4.8)
+
+η(Ei , h) = η(g, Fj ) = 0.
+
+for all E ∈ u+ (χ), F
+
+∈ u− (χ), g ∈ B,
+
+η(Eg, F h) = η(E, F )µ(g, h).
+
+The restriction of η to B(V ) ⊗ B(W ) coincides with the one of the pairing
+in Proposition 2.6.
+
+b Γ a finite group, µ the evaluation bicharacWe work with the case Λ = Γ,
+ter, and hi = γi , λi = gi under the canonical identification of the characters
+b with Γ. In this case η is non-degenerate. Call u(χ) to the Hopf algebra
+of Γ
+corresponding to this skew-Hopf pairing, following Subsection 2.1, and denote B = u≥0 (χ), B ′ = u≤0 (χ) by analogy with the previousP
+sections. Two
+dual bases for η|kΓ⊗kΓb are {g}g∈Γ , {δg }g∈Γ , where δg = |Γ|−1 γ∈Γb γ(g−1 ) γ.
+Therefore it has an R-matrix of the form:
+X
+1 X
+γ(g −1 ) γ ⊗ g.
+δg ⊗ g =
+(4.9)
+R1 :=
+|Γ|
+g∈Γ
+
+e
+g∈Γ,γ∈Γ
+
+Theorem 4.9. The universal R-matrix of u(χ) is given by the formula
+Y
+
+
+expqj (−1)d(Fβk ) Fβj ⊗ Eβj R1 ,
+(4.10)
+R=
+where the product is written in decreasing order.
+
+Proof. By Proposition 4.6 and Theorem 4.8, the sets
+M
+{EβaM
+· · · Eβa11 g : 0 ≤ ai < Ni , g ∈ Γ},
+
+
+!−1
+M
+ Y
+
+M
+(ai )qi !ηiai
+FβbM
+· · · Fβb11 δg : 0 ≤ bi < Ni , g ∈ Γ
+
+
+
+i=1
+
+are bases of u≥0 (χ), u≤0 (χ), respectively, which are dual for η. As in Subsection 2.1, a formula for the R-matrix is given by:
+!−1
+M
+Y
+X X
+M
+M
+(ai )qi !ηiai
+R=
+FβbM
+· · · Fβb11 δg ⊗ EβaM
+· · · Eβa11 g
+g∈Γ 0≤ai <Ni
+
+i=1
+
+Nj −1
+
+ηji
+
+
+
+=
+
+Y
+
+
+
+
+X
+i=0
+
+which ends the proof.
+
+(i)qj !
+
+ 
+
+Fβi j ⊗ Eβi j  
+
+X
+g∈Γ
+
+
+
+δg ⊗ g ,
+
+
+
+20
+
+ANGIONO, YAMANE
+
+4.3. Further computations on convex PBW bases. We can refine the
+coproduct expression of each Eβ . In consequence we can obtain a family of
+left coideal subalgebras, induced by products of the same PBW generators.
+For each 1 ≤ l ≤ M , let
+a
+
+M −1
+M
+· · · Eβall |0 ≤ ak < Nk }i ⊆ u+ (χ),
+Bl+ := h{EβaM
+EβM
+−1
+
+a
+
+M −1
+M
+Bl− := h{FβaM
+FβM
+· · · Fβall |0 ≤ ak < Nk }i ⊆ u− (χ).
+−1
+
+Lemma 4.10. For each 1 ≤ l ≤ M ,
+l−1
+⊗ Bl−1
+∆(Eβl ) ∈ Eβl ⊗ 1 + 1 ⊗ Eβl + B+
++ ,
+l−1
+∆(Fβl ) ∈ Fβl ⊗ 1 + 1 ⊗ Fβl + Bl−1
+− ⊗ B− .
+
+Proof. Write both sides of ∆(Eβl ) as linear combinations of the elements of
+the PBW basis, and take a term
+a
+
+b
+
+l−1
+−1
+Eβl−1
+· · · Eβa11 ⊗ EβbM
+EβM
+· · · Eβbkk
+M
+M −1
+
+appearing with non-zero coefficient c, where k is such that bk 6= 0. Using
+the orthogonality of the elements of the PBW basis,
+a
+
+l−1
+· · · Eβa11 K
+0 6= c η(Eβl−1
+
+b
+
+b
+
+b
+
+|EβM EβM −1 ···Eβk |
+M
+
+M −1
+
+k
+
+a
+
+l−1
+· · · Fβa11 )
+, Fβl−1
+
+b
+
+b
+
+M −1
+−1
+M
+FβM
+· · · Fβbkk )
+EβM
+· · · Eβbkk , FβbM
+η(EβbM
+−1
+M
+M −1
+
+a
+
+b
+
+M −1
+l−1
+M
+· · · Fβbkk ).
+FβM
+· · · Fβa11 FβbM
+= η(Eβl , Fβl−1
+−1
+
+Suppose that k < l. Using last part of Theorem 4.1 repeatedly we see that
+a
+
+b
+
+l
+M −1
+l−1
+M
+,
+· · · Fβbkk ∈ D−
+FβM
+· · · Fβa11 FβbM
+z := Fβl−1
+−1
+
+so η(Eβl , z) = 0, a contradiction. Then k ≥ l, and we end the proof.
+
+
+
+Proposition 4.11. Bl+ (respectively, Bl− ) is a left (respectively, right)
+coideal subalgebra of u+ (χ) (respectively, u− (χ)).
+Proof. It is a consequence of Lemma 4.10 and last part of Theorem 4.1. 
+For the last part of this section we prove a result generalizing [Ro2, Theorem 22]. It establishes the uniqueness (up to scalars) of a PBW basis
+determining a filtration of coideal subalgebras, and it is useful to compare
+PBW bases coming from Lusztig isomorphisms as in the previous results,
+and PBW bases from combinatorics as [Kh]. Note that the first kind of
+PBW bases gives right and left coideal subalgebras, while some examples of
+the second family give left coideal subalgebras, see [A2, Section 3.3].
+Theorem 4.12. Let (Eβ )β∈∆χ+ be non-zero elements of u+ (χ), such that
+Eβ ∈ u+ (χ)β , and there exists an order βM > . . . > β1 on the roots such that,
+· · · Eaβkk , 0 ≤ aj < Nβk , determine
+for each 1 ≤ k ≤ M , the elements EaβM
+M
+a basis of a subspace Yk , which is a left coideal subalgebra of u+ (χ). Then
+the order on the roots is convex.
+
+R-MATRIX OF QUANTUM DOUBLES OF NICHOLS ALGEBRAS
+
+21
+
+Moreover, if (Eβ )β∈∆χ+ denote PBW generators for the corresponding expression of the element of maximal length of W, then there exists non-zero
+scalars cβ such that Eβ = cβ Eβ .
+Proof. The convexity on the order follows from the fact that the chain of
+coideal subalgebras YM ( · · · ( Y1 = B(V ) coincides with BM
++ ( ··· (
+B1+ = B(V ). The proof of this fact is exactly as in [A2, Theorem 3.16].
+That is, Yk = Bk+ for all 1 ≤ k ≤ M ..
+P
+M
+For the second statement, write Eβk =
+c(a1 , · · · , aM ) EβaM
+· · · Eβa11 . If
+P
+c(a1 , · · · , aM ) 6= 0, then βk = j aj βj , so ak = 1, aj = 0 for all j 6= k, or
+there exists j < k such that aj 6= 0. The second case is not possible because
+Eβk ∈ Yk = Bk+ . Therefore, Eβk = cβk Eβk for some cβk ∈ k× .
+
+Example 4.13. Let (qij )1≤i,j≤2 be a matrix whose generalized Dynkin diζ2
+
+◦−1 , ζ a root of unity of order 5, and χ the associated
+agram is ◦ζ
+2
+bicharacter on Z . The element of maximal length on its Weyl groupoid has
+a reduced expression w0 = idχ s1 s2 s1 s2 s1 s2 s1 s2 . Then
+α1 < 3α1 + α2 < 2α1 + α2 < 5α1 + 3α2
+< 3α1 + 2α2 < 4α1 + 3α2 < α1 + α2 < α2
+is the corresponding order on the roots. We obtain a PBW basis with
+generators Eβ , β ∈ ∆χ+ , using the Lusztig isomorphisms. Let Γ be a finite
+b such that γj (gi ) = qij , so B(V ) can be
+abelian group, g1 , g2 ∈ Γ, γ1 , γ2 ∈ Γ
+viewed as a braided Hopf algebra on the category of Yetter-Drinfeld modules
+of kΓ. We define R1 as in (4.9). By Theorem 4.9,
+!
+4
+X
+−1
+F1 ⊗ E1 (1 ⊗ 1 − F3α1 +α2 ⊗ E3α1 +α2 )
+R=
+(k)ζ !
+k=0
+!
+9
+X
+−1
+F2α1 +α2 ⊗ E2α1 +α2 (1 ⊗ 1 + F5α1 +3α2 ⊗ E5α1 +3α2 )
+(k)−ζ 3 !
+k=0
+!
+4
+X
+−1
+F3α1 +2α2 ⊗ E3α1 +2α2 (1 ⊗ 1 − F4α1 +3α2 ⊗ E4α1 +3α2 )
+(k)ζ !
+k=0
+!
+9
+X
+−1
+Fα +α ⊗ Eα1 +α2 (1 ⊗ 1 − F2 ⊗ E2 ) R1 .
+(k)−ζ 3 ! 1 2
+k=0
+
+We can obtain also a PBW basis of hyperletters Eβ = [ℓβ ]c , β ∈ ∆χ+ , associated to Lyndon words ℓβ as in [Kh]. We compute easily the corresponding
+Lyndon words using [A2, Corollary 3.17]:
+ℓα1 = x1 ,
+
+ℓ3α1 +α2 = x31 x2 ,
+
+ℓ4α1 +3α2 = x21 x2 x1 x2 x2 x1 x2 ,
+
+ℓα2 = x2 ,
+
+ℓ2α1 +α2 = x21 x2 ,
+
+ℓ5α1 +3α2 = x21 x2 x21 x2 x1 x2 ,
+
+ℓα1 +α2 = x1 x2 ,
+
+ℓ3α1 +2α2 = x21 x2 x1 x2 .
+
+22
+
+ANGIONO, YAMANE
+
+We compute using the Shirshov decomposition, see [A2, Kh] and the references there in,
+Eα1 = x1 ,
+
+E3α1 +α2 = (adc x1 )3 x2 ,
+
+Eα2 = x2 ,
+
+E3α1 +2α2 = [E2α1 +α2 , Eα1 +α2 ]c ,
+
+Eα1 +α2 = (adc x1 )x2 ,
+2
+
+E2α1 +α2 = (adc x1 ) x2 ,
+
+E4α1 +3α2 = [E3α1 +2α2 , Eα1 +α2 ]c ,
+E5α1 +3α2 = [E2α1 +α2 , E3α1 +2α2 ]c .
+
+By the previous theorem, there exists cβ ∈ k× such that Eβ = cβ Eβ . It can
+be computed as the inverse of the coefficient of ℓβ in Eβ , because ℓβ appears
+with coefficient 1 in Eβ .
+References
+[ARS]
+
+N. Andruskiewitsch, D. Radford, H.-J. Schneider, Complete reducibility theorems
+for modules over pointed Hopf algebras. J. Algebra 324 2932–2970 (2010).
+[AS]
+N. Andruskiewitsch and H.-J. Schneider, Pointed Hopf algebras. “New directions
+in Hopf algebras”, MSRI series Cambridge Univ. Press; 1–68 (2002).
+[A1]
+I. Angiono, On Nichols algebras with standard braiding. Algebra and Number
+Theory 3 (2009), 35-106.
+[A2]
+I. Angiono, A presentation by generators and relations of Nichols algebras of
+diagonal type and convex orders on root systems. J. Europ. Math. Soc., to appear.
+[B]
+M. Beattie, Duals of pointed Hopf algebras. J. Algebra 262 (2003), 54–76.
+[CH]
+M. Cuntz, I. Heckenberger, Finite Weyl groupoids of rank three. Trans. Amer.
+Math. Soc. 364 (2012), 1369–1393.
+[FGST] B. Feigin, A. Gainutdinov, A. Semikhatov, I. Tipunin, Logarithmic extensions of
+minimal models: characters and modular transformations. Nuclear Phys. B 757
+(2006), no. 3, 303–343.
+[H1]
+I. Heckenberger, Classification of arithmetic root systems. Adv. Math. 220
+(2009), 59-124.
+[H2]
+I. Heckenberger, Lusztig isomorphisms for Drinfel’d doubles of bosonizations of
+Nichols algebras of diagonal type. J. Alg. 323 (2010), 2130–2180.
+[HS]
+I. Heckenberger, H.-J. Schneider, Right coideal subalgebras of Nichols algebras
+and the Duflo order on the Weyl groupoid. math.QA/0909.0293.
+[HY1]
+I. Heckenberger, H. Yamane, A generalization of Coxeter groups, root systems,
+and Matsumoto’s theorem. Math. Z. 259 (2008), 255–276.
+[HY2]
+I. Heckenberger. H. Yamane, Drinfel’d doubles and Shapovalov determinants.
+Rev. Un. Mat. Argentina 51 (2010), no. 2, 107-146.
+[J]
+A. Joseph, Quantum groups and their primitive ideals. Ergebnisse der Mathematik und ihrer Grenzgebiete 29. Springer-Verlag, Berlin, 1995. x+383 pp
+[Ka]
+V. Kac, Infinite-dimensional Lie algebras, 3rd Edition. Cambridge University
+Press, Cambridge, 1990.
+[Kh]
+V. Kharchenko, A quantum analog of the Poincare-Birkhoff-Witt theorem. Algebra and Logic 38, (1999), 259-276.
+[KhT] S. Khoroshkin, V. Tolstoy, Universal R-matrix for quantized (super)algebras.
+Comm. Math. Phys. 141 (1991), 599–617.
+[KR]
+A. Kirillov, N. Reshetikhin, q-Weyl group and a multiplicative formula for universal R-matrices. Comm. Math. Phys. 134 (1990), 421–431.
+[KS]
+A. Klimyk, K. Schmügen, Quantum groups and their representations. Texts and
+Monographs in Physics. Springer-Verlag, Berlin, 1997. xx+552 pp.
+[L]
+G. Lusztig, Introduction to quantum groups. Progress in Mathematics, 110.
+Birkhäuser (1993).
+
+R-MATRIX OF QUANTUM DOUBLES OF NICHOLS ALGEBRAS
+
+[LS]
+
+[RaS]
+[Ro1]
+[Ro2]
+
+[ST1]
+[ST2]
+[ST3]
+[T]
+
+[Y]
+
+23
+
+S. Levendorskii, Y. Soibelman, The quantum Weyl group and a multiplicative
+formula for the R-matrix of a simple Lie algebra. (Russian) Funktsional. Anal. i
+Prilozhen. 25 (1991), 73–76; translation Funct. Anal. Appl. 25 (1991), 143–145.
+D. Radford, H.-J. Schneider, On the simple representations of generalized quantum groups and quantum doubles. J. Algebra 319 (2008), 3689–3731.
+M. Rosso, An analogue of P.B.W. theorem and the universal R-matrix for
+Uh sl(N + 1). Comm. Math. Phys. 124 (1989), 307–318.
+M. Rosso, Lyndon words and Universal R-matrices, talk at MSRI, October 26,
+1999, available at http://www.msri.org; Lyndon basis and the multiplicative
+formula for R-matrices, preprint (2003).
+A. Semikhatov, I. Tipunin, The Nichols algebra of screenings. Commun. Contemp. Math. 14 (2012), 1250029, 66 pp
+b
+A. Semikhatov, I. Tipunin, Logarithmic sl(2)
+CFT models from Nichols algebras:
+I. J. Phys. A 46 (2013), 494011, 53 pp.
+A. Semikhatov, I. Tipunin, Representations of U q sl(2|1) at even roots of unity,
+preprint arXiv:1312.5127 [math.QA]
+T. Tanisaki, Killing forms, Harish-Chandra isomorphisms, and universal Rmatrices for quantum algebras. Infinite analysis, Part A, B (Kyoto, 1991), 941–
+961, Adv. Ser. Math. Phys. 16, World Sci. Publ., River Edge, NJ, 1992.
+H. Yamane, Quantized enveloping algebras associated to simple Lie superalgebras
+and their universal R-matrices. Publ. Res. Inst. Math. Sci. 30 (1994), 15–87.
+
+FaMAF-CIEM (CONICET), Universidad Nacional de Córdoba, Medina Allende s/n, Ciudad Universitaria (5000) Córdoba, República Argentina.
+E-mail address: angiono@famaf.unc.edu.ar
+University of Toyama, Faculty of Science, Gofuku 3190, Toyama-shi, Toyama
+930-8555, Japan
+E-mail address: hiroyuki@sci.u-toyama.ac.jp
+
+

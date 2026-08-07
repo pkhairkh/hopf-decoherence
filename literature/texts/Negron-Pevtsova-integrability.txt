@@ -1,0 +1,2953 @@
+arXiv:2005.02965v2 [math.RT] 30 Dec 2020
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS VIA
+NONCOMMUTATIVE HYPERSURFACES
+CRIS NEGRON AND JULIA PEVTSOVA
+
+Abstract. We consider finite-dimensional Hopf algebras u which admit a
+smooth deformation U → u by a Noetherian Hopf algebra U of finite global
+dimension. Examples of such Hopf algebras include small quantum groups
+over the complex numbers, restricted enveloping algebras in finite characteristic, and Drinfeld doubles of height 1 group schemes. We provide a means
+of analyzing (cohomological) support for representations over such u, via the
+singularity categories of the hypersurfaces U/(f ) associated to functions f on
+the corresponding parametrization space. We use this hypersurface approach
+to establish the tensor product property for cohomological support, for the
+following examples: functions on a finite group scheme, Drinfeld doubles of
+certain height 1 solvable finite group schemes, bosonized quantum complete
+intersections, and the small quantum Borel in type A.
+
+1. Introduction
+The present paper is dedicated to analyses of cohomology and support for finitedimensional Hopf algebras. Given a Hopf algebra u over a field k, we are particularly
+interested in its associated tensor category of finite-dimensional representations
+rep(u). At a basic level, support theory proposes that one can use a certain geometry, namely the geometry of the spectrum of the cohomology algebra Ext∗u (k, k) or
+some resolution thereof, to understand the representation theory rep(u) as a tensor
+category.
+Support theory has its foundations in the modular representation theory of finite
+group (schemes), that is, the representation theory of finite group schemes in finite
+characteristic. This geometric approach to modular representation theory arguably
+began with work of Quillen in the 70’s [74] and continues into the present with
+strong contributions of many authors. For a finite group scheme G one assigns
+to any finite-dimensional G-representation V a closed subvariety supp(V ) in the
+spectrum of the cohomology ring H ∗ (G, k) = Ext∗G (k, k). The subvariety supp(V )
+is defined as the support of the H ∗ (G, k)-module Ext∗G (V, V ), with action defined
+via the tensor structure on rep(G). In the studies [11, 15], for example, supports
+of objects are employed to provide strong analyses of the global structure on the
+(stable) category of G-representations. The fundamental property which allows one
+to access the tensor structure on rep(G) via support is the so-called tensor product
+property, which appears as the equality
+supp(V ⊗ W ) = supp(V ) ∩ supp(W ).
+Date: January 1, 2021.
+1
+
+2
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+One proves the above equality by identifying the spectrum of cohomology with a
+certain moduli space of maps from rep(G) to rep(Z/p) called the rank variety for G
+[27, 78, 43, 44].
+Now, for a given finite-dimensional Hopf algebra u one can still define support
+varieties supp(V ) of finite-dimensional u-representation via cohomology as above.
+However, for almost all examples over the complex numbers it is unknown how
+these support varieties acknowledge or do not acknowledge the tensor structure on
+rep(u). At a basic level, one would like to know that the tensor product property for
+support, or some precise analog thereof, holds for u-representations. The purpose
+of the present paper and its sequels is to provide a framework with which one
+can address support theory outside of the modular setting, and also to resolve the
+tensor product property for support at least in some basic instances. Our motivating
+examples are quantum groups over the complex numbers and Drinfeld doubles of
+finite group schemes in finite characteristic. Before stepping into the world of
+support however, one does have some more fundamental questions to address.
+Before one even starts to think about support theory for representations in terms
+of cohomological actions, one would like to guarantee that the cohomology ring in
+question is nice enough, specifically, finitely generated. We adopt the following
+terminology (cf. [69]): A finite-dimensional Hopf algebra u, over a field k, is said
+to have finitely generated cohomology if the self-extensions Ext∗u (k, k) are a finitely
+generated algebra and, for any finite-dimensional u-representation V , the extensions
+Ext∗u (k, V ) are a finite module over Ext∗u (k, k). The so-called finite generation
+conjecture [45, 35] proposes that all finite-dimensional Hopf algebras have finitely
+generated cohomology.
+Finite group schemes, or equivalently finite-dimensional cocommutative Hopf
+algebras over an arbitrary field, were shown to have finitely generated cohomology
+in celebrated work of Friedlander and Suslin [45]. The particular case of discrete
+groups had been covered in earlier works of Golod, Venkov and Evens [49, 81,
+37]. In the quantum setting over C, finite generation is known in many important
+cases, including small quantum groups uq (g) and their duals [48, 14], and certain
+fundamental classes of finite-dimensional pointed Hopf algebras [61, 1].
+One observation of this work is that many situations for which finite generation
+is known can be united under the same umbrella of a smooth integrability property for Hopf algebras (see Definition 2.1). We define and develop this property in
+the first part of the paper and show how it implies finite generation of cohomology, recovering several known results. Building on the ideas of Avramov-Buchweitz
+[6] and Avramov-Iyengar [10] in commutative algebra, we introduce an alternative
+notion of a rank variety formulated in terms of hypersurfaces on the smooth integration of the algebra u (see Definition 6.7). In some fundamental cases we are
+able to identify this new hypersurface support with the cohomological support. As
+an application, we show that the tensor product property holds in various situations including representations of the small quantum Borel in type A, and Drinfeld
+doubles of some naturally occurring height 1 solvable group schemes in finite characteristic (see Section 1.1). Precise results for the full quantum group uq (g) should
+appear in a subsequent paper [68].
+Let us now describe the technical content of this paper in more detail. Throughout k is an algebraically closed base field of varying characteristic. Consider u a
+finite-dimensional Hopf algebra, over k. We say that u is smoothly integrable, or just
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+3
+
+integrable, if u admits a deformation U → u parametrized by a smooth, augmented,
+central subalgebra Z ⊂ U such that (a) U is a Noetherian Hopf algebra of finite
+global dimension, and U → u is a Hopf map, and (b) Z is a coideal subalgebra in
+U . By smoothness we mean that Z is smooth over our given base field k, and in
+particular of finite type over k.
+For example, the De Concini-Kac algebra UqDK (g) integrates the quantum group
+uq (g), and we have a similar deformation for the quantum Borel UqDK (b) → uq (b).
+A restricted enveloping algebra ures (g), in finite characteristic, is smoothly integrated by the associated universal enveloping algebra U (g) → ures (g). For G a finite
+group scheme, any choice of embedding G → H into a smooth connected algebraic
+group H provides a smooth integration O(H) → O(G) of functions on G. The last
+e
+two examples can be combined to produce a smooth integration D(G)
+→ D(G)
+of the Drinfeld double of an infinitesimal height 1 group scheme which admits a
+normal embedding into a smooth algebraic group. See Section 2 for more details.
+As remarked above, the point of this paper is to explain how integrability of
+a given finite-dimensional Hopf algebra u can be employed in a meaningful way
+in analyses of cohomology and support. At a relatively basic level, we have the
+following.
+Theorem (4.9). If a Hopf algebra u is integrable, then u has finitely generated
+cohomology.
+We note that the above theorem recovers finite generation for all of the examples
+above [40, 48, 38], although it does not give information on the spectrum of cohomology beyond the embedding dimension. (Our results for height 1 doubles are
+slightly stronger than those of [38].) The main technical tool here is a dg version
+of Koszul duality for the algebras Sym((mZ /m2Z )∗ ) and ∧(mZ /m2Z ), where mZ is
+the kernel of the augmentation on Z.
+For u with finitely
+generated cohomology, and Y the reduced projective spectrum
+
+Proj(Ext∗u (k, k) red , we consider the cohomological supports of objects
+suppY (V ) := SuppY Ext∗u (V, V )∼ ,
+
+∼
+
+(1)
+
+denotes the sheaf on Y associated to a given graded Ext∗u (k, k)-module.
+
+where (−)
+Suppose now that we have smoothly integrable u with associated deformation U
+over Z. The distinguished point ǫ : Z → k at which we have k ⊗Z U ∼
+= u must be
+the counit restricted to Z in this case.
+Now, any choice of section τ : mZ /m2Z → mZ specifies, for each point c in the
+mZ /m2Z −{0}, a corresponding “noncommutative hypersurface” Uc = U/(τ (c)). As
+the algebra Uc depends only on c up to a scaling, we may instead consider the Uc
+as associated to points in the projectivization c ∈ P(mZ /m2Z ). In what follows we
+say that M , a finitely generated module for Uc , is perfect if it has finite projective
+dimension. For V a u-representation we are interested in whether V is, or is not,
+perfect when restricted to a given hypersurface Uc .
+In addition to finiteness of cohomology, our deformation situation also provides
+us with a map of varieties
+
+κ : Y = Proj(Ext∗u (k, k) red → P(mZ /m2Z ).
+(2)
+The map κ always has finite fibers, and in a number of important examples [40, 48,
+38], is a closed embedding. The following theorem is a noncommutative variant of
+a result of Avramov and Buchweitz [6].
+
+4
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+Theorem (7.2). Suppose that u is smoothly integrable, with corresponding deformation U → u and parametrizing subalgebra Z. Then for any V in rep(u), and any
+choice of section τ : mZ /m2Z → mZ , we have
+
+κ suppY (V ) = {c ∈ P(mZ /m2Z ) : V is not perfect when restricted to Uc },
+where κ is as in (2). In particular, when κ is a closed embedding there is an equality
+suppY (V ) = {c ∈ P(mZ /m2Z ) : V is not perfect when restricted to Uc }.
+
+(3)
+
+Implicit in the statement above is the fact that perfection of a given u-representation
+over Uc , at some c ∈ P(mZ /m2Z ), depends only on the point c, not on the choice of
+section τ : mZ /m2Z → mZ . This fact is proved independently in Corollary 5.3.
+We use the hypersurface expression (3) to provide a stronger analysis of support for certain “solvable” Hopf algebras. As discussed above, we are particularly
+interested in the so-called tensor product property for support,
+suppY (V ⊗ W )
+
+question
+
+=
+
+suppY (V ) ∩ suppY (W ).
+
+(4)
+
+This relation suggests, in the cases in which it applies, that cohomology actually
+“understands” something about the tensor structure on the category rep(u).
+It is known, via work of Witherspoon and coauthors, that for Hopf algebras which
+are sufficiently noncocommutative, so that rep(u) is sufficiently non-symmetric, the
+tensor product property will not hold [17, 73]. In the present work we consider
+certain centralizing hypotheses on objects, and (co)normality hypotheses on the
+integration U → u, when studying support for tensor products of objects (see
+Section 10.4). We discuss some of our examples below.
+1.1. Applications. We first consider rings of regular functions O(G) on finite
+group schemes in finite characteristic, where we have rep(O(G)) = Coh(G).
+Theorem (10.5). Let G be a connected finite group scheme, in finite characteristic.
+Then cohomological support for Coh(G) satisfies the tensor product property
+suppY (V ⊗ W ) = suppY (V ) ∩ suppY (W ).
+There are some referential points to take into account here, as we explain in the
+preamble to Section 10 and Remark 10.7.
+It is clear, from work of Plavnik and Witherspoon [73] (see also Example 10.2),
+that the precise tensor product property (4) does not hold for coherent sheaves
+on general non-connected G. However, we provide a version of the tensor product property for arbitrary finite group schemes by considering certain centralizing
+structures on objects in Coh(G) (cf. 10.4).
+Theorem (10.8). Let G be an arbitrary finite group scheme with π = π0 (G) its
+subgroup of connected components. For W in Coh(G), and V in the Drinfeld centralizer Z Coh(π) (Coh(G)) of Coh(π), we have
+suppY (F (V ) ⊗ W ) = suppY (F (V )) ∩ suppY (W ).
+Here Z Coh(π) (Coh(G)) is the category of objects in Coh(G) which centralize the
+fusion subcategory Coh(π) ⊂ Coh(G) of semisimple objects. More specifically,
+Z Coh(π) (Coh(G)) is the category of objects which admit a centralizing structure
+against this distinguished subcategory, and F : Z Coh(π) (Coh(G)) → Coh(G) is the
+functor forgetting the specific choice of centralizing structure (see Definition 8.1).
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+5
+
+In a non-classical setting, over C, one can consider a truncated skew polynomial
+ring
++
+l
+a+
+q = aq (P ) = Chx1 , . . . , xn i/(xi xj − qij xj xi , xi ),
+which is often referred to as a quantum complete intersection, or quantum linear
+space, in the literature. Here q is a root of unity of odd order l and P = [aij ]
+is a skew-symmetric matrix specifying the parameters qij = q aij . The algebra a+
+q
+has the natural structure of a Hopf algebra in a certain braided fusion category
+rep(Λ), where Λ is the group ring of a finite abelian group. One then obtains, via
+a standard bosonization procedure, a usual Hopf algebra aq := a+
+q ⋊ Λ. We refer to
+the Hopf algebra aq as a bosonized quantum complete intersection.
+Theorem (11.3). Consider aq = aq (P ) a bosonized quantum complete intersection,
+with generic parameters q and P . Cohomological support for rep(aq ) satisfies the
+tensor product property
+suppY (V ⊗ W ) = suppY (V ) ∩ suppY (W ).
+By “generic” parameters we mean precisely that the determinant of the matrix
+P = [aij ] is a unit mod l. We prove in Theorem 11.6 that, at arbitrary q and
+P , representation of aq still satisfy a version of the tensor product property where
+one again employs centralizers, exactly as in the case of sheaves Coh(G) on a nonconnected group scheme G.
+At Theorem 13.2, we reprove the tensor product property for rep(ures (n)) via
+hypersurfaces, where n is a nilpotent restricted Lie algebra in large characteristic.
+This is a fundamental result of Friedlander and Parshall [42, Theorem 2.7], which
+precedes the π-point approach to support for finite group schemes [41, 78, 44]. We
+consider also Drinfeld doubles D(B(1) ) for B(1) the first Frobenius kernel of a Borel
+B ⊂ G in an almost-simple algebraic group G.
+Theorem (13.3). Consider G an almost-simple algebraic group over Fp , and let B
+be a Borel subgroup in G. If p > dim(B) + 1, then cohomological support for the
+Drinfeld double D(B(1) ) satisfies the tensor product property.
+We consider, finally, the small quantum Borel uq (b) in a quantum group uq (g),
+over C. This algebra, and its full counterpart uq (g), are the most important characteristic 0 examples for which cohomological support is not understood at this
+point. We address the quantum Borel in type A.
+Theorem (13.8). Consider uq (b) the quantum Borel in type An , at q of odd order
+> h. Cohomological support for uq (b) satisfies the tensor product property.
+In the above statement n is arbitrary and h denotes the Coxeter number for An ,
+which is just n + 1. We observe in Corollary 7.6 that, for the quantum Borel uq (b)
+in any Dynkin type, there is at least a containment
+suppY (V ⊗ W ) ⊂ (suppY (V ) ∩ suppY (W )) .
+We conjecture, at Conjecture 13.11 below, that this containment is an equality in
+all Dynkin types.
+1.2. Snashall-Solberg support for associative algebras. There is a theory
+of support for finite-dimensional (non-Hopf) algebras R, introduced by Snashall
+and Solberg [75, 34], which utilizes the map from Hochschild cohomology to the
+center of the derived category − ⊗LR id : HH ∗ (R) → Z(Db (R)). The materials of
+
+6
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+Sections 4 and 6 are presented in the general setting of a finite-dimensional algebra
+R with a Noetherian deformation Q → R of finite global dimension. We observe at
+Theorem 6.11 that the Snashall-Solberg type support in this case is identified with
+the corresponding support defined via hypersurfaces. That is to say, we show that
+the proper analog of equation (3) holds in this context.
+1.3. Related works. In [22] Boe, Kujawa, and Nakano propose an extremal version of the tensor product property for (possibly infinite-dimensional) modules over
+uq (b), at odd order parameter with ord(q) > h. Specifically, the authors suggest
+that for modules M and N over uq (b), the support of the product M ⊗ N vanishes
+if and only if the supports for M and N have trivial intersection. The approach
+of [22] involves reductions to an associated graded algebra gr uq (g) with respect to
+a root vector filtration of De Concini and Kac [29].
+In [19] and [71, 72], Benson-Erdmann-Holloway and Pevtsova-Witherspoon, respectively, consider support for the (bosonized) quantum complete intersections aq
+with constant parameter qij = q12 , for all i < j. (To be clear, in [19] the tensor
+structure is not considered, and in [71, 72] the skewing parameter is taken to be of
+constant value 1.) In [19] certain rank varieties are also constructed for aq with arbitrary parameters by reducing, via a sequence of C-linear functors, i.e. non-tensor
+functors, to the constant parameter case [19, Definition 4.4].
+One can view the materials of this paper as an approach to support theory
+which is an “inversion” of the canonical π-point approach to support for finite
+group schemes [78, 44, 32, 16]. A strictly categorical reinterpretation of the π-point
+approach to support can be found in work of Balmer, Krause, and Stevenson [13, 12].
+1.4. A basic outline. The paper essentially has two interlocking halves. In Sections 3–7 we show that the existence of a smooth integration U → u implies strong
+finiteness conditions on cohomology (Theorem 4.8). We then develop the fundamentals regarding hypersurface support. Sections 8–13 are dedicated to examples
+and applications. Addressing the tensor product property for these examples does
+require the cultivation of certain additional tools, and in particular requires an analysis of derived categories for noncommutative local hypersurface rings (see Lemma
+9.1).
+1.5. Acknowledgements. Thanks to Nicholas Andruskiewitsch, Srikanth Iyengar, Eric Friedlander, Ellen Kirkman, Dan Nakano, Dan Rogalski, Mark Walker,
+Sarah Witherspoon and James Zhang for helpful conversation. This work began
+at the conference Stable Cohomology: Foundations and Applications, May 2018 at
+Snowbird Utah, and continued during a visit of the first author to the University of
+Washington. We thank the organizers of the Snowbird conference, and the staff of
+the Cliff Lodge, for providing a hospitable and intellectually engaging environment.
+The first author thanks the University of Washington mathematics department for
+their hospitality.
+This material is based upon work supported by the National Science Foundation
+under Grant No. DMS-1440140, while the second author was in residence at the
+Mathematical Sciences Research Institute in Berkeley, California, during the Spring
+2020 semester. We thank the MSRI staff for their exceptional efforts during the
+latter half of that difficult semester when the second author was also in virtual
+residence. The second author was supported by the NSF grants DMS-1501146 and
+DMS-1901854.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+7
+
+Contents
+2. Examples of integrable Hopf algebras
+3. Basics for deformations of associative algebras
+4. Deformations and finiteness conditions on cohomology
+5. A meditation on hypersurfaces
+6. Cohomological supports and hypersurfaces
+7. Hopfy support and hypersurfaces
+8. Background: a preamble to examples
+9. Noncommutative Hopkins lemma for hypersurfaces
+10. The tensor product property for functions on finite group schemes
+11. Bosonized quantum complete intersections
+12. (q-)Regular sequences
+13. Restricted enveloping algebras, height 1 doubles, and the quantum
+Borel
+References
+
+7
+10
+14
+18
+20
+23
+26
+29
+31
+35
+40
+43
+50
+
+2. Examples of integrable Hopf algebras
+Throughout k is an algebraically closed field of varying characteristic, and all
+algebras are algebras over k. We repeat the definition from the introduction before
+giving a long list of examples of smoothly integrable Hopf algebras.
+Recall that a deformation of an algebra u, parametrized by an affine scheme
+Spec(Z) with choice of distinguished closed point x ∈ Spec(Z), is the information
+of a flat Z-algebra U equipped with an algebra map U → u which reduces to an
+isomorphism k ⊗Z U ∼
+= u. Here we reduce along the given point x : Z → k. Such
+a deformation can be represented via the corresponding sequence of algebra maps
+Z → U → u, which we refer to informally as a deformation sequence.
+Definition 2.1. A finite-dimensional Hopf algebra u is said to be smoothly integrable, or just integrable, if u admits a deformation U → u parametrized by a
+smooth central subalgebra Z ⊂ U such that
+(a) U is a Noetherian Hopf algebra of finite global dimension, and U → u is a
+map of Hopf algebras.
+(b) Z is a coideal subalgebra in U .
+Under these conditions, U is called a smooth integration of u parametrized by Z.
+We suppose specifically that Z is a right coideal subalgebra in U , so that the
+comultiplication on U restricts to a coaction ∆ : Z → Z ⊗ U .
+Remark 2.2. Our choice of right versus left is irrelevant. If U → u is a smooth
+integration with parametrizing algebra Z a right coideal subalgebra, then U is also
+flat over the left coideal subalgebra S(Z) and k ⊗S(Z) U = u.
+Implicit in Definition 2.1 is the assumption that Z is of finite type over k. Although all of our examples arrive in such a finite type flavor, it is convenient to
+complete and work with a formal version of integrability. We elaborate on the
+formal setting in Section 2.2 below, after giving our examples.
+We note that for an integration f : U → u of a finite-dimensional Hopf algebra u,
+as in Definition 2.1, Z is contained in the u-coinvariants in U under the left coaction
+
+8
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+(f ⊗ 1)∆ : U → u ⊗ U . Indeed, Z must be equal to the u-coinvariants Z = U u in this
+case [80, Theorem 1]. So the parametrization space Spec(Z) is determined uniquely
+by the Hopf surjection U → u.
+2.1. Examples of smooth integration, and an anti-example.
+Example 2.3 (Finite abelian groups). Any finite abelian group A admits a surjective group map from a free abelian group of finite rank, p : Zr → A. Let A′
+be the kernel of p. Note that A′ is a free abelian group of finite rank as well. We
+take group rings kA′ → k(Zr ) → kA, over an arbitrary field, to obtain a smooth
+integration of kA.
+Example 2.4 (Rings of regular functions on a finite group scheme). Take k = Fp ,
+and let G be a smooth connected algebraic group. Denote by G(r) the rth Frobenius
+twist of G and let G = G(r) be the rth Frobenius kernel of G, that is, the kernel
+of the rth iteration of the Frobenius map F r : G → G(r) . The algebra of functions
+O(G) is a complete intersection, and in this instance we get a deformation sequence
+O(G(r) ) → O(G) → O(G),
+so that O(G) is smoothly integrated by O(G).
+Frobenius kernels are examples of finite connected group schemes. More generally, for G any finite group scheme, we choose an embedding G → H into a smooth
+connected algebraic group. Any faithful representation V for G provides an embedding into H = GL(V ), for example. Then we have the deformation sequence
+O(H/G) → O(H) → O(G), and find that O(H) integrates O(G). (Recall that H/G
+is smooth [62, Corollary 5.26].) When G is not normal in H, O(H/G) is not a Hopf
+subalgebra in O(H), but a O(H)-coideal subalgebra. Indeed, functions on H/G are,
+essentially by definition, the O(G)-coinvariants in O(H).
+Example 2.5 (Restricted enveloping algebras). Take k = Fp and g a restricted
+Lie algebra. We have the surjection U (g) → ures (g) onto the restricted enveloping
+algebra, and consider the Zassenhaus subalgebra, or p-center, Z0 (g) of U (g). This
+is the central subalgebra generated by the differences xp − x[p] at arbitrary x ∈
+g [84, 52]. The algebra Z0 (g) is a Hopf subalgebra in U (g) which is isomorphic to a
+polynomial ring, and k ⊗Z0 (g) U (g) = ures (g), so that ures (g) is seen to be smoothly
+integrated by the standard universal enveloping algebra.
+Example 2.6 (Height 1 doubles). Consider again H a smooth connected algebraic
+group over Fp , and G ⊂ H a normally embedded, finite, connected subgroup scheme
+of height 1. Recall that a connected finite group scheme G is of height 1 if the pth
+power of any element in the augmentation ideal of O(G) vanishes. Equivalently, G
+is a subgroup scheme of H(1) , the first Frobenius kernel of H (see [53]). Let g denote
+the restricted Lie algebra for G. We denote by kG the group algebra of G, which
+is the linear dual of the algebra of regular functions O(G). Since G is of height 1,
+there is an identification kG = ures (g) ([53, I.9.6]). Then kG acts on O(G) via the
+adjoint representation and we consider the Drinfeld double
+D(G) = O(G) ⋊ad kG.
+This algebra is integrated by the smash product O(H) ⋊ad U (g), where U (g) acts
+on O(H) via the projection U (g) → kG (using the isomorphism kG ∼
+= ures (g)) and
+adjoint action of G on H. The parametrization space in this case is provided by
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+9
+
+the product O(H/G) ⊗ Z0 (g). The relative double D(H1 , G) := O(H1 ) ⋊ad kG is
+similarly integrated by O(H) ⋊ad U (g).
+Example 2.7 (Small quantum groups). Consider the De Concini-Kac quantum
+enveloping algebra UqDK (g) at q a root of unity of odd order l. We have the
+standard sequence
+Z0 → UqDK (g) → uq (g),
+l
+
+l
+
+where Z0 is the subalgebra generated by the l-th powers Eγγ , Fγγ , Kαlα [29, Section
+3], [30, Proposition 5.6]. By filtering by a normal ordering on the root vectors
+and considering the associated graded algebra (cf. [29]), we find that UqDK (g) is of
+finite global dimension [28, Corollary 3.1.2]. Hence uq (g) is smoothly integrated
+by UqDK (g). Similarly, the quantum Borel uq (b) is integrated by UqDK (b). For the
+quantum Borel, however, we consider the De Concini-Kac algebra UqDK (b) with the
+same (torsion) group of grouplikes as its small counterpart uq (b).
+In each of the above examples, faithful flatness of the extension Z → U is wellknown. However, it is also the case that any extension Z → U of a commutative
+coideal subalgebra Z whatsoever is faithfully flat [5, Proposition 3.12]. (There is a
+problem with the proof given in [5], but the result is nonetheless correct [46].)
+Example 2.8 (Anti-example). The group ring k(GLn )(2) of the second Frobenius
+kernel in GLn , over Fp , should not be integrable. This is due to the presence of
+divided powers in the algebra.
+2.2. Formality and deformations. In considering deformations of Hopf algebras,
+it is often advantageous to suppose that the parametrizing subalgebra Z is not
+smooth, but formally smooth.
+Definition 2.9. A finite-dimensional Hopf algebra u is said to be formally smoothly
+integrable if u admits a deformation U → u parametrized by a central subalgebra
+Z ⊂ U such that
+(z) Z is isomorphic to a power series algebra k[[y1 , . . . , yn ]].
+(a) U is a Noetherian Hopf algebra of finite global dimension, and U → u is a
+map of Hopf algebras.
+(b) Z is a (right) coideal subalgebra in U.
+In this case we call U a formally smooth integration of u.
+Abstractly, a commutative algebra Z is isomorphic to such a power series provided Z is formally smooth and complete local, with finite-dimensional cotangent
+space mZ /m2Z at the unique maximal ideal mZ . Such a formally smooth integration U, which is necessarily a finite Z-module, is complete with respect to the
+mZ -adic topology. We therefore consider U as a complete linear topological algebra. By a “Hopf algebra” in this case we mean a Hopf algebra in the symmetric
+category of complete, linear topological, vector spaces. This simply means that the
+b
+comultiplication on U is a map to the completed tensor product ∆ : U → U⊗U.
+To distinguish between the finite type and formal setting we generally employ
+a serif font U when we intend for our deformation to be complete. We note that
+the formal situation is preferable simply because the parametrizing subalgebra Z
+is local in this case. As we explain below, any finite type integration U → u
+determines a formal integration U → u. Unless confusion will arise, we drop the
+
+10
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+modifier “formal” in our presentation and speak only of integrable Hopf algebras
+and (implied, formally smooth) integrations U → u.
+Now, given a deformation U → u parameterized by a smooth, finite type, kalgebra Z, one produces a corresponding formal deformation by completing at the
+distinguished maximal ideal mZ ,
+b ⊗Z U.
+U → u, U := Z
+
+Since mZ U is the kernel of the Hopf map U → u it is a Hopf ideal in U , and the
+completion U = limn U/mnZ U is a complete, linear topological Hopf algebra.
+←−
+Lemma 2.10. Suppose that u is (finite-dimensional and) integrable, Z → U → u
+is a smooth integration with Z of finite type over k, and that U is Noetherian and
+b ⊗Z U is also Noetherian and of
+of finite global dimension. Then the completion Z
+finite global dimension.
+b ⊗Z U the completion. Noetherianity of U follows from the fact
+Proof. Take U = Z
+b We have that U is semi-local, and
+that U is finite over the Noetherian algebra Z.
+all of the simples are restricted from simples over u. So U/ Jac(U) = u/ Jac(u) is a
+finite sum of finite-dimensional modules which are annihilated by the augmentation
+b Take Λ = U/ Jac(U) the sum of the simples.
+ideal of Z.
+b ⊗Z − to any flat resolution of Λ
+By applying the faithful and exact functor Z
+U
+over U we obtain a resolution over U, and so find that TorU
+∗ (Λ, −) = Tor∗ (Λ, −).
+U
+By our assumption that U is of finite global dimension, we have Tor>d (Λ, −) = 0
+for d = gldim(U), and so observe TorU
+>d (Λ, −) = 0.
+By considering minimal resolutions of modules over U, we see that the projective dimension of any finitely generated U-module M is the minimal d(M ) so that
+TorU
+>d(M) (Λ, M ) = 0. So all finitely generated U-modules are of projective dimension ≤ d. It follows that U is of global dimension ≤ d, and in particular of finite
+
+global dimension [83, Theorem 4.1.2].
+3. Basics for deformations of associative algebras
+We consider for the moment deformations of associative algebras, without any
+assumed Hopf structure. Below we explain how such deformations provide specific
+approaches to cohomology which leverage the deforming algebra as a realization
+of its corresponding classes in Hochschild cohomology. After providing a relatively
+general analysis of cohomology, in the present section and Section 6, we give the
+necessary implications for Hopf algebras in Section 7.
+The materials of the present section are basically a review of work of Bezrukavnikov
+and Ginzburg [21], and provide the technical foundations of our study. We employ
+standard constructions for dg modules, which can be found throughout the literature (e.g. [59, Chapter III] or [31]).
+3.1. The setup. In Sections 3–7 we work with a deformation sequence Z → Q → R
+satisfying the following:
+• Z is complete local, formally smooth, and essentially of finite type, i.e.
+isomorphic to k[[y1 , . . . , yn ]] in coordinates.
+• Q is finite and flat over Z.
+• The reduction k ⊗Z Q ∼
+= R is finite-dimensional.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+11
+
+The third point here is obviously a consequence of the second. Note that in this
+situation Q is also Noetherian, since it is finite over the Noetherian subalgebra Z.
+We always let 1 ∈ Spf(Z) denote the distinguished (and unique) closed point in
+Spf(Z) at which the fiber of Q is identified with R. Here Q and R are not assumed
+to be Hopf algebras.
+Remark 3.1. One can replace the finiteness conditions in the above setup with
+the assumption that Q is finite over its center. Specifically, one should consider
+a deformation Q which is finite over a central subalgebra T such that T contains
+Z, is complete local, and is essentially of finite type over k (cf. Remark 11.4). Of
+course, in this more general setting one must augment the results of Sections 4–7
+in the expected manner. For example, in the statement of Theorem 4.3 one should
+consider instead finiteness over T ⊗ BZ and T ⊗ AZ .
+3.2. Dg algebras, dg modules and semi-projective resolutions. Consider a
+dg algebra K over T , where T is a commutative algebra. (Usually for us T will
+be Z, the parametrizing subalgebra of 3.1.) We consider K-dgmod the category of
+left dg modules over K, and let D(K) denote the corresponding derived category,
+D(K) = (K-dgmod)[quis−1 ]. When T is Noetherian, which is always the case for
+us, we take
+
+
+The full subcategory of dg modules in D(K)
+Dcoh (K) =
+with finitely generated cohomology over T
+When T = k we write Df in (K) for Dcoh (K), the category of dg modules with
+finite-dimensional cohomology. Note that when K is a finite-dimensional algebra
+Df in (K) is just the bounded derived category of finite K-modules.
+We say that a dg K-module M is semi-projective if it has a dg filtration
+0 ⊂ F0 M ⊆ F1 M ⊆ . . . ⊆ M
+such that each Fn M/Fn−1 M is a direct summand of a direct sum of shifts of K. (See
+for example [57, §3.1], where such modules are referred to as having property (P).)
+We call a semi-projective dg module semi-free if each subquotient Fn M/Fn−1 M
+is exactly a sum of shifts of K. For a dg module N , we call a quasi-isomorphism
+∼
+M → N from a semi-projective dg module M a semi-projective resolution of N . As
+shown, for example, in [57, Theorem 3.1] or [77, Lemma 20.4], such semi-projective
+resolutions always exist. Following the usual procedures, we derive tensor products
+and Hom functors by employing semi-projective resolutions.
+For M a dg module (over k) we let M ∗ denote the corresponding dual dg module M ∗ = Homk (M, k). Here Homk is the standard Hom complex, so that the
+underlying graded space for M ∗ is the sum ⊕n∈Z (M −n )∗ .
+3.3. Deformations, Koszul resolutions, and the Koszul dual pair (AZ , BZ ).
+Consider Z → Q → R a sequence as in 3.1. A choice of coordinates for Z is
+equivalent to a choice of section τ : mZ /m2Z → mZ from the cotangent space at
+1. From τ we can explicitly define the Koszul complex KZ , which is a dg algebra
+resolving k over Z. Specifically, we take KZ to be the dg Z-algebra ∧∗Z ΩZ with
+differential given on the generators ΩZ by dyi 7→ yi . Here the {yi }ni=1 is any choice
+∼
+of basis for the image of τ in mZ . The quasi-isomorphism KZ → k is given by the
+augmentation on Z in degree 0.
+
+12
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+Remark 3.2. Different choices of sections τ result in resolutions which are isomorphic, as dg Z-algebras, but not literally equal. However, one can check directly
+that the definition of KZ is completely independent the choice of basis {yi }ni=1 . We
+employ the basis {yi }i only for clarity of presentation.
+We change base along the extension Z → Q to obtain, from KZ , a complex
+KQ := Q ⊗Z KZ
+which provides a resolution of R by a dg algebra which is finite and flat over Z:
+∼
+
+KQ → Q ⊗Z k = R.
+We refer to KQ as the Koszul resolution of R associated to the deformation Q → R.
+Lemma 3.3. The resolution KQ is finite and free over Q.
+Proof. This follows from the fact that KZ is finite and free over Z.
+
+
+
+Given a deformation Q → R as above, we make repeated use of the (graded)
+commutative dg algebras
+BZ := Sym(Σ(mZ /m2Z )) and AZ := Sym(Σ−2 (mZ /m2Z )∗ ).
+
+(5)
+
+Since we are in the dg context BZ is, as an associative algebra, actually an exterior
+algebra. The two algebras BZ and AZ are generated by the shifted cotangent space
+(in degree -1) and tangent space (in degree 2) of Spf(Z) at 1, respectively, and can
+therefore be viewed as functions on corresponding linear dg schemes.
+An important point about these two algebras is that they are Koszul dual, in
+the usual dg sense. In particular, RHomBZ (k, k) ∼
+= BZ
+= AZ and RHomAZ (k, k) ∼
+(see, for example, [50] [4, Section 3.3]).
+3.4. Koszul resolutions and a map to the center of Df in (R) [21]. We fix
+∼
+a deformation Q → R as in Section 3.1. Since the Koszul resolution KQ → R
+is a quasi-isomorphism of dg algebras, reduction and restriction provide mutually
+inverse equivalences of triangulated categories
+∼
+
+∼
+
+k ⊗LKZ − : D(KQ ) −→ D(R), res : D(R) −→ D(KQ ).
+
+(6)
+
+These equivalences restrict to equivalences on the full subcategories of dg modules
+with coherent (finitely generated) cohomology over Z and k respectively,
+∼
+
+∼
+
+k ⊗LKZ − : Dcoh (KQ ) −→ Df in (R), res : Df in (R) −→ Dcoh (KQ ).
+Note that Dcoh (KQ ) and Df in (R) can be identified with the respective derived
+categories of finitely generated dg modules.
+Consider now dg modules M and N over KQ , and the algebra of extensions
+Ext∗KQ (M, N ) = ⊕i∈Z HomiD(KQ ) (M, Σi N ).
+Consider also the Koszul dual dg algebras BZ and AZ of (5).
+Let us explicitly choose coordinates τ : mZ /m2Z → mZ here, and consider the
+Koszul complex KZ defined precisely as in Section 3.3. We enumerate a basis
+{yi }ni=1 for the image of the section τ , and have the corresponding basis {ȳi }ni=1
+of mZ /m2Z . Recall that the algebra BZ is generated by the cotangent space
+T1∗ Spf(Z) = mZ /m2Z , so that the basis {ȳi }i provides a set of generators for this
+algebra as well.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+13
+
+Consider the product KZ ⊗Z KQ , which is a dg algebra over Z. As explained
+in [21, Lemma 2.4.2], one has a flat extension of dg algebras jτ : BZ → KZ ⊗Z KQ
+defined as follows: by definition KZ = ∧∗Z ΩZ , with differential dyi 7→ yi , and we
+take
+(7)
+jτ : BZ → KZ ⊗Z KQ , jτ (ȳi ) = dyi ⊗ 1 − 1 ⊗ dyi .
+We may view KZ ⊗Z KQ = KQ ⊗Q KQ as a KQ -bimodule, with commuting BZ action provided by the aforementioned algebra map. Flatness of KZ ⊗Z KQ over
+BZ implies that the induction functor (KZ ⊗Z KQ ) ⊗BZ − from dg BZ -modules to
+dg KQ -bimodules is exact, and hence is derived simply as
+op
+)
+(KZ ⊗Z KQ ) ⊗LBZ − = (KZ ⊗Z KQ ) ⊗BZ − : D(BZ ) → D(KQ ⊗ KQ
+
+(8)
+
+One calculates directly (KZ ⊗Z KQ ) ⊗BZ k = Q ⊗Z (KZ ⊗ KZ ) ⊗BZ k = Q ⊗Z KZ =
+KQ (where the middle equality is by [21, Lemma 2.4.2]) to see that the above
+functor induces a map to Hochschild cohomology
+iτ : AZ = Ext∗BZ (k, k) → HH ∗ (KQ ).
+Remark 3.4. One is free to view the functor (KZ ⊗Z KQ ) ⊗BZ − as having image
+op
+in the category of dg KZ ⊗Z KQ
+-modules, or in the category of dg KQ -bimodules.
+This depends on whether one views KZ ⊗Z KQ as a Z-central (KZ , KQ )-bimodule
+or a KQ -bimodule. One advantage of the KQ -bimodule perspective is that we can
+op
+then use the quasi-isomorphism KQ → R to pass from D(KQ ⊗ KQ
+) to D(R ⊗ Rop )
+and, hence, to identify the Hochschild cohomologies HH ∗ (KQ ) and HH ∗ (R) as we
+do below.
+Recall that the center Z(Dcoh (KQ )) of the derived category Dcoh (KQ ) is the
+graded algebra of natural transformations from the identity functor on Dcoh (KQ )
+to its shifts
+Z(Dcoh (KQ )) = ⊕n∈Z HomFun (id, Σn ),
+and recall also the map from Hochschild cohomology to the center. This map takes
+a class in HH ∗ (KQ ), which is some map f : KQ → Σn KQ in the derived category
+of bimodules, to the transformation f ⊗KQ − : id → Σn . So from iτ we obtain a
+map to the center ιτ : AZ → Z(Dcoh (KQ )), i.e. an action of AZ on the derived
+category of KQ -modules.
+We elaborate on this final point. From the maps Z(Dcoh (KQ )) → Ext∗KQ (M, M ),
+ξ 7→ ξM , we obtain a natural action of AZ on arbitrary objects M in the derived
+category via restricting along ιτ . Through these actions on objects we obtain,
+in principle, two actions of AZ on each graded extension group Ext∗KQ (M, N ),
+one through M and one through N . Naturality tells us that these two actions
+agree, and in the case M = N we find that the corresponding algebra map AZ →
+Ext∗KQ (M, M ) has central image.
+Theorem 3.5 ([21]). The algebra map iτ : AZ → HH ∗ (KQ ) is independent of the
+choice of section τ : mZ /m2Z → mZ . In particular, the restriction to the generators
+iτ : (AZ )2 = (mZ /m2Z )∗ → HH 2 (KQ ) ∼
+= HH 2 (R) is the usual deformation map
+of [47, 21, 38].
+Since the iτ are independent of the choice of section τ , we can speak of the
+algebra map AZ → HH ∗ (R) determined by the deformation Q → R, parametrized
+by Spf(Z), and the corresponding action of AZ on Dcoh (KQ ) ∼
+= Df in (R).
+
+14
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+Definition 3.6. We fix iQ : AZ → HH ∗ (R) the algebra map associated to a
+given deformation sequence Z → Q → R, and view all extensions Ext∗R (M, N ) as
+AZ -modules via iQ .
+4. Deformations and finiteness conditions on cohomology
+For this section we fix a deformation Q → R as in 3.1. We provide a general
+finite generation result at Theorem 4.3 (see also Lemma 4.2). We then apply
+Theorem 4.3 to recover, in a uniform manner, finite generation results of [40, 48, 38]
+in Subsection 4.6. In particular, we find that any integrable Hopf algebra u has
+finitely generated cohomology.
+The key observation of this section is that RHomR (V, W ) with its AZ -action as
+described in 3.5 and RHomQ (V, W ) with a natural BZ -action are related by a dg
+version of Koszul duality for AZ and BZ , see Lemma 4.2 as the main technical
+result. Since Koszul duality preserves finiteness conditions (see [8, 7]), it allows
+us to translate between finite generation of Ext∗R (V, W ) as AZ -module and finite
+generation of Ext∗Q (V, W ) as BZ -module, as done in Theorem 4.3. Finally, for
+our applications to integrable Hopf algebras, one observes that finite generation of
+Ext∗Q (V, W ) as a BZ -module is equivalent to finite-dimensionality which, in turn,
+follows from the assumption that Q has final global dimension.
+4.1. Technicalities. Consider dual bases {y i }i and {yi }i for the tangent space and
+cotangent space of Spf(Z), and consider AZ ⊗ BZ as a dg algebra with vanishing
+differential. We define the functor
+AZ ⊗t − : BZ -dgmod → AZ ⊗ BZ -dgmod,
+P
+AZ ⊗t M := (AZ ⊗ M, 1 ⊗ dM + i y i ⊗ yi ).
+
+(9)
+
+The functor AZ ⊗t − respects quasi-isomorphisms on the category BZ -dgmod+ of
+bounded below dg B-modules, as it is identified with the functor HomBZ (F, −),
+where F = (BZ ⊗ (AZ )∗ , dF ) is the Koszul resolution of k over BZ . So we have the
+derivation AZ ⊗t − = L(AZ ⊗t −) on D+ (BZ ) (see, for example, [66, Section 4],
+[8]).
+Recall that a dg module N over a dg algebra A is called K-flat if the functor
+− ⊗A N preserves acyclic objects [76]. For K-flat N the derived and underived
+tensor products can be identified − ⊗LA N = − ⊗A N .
+Lemma 4.1. For any dg BZ -module M , the twisted product AZ ⊗t M is K-flat
+over AZ .
+Proof. Consider an acyclic right dg AZ -module L. We have
+L ⊗AZ (AZ ⊗t M ) = L ⊗t M,
+where the latter object
+is the linear product L ⊗ M equipped with the differential
+P
+dL ⊗ 1 + 1 ⊗ dM + i yi ⊗ y i . This complex has a bounded filtration provided by the
+mBZ -adic filtration on M , and the associated graded complex is the linear product
+gr(L ⊗t M ) = L ⊗ (gr M ).
+As any complex of k-vector spaces is K-flat over k, we see that the associated graded
+complex for L ⊗t M is acyclic. By considering the spectral sequence associated to
+this filtration, it follows that L ⊗t M is in fact acyclic.
+
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+15
+
+We recall also, from the materials of Section 3.4, that ExtR ∼
+= ExtKQ naturally
+takes values in the category of dg AZ -modules. Furthermore, by resolving Rmodules by KQ -modules M → V which are projective over Q, we see that the
+functor ExtQ from R-modules naturally takes values in the category of dg BZ modules.
+4.2. Finite generation results. As we argue below, one can lift the natural actions of AZ on Ext∗KQ (M, N ) described in Section 3.4 the dg level, i.e. to an action
+of AZ on RHomKQ (M, N ). The action of BZ on Ext∗Q (M, N ) also lifts to the dg
+level, at least when N is replaced with an (quasi-isomorphic) dg R-module. After
+translating from KQ to R, we establish the following.
+Lemma 4.2.
+(1) Let V and W be in Df in (R). Then RHomR (V, W ) has a
+natural structure of a dg AZ ⊗ BZ -module which lifts the action of AZ on
+Ext∗R (V, W ) of Definition 3.6.
+(2) There is a natural isomorphism
+RHomR ∼
+= AZ ⊗t RHomQ
+of functors from Df in (R)op × Df in (R) to D(AZ ⊗ BZ ), where ⊗t is as
+defined in (9).
+The proof of Lemma 4.2 is given in Section 4.4. In Section 4.5 we prove the
+following result.
+Theorem 4.3 (cf. [9, Theorem 4.2]). Consider a deformation sequence Z → Q →
+R as in Section 3.1. For finite R-modules V and W the following are equivalent:
+(a) Ext∗Q (V, W ) is finite over BZ .
+(b) Ext∗R (V, W ) is finite over AZ .
+Note that finiteness of Ext∗Q (V, W ) over BZ is equivalent to boundedness of
+Ext∗Q (V, W ), since BZ is concentrated in finitely many degrees. Theorem 4.3 follows
+by a basic understanding of the category of dg modules over AZ (Lemma 4.5) and
+a direct application of Lemma 4.2.
+We apply Theorem 4.3 to recover a number of essential finite generation results
+for Hopf cohomology, in Section 4.6.
+4.3. Interpretation via noncommutative complete intersections. One can
+see Theorem 4.3 as a noncommutative variant of results of Gulliksen and AvramovGasharov-Peeva [51, 9] which concern the cohomology of local complete intersections (see also [58]). From the complete intersection perspective [51, 33], AZ is the
+“algebra of cohomological operators” deduced from the “noncommutative complete
+intersection” Q → R (cf. [58]).
+4.4. Proof of Lemma 4.2.
+Lemma 4.4. If M is a dg KQ -module which is semi-projective over Q, then (KZ ⊗Z
+KZ ) ⊗KZ M is semi-projective over KQ .
+To be clear, KQ acts on (KZ ⊗Z KZ ) ⊗KZ M via the KZ action on the left factor
+of KZ ⊗Z KZ and the Q-action on M .
+
+16
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+Proof. We have by definition a filtration M = ∪i≥0 Fi M by dg Q-modules so that
+each quotient Fi M/Fi−1 M is a summand of a free dg module over Q (recall that
+we consider Q as a dg algebra concentrated in degree 0). Since KZ is a bounded
+complex of flat Z-modules, the functor
+(KZ ⊗Z KZ ) ⊗KZ − = KZ ⊗Z − : D(KQ ) → D(KQ )
+is exact. Hence,
+KZ ⊗Z Fi M
+.
+KZ ⊗Z (Fi M/Fi−1 M ) ∼
+=
+KZ ⊗Z Fi−1 M
+Since each Fi M/Fi−1 M is a summand of a free dg Q-module, it follows that KZ ⊗Z
+(Fi M/Fi−1 M ) is a summand of a free dg KQ -module (that is, direct sum of shifts
+of KQ ). We consider the filtration ∪i≥0 KZ ⊗Z Fi M on (KZ ⊗Z KZ ) ⊗KZ M to
+observe a semi-projective structure of this dg module over KQ .
+
+We can now prove our essential lemma.
+Proof/Construction of Lemma 4.2. Let V and W be finite complexes of R-modules
+which we consider as dg KQ -modules via the restriction functor (6). We first
+construct an action of AZ ⊗ BZ on RHomKQ (V, W ) which lifts the action of AZ on
+ExtR (V, W ) ∼
+= ExtKQ (V, W ) of Definition 3.6 to the dg level.
+Choose a resolution M → V by a dg KQ -module which is bounded above and
+projective over Q in each degree. (We may assume the resolution M is bounded
+when Q is of finite global dimension.) Let F = BZ ⊗t A∗Z be the Koszul resolution
+of k over BZ , and consider the induction
+F ind = (KZ ⊗Z KZ ) ⊗BZ F
+along the dg map (7). Since (KZ ⊗Z KZ ) ⊗BZ k ∼
+= KZ (see [21, Lemma 2.4.2]),
+and F is the Koszul resolution of k over BZ , we conclude that
+∼
+
+F ind → KZ
+is a semi-free resolution of KZ over KZ ⊗Z KZ . Therefore, F ind ⊗KZ M is a
+semi-projective resolution of V over KQ , by Lemma 4.4. We have specifically the
+quasi-isomorphism
+∼
+
+∼
+
+F ind ⊗KZ M → KZ ⊗KZ M = M → V.
+Since F = BZ ⊗t A∗Z is a dg (BZ , AZ )-bimodule, the induction F ind admits commuting actions of KZ ⊗Z KZ and AZ , and the product F ind ⊗KZ M has commuting
+actions of KZ and AZ . Specifically, we employ the KZ action on M , and the AZ action on F ind to obtain the action of AZ ⊗ KZ on F ind ⊗KZ M . The action of
+AZ ⊗ KZ on F ind ⊗KZ M induces a natural action of AZ ⊗ BZ = k ⊗Z (AZ ⊗ KZ )
+on the complex
+RHomKQ (V, W ) = HomKQ (F ind ⊗KZ M, W ).
+A direct comparison verifies that this dg-level action lifts the action of Definition 3.6.
+We have the sequence of natural isomorphisms
+RHomKQ (V, W ) = HomKQ (F ind ⊗KZ M, W )
+= HomKZ ⊗Z KZ (F ind , HomQ (M, W ))
+
+= HomKZ ⊗Z KZ (KZ ⊗Z KZ ) ⊗BZ F, HomQ (M, W )
+= HomBZ (F, HomQ (M, W )).
+= AZ ⊗t HomQ (M, W ).
+
+(adjunction)
+(adjunction)
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+17
+
+The final expression is AZ ⊗t RHomQ (V, W ), and we obtain the claimed result. 
+4.5. Proof of Theorem 4.3. We first give a basic lemma on dg modules over
+regular dg algebras.
+Lemma 4.5. Consider a non-negatively graded dg algebra S with vanishing differential. Suppose also that S is Noetherian and has finite global dimension, as an
+associative algebra. For any dg S-module M the following are equivalent
+(1) The cohomology H ∗ (M ) is finitely generated over S.
+(2) M admits a resolution M ′ → M by a finitely generated semi-projective dg
+S-module M ′ .
+Proof. The existence of such a resolution implies coherence of cohomology, since S
+is Noetherian. Suppose now that the cohomology H ∗ (M ) is finitely generated. We
+prove the existence of the appropriate resolution M by induction on the projective
+dimension of H ∗ (M ), the projective dimension 0 case being clear. Suppose now that
+H ∗ (M ) has projective dimension r, and that the desired result holds for bounded
+below dg modules with cohomology of projective dimension < r. Take P → H ∗ (M )
+a surjection from a finitely generated (graded) projective S-module, and φ : P →
+Z(M ) ⊂ M any lift thereof. Let C denote the mapping cone of this lift.
+By a spectral sequence argument one sees that
+H ∗ (C) ∼
+= H ∗ (cone(P → H ∗ (M ))) = Ω1 H ∗ (M ),
+and hence that H ∗ (C) is finite over S and of projective dimension r − 1. Let
+ψ : M ′′ → Σ−1 C be a semi-projective resolution by a finite dg S-module. Then the
+mapping cone M ′ = cone(M ′′ → P ) of the composite M ′′ → Σ−1 C → P , along
+with the morphism of dg modules M ′ → M induced by the graded S-module maps
+ψ̄ : M ′′ → M and φ : P → M , provides the desired resolution.
+
+Remark 4.6. The lemma essentially identifies the categories Dcoh (S) and thickS (S)
+(as defined in, for example, [8]) allowing us to use the conditions interchangeably.
+Recall that the symmetric algebra AZ is of (finite) global dimension dim(mZ /m2Z ).
+So the above result applies to dg modules over AZ . We now offer a proof of our
+theorem.
+Proof of Theorem 4.3. Suppose that RHomQ (V, W ) has finitely generated cohomol∼
+ogy over BZ . Then RHomQ (V, W ) admits a quasi-isomorphism N → RHomQ (V, W )
+from a bounded dg BZ -module. We have then
+∼
+
+RHomR (V, W ) = AZ ⊗t RHomQ (V, W ) ← AZ ⊗t N.
+The dg module on the right is coherent over AZ , and thus has coherent cohomology.
+Suppose now that Ext∗R (V, W ) is finite over AZ . Then RHom∗R (V, W ) admits a
+resolution M → RHomR (V, W ) by a semi-projective, coherent, dg module over AZ ,
+by Lemma 4.5. It follows that the cohomology of the fiber
+k ⊗L RHomR (V, W ) ∼
+= k ⊗A M
+AZ
+
+Z
+
+is finite-dimensional. We have an identification
+k ⊗LAZ RHomR (V, W ) = k ⊗LAZ (AZ ⊗t RHomQ (V, W )) (Lemma 4.2)
+= k ⊗AZ (AZ ⊗t RHomQ (V, W )) (Lemma 4.1)
+= RHomQ (V, W ).
+
+18
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+Thus
+Ext∗Q (V, W ) ∼
+= H ∗ (RHomQ (V, W )) ∼
+= H ∗ (k ⊗LAZ RHomR (V, W ))
+is finite-dimensional, and subsequently finite over BZ .
+
+
+
+As a corollary to Theorem 4.3 we have the following
+Corollary 4.7. Suppose Q is of finite global dimension, and that Z → Q → R is a
+deformation sequence as in Section 3.1. Then for any finite R-modules V and W ,
+Ext∗R (V, W ) is a finite AZ -module.
+4.6. Implications for Hopf cohomology. Suppose that u is a finite-dimensional
+Hopf algebra which admits a smooth integration U → u, as in the examples of
+Section 2. We have the algebra map
+i
+
+−⊗L k
+
+u
+U
+AZ −→
+HH ∗ (u) −→
+Ext∗u (k, k).
+
+(10)
+
+Theorem 4.8. In the above situation, (10) is a finite algebra map, so that Ext∗u (k, k)
+is a finitely generated algebra. Furthermore, for finite-dimensional u-modules V
+and W , Ext∗u (V, W ) is a finite Ext∗u (k, k)-module via the tensor action W ⊗ − :
+Ext∗u (k, k) → Ext∗u (W, W ).
+Proof. Corollary 4.7 says directly that Ext∗u (k, k) is finite over AZ in this case. For
+modules, we have Ext∗u (V, W ) = Ext∗u (W ∗ ⊗ V, k), as an Ext∗u (k, k)-module. So it
+suffices to assume W = k. But in this case the actions of AZ on Ext∗u (V, k) factors
+through Ext∗u (k, k). So finiteness over AZ , which holds by Theorem 4.3, implies
+finiteness over Ext∗u (k, k).
+
+At this point we recover a number of finite generation results, uniformly, via
+application of Theorem 4.8.
+Corollary 4.9. The following Hopf algebras have finitely generated cohomology, in
+the strong sense described in the introduction:
+(1) The quantum group uq (g) [48, 14] (char(k) = 0).
+(2) The quantum Borel uq (b) [48, 14] (char(k) = 0).
+(3) Restricted enveloping algebras ures (g) [40] (char(k) < ∞).
+(4) Algebras of functions O(G) on arbitrary finite group schemes [82] (char(k) <
+∞).
+(5) Drinfeld doubles D(G), and relative doubles D(Hr , G), for G a height 1
+connected group scheme which embeds normally in a smooth algebraic group
+H [38] (char(k) < ∞).
+Our finite generation results for quantum groups are stronger than those of [48],
+as we allow q to be of small (odd) order. (Finite generation at arbitrary q was
+already known, however, and can be found in the text [14].) Our results for doubles
+are also slightly stronger than those of [38], in the height 1 case, although [38] also
+addresses doubles of group schemes of height > 1.
+5. A meditation on hypersurfaces
+We explain the particular implications of the results of Section 4 in the cases in
+which Q is (homologically) smooth, or of finite global dimension, and subsequently
+when Q is a “noncommutative hypersurface” in such a smooth algebra.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+19
+
+In this section, and all sections that follow, by a perfect module over a Noetherian
+algebra we simply mean a finitely generated module which is of finite projective
+dimension. This is equivalent to perfection of such a module in the corresponding
+derived category, and we adopt the derived language as it is still meaningful in a
+dg context.
+5.1. Smooth deformations, finiteness, and naturality. Fix Z → Q → R a
+deformation sequence as in Section 3.1 with Q of finite global dimension. Corollary 4.7 tells us that each Ext∗R (M, N ) is a finite module over AZ in this case. So
+we may view extensions as a bifunctor
+Ext∗R : (R-modf g )op × (R-modf g ) → AZ -dgmodf g .
+Let f ∈ mZ be any function with nonvanishing reduction f¯ ∈ mZ /m2Z . We then
+have the diagram of deformation sequences
+// R
+
+// Q
+
+Z
+πZ
+
+πQ
+
+=
+
+
+Z/(f )
+
+
+// Q/(f )
+
+
+// R,
+
+where the π# are the obvious projections. The projection Z → Z/(f ) also induces
+an inclusion of tangent spaces (m(Z/f ) /m2(Z/f ) )∗ → (mZ /m2Z )∗ and subsequent
+algebra inclusion
+A(Z/f ) → AZ .
+We note that the image of this inclusion depends only on the class of f in the
+cotangent space, and not on the choice of f itself. Consider now the possibly
+non-commuting diagram
+A(Z/f )
+
+iQ/f
+
+// HH ∗ (R)
+=
+
+incl
+
+
+AZ
+
+(11)
+
+iQ
+
+
+
+// HH ∗ (R).
+
+Lemma 5.1. The diagram (11) does in fact commute.
+We view the above diagram as a type of naturality property for our setup 3.1.
+Proof. Consider any deformation situation Z ′ → Q′ → R′ . The image of a tangent
+vector ξ ∈ (m/m2 )∗ in Hochschild cohomology is the class of the deformation
+Q′ ⊗Z ′ k[ǫξ ],
+where the k[ǫξ ] is k[ǫ] = k[ǫ]/(ǫ2 ) equipped with the algebra map Z ′ → k[ǫ] which
+annihilates m2 and is defined on the quotient Z/m2 → k[ǫ] by the function ǫ · ξ :
+m/m2 → kǫ. Take Qf = Q/(f ) and Zf = Z/(f ). Using this description, one finds
+that for ξ ∈ (mZf /mZf )∗ ⊂ (mZ /m2Z )∗ , i.e. for any function ξ : mZ /m2Z → k which
+vanishes in f¯, the projection Q → Qf induces an isomorphism of deformations
+Q ⊗Z k[ǫξ ] ∼
+= Qf ⊗Z k[ǫξ ].
+f
+
+That is to say, the diagram (11) commutes when restricted to the generators, and
+thus commutes on all of A(Z/f ) .
+
+
+20
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+5.2. Perfection of modules over hypersurfaces. Commutativity of (11) implies the following.
+Corollary 5.2. Consider f, g ∈ mZ elements with equivalent, nonzero, reductions
+f¯ = ḡ in mZ /m2Z . Then for finite R-modules V and W ,
+Ext∗Q/(f ) (V, W ) vanishes in high degree ⇔ Ext∗Q/(g) (V, W ) vanishes in high degree.
+Proof. By considering Q in Theorem 4.3 to be either of the deformations Q/(f ) or
+Q/(g) of R, the result is a consequence of Theorem 4.3 and Lemma 5.1.
+
+Locality of Z tells us that all of the finitely generated simples over Q are restricted
+from simple R-modules along the quotient Q → R. We take Λ = R/ Jac(R) =
+Q/ Jac(Q) to find, for any finitely generated module M over Q,
+M is perfect over Q ⇔ Ext≫0
+Q (M, Λ) = 0.
+By taking W = Λ in Corollary 5.2 we therefore obtain
+Corollary 5.3. Consider f, g ∈ mZ elements with equivalent, nonzero, reductions
+f¯ = ḡ in mZ /m2Z . Then a finite R-module V is perfect over Q/(f ) if and only if
+V is perfect over Q/(g).
+6. Cohomological supports and hypersurfaces
+We show that the cohomological support for R, defined via the action of AZ on
+extension Ext∗R (V, W ), can be identified with a certain hypersurface support. The
+hypersurface support for a module V is defined by considering (non-)perfection of V
+over hypersurfaces Q/(f ), for varying f ∈ mZ . (See Definition 6.7 and Corollary 7.2
+below.) We then discuss consequences for support in a Hopf theoretic context in
+Section 7. Throughout Z → Q → R is a deformation sequence as in 3.1.
+Remark 6.1. The results of this section are noncommutative analogs of results of
+Avramov-Buchweitz [6].
+6.1. Graded Nakayama. The following graded version of Nakayama’s lemma is
+standard.
+Lemma 6.2. Let S be a Z≥0 -graded algebra, and N be a bounded below graded
+S-module. Then N is 0 if and only if S0 ⊗S N = 0.
+Note that we have imposed no finiteness conditions on N .
+Proof. Suppose that N is nonzero and that the fiber S0 ⊗S N vanishes. We have that
+the minimal degree Nmin survives in the fiber Nmin ⊂ S0 ⊗S N . Hence vanishing
+of the fiber implies Nmin = 0, which is nonsense.
+
+Corollary 6.3. For S and N as in Lemma 6.2, N is generated by any graded
+S0 -submodule Nω ⊂ N which surjects onto the fiber S0 ⊗S N . In particular, if the
+fiber S0 ⊗S N is finite over S0 then N is finite over S.
+Proof. Take such a lift Nω ⊂ N and consider the graded S-module map S ⊗S0 Nω →
+N induced by the action of S on N . Let M denote the cokernel, so that we have
+an exact sequence S ⊗S0 Nω → N → M → 0. By right exactness of S0 ⊗S −, we
+obtain an exact sequence Nω → S0 ⊗S N → S0 ⊗S M → 0, from which we conclude
+that S0 ⊗S M vanishes, and hence that M vanishes. So the result holds.
+
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+21
+
+6.2. Supports! In anticipation of the Hopf case, we now impose the following
+conditions on our deformation Q → R:
+(A) Q is of finite global dimension and augmented.
+(B) Q-modf g comes equipped with a Z-linear endofunctor σ such that, for any
+finite R-module V and f ∈ mZ , V is perfect over Q/(f ) if and only if
+Ext≫0
+Q/(f ) (σV, k) = 0.
+Note that Z-linearity of σ implies that σ restricts to an endofunctor on each
+full subcategory Q/IQ-modf g , for any ideal I ⊂ Z, as this category is simply the
+subcategory of Q-modules for which the action Z → EndQ (M, M ) vanishes on I.
+Example 6.4 (Hopf deformations). Suppose that u is a finite-dimensional Hopf
+algebra with an integration U → u. Then for the sum of the simples Λ = u/ Jac(u)
+we may take σ = Λ ⊗ − : U-modf g → U-modf g .
+In the given context, each Ext∗R (V, W ) is finite over AZ , by Corollary 4.7. We
+fix
+P := P(mZ /m2Z ) = Proj(AZ ).
+
+
+(In a more geometric notation, one could write P = P T1∗ Spf(Z) .) For a graded
+module N over AZ we let N ∼ denote the associated sheaf on P.
+For a deformation Q → R as above we define two cohomological supports as
+follows.
+Definition 6.5. For V finite over R, define the cohomological support in P as
+suppP (V ) := SuppP Ext∗R (V, Λ)∼ ,
+where Λ = R/ Jac(R) is the sum of the simples for R. We defined the cohomological
+σ-support as
+suppσP (V ) := SuppP Ext∗R (σV, k)∼ .
+Remark 6.6. The reader should note that these supports suppP and suppσP dependent on the choice of deformation Q for R.
+For a closed point c ∈ P we let Qc denote any quotient Q/(fc ) where fc ∈ mZ
+is any lift of an element in the corresponding line c ⊂ mZ /m2Z − {0}. Recall
+that the algebra AZ/(fc ) and its corresponding map to Hochschild cohomology are
+independent of the choice of lift fc , by Lemma 5.1. We take
+Ac := A(Z/fc Z) , for any lift fc of c ∈ P(mZ /m2Z ).
+
+(12)
+
+By Corollary 5.3, for any other choice of lift gc , and R-module V , perfection of
+V over Q/(fc ) is equivalent to perfection over Q/(gc ). We may therefore speak
+unambiguously of perfection of V over Qc .
+Definition 6.7. For V a finite R-module, we define the hypersurface support as
+2
+−
+supphyp
+P (V ) := {c ∈ P(mZ /mZ ) : V is not perfect over Qc } ,
+
+where the final bar denotes the closure in P, and c runs over all closed points in
+projective space.
+
+22
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+6.3. Equating cohomological and hypersurface supports. We maintain the
+assumptions of the previous subsection. Closed points c ∈ P(mZ /m2Z ) correspond
+to graded algebra surjections φc : AZ → k[t], where t is given degree 2, and two
+maps are taken to be equivalent if they differ by a graded automorphism of k[t],
+i.e. a nonzero scaling of t. Taking the fiber k[t] ⊗AZ − along any point c is then
+identified with the reduction
+k[t] ⊗AZ − ∼
+= k ⊗Ac −,
+
+(13)
+
+where Ac ⊂ AZ is the subalgebra generated by ker(φc |A2Z ). One sees directly that
+the generating subspace ker(φc |A2Z ) ⊂ (mZ /m2Z )∗ is the kernel of the associated map
+c : (mZ /m2Z )∗ → k, or rather of the map associated to any choice of representative
+for c ∈ P(mZ /m2Z ), so that Ac is precisely the subalgebra of (12).
+Lemma 6.8. Consider a deformation Q → R as in Section 3.1. Then for any
+closed point c ∈ P(mZ /m2Z ), and any finite-dimensional R-modules V and W , the
+following are equivalent:
+(a) Ext≫0
+Qc (V, W ) = 0.
+(b) The base change k[t] ⊗AZ Ext∗R (V, W ) along the map φc : AZ → k[t] is
+finite-dimensional.
+(c) The base change k[t, t−1 ] ⊗AZ Ext∗R (V, W ) along the localized map φc,loc :
+AZ → k[t, t−1 ] vanishes.
+Proof. Suppose (a) holds. Then Theorem 4.3 implies that Ext∗R (V, W ) is a finitely
+generated Ac -module, and hence the fiber
+k[t] ⊗AZ Ext∗R (V, W ) ∼
+= k ⊗Ac Ext∗R (V, W )
+is finite-dimensional. So we see (a) implies (b). Conversely, if the above fiber is
+finite-dimensional then Ext∗R (V, W ) is finitely generated over Ac , by Corollary 6.3.
+Theorem 4.3 then tells us that Ext≫0
+Qc (V, W ) = 0, providing (a).
+For the equivalence between (b) and (c), we note that Ext∗R (V, W ) is finitelygenerated over AZ , by Theorem 4.3, so that k[t] ⊗AZ Ext∗R (V, W ) is a finitelygenerated k[t]-module. We recall that a finitely generated, graded, k[t]-module
+is t-torsion if and only if it is finite-dimensional. So we see that the localization k[t, t−1 ] ⊗AZ Ext∗R (V, W ) vanishes if and only if k[t] ⊗AZ Ext∗R (V, W ) is finitedimensional.
+
+Theorem 6.9. Suppose Q → R is a deformation satisfying (A) and (B) from
+Section 6.2. Then for V any finitely generated R-module we have an identification
+of supports
+suppσP (V ) = supphyp
+P (V ).
+Proof. It suffices to show that the closed points of suppσP (V ) are equal to the collection of closed points c ∈ P at which V is not perfect over Qc , in which case taking
+the closure of this final set recovers suppP (V ). Equivalently, it suffices to show that
+the complements of these collections of closed points agree. Recalling our assumption (B), Theorem 4.3 applied to the deformation sequence Z/(fc ) → Q/(fc ) → R
+implies
+≫0
+c∈
+/ supphyp
+P (V ) ⇔ ExtQc (σV, k) = 0.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+23
+
+/ supphyp
+By Lemma 6.8 we therefore find that c ∈
+P (V ) if and only if the base change
+∗
+of ExtR (σV, k) along the localized map φc : AZ → k[t, t−1 ] vanishes,
+k[t, t−1 ] ⊗AZ Ext∗R (σV, k) = 0.
+This gives P − supphyp
+P (V ) as the complement of the support of the coherent OP σ
+module associated to Ext∗R (σV, k), and thus supphyp
+
+P (V ) = suppP (V ).
+As one sees from the proof, the closed points of suppσP (V ) agree precisely with
+those (closed) points c of P at which V is non-perfect over the hypersurface Qc . So
+we have as a corollary to the proof
+Corollary 6.10. The closed points of suppσP (V ) in P are exactly the set {c ∈ P :
+V is not perfect over Qc }. In particular, this set is already closed (in the topological
+subspace of k-points) in P.
+The same arguments apply verbatim to the support suppP (V ) = SuppP ExtR (V, Λ)∼
+in P, so that we may identify this cohomological and hypersurface support.
+Theorem 6.11 (cf. [6, Theorem 2.5]). For V any finite R-module, there is an
+identification of supports suppP (V ) = supphyp
+P (V ).
+Remark 6.12. The cohomological support suppP does not play a significant role
+in our study. However, it is the appropriate object to consider if one is interested in
+Snashall and Solberg’s support theory for associative algebras via Hochschild cohomology [75]. All un-superscripted supports supp? which appear in the complement
+of this section are Hopfy cohomological supports, as defined in Section 7.2 below.
+7. Hopfy support and hypersurfaces
+We give a precise relation between hypersurface support, defined as in Definition
+6.7, and the usual cohomological support for integrable Hopf algebras.
+7.1. Choose a side. In deciding, in 3.1, that the parametrizing algebra Z for an
+integration U → u is a right coideal subalgebra in U, we have chosen that rep(u)
+acts on the left of the hypersurface categories U/(f )-modf g (see Section 8.1). So the
+endomorphism σ : U/(f )-modf g → U/(f )-modf g considered in the Hopf situation
+of Example 6.4 must be tensoring with the simples Λ on the left, σ = Λ ⊗ −.
+To produce consistency with these choices, we consider Hopfy cohomological
+support according to the algebra maps
+V ⊗ − : Ext∗u (k, k) → Ext∗u (V, V )
+
+(14)
+
+provided by the left action of rep(u) on itself.
+These particular right/left choices do not really matter. What matters, however,
+is that one does not switch from a “right handed support” to a “left handed support”
+in a willy-nilly manner. So, we stick to the handedness proposed in Section 3.1,
+unless explicitly stated otherwise.
+7.2. Hypersurface support and Hopf algebras. We consider again u a finitedimensional, integrable, Hopf algebra with chosen integration U → u. We observe
+the algebra map AZ → Ext∗u (k, k) of equation (10). Fix Y := Proj (Ext∗u (k, k))red
+and
+κ : Y → P(mZ /m2Z )
+(15)
+
+24
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+the map of varieties dual to (10). When Z ⊂ U is specifically not a Hopf subalgebra, we may consider the alternate parametrizing subalgebra Z ′ = S(Z) and
+corresponding map κ′ : Y → P(mZ /m2Z ).
+Recall the standard Hopfy cohomological support
+suppY (V ) := SuppY Ext∗u (V, V )∼ ,
+where we calculate the sheaf Ext∗u (V, V )∼ according to the (graded) action of
+Ext∗u (k, k) on Ext∗u (V, V ) provided by the algebra map (14).
+Theorem 7.1. Consider u a Hopf algebra which admits an integration U → u.
+Then the Hopfy cohomological support and hypersurface support satisfy
+
+κ suppY (V ) = supphyp
+P (V ),
+
+where κ : Y → P is as above.
+
+Proof. For σ = Λ ⊗ − we have κ(suppY (V )) = suppσP (V ). Specifically, the modules
+Ext∗u (V, V ) and Ext∗u (Λ ⊗ V, k) have the same support over Ext∗u (k, k) [18, §5.7].
+By commutative algebra, when we restrict along the (finite) algebra map AZ →
+Ext∗u (k, k), the support of the given module over AZ is the image of the support in
+Spec(Ext∗u (k, k))red along the map i∗U to Spec(AZ ) = A(mZ /m2Z ). These supports
+are conical subvarieties in the given Gm -equivariant varieties, and we projectivize
+to obtain the claimed identification of κ(suppY (V )) with suppσP (V ). So the result
+follows by Theorems 6.9 and 6.11.
+
+If we suppose, furthermore, that κ : Y → P is a closed embedding then the Hopfy
+support can be seen as a support theory valued in closed subvarieties in P.
+Corollary 7.2. If the map κ : Y → P of (15) is a closed embedding, then
+suppY (V ) = supphyp
+P (V ).
+In particular, the hypersurface support vanishes on the open complement P − Y.
+7.3. A weak tensor product property. We consider again an integrable Hopf
+algebra u with chosen integration U → u. We consider the following additional
+conditions:
+(S1) Z is a Hopf subalgebra in U.
+(S2) u is local.
+(S3) rep(u) is braided.
+Recall that a braiding on rep(u) is a choice of natural swap operation cV,W : V ⊗
+∼
+W → W ⊗ V on products of u-representations. The cV,W here are assumed to be
+natural in both V and W , so that in total we have a natural isomorphism c−,−
+between the tensor product on rep(u) and its opposite, and are also assumed to
+satisfy the braid relations [54, §1].
+Proposition 7.3. Suppose that the integration U → u satisfies any one of the
+conditions (S1)–(S3) above. Then for arbitrary V and W in rep(u), hypersurface
+support satisfies the following:
+
+hyp
+hyp
+(1) supphyp
+P (V ⊗ W ) ⊂ suppP (V ) ∩ suppP (W ) .
+hyp
+∗
+(2) supphyp
+P (V ) = suppP (V ).
+In the proof we employ the notion of a thick subcategory in a triangulated
+category. The definition of such a subcategory is recalled in Section 9 below.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+25
+
+Proof. In the local case (S2) we have that V ⊗ W is in the thick subcategory generated by V and also the thick subcategory generated by W , where here we consider
+specifically the thick subcategories in Dcoh (U/(f )) for varying hypersurface. This
+implies the inclusion (1).
+Consider now the braided case (S3). We note that at any function f ∈ mZ the
+category U/(f )-modf g is a left rep(u)-module category, in the sense that for any V
+in rep(u), and U/(f )-module M , the action of U on V ⊗ M descends to an action
+of U/(f ). The duality
+HomU/(f ) (V ⊗ M, −) ∼
+= HomU/(f ) (M, ∗ V ⊗ −)
+implies that the endomorphism V ⊗ − : U/(f )-modf g → U/(f )-modf g associated
+to any object in rep(u) preserves perfection. Here ∗ V is the linear dual of V with
+u acting via the inverse antipode S −1 (see [36, §2.10]). So we see that
+hyp
+supphyp
+P (V ⊗ W ) ⊂ suppP (W ).
+hyp
+Since V ⊗ W ∼
+= W ⊗ V in this case, we also have an inclusion into suppP (V ),
+establishing (1).
+Suppose now that Z is a Hopf subalgebra in U, as in (S1). In this case rep(u)
+acts on both the left and the right of the category U/(f )-modf g . So one again
+employs dualities, as in the braided case, to obtain (1).
+Point (1) now implies, for u satisfying any of the (S#), that any object L which
+is a summand of a product W ⊗ V ⊗ W ′ , there is an inclusion supphyp
+P (L) ⊂
+hyp
+hyp
+hyp
+∗
+∗
+suppP (V ). In particular, suppP (V ) ⊂ suppP (V ), as V is a summand of the
+product V ⊗ V ∗ ⊗ V , by definition of the dual ∗ (V ∗ ) ∼
+= V [36, Definition 2.10.1].
+One obtains the opposite inclusion similarly. So we have (2).
+
+
+The analogous equations (1) and (2), for cohomological support suppY , are
+known to hold in both the local and braided cases (S2) & (S3). However, in the
+case (S1) we obtain something new. We apply Corollary 7.2 to obtain the following
+from Proposition 7.3.
+Corollary 7.4. Suppose that u admits an integration U → u for which Z is a
+Hopf subalgebra in U and that the map κ of (15) is a closed embedding. Then
+cohomological support for rep(u) satisfies the following:
+
+(1) suppY (V ⊗ W ) ⊂ suppY (V ) ∩ suppY (W ) .
+(2) suppY (V ) = suppY (V ∗ ).
+We note that the relations of Corollary 7.4 are not obvious when rep(u) is not
+braided, and not even true in general. One can see Example 10.2 below, or [73] for
+a more extensive exposition.
+Lemma 7.5. If u is such that the reduced spectrum Spec(Ext∗u (k, k))red is isomorphic to an affine space Ank , then the map κ : Y → P(mZ /m2Z ) of (15) is a closed
+embedding.
+Proof. Take E = Ext∗u (k, k)red and take E ′ the subalgebra generated by E 2 . By
+assumption, E is isomorphic to a polynomial ring. Since E is graded, we may take
+homogenous generators ξi , deg(ξi ) = di , and have E = k[ξ1 , . . . , ξd ]. We know that
+the deformation map
+Sym(Σ−2 (mZ /m2Z )∗ ) = AZ → E
+
+(16)
+
+26
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+is finite, by Theorem 4.8. We note that AZ has image in the subalgebra E ′ generated
+in degree 2, so that E must be finite over E ′ , and E ′ must be finite over the image of
+AZ . We have k⊗AZ E ′ = Sym(E 2 /im(mZ /m2Z )∗ ) and k⊗E ′ E = k[ξj : deg(ξj ) > 2].
+Finiteness of these fibers forces E 2 = im(mZ /m2Z )∗ , and E ′ = E. Hence we have
+
+surjectivity of (16).
+One applies Lemma 7.5 to see that the relations of Corollary 7.4 hold in a number
+of “unipotent” and “solvable” settings. We just remark on one.
+Corollary 7.6. For uq (b) the small quantum Borel, in arbitrary Dynkin type, at q
+of odd order greater than the associated Coxeter number h, cohomological support
+satisfies
+
+suppY (V ⊗ W ) ⊂ suppY (V ) ∩ suppY (W )
+and also suppY (V ) = suppY (V ∗ ).
+Proof. The distinguished subalgebra Z0 in UqDK (b) is a Hopf subalgebra and,
+by [48], the algebra of extensions Ext∗uq (b) (C, C) is a polynomial ring in this case.
+
+So the result follows by Lemma 7.5 and Corollary 7.4.
+Remark 7.7. For u the restricted enveloping algebra ures (L) of reductive L in
+large characteristic, we expect the map κ is simply the embedding of the (twisted)
+nilpotent cone N (1) into L(1) , or rather the projectivization of this map. Similarly,
+for the quantum group uq (g) at large order q, κ should also be the projectivized
+embedding of the nilpotent cone into g. So, in particular, the hypersurface and
+cohomological supports should agree here. In the finite characteristic setting, one
+could explicitly prove this result by identifying the Hochschild map employed in
+[40], [39, Proposition 5.2], with our deformation map of (10).
+Remark 7.8. In Section 13 we will be rather precise in our definition of the quantum Borel. In particular, we acknowledge that there are varying choices of Borels
+with varying groups of grouplikes. In Corollary 7.6 the particular choice of grouplikes for uq (b) does not matter.
+8. Background: a preamble to examples
+We now move on to the second phase in this work. In the following sections we
+use hypersurface support to prove the tensor product property for cohomological
+support in a number of “solvable” examples. We explain what precisely counts as
+a “solvable” Hopf algebra in Section 8.4 below. The proofs of the tensor product
+property in these varied contexts rely on certain recurring arguments which are
+both homological and (mildly) tensor categorical in nature. We provide here the
+backgrounds needed to understand the examples considered in the latter sections
+of the text.
+We recall that a tensor category is a k-linear, abelian, rigid monoidal [36,
+§2.10] category C in which all objects are of finite length and Hom sets are finitedimensional. We also require that the unit 1 ∈ C is simple. A tensor category C
+is finite if it has finitely many simples and enough projectives, and C is fusion if
+it is finite and semisimple. The only tensor categories we are interested are those
+of the form rep(u) for a finite-dimensional Hopf algebra u (in which case rep(u) is
+finite), so one needn’t concern themselves with the intricacies of the theory of tensor categories here. We would claim, however, that the language and philosophies
+from the subject are useful.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+27
+
+We are also interested in braided tensor categories, which, just as in the case of
+rep(u) discussed in Section 7.3, are tensor categories C equipped with a natural
+∼
+swap operation cV,W : V ⊗ W → W ⊗ V on objects [54, §1].
+8.1. Module categories. We refer the reader to [70, Definition 6.2] for a precise
+definition of a module category. Basically, a (left) module category over a tensor
+category C is a k-linear abelian category M with a biexact action functor ⊗ :
+C × M → M which is compatible with the tensor structure on C , in the obvious
+ways. One has the analogous notion of a bimodule category.
+We have already encountered our primary source of examples: Given rep(u) for
+a Hopf algebra u, and B a (left) u-comodule algebra, we obtain an action of rep(u)
+on B-mod. In particular, for arbitrary V in rep(u) and M in B-mod, we employing
+the coaction B → u⊗B to provide a natural B-action on the tensor products V ⊗B.
+In this way, the linear tensor product ⊗ = ⊗k provides our exact action functor
+⊗ : rep(u) × B-mod → B-mod, endowing B-mod with a rep(u)-module category
+structure. When B is a u-bicomodule, we similarly find that B-mod is a bimodule
+category over rep(u).
+By considering the adjunction HomB (V ⊗ M, −) = HomB (M, ∗ V ⊗ −) we see
+that the action of rep(u) on such B-mod preserves the subcategory of compact
+objects, i.e. finitely presented modules. So, when B is Noetherian, we have that
+B-modf g is a rep(u)-module subcategory in B-mod. The analogous claims hold in
+the bicomodule/rep(u)-bimodule setting. Such duality arguments also show that
+the action(s) of rep(u) on B-mod preserves perfect objects.
+8.2. Drinfeld centeralizers.
+Definition 8.1 ([64]). Given a tensor subcategory D in a tensor category C , we
+define the Drinfeld centralizer Z D (C ) to be the category of pairs (V, γV ) where V is
+an object in C and γV is a half braiding against D. Specifically, γV : V ⊗− → −⊗V
+is a natural isomorphism between the functors −⊗V, V ⊗− : D → C which satisfies
+the appropriate braid relations.
+The Drinfeld center Z(C ) of C is the centralizer of C against itself, i.e. the
+category of pairs of an object V with a global half braiding γV : V ⊗ − → − ⊗ V .
+Both Z D (C ) and Z(C ) inherit obvious tensor structures (V, γV ) ⊗ (W, γW ) =
+(V ⊗ W, (γV ⊗ 1)(1 ⊗ γW )) from C , and we have a surjective tensor functor
+Forget : Z D (C ) → C
+
+(17)
+
+given by forgetting the half braiding [35, Proposition 3.39]. By surjective we mean
+that all objects of C are obtained by taking subquotients of objects from Z D (C ).
+In the Hopf setting, Z(rep(u)) is equivalent to the category of modules over
+the Drinfeld double D(u) = u ⊲⊳ u∗ (see e.g. [63, 55]). For rep(Λ) → rep(u) the
+tensor inclusion corresponding to a Hopf quotient u → Λ, the Drinfeld centralizer
+is identified with representations over the Hopf subalgebra u ⊲⊳ Λ∗ in D(u).
+We prefer the categorical expression Z D (C ) to the algebraic one as we mean to
+emphasize a single point here: It is natural to consider, in some specific contexts,
+objects V in rep(u) with a uniform means of moving V past a chosen class of other
+objects in rep(u), under the tensor action.
+
+28
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+8.3. Bosonization and half-braidings. Consider u+ a finite-dimensional Hopf
+algebra in a braided tensor category rep(Λ) which, as the notation suggests, is the
+representation category of a quasitriangular Hopf algebra Λ. Then the category
+repΛ (u+ ) of finite-dimensional left u+ -modules in rep(Λ) forms a tensor category
+for which the composition
+f orget
+
+repΛ (u+ ) → rep(Λ) → V ect
+provides a canonical fiber functor. Such modules are simply u+ -modules with a
+compatible action of Λ, i.e. modules over the smash product u = u+ ⋊ Λ, and
+the tensor structure on repΛ (u+ ) induces a Hopf structure on u under which the
+subalgebra u+ is a left u-comodule algebra. The algebra u, with its given Hopf
+structure, is the bosonization of u+ . We consider the explicit examples of bosonized
+quantum complete intersections in Section 11 below.
+One can endow all objects in rep(Λ) with the trivial u+ -action, via the counit
++
+u → 1, to obtain a tensor embedding
+rep(Λ) → repΛ (u+ ) = rep(u).
+When u+ is local, and Λ is semisimple, this map is an equivalence onto the fusion
+subcategory of semisimple objects in rep(u). In the statement of the following
+lemma c denotes the braiding on rep(Λ).
+Lemma 8.2. For u a bosonized Hopf algebra u = u+ ⋊ Λ as above, there is a
+canonical tensor functor rep(u) → Z rep(Λ) (rep(u)) which is a section of the forgetful
+functor. Specifically, for V in rep(u) and L in rep(Λ), the isomorphisms
+γV,L : V ⊗ L → L ⊗ V
+given by the braiding γV,L := cV,L on rep(Λ) provide a rep(Λ)-centralizing structure
+on all objects in rep(u), and the operations γV,L are natural in V and L.
+Proof. Both V ⊗ L and L ⊗ V have well-defined u-actions, and the braiding γ = c
+is a map of Λ-modules by construction. So we need only check u+ -linearity. Since
+u+ acts trivially on L, the action of u+ on V ⊗ L is just induced by the action on
+V , and the action on L ⊗ V employs the braiding
+actL⊗V = (1 ⊗ actV )(cu+ ,L ⊗ 1) : u+ ⊗ L ⊗ V → L ⊗ V.
+Naturality of the braiding, and the braid relation, then imply commutativity of the
+diagram
+1⊗c
+// u+ ⊗ L ⊗ V
+u+ ⊗ V ⊗ L
+actV ⊗L
+
+actL⊗V
+
+
+
+c
+// L ⊗ V.
+V ⊗L
+The above diagram implies that γV,L = cV,L is a map of u+ , and hence u, representations.
+
+8.4. Geometrically Chevalley algebras. In the following definition we let Rep(Λ)
+denote the monoidal category of infinite-dimensional representations for a finitedimensional Hopf algebra Λ.
+Definition 8.3. Call an integrable Hopf algebra u geometrically Chevalley if
+(a) u is the bosonization u = u+ ⋊Λ of a local Hopf algebra u+ in a (semisimple!)
+braided fusion category rep(Λ).
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+29
+
+(b) u+ admits a deformation sequence Z → U+ → u+ via algebras in Rep(Λ)
+such that
+(b1) U+ is a local Hopf algebra in Rep(Λ) which is of finite global dimension,
+as an associative algebra.
+(b2) Z is a central Hopf subalgebra in U+ which has trivial Λ-action and
+admits an algebra isomorphism Z ∼
+= k[[y1 , . . . , yn ]].
++
+We call U = U ⋊ Λ the corresponding Chevalley integration of u, and have the
+corresponding integration U → u parametrized by the Hopf subalgebra Z in U.
+Examples of geometrically Chevalley algebras include bosonized quantum complete intersections, quantum Borels, and also the Drinfeld doubles D(B(1) ) for Borel
+subgroups B ⊂ G in almost-simple algebraic group G (in particular characteristics).
+Restricted enveloping algebras ures (n) of nilpotent restricted Lie algebras are also
+geometrically Chevalley, with Λ = k. In the case of D(B(1) ) we take Λ = kT1 ,
+where T ⊂ B is the torus, and the braiding on rep(Λ) = rep(T1 ) is the standard
+(trivial) symmetry. These examples are all considered in detail in Sections 11 and
+13 below.
+By Lemma 8.2, all objects in rep(u) centralize the simples rep(Λ) in this case,
+and we have a canonical section rep(u) → Z rep(Λ) (rep(u)) for any geometrically
+Chevalley u.
+9. Noncommutative Hopkins lemma for hypersurfaces
+Let T be a triangulated category. Recall that a thick subcategory in T is a full
+triangulated subcategory which is closed under taking summands in T , and the
+thick subcategory hXi : i ∈ Ii generated by a collection of objects {Xi }i∈I in T
+is the smallest thick subcategory in T which contains all the Xi . The most basic
+example of a thick subcategory for us is that of perfect complexes perf(Q) = hQi
+in the derived category of modules over a given algebra Q.
+Here we suggest an analysis of thick subcategories for the hypersurface categories
+Dcoh (U/(f ))–or rather, Dcoh (U+ /(f )) in the geometrically Chevalley instance–
+which provides a technical foundation for the work that follows.
+9.1. Hopkins Lemma and noncommutative hypersurfaces. Consider Q a
+commutative, regular, local algebra and Q/(f ) a hypersurface algebra. Then a
+version of Hopkins lemma [26, Proposition 5.8] implies that, for M non-perfect
+over Q/(f ), the trivial module k is in the thick subcategory hM i generated by M
+in the derived category of Q/(f ). It seems clear that this precise result does not
+hold for a noncommutative hypersurface algebra Q/(f ), as one needs to properly
+account for the noncommutativity in this case.
+In a geometrically Chevalley setting U+ → u+ , we consider an alternative implication:
+M non-perfect in U+ /(f )-modf g
++
+
+question
+
+⇒
+
+k ∈ hλ ⊗ M : λ ∈ Irrep(Λ)i.
+
+(18)
+
+We act on the left of U /(f )-mod via the left u, and hence Λ, comodule structure.
+More generally, one may replace the λ in Irrep(Λ) with objects in an arbitrary tensor
+subcategory D ⊂ rep(u). Our main approach to the tensor product property for the
+examples considered in Section 10–13 below is to show that the implication (18)
+does hold in these cases, and use this implication to deduce the tensor product
+property for support.
+
+30
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+Lemma 9.1. Consider u geometrically Chevalley, with Chevalley integration U →
+u. Fix D ⊂ rep(u) an arbitrary tensor subcategory, and consider functions f ∈ mZ
+with non-trivial reduction to mZ /m2Z .
+Suppose that for any non-perfect, finitely generated, module M over a hypersurface U+ /(f ), k is in the thick subcategory hλ ⊗ M : λ ∈ Di generated by the D-orbit
+of M in Dcoh (U+ /(f )). Then the hypersurface support supphyp
+on Df in (u) satisfies
+P
+the tensor product property
+hyp
+hyp
+supphyp
+P (V ⊗ W ) = suppP (V ) ∩ suppP (W ).
+
+The analogous result holds when u is local and admits an integration U → u by a
+local Hopf algebra (U+ =)U.
+Proof. In what follows, for local u we take Λ = k, rep(Λ) = V ect. In both the
+geometrically Chevalley and local case we have an inclusion of supports supphyp
+P (V ⊗
+hyp
+hyp
+W ) ⊂ suppP (V ) ∩ suppP (W ), by Proposition 7.3. So, we need only establish
+opposite inclusion.
+Since the positive subalgebra u+ is local, by hypothesis, the inclusion rep(Λ) →
+rep(u) is an isomorphism onto the fusion subcategory of semisimple modules. Furthermore, this fusion subcategory generates rep(u) under extension. Therefore, for
+any D as in the statement we have
+hλ ⊗ M : λ ∈ Di ⊂ hλ ⊗ M : λ ∈ Irrep(Λ)i.
+So it suffices to prove the result when D = rep(Λ).
+We must prove the following: If U/(f ) is a hypersurface along which W is nonperfect, and the product V ⊗ W is perfect, then V must be perfect. (Here f is a
+function in the parametrizing algebra Z with non-vanishing linear part.) Now, imperfection of a module over U/(f ) = (U+ /(f ))⋊Λ is equivalent to imperfection over
+the subalgebra U+ /(f ). So we are free to replace U/(f ) with this local subalgebra
+U+ /(f ), and attempt to establish the same claims regarding imperfection.
+By locality of U+ /(f ), imperfection of a finitely generated module M over U+ /(f )
+is equivalent to nonvanishing of Ext∗U+ /(f ) (M, k) in arbitrarily high degrees. We
+recall also that the u-comodule structure on U+ /(f ) implies a (left) action of rep(u)
+on U+ /(f )-mod.
+Consider such f , V , and W as prescribed. As W is non-perfect along U+ /(f )
+we have
+k ∈ hλ ⊗ W : λ ∈ Irrep(Λ)i ⊂ Dcoh (U+ /(f )),
+by hypothesis. Applying the endofunctor V ⊗ − : Dcoh (U+ /(f )) → Dcoh (U+ /(f ))
+and the centrality claim of Lemma 8.2 gives then
+V ∈ hV ⊗ λ ⊗ W : λ ∈ Irrep(Λ)i = hλ ⊗ V ⊗ W : λ ∈ Irrep(Λ)i.
+Since V ⊗ W is perfect, this final thick subcategory is contained in perf(U+ /(f )),
+so that V must be perfect.
+
+Remark 9.2. It suffices to work stably, so that one may replace the thick subcategory generated by the λ ⊗ M with the thick subcategory generated by the λ ⊗ M
+and U+ /(f ) in equations (18) and Lemma 9.1 above.
+Remark 9.3. It is possible that (18) holds in general, although we would not claim
+such a result at this time.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+31
+
+10. The tensor product property for functions on finite group
+schemes
+We consider representations of O(G), for a finite group scheme G. In this case
+we have rep(O(G)) = Coh(G), and we employ the latter notation for the sake of
+expediency. We prove in Theorem 10.5 below that (Hopfy) cohomological support
+for Coh(G) has the tensor product property whenever G is connected. In the case
+in which G is not connected, the tensor product property for Coh(G) simply does
+not hold (see Example 10.2). However, we prove in Corollary 10.8 a variant of the
+tensor product property for non-connected G which is, in a global sense, optimal.
+Arguably, the case of Coh(G) is not the most interesting application of the
+methods developed in this paper. Indeed, many of the issues we’ve addressed
+in the present document are well-established in the commutative setting (see Remark 10.7). However, this very natural class of examples provides an excellent
+case study from which one can observe a number of important phenomenon. We
+consider more novel situations in Sections 11 and 13 below.
+10.1. Reducing to the connected component I. Consider G a finite group
+scheme, with identity component Go . We note that in this case the cohomology
+rings Ext∗O(G) (k, k) and Ext∗O(Go ) (k, k) for the algebras of functions agree. So we
+write unambiguously Y for the reduced projective spectrum of either of these rings.
+The following lemma can be deduced from work of Plavnik and Witherspoon [73],
+and we omit the proof.
+Lemma 10.1 ([73, Theorem 3.2]). Let G be a finite group scheme, with identity
+component Go ⊂ G and subgroup of closed points π = π0 (G). The following are
+equivalent:
+(a) Cohomological support for Coh(G) has the tensor product property.
+(b) Cohomological support for the identity components Coh(Go ) has the tensor
+product property and the group of closed points π ⊂ G acts trivially on Y,
+under the adjoint action.
+It is easy to construct examples of G = Go ⋊ π for which π acts non-trivially on
+cohomology for Go . Indeed, one deduces from such pairs (Go , π) examples of tensor
+categories for which one has no such inclusion
+
+suppY (V ⊗ W ) * suppY (V ) ∩ suppY (W ) .
+
+One can compare the following example with Corollary 7.4.
+
+Example 10.2 (cf. [17]). Take k = Fp . Consider Z2 acting on Ga(1) × Ga(1) by
+swapping the factors. Take Go = Ga(1) × Ga(1) and G = Go ⋊ Z2 . Let suppGo
+and suppG denote the corresponding supports. Since O(Go ) is cocommutative, its
+support suppGo is known to have the tensor product property [45].
+Consider V and V ′ the O(Go ) representations given by projecting onto the second
+and first factor of O(Ga(1) ) respectively. Then one has
+Ext∗O(Go ) (k, k)red = k[x, y], Ext∗O(Go ) (k, V ) = k[x], Ext∗O(Go ) (k, V ′ ) = k[y].
+We also have V ′ = Adσ (V) in Coh(G), where Z/2Z = {1, σ}. Thus
+suppG (V ) = ptx , suppG (σ ⊕ k) = P1 ,
+and
+suppG (V ⊗ (σ ⊕ k)) = suppG (V ′ ⊕ V ) = ptx ∪ pty ,
+
+32
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+where P1 is identified with the projective spectrum of k[x, y] = Ext∗ (k, k)red and
+ptx and pty are the images of the coordinate axes for x and y. In particular, if we
+take suppY the cohomological support for O(G), V as above and W = σ ⊕ k, then
+
+ptx ∪ pty = suppY (V ⊗ W ) * suppY (V ) ∩ suppY (W ) = ptx .
+
+We note finally that the Hopfy support and hypersurface support agree for this
+example, by Lemma 10.4, so that the tensor product property for hypersurface
+support also fails to hold in this case.
+One can similarly consider an n-fold product of Ga(1) ’s equipped with the permutation action of Sn , and observe an explicit obstruction to the tensor product
+property in these cases as well. A generalization of the above example, where O(G)
+is replaced with an arbitrary Hopf algebra, can be found in [73, Proof of Corollary
+3.4].
+10.2. Reducing to the connected component II. We consider a finite group
+scheme G with connected component Go . Suppose that support for Coh(Go ) satisfies
+the tensor product property, which is in fact the case by Theorem 10.5 below.
+We have the action of the finite group π = π0 (G) of closed points, i.e. simple
+O(G)-representations, on Coh(G) via conjugation Adλ (V) = λ ⊗ V ⊗ λ−1 . This
+action corresponds to the adjoint action of π on the scheme G, in the sense that
+the tensor adjoint action permutes sheaves on G via pushforward along the adjoint
+action automorphisms Adλ : G → G.
+To say that an object V in Coh(G) is equivariant with respect to this conjugation
+action of π is to say that there is a compatible collection of natural isomorphisms
+V ⊗λ∼
+= λ ⊗ V for all λ ∈ π. So we observe that a π-equivariant structure on V is
+equivalent to a rep(π)-centralizing structure, i.e. half-braiding, on V .
+In the following theorem we consider non-connected G, and let suppY denote the
+cohomological support for Coh(G). We take F : Z Coh(π) (Coh(G)) → Coh(G) the
+forgetful functor.
+Lemma 10.3 (cf. [73]). Let G be a finite group scheme and suppose that support
+for the identity component Coh(Go ) satisfies the tensor product property. Take
+π = π0 (G) the group of closed points.
+For arbitrary W in Coh(G), and V in the Drinfeld centralizer of Coh(π) in
+Coh(G), there is an identification of supports
+suppY (F (V ) ⊗ W ) = suppY (F (V )) ∩ suppY (W ).
+Proof. We may write V = ⊕λ (Vλ ⊗ λ) = ⊕λ (λ ⊗ λ V ) for representations Vλ and
+λ V supported on Go , and adopt similar expressions for W . (Here the sums run over
+the simples λ ∈ π.) Let suppG and suppGo denote the cohomological supports for
+Coh(G) and Coh(Go ) respectively. We have
+suppG (V ) = ∪λ suppGo (λ V ), suppG (W ) = ∪λ suppGo (λ W ).
+We are assuming that V centralizes the simples. This implies an identification of
+the right handed and left handed supports for V ,
+∪λ suppGo (λ V ) = suppG (V ) = ∪λ suppGo (Vλ )
+
+(19)
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+33
+
+We have that suppG (V ⊗ W ) is the support of cohomology
+L
+L
+Ext∗Coh G (k, λ (V ⊗ λ ⊗ W ))
+Ext∗Coh G (k, λ λ ⊗ (V ⊗ W )) ∼
+=L
+∗
+= λ,µ ExtCoh Go (k, Vµ ⊗ (µλ)−1 W ),
+L
+= λ,µ Ext∗Coh Go (k, Vµ ⊗ λ W )
+
+where the sum runs over all invertibles λ ∈ π. We employ the tensor product
+property for Go and equation (19) to obtain
+S
+suppG (V ⊗ W ) = λ,µ suppGo (Vµ ⊗ λ W )
+
+S
+= λ,µ suppGo (Vµ) ∩ suppGo (λ W )
+S
+G
+G
+G
+Go
+=
+µ supp (Vµ ) ∩ supp (W ) = supp (V ) ∩ supp (W ).
+
+
+10.3. Support for coherent sheaves on finite group schemes. Recall that
+a finite group scheme G is called infinitesimal if it is connected. Equivalently,
+G is infinitesimal if O(G) is local. Recall also that for any embedding G → H
+into smooth H, we have the corresponding deformation sequence ObH/G → ObH →
+O(G) (see Example 2.4). We take in this instance Z = ObH/G , and as usual Y =
+Proj(ExtCoh(G) (k, k))red .
+Lemma 10.4. Let G be an infinitesimal group scheme, with chosen embedding
+G → H into a smooth algebraic group. Then the associated map κ : Y → P(mZ /m2Z )
+of (15) is a closed embedding.
+Proof. Take E = Ext∗Coh(G) (k, k)red . We have an algebra isomorphism O(G) ∼
+=
+di
+k[x1 , . . . , xn ]/(xi : 1 ≤ i ≤ n), abstractly [82], so that E is a graded polynomial
+ring generated in degree 2, E = Sym(E 2 ). Therefore κ is a closed embedding by
+
+Lemma 7.5.
+Theorem 10.5. Let G be an infinitesimal group scheme. Then for arbitrary V and
+W in Coh(G) we have
+suppY (V ⊗ W ) = suppY (V ) ∩ suppY (V ),
+where suppY denotes the cohomological support.
+Proof. Fix an embedding G → H into a smooth algebraic group. By the weak
+tensor product property (and Lemma 10.4) we have a containment
+
+suppY (V ⊗ W ) ⊂ suppY (V ) ∩ suppY (W ) .
+
+We want to show now that if a given closed point in Y is in both suppY (V ) and
+suppY (W ), then it is in suppY (V ⊗ W ). Equivalently, according to Corollary 7.2,
+we want to show that if ObH /(f ) is a hypersurface along which both V and W are
+non-perfect, then the product V ⊗ W is also non-perfect over ObH /(f ).
+Let us fix such a function f ∈ ObH/G and take O = ObH . It is well-known
+that imperfection of an object M over the local (commutative) hypersurface O/(f )
+implies that the trivial module k is in the thick subcategory hM i generated by
+M , in Dcoh (O) (see e.g. [79]). By exactness of the operation V ⊗ − this implies
+V ∈ hV ⊗ M i. Hence, perfection of the product V ⊗ M implies
+V ∈ hV ⊗ M i ⊂ perf(O/(f )),
+
+34
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+so that V is seen to be perfect. Considering the case M = W , we observe the
+desired implication
+x ∈ suppY (W ) while x ∈
+/ suppY (V ⊗ W ) ⇒ x ∈
+/ suppY (V ),
+i.e. if W is not perfect over a given hypersurface, while V ⊗ W is perfect, then V
+must be perfect over that hypersurface.
+
+Remark 10.6. In the proof, one can provide a more direct argument to find that
+k ∈ hM i whenever M is non-perfect over a commutative local hypersurface, using
+arguments of Carlson-Iyengar [26]. We will follow such a line of reasoning in the
+proof of Theorem 11.3 below (see also Remark 11.5).
+Remark 10.7. Theorem 10.5 can alternatively be proved by employing the classification of thick subcategories in Coh(G) [26]. One uses this classification to reduce
+to the case of a product of Carlson modules, then observes the desired result by
+applying [71, Corollary 4.1].
+By applying Lemma 10.3 we obtain a result for general finite group schemes.
+Corollary 10.8. Let G be an arbitrary finite group scheme, and let π denote the
+discrete subgroup of closed points in G. For W arbitrary in Coh(G), and V in the
+Drinfeld centralizer Z Coh(π) (Coh(G)), we have an identification
+suppY (F (V ) ⊗ W ) = suppY (F (V )) ∩ suppY (W ),
+
+(20)
+
+where suppY denotes the cohomological support for Coh(G) and F is the forgetful
+functor (17).
+We would suggest from examples such as Example 10.2 that the conditions on
+V in the above result are, in a global sense, optimal. More specifically, the tensor
+product property simply cannot hold in the non-connected case, and the above
+corollary gives (arguably) the strongest sense in which the tensor product property
+does hold for coherent sheaves on arbitrary G.
+Remark 10.9. Due to our particular left/right conventions (see Section 7.1), the
+rep(π)-centralizing object V in Corollary 10.8 must appear on the left. However, if
+we take V in the full Drinfeld center Z(Coh(G)), then the analogous claim (20) is
+side-independent.
+10.4. A remark on centrality and nonbraided TPP. We propose an alternate version of the tensor product property which is more robust that the usual
+version (4), and is satisfied by all examples which currently appear in the literature.
+Our particular framing here is informed by 4-dimensional topological field theory
+[25, 24], although we don’t elaborate on this point here. From a more pragmatic
+perspective, we want to provide a version of the tensor product property which is
+satisfied by the examples Coh(G) considered above.
+One can view any nonbraided tensor category C as a tensor category over its
+Drinfeld center Z(C ). We recall that a tensor category C over a given braided tensor
+category Z is a tensor category equipped with a central tensor functor F : Z → C .
+Formally, such central F consists of a choice of tensor functor F0 : Z → C and
+a braided lift of this functor to the Drinfeld center F1 : Z → Z(C ). Informally,
+we simply mean that for arbitrary V in Z and W in C there is a commutativity
+relation F (V ) ⊗ W ∼
+= W ⊗ F (V ) which is natural in V and W .
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+35
+
+Example 10.10. For the quantum Borel uq (b), the forgetful functor rep uq (g) →
+rep uq (b) from the associated quantum group admits a central structure rep uq (g) →
+Z(rep uq (b)). This follows from the explicit form of the R-matrix for uq (g).
+For nonbraided C we consider again the support suppY (V ) = SuppY Ext∗C (V, V )∼ ,
+but now adopt a tensor relation which expresses a “linearity” property with respect
+to the action of the Drinfeld center Z(C ),
+suppY (F (V ) ⊗ W )
+
+question
+
+=
+
+suppY (F (V )) ∩ suppY (V ).
+
+(21)
+
+Here V is in Z(C ), W is in C , and F : Z(C ) → C is the forgetful functor. The
+implicit half-braiding on objects in Z(C ) implies that there is no sidedness in the
+expression (21). One considers the relation (21) as a replacement for the usual
+tensor product property (4).
+More generally, for F : Z → C any central tensor functor we can consider the
+relation analogous to (21) for Z acting on C . We leave the proof of the following
+Lemma to the interested reader.
+Lemma 10.11. The following are equivalent:
+(1) The relation (21) holds for all V in Z(C ) and W in C .
+(2) The analogous relation (21) holds for any braided Z equipped with a central
+tensor functor F : Z → C .
+Furthermore, when C itself admits a braiding then either of the above two points
+are equivalent to the usual tensor product property (4) for C .
+Definition 10.12. We say that support for a tensor category C satisfies the centralized tensor product property if equation (21) holds at all V in Z(C ) and W in
+C.
+Corollary 10.8 implies that, for sheaves on non-connected G for example, the
+standard tensor product property (4) generally fails while the central version (21)
+still holds. More explicitly, support for the category Coh(G) of coherent sheaves on
+the smash product G = (Ga(1) × Ga(1) ) ⋊ Z/2Z was shown to not have the tensor
+product property (4), in Example 10.2. But we have shown that support for Coh(G),
+for this particular G, does have the central tensor product property outlined above.
+This alternate tensor product property also holds in all of the (counter)examples
+considered in [17, 73], where the standard tensor product property was shown to
+fail.
+Furthermore, for pointed Hopf algebras with a “bad” choice of grouplikes the
+centralized tensor product property (21) is, seemingly, a more appropriate relation
+to consider, in comparing with the usual version (4). One can see our explicit
+analysis of quantum complete intersections with various choices of grouplikes given
+in Theorems 11.3 and 11.6 below.
+11. Bosonized quantum complete intersections
+We consider support for some non-classical analogs of functions on infinitesimal
+group schemes, over the complex numbers. We focus on a class of examples associated to skew polynomial rings with odd order skewing parameters. We refer
+to these examples as quantum complete intersections, although the nomenclature
+quantum linear spaces is also common [2, 23].
+
+36
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+11.1. Bosonized quantum complete intersections. Consider a skew polynomial ring
+U+ = Chhx1 , . . . , xnii/(xi xj − qij xj xi : i 6= j), qij = q aij ,
+defined by a choice of root of unity q of odd order, and an integer matrix [aij ] which
+is skew symmetric away from the diagonal aij = −aji and of constant value aii = 1
+along the diagonal. Fix l = ord(q).
+Take now G∨ a finite abelian group equipped with a bilinear form q (−,−) : G∨ ×
+∨
+G → C× such that, for distinguished elements e1 , . . . , en and χ1 , . . . , χn in G∨ ,
+we have
+(22)
+q (ei ,ej ) = q aij and q (ei ,χj ) = q (ei ,ej )alt ∀ 1 ≤ i ≤ n.
+1
+Here (−, −)alt is the alternating form (ei , ej )alt = 2 (aij − aji ).
+One can construct such G∨ by simply considering a rank 2n elementary abelian
+l-group with free generators e1 , . . . , en , χ1 , . . . , χn , and form defined on these generators as above. On the other hand, when the determinant of the matrix [aij ] is
+invertible mod l, the required elements χj already exist in the rank n elementary
+abelian l-group generated by the ei , with form defined in accordance with (22).
+In any case, we fix G∨ as above and take Λ = CG the group ring of the character group for G∨ . The form on G∨ endows the tensor category rep(Λ) with a
+braided structure. In terms of homogeneous vectors, the braiding on rep(Λ) is given
+explicitly by
+cV,W : V ⊗ W → W ⊗ V, v ⊗ w 7→ q (deg v,deg w) w ⊗ v.
+The algebra U+ then becomes an algebra in rep(Λ), or rather in its Ind-completion
+Rep(Λ), by taking each generator xi ∈ U+ to be of G∨ -degree ei .
+The coproduct ∆(xi ) = xi ⊗ 1 + 1 ⊗ xi on U+ endows it with the structure of a
+Hopf algebra in Rep(Λ), and we have the quotient Hopf algebra
+u+ = U+ /(xli : 1 ≤ i ≤ n)
+in rep(Λ). By applying bosonization (Section 8.3) we obtain Hopf algebras U =
+U+ ⋊ Λ and u = u+ ⋊ Λ, in V ect, and the quotient map U → u deforms u along the
+trivial commutative Hopf subalgebra Z = C[[xl1 , . . . , xln ]]. (By trivial, we mean that
+Λ acts trivially on Z.) So u is geometrically Chevalley with Chevalley integration
+U → u. We refer to u constructed in this manner as a bosonized algebra of functions on a quantum complete intersection, or just a bosonized quantum complete
+intersection.
+To be clear, as an algebra
+
+(23)
+u = Chx1 , . . . , xn i/(xi xj − qij xj xi , xli )i,j ⋊ Λ
+and the coproduct is given by the formula ∆(xi ) = xi ⊗ 1 + Ki ⊗ xi , where Ki is
+the character Ki = q (ei ,−) : G∨ → C× .
+
+Remark 11.1. The name “quantum complete intersection” is somewhat unsatisfactory, as it does not reference the Hopf structure on this algebra. Such algebras
+are probably more accurately understood as q-analogs of functions on first Frobenius kernels (Gna )(1) in additive group schemes Gna of varying rank.
+Remark 11.2. There is some ambiguity in our presentation of the Hopf algebras u,
+as we only specify the grouplikes within a certain range of parameters. We consider
+the “standard” choice of grouplikes for such a quantum complete intersection in
+Section 11.3 below.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+37
+
+Theorem 11.3. Consider u a bosonized quantum complete intersection, with grouplikes G as above. Then for arbitrary V and W in rep(u), we have
+suppY (V ⊗ W ) = suppY (V ) ∩ suppY (W ).
+We prove Theorem 11.3 in Section 11.2 below. Before giving the proof, let us
+compare the above result with our findings for functions on non-connected group
+schemes O(G), Corollary 10.8. We refer to the situation considered in the present
+section as the “q-symmetric” situation.
+In both the non-connected case of Corollary 10.8 and the q-symmetric case, orbits
+of objects under the tensor-action of the simples appear in the proof. Furthermore,
+the centralizing category Z rep(Λ) (rep(u)) also appears in the proof of Theorem 11.3
+(and in the statements of Theorem 11.6 below). There is, however, a fundamental distinction between these two cases. Namely, in the q-symmetric setting, the
+parametrizing subalgebra Z ⊂ U is a Hopf subalgebra in U. This implies that
+modules over each hypersurfaces U/(f ) have a bimodule structure over u. Such
+normality does not hold in the case of functions on a non-connected group scheme,
+in general.
+Indeed, in the case of non-connected G the “hard” inclusion
+
+suppY (V ) ∩ suppY (W ) ⊂ suppY (V ⊗ W )
+
+still holds on Coh(G). It is the opposite inclusion that fails to hold. The opposite
+inclusion in the q-symmetric setting is forced by (co)normality of the deformation
+U → u (Corollary 7.4). In considering Theorem 11.6 below, which makes a claim
+mirroring almost exactly that of Corollary 10.8, we would still propose that the
+situations of 11.6 and 10.8 are rather dissimilar. And so, we view the uniform
+nature of Corollary 10.8 and Theorem 11.6 as a testament to the general framework
+outlined in Section 10.4.
+11.2. Proof of Theorem 11.3.
+Proof of Theorem 11.3. We first note that Ext∗u (C, C)red is a polynomial ring [20],
+so that the map κ : Y → P is a closed embedding by Lemma 7.5. Hence we have an
+inclusion of supports suppY (V ⊗ W ) ⊂ suppY (V ) ∩ suppY (W ) , by Corollary 7.4.
+We seek the opposite inclusion.
+Fix f ∈ mZ with non-trivial linear component. According to Lemma 9.1, it
+suffices to prove that C is in the thick subcategory hλ ⊗ M : λ ∈ Irrep(Λ)i for finite
+non-perfect M over U+ /(f ). Fix R = U+ /(f ), Q = U+ , Z = C[[f ]], and consider
+the corresponding deformation sequence Z → Q → R. Fix also T to be the central
+subalgebra C[[xl1 , . . . , xln ]] in Q.
+Take KQ = Q ⊗Z KZ the corresponding dg resolution of R, with KZ the Koszul
+resolution of k over Z, as in Section 3.3. We have the reduction C ⊗Q KQ , which
+is isomorphic to the dual numbers C[ε] = C[df ]/(d2f ) with generator in degree −1,
+and may consider the reduction
+C ⊗LQ − : KQ -dgmod → C[ε]-dgmod.
+We consider here, specifically, dg KQ -modules with finite cohomology over T and
+dg C[ε]-modules with finite-dimensional cohomology.
+By adjunction we see that
+Ext∗KQ (M, C) = Ext∗C[ε] (C ⊗LQ M, C)
+
+38
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+so that C ⊗LQ M is non-perfect over the dual numbers whenever M is non-perfect
+over KQ . By a dg version of Hopkins Theorem [26, Theorem 4.4] for C[ε], we have
+then
+C ∈ hC ⊗LQ M i whenever M is non-perfect over KQ ,
+(24)
+where hLi denotes the thick subcategory in Df in (C[ε]) generated by the given object
+L. We claim that this implies
+C ∈ hλ ⊗ M : λ ∈ Irrep(Λ)i ⊂ Dcoh (KQ ).
+Let us prove this claim.
+We have the q-exterior dg algebra
+E = ∧∗q C{dx1 , . . . , dxn } = Chdxi : 1 ≤ i ≤ ni/(dxi dxj + qij dxj dxi , d2xi )
+in the braided category of chain complexes over rep(Λ), where the dxi are of cohomological degree −1 and respective G∨ -degree ei . We consider the corresponding
+Koszul resolution F = (E ⊗ Q, dF ) of C over Q, with explicit differential
+Y
+X
+(−1)j+1 ( qij it )dxir . . . dd
+dF (dxir . . . dxi1 ⊗ a) =
+xij . . . dxi1 ⊗ xij a.
+j
+
+t<j
+
+This complex is in fact a dg bimodule over Q via symmetry of Q. Namely, we have
+the well-defined left action of Q on F given by the formula
+b · (v ⊗ w) := q (deg(b),deg(v))alt v ⊗ bw = q (deg(b),χv ) v ⊗ bw,
+(25)
+Q
+P
+where (−, −)alt is as in (22) and χv = j χij for v = j dxij . Hence tensoring by
+F provides an endofunctor
+F ⊗LQ − = F ⊗Q − : Dcoh (KQ ) → Dcoh (KQ )
+which is isomorphic to the endofunctor C ⊗LQ −, which we interpret as the composition of the reduction to C[ε] composed with restriction Df in (C[ε]) → Dcoh (KQ ).
+Let D ⊂ rep(Λ) denote the tensor subcategory generated by the simples associated to the characters χj . By construction of F and equation (25), we have for any
+dg KQ -module M ,
+C ⊗LQ M ∼
+= F ⊗LQ M ∈ hE i ⊗ M : 0 ≤ i ≤ ni
+⊂ hχ ⊗ M : χ a simples in Di
+⊂ hλ ⊗ M : λ a simples in rep(Λ)i
+By (24), imperfection of M over KQ then implies
+C ∈ hλ ⊗ M : λ ∈ Irrep(Λ)i,
+as desired. The tensor product property now follows as an application of Lemma 9.1.
+
+Remark 11.4. The deformation Q → R employed in the proof does not fit into
+the setup of Section 3.1, as Q is not finite over the parametrizing algebra Z = k[[f ]]
+in this case. (Although, Q is finite over complete local central subalgebra T ⊃ Z.)
+However, all we use in this case is the associated Koszul resolution KQ → R, which
+is a valid construction for any deformation Q → R with complete, formally smooth
+parametrizing algebra Z.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+39
+
+Remark 11.5. By considering Koszul duality Df in (C[ε]) ∼
+= Dcoh (C[t]), deg(t) =
+2, and the fact that C[t] is a PID, one can basically classify thick subcategories
+in Df in (C[ε]) by hand. (The classification is rather easy for the stable category
+Dsing (C[ε]), which is sufficient for our needs.) That is to say, one doesn’t actually
+have to understand the dg version of Hopkins’ theorem, in full regalia, in order to
+prove of Theorem 11.3.
+11.3. Changing grouplikes (standard QCIs). Consider again the positive algebras of Section 11.1, which we relabel as
+A+
+q (P ) = Chhx1 , . . . , xnii/(xi xj − qij xj xi )i,j
+l
+and a+
+q (P ) = Chx1 , . . . , xn i/(xi xj − qij xj xi , xi )i,j .
+
+Here q is a root of unity of odd order l and P = [aij ] is an integer matrix for which
+qij = q aij . As before we assume aij = −aji off the diagonal, and all aii = 1. Having
++
++
++
+fixed such P , we adopt the more efficient notation A+
+q = Aq (P ) and aq = aq (P ).
+st
+Consider G the rank n elementary abelian l-group with generators Ki , and let
++
+Gst act on A+
+q and aq in the expected way Ki ·xj = qij xj . Then the smash products
+st
+st
+Aq = A+
+and aq = a+
+q ⋊G
+q ⋊G
+
+become Hopf algebras under the coproduct ∆(xi ) = xi ⊗ 1 + Ki ⊗ xi .
+The Hopf algebra Aq integrates aq , with parametrizing Hopf subalgebra Z =
++
+C[[xl1 , . . . , xln ]], and the positive (coideal) subalgebra A+
+q deforms aq along Spf(Z)
+as well.
+The Hopf algebra(s) aq constructed as above are what most people would refer
+to as the bosonized quantum complete intersection, or the quantum linear space,
+associated to a root of unity q and matrix [aij ]. The algebras u of Section 11.1 and
+aq of course differ only in the choice of grouplikes and, by considering the delta
+characters δj = q (−,ej ) χ−1
+in G∨ , we see that there are Hopf inclusion
+j
+incl : Aq → U and incl : aq → u.
+These inclusions are the identity on their respective positive parts, and send the
+Ki in Gst to the Ki in G.
+We let Λst and Λ denote the group rings of Gst and G respectively, where G is
+as in Section 11.1.
+Theorem 11.6. Consider aq = aq (P ) the bosonized quantum complete intersection associated to given odd order q and matrix P = [aij ]. For V in the Drinfeld
+st
+centralizer Z rep(Λ ) (rep aq ), and arbitrary W in rep(aq ), we have
+suppY (F (V ) ⊗ W ) = suppY (F (V )) ∩ suppY (W ).
+st
+
+As before, F : Z rep(Λ ) (rep aq ) → rep(aq ) is the forgetful functor.
+Proof. We further simplify our notation and take A = Aq (P ) and A+ = A+
+q (P ).
+The comultiplication on A provides A+ with a Λst -comodule algebra structure,
+∆
+
+π⊗1
+
+ρ : A+ −→ A ⊗ A+ −→ Λst ⊗ A+ .
+This coaction descends to a coaction on all hypersurface algebras A+ /(f ), for f ∈
+mZ . Via this coaction we get a rep(Λst )-action on the category of modules over
+any hypersurface algebra A+ /(f ), as well as its corresponding derived category.
+
+40
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+Consider f ∈ mZ with nonvanishing reduction in mZ /m2Z . We claim that any
+non-perfect, finite, M over A+ /(f ) is such that
+C ∈ hµ ⊗ M : µ ∈ Irrep(Λst )i ⊂ Dcoh (A+ /(f )).
+
+(26)
+
+It was already shown in the proof of Theorem 11.3 that for such M
+C ∈ hλ ⊗ M : λ ∈ Irrep(Λ)i ⊂ Dcoh (U+ /(f )) = Dcoh (A+ /(f )).
+
+(27)
+
+st
+
+Now, we have the restriction map rep(Λ) → rep(Λ ), and claim that for any character λ ∈ Irrep(Λ) with restriction µ ∈ Irrep(Λst ), the A+ = U+ -modules λ⊗M and
+µ⊗ M are literally equal. Indeed, this just follows from the fact that the comultiplication on U sends the positive subalgebra U+ into the subalgebra (U+ ⋊ Gst ) ⊗ U+ ,
+so that the each endofunctor λ ⊗ − of U+ -mod depends only on the restriction of
+λ to Gst . (The point here is that the grouplikes Ki live in the subgroup Gst ⊂ G.)
+Consider finally a product V ⊗ W of a rep(Λst )-centralizing representation V
+with an arbitrary representation W over aq . Suppose that W is non-perfect over
+a given hypersurface A/(f ) while V ⊗ W is perfect. One uses (26), and argues
+as in Lemma 9.1, to see that V must be perfect in this case. Rather, we find
+that hypersurface support for aq satisfies the stated tensor product property. Since
+(reduced) cohomology for aq is an affine space, cohomological support also satisfies
+this tensor product property.
+
+12. (q-)Regular sequences
+We consider a particular noncommutativization of the notion of a regular sequence. Such sequences are employed in proofs of the tensor product property for
+cohomological support, in the examples of Section 13.
+12.1. A choice of ambient braided fusion category D. Fix G∨ a finite abelian
+group with a chosen (exponentiated) form q (−,−) : G∨ × G∨ → k × . We are free to
+assume ord(q)| exp(G∨ ) and the form (−, −) can be seen as an additive form which
+takes values in Z/ exp(G∨ )Z. We view G∨ as the group of characters for its dual
+group in characteristic 0, or for the dual Hopf algebra in finite characteristic.
+We fix
+D = The braided fusion category V ectG∨ , with braiding given by the form q (−,−) .
+Recall that V ectG∨ is the fusion category of G∨ -graded vector spaces. The irreducibles in D are explicitly the 1-dimensional vector spaces supported at a given
+character. As before, in terms of homogeneous vectors, the braiding on D is given
+by
+cV,W : V ⊗ W → W ⊗ V, v ⊗ w 7→ q (deg v,deg w) w ⊗ v.
+We impose no symmetry condition on the form (−, −), and we remark that the
+case D = V ect, G = {1}, is still of interest.
+12.2. Regular sequences. Consider A a dg algebra in D, or more precisely the
+category of complexes over the Ind-category Ind D of possibly infinite-dimensional
+G∨ -graded vector spaces. So, we allow A to be infinite-dimensional, provided it
+splits into character spaces A = ⊕χ Aχ .
+We let D(A) denote the derived category of arbitrary dg modules. When A is
+finite over a central Noetherian subalgebra T of cocycles, one can replace D(A)
+with Dcoh (A), the subcategory of dg modules with finitely generated cohomology
+over T , in all of the results of this section.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+41
+
+Definition 12.1 ([58]). A q-regular sequence x1 , . . . , xn in A is a sequence such
+that
+(a) the xi are homogenous cocycles, with respect to the character and cohomological gradings, and
+(b) for each 1 ≤ j ≤ n, xj is a non-zero divisor in A/(xj+1 , . . . , xn ) which is
+χj -central for some character χj , in the sense that
+bxj = ± q (deg b,χj ) xj b
+for all (homogenous) b ∈ A/(xj+1 , . . . , xn ), where ± = (−1)|xj ||b| .
+In the case D = V ect, q = 1, we refer to such a sequence simply as a regular
+sequence.
+Given such A with fixed q-regular sequence {x1 , . . . , xn } we take Aj = A/(xj+1 , . . . , xn ),
+and have a sequence of projections
+A0 ← A1 ← · · · ← An
+of dg algebra objects in D.
+We consider the categories of dg (bi)modules over the Aj . For any object V in
+D, and dg Aj -bimodule M , we have the new bimodule V ⊗ M with right action
+induced by that of M and left action given by
+a · (v ⊗ b) = q (deg a,deg v) v ⊗ ab.
+Similarly, for any left dg module M we have the new module V ⊗ M . In this way
+Aj -dgmod and Aj -dgbimod become left module categories over D. Similarly, D
+acts on the derived categories D(Aj ).
+Lemma 12.2. For any r ≤ s, the reduction Ar ⊗As − : As -dgmod → Ar -dgmod
+can be given a D-linear structure, so that it is a map of D-module categories, as
+can be its derived counterpart Ar ⊗LAs − : D(As ) → D(Ar ).
+By a D-linear structure on a functor F : M → N between D-module categories
+we mean a choice of natural isomorphism of functors F (V ⊗ −) ∼
+= V ⊗ F (−), for
+each V in D, which is additionally associative and natural in V . Formally speaking,
+triangulated categories cannot serve as module categories over D, as they are not
+abelian. However, by an action of D on a triangulated category T here we just
+mean a choice of associative action map ⊗ : D × T → T which preserves triangles
+in T and sends exact sequences in D to triangles in T . We would refer to such T
+simply as triangulated module categories.
+Proof of Lemma 12.2. For any V in D and dg As -module M , we have the natural
+map
+V ⊗ (Ar ⊗ M ) → Ar ⊗As (V ⊗ M ), v ⊗ (a ⊗ m) 7→ q −(deg a,deg v) a ⊗ (v ⊗ m).
+Since the quotient As → Ar is a map in D, and thus preserves the character grading,
+the above natural isomorphism respects the relations of the tensor product over As ,
+and hence descends to a well-defined map
+∼
+
+V ⊗ (Ar ⊗As M ) → Ar ⊗As (V ⊗ M ).
+
+(28)
+
+One similarly constructs the inverse to see that (28) is an isomorphism. This
+isomorphism is seen to be natural in V and M , and also respects the tensor structure
+on D, so that we embue the reduction functors Fr,s = Ar ⊗As − with the structure
+
+42
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+of a map of D-module categories. One proves the result for the derived categories
+similarly.
+
+12.3. Regular sequences and thick subcategories. Take A as in Section 12.2,
+with a fixed q-regular sequence {x1 , . . . , xn }. For an object M in Aj -dgmod we let
+hM i denote the thick subcategory in D(Aj ) generated by M . We let
+ressr : D(Ar ) → D(As )
+denote the restriction functor along the projection As → Ar , for r < s. It is
+apparent that restriction commutes with the operators V ⊗ −, for V in D, so that
+each ressr is a map of D-module categories.
+Lemma 12.3. Consider A as in Section 12.2 with fixed q-regular sequence. For
+arbitrary M in D(Ar ), there is a containment
+hresrr−1 (Ar−1 ⊗LAr M )i ⊂ hλ ⊗ M : λ ∈ Irred(D)i.
+of thick subcategories in D(Ar ).
+Proof. Take λr = k1r the irreducible in D corresponding to the character χr , and
+take m the cohomological degree of xr . Consider the complex of Ar -bimodules
+
+r
+Kr−1
+= Σm+1 (λr ⊗ Ar ) → Ar , d , d(1r ) = xr .
+
+The fact that the differential is Ar -linear on the left follows by the commutativity
+hypothesis imposed on xr , by the defintion of a q-regular sequence. Note that
+r
+r
+Kr−1
+is semi-free over Ar on the right, and hence the endomorphism Kr−1
+⊗ Ar −
+on Ar -dgmod preserves quasi-isomorphisms.
+Since xr is a non-zero divisor in Ar , the reduction Ar → Ar−1 induces a quasiisomorphism Kr−1 → Ar−1 of dg Ar -bimodules. It follows that we have a natural
+isomorphism
+resr ◦(Ar−1 ⊗L −) ∼
+= K r ⊗A −
+= K r ⊗L − ∼
+r−1
+
+Ar
+
+r−1
+
+r−1
+
+Ar
+
+r
+
+of triangulated endomorphisms of D(Ar ). Since
+d
+
+r
+Kr−1
+⊗Ar M = cone(λr ⊗ M → M ),
+
+we have
+r
+⊗ M ∈ hλ ⊗ M : λ ∈ Irred Di.
+resrr−1 (Ar−1 ⊗LAr M ) ∼
+= Kr−1
+
+The proposed containment of thick subcategories follows.
+
+
+
+Lemma 12.4. Consider A as in Section 12.2 with fixed q-regular sequence, and let
+res denote the restriction functor along the projection A → A0 . For arbitrary M in
+A-dgmod, there is a containment
+hres(A0 ⊗LA M )i ⊂ hλ ⊗ M : λ ∈ Irred(D)i.
+Proof. We claim that there is such a containment
+hressr (Ar ⊗LAs M )i ⊂ hλ ⊗ M : λ ∈ Irred(D)i
+for arbitrary r < s and M over As . We proceed by induction on the difference s− r.
+The base case r = s−1 is covered by Lemma 12.3. Suppose now that the result holds
+for ressr (Ar ⊗LAs M ) and consider the desired containment for ressr−1 (Ar−1 ⊗LAs M ).
+Take N = Ar ⊗LAs M . Then
+Ar−1 ⊗LAs M ∼
+= Ar−1 ⊗LAr N.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+43
+
+and resrr−1 (Ar−1 ⊗LAs M ) ∈ hλ ⊗ N : λ ∈ Irred Di, by Lemma 12.3. By Lemma 12.2
+we have
+hλ ⊗ N : λ ∈ Irred Di = hAr ⊗LAs (λ ⊗ M ) : λ ∈ Irred Di
+so that resrr−1 (Ar−1 ⊗LAs M ) ∈ hAr ⊗LAs (λ ⊗ M )iλ . By restricting further to As we
+find, by our induction hypothesis,
+ressr−1 (Ar−1 ⊗LAs M ) ∈ hressr Ar ⊗LAs (λ ⊗ M ) : λ ∈ Irred Di
+⊂ hµ ⊗ λ ⊗ M : λ, µ ∈ Irred Di = hλ ⊗ M : λ ∈ Irred Di.
+So we have the proposed containment.
+
+
+
+12.4. Regular sequences and deformations. Consider Z → Q → R a deformation sequence. Suppose additionally that all of the given algebras are algebras
+in D, and that Z is trivial in the sense that Z is supported at the identity in G∨ .
+Then the Koszul resolution KQ is a dg algebra in D.
+Lemma 12.5. If {x1 , . . . , xn } is a q-regular sequence in Q, then {x1 , . . . , xn } is
+also a q-regular sequence in the Koszul resolution KQ of R.
+Proof. Certainly the xj remain homogenous cocycles in KQ , and have the same
+commutativity relations in KQ /(xj+1 , . . . , xn ), so we need only verify that each xj
+is a non-zero divisor in the corresponding quotient. This final property only has to
+do with the (non-dg) algebra structure of KQ . If we take Qj = Q/(xj+1 , . . . , xn ),
+then as an algebra we have
+KQ /(xj+1 , . . . , xn ) ∼
+= Qj ⊗ ∧∗ (mZ /m2 ),
+Z
+
+and xj is seen to be a non-zero divisor in this algebra as it is a free module over
+Qj .
+
+13. Restricted enveloping algebras, height 1 doubles, and the
+quantum Borel
+We employ regular sequences, in conjunction with hypersurface support, to obtain the tensor product property for cohomological support in a number of geometrically Chevalley examples (see Section 8.4).
+13.1. A general lemma. The following general result was essentially argued in
+the proof of Theorem 11.3, and can be seen as a reduction of the materials of
+Section 9.1.
+Lemma 13.1. Consider u geometrically Chevalley, with Chevalley integration U →
+u. Fix D an arbitrary tensor subcategory in rep(u). For f ∈ mZ with non-trivial
+reduction to mZ /m2Z , let Kf denote the corresponding Koszul resolution of the
+hypersurface U+ /(f ).
+Suppose that, at arbitrary such f ∈ mZ , the endomorphism
+k ⊗LU+ − : D(Kf ) → D(Kf )
+is such that k ⊗LU+ M ∈ hλ ⊗ M : λ ∈ Di, for each M in D(Kf ). Then hypersurface
+support for Df in (u) satisfies the tensor product property
+hyp
+hyp
+supphyp
+P (V ⊗ W ) = suppP (V ) ∩ suppP (W ).
+
+The same result holds when u is local and admits a local integration (U+ =)U → u.
+
+44
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+Proof. We claim that the inclusion k ⊗LU+ M ∈ hλ ⊗ M : λ ∈ Di, at arbitrary dg
+modules M , implies the necessary inclusion k ∈ hλ ⊗ M : λ ∈ Di whenever M is
+non-perfect over the hypersurface U+ /(f ). One then applies Lemma 9.1 to obtain
+the result.
+Via the equivalence Dcoh (U+ /(f )) → Dcoh (Kf ) provided by restriction, it suffices to show that the given inclusion implies k ∈ hλ ⊗ M : λ ∈ Di for non-perfect
+M in Dcoh (Kf ). Take such non-perfect M . As in the proof of Theorem 11.3, one
+factors the reduction k ⊗LU+ − as the composite
+k⊗L+ −
+
+res
+
+U
+Dcoh (Kf ) −→
+Df in (k[ε]) → Dcoh (Kf )
+
+and employs the understanding of thick ideals in Df in (k[ε]) from [26, Theorem 4.4]
+to find that
+k ∈ hk ⊗LU+ M i ⊂ Dcoh (Kf )
+at non-perfect M . Our assumption now implies the desired inclusion k ∈ hλ ⊗ M :
+λ ∈ Di at non-perfect M .
+
+13.2. Nilpotent restricted Lie algebras over Fp . Consider n a nilpotent Lie
+algebra with a restricted structure, in finite characteristic. Consider any basis
+x1 , . . . , xn of n which is compatible with the lower central series n ⊃ n1 ⊃ · · · ⊃
+nd = 0, in the sense that the final md−1 elements form a basis for nd−1 , the following md−2 + md−1 elements form a basis for nd−2 , etc. Then, each elements xr
+is a central non-zero divisor in U (n)r = U (n)/(xr+1 , . . . , xn ), and also in the comb (n) along the kernel of the projection U (n) → ures (n). Hence the ordered
+pletion U
+b (n) which generates the kernel of
+sequence {x1 , . . . , xn } is a regular sequence in U
+b
+the augmentation U (n) → k.
+We now recover an essential result of Friedlander and Parshall.
+Theorem 13.2 ([42, 78]). For an arbitrary nilpotent restricted Lie algebra n, the
+hypersurface support supphyp
+on rep(ures (n)) has the tensor product property. SupP
+posing additionally that the reduced spectrum of cohomology for ures (n) is an affine
+space (e.g. supposing the p-th power map on n is 0), then the cohomological support
+for ures (n) has the tensor product property
+suppY (V ⊗ W ) = suppY (V ) ∩ suppY (W ).
+b is generated by a regular sequence
+Proof. The fact that the augmentation ideal in U
+implies a containment
+k ⊗LUb M ∈ hM i ⊂ Dcoh (Kf ),
+
+b /(f ), by
+at arbitrary dg modules M over the resolution Kf of any hypersurface U
+Lemma 12.4. So Lemma 13.1, considered in the case D = V ect, gives us the
+tensor product property for hypersurface support. In the case that the spectrum
+of cohomology is an affine space, the cohomological support is identified with the
+
+hypersurface support by Lemma 10.4.
+13.3. Solvable height 1 doubles over Fp . Consider U a smooth unipotent group
+scheme over k = Fp . Suppose that U is normal in a larger group B which admits
+a quasi-logarithm. We recall that a quasi-logarithm is the information of an isomorphism of b = Lie(B)-algebras ObB,1 ∼
+= k[[b∗ ]], so that we have an isomorphism
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+45
+
+of algebras (see Example 2.6)
+b (1) ) := ObB ⋊ U
+b (n) ∼
+b (n),
+D(U
+= k[[b∗ ]] ⋊ U
+
+where U (n) acts via the coadjoint action of ures (n)-action on the generators b∗ (see
+e.g. [56]). We may filter b∗ by subrepresentations b∗ ⊃ F−1 b∗ ⊃ · · · ⊃ F−d b∗ = 0
+so that each subquotient is a trivial n-representation, and consider a corresponding
+ordered basis y1 , . . . , yn for b∗ with the final md elements providing a basis for
+F−d+1 b∗ , the final md−1 + md elements forming a basis for F−d+2 b∗ , etc. We
+choose also a basis x1 , . . . , xm for n as in Section 13.2.
+b (1) )
+Then the sequence x1 , . . . , xn , y1 , . . . , yn forms a regular sequence in D(U
+b
+which generates the kernel of the augmentation D(U(1) ) → k. An instance in which
+the ambient group B admits a quasi-logarithm is the case in which B is a Borel
+of an almost-simple (smooth) algebraic group G [38, Corollary 6.4], in very good
+characteristic for G.
+Theorem 13.3. Let U be a unipotent subgroup in an almost-simple algebraic group
+G over Fp , which is normalized by a maximal torus. If p is very good for G then
+the hypersurface support for the height 1 double D(U(1) ) satisfies the tensor product
+property. If p − 1 > dim(U ) then the cohomological support satisfies the tensor
+product property
+suppY (V ⊗ W ) = suppY (V ) ∩ suppY (W ).
+Proof. In the case of very good p we have a quasi-logarithm, and hence the augmenb is generated by a regular sequence. It follows that for arbitrary
+tation ideal for D
+M over the Koszul resolution KDb we have k ⊗LDb M ∈ hM i, by Lemma 12.4. So by
+Lemma 13.1 the hypersurface support for the double D(U(1) ) satisfies the tensor
+product property. When p − 1 > dim(U ) the reduced spectrum of cohomology is an
+affine space [38, Theorem 6.10]. So the hypersurface support and the cohomological
+support agree, by Lemma 10.4.
+
+Consider now B ⊂ G a Borel subgroup in almost-simple G. We have D(B(1) ) =
+(O(B(1) ) ⋊ kU(1) ) ⋊ kGrm(1), where U is the unipotent radical in B. We can consider
+the integration
+
+b (1) ) := ObB ⋊ U
+b (n) ⋊ kGr
+D(B
+m(1)
+of D(B(1) ). We note that rep(Grm(1) ) = V ectG∨ as a braided (symmetric) category, for G∨ a rank r elementary abelian p-group with trivial form. So D(B(1) )
+is geometrically Chevalley and, with D = rep(Grm(1) ), fits into the framework of
+Section 12.2.
+
+Theorem 13.4. Let B be a Borel subgroup in an almost-simple algebraic group
+G over Fp . If p is very good for G, then the hypersurface support for the height 1
+double D(B(1) ) satisfies the tensor product property. If p − 1 > dim(B), then the
+cohomological support satisfies the tensor product property as well.
+Proof. As remarked above, when p is very good for G, B admits a quasi-logarithm,
+and when p − 1 > dim(B) the reduced cohomology ring for D(B(1) ) is a polynomial ring [38, Theorem 6.10]. So, by Lemma 10.4, we need only show that the
+hypersurface support satisfies the tensor product property. By semisimplicity of
+b
+kGrm(1) , a D-module
+is perfect if and only if its restriction to the Hopf subalgebra
++
+b
+b
+b
+D = O ⋊ U (n) is perfect. One now proceeds as in the proof of Theorem 13.3. 
+
+46
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+13.4. The quantum Borel in small quantum SLn . Take q ∈ C× of odd order
+l. We first consider the simply-connected form of the quantum Borel, then deal
+with general quantum Borels in type A in Section 13.6.
+By the simply-connected form of the quantum Borel uq (b) we mean the nonnegative subalgebra in the small quantum group uq (sln ) = uq (SLn ). (See [65] and
+in particular [65, Section 9].) So, uq (b) has its usual positive generators Eα , and
+the grouplikes are given by the character group G = (P/lQ)∨ of the quotient P/lQ
+of the weight lattice by the l-th scaling of the root lattice. The standard toral
+elements Kα are precisely the function Kα = q (α,−) : P/lQ → C× , where (−, −) is
+the normalized Killing form, (α, β) = dα hα, βi, dα = |α|2 /|short root|2 . (It happens
+to be the case that all roots are the same length here, so that all dα = 1.)
+Let us consider first the situation in type A2 . For uq (b) the quantum Borel in
+uq (sl3 ) we have the standard basis of the positive subalgebras uq (n) and UqDK (n)
+provided by ordered monomials in the root vectors
+Eα , Eβ , Eα+β := Eα Eβ − q −1 Eβ Eα
+[60, 29]. One can check by hand, via the Serre relations, that Eα+β is χ-central in
+UqDK (n), for the character χ of the grouplikes given by χ(Kα ) = q, χ(Kβ ) = q −1 .
+In terms of classes {ω̄α }α of the fundamental weights {ωα }α in P/lQ, χ = ω̄α − ω̄β .
+So, by considering the monomial basis of UqDK (n) in terms of the Eγ , we see that the
+sequence {Eα , Eβ , Eα+β } provides a q-regular sequence in UqDK (n) which generates
+the kernel of the augmentation ideal. The root vectors also provide a q-regular
+bqDK (n) with respect to degree.
+sequence for the completion U
+The above argument generalizes in type A to provide the following.
+Lemma 13.5 ([3]). The augmentation ideal in the completed De Concini-Kac alb DK (n) ⊂ U
+b DK (b) in type A, at arbitrary odd order q, is generated by a
+gebra U
+q
+q
+q-regular sequence.
+Proof. We have the standard generators Ei,i+1 := Eαi of UqDK (n) and explicitly
+define the root vectors Ei,j , 1 ≤ i < j ≤ n, by
+Ei,j = Ei,j−1 Ej−1,j − q (γ,ν) Ej−1,j Ei,j−1 ,
+where Ei,j and Ei,j−1 are of respective degrees γ and ν under the root lattice
+grading. We order the set of roots {Ei,j : 1 ≤ i < j ≤ n} with respect to the
+lex(icographic) order, so that Ei,j < Ei′ ,j ′ whenever i < i′ or i = i′ and j < j ′ .
+Having established the above explicit expressions, and ordering, we let Eγ denote
+the unique such vector Ei,j of Q-degree γ, for γ a positive root, and adopt the lex
+ordering on the set {Eγ : γ ∈ Φ+ } established above. In [3, Lemmas 6.4, 6.7, 6.8]
+Andruskiewitsch and Schneider calculate explicitly the q-commutators of the root
+vectors to find
+Eγ Eν −q (γ,ν) Eγ Eν ∈ the ideal in UqDK (n) generated by Eξ with ht(ξ) > ht(γ), ht(ν),
+whenever Eγ < Eν in the lex ordering. (See in particular [3, Equations (6-19) and
+(6-25)].) By considering the basis of UqDK (n) in terms of monomials in the root
+vectors, it follows that any ordering {Eγ1 , . . . , Eγm } of the root vectors which is
+compatible with the height, in the sense that ht(γi ) ≤ ht(γi+1 ), provides a q-regular
+sequence in UqDK (n) which generates the kernel of the augmentation UqDK (n) →
+C. The specific character χγ associated to Eγ is the explicit sum of fundamental
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+weights
+χγ =
+
+X
+
+α with Eα <Eγ
+
+(α, γ)ω̄α −
+
+X
+
+47
+
+(β, γ)ω̄β ∈ G∨ .
+
+β with Eγ <Eβ
+
+By exactness of completion C[[Eγl : γ ∈ Φ+ ]] ⊗C[Eγl :γ∈Φ+ ] −, it follows that the ordered set {Eγ1 , . . . , Eγn } also provides a q-regular sequence in the completed algebra
+b DK (n) which generates the kernel of the augmentation.
+U
+
+q
+One applies Lemma 12.4 and Lemma 13.1 to find.
+
+Theorem 13.6. For uq (b) the (simply-connected) quantum Borel in type An , at
+arbitrary odd order q, the hypersurface support supphyp
+for rep(uq (b)) satisfies the
+P
+tensor product property
+hyp
+hyp
+supphyp
+P (V ⊗ W ) = suppP (V ) ∩ suppP (W ).
+
+We recall that at q of order greater than the Coxeter number h for sln+1 , the
+cohomology ring for uq (b) is isomorphic to functions on the nilpotent radical n ∼
+=
+|Φ+ |
+
+AC
+[48]. Indeed, in this case κ is actually an isomorphism from Y onto P. So
+we obtain the tensor product for cohomological support at such parameters q, by
+applying Lemma 7.5 and Corollary 7.2.
+Corollary 13.7. Consider uq (b) the (simply-connected) quantum Borel in type An ,
+at q of odd order > h. For arbitrary V and W in rep(uq (b)) we have
+suppY (V ⊗ W ) = suppY (V ) ∩ suppY (W ).
+
+(29)
+
+We note that the arguments employed in the proof of Theorem 13.6 are specific
+to type A. In particular, direct calculation indicates that none of the root vectors
+{Eγ : γ ∈ Φ+ } ⊂ UqDK (b), in types D4 and B2 , are skew central, and so no ordering
+of the positive roots produces a q-regular sequence. One therefore needs a more
+robust approach to the quantum Borel in other Dynkin type.
+13.5. Arbitrary Borels in type A. Consider X any intermediate lattice Q ⊂
+X ⊂ P between the root and weight lattice in type A, and take X M the radical of
+the q-exponentiated Killing form q (−,−) on X. Let G be the corresponding algebraic
+group for X, and B be the positive Borel in G.
+We have the corresponding small quantum group uq (G) [65, Section 9] and the
+quantum Borel uq (B) in uq (G), which is explicitly the smash product of the nilpotent subalgebra uq (n) with the character group (X/X M )∨ of the quotient X/X M .
+As stated above, we have taken uq (b)(= uq (Bsc )) to be the quantum Borel in the
+simply-connected form uq (SLn ).
+Theorem 13.8. Consider G an arbitrary almost-simple algebraic group in type
+A, q an odd order root of unity, and uq (B) the quantum Borel in uq (G). Then
+hypersurface support for uq (B) satisfies the tensor product property. Furthermore,
+when ord(q) > h cohomological support for uq (B) also satisfies the tensor product
+property
+suppY (V ⊗ W ) = suppY (V ) ∩ suppY (W ).
+Before giving the proof of Theorem 13.8, we provide the following lemma, which
+reframes our analysis of support for the simply-connected form uq (b).
+
+48
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+b DK (b) the (completed) De Concini-Kac integraLemma 13.9. Consider Usc = U
+q
+tion of the simply-connected form uq (b) in type A, and f ∈ mZ with non-trivial
+reduction to mZ /m2Z . Then for M finitely generated and non-perfect over Usc /(f )
+we have
+k ∈ hλ ⊗ M : λ ∈ Irrep(Gsc )i ⊂ Dcoh (Usc /(f )).
+(30)
+The point here is that we have replaced the positive subalgebra U+ with the
+Hopf algebra Usc in our analysis of support for hypersurfaces (cf. Lemma 9.1).
+Proof. Fix f as in the statement of the lemma, and let Gsc denote the grouplikes
+in uq (b). Let M ′ be a finite and non-perfect module over U+ /(f ), which we view
+also as a dg module over the corresponding Koszul resolution Kf . Consider the
+reduction Kf → k ⊗U+ Kf = k[ε]. The dg version of Hopkins lemma employed in
+the proof of Theorem 11.3, [26, Theorem 4.4], therefore implies that
+k ∈ hk ⊗U+ M ′ i ⊂ Df in (k[ε]).
+By Lemmas 13.5 and 12.5, the kernel of the reduction Kf → k[ε] is generated by a
+q-regular sequence. So by Lemma 12.4 we have that
+k ∈ hλ ⊗ M ′ : λ ∈ Irrep(Gsc )i ⊂ Dcoh (U+ /(f )).
+We consider the right adjoint
+R : U+ /(f )-modf g → Usc /(f )-modf g
+to the restriction functor T : Usc /(f )-modf g → U+ /(f )-modf g . Note that both T
+and R are exact maps of left rep(Gsc )-module categories [35, §3.3]. When M ′ is
+the restriction M ′ = T M of a Usc /(f )-module M we have
+R(T M ) = ⊕λ′ ∈Irrep(G ) M ⊗ λ′ ∼
+= ⊕λ′ ∈Irrep(G ) λ′ ⊗ M,
+sc
+
+sc
+
+where for the final identity we use the centralizing property of Usc -modules against
+the irreducibles (Lemma 8.2). So by considering the derived functor R : Dcoh (U+ /(f )) →
+Dcoh (Usc /(f )) we find for non-perfect M over Usc /(f )
+⊕λ∈Irrep(Gsc ) λ = R(k) ∈ R(hλ ⊗ T M : λ ∈ Irrep(Gsc )i)
+⊂ hR(λ ⊗ T M ) : λ ∈ Irrep(Gsc )i
+= hλ ⊗ λ′ ⊗ M : λ, λ′ ∈ Irrep(Gsc )i
+= hλ ⊗ M : λ ∈ Irrep(Gsc )i ⊂ Dcoh (Usc /(f )).
+Since thick subcategories are closed under taking summands we have finally
+k ∈ hλ ⊗ M : λ ∈ Irrep(Gsc )i ⊂ Dcoh (Usc /(f ))
+whenever M is non-perfect over Usc /(f ).
+
+
+
+We now prove our theorem.
+Proof of Theorem 13.8. Write Gsc for the grouplikes in uq (b) and G for the grouplikes in uq (B). Since the q-exponentiated Killing form on P × lQ is identically 1,
+we have an inclusion lQ ⊂ X M . So we observe group maps
+surj ❧❧
+
+X/X M
+
+vv ❧❧❧
+❧
+
+X/lQ
+
+incl
+
+// P/lQ
+
+∨
+
+Gsc
+
+surj
+
+// G′ ff◆
+◆◆incl
+◆◆◆
+
+G,
+
+where G′ is the character group of X/lQ. For u′ the Hopf algebra uq (n) ⋊ G′ , we
+then have a corresponding surjection uq (b) → u′ and inclusion uq (B) → u′ .
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+49
+
+Note that the Killing form on P/lQ restricts to a form on the intermediate
+quotient X/lQ, and that the kernel of the quotient X/lQ → X/X M is the radical
+of this form on X/lQ. So each of the Hopf algebras uq (b), u′ , and uq (B) are
+constructed via a uniform bosonization process, using the q-exponentiated Killing
+form. These Hopf algebras also have consistent integrations provided by taking
+b DK (n). Finally, when ord(q) > h the
+the appropriate smash product with U+ = U
+q
+spectrum of cohomology for each of these Hopf algebras is an affine space [48], so
+that the hypersurface and cohomological supports agree in this case. Therefore to
+prove our result it suffices to show that hypersurface support for uq (B) splits over
+tensor products.
+Write Usc , U′ , and U for the integrations of uq (b), u′ , and uq (B) respectively.
+Consider f ∈ mZ any function with nonzero reduction to mZ /m2Z .
+Consider M non-perfect over the algebra U′ /(f ), and restrict along the projection
+Usc /(f ) → U′ /(f ) to consider M as a non-perfect Usc /(f )-module. We have the
+map
+L = CG ⊗CGsc − : Usc /(f )-modf g → U′ /(f )-modf g
+which is an exact adjoint to restriction. This functor simply sends a Usc /(f )module, which is graded by P/lQ, to its U′ /(f )-summand which is supported on
+the subgroup X/lQ. So, in particular, for M restricted from a U′ /(f )-module we
+have
+
+λ ⊗ M if λ ∈ X/lQ
+L(λ ⊗ M ) =
+0
+otherwise.
+Applying L to the formula (30) of Lemma 13.9 then gives, for such non-perfect M ,
+k ∈ hµ ⊗ M : µ ∈ Irrep(G′ )i ⊂ Dcoh (U′ /(f )).
+
+(31)
+
+One therefore argues as in the proof of Lemma 9.1 to find that hypersurface support
+for the intermediate algebra u′ satisfies the tensor product property.
+We consider now the inclusion uq (B) → u′ . One can argue exactly as in the
+proof of Theorem 11.6 to see that hypersurface support for uq (B) satisfies the
+tensor product property. In particular, we observe that the formula (31) implies
+the analogous formula with U′ replaced by the positive subalgebra U+ , and follows
+precisely the arguments of Theorem 11.6.
+
+Remark 13.10. Supposing that hypersurface support for the simply-connected
+form uq (b), in arbitrary Dynkin type, satisfies the tensor product property, the
+arguments of Theorem 13.8 show that supports for all Borels uq (B) away from the
+simply-connected form also satisfy the tensor product property.
+13.6. A conjecture in general type. We conclude with the obvious conjecture.
+Conjecture 13.11. Let G be an arbitrary almost-simple algebraic group, and uq (B)
+be the quantum Borel in uq (G), at q of arbitrary odd order. Then cohomological
+support suppY for rep(uq (B)) satisfies the tensor product property (29).
+In the sequel [67] we expect to show that the conclusions of Theorem 13.8, in
+type A, hold at q of arbitrary odd order. This informs our omission of a bound on
+the order of q in the statement of Conjecture 13.11.
+
+50
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+References
+[1] N. Andruskiewitsch, I. Angiono, J. Pevtsova, and S. Witherspoon. Cohomology rings of finitedimensional pointed Hopf algebras over abelian groups, I & II. preprint arXiv:2004.07149.
+[2] N. Andruskiewitsch and H.-J. Schneider. Lifting of quantum linear spaces and pointed Hopf
+algebras of order p3 . J. Algebra, 209(2):658–691, 1998.
+[3] N. Andruskiewitsch and H.-J. Schneider. Pointed Hopf algebras. New directions in Hopf
+algebras, 43:1–68, 2002.
+[4] S. Arkhipov, R. Bezrukavnikov, and V. Ginzburg. Quantum groups, the loop Grassmannian,
+and the Springer resolution. J. Amer. Math. Soc., 17(3):595–678, 2004.
+[5] S. Arkhipov and D. Gaitsgory. Another realization of the category of modules over the small
+quantum group. Adv. Math., 173(1):114–143, 2003.
+[6] L. Avramov and R.-O. Buchweitz. Support varieties for cohomology over complete intersections. Invent. Math., 142:285–318, 2000.
+[7] L. L. Avramov, R.-O. Buchweitz, S. B. Iyengar, and C. Miller. Corrigendum to “Homology
+of perfect complexes”[Adv. Math. 223 (5)(2010) 1731–1781]. Adv. Math, 225(6):3576–3578,
+2010.
+[8] L. L. Avramov, R.-O. Buchweitz, S. B. Iyengar, and C. Miller. Homology of perfect complexes.
+Adv. Math, 223(5):1731–1781, 2010.
+[9] L. L. Avramov, V. N. Gasharov, and I. V. Peeva. Complete intersection dimension. Publ.
+Math. Inst. Hautes E’tudes Sci., 86:67–114, 1997.
+[10] L. L. Avramov and S. B. Iyengar. Restricting homology to hypersurfaces. In J. F. Carlson,
+S. B. Iyengar, and J. Pevtsova, editors, Geometric and topological aspects of the representation theory of finite groups, pages 1–23, 2018.
+[11] P. Balmer. The spectrum of prime ideals in tensor triangulated categories. J. Reine Angew.
+Math., (588):149–168, 2005.
+[12] P. Balmer. Nilpotence theorems via homological residue fields. Tunis. J. Math., 2(2):359–378,
+2020.
+[13] P. Balmer, H. Krause, and G. Stevenson. Tensor-triangular fields: ruminations. Selecta Math.,
+25(1):13, 2019.
+[14] C. Bendel, D. Nakano, B. Parshall, and C. Pillen. Cohomology for quantum groups via the
+geometry of the nullcone, volume 229. American Mathematical Society, 2014.
+[15] D. Benson, S. Iyengar, H. Krause, and J. Pevtsova. Stratification for module categories of
+finite group schemes. J. Amer. Math. Soc., 31(1):265–302, 2018.
+[16] D. Benson, S. B. Iyengar, H. Krause, and J. Pevtsova. Detecting nilpotence and projectivity
+over finite unipotent supergroup schemes. preprint arXiv:1901.08273.
+[17] D. Benson and S. Witherspoon. Examples of support varieties for Hopf algebras with noncommutative tensor products. Arch. Math., 102(6):513–520, 2014.
+[18] D. J. Benson. Representations and cohomology, volume 2. Cambridge university press, 1991.
+[19] D. J. Benson, K. Erdmann, and M. Holloway. Rank varieties for a class of finite-dimensional
+local algebras. J. Pure Appl. Algebra, 211(2):497–510, 2007.
+[20] P. A. Bergh and S. Oppermann. Cohomology of twisted tensor products. J. Algebra,
+320(8):3327–3338, 2008.
+[21] R. Bezrukavnikov and V. Ginzburg. On deformations of associative algebras. Ann. of Math.,
+pages 533–548, 2007.
+[22] B. D. Boe, J. R. Kujawa, and D. K. Nakano. Tensor triangular geometry for quantum groups.
+preprint arXiv:1702.01289.
+[23] C.-G. Bontea and D. Nikshych. Pointed braided tensor categories. preprint arXiv:1701.00510.
+[24] A. Brochier, D. Jordan, P. Safronov, and N. Snyder. Invertible braided tensor categories.
+preprint arXiv:2003.13812.
+[25] A. Brochier, D. Jordan, and N. Snyder. On dualizability of braided tensor categories. preprint
+arXiv:1804.07538.
+[26] J. Carlson and S. Iyengar. Thick subcategories of the bounded derived category of a finite
+group. Trans. Amer. Math. Soc., 367(4):2703–2717, April 2015.
+[27] J. F. Carlson. The varieties and the cohomology ring of a module. J. Algebra, 85(1):104–143,
+1983.
+[28] S. Chemla. Rigid dualizing complex for quantum enveloping algebras and algebras of generalized differential operators. J. Algebra, 276(1):80–102, 2004.
+
+SUPPORT FOR INTEGRABLE HOPF ALGEBRAS
+
+51
+
+[29] C. De Concini and V. G. Kac. Representations of quantum groups at roots of 1. Modern
+quantum field theory (Bombay, 1990), pages 333–335, 1991.
+[30] C. De Concini, V. G. Kac, and C. Procesi. Quantum coadjoint action. J. Amer. Math. Soc.,
+5(1):151–189, 1992.
+[31] V. Drinfeld. DG quotients of DG categories. J. Algebra, 272(2):643–691, 2004.
+[32] C. M. Drupieski and J. R. Kujawa. Support schemes for infinitesimal unipotent supergroups.
+preprint arXiv:1811.04840.
+[33] D. Eisenbud. Homological algebra on a complete intersection, with an application to group
+representations. Trans. Amer. Math. Soc., 260(1):35–64, 1980.
+[34] K. Erdmann, M. Holloway, R. Taillefer, N. Snashall, and Ø. Solberg. Support varieties for
+selfinjective algebras. K-theory, 33(1):67–87, 2004.
+[35] P. Etingof and V. Ostrik. Finite tensor categories. Mosc. Math. J, 4(3):627–654, 2004.
+[36] P. I. Etingof, S. Gelaki, D. Nikshych, and V. Ostrik. Tensor categories, volume 205. American
+Mathematical Society, 2015.
+[37] L. Evens. The cohomology ring of a finite group. 101:224–239, 1961.
+[38] E. M. Friedlander and C. Negron. Cohomology for Drinfeld doubles of some infinitesimal
+group schemes. Algebra Number Theory, 12(5):1281–1309, 2018.
+[39] E. M. Friedlander and B. J. Parshall. On the cohomology of algebraic and related finite
+groups. Invent. Math., 74(1):85–117, 1983.
+[40] E. M. Friedlander and B. J. Parshall. Cohomology of Lie algebras and algebraic groups. Amer.
+J. Math., 108(1):235–253, 1986.
+[41] E. M. Friedlander and B. J. Parshall. Support varieties for restricted Lie algebras. Invent.
+Math., 86(3):553–562, 1986.
+[42] E. M. Friedlander and B. J. Parshall. Geometry of p-unipotent Lie algebras. J. Algebra,
+109(1):25–45, 1987.
+[43] E. M. Friedlander and J. Pevtsova. Representation-theoretic support spaces for finite group
+schemes. Amer. J. Math., 127(2):379–420, 2005.
+[44] E. M. Friedlander and J. Pevtsova. Π-supports for modules for finite group schemes. Duke
+Math. J, 139(2):317–368, 2007.
+[45] E. M. Friedlander and A. Suslin. Cohomology of finite group schemes over a field. Invent.
+Math., 127(2):209–270, 1997.
+[46] D. Gaitsgory. Personal communications.
+[47] M. Gerstenhaber. On the deformation of rings and algebras. Ann. of Math., 79:59–103, 1964.
+[48] V. Ginzburg and S. Kumar. Cohomology of quantum groups at roots of unity. Duke Math.
+J, 69(1):179–198, 1993.
+[49] E. S. Golod. The cohomology ring of a finite p-group. 125:703–706, 1959. (Russian).
+[50] M. Goresky, R. Kottwitz, and R. MacPherson. Equivariant cohomology, Koszul duality, and
+the localization theorem. Invent. Math., 131(1):25–84, 1998.
+[51] T. H. Gulliksen. A change of ring theorem with applications to Poincaré series and intersection
+multiplicity. Math. Scand., 34(2):167–183, 1974.
+[52] J. C. Jantzen. Representations of Lie algebras in prime characteristic. In Representation
+theories and algebraic geometry, pages 185–235. Springer, 1998.
+[53] J. C. Jantzen. Representations of algebraic groups. 2003.
+[54] A. Joyal and R. Street. Braided monoidal categories. Mathematics Reports, 86008, 1986.
+[55] C. Kassel. Quantum groups, volume 155. Springer Science & Business Media, 2012.
+[56] D. Kazhdan and Y. Varshavsky. Endoscopic decomposition of certain depth zero representations. In Studies in Lie theory, pages 223–301. Springer, 2006.
+[57] B. Keller. Deriving dg categories. In Annales scientifiques de l’Ecole normale supérieure,
+volume 27, pages 63–102, 1994.
+[58] E. Kirkman, J. Kuzmanovich, and J. J. Zhang. Noncommutative complete intersections. J.
+Algebra, 429:253–286, 2015.
+[59] I. Kriz and J. P. May. Operads, algebras, modules and motives. Société mathématique de
+France, 1995.
+[60] G. Lusztig. Finite dimensional Hopf algebras arising from quantized universal enveloping
+algebras. J. Amer. Math. Soc., 3(1):257–296, 1990.
+[61] M. Mastnak, J. Pevtsova, P. Schauenburg, and S. Witherspoon. Cohomology of finitedimensional pointed Hopf algebras. Proc. Lond. Math. Soc., 100(2):377–404, 2010.
+
+52
+
+CRIS NEGRON AND JULIA PEVTSOVA
+
+[62] J. S. Milne. Algebraic groups: The theory of group schemes of finite type over a field, volume
+170. Cambridge University Press, 2017.
+[63] S. Montgomery. Hopf algebras and their actions on rings. Number 82. American Mathematical Soc., 1993.
+[64] M. Müger. From subfactors to categories and topology II: The quantum double of tensor
+categories and subfactors. J. Pure Appl. Algebra, 180(1-2):159–219, 2003.
+[65] C. Negron. Log-modular quantum groups at even roots of unity and the quantum frobenius
+I. preprint arXiv:1812.02277.
+[66] C. Negron. The cup product on Hochschild cohomology via twisting cochains and applications
+to koszul rings. J. Pure Appl. Algebra, 221(5):1112–1133, 2017.
+[67] C. Negron and J. Pevtsova. Hypersurface support and spectra for stable categories. preprint
+on arXiv.
+[68] C. Negron and J. Pevtsova. Support for quantum groups via the Springer resolution. in
+preparation.
+[69] C. Negron and J. Plavnik. Cohomology of finite tensor categories: duality and Drinfeld
+centers. preprint arXiv:1807.08854.
+[70] V. Ostrik. Module categories, weak Hopf algebras and modular invariants. Transform.
+Groups, 8(2):177–206, 2003.
+[71] J. Pevtsova and S. Witherspoon. Varieties for modules of quantum elementary abelian groups.
+Algebr. Represent. Theory, 12(6):567, 2009.
+[72] J. Pevtsova and S. Witherspoon. Tensor ideals and varieties for modules of quantum elementary abelian groups. Proc. Amer. Math. Soc., 143(9):3727–3741, 2015.
+[73] J. Y. Plavnik and S. Witherspoon. Tensor products and support varieties for some noncocommutative Hopf algebras. Algebr. Represent. Theory, 21(2):259–276, 2018.
+[74] D. G. Quillen. The spectrum of an equivariant cohomology ring, I, II. 94:549–602, 1971.
+[75] N. Snashall and Ø. Solberg. Support varieties and Hochschild cohomology rings. Proc. Lond.
+Math. Soc., 88(3):705–732, 2004.
+[76] N. Spaltenstein. Resolutions of unbounded complexes. Compositio Math., 65(2):121–154,
+1988.
+[77] T. Stacks Project Authors. Stacks Project:
+Differential graded algebra.
+https://stacks.math.columbia.edu , 2020.
+[78] A. Suslin, E. M. Friedlander, and C. P. Bendel. Support varieties for infinitesimal group
+schemes. J. Amer. Math. Soc., 10(3):729–759, 1997.
+[79] R. Takahashi. Classifying thick subcategories of the stable category of Cohen–Macaulay modules. Adv. Math, 225(4):2076–2116, 2010.
+[80] M. Takeuchi. Relative Hopf modules–equivalences and freeness criteria. J. Algebra, 60(2):452–
+471, 1979.
+[81] B. B. Venkov. Cohomology algebras for some classifying spaces. 127:943–944, 1959.
+[82] W. C. Waterhouse. Introduction to affine group schemes, volume 66. Springer Science &
+Business Media, 2012.
+[83] C. A. Weibel. An introduction to homological algebra, volume 38. Cambridge university press,
+1995.
+[84] H. Zassenhaus. The representations of Lie algebras of prime characteristic. Glasg. Math. J.,
+2(1):1–36, 1954.
+Department of Mathematics, University of North Carolina, Chapel Hill, NC 27599
+Email address: cnegron@email.unc.edu
+Department of Mathematics, University of Washington, Seattle, WA 98195
+Email address: julia@math.washington.edu
+
+

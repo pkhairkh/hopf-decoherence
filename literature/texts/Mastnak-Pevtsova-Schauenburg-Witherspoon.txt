@@ -1,0 +1,2391 @@
+arXiv:0902.0801v2 [math.RA] 19 Sep 2009
+
+COHOMOLOGY OF FINITE DIMENSIONAL POINTED HOPF
+ALGEBRAS
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+Abstract. We prove finite generation of the cohomology ring of any finite dimensional pointed Hopf algebra, having abelian group of grouplike elements,
+under some mild restrictions on the group order. The proof uses the recent
+classification by Andruskiewitsch and Schneider of such Hopf algebras. Examples include all of Lusztig’s small quantum groups, whose cohomology was first
+computed explicitly by Ginzburg and Kumar, as well as many new pointed Hopf
+algebras.
+We also show that in general the cohomology ring of a Hopf algebra in a
+braided category is braided commutative. As a consequence we obtain some
+further information about the structure of the cohomology ring of a finite dimensional pointed Hopf algebra and its related Nichols algebra.
+
+1. Introduction
+Golod [18], Venkov [26], and Evens [14] proved that the cohomology ring of a finite group with coefficients in a field of positive characteristic is finitely generated.
+This fundamental result opened the door to using geometric methods in the study
+of cohomology and modular representations of finite groups. This geometric approach was pioneered by Quillen [25] and expanded by Carlson [11], and Avrunin
+and Scott [5]. Friedlander and Suslin [16] vastly generalized the result of Venkov
+and Evens, proving that the cohomology ring of any finite group scheme (equivalently, finite dimensional cocommutative Hopf algebra) over a field of positive
+characteristic is finitely generated. In a different direction, Ginzburg and Kumar
+[17] computed the cohomology ring of each of Lusztig’s small quantum groups
+uq (g), defined over C, under some restrictions on the parameters; it is the coordinate ring of the nilpotent cone of the Lie algebra g, and thus is finitely generated.
+The result is parallel to an earlier result of Friedlander and Parshall [15] who computed the cohomology ring of a restricted Lie algebra in positive characteristic.
+Recently, Bendel, Nakano, Parshall, and Pillen [7] calculated the cohomology of a
+small quantum group under significantly loosened restrictions on the parameters.
+The broad common feature of these works is that they investigate cohomology of
+certain nonsemisimple finite dimensional Hopf algebras. Hence, these results lead
+one to ask whether the cohomology ring of any finite dimensional Hopf algebra is
+Date: July 29, 2009.
+1
+
+2
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+finitely generated. A positive answer would simultaneously generalize the known
+results for cocommutative Hopf algebras and for small quantum groups. More
+generally, Etingof and Ostrik [13] conjectured finite generation of cohomology in
+the context of finite tensor categories.
+In this paper, we begin the task of proving this conjecture for more general
+classes of noncocommutative Hopf algebras over a field of characteristic 0. We
+prove finite generation of the cohomology ring of any finite dimensional pointed
+Hopf algebra, with abelian group of grouplike elements, under some mild restrictions on the group order. Pointed Hopf algebras are precisely those whose
+coradicals are group algebras, and in turn these groups determine a large part
+of their structure. We use the recent classification of these Hopf algebras by
+Andruskiewitsch and Schneider [4]. Each has a presentation by generators and
+relations similar to those of the small quantum groups, yet they are much more
+general. Due to this similarity, some of the techniques of Ginzburg and Kumar [17]
+yield results in this general setting. However some differences do arise, notably
+that cohomology may no longer vanish in odd degrees, and that useful connections
+to Lie algebras have not been developed. Thus we must take a somewhat different
+approach in this paper, which also yields new proofs of some of the results in [17].
+Since we have less information available in this general setting, we prove finite
+generation without computing the full structure of the cohomology ring. However
+we do explicitly identify a subalgebra over which the cohomology is finite, and
+establish some results about its structure.
+These structure results follow in part from our general result in Section 3, that
+the cohomology ring of a Hopf algebra in a braided category is always braided
+graded commutative. This generalizes the well-known result that the cohomology
+ring of a Hopf algebra is graded commutative, one proof of which follows from the
+existence of two definitions of its multiplication. We generalize that proof, giving a
+braided version of the Eckmann-Hilton argument, from which follows the braided
+graded commutativity result. We apply this to a Nichols algebra in Section 5, thus
+obtaining some details about the structure of the finitely generated cohomology
+ring of the corresponding pointed Hopf algebra.
+Of course one hopes for results in yet greater generality. However the structure
+of finite dimensional noncommutative, noncocommutative, nonsemisimple Hopf
+algebras, other than those treated in this paper, is largely unknown. There are a
+very small number of known (nontrivial) finite dimensional pointed Hopf algebras
+having nonabelian groups of grouplike elements (see for example [1, 2]). Even
+fewer examples are known of nonpointed, nonsemisimple Hopf algebras [10]. To
+prove finite generation of cohomology in greater generality, it may be necessary
+to find general techniques, such as the embedding of any finite group scheme into
+GLn used by Friedlander and Suslin [16], rather than depending on structural
+knowledge of the Hopf algebras as we do here.
+
+POINTED HOPF ALGEBRAS
+
+3
+
+Our proof of finite generation is a two-step reduction to type A1 × · · · × A1 , in
+which case the corresponding Nichols algebra is a quantum complete intersection.
+For these algebras, we compute cohomology explicitly via a resolution constructed
+in Section 4. This resolution is adapted from [8, 20] where similar algebras were
+considered (but in positive characteristic). Each of our two reduction steps involves
+a spectral sequence associated to an algebra filtration. In the first step (Section 5) a
+Radford biproduct of the form B(V )#kΓ, for a group Γ and Nichols algebra B(V ),
+has a filtration for which the associated graded algebra has type A1 × · · · × A1 .
+This filtration is generalized from De Concini and Kac [12]. We identify some
+permanent cycles and apply a lemma adapted from Friedlander and Suslin [16]
+to conclude finite generation. In the second reduction step (Section 6), any of
+Andruskiewitsch and Schneider’s pointed Hopf algebras u(D, λ, µ) has a filtration
+for which the associated graded algebra is a Radford biproduct, whose cohomology
+features in Section 5. Again we identify some permanent cycles and conclude
+finite generation. As a corollary we show that the Hochschild cohomology ring of
+u(D, λ, µ) is also finitely generated.
+The first and last authors thank Ludwig-Maximilians-Universität München for
+its hospitality during the first stages of this project. The second author thanks
+MSRI for its hospitality and support during the final stage of this work. The
+first author was supported by an NSERC postdoctoral fellowship. The second author was partially supported by the NSF grants DMS-0629156 and DMS-0800940.
+The third author was supported by Deutsche Forschungsgemeinschaft through a
+Heisenberg Fellowship. The last author was partially supported by NSF grants
+DMS-0443476 and DMS-0800832, and NSA grant H98230-07-1-0038. The last
+author thanks D. J. Benson for very useful conversations.
+2. Definitions and Preliminary Results
+Let k be a field, usually assumed to be algebraically closed and of characteristic
+0. All tensor products are over k unless otherwise indicated. Let Γ be a finite
+group.
+Hopf algebras in Yetter-Drinfeld categories. A Yetter-Drinfeld module over
+kΓ is a Γ-graded vector space V = ⊕g∈Γ Vg that is also a kΓ-module for which
+g · Vh = Vghg−1 for all g, h ∈ Γ. The grading by the group Γ is equivalent to a kΓcomodule structure on V , that is a map δ : V → kΓ ⊗ V , defined by δ(v) = g ⊗ v
+for all v ∈ Vg . Let ΓΓ YD denote the category of all Yetter-Drinfeld modules over
+kΓ. The category has a tensor product: (V ⊗ W )g = ⊕xy=g Vx ⊗ Wy for all g ∈ Γ,
+and Γ acts diagonally on V ⊗ W , that is, g(v ⊗ w) = gv ⊗ gw for all g ∈ Γ, v ∈ V ,
+∼
+and w ∈ W . There is a braiding c : V ⊗ W → W ⊗ V for all V, W ∈ ΓΓ YD as
+follows: Let g ∈ Γ, v ∈ Vg , and w ∈ W . Then c(v ⊗ w) = gw ⊗ v. Thus ΓΓ YD
+is a braided monoidal category. (For details on the category ΓΓ YD, including the
+connection to Hopf algebras recalled below, see for example [4].)
+
+4
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+Let C be any braided monoidal category. For simplicity, we will always assume
+the tensor product is strictly associative with strict unit object I. An algebra in
+C is an object R together with morphisms u : I → R and m : R ⊗ R → R in
+C, such that m is associative in the sense that m(m ⊗ 1R ) = m(1R ⊗ m), and
+u is a unit in the sense that m(u ⊗ 1R ) = 1R = m(1R ⊗ u). The definition
+of a coalgebra in C is similar, with the arrows going in the opposite direction.
+Thus, an algebra (resp. coalgebra) in ΓΓ YD is simply an ordinary algebra (resp.
+coalgebra) with multiplication (resp. comultiplication) a graded and equivariant
+map. A braided Hopf algebra in C is an algebra as well as coalgebra in C such
+that its comultiplication and counit are algebra morphisms, and such that the
+identity morphism id : R → R has a convolution inverse s in C. When we say
+that the comultiplication ∆ : R → R ⊗ R should be an algebra morphism, the
+braiding c of C arises in the definition of the algebra structure of R ⊗ R (so in
+particular, a braided Hopf algebra in ΓΓ YD is not an ordinary Hopf algebra). More
+generally, if A, B are two algebras in C, their tensor product A ⊗ B is defined to
+have multiplication mA⊗B = (mA ⊗ mB )(1A ⊗ c ⊗ 1B ).
+An example of a braided Hopf algebra in ΓΓ YD is the Nichols algebra B(V )
+associated to a Yetter-Drinfeld module V over kΓ; B(V ) is the quotient of the
+tensor algebra T (V ) by the largest homogeneous braided Hopf ideal generated by
+homogeneous elements of degree at least 2. For details, see [3, 4]. In this paper,
+we need only the structure of B(V ) in some cases as are explicitly described below.
+If R is a braided Hopf algebra in ΓΓ YD, then its Radford biproduct (or bosonization) R#kΓ is a Hopf algebra in the usual sense (that is, a Hopf algebra in kk YD).
+As an algebra, R#kΓ is just a skew group algebra, that is, R#kΓ is a free R-module
+with basis Γ on which multiplication is defined by (rg)(sh) = r(g ·s)gh for all r, s ∈
+R and g, h ∈ G. Comultiplication is given by ∆(rg) = r (1) (r (2) )(−1) g ⊗ (r (2) )(0) g,
+P
+for all r ∈ RPand g ∈ Γ, where ∆(r) = r (1) ⊗ r (2) in R as a Hopf algebra in ΓΓ YD
+and δ(r) =
+r(−1) ⊗ r(0) denotes the kΓ-comodule structure.
+The pointed Hopf algebras of Andruskiewitsch and Schneider. A pointed
+Hopf algebra H is one for which all simple comodules are one dimensional. This
+is equivalent to the condition H0 = kΓ where Γ = G(H) is the group of grouplike
+elements of H and H0 is the coradical of H (the initial term in the coradical
+filtration).
+The Hopf algebras of Andruskiewitsch and Schneider in [4] are pointed, and are
+deformations of Radford biproducts. They depend on the following data: Let θ
+be a positive integer. Let (aij )1≤i,j≤θ be a Cartan matrix of finite type, that is the
+Dynkin diagram of (aij ) is a disjoint union of copies of some of the diagrams A• ,
+B• , C• , D• , E6 , E7 , E8 , F4 , G2 . In particular, aii = 2 for 1 ≤ i ≤ θ, aij is a
+nonpositive integer for i 6= j, and aij = 0 implies aji = 0. Its Dynkin diagram is a
+graph with vertices labeled 1, . . . , θ: The vertices i and j are connected by aij aji
+edges, and if |aij | > |aji |, there is an arrow pointing from j to i.
+
+POINTED HOPF ALGEBRAS
+
+5
+
+Now assume Γ is abelian, and denote by Γ̂ its dual group of characters. For each
+i, 1 ≤ i ≤ θ, choose gi ∈ Γ and χi ∈ Γ̂ such that χi (gi ) 6= 1 and
+χj (gi )χi (gj ) = χi (gi )aij
+
+(2.0.1)
+
+(the Cartan condition) holds for 1 ≤ i, j ≤ θ. Letting qij = χj (gi ), this becomes
+a
+qij qji = qiiij . Call
+(2.0.2)
+
+D = (Γ, (gi )1≤i≤θ , (χi )1≤i≤θ , (aij )1≤i,j≤θ )
+
+a datum of finite Cartan type associated to Γ and (aij ). The Hopf algebras of
+interest will be generated as algebras by Γ and symbols x1 , . . . , xθ .
+Let V be the vector space with basis x1 , . . . , xθ . Then V has a structure of a
+Yetter-Drinfeld module over kΓ: Vg = Spank {xi | gi = g} and g(xi ) = χi (g)xi
+for 1 ≤ i ≤ θ and g ∈ Γ. This induces the structure of an algebra in ΓΓ YD on
+the tensor algebra T (V ). In particular Γ acts by automorphisms on T (V ), and
+T (V ) is a Γ-graded algebra in which xi1 · · · xis has degree gi1 · · · gis . The braiding
+c : T (V ) ⊗ T (V ) → T (V ) ⊗ T (V ) is induced by c(xi ⊗ y) = gi (y) ⊗ xi . Moreover,
+T (V ) can be made a braided Hopf algebra in ΓΓ YD if we define comultiplication as
+the unique algebra map ∆ : T (V ) → T (V ) ⊗ T (V ) satisfying ∆(v) = v ⊗ 1 + 1 ⊗ v
+for all v ∈ V . We define the braided commutators
+adc (xi )(y) = [xi , y]c := xi y − gi (y)xi ,
+for all y ∈ T (V ), and similarly in quotients of T (V ) by homogeneous ideals.
+Let Φ denote the root system corresponding to (aij ), and let Π denote a fixed
+set of simple roots. If αi , αj ∈ Π, write i ∼ j if the corresponding vertices in
+the Dynkin diagram of Φ are in the same connected component. Choose scalars
+λ = (λij )1≤i<j≤θ, i6∼j , called linking parameters, such that
+λij = 0 if gi gj = 1 or χi χj 6= ε,
+where ε is the identity element in the dual group Γ̂ (equivalently ε is the counit on
+kΓ, ε(g) = 1 for all g ∈ Γ). The Hopf algebra U(D, λ) defined by Andruskiewitsch
+and Schneider [4] is the quotient of T (V )#kΓ by relations corresponding to the
+equations
+(group action)
+(Serre relations)
+(linking relations)
+
+gxi g −1 = χi (g)xi
+(g ∈ Γ, 1 ≤ i ≤ θ),
+(adc (xi ))1−aij (xj ) = 0
+(i 6= j, i ∼ j),
+(adc (xi ))(xj ) = λij (1 − gi gj )
+(i < j, i 6∼ j).
+
+The coalgebra structure of U(D, λ) is given by
+∆(g) = g ⊗ g,
+
+∆(xi ) = xi ⊗ 1 + gi ⊗ xi ,
+
+ε(g) = 1, ε(xi ) = 0, s(g) = g −1 , s(xi ) = −gi−1 xi , for all g ∈ Γ, 1 ≤ i ≤ θ.
+
+6
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+Example 2.1. Let g be a simple Lie algebra of rank n, let (aij ) be two block
+diagonal copies of the corresponding Cartan matrix, and let θ = 2n. Let q be a
+primitive ℓth root of unity, ℓ odd. Let Γ = (Z/ℓZ)n with generators g1 , . . . , gn and
+define χi ∈ Γ̂ by χi (gj ) = q hαi , αj i . Let gi+n = gi and χi+n = χ−1
+for 1 ≤ i ≤ n.
+i
+Let λij = (q −1 − q)−1 δj,i+n for 1 ≤ i < j ≤ n. Then U(D, λ) is a quotient of the
+quantum group Uq (g). An epimorphism Uq (g) → U(D, λ) is given by Ki 7→ gi ,
+Ei 7→ xi and Fi 7→ xi+n gi−1 .
+The Hopf algebra U(D, λ) has finite dimensional quotients that we discuss next.
+As in [4] we make the assumptions:
+(2.1.1)
+
+The order of χi (gi ) is odd for all i,
+and is prime to 3 for all i in a connected component of type G2 .
+
+It then follows from the Cartan condition (2.0.1) that the order of χi (gi ) is the
+same as the order of χj (gj ) if i ∼ j. That is, this order is constant in each
+connected component J of the Dynkin diagram; denote this common order by NJ .
+It will also be convenient to denote it by Nβj or Nj for each positive root βj in
+P
+J (this standard notation is defined below). Let α ∈ Φ+ , α = θi=1 ni αi , and let
+P
+ht(α) = θi=1 ni ,
+(2.1.2)
+
+gα =
+
+θ
+Y
+i=1
+
+gini ,
+
+and χα =
+
+θ
+Y
+
+χni i .
+
+i=1
+
+There is a unique connected component Jα of the Dynkin diagram of Φ for which
+ni 6= 0 implies i ∈ Jα . We write J = Jα when it is clear which α is intended.
+Let W be the Weyl group of the root system Φ. Let w0 = si1 · · · sir be a reduced
+decomposition of the longest element w0 ∈ W as a product of simple reflections.
+Let
+β1 = αi1 , β2 = si1 (αi2 ), . . . , βr = si1 si2 · · · sir−1 (αir ).
+Then β1 , . . . , βr are precisely the positive roots Φ+ [22]. Corresponding root vectors
+xβj ∈ U(D, λ) are defined in the same way as for the traditional quantum groups:
+In case D corresponds to the data for a quantum group Uq (g) (see Example 2.1),
+let
+xβj = Ti1 Ti2 · · · Tij−1 (xij ),
+where the Tij are Lusztig’s algebra automorphisms of Uq (g) [22]. The xβj may be
+expressed as iterated braided commutators. If βj is a simple root αl , then xβj = xl .
+In our more general setting, as in [4], define the xβj to be the analogous iterated
+braided commutators. More precisely, we describe how to obtain these elements
+in case the Dynkin diagram is connected; in the general case construct the root
+vectors separately for each connected component. Let I be the ideal of T (V )
+generated by elements corresponding to the Serre relations. Then [4, Lemmas
+1.2 and 1.7] may be used to obtain a linear isomorphism between T (V )/I and
+
+POINTED HOPF ALGEBRAS
+
+7
+
+the upper triangular part of some Uq (g) with the same Dynkin diagram. This
+linear isomorphism preserves products and braided commutators up to nonzero
+scalar multiples, and thus yields xβj in our general setting as an iterated braided
+commutator. (See the proof of Lemma 2.4 below for more details on this linear
+isomorphism.)
+Choose scalars (µα )α∈Φ+ , called root vector parameters, such that
+(2.1.3)
+
+α
+µα = 0 if gαNα = 1 or χN
+α 6= ε.
+
+The finite dimensional Hopf algebra u(D, λ, µ) is the quotient of U(D, λ) by the
+ideal generated by all
+(2.1.4)
+
+(root vector relations)
+
+α
+xN
+α − uα (µ)
+
+(α ∈ Φ+ )
+
+where uα (µ) ∈ kΓ is defined inductively on Φ+ in [4, Defn. 2.14]. In this paper,
+we do not need the details of the construction of the elements uα (µ) in the group
+algebra. We only need the fact that if µα = 0 for all α ∈ Φ+ , then uα (µ) = 0 for
+all α ∈ Φ+ [4] (see for example Lemma 6.1 below). It is interesting to note that if
+α is a simple root, then uα (µ) := µα (1 − gαNα ).
+Example 2.2. Let D, λ be the data from Example 2.1. Then there is an isomorphism uq (g) ≃ u(D, λ, 0), induced by the epimorphism Uq (g) → U(D, λ) given in
+that example.
+The following theorem is [4, Classification Theorem 0.1], and requires k to be
+algebraically closed of characteristic 0.
+Theorem 2.3 (Andruskiewitsch-Schneider). The Hopf algebras u(D, λ, µ) are finite dimensional and pointed. Conversely, if H is a finite dimensional pointed
+Hopf algebra having abelian group of grouplike elements with order not divisible by
+primes less than 11, then H ≃ u(D, λ, µ) for some D, λ, µ.
+Two filtrations. Note that u(D, λ, µ) is a (coradically) filtered Hopf algebra,
+with deg(xi ) = 1 (1 ≤ i ≤ θ) and deg(g) = 0 (g ∈ Γ). The associated graded
+Hopf algebra is isomorphic to the graded Hopf algebra u(D, 0, 0). There is an
+isomorphism u(D, 0, 0) ≃ B(V )#kΓ, the Radford biproduct (or bosonization) of
+the Nichols algebra B(V ) of the Yetter-Drinfeld module V over kΓ. For details,
+see [4]. Note that B(V ) is isomorphic to the subalgebra of u(D, 0, 0) generated by
+x1 , . . . , xθ .
+In Section 6, we prove that the cohomology of u(D, λ, µ) is finitely generated
+by using a spectral sequence relating its cohomology to that of B(V )#kΓ. In
+Section 5, we prove that the cohomology of this (coradically) graded bialgebra
+B(V )#kΓ is finitely generated, by using a spectral sequence relating its cohomology to that of a much simpler algebra: We put a different filtration on it (see
+Lemma 2.4 below) for which the associated graded algebra has type A1 × · · · × A1 .
+(That is, the Dynkin diagram is a disjoint union of diagrams A1 .) In Section 4,
+
+8
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+we give the cohomology for type A1 × · · · × A1 explicitly as a special case of the
+cohomology of a quantum complete intersection.
+By [4, Thm. 2.6], the Nichols algebra B(V ) has PBW basis all
+(2.3.1)
+
+xa = xaβ11 · · · xaβrr
+
+(0 ≤ ai < Nβi ),
+
+and further
+N
+
+[xα , xβ β ]c = 0
+
+(2.3.2)
+
+for all α, β ∈ Φ+ . As in [12], put a total order on the PBW basis elements as
+follows: The degree of such an element is
+Y
+
+d(xaβ11 · · · xaβrr ) =
+ai ht(βi ), ar , . . . , a1 ∈ Nr+1 .
+Order the elements (2.3.1) lexicographically by degree where
+
+(0, . . . , 0, 1) < (0, . . . , 0, 1, 0) < · · · < (1, 0, . . . , 0).
+Lemma 2.4. In the Nichols algebra B(V ), for all i < j,
+X
+ρa xa
+[xβj , xβi ]c =
+a∈Np
+
+where the ρa are scalars for which ρa = 0 unless d(xa ) < d(xβi xβj ).
+Proof. First note that if i 6∼ j, then [xβj , xβi ]c = 0 by the Serre relations, since
+aij = 0. Thus we may assume now that i ∼ j. Then the lemma is just the
+translation of [12, Lemma 1.7], via twisting by a cocycle and specializing q, into
+this more general setting. The twisting method is described in [4] and is used
+there to prove that (2.3.1) is a basis of B(V ). In particular, [4, Lemma 2.3] states
+that there exist integers di ∈ {1, 2, 3}, 1 ≤ i ≤ θ, and q ∈ k such that for all
+1 ≤ i, j ≤ θ, qii = q 2di and di aij = dj aji . This allows us to define a matrix (qij′ )
+′
+by qij′ = q di aij , so that qij qji = qij′ qji
+and qii = qii′ . Let V ′ ∈ ΓΓ YD with basis
+x′1 . . . , x′θ and structure given by the data {qij′ }. Now {qij′ } are classical quantum
+group parameters for the positive part of Uq (g), where g corresponds to the Dynkin
+diagram. Thus [12, Lemma 1.7] applies. Further, [4, Lemma 1.2] states that there
+is a cocycle σ : ZΠ × ZΠ → k × and a k-linear isomorphism φ : T (V ) → T (V ′ )
+with φ(xi ) = x′i and such that if x ∈ T (V )gi and y ∈ T (V )gj , then
+φ(xy) = σ(αi , αj )φ(x)φ(y)
+
+and
+
+φ([x, y]c ) = σ(αi , αj )[φ(x), φ(y)]c′ .
+
+Thus φ preserves the PBW basis up to nonzero scalar multiples, and it preserves
+the total order on the PBW basis. Since it also preserves braided commutators up
+to nonzero scalar, the lemma now holds as a consequence of the same result [12,
+Lemma 1.7] for the parameters {qij′ }.
+
+
+POINTED HOPF ALGEBRAS
+
+9
+
+By Lemma 2.4, the above ordering induces a filtration F on B(V ) for which
+the associated graded algebra Gr B(V ) has relations [xβj , xβi ]c = 0 for all i < j,
+i
+and xN
+βi = 0. In particular, Gr B(V ) is of type A1 × · · · × A1 . We may put
+a corresponding Hopf algebra structure on (Gr B(V ))#kΓ as follows. If βi =
+Pθ
+nθ
+n1
+j=1 nj αj , let gβi = g1 · · · gθ as in (2.1.2). Now identify β1 , . . . , βr with the
+simple roots of type A1 × · · · × A1 . For i < j, define qβi βj = χβj (gβi ), qβj βi = qβ−1
+,
+i βj
+and qβi βi = 1. Then the Cartan condition (2.0.1) holds for the scalars qβi βj in this
+type A1 × · · · × A1 , and (Gr B(V ))#kΓ is a Hopf algebra for which
+∆(xβi ) = xβi ⊗ 1 + gβi ⊗ xβi .
+For our spectral sequence constructions, we rewrite the total order on the PBW
+basis elements (2.3.1) explicitly as an indexing by positive integers. We may set
+Y
+ai ht(βi ) + Nβ1 · · · Nβr−1 ar + · · · + Nβ1 a2 + a1 .
+deg(xaβ11 · · · xaβrr ) = Nβ1 · · · Nβr
+A case-by-case argument shows that d(xaβ11 · · · xaβrr ) < d(xbβ11 · · · xbβrr ) if, and only if,
+deg(xaβ11 · · · xaβrr ) < deg(xbβ11 · · · xbβrr ).
+
+Hochschild cohomology. In this paper, we are interested in the cohomology
+ring H∗ (u(D, λ, µ), k) := Ext∗u(D,λ,µ) (k, k), where k is the trivial module given
+by the counit ε. If A is any k-algebra with an augmentation ε : A → k, note
+that Ext∗A (k, k) is isomorphic to Hochschild cohomology with trivial coefficients,
+Ext∗A⊗Aop (A, k): This is due to an equivalence of the bar complexes for computing these Ext algebras. That is, these bar complexes are each equivalent to the
+reduced complex
+(2.4.1) C • :
+
+0 → Homk (k, k) → Homk (A+ , k) → Homk ((A+ )2 , k) → · · · ,
+
+where A+ P
+= ker ε is the augmentation ideal of A. The differential is given by
+n−1
+(−1)i+1 f ◦(1i ⊗m⊗1n−i−1 ) for all f : (A+ )⊗n → k. We will exploit
+δn+1 (f ) = i=0
+this equivalence. This complex arises, for example, by applying HomA (−, k) to the
+free A-resolution of k:
+∂
+
+∂
+
+ε
+
+2
+1
+· · · → A ⊗ (A+ )⊗2 −→
+A ⊗ A+ −→
+A −→ k → 0,
+
+where
+(2.4.2)
+
+∂i (a0 ⊗ · · · ⊗ ai ) =
+
+i−1
+X
+
+(−1)j a0 ⊗ · · · ⊗ aj aj+1 ⊗ · · · ⊗ ai .
+
+j=0
+
+∗
+Then ∂n+1
+= δn+1 . Equivalently, we may apply HomA⊗Aop (−, k) to the free A⊗Aop resolution of A:
+d
+
+d
+
+ε
+
+2
+1
+· · · → A ⊗ (A+ )⊗2 ⊗ A −→
+A ⊗ A+ ⊗ A −→
+A ⊗ A −→ A → 0,
+Pi
+di (a0 ⊗ · · · ⊗ ai+1 ) = j=0(−1)j a0 ⊗ · · · ⊗ aj aj+1 ⊗ · · · ⊗ ai+1 .
+
+10
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+A finite generation lemma. In Sections 5 and 6, we will need the following
+general lemma adapted from [16, Lemma 1.6]. Recall that an element a ∈ Erp,q is
+called a permanent cycle if di (a) = 0 for all i ≥ r.
++3 E p+q be a multiplicative spectral sequence of kLemma 2.5. (a) Let E1p,q
+∞
+algebras concentrated in the half plane p + q ≥ 0, and let A∗,∗ be a bigraded commutative k-algebra concentrated in even (total) degrees. Assume that there exists
+// E ∗,∗ such that
+a bigraded map of algebras φ : A∗,∗
+1
+
+(i) φ makes E1∗,∗ into a Noetherian A∗,∗ -module, and
+(ii) the image of A∗,∗ in E1∗,∗ consists of permanent cycles.
+∗
+Then E∞
+is a Noetherian module over Tot(A∗,∗ ).
+
+e1p,q
+(b) Let E
+
++3 E
+ep+q
+
+be a spectral sequence that is a bigraded module over the
+e1∗,∗ is a Noetherian module over A∗,∗ where
+spectral sequence E . Assume that E
+e1∗,∗ via the map φ. Then E
+e∗ is a finitely generated E ∗ -module.
+A∗,∗ acts on E
+∞
+∗,∗
+
+∞
+
+∞
+
+Proof. Let Λ∗,∗
+⊂ Er∗,∗ be the bigraded subalgebra of permanent cycles in Er∗,∗ .
+r
+p,q
+Observe that dr (Er∗,∗ ) is an A∗,∗ -invariant left ideal of Λ∗,∗
+r . Indeed, let a ∈ A
+and x ∈ Ers,t . We have dr (φ(a)x) = dr (φ(a))x + (−1)p+q φ(a)dr (x) = φ(a)dr (x)
+since φ(a) ∈ A∗,∗ is assumed to be a permanent cycle of even total degree. A
+∗,∗
+∗,∗
+similar computation shows that Λ∗,∗
+1 is an A -submodule of E1 . By induction,
+∗,∗
+∗,∗
+∗,∗
+Λ∗,∗
+r+1 = Λr /dr (Er ) is an A -module for any r ≥ 1. We get a sequence of
+surjective maps of A∗,∗ -modules:
+(2.5.1)
+
+Λ∗,∗
+1
+
+// // . . .
+
+// // Λ∗,∗
+r
+
+// // Λ∗,∗
+
+r+1
+
+// // . . .
+
+Since Λ1∗,∗ is an A∗,∗ -submodule of E1∗,∗ , it is Noetherian as an A∗,∗ -module. There// // Λ∗,∗ are Noetherian for all r ≥ 1. These
+fore, the kernels of the maps Λ∗,∗
+r
+1
+kernels form an increasing chain of submodules of Λ∗,∗
+1 , hence, by the Noetherian
+property, they stabilize after finitely many steps. Consequently, the sequence (2.5.1)
+∗,∗
+stabilizes after finitely many steps. We conclude that Λ∗,∗
+= E∞
+for some r.
+r
+∗,∗
+∗,∗
+∗
+Therefore E∞ is a Noetherian A -module. By [14, Proposition 2.1], E∞
+is a
+∗,∗
+Noetherian module over Tot(A ), finishing the proof of (a).
+e ∗,∗ ⊂ E
+e ∗,∗ be the subspace of permanent cycles. Arguing as above we can
+Let Λ
+r
+r
+e ∗,∗ is an A∗,∗ -submodule of E
+e ∗,∗ , and, moreover, that there exists r such
+show that Λ
+r
+r
+e ∗,∗ = E
+e ∗,∗ . Hence, E
+e ∗,∗ is Noetherian over A∗,∗ . Applying [14, Proposition
+that Λ
+r
+∞
+∞
+e∗ is Noetherian and hence finitely generated
+2.1] once again, we conclude that E
+∞
+∗,∗
+∗
+over Tot(A ). Therefore, it is finitely generated over E∞
+.
+
+
+POINTED HOPF ALGEBRAS
+
+11
+
+3. Braided graded commutativity of cohomology
+We will show that Hochschild cohomology of a braided Hopf algebra in ΓΓ YD
+is a braided graded commutative algebra (more precisely, its opposite algebra is).
+This will be done in a more general categorical setting, so it will make sense to
+relax the overall requirement that k is a field.
+To prepare for the main result of this section, we need some information on the
+Alexander-Whitney map. We follow Weibel [27, Section 8.5]. The case of a tensor
+product of simplicial modules over a commutative ring (rather than simplicial
+objects in a tensor category, or bisimplicial objects) can also be found in Mac
+Lane [23, Ch. VII, Section 8].
+Consider a bisimplicial object A = (Akℓ , ∂ h , ∂ v ) in an abelian category. Associated to it we have the diagonal simplicial object diag A with components Ann ; to
+this in turn we associate the usual chain complex, whose differentials we denote
+by ddiag
+n . Also associated to A is the double complex CA, whose horizontal and
+vertical differentials we denote by dhk,ℓ : Akℓ → Ak−1,ℓ and dvk,ℓ : Akℓ → Ak,ℓ−1. There
+is a natural chain morphism, unique up to natural chain homotopy,
+f : diag A → Tot CA
+for which f0 is the identity. We note that f being a chain morphism means that
+the components fkℓ : Ann → Akℓ for n = k + ℓ satisfy
+h
+v
+fkℓ ddiag
+n+1 = dk+1,ℓ fk+1,ℓ + dk,ℓ+1 fk,ℓ+1 .
+
+One possible choice for f is the Alexander-Whitney map, whose components are
+h
+fkℓ = ∂k+1
+. . . ∂nh ∂0v . . . ∂0v : Ann → Akℓ
+| {z }
+k
+
+for n = k + ℓ. We claim that
+
+′
+v
+fkℓ
+= (−1)kℓ ∂0h . . . ∂0h ∂ℓ+1
+. . . ∂nv
+
+is another choice, and therefore chain homotopic to f . For this it suffices to check
+that f ′ (which is clearly natural) is a chain morphism. Instead of doing this
+directly (by more or less the same calculations usually done for the AlexanderWhitney map), we consider the front-to-back dual version of A. We denote this
+h
+v
+by Ã. The horizontal and vertical face operators are ∂˜kh = ∂˜n−k
+and ∂˜kv = ∂˜n−k
+. The
+h
+k h
+v
+˜
+˜
+horizontal and vertical differentials in C Ã are dk,ℓ = (−1) dk,ℓ and dk,ℓ = (−1)ℓ dvk,ℓ,
+˜
+the differentials in diag Ã are d˜diag
+= (−1)n ddiag
+n
+n . The Alexander-Whitney map f
+
+12
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+′
+of Ã is related to f ′ by fkℓ
+= (−1)kℓ f˜kℓ . Therefore
+n+1 ˜diag
+kℓ ˜
+′
+dn+1
+fkℓ
+ddiag
+n+1 = (−1) fkℓ (−1)
+= (−1)kℓ+k+ℓ+1(d˜h f˜k+1,ℓ + d˜v
+
+˜
+
+k,ℓ+1 fk,ℓ+1 )
+
+k+1,ℓ
+
+= (−1)k+1 d˜hk+1,ℓ (−1)(k+1)ℓ f˜k+1,ℓ + (−1)ℓ+1 d˜vk,ℓ+1(−1)k(ℓ+1) f˜k,ℓ+1
+′
+′
+.
+= dhk+1,ℓ fk+1,ℓ
++ dvk,ℓ+1fk,ℓ+1
+
+We will use the above to treat the cohomology of braided Hopf algebras with trivial
+coefficients.
+Let C be a braided monoidal category with braiding c; we denote the unit object
+by I. We will assume that the tensor product in C is strictly associative and unital,
+so we can perform some calculations in the graphical calculus (see for example [28]
+for more extensive examples of graphical calculations or [21] for more rigorous
+exposition). Our standard notations for braiding, multiplication, and unit will be
+AA
+
+XY
+,
+
+c = cXY =
+
+m = mA =
+
+YX
+
+,
+
+✡✠
+
+A
+
+η = ηA =
+
+r
+
+.
+
+A
+
+Thus, if A, B are algebras in C, their tensor product A ⊗ B is defined to have
+multiplication
+ABAB
+mA⊗B =
+
+.
+
+✡✠✡✠
+
+A B
+We will need the following universal property of the tensor product algebra: Given
+an algebra R in C and algebra morphisms fX : X → R for X ∈ {A, B} satisfying
+mR (fB ⊗fA ) = mR (fA ⊗fB )c, there exists a unique algebra morphism f : A⊗B →
+R with fA = f (1A ⊗ ηB ) and fB = f (ηA ⊗ 1B ), namely f = mR (fA ⊗ fB ).
+We will denote by A ⊗ B the tensor product algebra of A, B ∈ C taken with
+respect to the inverse of the braiding (i.e. in the braided category (B, c−1 ).). It
+possesses an obvious analogous universal property. The equation
+BABA
+
+BABA
+
+= ✡✠✡✠
+
+✡✠✡✠
+
+A
+
+B
+
+A
+
+B
+
+shows that c : B ⊗ A → A ⊗ B is an isomorphism of algebras in C.
+The following lemma is a version of the Eckmann-Hilton argument for algebras
+in braided monoidal categories.
+
+POINTED HOPF ALGEBRAS
+
+13
+
+Lemma 3.1. Let (A, m) be an algebra in the braided monoidal category C, equipped
+with a second multiplication ∇ : A ⊗ A → A that shares the same unit η : I → A.
+Suppose that ∇ : A ⊗ A → A is multiplicative with respect to m. Then the two
+multiplications coincide, and they are commutative.
+Proof. We use the graphical symbols
+AA
+m=
+
+AA
+∇=
+
+✡✠
+
+✡✠
+
+A
+A
+to distinguish the two multiplications.
+The condition that ∇ is multiplicative then reads
+AAAA
+AAAA
+✡✠✡✠
+= ✡✠✡✠
+✍ ✌
+✍ ✌
+
+A
+which we use twice in the calculation
+AA
+
+r
+
+=
+
+✡✠
+
+A
+
+AA
+
+r
+
+r
+
+AA
+
+r
+
+A
+
+AA
+
+A
+
+r r
+
+A
+
+A
+
+r r
+
+A
+
+AA
+
+= ✡✠✡✠= ✡✠= ✡✠✡✠=
+= ✡✠
+✍ ✌
+✍ ✌
+✡✠✡✠
+
+✡✠✡✠
+✍ ✌
+
+A
+
+A
+
+A
+
+✍ ✌
+
+A
+
+A
+
+A
+
+
+Remark 3.2. It is not used in the proof that (A, m) is an (associative) algebra.
+It would suffice to require that we are given two multiplications that share the
+same unit, and that one is multiplicative with respect to the other according to
+the same formula that results from the definition of a tensor product of algebras.
+The above generalities on tensor products of algebras in a braided category will
+be applied below to an N-graded algebra that occurs as the cohomology of an
+algebra. To fix the terminology, we will denote the monoidal category of N-graded
+objects in C by C N , with braiding cgr , and we will call a commutative algebra in
+C N a braided graded commutative algebra.
+Definition 3.3. Let C be a monoidal category, and A an augmented algebra in
+C. The simplicial object S• A is defined by Sn A = A⊗n with the faces ∂kn : Sn A →
+Sn−1 A defined by ∂0n = ε ⊗ (1A )⊗(n−1) , ∂in = (1A )⊗(i−1) ⊗ m ⊗ (1A )⊗(n−i−1) for
+0 < i < n and ∂nn = (1A )⊗(n−1) ⊗ ε and the degeneracies σkn : Sn A → Sn+1 A defined
+by inserting units in appropriate places.
+
+14
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+If C is abelian, then S• A has an associated chain complex, which we will also
+denote by S• A.
+Recall that a monoidal category C is (right) closed if for each object V , the
+endofunctor − ⊗ V is left adjoint. Its right adjoint is denoted hom(V, —) and
+called an inner hom-functor. If C is right closed, then hom(V, Y ) is a bifunctor,
+covariant in Y and contravariant in V .
+More generally, one can denote by hom(V, Y ) an object, if it exists, such that
+C(X ⊗ V, Y ) ≃ C(X, hom(V, Y )) as functors of X ∈ C. By Yoneda’s Lemma, such
+hom-objects are unique, and bifunctorial in those objects V and Y for which they
+exist.
+Now consider a monoidal functor F : C → C ′ . If V, Y ∈ C are such that the hom
+objects hom(V, Y ) in C and hom(F V, F Y ) in C ′ exist, then there is a canonical
+morphism F hom(V, Y ) → hom(F V, F Y ). If this is an isomorphism, we say that
+F preserves the hom object hom(V, Y ); if both categories are right closed, and all
+hom objects are preserved, we say that F preserves inner hom-functors.
+Definition 3.4. Let C be an abelian monoidal category, and A an augmented
+algebra in C such that all hom objects hom(A⊗n , I) exist (e.g. if C is closed).
+The Hochschild cohomology of A in C (with trivial coefficients) is the cohomology
+of the cochain complex hom(S• A, I). Thus the Hochschild cohomology consists of
+objects in the category C. We denote it by H∗ (A).
+Remark 3.5. We will only need the results in this section for the case C = ΓΓ YD,
+but we will indicate more generally how they apply to ordinary algebras and
+(braided) Hopf algebras. For this, it is not necessary always to stick to the paper’s
+general assumption that we work over a base field, therefore we assume now that
+k is an arbitrary commutative base ring.
+(1) In the case of an ordinary augmented k-algebra A, Definition 3.4 recovers
+the ordinary definition of Hochschild cohomology with trivial coefficients,
+that is H∗ (A) = H∗ (A, k) (see §2), which motivates our notation; general
+coefficients are not considered here.
+(2) Assume that F : C → C ′ is an exact monoidal functor that preserves the
+hom objects hom(S• A, I). Then F preserves Hochschild cohomology of A
+in the sense that H∗ (F (A)) ≃ F (H∗ (A)).
+(3) The category of (say, left) G-modules for a k-Hopf algebra G has inner homobjects preserved by the underlying functor to the category of k-modules.
+Also, if G is a finitely generated projective Hopf algebra over k, the categories of (say, left) G-comodules, and of Yetter-Drinfeld modules over G
+have inner hom-objects that are preserved by the underlying functors to
+the category of k-modules. More concretely, the hom-object hom(V, Y )
+is Homk (V, Y ) with G-module and comodule structures induced by the
+antipode and its inverse.
+
+POINTED HOPF ALGEBRAS
+
+15
+
+(4) Recall that a dual object (V ∗ , e, d) of an object V is an object V ∗ with
+morphisms e : V ∗ ⊗V → I and d : I → V ⊗V ∗ that satisfy (1V ⊗e)(d⊗1V ) =
+1V and (e⊗1V ∗ )(1V ∗ ⊗d) = 1V ∗ . If an object V in C has a dual, then all the
+inner hom-objects hom(V, Y ) exist and are given by hom(V, Y ) = Y ⊗ V ∗ .
+Also, monoidal functors always preserve dual objects (by and large because
+these are given by morphisms and relations) and thus, if V has a dual, then
+the inner hom-objects hom(V, Y ) are preserved by every monoidal functor.
+(5) A module V over a commutative ring k has a dual in the category of kmodules if and only if it is finitely generated projective; then V ∗ is the
+dual module, e is the evaluation, and d maps 1k to the canonical element,
+in the field case obtained by tensoring basis elements with the elements of
+the dual basis. If G is a k-Hopf algebra with bijective antipode, then in the
+categories of G-modules, G-comodules, and Yetter-Drinfeld modules over
+G an object V has a dual if and only if V is finitely generated projective
+over k.
+(6) Let G be a flat Hopf algebra over k with bijective antipode, so that the
+category C of Yetter-Drinfeld modules over G is abelian braided monoidal
+with an exact underlying functor to the category C ′ of k-modules. Then
+by the above remarks the underlying functor will preserve the Hochschild
+cohomology of A in C whenever G is finitely generated projective over k,
+or A is finitely generated projective. Thus, in either of these cases the
+Hochschild cohomology of A defined as above within the Yetter-Drinfeld
+category is the same as the ordinary Hochschild cohomology with trivial
+coefficients, endowed with a Yetter-Drinfeld module structure induced by
+that of A.
+Remark 3.6. In a closed monoidal category C, there is a natural morphism
+ξ : hom(B, I)⊗hom(A, I) → hom(A⊗B, I) which is suitably coherent with respect
+to higher tensor products. Under the adjunction
+C(hom(B, I) ⊗ hom(A, I), hom(A ⊗ B, I)) ≃ C(hom(B, I) ⊗ hom(A, I) ⊗ A ⊗ B, I)
+ξ corresponds to
+1⊗e⊗1
+
+e
+
+hom(B, I) ⊗ hom(A, I) ⊗ A ⊗ B −−−−→ hom(B, I) ⊗ B −
+→ I,
+where e : hom(X, I) ⊗ X → I is the natural “evaluation” morphism. Of course,
+to define the morphism in question, it is enough to assume that all the inner hom
+objects that occur in it exist.
+If all inner hom functors hom(V, I) exist, the isomorphisms ξ make hom(—, I)
+into a contravariant weak monoidal functor.
+If A and B have dual objects in C, then one can show that ξ above is an
+˜ is a dual object
+isomorphism; this can be attributed to the fact that (B ∗ ⊗ A∗ , ẽ, d)
+
+16
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+for A ⊗ B with
+
+
+
+1⊗e⊗1
+e
+ẽ = B ∗ ⊗ A∗ ⊗ A ⊗ B −−−−→ B ∗ ⊗ B −
+→I
+
+
+d
+∗ 1⊗d⊗1
+∗
+∗
+˜
+d= I−
+→ A ⊗ A −−−−→ A ⊗ B ⊗ B ⊗ A
+
+Definition 3.7. The cup product on H∗ (A) is the collection of morphisms Hn (A)⊗
+Hm (A) → Hm+n (A) induced by the morphisms
+ξ
+
+→ hom(Sm A ⊗ Sn A, I) = hom(Sm+n (A), I).
+hom(Sn A, I) ⊗ hom(Sm A, I) −
+Remark 3.8. Thus, in the category of modules over a commutative base ring k,
+our definition of cup product recovers the opposite of the usual cup product in
+Hochschild cohomology.
+From now on we assume that C is braided.
+Lemma 3.9. Let A, B be two augmented algebras in C. Denote by S• A × S• B the
+bisimplicial object obtained by tensoring the two simplicial objects S• A and S• B.
+An isomorphism S• (A ⊗ B) → diag(S• A × S• B) of simplicial objects is given by
+the morphisms
+gn : Sn (A ⊗ B) = (A ⊗ B)⊗n → A⊗n ⊗ B ⊗n = diagn (S• A ⊗ S• B)
+that are composed from instances of the braiding cB,A : B ⊗ A → A ⊗ B.
+Proof. For example we have
+ABABABAB
+
+ABABAB
+g3 =
+
+and g4 =
+AAABBB
+
+AAAABBBB
+
+and therefore
+ABABABAB
+
+ABABABAB
+
+✡✠✡✠
+
+(∂2 ⊗ ∂2 )g4 =
+
+= g3 ∂2
+
+=
+✡✠
+
+✡✠
+
+A A AB B B
+
+AA A
+
+B BB
+
+The general claim (∂k ⊗ ∂k )gn = gn−1 ∂k is a merely larger version of the above example for 0 < k < n, and simpler (with augmentations instead of multiplications)
+for k ∈ {0, n}.
+
+
+POINTED HOPF ALGEBRAS
+
+17
+
+According to the discussion at the beginning of the section we have two chain
+homotopic morphisms
+diag(S• A × S• B) ≃ S• A ⊗ S• B.
+Here, the right hand side denotes the tensor product of chain complexes. Explicitly,
+the two morphisms are given by
+fkℓ = (1A )⊗k ⊗ ε⊗ℓ ⊗ ε⊗k ⊗ (1B )⊗ℓ : Sn A ⊗ Sn B → Sk A ⊗ Sℓ B
+′
+fkℓ
+= (−1)kℓ ε⊗ℓ ⊗ (1A )⊗k ⊗ (1B )⊗ℓ ⊗ ε⊗k : Sn A ⊗ Sn B → Sk A ⊗ Sℓ B
+
+for k + ℓ = n.
+Upon application of hom(—, I), each of these morphisms, composed with the
+map g −1 from the preceding lemma, yields a morphism
+(3.9.1) hom(S• B, I) ⊗ hom(S• A, I) → hom(S• A ⊗ S• B, I) → hom(S• (A ⊗ B), I).
+Both these maps, being homotopic, yield the same morphism
+T ′ : H• (B) ⊗ H• (A) → H• (A ⊗ B),
+which we compose with the inverse of the braiding in C to obtain a morphism
+•
+•
+•
+T = T ′ c−1
+gr : H (A) ⊗ H (B) → H (A ⊗ B).
+
+Lemma 3.10. The morphism
+T : H• (A) ⊗ H• (B) → H• (A ⊗ B)
+is a morphism of graded algebras in C.
+Proof. We need to show that
+T ′ : H• (B) ⊗ H• (A) → H• (A ⊗ B)
+is a morphism of algebras. To do this, we consider the algebra morphisms
+H• (A) → H• (A ⊗ B) ← H• (B).
+We need to show that the composite
+H• (A) ⊗ H• (B) → H• (A ⊗ B) ⊗ H• (A ⊗ B) → H• (A ⊗ B),
+where the last morphism is multiplication, is the map in the statement of the
+lemma, while the composite
+H• (B) ⊗ H• (A) → H• (A ⊗ B) ⊗ H• (A ⊗ B) → H• (A ⊗ B)
+is the same, composed with the inverse braiding. But for this we only need to
+observe that
+Sk (1A ⊗ε)⊗Sℓ (ε⊗1B )
+
+Sn (A ⊗ B) = Sk (A ⊗ B) ⊗ Sℓ (A ⊗ B) −−−−−−−−−−−−→ Sk (A) ⊗ Sℓ (B)
+equals
+g
+
+f
+
+kℓ
+Sn (A ⊗ B) −
+→ Sn (A) ⊗ Sn (B) −→
+Sk (A) ⊗ Sℓ (B),
+
+18
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+whereas
+Sk (ε⊗1B )⊗Sℓ (1A ⊗ε)
+
+Sn (A ⊗ B) = Sk (A ⊗ B) ⊗ Sℓ (A ⊗ B) −−−−−−−−−−−−→ Sk (B) ⊗ Sℓ (A)
+equals
+g
+
+f′
+
+c−1
+gr
+
+ℓk
+Sn (A ⊗ B) −
+→ Sn (A) ⊗ Sn (B) −→
+Sℓ (A) ⊗ Sk (B) −−→ Sk (B) ⊗ Sℓ (A).
+
+
+Remark 3.11. In the case which is of main interest to us, k is a field, C is
+the category of Yetter-Drinfeld modules over a Hopf algebra G, and A, B are
+finite dimensional. We briefly sketch why these conditions imply that T is an
+isomorphism (see also [19, Prop.4.5]).
+First, both in the construction of T ′ (when homology is applied to the sequence
+3.9.1) and in that of the cup product in Definition 3.7 we have tacitly used a
+version of a Künneth-type morphism
+H(C• ) ⊗ H(D• ) → H(C• ⊗ D• )
+for chain complexes C • , D • in a closed monoidal category C. Under suitable flatness hypotheses on the objects and homologies that occur, this map will be an
+isomorphism. For example, this is the case if the tensor product in C is assumed
+to be exact in each argument which holds in our situation.
+Second, the morphism ξ that occurs in the construction of T ′ will be an isomorphism by Remark 3.6 since the algebras A and B clearly have duals in C.
+Therefore, in our case T is an isomorphism.
+Theorem 3.12. Let R be a bialgebra in the abelian braided monoidal category C.
+Then Hochschild cohomology H∗ (R) is a braided graded commutative algebra in C,
+assuming it is defined (i.e. the necessary hom-objects exist).
+Proof. Comultiplication ∆ on the bialgebra R yields a second multiplication
+
+
+H∗ (∆)
+∇ := H∗ (R) ⊗ H∗ (R) → H∗ (R ⊗ R) −−−→ H∗ (R)
+
+on H∗ (R). By construction, ∇ is an algebra map with respect to the algebra
+structure of H∗ (R) given by the cup product. Also, the two multiplications share
+the same unit, induced by the counit of R. Therefore, the two multiplications
+coincide and are commutative by Lemma 3.1.
+
+Corollary 3.13. Let G be a Hopf algebra with bijective antipode, and R a bialgebra
+in the category C of Yetter-Drinfeld modules over G. Assume that either G or R
+is finite dimensional. Then the Hochschild cohomology of R in C is a braided
+graded commutative algebra. Consequently, the opposite of ordinary Hochschild
+cohomology is a braided commutative Yetter-Drinfeld module algebra.
+
+POINTED HOPF ALGEBRAS
+
+19
+
+Proof. In fact the assumptions on G or R are designed to ensure that the hypotheses on inner hom objects in the results above are satisfied: If G is finitely generated
+projective, the category of Yetter-Drinfeld modules as a whole is closed, with inner
+hom-functors preserved by the underlying functors. If G is not finitely generated
+projective, but R is, then still R and all its tensor powers have dual objects in the
+category of Yetter-Drinfeld modules over G, that are preserved by the underlying
+functors.
+
+4. Cohomology of quantum complete intersections
+Let θ be a positive integer, and for each i, 1 ≤ i ≤ θ, let Ni be an integer greater
+than 1. Let qij ∈ k × for 1 ≤ i < j ≤ θ. Let S be the k-algebra generated by
+x1 , . . . , xθ subject to the relations
+(4.0.1)
+
+xi xj = qij xj xi for all i < j
+
+and
+
+i
+xN
+i = 0 for all i.
+
+It is convenient to set qji = qij−1 for i < j. For B(V ), the Nichols algebra constructed
+in Section 2, Lemma 2.4 implies that Gr B(V ) has this form.
+We will compute H∗ (S, k) = Ext∗S (k, k) for use in later sections. The structure of
+this ring may be determined by using the braided Künneth formula of Grunenfelder
+and Mastnak [19, Prop. 4.5 and Cor. 4.7] or the twisted tensor product formula of
+Bergh and Oppermann [9, Thms. 3.7 and 5.3]. We give details, using an explicit
+free S-resolution of k, in order to record needed information at the chain level.
+Our resolution was originally adapted from [8] (see also [20]): It is a braided tensor
+product of the periodic resolutions
+(4.0.2)
+x
+
+Ni −1
+·
+
+x
+
+x·
+
+Ni −1
+·
+
+x·
+
+ε
+
+i
+i
+i
+i
+Ni
+Ni
+Ni
+i
+· · · −−→
+k[xi ]/(xN
+i ) −→ k[xi ]/(xi ) −−→ k[xi ]/(xi ) −→ k[xi ]/(xi ) → k → 0,
+
+one for each i, 1 ≤ i ≤ θ.
+Specifically, let K• be the following complex of free S-modules. For each θ-tuple
+(a1 , . . . , aθ ) of nonnegative integers, let Φ(a1 , . . . , aθ ) be a free generator in degree
+a1 + · · · + aθ . Thus Kn = ⊕a1 +···+aθ =n SΦ(a1 , . . . , aθ ). For each i, 1 ≤ i ≤ θ, let
+σi , τi : N → N be the functions defined by
+
+1,
+if a is odd
+σi (a) =
+Ni − 1, if a is even,
+and τi (a) =
+
+a
+X
+
+σi (j) for a ≥ 1, τ (0) = 0. Let
+
+j=1
+
+di (Φ(a1 , . . . , aθ )) =
+
+Y
+ℓ<i
+
+σ (a )τ (a )
+(−1)aℓ qℓii i ℓ ℓ
+
+!
+
+σ (a )
+
+xi i i Φ(a1 , . . . , ai − 1, . . . , aθ )
+
+20
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+if ai > 0, and di (Φ(a1 , . . . , aθ )) = 0 if ai = 0. Extend each di to an S-module
+i
+homomorphism. Note that d2i = 0 for each i since xN
+i = 0 and σi (ai ) + σi (ai − 1) =
+Ni . If i < j, we have
+di dj (Φ(a1 , . . . , aθ ))
+!
+!
+Y
+σ
+(a
+)
+σ
+(a
+)τ
+(a
+)
+(−1)aℓ qℓjj j ℓ ℓ xj j j Φ(a1 , . . . , aj − 1, . . . , aθ )
+
+= di
+
+ℓ<j
+
+=
+
+Y
+σ (a )τ (a )
+(−1)aℓ qℓjj j ℓ ℓ
+ℓ<j
+
+!
+
+Y
+
+σ (a )τ (a )
+(−1)am qmii i m m
+
+m<i
+
+!
+
+·
+
+σ (aj ) σi (ai )
+xi
+Φ(a1 , . . . , ai − 1, . . . , aj − 1, . . . , aθ ).
+
+xj j
+
+Now dj di (Φ(a1 , . . . , aθ )) is also an S-multiple of Φ(a1 , . . . , ai −1, . . . , aj −1, . . . , aθ );
+comparing the two, we see that the term in which ℓ = i has a scalar factor that
+σ (a )τ (a )
+σ (a )τ (a −1)
+σ (a ) σ (a )
+changes from (−1)ai qijj j i i to (−1)ai −1 qijj j i i , and xj j j xi i i is replaced
+σ (a ) σ (aj )
+
+by xi i i xj j
+shows that
+
+σ (aj )σi (ai ) σj (aj ) σi (ai )
+xj
+xi
+.
+
+= qijj
+
+Since τi (ai ) = τi (ai − 1) + σi (ai ), this
+
+di dj + dj di = 0.
+Letting
+(4.0.3)
+
+d = d1 + · · · + dθ ,
+
+we now have d2 = 0, so K• is indeed a complex.
+Next we show that K• is a resolution of k by giving
+homotopy:
+PNi −1 a contracting
+j
+Let α ∈ S, and fix ℓ, 1 ≤ ℓ ≤ θ. Write α =
+j=0 αj xℓ where αj is in the
+subalgebra of S generated by the xi with i 6= ℓ. Define sℓ (αΦ(a1 , . . . , aθ )) to be
+PNi −1
+sℓ (αj xjℓ Φ(a1 , . . . , aθ )), where
+the sum j=0
+sℓ (αj xjℓ Φ(a1 , . . . , aθ ))
+
+!
+Y
+
+
+−σ (a +1)τm (am )
+
+αj xℓj−1 Φ(a1 , . . . , aℓ + 1, . . . , aθ ),
+δj>0
+(−1)am qmℓ ℓ ℓ
+
+
+
+
+m<ℓ
+
+
+if aℓ is even
+!
+=
+Y
+
+
+−σ (a +1)τm (am )
+
+αj Φ(a1 , . . . , aℓ + 1, . . . , aθ ),
+δ
+(−1)am qmℓ ℓ ℓ
+
+j,N
+−1
+ℓ
+
+
+
+m<ℓ
+
+
+if aℓ is odd
+
+where δj>0 = 1 if j > 0 and 0 if j = 0. Calculations show that for all i, 1 ≤ i ≤ θ,
+
+αj xji Φ(a1 , . . . , aθ ), if j > 0 or ai > 0
+j
+(si di + di si )(αj xi Φ(a1 , . . . , aθ )) =
+0,
+if j = 0 and ai = 0
+
+POINTED HOPF ALGEBRAS
+
+21
+
+and sℓ di + di sℓ = 0 for all i, ℓ with i 6= ℓ. For each xj11 · · · xjθθ Φ(a1 , . . . , aθ ), let
+c = cj1 ,...,jθ ,a1 ,...,aθ be the cardinality of the set of all i (1 ≤ i ≤ θ) such that
+ji ai = 0. Define
+s(xj11 · · · xjθθ Φ(a1 , . . . , aθ )) =
+
+1
+θ − cj1 ,...,jθ ,a1 ,...,aθ
+
+(s1 +· · ·+sθ )(xj11 · · · xjθθ Φ(a1 , . . . , aθ )).
+
+Then sd + ds = id on each Kn , n > 0. That is, K• is exact in positive degrees. To
+show that K• is a resolution of k, put k in degree −1, and let the corresponding
+differential be the counit map ε : S → k. It can be shown directly that K•
+then becomes exact at K0 = S: The kernel of ε is spanned over the field k by
+the elements xj11 · · · xjθθ Φ(0, . . . , 0), 0 ≤ ji ≤ Ni , with at least one ji 6= 0. Let
+xj11 · · · xjθθ Φ(0, . . . , 0) be such an element, and let i be the smallest positive integer
+such that ji 6= 0. Then d(xji i −1 · · · xjθθ Φ(0, . . . , 1, . . . , 0)) is a nonzero scalar multiple
+of xji i · · · xjθθ Φ(0, . . . , 0). Thus ker(ε) = im(d), and K• is a free resolution of k as
+an S-module.
+Next we will use K• to compute Ext∗S (k, k). Applying HomS (−, k) to K• , the
+σ (a )
+induced differential d∗ is the zero map since xi i i is always in the augmentation
+ideal. Thus the cohomology is the complex HomS (K• , k), and in degree n this is
+a vector space of dimension n+θ−1
+. Now let ξi ∈ HomS (K2 , k) be the function
+θ−1
+dual to Φ(0, . . . , 0, 2, 0, . . . , 0) (the 2 in the ith place) and ηi ∈ HomS (K1 , k) be
+the function dual to Φ(0, . . . , 0, 1, 0, . . . , 0) (the 1 in the ith place). By abuse
+of notation, identify these functions with the corresponding elements in H2 (S, k)
+and H1 (S, k), respectively. We will show that the ξi , ηi generate H∗ (S, k), and
+determine the relations among them. In order to do this we will abuse notation
+further and denote by ξi and ηi the corresponding chain maps ξi : Kn → Kn−2 and
+ηi : Kn → Kn−1 defined by
+Y N τ (a )
+ξi (Φ(a1 , . . . , aθ )) =
+qiℓ i ℓ ℓ Φ(a1 , . . . , ai − 2, . . . , aθ )
+ℓ>i
+
+Y (σ (a )−1)τ (a ) Y
+τ (a ) σ (a )−1
+ℓ ℓ
+ηi (Φ(a1 , . . . , aθ )) =
+qℓi i i
+(−1)aℓ qiℓℓ ℓ xi i i Φ(a1 , . . . , ai − 1, . . . , aθ ).
+ℓ<i
+
+ℓ>i
+
+Calculations show that these are indeed chain maps. The ring structure of the
+subalgebra of H∗ (S, k) generated by ξi , ηi is given by composition of these chain
+maps. Direct calculation shows that the relations given in Theorem 4.1 below
+hold. (Note that if Ni 6= 2 the last relation implies ηi2 = 0.) Alternatively, in
+case S = B(V ), a Nichols algebra defined in Section 2, we may apply Corollary
+3.13 to obtain the relations in Theorem 4.1 below, performing calculations that
+are a special case of the ones in the proof of Theorem 5.4. Thus any element in
+the algebra generated by the ξi and ηi may be written as a linear combination
+of elements of the form ξ1b1 · · · ξθbθ η1c1 · · · ηθcθ with bi ≥ 0 and ci ∈ {0, 1}. Such an
+element takes Φ(2b1 + c1 , . . . , 2bθ + cθ ) to a nonzero scalar multiple of Φ(0, . . . , 0)
+
+22
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+and all other S-basis elements of KP(2bi +ci ) to 0. Since the dimension of Hn (S, k)
+
+is n+θ−1
+, this shows that the ξ1b1 · · · ξθbθ η1c1 · · · ηθcθ form a k-basis for H∗ (S, k). We
+θ−1
+have proven:
+Theorem 4.1. Let S be the k-algebra generated by x1 , . . . , xθ , subject to relations
+(4.0.1). Then H∗ (S, k) is generated by ξi , ηi (i = 1, . . . , θ) where deg ξi = 2 and
+deg ηi = 1, subject to the relations
+(4.1.1)
+
+N N
+
+ξi ξj = qji i j ξj ξi ,
+
+N
+
+ηi ξj = qji j ξj ηi ,
+
+and ηi ηj = −qji ηj ηi .
+
+Note that although the relations (4.1.1) can be obtained as a consequence of
+Corollary 3.13, in order to obtain the full statement of the theorem, we needed
+more information.
+Remark 4.2. We obtain [17, Prop. 2.3.1] as a corollary: In this case we replace
+the generators xi of S by the generators Eα (α ∈ ∆+ ) of Gr u+
+q , whose relations
+are
+Eα Eβ = q hα,βi Eβ Eα (α ≻ β),
+
+Eαℓ = 0 (α ∈ ∆+ ).
+
++
+Theorem 4.1 then implies that H∗ (Gr u+
+q ) is generated by ξα , ηα (α ∈ ∆ ) with
+relations
+
+ξα ξβ = ξβ ξα , ηα ξβ = ξβ ηα , ηα ηβ = −q −hα,βi ηβ ηα (α ≻ β), ηα2 = 0,
+which is precisely [17, Prop. 2.3.1].
+Now assume a finite group Γ acts on S by automorphisms for which x1 , . . . , xθ
+are eigenvectors. For each i, 1 ≤ i ≤ θ, let χi be the character on Γ for which
+gxi = χi (g)xi . As the characteristic of k is 0, we have
+Ext∗S#kΓ(k, k) ≃ Ext∗S (k, k)Γ ,
+where the action of Γ at the chain level on (4.0.2) is as usual in degree 0, but
+shifted in higher degrees so as to make the differentials commute with the action
+of Γ. Specifically, note that the following action of Γ on K• commutes with the
+differentials:
+θ
+Y
+g · Φ(a1 , . . . , aθ ) =
+χℓ (g)τℓ (aℓ ) Φ(a1 , . . . , aθ )
+ℓ=1
+
+for all g ∈ Γ, and a1 , . . . , aθ ≥ 0. Then the induced action of Γ on generators ξi , ηi
+of the cohomology ring H∗ (S, k) is given explicitly by
+(4.2.1)
+
+g · ξi = χi (g)−Ni ξi and g · ηi = χi (g)−1ηi .
+
+POINTED HOPF ALGEBRAS
+
+23
+
+5. Coradically graded finite dimensional pointed Hopf algebras
+Let D be arbitrary data as in (2.0.2), V the corresponding Yetter-Drinfeld module, and R = B(V ) its Nichols algebra, and described in Section 2. By Lemma
+2.4, there is a filtration on R for which S = Gr R is of type A1 × · · · × A1 , given by
+generators and relations of type (4.0.1). Thus H∗ (S, k) is given by Theorem 4.1.
+As the filtration is finite, there is a convergent spectral sequence associated to the
+filtration (see [27, 5.4.1]):
+(5.0.2)
+
+E1p,q = Hp+q (Gr(p) R, k)
+
++3 Hp+q (R, k).
+
+It follows that the E1 -page of the spectral sequence is given by Theorem 4.1 with
+grading corresponding to the filtration on R. We will see that by (5.0.6) and
+Lemma 5.1 below, the generators ξi are in degrees (pi , 2 − pi ), where
+(5.0.3)
+
+pi = Nβ1 · · · Nβi (Nβi · · · Nβr ht(βi ) + 1).
+
+Since the PBW basis elements (2.3.1) are eigenvectors for Γ, the action of Γ on R
+preserves the filtration, and we further get a spectral sequence converging to the
+cohomology of u(D, 0, 0) ≃ R#kΓ:
+(5.0.4)
+
+Hp+q (Gr(p) R, k)Γ
+
++3 Hp+q (R, k)Γ ≃ Hp+q (R#kΓ, k).
+
+Moreover, if M is a finitely generated R#kΓ-module, there is a spectral sequence
+converging to the cohomology of R with coefficients in M:
+(5.0.5)
+
+Hp+q (Gr(p) R, M)
+
++3 Hp+q (R, M),
+
+also compatible with the action of Γ.
+We wish to apply Lemma 2.5 to the spectral sequence (5.0.4) for the filtered
+algebra R. In order to do so, we must find some permanent cycles.
+The Hochschild cohomology of R in degree 2, with trivial coefficients, was studied in [24]: There is a linearly independent set of 2-cocycles ξα on R, indexed by
+the positive roots α ([24, Theorem 6.1.3]). We will use the notation ξα in place of
+the notation fα used there. As shown in [24], these 2-cocycles may be expressed as
+functions at the chain level in the following way. Let xa , xb denote arbitrary PBW
+ea , x
+eb denote corresponding elements in
+basis elements (2.3.1) of u(D, 0, 0). Let x
+the infinite dimensional algebra U(D, 0) arising from the section of the quotient
+map U(D, 0) → u(D, 0, 0) for which PBW basis elements are sent to PBW basis
+elements. Then
+(5.0.6)
+
+ξα (xa ⊗ xb ) = cα
+
+α
+ea · x
+eb , and xa , xb range over all
+where cα is the coefficient of x
+eN
+α in the product x
+pairs of PBW basis elements. A direct proof that these are 2-cocycles is in [24,
+§6.1]; alternatively the proof in Lemma 6.2 below, that analogous functions fα in
+
+24
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+higher degrees are cocycles for u(D, λ, 0), applies with minor modifications to the
+ξα in this context.
+We wish to relate these functions ξα to elements on the E1 -page of the spectral
+sequence (5.0.2), found in the previous section. Recall that β1 , . . . , βr enumerate
+the positive roots, and the integer pi is defined in (5.0.3). By (5.0.6) and Lemma
+2.4, we have ξβi ↓Fpi −1 (R⊗R) = 0 but ξβi ↓Fpi (R⊗R) 6= 0. Note that the filtration on R
+induces a filtration on R+ , and thus a (decreasing) filtration on the complex C •
+defined in (2.4.1), given by F p C n = {f : (R+ )⊗n → k | f ↓Fp−1 ((R+ )⊗n ) = 0}. We
+conclude that ξβi ∈ F pi C 2 but ξβi 6∈ F pi +1 C 2 . Denoting the corresponding cocycle
+by the same letter, we further conclude that ξβi ∈ im{H2 (F pi C • ) → H2 (C • )} =
+F pi H2 (R, k), but ξβi 6∈ im{H2 (F pi +1 C • ) → H2 (C • )} = F pi +1 H2 (R, k). Hence, ξβi
+can be identified with the corresponding nontrivial homogeneous element in the
+associated graded complex:
+ξeβ ∈ F pi H2 (R, k)/F pi+1 H2 (R, k) ≃ E pi ,2−pi .
+i
+
+∞
+
+Since ξβi ∈ F pi C 2 but ξβi 6∈ F pi+1 C 2 , it induces an element ξ¯βi ∈ E0pi ,2−pi =
+F pi C 2 /F pi+1 C 2 . Since ξ¯βi is induced by an actual cocycle in C • , it will be in
+the kernels of all the differentials of the spectral sequence. Hence, the residue of
+ξ¯βi will be in the E∞ –term where it will be identified with the non-zero element
+ξeβi since these classes are induced by the same cocycle in C • . We conclude that
+ξ¯βi ∈ E0pi ,2−pi , and, correspondingly, its image in E1pi ,2−pi ≃ H2 (Gr R, k) which we
+denote by the same symbol, is a permanent cycle.
+Note that the results of [24] apply equally well to S = Gr R to yield similar
+cocycles ξˆα via the formula (5.0.6), for each positive root α in type A1 × · · · × A1 .
+Now S = Gr R has generators corresponding to the root vectors of R, and we
+similarly identify elements in cohomology. Thus each ξˆα , α a positive root in
+type A1 × · · · × A1 , may be relabeled ξˆβi for some i (1 ≤ i ≤ r), the indexing
+corresponding to β1 , . . . , βr ∈ Φ+ . Comparing the values of ξ βi and ξˆβi on basis
+elements xa ⊗ xb of Gr R ⊗ Gr R we conclude that they are the same function.
+Hence ξˆβi ∈ E1pi ,2−pi are permanent cycles.
+We wish to identify these elements ξˆβi ∈ H2 (Gr R, k) with the cohomology classes
+ξi in H∗ (S, k) constructed in Section 4, as we may thus exploit the algebra structure
+of H∗ (S, k) given in Theorem 4.1. We use the same symbols xβi to denote the
+corresponding root vectors in R and in S = Gr R, as this should cause no confusion.
+
+Lemma 5.1. For each i (1 ≤ i ≤ r), the cohomology classes ξi and ξˆβi coincide
+as elements of H2 (Gr R, k).
+Proof. Let K• be the chain complex defined in Section 4, a projective resolution of
+the trivial Gr R-module k. Elements ξi ∈ H2 (Gr R, k) and ηi ∈ H1 (Gr R, k) were
+defined via the complex K• . We wish to identify ξi with elements of the chain
+complex C • defined in (2.4.1), where A = R. To this end we define maps F1 , F2
+
+POINTED HOPF ALGEBRAS
+
+25
+
+making the following diagram commute, where S = Gr R:
+··· →
+
+d
+
+d
+
+ε
+
+K2
+−→
+K1
+−→ K0 −→ k → 0
+↓ F2
+↓ F1
+k
+k
+∂2
+∂1
+ε
++ ⊗2
++
+· · · → S ⊗ (S )
+−→ S ⊗ S −→ S −→ k → 0
+
+In this diagram, the maps d are given in (4.0.3), and ∂i in (2.4.2). Let Φ(· · · 1i · · · )
+denote the basis element of K1 having a 1 in the ith position, and 0 in all other
+positions, Φ(· · · 1i · · · 1j · · · ) (respectively Φ(· · · 2i · · · )) the basis element of K2
+having a 1 in the ith and jth positions (i 6= j), and 0 in all other positions
+(respectively a 2 in the ith position and 0 in all other positions). Let
+F1 (Φ(· · · 1i · · · )) = 1 ⊗ xβi ,
+F2 (Φ(· · · 2i · · · )) =
+
+N
+i −2
+X
+
+i −ai −1
+,
+xaβii ⊗ xβi ⊗ xN
+βi
+
+ai =0
+
+F2 (Φ(· · · 1i · · · 1j · · · )) = 1 ⊗ xβi ⊗ xβj − qij ⊗ xβj ⊗ xβi .
+Direct computations show that the two nontrivial squares in the diagram above
+commute. So F1 , F2 extend to maps Fi : Ki → S ⊗ (S + )⊗i , i ≥ 1, providing a
+chain map F• : K• → S ⊗ (S + )⊗• , thus inducing isomorphisms on cohomology.
+We now verify that the maps F1 , F2 make the desired identifications. By ξβi we
+mean the function on the reduced bar complex, ξβi (1 ⊗ xa ⊗ xb ) := ξβi (xa ⊗ xb ),
+defined in (5.0.6). Then
+F2∗ (ξβi )(Φ(· · · 2i · · · )) = ξβi (F2 (Φ(· · · 2i · · · )))
+= ξβi (
+
+N
+i −2
+X
+
+i −ai −1
+)
+xaβii ⊗ xβi ⊗ xN
+βi
+
+ai =0
+
+=
+
+N
+i −2
+X
+
+ε(xaβii )ξβi (1 ⊗ xβi ⊗ xβNii −ai −1 )
+
+ai =0
+
+= ξβi (xβi ⊗ xβNii −1 ) = 1.
+Further, it may be checked similarly that F2∗ (ξβi )(Φ(· · · 1i · · · 1j · · · )) = 0 for all i, j
+and F2∗ (ξβi )(Φ(· · · 2j · · · )) = 0 for all j 6= i. Therefore F2∗ (ξβi ) is the dual function
+to Φ(· · · 2i · · · ), which is precisely ξi .
+
+Similarly, we identify the elements ηi defined in Section 4 with functions at the
+chain level in cohomology: Define
+
+1, if xa = xα
+a
+.
+(5.1.1)
+ηα (x ) =
+0, otherwise
+
+The functions ηα represent a basis of H1 (S, k) ≃ Homk (S + /(S + )2 , k). Similarly
+functions corresponding to the simple roots βi only represent a basis of H1 (R, k) ≃
+
+26
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+Homk (R+ /(R+ )2 , k). A computation shows that F1∗ (ηβi )(Φ(· · · 1j · · · )) = δij , so
+that F1∗ (ηβi ) is the dual function to Φ(· · · 1i · · · ). Therefore ηi and ηβi coincide as
+elements of H1 (S, k).
+α
+For each α ∈ Φ+ , let Mα be any positive integer for which χM
+= ε. (For
+α
+Mα
+example, let Mα be the order of χα .) Note that ξα is Γ-invariant: By (4.2.1),
+g · ξαMα = χα−Mα Nα (g)ξαMα = ξαMα .
+Recall the notation u(D, 0, 0) ≃ R#kΓ, where R = B(V ) is the Nichols algebra.
+Lemma 5.2. The cohomology algebra H∗ (u(D, 0, 0), k) is finitely generated over
+the subalgebra generated by all ξαMα (α ∈ Φ+ ).
++3 H∗ (R, k) be the spectral sequence (5.0.2), and let B ∗,∗ be
+Proof. Let E1∗,∗
+the bigraded subalgebra of E1∗,∗ generated by the elements ξi . By Lemma 5.1
+and the discussion prior to it, B ∗,∗ consists of permanent cycles. Since ξi is ξ¯βi
+by Lemma 5.1, it is in bidegree (pi , 2 − pi ). Let A∗,∗ be the subalgebra of B ∗,∗
+Mα
+generated by ξ α (α ∈ Φ+ ). Then A∗,∗ also consists of permanent cycles. Observe
+that A∗,∗ is a subalgebra of H∗ ((Gr R)#kΓ, k), which is graded commutative since
+(Gr R)#kΓ is a Hopf algebra. Hence, A∗,∗ is commutative as it is concentrated in
+even (total) degrees. Finally, A∗,∗ is Noetherian since it is a polynomial algebra
+in the ξαMα . We conclude that the bigraded commutative algebra A∗,∗ satisfies
+the hypotheses of Lemma 2.5. By Theorem 4.1, the algebra E1∗,∗ ≃ H∗ (Gr R, k)
+is generated by ξi and ηi where the generators ηi are nilpotent. Hence, E1∗,∗ is
+a finitely generated module over B ∗,∗ . The latter is clearly a finitely generated
+module over A∗,∗ . Hence E1∗,∗ is a finitely generated module over A∗,∗ . Lemma 2.5
+implies that H∗ (R, k) is a Noetherian Tot(A∗,∗ )-module; moreover, the action of
+Γ on H∗ (R, k) is compatible with the action on A∗,∗ since the spectral sequence
+is compatible with the action of Γ. Therefore, H∗ (R#kΓ, k) ≃ H∗ (R, k)Γ is a
+Noetherian Tot(A∗,∗ )-module. Since Tot(A∗,∗ ) is finitely generated, we conclude
+that H∗ (R#kΓ, k) is finitely generated.
+
+
+We immediately have the following theorem. The second statement of the theorem follows by a simple application of the second statement of Lemma 2.5.
+Theorem 5.3. The algebra H∗ (u(D, 0, 0), k) is finitely generated. If M is a finitely
+generated u(D, 0, 0)-module, then H∗ (u(D, 0, 0), M) is a finitely generated module
+over H∗ (u(D, 0, 0), k).
+Thanks to Corollary 3.13, we have some information about the algebra structure
+of the cohomology ring of the Nichols algebra R = B(V ): Recall that qβα = χα (gβ )
+(see (2.1.2)). Compare the following result with the graded case, Theorem 4.1.
+Theorem 5.4. The following relations hold in H∗ (R, k) for all ξα , ξβ (α, β ∈ Φ+ )
+and ηα , ηβ (α, β ∈ Π):
+N N
+
+ξα ξβ = qβαα β ξβ ξα ,
+
+N
+
+ηα ξβ = qβαβ ξβ ηα , and
+
+ηα ηβ = −qβα ηβ ηα .
+
+POINTED HOPF ALGEBRAS
+
+27
+
+Proof. As we shall see, this is a consequence of Corollary 3.13, since R is a braided
+Hopf algebra in ΓΓ YD.
+Note first that as a function on the Yetter-Drinfeld module R ∈ ΓΓ YD the cocycle
+ξα is Γ-homogeneous of degree gα−Nα and spans a one-dimensional Γ-module with
+α
+character χ−N
+. To see this in full detail, let us rephrase the definition (5.0.6) of ξα
+α
+as follows. One can write U(D, 0) as a Radford biproduct U(D, 0) = R̂#kΓ with
+a braided Hopf algebra R̂ ∈ ΓΓ YD such that R is a quotient of R̂. Let s : R → R̂ be
+the section of the surjection R̂ → R that maps PBW basis elements to PBW basis
+elements. Note that s is a map in ΓΓ YD. Finally, let pα : R̂ → k be the function
+α
+projecting r ∈ R̂ to the coefficient in r of the PBW basis element x̃N
+α . Then ξα is
+s⊗s
+m
+by definition the pullback of pα under R ⊗ R −−→ R̂ ⊗ R̂ −
+→ R̂. As a consequence,
+−Nα
+α
+since pα is clearly Γ-homogeneous of degree gα
+and satisfies g · pα = χ−N
+(g)pα
+α
+(cf. (4.2.1)), the statements on ξα follow.
+On the other hand, it is easy to see from definition (5.1.1) that ηα has degree
+gα−1 and spans a one-dimensional Γ-module with character χ−1
+α .
+∗
+Let us denote the opposite of multiplication in H (R, k) by ζ ◦θ := θζ. According
+to Corollary 3.13, the opposite multiplication is braided graded commutative. In
+particular
+
+
+−N
+ξα ξβ = ξβ ◦ ξα = gβ β · ξα ◦ ξβ
+
+
+−Nβ
+α
+ξα ◦ ξβ
+g
+= χ−N
+α
+β
+= χα (gβ )Nβ Nα ξα ◦ ξβ
+N N
+
+N N
+
+= qβαβ α ξα ◦ ξβ = qβαβ α ξβ ξα
+and
+
+
+
+
+
+N
+−Nβ
+−N
+ηα ◦ ξβ = qβαβ ξβ ηα
+g
+ηα ξβ = ξβ ηα = gβ β · ηα ◦ ξβ = χ−1
+α
+β
+
+as well as finally
+
+
+
+ηα ηβ = ηβ ◦ ηα = − gβ−1 · ηα ◦ ηβ = −χ−1
+gβ−1 ηα ◦ ηβ = −qβα ηβ ηα .
+α
+
+
+
+We give a corollary in a special case. It generalizes [17, Theorem 2.5(i)]. Recall
+that Π denotes a set of simple roots in the root system Φ.
+Corollary 5.5. Assume there are no Γ-invariants in H∗ (Gr R, k) of the form
+ξβb11 · · · ξβbrr ηβc11 · · · ηβcrr for which c1 + · · · + cr is odd. Then
+H∗ (u(D, 0, 0), k) ≃ khξα , ηβ | α ∈ Φ+ , β ∈ ΠiΓ ,
+with the relations of Theorem 5.4, deg(ηβ ) = 1, deg(ξα ) = 2. If there are no
+Γ-invariants with c1 + · · · + cr 6= 0, then H∗ (R#kΓ, k) ≃ k[ξα | α ∈ Φ+ ]Γ .
+
+28
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+Proof. The hypothesis of the first statement implies that Hi (Gr R, k)Γ = 0 for
+all odd integers i. Thus on the E1 -page, every other diagonal is 0. This implies
+E1 = E∞ . It follows that, as a vector space, H∗ (u(D, 0, 0), k) is exactly as stated.
+The algebra structure is a consequence of Theorem 5.4 and the fact that the
+cohomology of a Hopf algebra is graded commutative. The hypothesis of the last
+statement implies further that the Γ-invariant subalgebra of H∗ (Gr R, k) is spanned
+by elements of the form ξβb11 · · · ξβbrr . By graded commutativity of the cohomology
+ring of a Hopf algebra and the relations of Theorem 5.4, H∗ (R#kΓ, k) may be
+identified with the Γ-invariant subalgebra of a polynomial ring in variables ξα ,
+with corresponding Γ-action.
+
+Remark 5.6. Assume the hypotheses of Corollary 5.5, and that qαα 6= −1 for all
+α ∈ Π. Then ηα2 = 0 for all α ∈ Π, and it follows that the maximal ideal spectrum
+of H∗ (u(D, 0, 0), k) is Spec k[ξα | α ∈ Φ+ ]Γ ≃ Spec k[ξα | α ∈ Φ+ ]/Γ.
+We give an example to show that cohomology may in fact be nonzero in odd
+degrees, in contrast to that of the small quantum groups of [17]. This complicates
+any determination of the explicit structure of cohomology in general. The simplest
+example occurs in type A1 × A1 × A1 , where there can exist a nonzero cycle in
+degree 3.
+Example 5.7. Let Γ = Z/ℓZ with generator g. Let q be a primitive ℓth root
+of unity. Let g1 = g2 = g3 = g, and choose χ1 , χ2 , χ3 so that the matrix (qij ) =
+(χj (gi )) is
+
+
+q q −1 1
+ q q −2 q  .
+1 q −1 q
+
+Let u(D, 0, 0) = R#kΓ be the pointed Hopf algebra of type A1 × A1 × A1 defined
+by this data. Let η1 , η2 , η3 represent elements of H1 (R, k) as defined by (5.1.1).
+The action of Γ is described in (4.2.1): gi · ηj = qij−1 ηj . Since the product of all
+entries in any given row of the matrix (qij ) is 1, we conclude that η1 η2 η3 is invariant
+under Γ. Hence, it is a nontrivial cocycle in H3 (u(D, 0, 0), k).
+
+We also give an example in type A2 × A1 to illustrate, in particular, that the
+methods employed in [17] do not transfer to our more general setting. That is,
+for an arbitrary (coradically graded) pointed Hopf algebra, the first page of the
+spectral sequence (5.0.4) can have nontrivial elements in odd degrees. In the
+special case of a small quantum group (with some restrictions on the order of the
+root of unity), it is shown in [17] that this does not happen.
+Example 5.8. Let Γ = Z/ℓZ × Z/ℓZ, with generators g1 , g2 . Let q be a primitive
+ℓth root of unity (ℓ odd), and let D be of type A2 × A1 so that the Cartan matrix
+
+POINTED HOPF ALGEBRAS
+
+is
+
+29
+
+
+
+
+2 −1 0
+ −1
+2 0 .
+0
+0 2
+
+Let χ1 , χ2 be as for uq (sl3 )+ , that is
+
+χ1 (g1 ) = q 2 ,
+χ2 (g1 ) = q −1 ,
+
+χ1 (g2 ) = q −1 ,
+χ2 (g2 ) = q 2 .
+
+−1
+−2
+Now let g3 := g1 g2 and χ3 := χ−1
+6= 1 and the Cartan
+1 χ2 . Then χ3 (g3 ) = q
+−1
+condition holds, for example χ3 (g1 )χ1 (g3 ) = q q = 1 = χ1 (g1 )a13 since a13 = 0.
+Let R = B(V ), the Nichols algebra defined from this data.
+The root vector corresponding to the nonsimple positive root is x12 = [x1 , x2 ]c =
+x1 x2 − q −1 x2 x1 . The relations among the root vectors other than x3 are now
+
+x2 x1 = qx1 x2 − qx12 ,
+
+x12 x1 = q −1 x1 x12 ,
+
+x2 x12 = q −1 x12 x2 .
+
+The associated graded algebra, which is of type A1 × A1 × A1 × A1 , thus has
+relations (excluding those involving x3 that do not change):
+x2 x1 = qx1 x2 ,
+
+x12 x1 = q −1 x1 x12 ,
+
+x2 x12 = q −1 x12 x2 .
+
+Thus the cohomology of the associated graded algebra Gr R#kΓ is the subalgebra
+of Γ-invariants of an algebra with generators
+ξ1 , ξ12 , ξ2 , ξ3 , η1 , η12 , η2 , η3
+(see Theorem 4.1). The element η1 η2 η3 is Γ-invariant since g · ηi = χi (g)−1ηi for all
+−1
+i, and χ3 = χ−1
+1 χ2 . Therefore in the spectral sequence relating the cohomology
+of Gr R#kΓ to that of R#kΓ, there are some odd degree elements on the E1 page.
+6. Finite dimensional pointed Hopf algebras
+Let u(D, λ, µ) be one of the finite dimensional pointed Hopf algebras from the
+Andruskiewitsch-Schneider classification [4], as described in Section 2. With respect to the coradical filtration, its associated graded algebra is Gr u(D, λ, µ) ≃
+u(D, 0, 0) ≃ R#kΓ where R = B(V ) is a Nichols algebra, also described in Section
+2. By Theorem 5.3, H∗ (u(D, 0, 0), k) is finitely generated. Below we apply the
+spectral sequence for a filtered algebra, employing this new choice of filtration:
+(6.0.1)
+
+E1p,q = Hp+q (u(D, 0, 0), k)
+
++3 Hp+q (u(D, λ, µ), k).
+
+As a consequence of the following lemma, we may assume without loss of generality that all root vector relations (2.1.4) are trivial.
+
+30
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+Lemma 6.1. (i) For all D, λ, µ, there is an isomorphism of graded algebras,
+H∗ (u(D, λ, µ), k) ≃ H∗ (u(D, λ, 0), k).
+(ii) Let M be a finitely generated u(D, λ, µ)-module. There exists a finitely
+f and an isomorphism of H∗ (u(D, λ, µ), k)-modules
+generated u(D, λ, 0)-module M
+f
+H∗ (u(D, λ, µ), M) ≃ H∗ (u(D, λ, 0), M),
+
+f is via the isomorphism
+where the action of H∗ (u(D, λ, µ), k) on H∗ (u(D, λ, 0), M)
+of graded algebras in (i).
+
+Proof. Define the subset I ⊂ Γ as follows: g ∈ I if and only if there exists a root
+α
+vector relation xN
+α − uα (µ) (see (2.1.4)), such that the element uα (µ) of kΓ has a
+nonzero coefficient of g when written as a linear combination of group elements.
+Nα
+α
+If xN
+α − uα (µ) is a nontrivial root vector relation, then necessarily xα commutes
+α
+with elements of Γ, implying that χN
+α = ε. From this and (2.3.2), we see that
+Nα
+Nα
+xα is central in u(D, λ, µ). Since xα = uα (µ), this element of the group ring
+kΓ must also be central. Since Γ acts diagonally, each group element involved in
+uα (µ) is necessarily central in u(D, λ, µ) as well.
+Let Z = khIi, a subalgebra of u(D, λ, µ), and let u = u(D, λ, µ)/(g − 1 | g ∈ I).
+We have a sequence of algebras (see [17, §5.2]):
+Z → u(D, λ, µ) → u(D, λ, µ)//Z ≃ u.
+Hence, there is a multiplicative spectral sequence
+Hp (u, Hq (Z, k)) =⇒ Hp+q (u(D, λ, µ), k).
+Since the characteristic of k does not divide the order of the group, we have
+Hq>0 (Z, k) = 0. Thus the spectral sequence collapses, and we get an isomorphism
+of graded algebras
+(6.1.1)
+
+H∗ (u, k) ≃ H∗ (u(D, λ, µ), k).
+
+Similarly, if M is any u(D, λ, µ)-module, then we have a spectral sequence of
+H∗ (u, k)-modules
+Hp (u, Hq (Z, M)) =⇒ Hp+q (u(D, λ, µ), M).
+The spectral sequence collapses, and we get an isomorphism
+(6.1.2)
+
+H∗ (u, M Z ) ≃ H∗ (u(D, λ, µ), M)
+
+which respects the action of H∗ (u(D, λ, µ), k), where H∗ (u(D, λ, µ), k) acts on the
+left side via the isomorphism (6.1.1).
+Note that Z = khIi is also a central subalgebra of u(D, λ, 0). Arguing exactly
+as above, we get an isomorphism of graded algebras
+H∗ (u, k) ≃ H∗ (u(D, λ, 0), k),
+which implies (i).
+
+POINTED HOPF ALGEBRAS
+
+31
+
+f be a u(D, λ, 0)-module which we get by
+Let M be a u(D, λ, µ)-module. Let M
+// // u . Since (M
+f)Z ≃
+inflating the u-module M Z via the projection u(D, λ, 0)
+M Z by construction, we get an isomorphism of u(D, λ, 0)-modules
+f
+H∗ (u, M Z ) ≃ H∗ (u(D, λ, 0), M)
+
+using another spectral sequence argument.
+(6.1.2), we get (ii).
+
+Combining with the isomorphism
+
+
+By Lemma 6.1, it suffices to work with the cohomology of u(D, λ, 0), in which
+all the root vectors are nilpotent. In this case we define some permanent cycles:
+α
+As before, for each α ∈ Φ+ , let Mα be any positive integer for which χM
+α = ε (for
+example, take Mα to be the order of χα ). If α = αi is simple, then χα (gα ) has
+order Nα , and so Nα divides Mα .
+We previously identified an element ξα of H2 (R, k), where R = B(V ). Now B(V )
+is no longer a subalgebra of u(D, λ, 0) in general, due to the potential existence
+of nontrivial linking relations, but we will show that still there is an element
+analogous to ξαMα in H2Mα (u(D, λ, 0), k). For simplicity, let U = U(D, λ) and
++
++
++
+α
+u = u(D, λ, 0) ≃ U(D, λ)/(xN
+α | α ∈ Φ ) (see Section 2). Let U , u denote the
+augmentation ideals of U, u.
+We will use a similar construction as in Section 4 of [24], defining functions as
+elements of the bar complex (2.4.1). For each α ∈ Φ+ , define a k-linear function
+feα : (U + )2Mα → k by first letting r1 , . . . , r2Mα be PBW basis elements (2.3.1) and
+requiring
+feα (r1 ⊗ · · · ⊗ r2Mα ) = γ12 γ34 · · · γ2Mα −1,2Mα
+α
+in the product ri rj as a linear combination
+where γij is the coefficient of xN
+α
+of PBW basis elements. Now define feα to be 0 whenever a tensor factor is in
+kΓ ∩ ker ε, and
+
+feα (r1 g1 ⊗ · · · ⊗ r2Mα g2Mα ) = feα (r1 ⊗ g1 r2 ⊗ · · · ⊗ g1 ···g2Mα −1 r2Mα )
+
+for all g1 , . . . , g2Mα ∈ Γ. It follows from the definition of feα and the fact that
+α
+e
+e
+χM
+α = ε that fα is Γ-invariant. We will show that fα factors through the quotient
+u+ of U + to give a map fα : (u+ )⊗2Mα → k. Precisely, it suffices to show that
+feα (r1 ⊗ · · · ⊗ r2Mα ) = 0 whenever one of r1 , . . . , r2Mα is in the kernel of the quotient
+map π : U(D, λ) → u(D, λ, 0). Suppose ri ∈ ker π, that is ri = xaβ11 · · · xaβrr and
+Nβ
+
+for some j, aj ≥ Nβj . Since xβj j is braided-central, ri is a scalar multiple of
+Nβ
+x j xb1 · · · xbr for some b1 , . . . , br . Now feα (r1 ⊗ · · · ⊗ r2Mα ) is the product of the
+βj
+
+β1
+
+βr
+
+Nα
+α
+coefficients of xN
+α in r1 r2 , . . . , r2Mα −1 r2Mα . However, the coefficient of xα in each
+of ri−1 ri and ri ri+1 is 0: If α = βi , then since ri−1 , ri+1 ∈ U + , this product cannot
+
+32
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+Nβ
+
+j
+α
+have a nonzero coefficient for xN
+α . If α 6= βi , the same is true since xβj is a factor
+of ri−1 ri and of ri ri+1 . Therefore feα factors to give a linear map fα : (u+ )2Mα → k.
+In calculations, we define fα via feα and a choice of section of the quotient map
+π : U → u.
+
+Lemma 6.2. For each α ∈ Φ+ , fα is a cocycle. The fα (α ∈ Φ+ ) represent a
+linearly independent subset of H∗ (u(D, λ, 0), k).
+Proof. We first verify that feα is a cocycle on U: Let r0 , . . . , r2Mα ∈ U + , of positive
+degree. Then
+d(feα )(r0 ⊗ · · · ⊗ r2Mα ) =
+
+2M
+α −1
+X
+i=0
+
+(−1)i+1 feα (r0 ⊗ · · · ⊗ ri ri+1 ⊗ · · · ⊗ r2Mα ).
+
+By definition of feα , note that the first two terms cancel:
+feα (r0 r1 ⊗ r2 ⊗ · · · ⊗ r2Mα ) = feα (r0 ⊗ r1 r2 ⊗ · · · ⊗ r2Mα ),
+
+and similarly for all other terms, so d(feα )(r0 ⊗· · ·⊗r2Mα ) = 0. A similar calculation
+shows that d(feα )(r0 g0 ⊗· · ·⊗r2Mα −1 g2Mα −1 ) = 0 for all g0 , . . . , g2Mα−1 ∈ Γ. If there
+is an element of kΓ∩ker ε in one of the factors, we obtain 0 as well by the definition
+of feα , a similar calculation.
+Now we verify that fα is a cocycle on the quotient u of U: Let r0 , . . . , r2Mα ∈ u+ .
+Again we have
+d(fα )(r0 ⊗ · · · ⊗ r2Mα ) =
+
+2M
+α −1
+X
+
+(−1)i+1 fα (r0 ⊗ · · · ⊗ ri ri+1 ⊗ · · · ⊗ r2Mα ).
+
+i=0
+
+We will show that fα (r0 r1 ⊗ r2 ⊗ · · · ⊗ r2Mα ) = fα (r0 ⊗ r1 r2 ⊗ · · · ⊗ r2Mα ), and
+similarly for the other terms. Let rei denote the element of U corresponding to ri
+under a chosen section of the quotient map π : U → u. Note that re0 · re1 = rg
+0 r1 + y
+and re1 · re2 = rg
+r
++
+z
+for
+some
+y,
+z
+∈
+ker
+π.
+So
+1 2
+e2 ⊗ · · · ⊗ re2Mα )
+fα (r0 r1 ⊗ r2 ⊗ · · · ⊗ r2Mα ) = feα (rg
+0 r1 ⊗ r
+= feα ((e
+r0 · re1 − y) ⊗ re2 ⊗ · · · ⊗ re2Mα )
+= feα (e
+r0 · re1 ⊗ re2 ⊗ · · · ⊗ re2Mα )
+= feα (e
+r0 ⊗ re1 · re2 ⊗ · · · ⊗ re2Mα )
+= feα (e
+r0 ⊗ (e
+r1 · re2 + z) ⊗ · · · ⊗ re2Mα )
+= feα (e
+r0 ⊗ rg
+e2Mα )
+1 r2 ⊗ · · · ⊗ r
+= fα (r0 ⊗ r1 r2 ⊗ · · · ⊗ r2Mα ).
+
+Other computations for this case are similar to those for U. Thus fα is a cocycle
+on u.
+
+POINTED HOPF ALGEBRAS
+
+33
+
+We prove that in a given degree, the P
+fα in that degree represent a linearly
+independent set in cohomology: Suppose α cα fα = ∂h for some scalars cα and
+linear map h. Then for each α,
+X
+α −1
+α −1
+cα = (
+cα fα )(xα ⊗ xN
+⊗ · · · ⊗ xα ⊗ xN
+)
+α
+α
+α −1
+α −1
+= ∂h(xα ⊗ xN
+⊗ · · · ⊗ xα ⊗ xN
+)
+α
+α
+Nα
+Nα −1
+α −1
+α
+= −h(xα ⊗ xα ⊗ · · · ⊗ xα
+) + · · · − h(xα ⊗ · · · ⊗ xN
+⊗ xN
+α
+α ) = 0
+
+α
+since xN
+α = 0 in u = u(D, λ, 0).
+
+
+
+These functions fα correspond to their counterparts ξαMα defined on u(D, 0, 0),
+in the E1 -page of the spectral sequence (6.0.1), by observing what they do as
+functions at the level of chain complexes (2.4.1).
+Theorem 6.3. The algebra H∗ (u(D, λ, µ), k) is finitely generated. If M is a finitely
+generated u(D, λ, µ)-module, then H∗ (u(D, λ, µ), M) is a finitely generated module
+over H∗ (u(D, λ, µ), k).
+Proof. By Lemma 6.1, it suffices to prove the statements in the case µ = 0. We
+have E1∗,∗ ≃ H∗ (u(D, 0, 0), k), where u(D, 0, 0) ≃ R#kΓ, R = B(V ). By Lemma
+5.2, E1∗,∗ is finitely generated over its subalgebra that is generated by all ξαMα . By
+Lemma 6.2 and the above remarks, each ξαMα is a permanent cycle, corresponding
+to the cocycle fα on u(D, λ, µ). The rest of the proof is an application of Lemma
+2.5, where A∗,∗ is the subalgebra of E1∗,∗ generated by the ξαMα (α ∈ Φ+ ), similar
+to the proof of Lemma 5.2 and Theorem 5.3.
+
+Corollary 6.4. The Hochschild cohomology ring H∗ (u(D, λ, µ), u(D, λ, µ)) is finitely
+generated.
+Proof. Apply Theorem 6.3 to the finitely generated u(D, λ, µ)-module u(D, λ, µ),
+under the adjoint action. By [17, Prop. 5.6], this is isomorphic to the Hochschild
+cohomology ring of u(D, λ, µ).
+
+In the special case of a small quantum group, we obtain the following finite
+generation result (cf. [7, Thm. 1.3.4]).
+Corollary 6.5. Let uq (g) be a quantized restricted enveloping algebra such that
+the order ℓ of q is odd and prime to 3 if g is of type G2 . Then H∗ (uq (g), k) is a
+finitely generated algebra. Moreover, for any finitely generated uq (g)-module M,
+H∗ (uq (g), M) is a finitely generated module over H∗ (uq (g), k).
+Remark 6.6. The restrictions on ℓ correspond to the assumptions (2.1.1). However our techniques and results are more general: The restrictions are used in the
+classification of Andruskiewitsch and Schneider, but not in our arguments. We
+need only the filtration lemma of De Concini and Kac [12, Lemma 1.7] as generalized to our setting (Lemma 2.4) to guarantee existence of the needed spectral
+
+34
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+sequences. Our results should hold for all small quantum groups uq (g) having such
+a filtration, including those at even roots of unity q for which q 2d 6= 1 (see [6] for
+the general theory at even roots of unity).
+We illustrate the connection between our results and those in [17] with a small
+example. Our structure results are not as strong, however our finite generation
+result is much more general.
+Example 6.7. As an algebra, uq (sl2 ) is generated by E, F, K, with relations
+K ℓ = 1, E ℓ = 0, F ℓ = 0, KEK −1 = q 2 E, KF K −1 = q −1 F , and
+K − K −1
+,
+q − q −1
+where q is a primitive ℓth root of 1, ℓ > 2. Consider the coradical filtration
+on uq (sl2 ), in which deg(K) = 0, deg(E) = deg(F ) = 1. Note that Gr uq (sl2 )
+is generated by E, F, K, with all relations being the same except that (6.7.1) is
+replaced by EF − F E = 0. This is an algebra of the type featured in Section 4:
+H∗ (Gr uq (sl2 ), k) ≃ k[ξ1 , ξ2 , η1 η2 ]/((η1 η2 )2 ), since these are the invariants, under
+the action of Γ = hKi, of the cohomology of the subalgebra of Gr uq (sl2 ) generated
+by E, F . By [17],
+H∗ (uq (sl2 ), k) ≃ k[α, β, γ]/(αβ + γ 2 ),
+the coordinate algebra of the nilpotent cone of sl2 . Identify α ∼ ξ1 , β ∼ ξ2 ,
+γ ∼ η1 η2 : Then as maps, deg(α) = ℓ, deg(β) = ℓ, deg(γ) = 2, so αβ + γ 2 = 0 will
+imply γ 2 = 0 in the associated graded algebra, as expected.
+(6.7.1)
+
+EF − F E =
+
+References
+[1] N. Andruskiewitsch and F. Fantino, “On pointed Hopf algebras associated with alternating and dihedral groups,” arxiv:math/0702559.
+[2] N. Andruskiewitsch and M. Graña, “Braided Hopf algebras over nonabelian finite groups,”
+math.QA/9802074.
+[3] N. Andruskiewitsch and H.-J. Schneider, “Pointed Hopf algebras,” in: New Directions in
+Hopf Algebras, MSRI Publications 43, 1–68, Cambridge Univ. Press, 2002.
+[4] N. Andruskiewitsch and H.-J. Schneider, “On the classification of finite-dimensional
+pointed Hopf algebras,” math.QA/0502157, to appear in Ann. Math.
+[5] G. Avrunin and L. Scott, “Quillen stratification for modules,” Invent. Math. 66 (1982),
+277–286.
+[6] J. Beck, “Representations of quantum groups at even roots of unity,” J. Algebra 167
+(1994), 29–56.
+[7] C. Bendel, D. Nakano, B. Parshall, and C. Pillen, “Cohomology for quantum groups via the geometry of the nullcone,” preprint, 2007, available at
+http://www.maths.abdn.ac.uk/∼bensondj/html/archive/.
+[8] D. J. Benson and E. Green, “Nonprincipal blocks with one simple module,” Q. J. Math.
+55 (2004), no. 1, 1–11.
+[9] P. A. Bergh and S. Oppermann, “Cohomology of twisted tensor products,” J. Algebra
+320 (2008), no. 8, 3327–3338.
+
+POINTED HOPF ALGEBRAS
+
+35
+
+[10] C. Călinescu, S. Dăscălescu, A. Masuoka, and C. Menini, “Quantum lines over noncocommutative cosemisimple Hopf algebras,” J. Algebra 273 (2004), 753–779.
+[11] J. Carlson, “The varieties and the cohomology ring of a module,” J. Algebra 85 (1983),
+104-143.
+[12] C. De Concini and V. G. Kac, “Representations of quantum groups at roots of 1,” in
+Operator Algebras, Unitary Representations, Enveloping Algebras, and Invariant Theory:
+actes du Colloque en l’honneur de Jacques Dixmier, ed. A. Connes et al., Progr. Math.
+92, Birkhäuser, Boston, 1990, 471–506.
+[13] P. Etingof and V. Ostrik, “Finite tensor categories,” Mosc. Math. J. 4 (2004), no. 3,
+627–654, 782–783.
+[14] L. Evens, “The cohomology ring of a finite group,” Trans. A.M.S. 101, (1961), 224-239.
+[15] E. Friedlander, B. Parshall, “On the cohomology of algebraic and related finite groups,”
+Invent. Math. 74 (1983) no. 1, 85-117.
+[16] E. M. Friedlander and A. Suslin, “Cohomology of finite group schemes over a field,”
+Invent. Math. 127 (1997), no. 2, 209–270.
+[17] V. Ginzburg and S. Kumar, “Cohomology of quantum groups at roots of unity,” Duke
+Math. J. 69 (1993), no. 1, 179–198.
+[18] E. Golod, “The cohomology ring of a finite p-group,” (Russian) Dokl. Akad. Nauk SSSR
+235 (1959), 703–706.
+[19] L. Grunenfelder and M. Mastnak, “Pointed and copointed Hopf algebras as cocycle deformations,” arXiv:0709.0120.
+[20] M. Holloway and R. Kessar, “Quantum complete rings and blocks with one simple modules,” Q. J. Math. 56 (2005), no. 2, 209–221.
+[21] A. Joyal and R. Street, “The geometry of tensor calculus. I,” Adv. Math. 88 (1991),
+no. 1, 55–112.
+[22] G. Lusztig, “Quantum groups at roots of 1,” Geom. Dedicata 35 (1990), 89–114.
+[23] S. Mac Lane, Homology, 4th ed., Springer, 1994.
+[24] M. Mastnak and S. Witherspoon, “Bialgebra cohomology, pointed Hopf algebras, and
+deformations,” arXiv:0704.2771.
+[25] D. Quillen, “The spectrum of an equivariant cohomology ring: I, II,” Ann. Math. 94
+(1971), 549–572, 573–602.
+[26] B. B. Venkov, “Cohomology algebras for some classifying spaces,” Dokl. Akad. Nauk.
+SSSR 127 (1959), 943–944.
+[27] C. A. Weibel, A Introduction to Homological Algebra, Cambridge University Press, 1994.
+[28] D. Yetter, “Quantum groups and representations of monoidal categories,” Math. Proc.
+Camb. Phil. Soc. 108 (1990), 261–290.
+
+36
+
+M. MASTNAK, J. PEVTSOVA, P. SCHAUENBURG, AND S. WITHERSPOON
+
+Department of Mathematics and Computer Science, Saint Mary’s University,
+Halifax, NS B3H 3C3, Canada
+E-mail address: mmastnak@cs.smu.ca
+Department of Mathematics, University of Washington, Seattle, WA 98195,
+USA
+E-mail address: julia@math.washington.edu
+Mathematisches Institut der Universität München, Theresienstr. 39, 80333
+München, Germany
+E-mail address: schauenburg@math.lmu.de
+Department of Mathematics, Texas A&M University, College Station, TX 77843,
+USA
+E-mail address: sjw@math.tamu.edu
+
+

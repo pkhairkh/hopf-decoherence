@@ -1,0 +1,2166 @@
+arXiv:0704.2771v2 [math.RA] 11 May 2008
+
+BIALGEBRA COHOMOLOGY, POINTED HOPF ALGEBRAS,
+AND DEFORMATIONS
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+Abstract. We give explicit formulas for maps in a long exact sequence connecting bialgebra cohomology to Hochschild cohomology. We give a sufficient condition for the connecting homomorphism to be surjective. We apply these results
+to compute all bialgebra two-cocycles of certain Radford biproducts (bosonizations). These two-cocycles are precisely those associated to the finite dimensional pointed Hopf algebras in the recent classification of Andruskiewitsch and
+Schneider, in an interpretation of these Hopf algebras as graded bialgebra deformations of Radford biproducts.
+
+1. Introduction
+Gerstenhaber and Schack [8] found a long exact sequence connecting bialgebra cohomology to Hochschild cohomology. We reinterpret this sequence in the
+case of a finite dimensional Hopf algebra: Using results of Schauenburg [18] and
+Taillefer [20], bialgebra cohomology may be expressed as Hochschild cohomology
+of the Drinfeld double; we start by proving this directly in Section 3.2. Other
+terms in the long exact sequence (3.3.1) involve Hochschild cohomology, with trivial coefficients, of the Hopf algebra and of its dual. This version of the sequence
+is particularly useful for computation. We give an explicit description of the connecting homomorphism in formulas (3.4.1) and (3.4.2), and of the other two maps
+in the long exact sequence in Proposition 3.4.3 and formula (3.4.4). Theorem 4.2.3
+gives a sufficient condition for the connecting homomorphism to be surjective in
+degree two.
+As an application, we compute in Theorem 6.2.7 the (truncated) bialgebra cohomology, in degree two, of the finite dimensional graded pointed Hopf algebras
+arising in the recent classification of Andruskiewitsch and Schneider [2]. They
+classified all finite dimensional pointed Hopf algebras having abelian groups of
+grouplike elements, under a mild condition on the group orders. These include
+Lusztig’s small quantum groups. In general they are filtered and are deformations
+(liftings) of their associated graded Hopf algebras, an observation of Du, Chen,
+Date: May 6, 2008.
+The first author was partially supported by NSERC.
+The second author was partially supported by the Alexander von Humboldt Foundation, NSF
+grant DMS-0443476, and NSA grant H98230-07-1-0038.
+1
+
+2
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+and Ye [6] inspired by the graded algebraic deformation theory of Braverman and
+Gaitsgory [3]. These graded Hopf algebras are Radford biproducts, their deformations governed by bialgebra cohomology in degree two. In this setting, our
+Theorem 4.2.3 implies that the connecting homomorphism in the long exact sequence (3.3.1) is surjective (Theorem 6.2.1). We compute Hochschild cohomology
+with trivial coefficients (Theorem 6.1.4) and apply the connecting homomorphism
+to give the degree two bialgebra cohomology in Theorem 6.2.7. This computation
+is analogous to that of Grünenfelder and the first author [11] of cohomology associated to an abelian Singer pair of Hopf algebras. We describe all homogeneous
+bialgebra two-cocycles of negative degree. It follows from the classification of Andruskiewitsch and Schneider that they all lift to deformations, providing explicit
+examples for the Du-Chen-Ye theory. We give a further set of examples, the rank
+one pointed Hopf algebras of Krop and Radford [14], at the end of Section 6.
+Our computation of cohomology gives insight into the possible deformations
+(liftings) of a Radford biproduct, providing a different way to see why the liftings
+of Andruskiewitsch and Schneider must look the way they do. In particular, we
+recover conditions for existence of certain relations in the Hopf algebra from those
+for existence of corresponding two-cocycles in Theorem 6.1.4 and equations (6.2.5)
+and (6.2.6). Our computational techniques may be useful in the search for pointed
+Hopf algebras that are left out of the classification, that is those having small
+prime divisors of the group order, complementing work of Heckenberger [12] on
+this problem. These techniques should also be helpful in understanding infinite
+dimensional pointed Hopf algebras. We will address these problems in future
+papers.
+We thank A. Masuoka, H.-J. Schneider and P. Schauenburg for many helpful conversations; it was H.-J. Schneider who first suggested this project to us.
+We thank Ludwig-Maximilians-Universität München for its hospitality during the
+preparation of this paper.
+2. Definitions and Preliminary Results
+All vector spaces (algebras, coalgebras, bialgebras) will be over a ground field
+k. In the classification of Andruskiewitsch and Schneider, k must be algebraically
+closed and of characteristic 0, however we do not require this for the general theory.
+If A is an algebra and C a coalgebra, then Homk (C, A) denotes the convolution
+algebra of all linear maps from C to A. The unit and the multiplication on A are
+denoted by η : k → A and m : A ⊗ A → A; the counit and the comultiplication on
+C are denoted by ε : C → k and ∆ : C → C ⊗ C. We use Sweedler’s notation for
+comultiplication: ∆(c) = c1 ⊗c2 , (1⊗∆)∆(c) = c1 ⊗c2 ⊗c3 , etc. If f : U ⊗V → W is
+a linear map, then we often write f (u, v) instead of f (u ⊗ v). If A is an augmented
+algebra, we denote the augmentation ideal by A+ = ker ε. If V is a vector space,
+we denote its n-fold tensor power by V n . To avoid confusion with comultiplication,
+
+BIALGEBRA COHOMOLOGY
+
+3
+
+we write indices as superscripts, e.g. v 1 ⊗ . . . ⊗ v n ∈ V n . If A is an algebra, then
+d i.e. if a = a1 ⊗ . . . ⊗ an ∈ An , then
+we denote the n-ary multiplication by (−),
+1
+n
+b
+a = a · · · a . If C is a coalgebra, then ∆n denotes the n-ary comultiplication, i.e.
+∆n c = c1 ⊗ . . . ⊗ cn .
+
+2.1. Bialgebra cohomology and deformations. We recall the definition of
+bialgebra cohomology and its truncated version. For more details and greater
+generality we refer to [7]. Let B be a bialgebra. The left and right diagonal
+actions and coactions of B on B n will be denoted by λl , λr , ρl , ρr , respectively.
+More precisely, if a ∈ B and b = b1 ⊗ . . . ⊗ bn ∈ B n , then
+λl (a ⊗ b) = a1 b1 ⊗ . . . ⊗ an bn ,
+λr (b ⊗ a) = b1 a1 ⊗ . . . ⊗ bn an ,
+b 1 ⊗ b2 = (b1 . . . bn ) ⊗ (b1 ⊗ . . . ⊗ bn ),
+ρl (b) = b
+1
+
+1
+
+2
+
+2
+
+b2 = (b1 ⊗ . . . ⊗ bn ) ⊗ (b1 . . . bn ).
+ρr (b) = b1 ⊗ b
+1
+1
+2
+2
+
+The standard complex for computing bialgebra cohomology is the following cosimplicial bicomplex Bp,q . The vertices are Bp,q = Homk (B p , B q ). The horizontal
+faces
+∂ih : Homk (B p , B q ) → Homk (B p+1 , B q )
+and degeneracies
+σih : Homk (B p+1 , B q ) → Homk (B p , B q )
+are those for computing Hochschild cohomology:
+∂0h f = λl (1 ⊗ f ),
+∂ih f = f (1 ⊗ . . . ⊗ m ⊗ . . . ⊗ 1), 1 ≤ i ≤ p,
+h
+∂p+1
+f = λr (f ⊗ 1),
+σih f = f (1 ⊗ . . . ⊗ η ⊗ . . . ⊗ 1);
+the vertical faces
+∂jc : Homk (B p , B q ) → Homk (B p , B q+1 )
+and degeneracies
+σjc : Homk (B p , B q+1 ) → Homk (B p , B q )
+are those for computing coalgebra (Cartier) cohomology:
+∂0c f = (1 ⊗ f )ρl ,
+∂jc f = (1 ⊗ . . . ⊗ ∆ ⊗ . . . ⊗ 1)f, 1 ≤ j ≤ q,
+c
+∂q+1
+f = (f ⊗ 1)ρr ,
+σic f = (1 ⊗ . . . ⊗ ε ⊗ . . . ⊗ 1)f.
+The vertical and horizontal differentials are given by the usual alternating sums
+X
+X
+∂h =
+(−1)i ∂ih , ∂ c =
+(−1)j ∂jc .
+
+4
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+The bialgebra cohomology of B is then defined as
+H∗b (B) = H∗ (Tot B).
+where
+Tot B = B0,0 → B1,0 ⊕ B0,1 → . . . →
+
+M
+
+∂b
+
+Bp,q → . . . .
+
+p+q=n
+
+and ∂ is given by the sign trick (i.e., ∂ |Bp,q = ∂ ⊕ (−1)1 ∂ c : Bp,q → Bp+1,q ⊕
+Bp,q+1). Here we abuse the notation by identifying a cosimplicial bicomplex with
+its associated cochain bicomplex. Let B0 denote the bicomplex obtained from B
+0,q
+by replacing the edges by zeroes, that is Bp,0
+0 = 0 = B0 for all p, q. The truncated
+bialgebra cohomology is
+b ∗ (B) = H∗+1 (Tot B0 ).
+H
+b
+For computations usually the normalized subcomplex B+ is used. The normalized complex B+ is obtained from the cochain complex B by replacing Bp,q =
+Homk (B p , B q ) with the intersection of degeneracies
+b
+
+b
+
+h
+
+(B+ )p,q = (∩ ker σih ) ∩ (∩ ker σjc ) ≃ Homk ((B + )p , (B + )q ).
+Note that we can identify
+b 1 (B) = {f : B + → B + |f (ab) = af (b) + f (a)b, ∆f (a) = a1 ⊗ f (a2 ) + f (a1 ) ⊗ a2 }
+H
+b
+
+and
+
+where
+(2.1.1)
+
+b 2 (B) = Z
+b2 (B)/B
+b 2 (B),
+H
+b
+b
+b
+
+b2 (B) ≃ {(f, g)| f : B + ⊗ B + → B + , g : B + → B + ⊗ B + ,
+Z
+b
+
+af (b, c) + f (a, bc) = f (ab, c) + f (a, b)c,
+c1 ⊗ g(c2 ) + (1 ⊗ ∆)g(c) = (∆ ⊗ 1)g(c) + g(c1) ⊗ c2 ,
+f (a1 , b1 ) ⊗ a2 b2 − ∆f (a, b) + a1 b1 ⊗ f (a2 , b2 ) =
+−(∆a)g(b) + g(ab) − g(a)(∆b)}
+
+and
+(2.1.2)
+
+b 2 (B) ≃ {(f, g)| ∃h : B + → B + ,
+B
+b
+
+f (a, b) = ah(b) − h(ab) + h(a)b
+g(c) = −c1 ⊗ h(c2 ) + ∆h(c) − h(c1 ) ⊗ c2 }.
+
+A deformation of the bialgebra B, over k[t], consists of a k[t]-bilinear multiplication mt = m + tm1 + t2 m2 + · · · and a comultiplication ∆t = ∆ + t∆1 + t2 ∆2 + · · ·
+with respect to which the k[t]-module B[t] := B ⊗k k[t] is again a bialgebra. In this
+paper, we are interested only in those deformations for which ∆t = ∆, since the
+pointed Hopf algebras in the Andruskiewitsch-Schneider classification have this
+property. Given such a deformation of B, let r be the smallest positive integer for
+
+BIALGEBRA COHOMOLOGY
+
+5
+
+b2 (B). Every
+which mr 6= 0 (if such an r exists). Then (mr , 0) is a two-cocycle in Z
+b
+nontrivial deformation is equivalent to one for which the corresponding (mr , 0)
+represents a nontrivial cohomology class [7]. Conversely, given a positive integer
+b2 (B), m + tr m′ is an associative multiplication on
+r and a two-cocycle (m′ , 0) in Z
+b
+B[t]/(tr+1 ), making it into a bialgebra over k[t]/(tr+1 ). There may or may not
+exist mr+1 , mr+2 , . . . for which m + tr m′ + tr+1 mr+1 + tr+2 mr+2 + . . . makes B[t]
+into a bialgebra over k[t]. (For more details on deformations of bialgebras, see [7].)
+2.2. Graded bialgebra cohomology. Here we recall the definition of graded
+(truncated) bialgebra cohomology [6]. If B is a graded bialgebra, then B(l) denotes
+the subcomplex of B consisting of homogeneous maps of degree l, more precisely
+p
+q
+p
+q
+Bp,q
+(l) = Homk (B , B )l = {f : B → B |f is homogeneous of degree l}.
++
+Complexes (B0 )(l) , B+
+(l) and (B0 )(l) are defined analogously. The graded bialgebra
+and truncated graded bialgebra cohomologies are then defined by:
+
+H∗b (B)l = H∗ (Tot B(l) ) = H∗ (Tot B+
+(l) ),
+b ∗ (B)l = H∗+1 (Tot(B0 )(l) ) = H∗+1 (Tot(B+ )(l) ).
+H
+b
+0
+
+Note that if B is finite dimensional, then
+M
+M
+b ∗ (B) =
+b ∗ (B)l .
+H∗b (B) =
+H∗b (B)l and H
+H
+b
+b
+l
+
+l
+
+An r-deformation of B is a bialgebra deformation of B over k[t]/(tr+1 ) given by
+(mrt , ∆rt ). Given a graded bialgebra two-cocycle (m′ , ∆′ ) of B, in degree −r, there
+exists an r-deformation, given by (m + tr m′ , ∆ + tr ∆′ ). In this paper, we only
+consider r-deformations for which ∆rt = ∆.
+Remark 2.2.1. (cf. [3, Prop. 1.5(c)], [10]) Suppose that (B[t]/(tr ), mtr−1 , ∆tr−1 )
+is an (r − 1)-deformation, where
+mtr−1 = m + tm1 + . . . + tr−1 mr−1 and ∆tr−1 = ∆ + t∆1 + . . . + tr−1 ∆r−1 .
+If
+D = (B[t]/(tr+1 ), mtr−1 + tr mr , ∆tr−1 + tr ∆r )
+is an r-deformation, then
+D ′ = (B[t]/(tr+1 ), mtr−1 + tr m′r , ∆tr−1 + tr ∆′r )
+b2 (B)−r . Note also that
+is an r-deformation if, and only if, (m′r − mr , ∆′r − ∆r ) ∈ Z
+b
+b 2 (B)−r , then deformations D and D ′ are isomorphic.
+if (m′r − mr , ∆′r − ∆r ) ∈ B
+b
+
+6
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+2.3. Coradically trivial and cotrivial cocycle pairs. In this section we collect
+some preliminary results about cocycles that will be needed in Section 6. The first
+lemma largely follows from the theory of relative bialgebra cohomology [7]; however
+we did not find a proof in the literature and so we include one for completeness.
+Let B be a graded bialgebra, and let p : B → B0 denote the canonical projection.
+Lemma 2.3.1. If chark = 0 and B0 is either a group algebra or the dual of a
+b2 (B) is cohomologous to a cocycle pair (f ′ , g ′)
+group algebra, then every (f, g) ∈ Z
+b
+for which f ′ |B0 ⊗B+B⊗B0 = 0 and (p ⊗ 1)g ′ = 0 = (1 ⊗ p)g ′ . If f = 0 (resp. g = 0)
+then we can assume that also f ′ = 0 (resp. g ′ = 0).
+We say that f ′ (respectively g ′ ) is trivial (respectively cotrivial) on B0 in case it
+satisfies the conclusion of the lemma.
+Proof. Let t ∈ B0 be the left and right integral in B0 such that ε(t) = 1. Note also
+that t1 ⊗S(t2 ) = S(t1 )⊗t2 . Recall that for a ∈ B0 we have t1 ⊗S(t2 )a = at1 ⊗S(t2 ).
+We now proceed as follows.
+Step 1: For each f , we will construct s = sf : B → B such that
+(1) ∂ h (s)|B0 ⊗B = f |B0 ⊗B .
+(2) If f |B⊗B0 = 0, then ∂ h (s)|B⊗B0 = 0.
+(3) If g = 0, then ∂ c (s) = 0.
+(4) If (p ⊗ 1)g = 0, then (p ⊗ 1)∂ c (s) = 0.
+(5) If (1 ⊗ p)g = 0, then (p ⊗ 1)∂ c (s) = 0.
+Define s = sf : B → B by s(b) = t1 f (S(t2 ), b). We claim that s has the required
+properties:
+(1) For a ∈ B0 and b ∈ B we compute
+(∂ h s)(a, b) =
+=
+=
+=
+
+as(b) − s(ab) + s(a)b
+at1 f (S(t2 ), b) − t1 f (S(t2 ), ab) + t1 f (S(t2 ), a)b
+t1 f (S(t2 )a, b) − t1 f (S(t2 ), ab) + t1 f (S(t2 ), a)b
+t1 S(t2 )f (a, b) − t1 S(t2 )f (a, b) + t1 f (S(t2 )a, b)
+−t1 f (S(t2 ), ab) + t1 f (S(t2 ), a)b
+
+= f (a, b) − t1 ∂ h f (S(t2 ), a, b) = f (a, b).
+
+(2) If f is such that f |B⊗B0 = 0, then (∂ h s)|B⊗B0 = 0:
+(∂ h s)(b, a) =
+=
+=
+=
+=
+
+bs(a) − s(ba) + s(b)a
+bt1 f (S(t2 ), a) − t1 f (S(t2 ), ba) + t1 f (S(t2 ), b)a
+−t1 f (S(t2 ), ba) + t1 f (S(t2 ), b)a
+−t1 S(t2 )f (b, a) + t1 f (S(t2 )b, a) + t1 (∂ h f (S(t2 ), b, a))
+0.
+
+BIALGEBRA COHOMOLOGY
+
+7
+
+(3)
+(∂ c s)(b) = b1 ⊗ s(b2 ) − ∆s(b) + s(b1 ) ⊗ b2
+= b1 ⊗ t1 f (S(t2 ), b2 ) − ∆t1 f (S(t2 ), b) + t1 f (S(t2 ), b1 ) ⊗ b2
+= (t1 ⊗ t2 )(∂ c f )(S(t3 ), b)
+= −(t1 ⊗ t2 )(∂ h g)(S(t3), b).
+(4)
+(p ⊗ 1)(∂ c s)(b) = −(p ⊗ 1)(t1 ⊗ t2 )(∂ h g)(S(t3), b)
+
+= −(t1 ⊗ t2 ) (p(S(t4 )b1 ) ⊗ S(t3 )b2 )(p ⊗ 1)g(S(t5)b3 )
+−(p ⊗ 1)g(S(t3 )b)
+
++(((p ⊗ 1)g(S(t5)b1 ))(p(S(t4 )b2 ) ⊗ S(t3 )b3 ))
+= 0.
+(5) A symmetric version of the computation above works.
+Step 2. Define s′ = s′f : B → B a right-hand side version of s by s′ (b) =
+f (b, t1 )S(t2 ) and note that s′ has properties analogous to those for s. Now define r = rf : B → B by rf = s′f + sf −∂ h s′f and observe that fB0 ⊗B+B⊗B0 = ∂ h rf
+and that ∂ c rf is B0 -cotrivial (resp. equal to 0) whenever g is such.
+Step 3. We dualize Step 2. Note that g ∗ : B ∗ ⊗ B ∗ = (B ⊗ B)∗ → B ∗ is a
+Hochschild cocycle and rg∗ : B ∗ → B ∗ (see Step 2) is such that ∂ h rg∗ |B0∗ ⊗B∗ +B∗ ⊗B0∗ =
+g ∗|B0∗ ⊗B∗ +B∗ ⊗B0∗ and ∂ c rg∗ is B0∗ -cotrivial (resp. equal to 0) whenever f ∗ is B0∗ cotrivial (resp. equal to 0). Now dualize again to obtain ug := rg∗∗ : B → B and
+note that g − ∂ c ug is B0 -cotrivial and that ∂ h ug is B0 -trivial (resp. equal to 0)
+whenever f is such.
+Step 4. Define v = vf,g : B → B by v = ug + sf −∂ h ug and note that (f ′ , g ′) :=
+(f, g) − (∂ h v, ∂ c v) is a B0 -trivial, B0 -cotrivial cocycle pair.
+
+Remark 2.3.2. The above proof shows that the conclusion of the Lemma 2.3.1
+holds whenever B0 is either a commutative or cocommutative semisimple and
+cosemisimple Hopf algebra (with no assumptions on k).
+Remark 2.3.3. If B = R#B0 as an algebra for some algebra R, and f : B⊗B → B
+is a B0 -trivial Hochschild cocycle, then f is uniquely determined by its values on
+B + ⊗ B + . More precisely, if x, x′ ∈ R and h, h′ ∈ B0 , then f (xh, x′ h′ ) = f (x, h x′ ).
+Definition 2.3.4.
+b2 (B)+ =
+Z
+b
+
+n
+
+o
+b2 (B) f is B0 -trivial, g is B0 -cotrivial .
+(f, g) ∈ Z
+b
+
+If f : B ⊗ B → B, and r is a nonnegative integer, then define fr : B ⊗ B → B
+by fr |(B⊗B)r = f |(B⊗B)r and fr |(B⊗B)s = 0 for s 6= r. If g : B → B ⊗ B, then we
+
+8
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+P
+P
+define P
+gr analogously. Note that f = r≥0 fr and g = r≥0 gr . Define f≤r by
+f≤r = 0≤i≤r fi and then f<r , g≤r , g<r in similar fashion.
+We will need the following lemma.
+Lemma 2.3.5. Let r be a positive integer and let f : B ⊗B → B be a homogeneous
+Hochschild cocycle (with respect to the left and right regular actions of B). If
+f<r = 0, then fr : B ⊗ B → B is an ε-cocycle (i.e. a cocycle with respect to the
+trivial action of B on B).
+Proof. We need to check that for homogeneous x, y, z ∈ B with deg(x), deg(y),
+deg(z) > 0 we have fr (xy, z) = fr (x, yz). Indeed, if deg(x) + deg(y) + deg(z) 6= r,
+then both sides are equal to 0. If deg(x) + deg(y) + deg(z) = r, then note that
+f (x, y) = 0 = f (y, z) and hence xf (y, z) − f (xy, z) + f (x, yz) − f (x, y)z = 0 gives
+the desired conclusion.
+
+Lemma 2.3.6. Assume B is generated in degrees 0 and 1.
+b2 (B), r > 1, f≤r = 0, and g<r = 0, then gr = 0.
+(i) If (f, g) ∈ Z
+b
+b2 (B)l , l < −1, r > 0, and f≤r = 0, then g≤r = 0.
+(ii) If (f, g) ∈ Z
+b
+b2 (B)l and l < −1, then g = 0.
+(iii) If (0, g) ∈ Z
+b
+b2 (B)+ , l < 0, r > 0, and f≤r = 0, then g≤r = 0.
+(iv) If (f, g) ∈ Z
+b
+l
+b2 (B)+ and l < 0, then g = 0.
+(v) If (0, g) ∈ Z
+b
+l
+Proof.
+
+(i) Note that Br is spanned by elements xy, where x ∈ B1 and y ∈ Br−1 .
+Now observe gr (xy) = (∆x)gr (y) + gr (x)(∆y) − (∂ c f )(x, y) = 0 + 0 − 0 = 0.
+(ii) Note the homogeneity of g implies that g≤−l−1 = 0. Hence if r ≤ −l + 1
+then we are done. If r > −l + 1, then use induction and part (i).
+(iii) Follows from (ii).
+(iv) Note that B0 -cotriviality of g implies that g≤−l+1 = 0. Hence if r ≤ −l + 1
+then we are done. If r > −l + 1, then use induction and part (i).
+(v) Follows from (iv).
+
+
+Using notation similar to that for bialgebra cohomology, we define the following
+in relation to Hochschild cohomology:
+
+Z2h (B, B) =
+f : B ⊗ B → B| ∂ h f = 0 ,
+
+B2h (B, B) =
+∂hh h : B → B ,
+H2h (B, B) = Z2h (B, B)/B2h (B, B),
+
+Z2h (B, B)l =
+f ∈ Z2h (B, B) f homogeneous of degree l ,
+
+B2h (B, B)l =
+f ∈ B2h (B, B) f homogeneous of degree l
+ h
+=
+∂ h h homogeneous of degree l ,
+
+H2h (B, B)l = Z2h (B, B)l /B2h (B, B)l .
+
+BIALGEBRA COHOMOLOGY
+
+9
+
+b2 (B) → Z2 (B), by π(f, g) = f . Note that π maps subspaces B
+b 2 (B),
+Define π : Z
+b
+h
+b
+b2 (B)l , and B
+b 2 (B)l into B2 (B), Z2 (B)l , and B2 (B)l respectively. Hence π gives
+Z
+b
+b
+h
+h
+h
+b 2 (B)l to H2 (B, B)l . We
+b 2 (B) to H2 (B, B) and a map from H
+rise to a map from H
+h
+b
+h
+b
+abuse notation by denoting these maps by π as well.
+We have the following relation between truncated bialgebra cohomology and
+Hochschild cohomology in degree two.
+Theorem 2.3.7. Assume B is generated in degrees 0 and 1. If either l < −1
+or l = −1 and B0 is either a group algebra or a dual of a group algebra, then
+b 2 (B)l → H2 (B, B)l is injective.
+π: H
+b
+h
+
+b 2 (B)l such that
+b2 (B)l represents a cohomology class in H
+Proof. Suppose (f, g) ∈ Z
+b
+b
+2
+f = π(f, g) ∈ Bh (B, B). Note that if l = −1, then we can without loss of generality
+b2 (B)+ , hence f = 0 and thus by Lemma 2.3.6(v), also g = 0.
+assume that (f, g) ∈ Z
+b
+l
+Now assume that l < −1. Since f is a Hochschild coboundary there is s : B → B
+such that f = ∂ h s and hence (f, g) ∼ (f, g) − (∂ h s, ∂ c s) = (0, g − ∂ c s). By Lemma
+b 2 (B)l .
+2.3.6(ii) this means that g − ∂ c s = 0 and hence (f, g) ∈ B
+
+b
+2.4. Cocycles stable under a group action. In this section we explain how
+to identify cocycles stable under a group action with cocycles on a smash product
+with a group algebra; this identification is useful in explicit computations such as
+those in the last section. Let R be a k-algebra with an action of a finite group Γ
+by automorphisms. Let R#kΓ denote the corresponding smash product algebra,
+that is R#kΓ is a free left R-module with basis Γ and algebra structure given by
+(rg)(sh) = (r(g · s))(gh) for all r, s ∈ R, g, h ∈ G. If the characteristic of k does
+not divide the order of Γ, then
+(2.4.1)
+
+H∗h (R#kΓ, k) ≃ H∗h (R, k)Γ
+
+(see for example [19, Cor. 3.4]). Let B = R#kΓ, which need not be a bialgebra
+in this subsection. If f : R ⊗ R → k is a Γ-stable cocycle, then the corresponding
+cocycle f¯: B ⊗ B → k is given by f¯(rg, r ′g ′ ) = f (r,g r ′ ) for all r, r ′ ∈ R, g ∈ Γ.
+(We will use the same notation f in place of f for convenience). This observation
+is a special case of the following general lemma (cf. [4, Thm. 5.1]):
+Lemma 2.4.2. Let f ∈ Homk (Rn , k) ≃ HomRe (Rn+2 , k) be a function representing an element of Hnh (R, k)Γ expressed in terms of the bar complex for R. The
+corresponding function f ∈ Homk (B n , k) ≃ HomBe (B n+2 , k) expressed in terms of
+the bar complex for B is given by
+(2.4.3)
+
+f (a1 h1 ⊗ · · · ⊗ an hn ) = f (a1 ⊗ h1 a2 ⊗ · · · ⊗ h1 ···hn−1 an )
+
+for all a1 , . . . , an ∈ R and h1 , . . . , hn ∈ Γ.
+Proof. We sketch a proof for completeness; similar results appear in [4] and elsewhere for other choices of coefficients. Let D = ⊕g∈Γ Re (g ⊗ g −1 ), a subalgebra of
+
+10
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+B e . We claim that the bar resolution for B (as B e -module) is induced from the
+D-projective resolution of R,
+δ
+
+δ
+
+δ
+
+m
+
+3
+2
+1
+· · · −→
+D2 −→
+D1 −→
+D0 −→ R → 0,
+
+(2.4.4)
+where D0 = D and
+
+Dn = Spank {a0 h0 ⊗ · · · ⊗ an+1 hn+1 | ai ∈ R, hi ∈ Γ, h0 · · · hn+1 = 1}
+∼
+
+is a D-submodule of B ⊗(n+2) . Indeed, a map B e ⊗D Dn → B ⊗(n+2) is given by
+(b−1 ⊗ bn+2 ) ⊗ (b0 ⊗ · · · ⊗ bn+1 ) 7→ b−1 b0 ⊗ b1 ⊗ · · · ⊗ bn ⊗ bn+1 bn+2 ,
+and its inverse ψ is
+−1
+a0 h0 ⊗ a1 h1 ⊗ · · · ⊗ an+1 hn+1 7→ (1 ⊗ h0 · · · hn+1 ) ⊗ (a0 h0 ⊗ · · · ⊗ an+1 h−1
+n · · · h0 ),
+
+for ai ∈ R and hi ∈ Γ.
+There is a map φ from (2.4.4) to the bar complex for R, as they are both
+Re -projective resolutions of R,
+a0 h0 ⊗ · · · ⊗ an+1 hn+1 7→ a0 ⊗ h0 a1 ⊗ h0 h1 a2 ⊗ · · · ⊗ h0 ···hn an+1 .
+(See [4, (5.2)].) Applying these maps ψ, φ of complexes, together with the isomorphism HomBe (B e ⊗D Dn , k) ≃ HomD (Dn , k), we have
+f (a1 h1 ⊗ · · · ⊗ an hn ) = ψ ∗ φ∗ f (1 ⊗ a1 h1 ⊗ · · · ⊗ an hn ⊗ 1)
+−1
+= φ∗ f ((1⊗h1 · · · hn )⊗(1⊗a1h1 ⊗ · · · ⊗an hn ⊗h−1
+n · · · h1 ))
+−1
+= φ∗ f (1 ⊗ a1 h1 ⊗ · · · ⊗ an hn ⊗ h−1
+n · · · h1 )
+= f (a1 ⊗ h1 a2 ⊗ h1 h2 a3 ⊗ · · · ⊗ h1 ···hn−1 an ),
+since the image of f is the trivial module k.
+
+
+
+3. A Long Exact Sequence for Bialgebra Cohomology
+When we are dealing with a truncated double complex, a standard tool for
+computing its cohomology is a long exact sequence. More precisely, if A is a
+cochain bicomplex, A0 its truncated bicomplex and A1 its edge bicomplex, then
+the short exact sequence of cochain complexes
+0 → Tot A0 → Tot A → Tot A1 → 0
+gives rise to a long exact sequence of cohomologies:
+δ
+
+. . . → H∗ (Tot A0 ) → H∗ (Tot(A)) → H∗ (Tot(A1 )) → H∗+1 (Tot(A0 )) → . . . ,
+where the connecting homomorphism δ : H∗ (Tot(A1 )) → H∗+1 (Tot(A0 )) is induced
+by the differential. In the context of bialgebra cohomology this was already used
+in [7]. Furthermore, if A is a cosimplicial bicomplex, then by the Eilenberg-Zilber
+Theorem [21] (see [11, Appendix] for the cosimplicial version) we have H∗ (Tot A) ≃
+H∗ (Diag A). If A is associated to a pair of (co)triples and a distributive law
+
+BIALGEBRA COHOMOLOGY
+
+11
+
+between them, then the cohomology of Diag A is the cohomology associated to
+the composed (co)triple. On the other hand, if the bicomplex A arises from some
+mixed distributive law then often one can, with some finiteness assumptions, use
+some duality to “unmix” the distributive law. This strategy worked remarkably
+well when dealing with cohomology associated to an abelian Singer pair of Hopf
+algebras [11] and can also be applied to truncated bialgebra cohomology. For the
+sake of simplicity we deal with this aspect of theory on the level of (co)simplicial
+bicomplexes and do not go into such generalities as (co)triples and distributive
+laws between them.
+3.1. “Unmixed” complex for computing bialgebra cohomology. From now
+on assume that B is a finite dimensional Hopf algebra. Let X = (B op )∗ = (B ∗ )cop .
+We will denote the usual pairing X ⊗ B → k by h | i, i.e. if x ∈ X and a ∈ B, then
+hx|ai = x(a). Note that X and B act on each other in the usual way (if x ∈ X
+and a ∈ B, then the actions are denoted by a x, xa , x a, ax ):
+ha x|bi = hx|bai; a x = hx1 |aix2 ,
+hxa |bi = hx|abi; xa = hx2 |aix1 ,
+hy|xai = hyx|ai; x a = hx|a2 ia1 ,
+hy|axi = hxy|ai; ax = hx|a1 ia2 .
+Observe that the diagonal actions of B on X n and of X on B n are given by
+a
+
+x = hb
+x1 |aix2 ,
+a
+x = hb
+x2 |aix1 ,
+x
+a = hx|b
+a2 ia1 ,
+x
+a = hx|b
+a1 ia2 .
+
+We use the natural isomorphism
+Homk (B q , B p ) ≃ Homk (X p ⊗ B q , k),
+given by identifying linear maps f : X p ⊗ B q → k with linear maps f¯: B q → B p ,
+by f (x ⊗ b) = hx|f¯(b)i, to obtain a cosimplicial bicomplex
+
+C = Homk (X p ⊗ B q , k), (∂ X )∗ , (∂ B )∗
+from the complex B defined in Section 2.1. The dual faces
+
+∂iB = (∂iB )p,q : X p ⊗ B q+1 → X p ⊗ B q ,
+∂jB = (∂jB )p,q : X p+1 ⊗ B q → X p ⊗ B q
+
+12
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+are
+1
+
+∂0B (x, a) = (xa , a2 ⊗ · · · ⊗ aq+1 ) = hb
+x2 |a1 i(x1 , a2 ⊗ · · · ⊗ aq+1 ),
+∂iB (x, a) = (x, a1 ⊗ · · · ⊗ ai ai+1 ⊗ · · · ⊗ aq+1 ), 1 ≤ i ≤ q,
+q+1
+
+B
+∂q+1
+(x, a) = (a
+
+x, a1 ⊗ · · · ⊗ aq ) = hb
+x1 |aq+1 i(x2 , a1 ⊗ · · · ⊗ aq ),
+1
+
+∂0X (x, a) = (x2 ⊗ · · · ⊗ xp+1 , ax ) = hx1 |b
+a1 i(x2 ⊗ · · · ⊗ xp+1 , a2 )
+∂jX (x, a) = (x1 ⊗ · · · ⊗ xj xj+1 ⊗ · · · ⊗ xp+1 , a), 1 ≤ j ≤ p,
+X
+∂p+1
+(x, a) = (x1 ⊗ · · · ⊗ xp , x
+
+p+1
+
+a) = hxp+1 |b
+a2 i(x1 ⊗ · · · ⊗ xp , a1 ).
+
+The dual degeneracies
+σiX = (σiX )p,q : X p ⊗ B q → X p+1 ⊗ B q ,
+σjB = (σjB )p,q : X p ⊗ B q → X p ⊗ B q+1
+are given by
+σiX (x1 ⊗ · · · ⊗ xp ⊗ b) = x1 ⊗ · · · ⊗ xi ⊗ 1 ⊗ xi+1 ⊗ · · · ⊗ xp ⊗ b,
+σjB (x ⊗ b1 ⊗ · · · ⊗ bq ) = x ⊗ b1 ⊗ . . . ⊗ bj ⊗ 1 ⊗ bj+1 ⊗ · · · ⊗ bq ,
+and the differentials
+∂ B : X p ⊗ B q+1 → X p ⊗ B q ,
+
+∂ X : X p+1 ⊗ B q → X p ⊗ B q
+
+are given by the usual alternating sums, i.e.
+X
+X
+∂B =
+(−1)i ∂iB , ∂ X =
+(−1)j ∂jX .
+
+Note that by the cosimplicial version of the Eilenberg-Zilber Theorem we have
+H (Tot(C)) ≃ H∗ (Diag(C)).
+∗
+
+3.2. The diagonal complex and cohomology of the Drinfeld double. Note
+that the differential
+∂d = (∂ d )∗ : Homk (X n ⊗ B n , k) → Homk (X n+1 ⊗ B n+1 , k)
+P
+k d
+d
+in the diagonal complex Diag(C) is given by (∂ d )n = n+1
+i=0 (−1) ∂i , where ∂i =
+∂iX ∂iB .
+Recall that D(B) = X ⊲⊳ B, the Drinfeld double of B, is X ⊗ B as coalgebra
+and the multiplication is given by
+(x ⊲⊳ a)(y ⊲⊳ b) = x(a1 y S
+
+−1 (a )
+3
+
+) ⊲⊳ a2 b = hy1 |a1 ihy3|S −1 (a3 )ixy2 ⊲⊳ a2 b.
+
+The associated flip c : B ⊗ X → X ⊗ B, is given by
+c(a, x) = a1 xS
+
+−1 (a )
+3
+
+⊗ a2 = hx1 |a1 ihx3 |S −1 (a3 )ix2 ⊗ a2 .
+
+This map induces ci,j : B i ⊗ X j → X j ⊗ B i and c̃n : (X ⊲⊳ B)n → X n ⊗ B n in the
+obvious way. Note that
+ci,j (a ⊗ x) = hb
+x1 |b
+a1 ihb
+x3 |S −1 (b
+a3 )ix2 ⊗ a2 .
+
+BIALGEBRA COHOMOLOGY
+
+13
+
+Define also a map
+φn : X n ⊗ B n → X n ⊗ B n
+by
+φn (x, a) = hb
+x1 |S −1 (b
+a1 )ix2 ⊗ a2 .
+The following identities are due to the fact that in order to compute c̃n , we can
+apply c’s in arbitrary order.
+c̃n+1 = (1 ⊗ c1,n ⊗ 1)(1 ⊗ c̃n )
+c̃n+1 = (1 ⊗ cn,1 ⊗ 1)(c̃n ⊗ 1)
+c̃i+j+1 = (1 ⊗ ci,j ⊗ 1)(1 ⊗ ci,1 ⊗ c1,j ⊗ 1)(c̃i ⊗ 1 ⊗ c̃j )
+c̃i+j+2 = (1 ⊗ ci,j ⊗ 1)(1 ⊗ ci,2 ⊗ c2,j ⊗ 1)(c̃i ⊗ c̃2 ⊗ c̃j )
+Recall that the standard complex for computing H∗h (D(B), k), Hochschild cohomology of D(B) with trivial coefficients, is given by
+(∂ h )∗
+
+D : . . . → Homk (D(B)n , k) → Homk (D(B)n+1 , k) → . . .
+P
+i h
+where ∂ h = (∂ h )n = n+1
+i=0 (−1) ∂i and
+∂0h (u1 ⊗ . . . ⊗ un+1 ) = ε(u1)(u2 ⊗ . . . ⊗ un+1 ),
+∂ih (u1 ⊗ . . . ⊗ un+1 ) = u1 ⊗ . . . ⊗ ui ui+1 ⊗ . . . ⊗ un+1 ,
+
+h
+∂n+1
+(u1 ⊗ . . . ⊗ un+1 ) = ε(un+1)(u1 ⊗ . . . ⊗ un ).
+
+Theorem 3.2.1. The map φn c̃n : (X ⊲⊳ B)n → X n ⊗ B n induces an isomorphism
+of complexes and hence H∗b (B) ≃ H∗ (Diag(C)) ≃ H∗h (D(B), k).
+x1 |b
+a1 ix2 ⊗ a2 ,
+Proof. Note that ψn = φn c̃n is a linear isomorphism ( φ−1
+n (x, a) = hb
+c−1 (x, a) = hx3 |a3 ihS −1 (x1 )|a1 ia2 ⊗ x2 ). We will show that for every n and 0 ≤
+i ≤ n + 1 the diagram
+D(B)n+1
+
+
+ψn+1 y
+
+∂h
+
+i
+−−−
+→ D(B)n
+
+
+ψn y
+
+∂d
+
+i
+→ X n ⊗ Bn
+X n+1 ⊗ B n+1 −−−
+commutes. We first deal with the case i = 0. Note that
+
+ψn ∂0h = φn c̃n (ε ⊗ 1) = (ε ⊗ φn )(1 ⊗ c̃n )
+and that
+∂0d ψn+1 = ∂0d φn+1 (1 ⊗ c1,n ⊗ 1)(1 ⊗ c̃n ).
+Hence it is sufficient to prove that
+(ε ⊗ φn ) = (∂0d )n φn+1 (1 ⊗ c1,n ⊗ 1).
+
+14
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+This is achieved by the following computation
+[∂0d φn+1 (1 ⊗ c1,n ⊗ 1)]((x ⊲⊳ a) ⊗ y ⊗ b)
+= ∂0d φn+1 hb
+y1 |a1 ihb
+y3 |S −1(a3 )i(x ⊗ y2 , a2 ⊗ b)
+b1 )i(x2 ⊗ y3 , a3 ⊗ b2 )
+b2 |S −1 (a2 b
+= ∂ d hb
+y1 |a1 ihb
+y4 |S −1(a4 )ihx1 y
+0
+
+b 1 )ihx3 y
+b2 i(y3 , b3 )
+b2 |S −1(a2 b
+b4 |a3 ihx2 |a4 b
+= hb
+y1 |a1 ihb
+y5 |S −1 (a5 )ihx1 y
+b2 )ihb
+b1 )i
+= hb
+y1 |a1 ihb
+y5 |S −1 (a6 )ihx1 |S −1 (a3 b
+y2 |S −1 (a2 b
+
+b 3 i(y3 , b4 )
+·hx3 |a4 ihb
+y4 |a5 ihx2 |b
+b 3 S −1 (b
+b 2 )S −1 (a3 )ihb
+b 1 )S −1 (a2 )a1 ihb
+= hx|a4 b
+y1 |S −1 (b
+y3 |S −1 (a6 )a5 i(y2 , b4 )
+b 1 )i(y2 , b2 )
+= ε(a)ε(x)hb
+y1 |S −1(b
+
+= (ε ⊗ φn )((x ⊲⊳ a) ⊗ y ⊗ b).
+
+A similar computation applies to i = n+ 1. The remaining cases, where 1 ≤ i ≤ n,
+are settled by the diagram below (where each of the squares is easily seen to
+commute).
+D(B)i−1 ⊗D(B)2 ⊗D(B)n−i
+
+
+c̃i−1 ⊗c̃2 ⊗c̃n−i y
+
+∂ h =1⊗m⊗1
+
+i
+−−
+−−−−−→
+
+1⊗1⊗m⊗m⊗1⊗1
+
+D(B)i−1 ⊗D(B)⊗D(B)n−i
+
+
+c̃i−1 ⊗1⊗c̃n−i y
+
+X i−1 ⊗B i−1 ⊗X 2 ⊗B 2 ⊗X n−i ⊗B n−i −−−−−−−−−−−→ X i−1 ⊗B i−1 ⊗X ⊗B ⊗X n−i ⊗B n−i
+
+
+
+
+1⊗ci−1,1 ⊗c1,n−i ⊗1y
+1⊗ci−1,2 ⊗c2,n−i ⊗1y
+X i+1 ⊗B i−1 ⊗X n−i ⊗B n−i+2
+
+
+1⊗ci−1,n−i ⊗1y
+X n+1 ⊗B n+1
+
+
+φn+1 y
+
+X n+1 ⊗B n+1
+
+(1⊗m)⊗1⊗1⊗(m⊗1)
+
+−−−−−−−−−−−−−→
+
+∂ d =(1⊗m⊗1)⊗(1⊗m⊗1)
+
+i
+−−
+−−−−−−−−−−−−−→
+
+∂d
+
+i
+−−−−−−−−−
+−−−−−−→
+
+X i ⊗B i−1 ⊗X n−i ⊗B n
+
+
+1⊗ci−1,n−i ⊗1y
+X n ⊗B n
+
+
+φn y
+
+X n ⊗B n
+
+
+Remark 3.2.2. The isomorphism H∗b (B) ≃ H∗h (D(B), k) can also be deduced
+from a result of Taillefer [20], combined with the fact due to Schauenburg [18]
+that the category of Yetter-Drinfeld modules is equivalent to the category of Hopf
+bimodules. See the remark following Proposition 4.6 in [20].
+3.3. Long exact sequence. Let C0 denote the bicomplex obtained from C by
+replacing the edges by zeroes and let C1 denote the edge subcomplex of C. Then
+we have a short exact sequence of bicomplexes
+0 → C0 → C → C1 → 0,
+
+BIALGEBRA COHOMOLOGY
+
+15
+
+hence a short exact sequence of their total complexes
+ι
+
+π
+
+0 → Tot(C0 ) → Tot(C) → Tot(C1 ) → 0,
+which then gives rise to a long exact sequence of cohomologies (i ≥ 1)
+H(ι)
+
+H(π)
+
+δ
+
+. . . → Hi (Tot(C)) → Hi (Tot(C1 )) → Hi+1 (Tot(C0 )) → . . .
+Now use isomorphisms
+Hi (Tot(C1 )) ≃ Hih (B, k) ⊕ Hih (X, k),
+Hi (Tot(C)) ≃ Hi (Diag(C)) ≃ Hih (X ⊲⊳ B, k) and
+b i−1 (B),
+Hi (Tot(C0 )) ≃ H
+b
+
+to get a long exact sequence (cf. [8, §8])
+(3.3.1)
+
+ῑ
+π̄
+δ bi
+. . . → Hih (D(B), k) → Hih (X, k) ⊕ Hih (B, k) → H
+b (B) → . . .
+
+3.4. Morphisms in the sequence. Note that the morphism
+δ bi
+Hih (B, k) ⊕ Hih (X, k) → H
+h (B)
+
+corresponds to the connecting homomorphism in the long exact sequence and is
+therefore given by the differential, i.e. if f : B i → k and g : X i → k are cocycles,
+then δ(f, g) = (∂ X f, (−1)i ∂ B g). More precisely
+M
+F := ∂ X f ∈ Homk (B i , B) ⊆
+Homk (B m , B n ),
+m+n=i+1
+
+is given by
+(3.4.1)
+
+c2 − f (b2 )b
+c1 .
+F (b) = f (b1 )b
+
+If we identify g with an element of B i (g ∈ (X i )∗ ≃ (B i )∗∗ ≃ B i ), then
+M
+G := (−1)i ∂ B g ∈ Homk (B, B i ) ⊆
+Homk (B m , B n )
+m+n=i+1
+
+is given by
+(3.4.2)
+
+
+G(b) = (−1)i (∆i b)g − g(∆i b) .
+
+Recall that ∆i b = b1 ⊗ . . . ⊗ bi .
+Using the cosimplicial Alexander-Whitney map, we can also show that the map
+π in the sequence (3.3.1) above is the double restriction:
+Proposition 3.4.3. The map
+π̄
+
+Hih (D(B), k) → Hih (B, k) ⊕ Hih (X, k)
+is the restriction map in each component.
+
+16
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+Proof. We will establish the result by showing that the following diagram commutes.
+Φ
+
+(φc̃)∗
+
+π
+
+⊆
+
+Totn (NC) −−−→ Diagn (NC) −−−→
+
+(D(B)n )∗
+
+
+res2 y
+
+Totn (NC) −−−→ Totn (NC1 ) −−−→ (X n )∗ ⊕ (B n )∗
+Here NC denotes the normalized subcomplex of C (a map f : X p ⊗ B q → k is in
+NC if f (x1 ⊗ . . . ⊗ xp , b1 ⊗ . . . ⊗ bq ) = 0 whenever one of xi or bj is a scalar) and
+Φ denotes the Alexander-Whitney map (if f ∈ (X p ⊗ B q )∗ ⊆ ⊕i+j=n (X i ⊗ B j )∗ ,
+X
+then Φ(f ) ∈ (X n ⊗ B n )∗ is given by Φ(f ) = f ∂p+1
+. . . ∂nX ∂0B . . . ∂0B ). Note that
+Φ(f )|X n = f (1X p ⊗ εX n−p ⊗ ηBq ) and that Φ(f )|Bn = f (ηX p ⊗ εBn−q ⊗ 1Bq ). Hence,
+if f is normal, then
+(
+(
+f; p = n
+f; q = n
+Φ(f )|X n =
+and Φ(f )|Bn =
+0; p < n,
+0; q < n.
+n = 1X n ⊗ ηB n and φc̃|B n = ηX n ⊗ 1B n .
+Thus, if f =
+Also note that
+Lφc̃|X
+∗
+i
+n−i ∗
+n
+(f0 , . . . , fn ) ∈ (X ⊗ B ) is a normal cocycle, then resX (φc̃) Φf(x) = f0 (x)
+
+and resBn (φc̃)∗ Φ(f)(b) = fn (b) and hence res2 (φc̃)∗ Φf = (f0 , fn ) = π(f).
+
+ῑ
+b n (B) →
+The map H
+Hn+1 (D(B), k) is given by the composite
+b
+≃
+ι
+b n (B) →
+H
+Hn+1 (Tot(C1 )) → Hn+1 (Tot(C))
+b
+Φ
+
+(φc̃)∗
+
+→ Hn+1 (Diag(C)) → Hn+1 (D(B), k).
+
+More precisely, if f¯: X i ⊗ B n+1−i → k corresponds to f : B n+1−i → B i , then
+(3.4.4)
+
+X
+X
+ῑf = f¯∂i+1
+. . . ∂n+1
+∂0B . . . ∂0B φc̃.
+
+3.5. Graded version. Now assume that B is a finite dimensional graded Hopf
+algebra. Note that X inherits the grading from B and is nonpositively graded,
+and D(B) is graded by both positive and negative integers. Note that morphisms
+in the long exact sequence preserve degrees of homogeneous maps and hence for
+every integer l we get a long exact sequence:
+π̄
+δ bi
+ῑ
+. . . → Hih (D(B), k)l → Hih (X, k)l ⊕ Hih (B, k)l → H
+b (B)l → . . .
+
+Also note that if l is negative, then Hih (X, k)l = 0 (as X is nonpositively graded
+and thus all homogeneous maps from X to k are of nonnegative degree), and hence
+in this case the sequence is
+δ bi
+π̄
+ῑ
+. . . → Hih (D(B), k)l → Hih (B, k)l → H
+b (B)l → . . .
+
+BIALGEBRA COHOMOLOGY
+
+17
+
+4. A sufficient condition for surjectivity of the connecting
+homomorphism
+In this section, we give a sufficient condition for surjectivity of the connecting
+homomorphism δ in degree 2 of the long exact sequence (3.3.1). The surjectivity
+will allow us to compute fully the bialgebra cohomology in degree 2 for some
+general classes of examples in the last section.
+4.1. Second Hochschild cohomology of a graded Hopf algebra with trivial
+f
+g
+coefficients. If U → V → W is a sequence of vector space maps such gf = 0,
+then
+∗  
+
+∗
+ker f ∗
+ker g
+V
+≃
+→W
+≃ ker g̃ :
+,
+im g ∗
+im f
+im f
+where g̃ is the map induced by g. We apply this observation to an augmented
+algebra R with augmentation ideal R+ and the map
+m⊗1−1⊗m
+
+m
+
+R+ ⊗ R+ ⊗ R+ −−−−−→ R+ ⊗ R+ → R+
+to compute Hochschild cohomology of R with trivial coefficients:
+
+ker(m ⊗ 1 − 1 ⊗ m)∗ 
++
++ ∗
++
++ R
+→
+R
+,
+≃
+ker
+m̃
+:
+R
+⊗
+H2h (R, k) ≃
+R
+im(m∗ )
++
+
++
+
+R ⊗R
+where we abbreviate R+ ⊗R+ R+ = im(m⊗1−1⊗m)
+and m̃ is the map induced by
++
++
++
+multiplication m : R ⊗ R → R . Also abbreviate
+
+(4.1.1)
+M := ker m̃ : R+ ⊗R+ R+ → R+ .
+
+The isomorphism above can be described explicitly as follows. Choose φ : (R+ )2 =
+Span{xy|x, y ∈ R+ } → R+ ⊗ R+ a splitting of m. If we are given a linear map
+g : M → k, then define a cocycle ḡ : R+ ⊗ R+ → k by f = g(id − φm). If
+f : R+ ⊗ R+ → k is a cocycle, then f˜: M → k is simply the induced map. It is
+easy to check that ḡ˜ = g and that f¯˜ = f − ∂ h (f φ) ∼ f .
+L
+4.2. Surjectivity of the connecting homomorphism. If B = n≥0 Bn is a
+graded Hopf algebra, and p : B → B0 is the canonical projection then B equipped
+p
+
+with B0 ⇆ B is Hopf algebra with a projection in the sense of [17] and hence
+R = B coB0 = {r ∈ B|(1 ⊗ p)∆r = r ⊗ 1} is a Hopf algebra in the category of
+Yetter-Drinfeld modules over B0 . The action of B0 on R is given by h r = h1 rS(h2 )
+and coaction by r 7→ (p ⊗ 1)∆r. Throughout this section we assume that B0 = kΓ
+is a group algebra and that the action of the group Γ on R
+Lis diagonal. In this
+case R is (Γ × Γ̂ × N)-graded, that is it decomposes as R =
+Rg,χ,n , where Rg,χ,n
+consists of homogeneous elements r ∈ R of degree n such that the coaction of kΓ
+is givenLby r 7→ g ⊗ r and the action of kΓ is given by h r = χ(h)r. We abbreviate
+Rg,l = χ∈Γ̂ Rg,χ,l .
+
+18
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+Observe that (m ⊗ 1 − 1 ⊗ m) : R+ ⊗ R+ ⊗ R+ → R+ ⊗ R+ preserves the
+(Γ × Γ̂ × N)-grading and hence we can decompose M (see (4.1.1)) in the same
+fashion:
+M
+Mg,χ,l ,
+(4.2.1)
+M=
+b
+(g,χ,l)∈Γ×Γ×Z
+≥2
+
+where Mg,χ,l consists of homogeneous elements m ∈ M of degree l for which the
+h
+action and coaction of kΓ are given
+M by m = χ(h)m and m 7→ g ⊗ m. Also note
+∗
+and that if V is a finite-dimensional
+Mg,ε,n
+that H2h (B, k) = H2h (R, k)Γ ≃
+(g,n)∈Γ×Z≥2
+
+trivial B-bimodule, then
+H2h (B, V ) =
+
+M
+
+(g,n)∈Γ×Z≥2
+
+Homk (Mg,ε,n , V ) =
+
+M
+
+∗
+Mg,ε,n
+⊗ V.
+
+(g,n)∈Γ×Z≥2
+
+The following lemma will be crucial in establishing a sufficient condition for
+surjectivity of the connecting homomorphism.
+Lemma 4.2.2. Let B be a graded Hopf algebra of the form described at the beginning of this section and let l < 0. Assume also that whenever Mh,ε,j 6= 0 for
+some h ∈ Γ and j > −l, then B contains no nonzero (1, h)-primitive elements in
+b2 (B)+
+degree j + l. If R is generated as an algebra by R1 , then for any (f, g) ∈ Z
+b
+l
+the following holds:
+b2 (B)+ ,
+(i) If r > −l and f<r = 0, then (f, g) is cohomologous to (f ′ , g ′) ∈ Z
+b
+l
+′
+= 0.
+where f≤r
+b 2 (B)l .
+(ii) If f−l = 0, then (f, g) ∈ B
+b
+
+Proof. (i) Note that by Lemma 2.3.6(iv) we have g<r = 0. By Lemma 2.3.5, fr is
+an ε-cocycle. If u ∈ R+ ⊗R+ represents an element in Mh,χ,r 6= 0, then, considering
+(2.1.1), we have
+0 = gr (0) = gr (m(u)) = h ⊗ fr (u) − ∆fr (u) + fr (u) ⊗ 1.
+
+Hence fr (u) = 0, since it is a (1, h)-primitive element of degree r + l. Since
+fr (u) = 0 for all u ∈ M, we can conclude, due to the discussion above, that fr
+is an ε-coboundary. Thus we may let s : B → B be such that fr (x, y) = s(xy)
+for x, y ∈ B + . Note that ∂ h s is B0 -trivial, ∂ c s is B0 -cotrivial and that (f ′ , g ′) =
+b2 (B)2 is such that f ′ = 0.
+(f, g) − (∂ h s, ∂ c s) ∈ Z
+≤r
+l
+b
+(ii) Use induction and part (i) to show that (f, g) ∼ (0, g ′). Then use Lemma
+2.3.6(v).
+
+The following is one of the main theorems in our paper. The results in the rest
+of the paper rely heavily on it. Recall the notation defined in (4.2.1).
+Theorem 4.2.3. Suppose that l < 0 and B is a finite dimensional graded Hopf
+algebra such that
+
+BIALGEBRA COHOMOLOGY
+
+19
+
+• B is generated as an algebra by B0 and B1 .
+• B0 = kΓ and the action of B0 on R is diagonalizable, i.e. Γ acts on R by
+characters.
+• If Mh,ε,j 6= 0 for some h ∈ Γ and j > −l, then B contains no nonzero
+(1, h)-primitive elements in degree j + l.
+b 2 (B)l is surjective.
+Then the connecting homomorphism δ : H2 (B, k)l → H
+h
+
+b
+
+b2 (B)+ .
+Proof. Let (f, g) ∈ Z
+b
+l
+
+Note that f≤−l−1 = 0 and that g≤−l+1 = 0. Define
+˜
+˜
+f : B ⊗ B → k by f (a, b) = −p1 f−l (a, b), where p1 : kΓ → k is given by p1 (g) =
+δ1,g . Note that f˜ is an ε-cocycle by Lemma 2.3.5. Now we prove that (f ′ , g ′) =
+b 2 (B)l : This will follow from Lemma 4.2.2(ii)
+(f, g) − δ f˜ = (f, g) − (∂ c f˜, 0) ∈ B
+b
+′
+once we see that f−l
+= 0. Indeed, if x ∈ Rhx ,i , y ∈ Rhy ,−l−i , then f (x, y) ∈ B0
+is (hx hy , 1)-primitive by the same argument as in the proof of Lemma 4.2.2(i). If
+hx hy = 1, then f (x, y) is primitive and hence 0. Otherwise f (x, y) = a(hx hy − 1)
+for some a ∈ k. Note that a = −p1 (a(hx hy − 1)) = −p1 (f (x, y)) = f˜(x, y) and
+that ∂ c f˜(x, y) = f˜(x2 , y2 )x1 y1 − f˜(x1 , y1)x2 y2 = f˜(x, y)(hx hy − 1) = f (x, y). Thus
+′
+f−l
+= f−l − ∂ c f˜ = 0.
+
+Remark 4.2.4. If all (1, h)-primitive elements of B in positive degree are contained in R1 (this happens whenever B is coradically graded and B0 = kΓ), then
+it is sufficient to demand that there are no (1, h)-primitive elements in R1 , for all
+h ∈ Γ for which Mh,ε,l+1 6= 0.
+5. Finite dimensional pointed Hopf algebras
+We recall the Hopf algebras of Andruskiewitsch and Schneider [2], to which we
+will apply the results of the previous sections.
+Let θ be a positive integer. Let (aij )1≤i,j≤θ be a Cartan matrix of finite type,
+that is the Dynkin diagram of (aij ) is a disjoint union of copies of the diagrams
+A• , B• , C• , D• , E6 , E7 , E8 , F4 , G2 . In particular, aii = 2 for 1 ≤ i ≤ θ, aij is a
+nonpositive integer for i 6= j, and aij = 0 implies aji = 0. Its Dynkin diagram is a
+graph with vertices labelled 1, . . . , θ. If |aij | ≥ |aji |, vertices i and j are connected
+by |aij | lines, and these lines are equipped with an arrow pointed toward j if
+|aij | > 1.
+Let Γ be a finite abelian group. Let
+D = D(Γ, (gi )1≤i≤θ , (χi )1≤i≤θ , (aij )1≤i,j≤θ )
+be a datum of finite Cartan type associated to Γ and (aij ); that is gi ∈ Γ and
+b (1 ≤ i ≤ θ) such that χi (gi ) 6= 1 (1 ≤ i ≤ θ) and the Cartan condition
+χi ∈ Γ
+(5.0.5)
+
+holds for 1 ≤ i, j ≤ θ.
+
+χj (gi )χi (gj ) = χi (gi )aij
+
+20
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+Let Φ denote the root system corresponding to (aij ), and fix a set of simple roots
+Π. If αi , αj ∈ Π, write i ∼ j if the corresponding nodes in the Dynkin diagram
+of Φ are in the same connected component. Choose scalars λ = (λij )1≤i<j≤θ, i6∼j ,
+called linking parameters, such that
+(5.0.6)
+
+λij = 0 if gi gj = 1 or χi χj 6= ε,
+
+where ε is the trivial character defined by ε(g) = 1 (g ∈ Γ). Sometimes we use the
+notation
+(5.0.7)
+
+λji := −χi (gj )λij
+
+(i < j).
+
+The (infinite dimensional) Hopf algebra U(D, λ) defined by Andruskiewitsch and
+Schneider [2] is generated as an algebra by Γ and symbols x1 , . . . , xθ , subject to the
+following relations. Let V be the vector space with basis x1 , . . . , xθ . The choice of
+characters χi gives an action of Γ by automorphisms on the tensor algebra T (V ),
+in which g(xi1 · · · xis ) = χi1 (g) · · · χis (g)xi1 · · · xis (g ∈ Γ). We use this action to
+define the braided commutators
+adc (xi )(y) = [xi , y]c := xi y − gi (y)xi ,
+for all y ∈ T (V ). The map c : T (V )⊗T (V ) → T (V )⊗T (V ), induced by c(xi ⊗y) =
+gi (y) ⊗ xi is a braiding and T (V ) is a braided Hopf algebra in the Yetter-Drinfeld
+category ΓΓ YD. (See [2] for details, however we will not need to use the theory of
+Yetter-Drinfeld categories.) There is a similar adjoint action adc on any quotient
+of T (V ) by a homogeneous ideal. The relations of U(D, λ) are those of Γ and
+(5.0.8)
+(5.0.9)
+(5.0.10)
+
+gxi g −1 = χi (g)xi
+(g ∈ Γ, 1 ≤ i ≤ θ),
+1−aij
+(adc (xi ))
+(xj ) = 0
+(i 6= j, i ∼ j),
+(adc (xi ))(xj ) = λij (1 − gi gj )
+(i < j, i 6∼ j).
+
+The coalgebra structure of U(D, λ) is defined by
+∆(g) = g ⊗ g,
+
+∆(xi ) = xi ⊗ 1 + gi ⊗ xi ,
+
+for all g ∈ Γ, 1 ≤ i ≤ θ.
+Let W be the Weyl group of the root system Φ. Let w0 = si1 · · · sip be a reduced
+decomposition of the longest element w0 ∈ W as a product of simple reflections.
+Let
+β1 = αi1 , β2 = si1 (αi2 ), · · · , βp = si1 si2 · · · sip−1 (αip ).
+Then β1 , . . . , βp are precisely the positive roots Φ+ . Corresponding root vectors
+xβj ∈ U(D, λ) are defined in the same way as for the traditional quantum groups:
+In case D corresponds to the data for a quantum group Uq (g), let
+xβj = Ti1 Ti2 · · · Tij−1 (xij ),
+where the Tij are Lusztig’s algebra automorphisms of Uq (g) [15]. In particular,
+if βj is a simple root αl , then xβj = xl . The xβj are in fact iterated braided
+
+BIALGEBRA COHOMOLOGY
+
+21
+
+commutators. In our more general setting, as in [2], define the xβj to be the
+analogous iterated braided commutators.
+The Hopf algebra U(D, λ) has the following finite dimensional quotients. As in
+[2] we make the assumptions:
+(5.0.11)
+
+the order of χi (gi ) is odd for all i,
+and is prime to 3 for all i in a connected component of type G2 .
+
+It follows that the order of χi (gi ) is constant in each connected component J of the
+Dynkin diagram [2]; denote this common order by NJ . It will also be convenient
+to denote it by Nαi or more generally by Nβj or Nj for some positive root βj in
+P
+P
+Q
+Q
+J. Let α ∈ Φ+ , α = θi=1 ni αi , and let ht(α) = θi=1 ni , gα = gini , χα = χni i .
+There is a unique connected component Jα of the Dynkin diagram of Φ for which
+ni 6= 0 implies i ∈ Jα . We write J = Jα when it is clear which α is intended.
+Choose scalars (µα )α∈Φ+ , called root vector parameters, such that
+α
+µα = 0 if gαNα = 1 or χN
+α 6= ε.
+
+(5.0.12)
+
+If a = (a1 , . . . , ap ) ∈ Np − {0}, define
+a := a1 β1 + · · · + ap βp .
+In particular, letting el := (δkl )1≤k≤p ∈ Np − {0}, we have el = βl .
+The finite dimensional Hopf algebra u(D, λ, µ) is the quotient of U(D, λ) by the
+ideal generated by all
+α
+xN
+α − uα (µ)
+
+(5.0.13)
+
+(α ∈ Φ+ )
+
+where uα (µ) ∈ kΓ is defined inductively on Φ+ as follows [2, Defn. 2.14]. If α is a
+simple root, then uα (µ) := µα (1 − gαNα ). If α is not simple, write α = βl for some
+l, and then
+X
+el
+µb u c
+tb,c
+(5.0.14)
+uα (µ) := µα (1 − gαNα ) +
+b,c∈Np −{0}
+b+c=α
+
+where
+(i) scalars tab,c are uniquely defined by
+a N
+
+a N
+
+a N
+
+a N
+
+∆(xβa11N1 · · · xβpp p ) = xβa11N1 · · · xβpp p ⊗ 1 + gβa11 N1 · · · gβpp p ⊗ xβa11N1 · · · xβpp p
+X
+c N
+c N
+b N
++
+tab,c xbβ11N1 · · · xβpp p gβc11N1 · · · gβpp p ⊗ xβc11N1 · · · xβpp p [2, Lemma 2.8];
+b,c∈Np −{0}
+b+c=a
+
+(ii) scalars µa and elements ua ∈ kΓ are defined, via induction on ht(a), by the
+a N
+requirements that µel = µβl for 1 ≤ l ≤ p, µa = 0 if gβa11 N1 · · · gβpp p = 1,
+
+22
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+and
+
+a N
+
+ua := µa (1 − gβa11 N1 · · · gβpp p ) +
+
+X
+
+tab,c µb uc ,
+
+b,c∈Np −{0}
+b+c=a
+
+where the remaining values of µa are determined by ua = ur us where
+a = (a1 , . . . , al , 0, . . . , 0), al ≥ 1, s = el , and a = r + s [2, Theorem 2.13].
+Andruskiewitsch and Schneider give the elements uα (µ) explicitly in type A• in [1,
+Theorem 6.1.8].
+Remark 5.0.15. It follows from the induction [2, Theorem 2.13] that if α is a
+positive root of smallest height for which µα 6= 0, then µa = 0 for all a ∈ Np − {0}
+such that ht(a) < ht(α).
+The following theorem is [2, Classification Theorem 0.1].
+Theorem 5.0.16 (Andruskiewitsch-Schneider). Assume the field k is algebraically
+closed and of characteristic 0. The Hopf algebras u(D, λ, µ) are finite dimensional
+and pointed. If H is a finite dimensional pointed Hopf algebra having abelian
+group of grouplike elements with order not divisible by primes less than 11, then
+H ≃ u(D, λ, µ) for some D, λ, µ.
+We will need a lemma about central grouplike elements and skew primitive
+elements.
+α
+Lemma 5.0.17. Let α ∈ Φ+ for which χN
+α = ε. Then
+(i) gαNα is in the center of U(D, λ), and
+L
+(ii) there are no (gαNα , 1)-skew primitives in i≥1 u(D, λ, µ)i .
+
+Proof. (i) It suffices to prove that gαNα commutes with xj for each j. Note that
+Q
+P
+gαNα xj = χj (gαNα )xj gαNα . Write gα = gini where α = θi=1 ni αi . By the Cartan
+α
+condition (5.0.5) and the hypothesis χN
+α = ε, we have
+χj (gαNα ) =
+
+θ
+Y
+i=1
+
+χj (gini )Nα =
+
+θ
+Y
+aij −1
+n i Nα
+α
+(χi (gi )aij χ−1
+= χN
+α (gi gj ) = 1.
+i (gj ))
+i=1
+
+(ii) Each skew primitive in u(D, λ, µ) is of degree at most 1, and the only (g, 1)skew primitives in degree 1, for any g ∈ Γ, are in the span of the xi [2, (5.5) and
+Cor. 5.2]. Now gi 6= gαNα for each i, since the latter element is central by (i), while
+the former is not.
+
+We remark that the special case u(D, 0, 0) is a graded bialgebra, the grading
+given by the coradical filtration. In this case, u(D, 0, 0) ≃ B(V )#kΓ, the Radford
+biproduct (or bosonization) of the Nichols algebra B(V ) of the Yetter-Drinfeld
+module V over kΓ. For details, see [2, Cor. 5.2].
+We wish to understand u(D, λ, µ) as a graded bialgebra deformation of u(D, 0, 0).
+We now describe this graded case in more detail. Let R = B(V ) be the subalgebra
+
+BIALGEBRA COHOMOLOGY
+
+23
+
+e the subalgebra of U(D, 0) generated by all
+of u(D, 0, 0) generated by all xi , and R
+N
++
+α
+e
+e
+xi , so that R ≃ R/(x
+α | α ∈ Φ ). By [2, Thm. 2.6], R has PBW basis
+(5.0.18)
+
+a
+
+xaβ11 · · · xβpp
+
+(a1 , . . . , ap ≥ 0),
+
+and further,
+(5.0.19)
+
+N
+
+[xα , xβ β ]c = 0
+
+for all α, β ∈ Φ+ . Thus R has PBW basis consisting of all elements in (5.0.18) for
+e → R for which
+which 0 ≤ ai < Ni . Choose the section of the quotient map π : R
+the image of an element r of R is the unique element re that is a linear combination
+e with ai < Ni for all i = 1, . . . , p. This choice of
+of the PBW basis elements of R
+section is used in Section 6.1 below.
+6. Applications to some pointed Hopf algebras
+We will apply the cohomological results of the first part of the paper to compute
+the degree 2 bialgebra cohomology of the Radford biproduct R#kΓ ≃ u(D, 0, 0)
+defined in Section 5. We then use the result to understand deformations.
+6.1. Hochschild cohomology of u(D, 0, 0). We first compute H2h (R, k) and then
+apply the isomorphism (2.4.1) to obtain H2h (B, k) where B = R#kΓ. Hochschild
+one-cocycles on R with coefficients in k are simply derivations from R to k, that
+is functions f : R → k such that f (rs) = ε(r)f (s) + f (r)ε(s) for all r, s ∈ R.
+These may be identified with the linear functions from R+ /(R+ )2 to k, where
+R+ = ker ε is the augmentation ideal. A basis for the space of such functions is
+{fi | 1 ≤ i ≤ θ}, where for each i,
+fi (xj ) = δij (1 ≤ j ≤ θ).
+All coboundaries in degree one are 0, and so {fi | 1 ≤ i ≤ θ} may be identified
+with a basis of H1h (R, k). We obtain some elements of H2h (R, k) as cup products
+of pairs of the fi : For 1 ≤ i < j ≤ θ, define linear maps on pairs of PBW basis
+b
+a
+elements (5.0.18), xa = xaβ11 · · · xβpp and xb = xbβ11 · · · xβpp :
+
+1, if xa = xj and xb = xi
+a
+b
+(6.1.1)
+fji (x , x ) =
+0, otherwise.
+
+Then fji = fj ⌣ fi .
+Other Hochschild two-cocycles of R, with coefficients in k, are indexed by the
+e
+positive roots Φ+ and defined as follows: Recall from the end of Section 5 that R
+N
++
++
+α
+e
+e
+is an algebra for which R ≃ R/(x
+α | α ∈ Φ ). Let R be the augmentation ideal
++
++
++
+e For each α ∈ Φ , define feα : R
+e ⊗R
+e → k by
+of R.
+feα (r, s) = γ(0,...,0,Nα ,0,...,0)
+
+24
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+P
+a
+e
+where Nα is in the ith position if α = βi , and rs =
+a γa x in R. By its
++
+e , so it may be extended (trivially) to a normalized
+definition, feα is associative on R
+e In fact feα is a coboundary on R:
+e feα = ∂hα where
+Hochschild two-cocycle on R.
+Nα
+e
+hα (r) is the coefficient of xα in r ∈ R written as a linear combination of PBW
+e→R
+basis elements. We next show that feα factors through the quotient map π : R
+to give a Hochschild two-cocycle fα on R, and that fα is not a coboundary on R.
+We must show that feα (r, s) = 0 whenever either r or s is in the kernel of the
+e+ → R+ . It suffices to prove this for PBW basis elements.
+quotient map π : R
+N
+Suppose xa ∈ ker π. That is, aj ≥ Nj for some j. Write xa = κxβjj xb where κ
+is a nonzero scalar and b may be 0; note this is possible by the relation (5.0.19).
+N
+α
+Then feα (xa , xc ) = κfeα (xβjj xb , xc ), and this is the coefficient of xN
+α in the product
+N
+
+α
+κxβjj xb xc . However, the coefficient of xN
+α is 0: If α = βi and j = i, then since
+e+ , this product cannot have a nonzero coefficient for xNα . If j 6= i, the
+xc ∈ R
+α
+N
+same is true since x j is a factor of xa xc . A similar argument applies to feα (xa , xc )
+
+βj
+
+if xc ∈ ker π.
+e → R, and we may define fα : R+ ⊗ R+ → k by
+Thus feα factors through π : R
+fα (r, s) = feα (e
+r, e
+s),
+
+(6.1.2)
+
+where re, e
+s are defined via the section of π chosen at the end of Section 5. We
+must verify that fα is associative on R+ . Let r, s, u ∈ R+ . Since π is an algebra
+homomorphism, we have re · se = rs
+e + y and se · u
+e = sf
+u + z for some elements
+e
+e
+e
+y, z ∈ ker π. Since ker π ⊗ R + R ⊗ ker π ⊂ ker fα , we have
+fα (rs, u) = feα (rs,
+e u
+e) = feα (e
+r · se − y, u
+e)
+= feα (e
+r · se, u
+e)
+
+= feα (e
+r, e
+s·u
+e) = feα (e
+r, f
+su) = fα (r, su).
+
+As we will see, we only need the functions fji when i 6∼ j, that is i and j are in
+different connected components of the Dynkin diagram of Φ. Together with the
+fα , α ∈ Φ+ , these represent a linearly independent subset of H2h (R, k):
+Theorem 6.1.3. The set {fα | α ∈ Φ+ } ∪ {fji | 1 ≤ i < j ≤ θ, i 6∼ j} represents
+a linearly independent subset of H2h (R, k).
+Proof. Let
+f=
+
+X
+
+α∈Φ+
+
+cα fα +
+
+X
+
+cji fji
+
+1≤i<j≤θ
+i6∼j
+
+for scalars cα , cji . Assume f = ∂h for some h : R → k. Then for each α ∈ Φ+ ,
+α −1
+α −1
+α
+cα = f (xα , xN
+) = ∂h(xα , xN
+) = −h(xN
+α
+α
+α ) = 0
+
+BIALGEBRA COHOMOLOGY
+
+25
+
+α −1
+α
+as xα , xN
+∈ R+ and xN
+α
+α = 0 in R. For each pair i, j (1 ≤ i < j ≤ θ, i 6∼ j),
+xj xi = χi (gj )xi xj since i 6∼ j, and so
+
+cji = f (xj , xi ) = ∂h(xj , xi )
+= −h(xj xi )
+= −h(χi (gj )xi xj ) = χi (gj )f (xi , xj ) = 0.
+
+Due to the isomorphism (2.4.1), we are primarily interested in Γ-invariant
+Hochschild two-cocycles from R ⊗ R to k. The action of Γ on the functions fα , fji
+is diagonal, and so we determine those fα , fji that are themselves Γ-invariant.
+Theorem 6.1.4. If |Γ| is not divisible by primes less than 11, then
+α
+{fα , fji }Γ := {fα | α ∈ Φ+ , χN
+α = ε} ∪ {fji | 1 ≤ i < j ≤ θ, i 6∼ j, χi χj = ε}
+α
+is a basis of H2h (R#kΓ, k). In particular, if l ≤ −3, then {fα |χN
+α = ε, Nα ht(α) =
+−l} is a basis for H2h (R#kΓ, k)l .
+
+Remark 6.1.5. The condition i 6∼ j is implied by the condition χi χj = ε, and
+so is redundant: A proof of this fact consists of a case-by-case analysis using the
+Cartan condition (5.0.5) for the pairs i, j and j, i. We put the condition i 6∼ j in
+the statement of the theorem for clarity.
+Proof. The action of Γ on H2h (R, k) comes from the dual action of Γ on R ⊗ R,
+α
+that is, (g · f )(r, s) = f (g −1 · r, g −1 · s). Therefore g · fα = χ−N
+(g)fα and g · fji =
+α
+−1
+−1
+χi (g)χj (g)fji. Thus the subset of those functions from Theorem 6.1.3 that are
+α
+Γ-invariant consists of the fα for which χN
+α = ε and the fji for which χi χj = ε.
+By Remark 6.1.5, this proves that the given set represents a linearly independent
+subset of H2h (R#kΓ, k).
+The fact that the given set spans H2h (R#kΓ, k) is a consequence of [9, Lemma
+5.4]: That lemma states in our case that H2 (R, k) (equivalently, H2h (R, k)) has
+basis in one-to-one correspondence with that of I/(T + (V ) · I + I · T + (V )), where
+R = T (V )/I (I is the ideal of relations). This follows by looking at the minimal
+resolution of k. As a consequence, H2h (R#kΓ, k), which is isomorphic to H2h (R, k)Γ ,
+has basis in one-to-one correspondence with that of the Γ-invariant subspace of
+I/(T + (V ) · I + I · T + (V )). The Γ-invariant root vector relations and linking
+relations give rise to the elements fα and fji in the statement of the theorem. It
+remains to show that the Serre relations do not give rise to Γ-invariant elements in
+cohomology. If the Serre relation (5.0.9) did give rise to a Γ-invariant element in
+1−a
+cohomology, then χi ij χj = ε by considering the Γ-action. This is not possible:
+The Cartan condition for the pairs i, j and j, i, together with this equation, implies
+χi (gi )aij +aji −aij aji = 1. A case-by-case analysis shows that this implies χi (gi ) has
+order 3, 5, or 7, contradicting our assumption that the order of Γ is not divisible
+by primes less than 11.
+
+26
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+The last statement of the theorem is now immediate from the observation that
+fα is homogeneous of degree −Nα ht(α), and fji is homogeneous of degree −2. 
+Remark 6.1.6. Masuoka independently obtained a proof that the given set spans
+H2h (R#kΓ, k), using completely different methods and results from his preprint
+[16].
+Note that the conditions in the theorem on the χα and χi are “half” of the conditions (5.0.6) and (5.0.12) under which nontrivial linking or root vector relations
+may occur. The other half of those conditions, involving elements of Γ, will appear
+after we apply the formula (3.4.1) to obtain corresponding bialgebra two-cocycles.
+(The bialgebra two-cocycle will be 0 when the condition on the appropriate group
+element is not met.)
+6.2. Bialgebra two-cocycles. Let B = R#kΓ as before. We wish to apply
+the connecting homomorphism in the long exact sequence (3.3.1) to elements of
+H2h (B, k) from Theorem 6.1.4, in order to obtain bialgebra two-cocycles. First we
+prove that the connecting homomorphism is surjective.
+Theorem 6.2.1. Assume the order of Γ is not divisible by 2 or 3. If H2h (B, k) =
+Span{fji , fα }Γ and l < 0, then the connecting homomorphism δ : H2h (B, k)l →
+b 2 (B)l is surjective.
+H
+b
+
+2
+Γ
+Proof. Let M be as in (4.1.1). Note that the fact that HS
+ji , fα }
+h (B,
+ k) = NSpan{f
+α
+xα ⊗ xα α −1 |χN
+translates into the fact that {xj ⊗xi −χj (gi )xi ⊗xj |χi χj }
+α = ε
+forms a basis for M Γ . Hence, if Mh,ε,r 6= 0, then either h = gi gj with χi χj = ε,
+α
+or h = gαNα with χN
+= ε. If h = gαNα , then there are no (1, h)-primitives in
+α
+of positive degree in B by Lemma 5.0.17(ii). We now show that there are no
+(1, h)-primitives of positive degree in B (equivalently R1 ) whenever h = gi gj .
+Suppose otherwise, i.e., for some k we have gk = gi gj . Since i 6∼ j, we also
+have that either i 6∼ k, or j 6∼ k. Without loss of generality suppose the latter.
+Then χk (gk ) = χk (gi gj )χi (gk )χj (gk ) = (χk (gi )χj (gk ))(χk (gj )χj (gk )) = χk (gk )aki
+and hence χk (gk )1−aki = 1. This is impossible, since 1 − aki ∈ {1, 2, 3, 4} and |Γ|
+is not divisible by 2 or 3.
+Hence the conditions of Theorem 4.2.3 are satisfied.
+
+
+Remark 6.2.2. Assume that the order of Γ is not divisible by 2 or 3. Additionally
+assume that the order of Γ is not divisible by 5 whenever the Dynkin diagram
+associated to D contains a copy of Bn with n ≥ 3. A similar case by case analysis
+to the one in the proof of Theorem 6.1.4 shows that there are no (1, h)-primitives
+1−a
+1−a
+whenever h = gi ij gj with χi ij χj = ε. This observation can then be used
+b 2 (B)l , where B =
+to show that the connecting homomorphism δ : H2h (B, k)l → H
+b
+u(D, 0, 0) and l < 0 is surjective.
+
+BIALGEBRA COHOMOLOGY
+
+27
+
+Now let f : B ⊗B → k be a Hochschild two-cocycle. The formula (3.4.1) applied
+to f yields
+(6.2.3)
+
+F (a, b) = f (a1 , b1 )a2 b2 − f (a2 , b2 )a1 b1 ,
+
+b 2 (B, B). We apply this fora bialgebra two-cocycle representing an element in H
+b
+mula to f = fji , fα , defined in (6.1.1) and (6.1.2), to obtain explicit bialgebra
+two-cocycles F = Fji , Fα . For our purposes, it will suffice to compute the value
+of each Fji , Fα on a single well-chosen pair of elements in R. In order to compute
+them on arbitrary pairs of elements of B, one must use (6.2.3) and Lemma 2.4.2.
+Lemma 6.2.4. If f : B ⊗ B → k is a homogeneous ε-cocycle of degree l < 0,
+δf = (F, 0), and x ∈ Ri , y ∈ Rj , with i + j = −l, are PBW-basis elements in
+components gx , gy , then
+F (x, y) = f (x, y)(1 − gx gy ).
+In particular
+(6.2.5)
+
+Fji (xj , xi ) = 1 − gj gi ,
+
+and
+(6.2.6)
+
+α −1
+Fα (xα , xN
+) = 1 − gαNα .
+α
+
+Proof. The hypotheses imply that ∆x = x⊗1+gx ⊗x+u and ∆y = y⊗1+gy ⊗y+v,
+P
+P ′
+L
+Lj−1
+′′
+where u = r u′r ⊗ u′′r ∈ i−1
+p=1 Bp ⊗ Bi−p and v =
+q=1 Bq ⊗ Bj−q .
+s vs ⊗ vs ∈
+′
+′
+′′ ′′
+Then f (ur , vs ) = 0 = f (ur , vs ) due to degree considerations and hence F (x, y) =
+f (x, y)1 − f (x, y)gxgy .
+
+α −1
+) = 0 exactly
+Note that Fji (xj , xi ) = 0 exactly when gi gj = 1, and Fα (xα , xN
+α
+Nα
+when gα = 1. More generally, if x, y are PBW-basis elements of joint degree 2
+(resp. ht(α)Nα ), then Fji (x, y) ∈ k(1 − gj gi ) (resp. Fα (x, y) ∈ k(1 − gαNα )).
+Combined with the conditions on χα and χi in Theorem 6.1.4, we have recovered
+precisely the conditions in (5.0.6) and (5.0.12) under which there exist nontrivial
+linking and root vector relations. In Theorem 6.3.1 below, we make the connection
+between these bialgebra two-cocycles and the pointed Hopf algebras u(D, λ, µ).
+Our calculations above, combined with Theorems 6.1.4 and 6.2.1 now allow
+b 2 (B)l , l < 0, for coradically graded Hopf algebras
+us to determine completely H
+b
+B = R#Γ in the Andruskiewitsch-Schneider program. We have the following
+theorem.
+
+Theorem 6.2.7. Let B = u(D, 0, 0) and assume that |Γ| is not divisible by 2 or
+3. If H2h (B, k) = Span{fji , fα }Γ (see for example Theorem 6.1.4), then the set
+
+α
+(Fα , 0), (Fj,i , 0)| α ∈ Φ+ , 1 ≤ i < j ≤ θ, gαNα 6= 1, χN
+α = ε, i 6∼ j, gi gj 6= 1, χi χj = ε
+L b2
+is a basis for l<0 H
+b (B)l .
+
+28
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+Proof. Fα is a homogeneous cocycle of degree l := − ht(α)Nα . If gαNα = 1, then
+(Fα )−l = 0 and hence by Lemma 4.2.2 (ii) (Fα , 0) is a coboundary. We can show
+that if gi gj = 1, then (Fi,j , 0) is a coboundary in a similar fashion. Hence by TheoL
+b 2 (B)l .
+rems 6.1.4 and 6.2.1 and our above calculations, the given set spans l<0 H
+b
+Note that it is sufficient to show that for every l < 0, the Hochschild cohomology
+classes of cocycles Fα , Fi,j of degree l are linearly independent. This is achieved as
+follows.
+P
+
+Nα −1
+If l < −2, then
+λ
+F
+) = λα (1 − gαNα ), but for s : B →
+ht(α)Nα =−l α α (xα , xα
+
+α −1
+α −1
+α
+B homogeneous of degree l, we have ∂ h (s)(xα , xN
+) = xα s(xN
+) − s(xN
+α ) +
+α
+α
+Nα −1
+s(xα )xα
+= 0. 
+
+P
+If l = −2, then
+i,j λji Fji (xj ⊗xi −qi,j xi ⊗xj ) = λi,j (1−gi gj ) and if s : B → B
+
+is homogeneous of degree −2, then ∂ h (s)(xj ⊗ xi − χj (gi )xi ⊗ xj ) = 0.
+
+
+
+Remark 6.2.8. For positive l one can use the homomorphism δ : Hc2 (k, B)l →
+b 2 (B)l to obtain a similar description for L H
+b2
+H
+b
+l>0 b (B)l . However, the positive
+part of the truncated bialgebra cohomology is not relevant in the context of graded
+bialgebra deformations.
+6.3. Graded bialgebra deformations. Now let B = u(D, λ, µ), defined in Section 5. Also assume that the order of Γ is not divisible by primes < 11. These
+Hopf algebras are in general filtered by the coradical filtration, with deg(xi ) = 1
+(i = 1, . . . , θ) and deg(g) = 0 (g ∈ Γ). The filtration allows us to define related
+Hopf algebras over k[t], where t is an indeterminate, as in [6]: By [2, Theorem
+a
+3.3(1)], B has PBW basis {xaβ11 · · · xβpp g | 1 ≤ ai < Ni , g ∈ Γ}. Express each
+element of B uniquely as a linear combination of these basis elements. Then there
+exist unique maps ms : B ⊗ B → B, homogeneous of degree −s, such that
+X
+m(a ⊗ b) =
+ms (a ⊗ b)
+s≥0
+
+for all a, b ∈ H. Now define a new multiplication mt : B ⊗ B → B[t] by
+X
+mt (a ⊗ b) =
+ms (a ⊗ b)ts ,
+s≥0
+
+and extend k[t]-linearly to B[t] ⊗k[t] B[t]. In particular the analogs of the linking
+and root vector relations (5.0.10) and (5.0.13) for B[t] will now involve powers of
+t. When we write B[t], we will always mean the vector space B[t] with multiplication mt and the usual (graded) comultiplication. In this way B[t] is a graded
+deformation of Gr B = u(D, 0, 0).
+If s > 0, then define λ(s) and µ(s) by
+(
+(
+λ;
+if
+s
+=
+2
+µα ; if s = ht(α)Nα
+λ(s) =
+, µ(s)
+.
+α =
+0; otherwise
+0;
+otherwise
+
+BIALGEBRA COHOMOLOGY
+
+29
+
+Note that u(D, µ, λ)[t]/(ts+1) ≃ u(D, µ(s), λ(s) )[t]/(ts+1 ).
+Let r = r(λ, µ) be the smallest positive integer, if it exists, such that mr 6= 0. (If
+it does not exist, set r = r(λ, µ) = 0.) Since B[t] is a bialgebra, (mr , 0) is necessarily a bialgebra two-cocycle, of degree −r, and B[t]/(tr+1 ) is an r-deformation (see
+Section 2.2). Note that if λ 6= 0, then r = 2, due to the linking relations (5.0.10).
+Recall the definitions (5.0.7) of λji (i < j) and of Fji , Fα via (6.2.3) above. The
+following is a nice consequence of Theorem 6.2.7.
+Theorem 6.3.1.
+(i) Let B[t] = u(D, λ, µ)[t] and B ′ [t] = u(D, λ′, µ′)[t] and let s be a nonnegative integer such that λ(s) = λ′(s) and µ(s) = µ′(s) . Then B[t]/(ts+2 ) and
+B ′ [t]/(ts+2 ) are (s + 1)-deformations of u(D, 0, 0) extending the same sdeformation B[t]/(ts+1 ) = B ′ [t]/(ts+1 ). If mt = m + tm1 + . . . ts ms +
+ts+1 ms+1 + . . . then m′t = m + tm1 + . . . . . . ts ms + ts+1 m′s+1 + . . . and
+(ms+1 − m′s+1 , 0) is a bialgebra cocycle of degree −(s + 1) cohomologous to
+(F, 0), where
+X
+X
+δs+1,ht(α)Nα (µα − µ′α )Fα .
+F =
+δs+1,2 (λji − λ′ji )Fji +
+1≤i<j≤θ
+
+α∈Φ+
+
+(ii) In particular, the Hopf algebra u(D, λ, µ)[t] is a graded deformation of
+u(D, 0, 0) = R#kΓ, over k[t], with infinitesimal deformation (mr , 0) cohomologous to (F, 0), where
+X
+X
+δr,ht(α)Nα µα Fα .
+δr,2 λji Fji +
+F =
+1≤i<j≤θ
+
+α∈Φ+
+
+Proof. In view of Theorem 6.2.7 and Remark 2.2.1 it is clearP
+that (ms+1P
+− m′s+1 , 0)
+is a bialgebra cocycle cohomologous to (F, 0), where F =
+aji fji + bα fα for
+′
+α −1
+some scalars aji , bα . Evaluating ms+1 and ms+1 at xi ⊗xj (if s = 1) and xα ⊗xN
+α
+(if s = ht(α)Nα − 1) then identifies these coefficients.
+
+We give one more class of examples to which our cohomological techniques apply,
+the rank one Hopf algebras of Krop and Radford [14]. Assume k has characteristic
+0. Let θ = 1 and (a11 ) = (2). Let Γ be a finite group (not necessarily abelian),
+b Let N be the order of χ(a). Let x = x1 ,
+a = g1 a central element of Γ, and χ ∈ Γ.
+and R = k[x]/(xN ), on which Γ acts via χ, that is g · x = χ(g)x for all g ∈ Γ.
+Let B = R#kΓ, a generalized Taft algebra with ∆(x) = x ⊗ 1 + a ⊗ x. Similar to
+the functions fα in Section 4.1, there is a Hochschild two-cocycle f : R ⊗ R → k
+defined by
+
+1 if i + j = N
+i
+j
+f (x , x ) =
+0 otherwise.
+This cocycle is Γ-invariant precisely when χN = ε. In this case, let µ ∈ k. There
+is a bialgebra deformation of B in which the relation xN = 0 is deformed to
+
+30
+
+MITJA MASTNAK AND SARAH WITHERSPOON
+
+xN = µ(1 − aN ); this is the Hopf algebra HD of Krop and Radford [14]. In case Γ
+is abelian, this example is included in the Andruskiewitsch-Schneider classification.
+
+References
+[1] N. Andruskiewitsch and H.-J. Schneider, “Pointed Hopf algebras,” in: New Directions in
+Hopf Algebras, MSRI Publications 43, 1–68, Cambridge Univ. Press, 2002.
+[2] N. Andruskiewitsch and H.-J. Schneider, “On the classification of finite-dimensional
+pointed Hopf algebras,” math.QA/0502157, to appear in Ann. Math.
+[3] A. Braverman and D. Gaitsgory, “Poincaré-Birkhoff-Witt Theorem for quadratic algebras
+of Koszul type,” J. Algebra 181 (1996), 315–328.
+[4] A. Căldăraru, A. Giaquinto, and S. Witherspoon, “Algebraic deformations arising from
+orbifolds with discrete torsion,” J. Pure Appl. Algebra 187 (2004), 51–70.
+[5] C. De Concini and V. G. Kac, “Representations of quantum groups at roots of 1,” in
+Operator Algebras, Unitary Representations, Enveloping Algebras, and Invariant Theory:
+actes du Colloque en l’honneur de Jacques Dixmier, ed. A. Connes et al., Progr. Math.
+92, Birkhäuser, Boston, 1990, 471–506.
+[6] Y. Du, X.-W. Chen, and Y. Ye, “On graded bialgebra deformations,” Algebra Colloq. 14
+(2007), no. 2, 301–312.
+[7] M. Gerstenhaber and S. D. Shack, “Bialgebra cohomology, deformations, quantum groups
+and algebraic deformations,” Proc. Natl. Acad. Sci. USA, vol. 87 (1990), 478–481.
+[8] M. Gerstenhaber and S. D. Shack, “Algebras, bialgebras, quantum groups, and algebraic
+deformations,” in Deformation theory and quantum groups with applications to mathematical physics, 51–92, Contemp. Math. 134, Amer. Math. Soc., 1992.
+[9] V. Ginzburg and S. Kumar, “Cohomology of quantum groups at roots of unity,” Duke
+Math. J. 69 (1993), no. 1, 179–198.
+[10] L. Grunenfelder, “Tangent cohomology, Hopf algebra actions and deformations,” J. Pure
+Appl. Algebra 67 (1990), 125149.
+[11] L. Grunenfelder and M. Mastnak, “Cohomology of abelian matched pairs and the Kac
+sequence,” J. Algebra 276 (2004), no. 2, 706–736.
+[12] I. Heckenberger, “Classification of arithmetic root systems,” math.QA/0605795.
+[13] V. G. Kac, Infinite dimensional Lie algebras, Cambridge University Press, 3d ed., 1990.
+[14] L. Krop and D. E. Radford, “Finite-dimensional Hopf algebras of rank one in characteristic
+zero,” J. Algebra 302 (2006), no. 1, 214–230.
+[15] G. Lusztig, “Quantum groups at roots of 1,” Geom. Dedicata 35 (1990), 89–114.
+[16] A. Masuoka, “Abelian and non-abelian second cohomologies of quantized enveloping algebras,” math.QA/0708.1982.
+[17] D. E. Radford, “The structure of Hopf algebras with a projection,” J. Algebra 92 (1985),
+no. 2, 322–347.
+[18] P. Schauenburg, “Hopf modules and Yetter-Drinfeld modules,” J. Algebra 169 (1994), no.
+3, 874–890.
+[19] D. Ştefan, “Hochschild cohomology on Hopf Galois extensions,” J. Pure Appl. Algebra
+103 (1995), 221–233.
+[20] R. Taillefer, “Cohomology theories of Hopf bimodules and cup-product,” Algebr. Represent. Theory 7 (2004), no. 5, 471–490.
+[21] C. Weibel, An Introduction to Homological Algebra, Cambridge University Press (1994).
+
+BIALGEBRA COHOMOLOGY
+
+31
+
+Department of Pure Mathematics, University of Waterloo, 202 University Ave
+West, Waterloo, ON N2L3G1, Canada
+E-mail address: mmastnak@math.uwaterloo.ca
+Department of Mathematics, Texas A&M University, College Station, TX 77845,
+USA
+E-mail address: sjw@math.tamu.edu
+
+

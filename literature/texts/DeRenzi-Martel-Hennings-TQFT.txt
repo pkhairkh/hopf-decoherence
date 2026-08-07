@@ -1,0 +1,3064 @@
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH
+COHOMOLOGY CLASSES
+
+arXiv:2402.05103v1 [math.GT] 7 Feb 2024
+
+MARCO DE RENZI, JULES MARTEL, AND BANGXIN WANG
+
+Abstract. Starting from an abelian group G and a factorizable ribbon Hopf
+G-bialgebra H, we construct a TQFT JH for connected framed cobordisms between connected surfaces with connected boundary decorated with cohomology
+classes with coefficients in G. When restricted to the subcategory of cobordisms with trivial decorations, our functor recovers a special case of Kerler–
+Lyubashenko TQFTs, namely those associated with factorizable ribbon Hopf
+algebras. Our result is inspired by the work of Blanchet–Costantino–Geer–
+Patureau, who constructed non-semisimple TQFTs for admissible decorated
+cobordisms using the unrolled quantum group of sl2 , and by that of Geer–Ha–
+Patureau, who reformulated the underlying invariants of admissible decorated
+3-manifolds using ribbon Hopf G-coalgebras. Our work represents the first
+step towards a homological model for non-semisimple TQFTs decorated with
+cohomology classes that appears in a conjecture by the first two authors.
+
+1. Introduction
+The interplay between the algebraic structure of monoidal categories and the
+topological properties of low-dimensional geometric objects provides a cornerstone
+for the field of quantum topology. One way to frame this interaction is that quantum
+topology is a discipline that develops an algebraic approach, based on generators
+and relations, to low-dimensional topology. In particular, one of its purposes is to
+produce topological invariants of manifolds, and of maps between manifolds, out
+of algebras, their representations, and the monoidal categories they form. A more
+ambitious goal is typically to organize all these invariants into coherent structures
+known as a TQFTs (Topological Quantum Field Theories).
+In this paper, we provide a TQFT construction that produces functors defined
+over categories of cobordisms decorated with cohomology classes. In order to do
+this, we fix an abelian group G, and we introduce the notion of a ribbon Hopf
+G-bialgebra (see Section 3.1), by generalizing Ohtsuki’s colored ribbon Hopf algebras [Oh93] and (the abelian case of) Virelizier’s ribbon Hopf G-coalgebras [Vi00].
+Roughly speaking, such a ribbon Hopf G-bialgebra H is given by a family of vector
+spaces Hαβ parametrized by two indices α, β ∈ G. The direct sum
+M
+H0⊕ =
+H0α
+α∈G
+
+is naturally a ribbon Hopf algebra, and so is H00 . The main example of ribbon
+Hopf G-bialgebra we will consider in this paper arises from the quantum group of
+sl2 with G = C/2Z, and is introduced in Section 5 by adapting the example discussed in [GHP22]. We also consider the category 3CobG of G-decorated connected
+framed cobordisms (see Section 2), whose morphisms come equipped with cohomology classes with G-coefficients. Here is our main result, see also Theorem 4.2.
+
+1
+
+2
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+Theorem 1.1. Every factorizable1 ribbon Hopf G-bialgebra H induces a braided
+monoidal functor
+JH : 3CobG → H0⊕ -mod .
+As an immediate consequence, when restricted to the subcategory 3Cob of cobordisms decorated with the trivial cohomology class, our functor recovers Kerler and
+Lyubashenko’s TQFT associated with the factorizable ribbon Hopf algebra H00 ,
+compare with Corollary 4.3.
+Corollary 1.2. If H is a factorizable ribbon Hopf G-bialgebra, then the TQFT JH
+of Theorem 1.1 fits into the commutative diagram of braided monoidal functors
+JH 0
+0
+
+H00 -mod
+
+3CobG JH
+
+H0⊕ -mod
+
+3Cob
+ι
+
+ρ
+
+where JH00 is the Kerler–Lyubashenko TQFT, ι is the inclusion functor, and ρ is
+the restriction functor.
+1.1. State of the art. As their name suggests, TQFTs have a physical interpretation, and they were first axiomatized in mathematical terms by Atiyah [At88],
+who defined them, broadly speaking, as monoidal functors from categories of cobordisms to categories of modules over a given ring or field. Morphisms in categories
+of cobordisms are manifolds (possibly equipped with embedded links or other decorations) whose boundary is decomposed into an incoming part, or source, and an
+outgoing one, or target. The monoidal structure for cobordisms is traditionally induced by disjoint union, according to Atiyah’s definition, although other meaningful
+frameworks exist (like the one considered in this paper, for instance). The first fullfledged construction of TQFTs was performed by Turaev [Tu94] using semisimple
+modular categories. Turaev’s work generalized and extended previous results by
+Reshetikhin and Turaev [RT91], who first defined invariants of 3-manifolds using
+semisimple quotients of categories of representations of ribbon Hopf algebras such
+as quantum groups. Their construction was inspired by previous work of Witten
+on the Jones polynomial and Chern–Simons quantum field theory [Wi89], so the
+resulting invariants are now known as WRT invariants (for Witten–Reshetikhin–
+Turaev ). Since the semisimplicity assumption played a crucial role in Turaev’s construction, the associated functors are sometimes referred to as semisimple TQFTs.
+The first construction of topological invariants of closed 3-manifolds built from
+possibly non-semisimple ribbon Hopf algebras is due to Hennings [He96]. In his
+approach, Hennings requires some assumptions on ribbon Hopf algebras, which
+need to be unimodular and twist non-degenerate. The resulting invariants were
+deeply generalized by Lyubashenko [Ly94] to families of representations of mapping class groups of surfaces using potentially non-semisimple modular categories,
+such as categories of representations of factorizable ribbon Hopf algebras. Later,
+Kerler and Lyubashenko extended these mapping class group representations to
+EQTFTs (Extended TQFTs) for connected cobordisms [KL01]. In particular, such
+ETQFTs contain TQFT functors defined on a category of cobordisms whose objects
+are connected surfaces with connected boundary, whose morphisms are connected
+cobordisms between them, and whose monoidal structure is induced by boundary
+connected sum. Such functors are called Kerler–Lyubashenko TQFTs in this paper.
+More recently, strong invariants of closed 3-manifolds decorated with cohomology classes, known as CGP invariants, were constructed by Costantino, Geer, and
+1See Section 3.2 for a definition.
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES
+
+3
+
+Patureau in [CGP12]. This was done using the theory of modified traces and relative
+modular categories, which are a non-semisimple graded generalization of modular
+categories. These invariants were extended to TQFTs, known as BCGP TQFTs,
+by Blanchet, Costantino, Geer, and Patureau [BCGP14] for the unrolled quantum
+group of sl2 , and to ETQFTs by the first author [De17] for general relative modular
+categories. Both approaches follow the universal construction of Blanchet, Habegger, Masbaum, and Vogel [BHMV95] to produce functors defined on categories
+of so-called admissible cobordisms decorated with cohomology classes. By contrast
+with Kerler and Lyubashenko’s framework, such categories feature disconnected objects, and disjoint union as tensor product. As we shall discuss later, cohomology
+classes should not be seen as a technical nuisance of the theory, but rather witness
+the richness of such invariants. Modified traces were later integrated in Hennings
+and Lyubashenko’s constructions to obtain invariants, known as renormalized Hennings and renormalized Lyubashenko invariants respectively, that extend to disconnected admissible cobordisms on the level of both TQFTs [DGGPR19] and ETQFTs
+[De21]. More recently, constructions exploiting non-semisimple spherical categories
+were also developed, see [CGPV23].
+1.2. Main results. As it is clear from the previous discussion, several approaches
+to the construction of non-semisimple TQFTs are now available. In the present
+work, we will essentially follow Kerler and Lyubashenko, but we will generalize their
+construction to obtain a monoidal functor defined on the category 3CobG of connected framed cobordisms decorated with cohomology classes with G-coefficients.
+As our main tool, we will use a factorizable ribbon Hopf G-bialgebra H, see Theorem 4.2. For cobordisms decorated with the trivial cohomology class, our functor
+restricts to the one associated by Kerler and Lyubashenko’s construction to the
+factorizable ribbon Hopf algebra H00 , see Corollary 4.3.
+To motivate our interest in this generalized construction, we highlight the fact
+that, for the CGP invariants associated with the unrolled quantum group of sl2 ,
+the dependence on a cohomology class with C/2Z-coefficients was crucially used to
+recover the classification of lens spaces [BCGP14, Proposition 6.24]. It is known
+that this cannot be done using WRT invariants, and it is currently not known
+whether this can be done using renormalized Lyubashenko invariants associated
+with the small quantum group of sl2 .
+Furthermore, a TQFT functor automatically yields representations of mapping
+class groups of the objects of the corresponding cobordism category. It is well-known
+that representations coming from semisimple TQFTs associated with quantum sl2
+are never faithful, since Dehn twists are always sent to matrices of finite order.
+This obstruction vanishes for representations arising from all non-simimple TQFTs
+associated with quantum sl2 . This observation makes them candidates for tackling the question of linearity of mapping class groups, since no non-trivial elements
+have currently been found in the kernels of these representations. Working with
+manifolds endowed with cohomology classes requires either looking at twisted representations or restricting to diffeomorphisms that fix a given cohomology class.
+In first approximation, it is completely acceptable to restrict to representations of
+Torelli subgroups, since their elements fix every cohomology class, and since such
+subrgoups are at the heart of the linearity problem (indeed, by their very definition,
+they constitute precisely the part of the mapping class group that is not detected
+by the standard homological representation). Since these groups are of finite type,
+finitely many different cohomology classes can in principle be used to detect finite
+families of generating diffeomorphisms. In such a situation, a continuity argument
+in C/2Z could be used to deduce the existence of a single cohomology class detecting every element of the Torelli group. This observation motivates the interest in
+
+4
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+representations of Torelli groups that depend on the choice of a cohomology class
+with C/2Z-coefficients. We notice however that, in order to apply such a continuity
+argument, we should first prove that these representations depend continuously on
+the evaluation of the cohomology class against a finite basis of the homology of the
+surface.
+In [DM22], the first two authors have proposed a completely different perspective on Lyubashenko’s mapping class groups representations associated with small
+quantum sl2 , by developing a model based on twisted homology groups of configuration spaces. Such a model also provides a homological construction of the action
+of quantum sl2 . This framework is promising for studying faithfulness of mapping
+class group representations, since it is the same that was used by Bigelow [Bi00]
+to prove linearity of braid groups. For punctured discs, the fact that homological representations are isomorphic to quantum representations (possibly decorated
+with cohomology classes) was proved in [Ma20]. In [DM22, Section 6.3.1], homological representations in higher genus are upgraded to twisted representations for
+surfaces endowed with cohomology classes, and [DM22, Conjecture 6.6] states that
+such representations should also arise from a non-semisimple TQFT construcion.
+The functor of Theorem 4.2 yields precisely the representations that, according to
+our expectation, should provide the quantum counterpart to such twisted homological representations. Now that these representations have actually been constructed, we rephrase the conjecture in Section 5.4, to be studied in a future paper.
+The homological setup pinpoints bases in which coefficients of these representations
+depend on the cohomology class as polynomials over the integers (see [DM22, Section 6.3.1]). This integrality property is a crucial strength of semisimple TQFTs,
+see for instance the discussion of [DM22, Section 1.2]. Its first appearance in a
+non-semisimple context is [DM22, Corollary 6.3], and a polynomial dependence of
+BCGP representations in the coefficients of the cohomology class has not been established in general yet (although an analytic dependence has been observed in
+specific cases).
+In the present paper, we use as our main tool for the construction a factorizable
+ribbon Hopf G-bialgebra H. In some sense, such an algebraic structure is the appropriate one for encoding cohomology classes with G-coefficients on cobordisms.
+The inspiration for this algebraic setup comes from the work of Virelizier [Vi00] and
+Geer, Ha, and Patureau [GHP22] on ribbon Hopf group-coalgebras. In order to construct a TQFT functor, the notion of a ribbon Hopf group-bialgebra is required, as
+explained in Section 4. In the case of unrolled quantum groups, an improved version
+of the invariants provided by our TQFTs was defined in [GHP20] using modified
+integrals, and it was shown to recover the corresponding CGP invariants. Applying
+the universal construction to these invariants would thus immediately yield TQFT
+functors, as it was shown in [De17]. However, the invariants of [GHP20] can be extended to a larger category of admissible decorated cobordisms than the one used
+for BGCP TQFTs, by allowing embedded bichrome graphs as defined in [GHP20,
+Section 5.1]. The TQFTs resulting from the application of the universal construction to this larger category of admissible decorated cobordisms are expected to be
+larger than BCGP TQFTs, and our functors would correspond to the restriction of
+these larger TQFTs to the category of connected cobordisms, by analogy with the
+relation established in the absence of decorations in [DM22, Appendix C].
+1.3. Structure of the paper. In Section 2, we introduce the category 3CobG of
+connected framed cobordisms decorated with cohomology classes with coefficients
+in an abelian group G. This will provide the source of our TQFT functor. In
+Subsection 2.1, we propose a diagrammatic model for these decorated cobordisms
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES
+
+5
+
+based on the category TanG of G-labeled top tangles in G-labeled handlebodies. We
+establish an equivalence between the categories TanG and 3CobG in Subsection 2.2.
+In Section 3, we introduce the algebraic structure that we will use to define
+a braided monoidal functor on TanG . Namely, we introduce the notion of Hopf
+group-bialgebras in Section 3. We define ribbon structures in Subsection 3.1, and
+we introduce the condition of factorizability in Subsection 3.2. These are the Hopf
+G-bialgebra version of the structure and properties required for the construction of
+Kerler and Lyubashenko’s TQFTs.
+In Section 4, we consider a factorizable Hopf G-bialgebra H, and we construct a
+braided monoidal functor JH : 3CobG → H0⊕ -mod. In order to do this, we present
+an algorithm to define the image of a G-labeled top tangle. In Subsection 4.1, we
+show that the result is invariant under diagrammatic relations in TanG corresponding to G-labeled versions of Kirby moves for surgery presentations. This yields a
+proof of Theorem 4.2. In Subsection 4.2, we state and prove Corollary 4.3, which
+shows that JH restricts to the Kerler–Lyubashenko TQFT when labels are all zero.
+In Section 5, we give an important example of a factorizable ribbon Hopf Gbialgebra arising from the quantum group of sl2 for G = C/2Z. The TQFT functor it induces thus depends on cohomology classes with coefficients in the same
+group appearing in the construction of Blanchet–Costantino–Geer–Patureau. In
+Subsections 5.1, 5.2, and 5.3 we provide bases for state spaces and define ribbon
+structure, integrals, and cointegrals. Proposition 5.7 shows that the resulting Hopf
+G-bialgebra is factorizable, and thus can be used to construct a TQFT functor.
+Finally, in Subsection 5.4, we recall the conjecture relating mapping class groups
+representations arising from JH in the case of sl2 to homological representations.
+2. Decorated connected framed cobordisms
+In this section, we fix an abelian group G, and we introduce the category 3CobG
+of G-decorated connected framed cobordisms. Decorations will be given by cohomology classes with G-coefficients, and the definition will generalize the category
+of connected cobordisms between connected surfaces with connected boundary introduced by Crane–Yetter and Kerler [CY94, Ke01].
+Let G be an abelian group. The category 3CobG of G-decorated connected framed
+cobordisms is defined as follows:
+⋄ Objects of 3CobG are triples Σ = (Σ, ϑ, L) where
+◦ Σ is a connected surface with one boundary component;
+◦ ϑ ∈ H 1 (Σ; G) is a cohomology class;
+◦ L ⊂ H1 (Σ; R) is a Lagrangian subspace with respect to the intersection form.
+⋄ Morphisms of 3CobG from Σ = (Σ, ϑ, L) to Σ ′ = (Σ ′ , ϑ′ , L ′ ) are equivalence classes of triples M = (M, ω, n), where
+◦ M is a connected 3-dimensional cobordism from Σ to Σ ′ ;
+◦ ω ∈ H 1 (M ; G) is a cohomology class satisfying ι∗−M (ω) = ϑ and
+ι∗+M (ω) = ϑ′ for the inclusions ι−M : Σ ,→ M and ι+M : Σ ′ ,→ M
+determined by the boundary identifications;
+◦ n is an integer, called the signature defect.
+Two triples M = (M, ω, n) and M ′ = (M ′ , ω ′ , n′ ) are equivalent if n = n′ ,
+and there exists a diffeomorphism f : M → M ′ satisfying f ◦ ι±M = ι±M ′
+and f ∗ (ω ′ ) = ω.
+⋄ The composition
+M ′ ◦ M ∈ 3CobG (Σ, Σ ′′ )
+
+6
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+of morphisms M ∈ 3CobG (Σ, Σ ′ ) and M ′ ∈ 3CobG (Σ ′ , Σ ′′ ) is the equivalence class of the triple
+(M ∪Σ ′ M ′ , ω ∪ϑ′ ω ′ , n + n′ − µ(M∗ (L), L ′ , (M ′ )∗ (L ′′ ))),
+where:
+◦ ω ∪ϑ′ ω ′ is the unique cohomology class satisfying
+ι∗M (ω ∪ϑ′ ω ′ ) = ω,
+
+ι∗M ′ (ω ∪ϑ′ ω ′ ) = ω ′ ,
+
+for the inclusions ιM : M ,→ M ∪Σ ′ M ′ and ιM ′ : M ′ ,→ M ∪Σ ′ M ′ ,
+whose existence and uniqueness is guaranteed by the Mayer–Vietoris
+sequence
+···
+∗
+(ι∗
+M , ιM ′ )
+
+H 0 (Σ ′ ; G)
+
+∂∗
+
+H 1 (M ; G) ⊕ H 1 (M ′ ; G)
+
+H 1 (M ∪Σ ′ M ′ ; G)
+∗
+ι∗
++M − ι−M ′
+
+H 1 (Σ ′ ; G)
+
+···
+
+∗
+
+by remarking that ∂ is the zero map;
+◦ M∗ (L) and (M ′ )∗ (L ′′ ) are Lagrangian subspaces of H1 (Σ ′ ; R) obtained by pushing forward L through M and by pulling back L ′′
+through M ′ , respectively, and µ is the Maslov index, see [BD21, Section 2.2] for more details.
+⋄ The identity
+idΣ ∈ 3CobG (Σ, Σ)
+of an object Σ ∈ 3CobG is given by
+(Σ × [0, 1], ϑ × [0, 1], 0),
+∗
+
+where ϑ × [0, 1] = π (ϑ) for the projection π : Σ × [0, 1] → Σ.
+Remark 2.1. When G = 0, then 3CobG is naturally isomorphic to Crane and
+Yetter’s category 3Cob of connected framed cobordisms between connected surfaces
+with connected boundary [CY94, Ke01].
+2.1. Labeled top tangles in labeled handlebodies. In this section, we introduce the category TanG of G-labeled top tangles in G-labeled handlebodies, which,
+as we will show, is equivalent to the category 3CobG . By contrast with 3CobG ,
+though, TanG is naturally a braided monoidal category. It is a generalization of the
+category of bottom tangles in handlebodies introduced by Habiro [Ha05].
+For every non-negative integer g ⩾ 0, we specify a connected 3-dimensional
+handlebody Mg ⊂ R3 of genus g, obtained by attaching g copies B1 , . . . , Bg of the
+3-dimensional 1-handle B = D1 × D2 to the bottom face [0, 1]×2 × {0} of the cube
+[0, 1]×3 . We represent graphically Mg through the projection to R × {0} × R as
+
+We denote by Σg the connected surface of genus g with one boundary component
+appearing as the bottom face of Mg , which is obtained from the square [0, 1]×2 ×{0}
+by performing 1-surgery along g pairs of discs, and we denote by {a1 , b1 , . . . , ag , bg }
+the set of curves represented above, which form a standard basis of H1 (Σg ).
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES
+
+7
+
+A G-labeled handlebody is a standard connected handlebody Mg equipped with
+a G-labeling of its 1-handles, given by a label βi ∈ G attached to its 1-handle Bi
+for every integer 1 ⩽ i ⩽ g.
+A G-labeled top tangle in an G-labeled handlebody, sometimes simply called a top
+tangle, is an oriented framed G-labeled tangle T = A′1 ∪ . . . A′g′ ∪ C1 ∪ . . . ∪ Ch inside
+a connected G-labeled handlebody Mg satisfying the following list of conditions:
+⋄ The set of boundary points of T is composed of 2g ′ points uniformly
+distributed on the top line [0, 1] × { 12 } × {1} ⊂ Mg ;
+⋄ For every 1 ⩽ j ⩽ g ′ , an arc component A′j of T joins the (2j)th boundary
+point to the (2j − 1)th one;
+⋄ For every 1 ⩽ ℓ ⩽ h, we have
+g
+X
+
+′
+
+lk(ai , Cℓ )βi +
+
+i=1
+
+g
+X
+
+lk(Â′j , Cℓ )αj′ +
+
+j=1
+
+h
+X
+
+lk(Ck , Cℓ )γk = 0,
+
+(1)
+
+k=1
+
+where βi ∈ G is the label of the 1-handle Bi of Mg , where αj′ ∈ G is the
+label of the arc component A′j of T , whose plat closure is denoted Â′j ,
+where γk ∈ G is the label of the circle component Ck of T , and where
+lk(Cℓ , Cℓ ) stands for the framing of Cℓ .
+The source s(T ) of a top tangle T is
+α, ββ) = (α1 , β1 , . . . , αg , βg ) ∈ G×2g ,
+s(T ) = (α
+where
+′
+
+αℓ :=
+
+g
+X
+
+lk(Â′j , aℓ )αj′ +
+
+j=1
+
+h
+X
+
+lk(Ck , aℓ )γk
+
+(2)
+
+k=1
+
+and βℓ is the label of the 1-handle Bℓ of Mg for every integer 1 ⩽ ℓ ⩽ g. The target
+t(T ) of a top tangle T is
+′
+
+α′′, ββ′′) = (α1′ , β1′ , . . . , αg′ ′ , βg′ ′ ) ∈ G×2g ,
+t(T ) = (α
+where αℓ′ is the label of the arc component A′ℓ of T and
+βℓ′ :=
+
+g
+X
+
+′
+
+lk(ai , Â′ℓ )βi +
+
+i=1
+
+g
+X
+
+lk(Â′j , Â′ℓ )αj′ +
+
+j=1
+
+h
+X
+
+lk(Ck , Â′ℓ )γk
+
+k=1
+
+for every integer 1 ⩽ ℓ ⩽ g ′ .
+Here is an example of a top tangle, together with its projection:
+
+In this example, the source is (α1 , β1 , α2 , β2 ) with
+α1 = 2α2′ ,
+
+α2 = α1′ + α2′ ,
+
+the target is (α1′ , β1′ , α2′ , β2′ , α3′ , β3′ ) with
+β1′ = α2′ + α3′ ,
+
+β2′ = α1′ + α2′ + α3′ + γ,
+
+β3′ = α1′ + α2′ ,
+
+(3)
+
+8
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+and α2′ = 0. Notice that, up to isotopy, we can always represent top tangles using
+regular diagrams, that are diagrams in which every 1-handle D1 × D2 intersects the
+tangle T in D1 × P ⊂ D1 × D2 , where P ⊂ D1 is a finite set of points that remain
+distinct under the projection.
+Remark 2.2. We will see later that G-labeled top tangles correspond to 3-dimensional cobordisms decorated with cohomology classes. Under this correspondence,
+G-labelings encode the evaluation of a cohomology class with coefficients in G
+against 1-dimensional homology classes determined by meridians of the tangle and
+by longitudes of the handles.
+We consider top tangles up to framed G-Kirby moves of the following type:
+
+↭
+
+(K1)
+
+↭
+
+(K2)
+
+↭
+
+(K3)
+
+These operations can be performed inside any solid torus S 1 × D2 arbitrarily embedded into Mg .
+The category TanG of G-labeled top tangles in G-labeled handlebodies is the category defined as follows:
+α, ββ) = (α1 , β1 , . . . , αg , βg ) ∈ G×2g
+⋄ Objects of TanG are finite sequences (α
+for g ⩾ 0.
+′
+α, ββ) ∈ G×2g to (α
+α′′, ββ′′) ∈ G×2g are isotopy
+⋄ Morphisms of TanG from (α
+α, ββ) and target (α
+α′′, ββ′′).
+classes of top tangles T with source (α
+⋄ The composition
+α, ββ), (α
+α′′′′, ββ′′′′))
+T ′ ◦ T ∈ TanG ((α
+α, ββ), (α
+α′′, ββ′′)), T ′ ∈ TanG ((α
+α′′, ββ′′), (α
+α′′′′, ββ′′′′)) is
+of morphisms T ∈ TanG ((α
+obtained by considering an open tubular neighborhood N (T̃ ) in Mg of the
+subtangle T̃ = A1 ∪ . . . ∪ Ag′ of T composed of all arc components, by
+gluing vertically its complement Hg ∖ N (T̃ ) to Mg′ , identifying the top
+base of Mg ∖ N (T̃ ) with the bottom base of Mg′ as prescribed by the top
+tangle T̃ , and then by shrinking the result into Mg .
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES
+
+9
+
+α, ββ), (α
+α, ββ)) of an object (α
+α, ββ) ∈ TanG is
+⋄ The identity id(αα,ββ) ∈ TanG ((α
+given by
+
+id(αα,ββ) :=
+
+Here is an example of a composition of top tangles:
+
+◦
+
+=
+
+In this example, we are composing a top tangle whose source (α1 , β1 , α2 , β2 ) and
+target (α′ , β ′ ) satisfy
+α1 = α2 = α′ ,
+
+β ′ = β1 + β2 − α′ + 2γ,
+
+2α′ + γ = 0
+
+with a top tangle whose source (α′ , β ′ ) and target (α1′′ , β1′′ , α2′′ , β2′′ ) satisfy
+α′ = α1′′ + α2′′ ,
+
+β1′′ = β ′ + α2′′ ,
+
+β2′′ = β ′ + α1′′ .
+
+The category TanG can be given the structure of a braided monoidal category:
+⋄ The tensor product
+α, ββ) ♮(α
+α′′, ββ′′) ∈ TanG
+(α
+α, ββ), (α
+α′′, ββ′′) ∈ TanG is given by their concatenation.
+of objects (α
+⋄ The tensor product
+′′′ ′′′
+α, ββ) ♮(α
+α′′, ββ′′), (α
+α′′′′, ββ′′′′) ♮(α
+α′′′
+T ♮ T ′ ∈ TanG ((α
+, ββ ′′′))
+′′′ ′′′
+α, ββ), (α
+α′′′′, ββ′′′′)), T ′ ∈ TanG ((α
+α′′, ββ′′), (α
+α′′′
+, ββ ′′′))
+of morphisms T ∈ TanG ((α
+is obtained by gluing horizontally Mg to Mg′ , identifying the right side of
+Mg with the left side of Mg′ as prescribed by the identity map, and then
+by shrinking the result into Mg+g′ .
+⋄ The tensor unit is the empty sequence ∅ ∈ TanG .
+
+10
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+α, ββ) ♮(α
+α′′, ββ′′), (α
+α′′, ββ′′) ♮(α
+α, ββ)) of ob⋄ The braiding c(αα,ββ),(αα′′′′,ββ′′′) ∈ TanG ((α
+G
+′ ′′
+′
+α, ββ), (α
+α , ββ ) ∈ Tan is given by
+jects (α
+
+c(αα,ββ),(αα′′′,ββ′′′) :=
+
+Here is an example of a tensor product of top tangles:
+
+♮
+
+=
+
+In this example, we are tensoring a top tangle whose source (α, β) and target
+(α1′′ , β1′′ , α2′′ , β2′′ ) satisfy
+α = α1′′ + α2′′ ,
+
+β1′′ = β + α2′′ ,
+
+β2′′ = β + α1′′
+
+with a top tangle whose source (α1′ , β1′ , α2′ , β2′ ) and target (α′′′ , β ′′′ ) satisfy
+α1′ = α2′ = α′′′ ,
+
+β ′′′ = β1′ + β2′ − α′′′ + 2γ,
+
+2α′′′ + γ = 0.
+
+Remark 2.3. When G = 0, then TanG is naturally isomorphic to the category Tan
+of framed top tangles in handlebodies [BD21, BBDP23]. Indeed, notice that, even
+though morphisms in Tan are given by unoriented tangles, there is always a unique
+orientation for arc components that is compatible with our convention for Tan0 ,
+and 0-labeled closed components can be given any arbitrary orientation thanks to
+move (K3).
+2.2. Equivalence of categories. We consider now the surgery functor
+χ : TanG → 3CobG
+α, ββ) = (α1 , β1 , . . . , αg , βg ) ∈ G×2g of TanG to the object
+sending every object (α
+Σ (αα,ββ) := (Σg , ϑ(αα,ββ) , Lg )
+G
+
+of 3Cob , where
+⋄ ϑ(αα,ββ) ∈ H 1 (Σg ; G) is the cohomology class determined by
+ϑ(αα,ββ) (ai ) = αi ,
+
+ϑ(αα,ββ) (bi ) = βi
+
+for every integer 1 ⩽ i ⩽ g,
+⋄ Lg ⊂ H1 (Σg ; R) is the Lagrangian subspace given by ker ι∗−Mg for the
+inclusion ι−Mg : Σg ,→ Mg ,
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES 11
+
+α, ββ), (α
+α′′, ββ′′)) to the morphism
+and sending every morphism T in TanG ((α
+M (T ) := (M (T ), ωT , σ(T ∖ T̃ ))
+in 3Cob(Σ (αα,ββ) , Σ (αα′′′,ββ′′′) ), where
+⋄ M (T ) is the cobordism obtained from Mg by carving out an open tubular
+neighborhood N (T̃ ) in Hm of the open subtangle T̃ = A′1 ∪ . . . ∪ A′g′ of T
+composed of all arc components, and by performing 2-surgery along the
+closed subtangle T ∖ T̃ = C1 ∪ . . . ∪ Ch composed of all circle components,
+⋄ ωT ∈ H 1 (M (T ); G) is the cohomology class determined by
+ωT (bi ) = βi ,
+
+ωT (a′j ) = αj′ ,
+
+ωT (ck ) = γk
+
+′
+
+for all integers 1 ⩽ i ⩽ g, 1 ⩽ j ⩽ g , 1 ⩽ k ⩽ h, where a′j and ck denote
+positive meridians of the arc component A′j and of the circle component
+Ck of T , respectively, and where αj′ , γk ∈ G denote the respective labels;
+⋄ σ(T ∖ T̃ ) is the signature of the linking matrix of (T ∖ T̃ ) ⊂ Mg ⊂ R3 .
+Proposition 2.4. The surgery functor χ : TanG → 3CobG is an equivalence.
+Proof. Since, for every g ⩾ 0, the set of curves {a1 , b1 , . . . , ag , bg } provides a basis
+of H1 (Σg ), then χ is essentially surjective on objects, as a direct consequence of the
+classification of surfaces. Furthermore, every cobordism M from Σg to Σg′ can be
+obtained from
+
+
+
+
+
+M0 := M 
+
+
+
+
+
+
+
+
+
+
+
+
+by 2-surgery along some framed link L, and every cohomology class ω ∈ H 1 (M ; G)
+determines a label ω(ck ) ∈ G for every positive meridian ck of every component
+Ck of L. These labels have to satisfy Equation (1) because the longitude of Ck
+determined by the framing is null-homologous in M0 (L). This shows that χ is
+full. Finally, two G-labeled top tangles T and T ′ in TanG determine diffeomorphic
+cobordisms under χ if and only if they are related by a finite sequence of framed
+G-Kirby moves (K1)–(K3), as follows from [Ro97, Theorem 1]. This shows χ is
+faithful.
+□
+Remark 2.5. Thanks to Remarks 2.1 and 2.3, and to [Ke01, Theorem 2.2], if G = 0,
+then Tan ∼
+= Tan0 is generated by the finite list of morphisms described in [Ke01,
+Equations (46)–(50)], compare with [BBDP23, Figure 3.4.3]. In fact, in this case,
+a complete algebraic presentation of Tan is given in [BBDP23, Corollary B & Theorem C]. It is clear then that, for an arbitrary abelian group G, a list of generators
+for TanG is obtained by considering all possible G-labelings of generators of Tan.
+In other words, the list of morphisms represented in Figure 1, for all α, β, γ ∈ G,
+provides generators for TanG .
+3. Hopf group-bialgebras
+In this section, we introduce the notion of Hopf group-bialgebras, which generalize Ohtsuki’s colored Hopf algebras [Oh93], which are a special case of Hopf
+group-coalgebras, as introduced by Turaev [Tu10] and Virelizier [Vi00].
+Let G be an abelian group. A Hopf G-bialgebra is a family H = {Hαβ | α, β ∈ G}
+of vector spaces over a field k equipped with
+β
+γ
+β+γ
+⋄ a product µ = {µβ,γ
+| α, β, γ ∈ G},
+α : Hα ⊗ Hα → Hα
+
+12
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+Figure 1. Generators of TanG , with α, β, γ ∈ G.
+⋄ a unit η = {ηα0 : k → Hα0 | α ∈ G},
+γ
+⋄ a coproduct ∆ = {∆γα,β : Hα+β
+→ Hαγ ⊗ Hβγ | α, β, γ ∈ G},
+α
+⋄ a counit ε = {εα
+0 : H0 → k | α ∈ G},
+−β
+β
+| α, β ∈ G}.
+⋄ an antipode S = {Sα : Hαβ → H−α
+For all α, β, γ, δ ∈ G, these data satisfy
+β,γ+δ
+µβ+γ,δ
+◦ (µβ,γ
+◦ (idHαβ ⊗ µγ,δ
+δ ) = µα
+α
+α ⊗ idHα
+α ),
+
+(H1)
+
+0
+β,0
+µ0,β
+◦ (idHαβ ⊗ ηα0 ),
+β ) = id β = µα
+α ◦ (ηα ⊗ idHα
+Hα
+
+(H2)
+
+(∆δα,β ⊗ idHγδ ) ◦ ∆δα+β,γ = (idHαδ ⊗ ∆δβ,γ ) ◦ ∆δα,β+γ ,
+
+(H3)
+
+(εβ0 ⊗ idHαβ ) ◦ ∆β0,α = idHαβ = (idHαβ ⊗ εβ0 ) ◦ ∆βα,0 ,
+
+(H4)
+
+γ,δ
+γ,δ
+γ
+γ,δ
+δ
+γ
+γ
+∆γ+δ
+δ ⊗ idH δ ) ◦ (∆
+α,β ◦ µα+β = (µα ⊗ µβ ) ◦ (idHα ⊗ τHβ ,Hα
+α,β ⊗ ∆α,β ),
+β
+
+(H5)
+
+β
+ε0α+β ◦ µα,β
+= εα
+0 ⊗ ε0 ,
+0
+
+(H6)
+
+0
+∆0α,β ◦ ηα+β
+= ηα0 ⊗ ηβ0 ,
+ε00 ◦ η00 = idk ,
+
+(H7)
+(H8)
+
+β
+β
+µ−β,β
+◦ (S−α
+⊗ idHαβ ) ◦ ∆β−α,α = ηα0 ◦ εβ0 = µβ,−β
+◦ (idHαβ ⊗ S−α
+) ◦ ∆βα,−α ,
+α
+α
+
+where τHβγ ,Hαδ : Hβγ ⊗ Hαδ → Hαδ ⊗ Hβγ is the standard transposition.
+
+(H9)
+
+We will use
+
+the shorthand notation
+ηα = ηα0 ,
+
+1α = ηα (1),
+
+ε α = εα
+0
+
+for every α ∈ G,
+xy = µβ,γ
+α (x ⊗ y)
+for all x ∈ Hαβ , y ∈ Hαγ , and
+z(1,α1 ) ⊗ z(2,α2 ) = ∆βα1 ,α2 (z)
+
+if n = 2
+
+z(1,α1 ) ⊗ . . . ⊗ z(n,αn ) = z(1,α1 ) ⊗ . . . ⊗ z(n−2,αn−2 ) ⊗ ∆βαn−1 ,αn (z(n−1,αn−1 +αn ) )
+= ∆βα1 ,α2 (z(1,α1 +α2 ) ) ⊗ z(2,α3 ) ⊗ . . . ⊗ z(n−1,αn )
+
+if n > 2
+
+for every z ∈ Hαβ1 +...+αn .
+Remark 3.1. If H = {Hαβ | α, β ∈ G} is a Hopf G-bialgebra, then Hα0 is an algebra
+and H0α is a coalgebra for every α ∈ G. In particular, H00 is a Hopf algebra.
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES 13
+
+Furthermore,
+H⊕ =
+
+
+
+
+Hα⊕ =
+
+
+
+M
+
+Hαβ
+
+β∈G
+
+
+
+α∈G
+
+
+is a Hopf G-coalgebra, and Hα⊕ is an algebra for every α ∈ G. We will write
+(Hαβ )× = (Hα⊕ )× ∩ Hαβ ,
+Z(Hαβ ) = Z(Hα⊕ ) ∩ Hαβ
+for all α, β ∈ G to denote the intersection of Hαβ with the set of invertible elements
+and with the center of Hα⊕ , respectively.
+Proposition 3.2. For all α, β, γ ∈ G, the antipode satisfies
+Sαβ+γ (xy) = Sαγ (y)Sαβ (x),
+
+(H10)
+
+Sα0 (1α ) = 1−α
+γ
+γ
+(Sα+β (z))(1,−α) ⊗ (Sα+β (z))(2,−β) = Sαγ (z(2,α) ) ⊗ Sβγ (z(1,β) ),
+εα (S0α (w)) = ε−α (w).
+γ
+for all x ∈ Hαγ , y ∈ Hβγ , z ∈ Hα+β
+, w ∈ H0α .
+
+(H11)
+(H12)
+(H13)
+
+Proof. Equations (H10)–(H13) are the Hopf G-bialgebra version of [Ka95, Theorem III.3.4.(a)], and the reader can directly adapt the proof from there. Notice
+that the Hopf G-coalgebra version of these properties is [Vi00, Lemma 1.1].
+□
+3.1. Ribbon structures. If G is a ring such that 2 ∈ G× , which justifies the
+notation 21 = 2−1 ∈ G× , then a ribbon Hopf G-bialgebra is a Hopf G-bialgebra
+H = {Hαβ | α, β ∈ G} equipped with
+X
+β α
+β
+β
+α
+α
+2,2
+⋄ an R-matrix R = {Rα,β
+=
+(Ri′ )α2 ⊗(Ri′′ )β2 ∈ (Hα2 ⊗Hβ2 )× | α, β ∈ G},
+i
+
+⋄ a ribbon element v = {vα−α ∈ Z(Hα−α )× | α ∈ G}.
+For all α, β, γ ∈ G, these data satisfy:
+X
+X
+β
+β
+α
+α
+(Ri′ )α2 x(1,α) ⊗ (Ri′′ )β2 x(2,β) =
+x(2,α) (Ri′ )α2 ⊗ x(1,β) (Ri′′ )β2 ,
+i
+
+X
+
+β+γ
+
+α
+
+α
+
+2
+2
+(Ri′ )α 2 ⊗ ∆β,γ
+((Ri′′ )β+γ
+)=
+
+i
+
+X
+
+(R1)
+
+i
+
+X
+
+γ
+
+β
+
+α
+
+α
+
+(Rj′ )α2 (Rk′ )α2 ⊗ (Rk′′ )β2 ⊗ (Rj′′ )γ2 ,
+
+(R2)
+
+j,k
+γ
+
+γ
+
+α+β
+
+2
+2
+∆α,β
+((Ri′ )α+β
+) ⊗ (Ri′′ )γ 2 =
+
+i
+
+X
+
+γ
+
+γ
+
+α
+
+β
+
+(Rj′ )α2 ⊗ (Rk′ )β2 ⊗ (Rj′′ )γ2 (Rk′′ )γ2 ,
+
+(R3)
+
+j,k
+α
+α
+(vα−α )2 = u−α
+α S−α (u−α ),
+
+(R4)
+
+∆α,β
+(vα+β )
+X
+β
+β
+α
+−β
+−α α
+2
+2
+2
+2
+=
+(vα−α S−α
+((Ri′ )−α
+)(Rj′′ )α 2 ⊗ vβ−β (Ri′′ )β 2 S−β
+((Rj′ )−β
+)),
+
+(R5)
+
+−(α+β)
+
+−(α+β)
+
+i,j
+
+ε0 (v00 ) = 1,
+
+(R6)
+
+α
+Sα−α (vα−α ) = v−α
+
+(R7)
+
+γ
+for all x ∈ Hα+β
+and y ∈ Hαβ , and for the Drinfeld element
+
+u−α
+α :=
+
+X
+
+α
+
+α
+
+−α
+
+2
+2
+S−α
+((Ri′′ )−α
+)(Ri′ )α 2 .
+
+i
+
+The latter determines a pivotal element
+g = {gα0 ∈ Hα0 | α ∈ G}
+
+14
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+defined by
+−1 α
+gα0 := u−α
+)α .
+α (v
+We will adopt Einstein’s notation by suppressing sums, and also use the shorthand
+notation gα = gα0 for every α ∈ G.
+
+Remark 3.3. If H = {Hαβ | α, β ∈ G} is a ribbon Hopf G-bialgebra, then:
+(i) Using the notation of Remark 3.1, H ⊕ = {Hα⊕ | α ∈ G} is a ribbon Hopf
+G-coalgebra2 in the sense of [Vi00, Section 6.4], and in particular H0⊕ is
+a ribbon Hopf algebra;
+(ii) The antipode S of a ribbon Hopf G-bialgebra is always invertible in the
+−β
+sense that Sαβ : Hαβ → H−α
+is a linear isomorphism for all α, β ∈ G, as a
+direct consequence of [Vi00, Lemma 6.5.(c)].
+Proposition 3.4. For all α, β, γ ∈ G, the R-matrix and the pivotal element satisfy
+X
+γ
+γ
+β
+β
+α
+α
+(Ri′ )α2 (Rj′ )α2 ⊗ (Ri′′ )β2 (Rk′ )β2 ⊗ (Rj′′ )γ2 (Rk′′ )γ2
+i,j,k
+
+X
+
+γ
+
+β
+
+γ
+
+β
+
+α
+
+α
+
+(Rj′ )α2 (Rk′ )α2 ⊗ (Ri′ )β2 (Rk′′ )β2 ⊗ (Ri′′ )γ2 (Rj′′ )γ2 ,
+
+(R8)
+
+
+
+
+X α
+α
+α
+α
+ε 2 (Ri′′ )02 (Ri′ )0α = 1α =
+ε 2 (Ri′ )02 (Ri′′ )0α ,
+
+(R9)
+
+=
+
+i,j,k
+
+X
+i
+
+i
+
+−1 X
+
+
+
+β
+β
+β α
+−α
+′ 2
+2,2
+2
+=
+S−α (Ri )−α ⊗ (Ri′′ )β 2
+Rα,β
+i
+
+
+
+X
+α
+−α
+−β
+2
+,
+=
+(Ri′ )α 2 ⊗ (Sβ 2 )−1 (Ri′′ )−β
+
+(R10)
+
+i
+
+X
+
+
+
+
+
+β
+α
+α
+α
+−β
+′ 2
+2 ,− 2
+Sα (Ri )α ⊗ Sβ2 (Ri′′ )β2 = R−α,−β
+,
+β
+2
+
+(R11)
+
+i
+−α −1
+(u−1 )α
+=
+α = (uα )
+
+X
+
+α
+
+−α
+
+α
+
+α
+
+(Ri′ )α2 S−α2 (Sα2 ((Ri′′ )α2 )),
+
+(R12)
+
+i
+
+
+−β
+−1 α
+u−α
+)α = S−α
+Sαβ (x) ,
+α x(u
+
+(R13)
+
+∆0α,β (gα+β ) = gα ⊗ gβ ,
+
+(R14)
+
+0
+
+ε (g0 ) = 1,
+−β
+gα xgα−1 = S−α
+
+(R15)
+
+Sαβ (x)
+
+
+
+(R16)
+
+for every x ∈ Hαβ .
+Proof. Equations (R8)–(R11) are the Hopf G-bialgebra version of [Ka95, Theorem VIII.2.4], and the reader can directly adapt the proof from there. Notice that
+the Hopf G-coalgebra version of these properties is [Oh93, Proposition 1.4]. Equations (R12) and (R13) are standard properties of the Drinfeld element, and can
+be adapted from [Ka95, Proposition VIII.4.1]. Notice that the Hopf G-coalgebra
+version of these properties appears in [Vi00, Lemma 6.5]. Equations (R14)–(R16)
+are standard properties of the pivotal element, and can be adapted from [Ka95,
+Propositions VIII.4.5 & VIII.4.1] using the defining axioms of the ribbon element.
+Notice that the Hopf G-coalgebra version of these properties appears in [GHP22,
+Definition 2.1].
+□
+2Notice that our ribbon element v corresponds to the inverse of Virelizier’s ϑ.
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES 15
+
+3.2. Factorizability. A ribbon Hopf G-bialgebra H = {Hαβ | α, β ∈ G} is factorizable if it can be equipped with
+⋄ a left integral λ = {λ0α : Hα0 → k | α ∈ G},
+α
+⋄ a two-sided cointegral Λ = {Λα
+0 : k → H0 | α ∈ G}.
+For all α, β ∈ G, these data are required to satisfy
+λ0β (x(2,β) )x(1,α) = λ0α+β (x)1α ,
+
+(I1)
+
+yΛβ0 = εα (y)Λ0α+β ,
+
+(I2)
+
+−α
+S0α (Λα
+0 ) = Λ0 ,
+λ00 (Λ00 ) = 1,
+Dα,0 (λ0−α ◦ Sα0 ) = Λα
+0
+
+(I3)
+(I4)
+(I5)
+
+0
+for all x ∈ Hα+β
+and y ∈ H0β , where
+
+Dα,β : (Hαβ )∗ → Hβα
+β
+
+β
+
+α
+
+α
+
+f 7→ f ((Ri′′ )α2 (Rj′ )α2 )(Ri′ )β2 (Rj′′ )β2
+is the Drinfeld map. We will use the shorthand notation
+λα = λ0α ,
+
+Λα = Λα
+0 (1)
+
+for every α ∈ G.
+Remark 3.5. If H = {Hαβ | α, β ∈ G} is a factorizable ribbon Hopf G-bialgebra,
+then:
+(i) H00 is a factorizable ribbon Hopf algebra in the sense of [He96, Section 7],
+thanks to [Ke96, Theorem 5];
+⊕
+(ii) Every left integral λ⊕ = {λ⊕
+α : Hα → k | α ∈ G} for the Hopf G⊕
+coalgebra Hα , in the sense of [Vi00, Section 3.1], determines a left integral
+λ = {λα : Hα0 → k | α ∈ G} for H, where λα is the restriction of λ⊕
+α to
+Hα0 ⊂ Hα⊕ for every α ∈ G.
+Proposition 3.6. If H = {Hαβ | α, β ∈ G} is a factorizable ribbon Hopf Gbialgebra, then, for all α, β ∈ G, the left integral satisfies
+λα (x(1,α) )x(2,β) = λα+β (x)gβ2 ,
+
+
+−β
+λα (yz) = λα zS−α
+Sαβ (y) ,
+
+(I6)
+
+−1
+λα (wgα−1 ) = λ−α (Sα0 (w)g−α
+)
+
+(I8)
+
+(I7)
+
+0
+for all x ∈ Hα+β
+, y ∈ Hαβ , x ∈ Hα−β , w ∈ Hα0 .
+
+Proof. The first claim is the Hopf G-bialgebra version of [Ra12, Theorem 10.2.2.(b)].
+Similarly, Equations (I6) and (I7) are the Hopf G-bialgebra version of [Ra12, Theorem 10.5.4.(b) & (e)], at least up to the Hopf G-bialgebra version of [Ra12, Exercise 10.2.1], see also [EGNO15, Theorem 7.18.12]. Remark that the Hopf Gcoalgebra version of these properties is a direct consequence3 of [Vi00, Lemma 4.1
+& Theorem 4.2]. To deduce Equations (I6)–(I8) from there, the Hopf G-bialgebra
+version of [KR93, Theorem 1] is also needed.
+□
+3Notice that our pivotal element g coincides with Virelizier’s spherical grouplike element G,
+and not with its square g, called the distinguished grouplike element. Also Radford denotes by g
+the square of our pivotal element.
+
+16
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+4. Construction of the TQFT functor
+Let H = {Hαβ | α, β ∈ G} be a factorizable ribbon Hopf G-bialgebra over a field
+k. We will now construct a braided monoidal TQFT functor
+JH : TanG → H0⊕ -mod .
+On the level of objects, for every finite sequence
+α, ββ) = (α1 , β1 , . . . , αg , βg ) ∈ G×2g ,
+(α
+let us set
+α, ββ) := H(αα,ββ) =
+JH (α
+
+g
+O
+
+H βαii ,
+H
+
+(4)
+
+i=1
+
+where, for all α, β ∈ G, the H0⊕ -module H βα is given by the vector space Hαβ
+equipped with the adjoint action
+γ
+x ▷ y = x(1,α) yS−α
+(x(2,−α) )
+
+H βα .
+for all x ∈ H0γ and y ∈ H
+On the level of morphisms, the definition requires some more preparation. First
+of all, suppose that, for a fixed regular diagram of a top tangle, the number of
+strands of running along a β-labeled 1-handle B is k, with orientations and labels
+(σσ, ξξ) = ((σ1 , ξ1 ), . . . , (σk , ξk )) ∈ ({+, −} × G)×k .
+Our convention here is that positive strands are those that run along B from right
+to left, and we set α = σ1 ξ1 + . . . + σk ξk . Let us agree that inserting a bead with
+H βα on the 1-handle B means considering the (k − 1)-iterated oriented
+label x ∈ H
+coproduct
+1
+k
+∆β(σσ,ξξ) (x) := xσ(1,ξ
+⊗ . . . ⊗ xσ(k,ξ
+∈
+1)
+k)
+
+k
+O
+
+Hξσii β ,
+
+i=1
+
+(
+i
+xσ(i,ξ
+:=
+i)
+
+x(i,ξi ) ∈ Hξβi
+β
+S−ξ
+(x(i,−ξi ) ) ∈ Hξ−β
+i
+i
+
+if σi = +,
+if σi = −,
+
+∀ 1 ⩽ i ⩽ k,
+
+and then decorating the diagram around B as shown:
+
+When k = 0, we add by convention a multiplicative factor of εβ (x) in front of the
+whole diagram. Here is an example of bead insertion:
+
+7→
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES 17
+
+H βα for α = −ξ1 + ξ2 . Using
+In this example, we are inserting a bead with label x ∈ H
+this operation, let us define, for a fixed regular diagram of a top tangle
+α′′, ββ′′)),
+α, ββ), (α
+T ∈ TanG ((α
+a linear map4
+JH (T ) : H(αα,ββ) → H(αα′′′,ββ′′′) .
+In order to do this, let us consider a vector
+x1 ⊗ . . . ⊗ xg ∈ H(αα,ββ) .
+H βαii on the 1-handle Bi of Mg for every
+First, we insert a bead with label xi ∈ H
+integer 1 ⩽ i ⩽ g. Next, we insert beads labeled by components of the R-matrix
+around crossings, as shown:
+7→
+
+7→
+
+7→
+
+7→
+
+7→
+
+7→
+
+7→
+
+7→
+
+Then, we insert beads labeled by pivotal elements around right-oriented extrema,
+as shown:
+7→
+
+7→
+
+Notice that this step has to be applied also to all the right-oriented minima that
+should appear inside 1-handles. Next, we collect all beads sitting on the same
+component in one place, by sliding them along the strand without changing their
+order, and we multiply everything together according to the rule
+
+=
+
+In the end, we are left with a top tangle B(T ) carrying at most a single bead on
+each of its components. The linear map JH (T ) : H(αα,ββ) → H(αα′′′,ββ′′′) is determined
+by
+!
+h
+Y
+JH (T )(x1 ⊗ . . . ⊗ xg ) =
+λγk (yk gγ−1
+) x′1 ⊗ . . . ⊗ x′g′ ∈ H(αα′′′,ββ′′′)
+(5)
+k
+k=1
+4We will need to show later that J (T ) is indeed well-defined, meaning that it does not
+H
+depend on the chosen diagram, that it is invariant invariant under G-Kirby moves, and that it is
+an H0⊕ -intertwiner.
+
+18
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+for every x1 ⊗ . . . ⊗ xg ∈ H(αα,ββ) , where
+
+B(T ) =
+
+Lemma 4.1. In Equation (5), we have indeed
+β′
+
+H αj′ ,
+x′j ∈ H
+j
+
+H 0γk
+yk ∈ H
+
+for all 1 ⩽ j ⩽ g ′ and 1 ⩽ k ⩽ h.
+Proof. The arc component A′ℓ of T runs along the 1-handle Bi of Mg an algebraic total of lk(ai , Â′ℓ ) times, thus picking up beads whose lower degrees are all
+αℓ′ , and whose total upper degree is lk(ai , Â′ℓ )βi . Afterwards, it crosses the arc
+component A′j and the closed component Ck of T an algebraic total of 2lk(Â′j , Â′ℓ )
+and of 2lk(Ck , Â′ℓ ) times, respectively, thus picking up beads whose lower degree is
+always αℓ′ , and whose total upper degree is lk(Â′j , Â′ℓ )αj′ and lk(Ck , Â′ℓ )γk , respectively. Then, it picks up pivotal elements with lower degree αℓ′ and upper degree 0.
+Since products preserve lower degrees and add up upper degrees, we deduce that
+β′
+H αℓ′ , as follows from Equation (3). The same argument applied to the circle
+x′ℓ ∈ H
+ℓ
+
+H 0γk , as follows from Equation (1).
+component Cℓ of T shows that yℓ ∈ H
+
+□
+
+Theorem 4.2. Equations (4) and (5) define a braided monoidal functor
+JH : TanG → H0⊕ -mod .
+4.1. Proof of the invariance. Let us prove our main result.
+Proof of Theorem 4.2. We need to show that:
+⋄ JH (T ) is independent of the regular diagram representing T ;
+⋄ JH (T ) is invariant under framed G-Kirby moves on T ;
+⋄ JH (T ′ ◦ T ) = JH (T ′ ) ◦ JH (T ) and JH (id(αα,ββ) ) = idJH (αα,ββ) ;
+⋄ JH (T ) is an H0⊕ -intertwiner;
+⋄ JH (T ♮ T ) = JH (T ) ⊗ JH (T ′ ) and JH (∅) = k;
+⋄ JH (c(αα,ββ),(αα′′′′,ββ′′′′) ) = cJH (αα,ββ),JH (αα′′′′,ββ′′′′) .
+Invariance under framed Reidemeister moves follows from the Hopf G-bialgebra
+version of the standard argument that shows the isotopy invariance of Lawrence’s
+universal invariant of links, using Equations (R4), (R10), and (R8), compare with
+the proof of [Oh93, Theorem 4.1]. Here, we also have to check that 1-handles are
+dinatural with respect to crossings and extrema. For what concerns crossings, we
+need to compare the following tangles:
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES 19
+
+The two configurations lead to the same result, as a consequence of Equations (R1)
+and (R10), and the identity for the other crossings is proved similarly. For what
+concerns maxima, we need to compare the following tangles:
+
+Again, the two configurations lead to identical results, as a consequence of Equation (H9), and the identity for the other orientation is proved similarly. The same
+goes for maxima, which lead us to compare the following tangles:
+
+Next, we need to prove invariance under framed G-Kirby moves. The proof is
+essentially the same as the one for [BD22, Theorem 3.1]. Indeed, in order to prove
+invariance under (K1), let us start by comparing the following tangles:
+
+The two configurations lead to the same result, as a consequence of Equation (I5),
+since
+ 0
+
+−α
+−α
+0
+λα S−α
+(Ri′ )0−α S−α
+(Rj′′ )0−α (Rj′ )0 2 (Ri′′ )0 2
+
+−α
+−α
+0
+= λα S−α
+(Rj′′ )0−α (Ri′ )0−α (Rj′ )0 2 (Ri′′ )0 2
+= Λ−α .
+This means that
+
+⇝
+
+20
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+Then the invariance follows from Equations (I2), (R9), and (R15). For what concerns (K2), we have
+
+⇝
+
+Then the invariance follows from Equation (I1). Finally, for what concerns (K3),
+we use the handle trick, which amounts to replace the left-hand tangle with the
+right-hand one, here below:
+
+As usual, we are assuming that α = σ1 ξ1 + . . . + σk ξk . Notice that the two configurations lead to the same result, as a consequence of the invariance under (K1) and
+(K2). Therefore, we can always assume that the circle component whose orientation we want to reverse is entirely contained in the unit cube [0, 1]×3 ⊂ R3 . Then,
+up to isotopy, we can assume that the knot is written as the closure of an upwardoriented braid (recall that we already explained that the result of the algorithm is
+invariant under isotopies). For a braid closure, reversing the orientation amounts
+−β
+to replacing each bead labeled by x ∈ Hαβ with a bead labeled by Sαβ (x) ∈ H−α
+.
+This means that
+⇝
+
+Then the invariance follows from Equation (I8).
+Next, we need to prove that JH is a functor. The fact that it respects compositions can be proved using the handle trick once again, while the fact that it respects
+identities is clear from the algorithm.
+Next, we need to prove that JH (T ) is an H0⊕ -intertwiner. Thanks to Remark 2.5,
+it is enough to check this for generators of TanG . A computation shows that those
+appearing in Figure 1 are sent to:
+⋄ a product
+Hβ Hγ
+H β+γ
+µµ β,γ
+α : H α ⊗H α → H α
+x ⊗ y 7→ xy;
+⋄ a unit
+H 0α
+ηη α : k → H
+1 7→ 1α ;
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES 21
+
+⋄ a coproduct
+∆ γα,β : H
+H γα+β → H
+H γα ⊗ H
+H γβ
+∆
+X
+−α
+0
+x 7→
+x(1,α) S−α
+((Ri′′ )0−α ) ⊗ ((Ri′ )0 2 ▷ x(2,β) );
+i
+
+⋄ a counit
+Hα
+εε α : H
+0 →k
+x 7→ εα (x);
+⋄ an antipode
+S βα : H
+H βα → H
+H −β
+S
+−α
+X
+−α
+x 7→
+(Ri′′ )0−α Sαβ ((Ri′ )0 2 ▷ x);
+i
+
+⋄ an inverse antipode
+−1 β
+S−1
+H βα → H
+H −β
+(S
+)α : H
+−α
+X
+−α
+(S −1 )βα ((Ri′ )0 2 ▷ x)(Ri′′ )0−α ;
+x 7→
+i
+
+⋄ a ribbon element
+H −α
+vv −α
+α :k→H
+α
+1 7→ vα−α ;
+⋄ an inverse ribbon element
+−1 α
+Hα
+(vv−1
+)α : k → H
+α
+
+1 7→ (vα−α )−1 ;
+⋄ a counit
+H 0α → k
+λλ α : H
+x 7→ λα (x).
+For ribbon Hopf algebras, which correspond to the case G = 0, it was first proved
+in [Ma91] that (the analogue of) these linear maps intertwine tensor powers of the
+adjoint action, see also [Ma95, Example 9.4.9]. Let us check this for the coproduct
+and the antipode, and leave the remaining generators to the reader. For all x ∈ H0δ
+H γα+β , we have
+and y ∈ H
+∆ γα,β (x ▷ y)
+∆
+δ
+∆ γα,β (x(1,α+β) yS−α−β
+=∆
+(x(2,−α−β) ))
+X
+−α
+δ
+δ
+0
+(x(3,−β) ))
+=
+x(1,α) y(1,α) S−α
+(x(4,−α) )S−α
+((Ri′′ )0−α ) ⊗ ((Ri′ )0 2 ▷ (x(2,β) y(2,β) S−β
+i
+
+=
+
+X
+
+=
+
+X
+
+=
+
+X
+
+=
+
+X
+
+−α
+
+δ
+x(1,α) y(1,α) S−α
+((Ri′′ )0−α x(3,−α) ) ⊗ (((Ri′ )0 2 x(2,0) ) ▷ y(2,β) )
+
+i
+−α
+
+δ
+x(1,α) y(1,α) S−α
+(x(2,−α) (Ri′′ )0−α ) ⊗ ((x(3,0) (Ri′ )0 2 ) ▷ y(2,β) )
+
+i
+−α
+
+0
+δ
+x(1,α) y(1,α) S−α
+((Ri′′ )0−α )S−α
+(x(2,−α) ) ⊗ (x(3,0) ▷ ((Ri′ )0 2 ▷ y(2,β) ))
+
+i
+−α
+
+0
+(x(1,0) ▷ (y(1,α) S−α
+((Ri′′ )0−α ))) ⊗ (x(2,0) ▷ ((Ri′ )0 2 ▷ y(2,β) ))
+
+i
+
+∆ γα,β (y),
+= x ▷∆
+
+22
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+where the second equality follows from Equation (H12), the third and fifth ones
+from Equation (H10), and the fourth one from Equation (R1). Similarly, for all
+H βα , we have
+x ∈ H0γ and y ∈ H
+S βα (x ▷ y)
+S
+γ
+S βα (x(1,α) yS−α
+=S
+(x(2,−α) ))
+X
+−α
+γ
+=
+(Ri′′ )0−α Sαβ ((Ri′ )0 2 ▷ (x(1,α) yS−α
+(x(2,−α) )))
+i
+
+=
+
+X
+
+=
+
+X
+
+=
+
+X
+
+=
+
+X
+
+α
+
+−α
+
+−α
+
+−α
+
+−α
+
+γ
+2
+(Rj′′ )−α2 Sαβ ((Rk′ )α 2 x(1,α) yS−α
+(Rk′′ )−α
+(x(2,−α) )S−α2 ((Rj′ )−α2 ))
+
+j,k
+α
+
+− α +β+γ
+
+γ
+−1 −γ
+2
+(Rk′′ )−α
+(uα
+Sα (S−α
+(x(2,−α) ))Sα 2
+−α )
+
+−α
+
+((Rk′ )α 2 x(1,α) y)
+
+k
+− α +β+γ
+
+α
+
+−1
+2
+x(2,−α) (uα
+Sα 2
+(Rk′′ )−α
+−α )
+
+−α
+
+((Rk′ )α 2 x(1,α) y)
+
+k
+α
+
+− α +β+γ
+
+2
+2
+(u−1 )−α
+x(1,−α) (Rk′′ )−α
+−α Sα
+
+−α
+
+(x(2,α) (Rk′ )α 2 y)
+
+k
+
+S βα (y),
+= x ▷S
+where the third equality follows from Equation (R2), the fourth and sixth ones from
+Equations (H10) and (R12), and the fifth one from Equation (R13).
+Finally, we need to prove that JH is braided monoidal. Notice however that the
+fact that JH respects tensor products, tensor unit, and braiding is clear from the
+algorithm.
+□
+4.2. Relation with the Kerler–Lyubashenko TQFT. If H = {Hαβ | α, β ∈ G}
+is a factorizable ribbon Hopf G-bialgebra over a field k, then, thanks to Remark 3.5,
+H00 is a ribbon Hopf algebra. In particular, H00 induces a Kerler–Lyubashenko
+TQFT
+JH00 : Tan → H00 -mod
+thanks to the construction of [KL01], see also [DM22, Sections 4.2.3 & 4.2.4]. Notice
+that the inclusion 0 ,→ G induces an inclusion functor
+ι : Tan → TanG ,
+and similarly the inclusion H00 ,→ H0⊕ induces a restriction functor
+ρ : H0⊕ -mod → H00 -mod .
+Corollary 4.3. The diagram of braided ribbon functors
+JH 0
+0
+
+H00 -mod
+
+3CobG JH
+
+H0⊕ -mod
+
+3Cob
+ι
+
+ρ
+
+is commutative.
+Proof. The proof is almost clear, except for the fact that the algorithm presented in
+[DM22, Section 4.2.4] is given in terms of unoriented top tangles in handlebodies,
+instead of oriented (0-labeled) top tangles in (0-labeled) handlebodies. The two
+recipes do not coincide, but it turns out that they yield the same result. Indeed,
+this is true when the two algorithms are applied to the oriented generators obtained
+from Figure 1 by setting all labels equal to 0, on one hand, and to their unoriented
+unlabeled version, on the other hand. Then, since both procedures produce braided
+monoidal functors, their result must coincide for arbitrary top tangles too.
+□
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES 23
+
+5. Quantum sl2
+2πi
+
+Let us consider the primitive rth root of unity q = e r , where r ⩾ 3 is an
+integer, and let us set r′ := r/ gcd(2, r). For every α ∈ C, and for all positive
+integers k ⩾ ℓ ⩾ 0, we recall the notation
+ 
+k
+Y
+2απi
+{k}
+[k]!
+k
+q α := e r , {α} := q α − q −α , [k] :=
+, [k]! :=
+.
+[j],
+:=
+ℓ
+{1}
+[ℓ]![k
+− ℓ]!
+j=1
+The unrestricted quantum group U = Uq sl2 is the C-algebra with generators
+{E, F, K α | α ∈ C}
+and relations
+′
+
+′
+
+E r = F r = 0,
+K α EK −α = q 2α E,
+
+K α K β = K α+β , K 0 = 1,
+
+K α F K −α = q −2α F,
+
+[E, F ] =
+
+K − K −1
+.
+q − q −1
+
+Now U admits a Hopf algebra structure obtained by setting
+∆(E) = E ⊗ K + 1 ⊗ E,
+
+ε(E) = 0,
+
+S(E) = −EK −1 ,
+
+∆(F ) = K −1 ⊗ F + F ⊗ 1,
+
+ε(F ) = 0,
+
+S(F ) = −KF,
+
+α
+
+α
+
+α
+
+S(K α ) = K −α .
+
+α
+
+∆(K ) = K ⊗ K ,
+
+ε(K ) = 1,
+r
+
+αr
+
+Let us set G = C/2Z and Uᾱ := U/(K 2 − q 2 ) for every ᾱ ∈ G, where α ∈ C is
+any representative of ᾱ. Next, let us consider the subalgebra uᾱ of Uᾱ generated by
+{E, F, K}, and set uβ̄ᾱ := uᾱ K β for every β̄ ∈ G, where β ∈ C is any representative
+of β̄. Then u := {uβ̄ᾱ | ᾱ, β̄ ∈ G} inherits the structure of a Hopf G-bialgebra. A
+Poincaré–Birkhoff–Witt basis for uβ̄ᾱ is given by
+{E ℓ F m K n+β | 0 ⩽ ℓ, m, n ⩽ r′ − 1}.
+Remark 5.1. When r ≡ 1 (mod 2), a Poincaré–Birkhoff–Witt basis for u0ᾱ = uᾱ is
+given by
+n
+{E ℓ F m K 2 | 0 ⩽ ℓ, m, n ⩽ r − 1},
+r
+αr
+because K n = q 2 K n− 2 for every r−1
+2 < n ⩽ r − 1. In this case,
+uᾱ+1 → uᾱ
+E 7→ E
+F 7→ F
+1
+
+1
+
+K 2 7→ −K 2
+is an isomorphism of C-algebras, and uβ̄+1
+= uβ̄ᾱ .
+ᾱ
+5.1. Integral bases. For all α, β ∈ C, let us set
+r ′ −1
+
+Tαβ :=
+
+1 X −αb b+β
+q
+K
+.
+r′
+b=0
+
+Lemma 5.2. In uβ̄ᾱ we have
+β
+Tαβ E = q 2β ETα−2
+,
+
+β
+Tαβ F = q −2β F Tα+2
+,
+
+Tαβ K = KTαβ = Tαβ+1 = q α Tαβ ,
+
+′
+
+Tαβ Tαβ′ = δα,α′ Tαβ+β
+
+′
+
+24
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+Proof.
+r ′ −1
+
+Tαβ E =
+Tαβ F =
+Tαβ K =
+
+1
+r′
+
+b=0
+
+−1
+−2β rX
+
+′
+
+q
+
+−αb
+
+K
+
+b+β
+
+F =
+
+r′
+
+β
+q −(α+2)b F K b+β = q −2β F Tα+2
+,
+
+b=0
+
+q −αb K b+1+β = KTαβ = Tαβ+1
+
+b=0
+
+
+
+q  −αr′ αr′ β
+q
+q K +
+r′
+α
+
+q
+
+b=0
+
+1
+r′
+
+=q
+′
+Tαβ Tαβ′ =
+
+b=0
+
+′
+rX
+−1
+
+′
+rX
+−1
+
+α
+
+=
+
+r ′ −1
+
+1 X −αb b+β
+q 2β X −(α−2)b
+β
+q
+K
+E
+=
+q
+EK b+β = q 2β ETα−2
+,
+r′
+r′
+
+′
+rX
+−1
+
+
+q −αb K b+β 
+
+b=1
+
+Tαβ ,
+r ′ −1
+
+r ′ −1
+
+r ′ −1
+
+b=0
+
+b=0
+
+b=0
+
+1 X −αb b+β β ′
+1 X −αb b β+β ′
+1 X −αb α′ b β+β ′
+q
+q
+q
+K
+Tα′ = ′
+K Tα′
+= ′
+q Tα′
+′
+r
+r
+r
+
+′
+= δα,α′ Tαβ+β
+
+□
+
+Notice that, for every integer 0 ⩽ b ⩽ r − 1 and all complex numbers α, β ∈ C,
+we have
+′
+′
+rX
+−1
+rX
+−1
+(2a+α)b β
+q
+T2a+α =
+q (2a+α)b q −(2a+α)c K c+β
+a=0
+
+a,c=0
+
+=
+
+′
+rX
+−1
+
+′
+
+rX
+−1
+
+q 2a(b−c)  q α(b−c) K c+β
+a=0
+
+c=0
+′
+
+=
+
+rX
+−1
+
+δb,c q α(b−c) K c+β
+
+c=0
+
+= K b+β .
+
+(6)
+
+If, for every integer 0 ⩽ a ⩽ r − 1, we set
+F (a) :=
+
+{1}a a
+F ,
+[a]!
+
+then
+β
+{E ℓ F (m) T2n+α
+| 0 ⩽ ℓ, m, n ⩽ r′ − 1}
+
+is a basis of uβ̄ᾱ for any pair of representatives α, β ∈ C of ᾱ, β̄ ∈ G.
+5.2. Computations in integral bases. First of all, we compute coproducts and
+antipodes in integral bases.
+Lemma 5.3. For all integers 0 ⩽ a, b, c ⩽ r − 1 we have
+′
+−1 X
+a X
+b  
+
+ rX
+b (a−α)i+bj−2c(i+j)−(i+j)2
+(a) b β
+∆ F E Tα =
+q
+j
+c=0 i=0 j=0
+
+β
+β
+⊗ F (i) E b−j T−2c
+,
+F (a−i) E j T2c+α
+
+
+
+S F
+
+(a)
+
+b
+
+E Tαβ
+
+
+
+= (−1)
+
+a+b (a−b−α−1)(a−b)
+
+q
+
+−β b (a)
+T−α
+E F .
+
+(7)
+(8)
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES 25
+
+Proof. [KS97, Chapter 3, Proposition 5] gives
+ℓ X
+n   
+ X
+ℓ n i(ℓ−i)−j(n−j) ℓ−i m−i j
+ℓ m n
+∆ F K E =
+q
+F K
+E ⊗ F i K m+j E n−j ,
+i j
+i=0 j=0
+
+ℓ m n
+S F K E = (−1)ℓ+n q ℓ(ℓ−1)−n(n−1) E n K ℓ−m−n F ℓ .
+Furthermore
+∆
+
+Tαβ
+
+
+
+r ′ −1
+
+r ′ −1
+
+b=0
+
+b=0
+
+
+1 X −αb b+β
+1 X −αb
+q
+∆ K b+β = ′
+q
+K
+⊗ K b+β
+= ′
+r
+r
+1
+= ′
+r
+
+
+1
+S Tαβ = ′
+r
+
+′
+rX
+−1
+
+q
+
+2ab
+
+β
+⊗ K b+β =
+T2a+α
+
+b=0
+
+β
+β
+,
+⊗ T−2a
+T2a+α
+
+a=0
+
+a,b=0
+′
+rX
+−1
+
+′
+rX
+−1
+
+
+1
+q −αb S K b+β = ′
+r
+
+r−1
+X
+
+r−1
+
+q −αb K −b−β =
+
+b=0
+
+1 X αb b−β
+−β
+q K
+= T−α
+.
+r′
+b=0
+
+□
+
+Using this, it easy to check the claim.
+Finally, we provide formulas for commutators.
+Lemma 5.4. For all integers 0 ⩽ a, b, m ⩽ r − 1, we have
+min{a,b}  
+X
+b
+{a − b − α; k}E b−k F (a−k) Tαβ ,
+F (a) E b Tαβ =
+k
+
+(9)
+
+k=0
+
+Tαβ F (a) E b =
+
+min{a,b} 
+
+X
+
+k=0
+
+where {n; k} :=
+
+
+b
+{−a + b − α; k}Tαβ E b−k F (a−k) ,
+k
+
+(10)
+
+Qk−1
+
+j=0 {n − j} for all integers 0 ⩽ k ⩽ n.
+
+Proof. If we apply the algebra isomorphism ω : u00 → u00 defined by
+ω(E) = F,
+
+ω(K) = K −1 ,
+
+ω(F ) = E,
+
+to [KS97, Equation (5), Section 3.1.1], we obtain
+
+
+min{a,b}    
+k−1
+a−b−j −1
+−a+b+j
+X
+Y
+q
+K −q
+K
+a b
+.
+F aEb =
+[k]!E b−k F a−k 
+k k
+{1}
+j=0
+
+k=0
+
+which means that
+F (a) E b Tαβ =
+
+
+
+
+k−1
+Y
+b
+E b−k F (a−k) 
+q a−b−j K −1 − q −a+b+j K  Tαβ
+k
+
+min{a,b} 
+
+X
+
+j=0
+
+k=0
+
+min{a,b} 
+
+=
+
+
+
+b
+{a − b − α; k}E b−k F (a−k) Tαβ .
+k
+
+X
+
+k=0
+
+This implies
+β
+Tαβ F (a) E b = F (a) E b Tα+2a−2b
+=
+
+min{a,b} 
+
+X
+
+k=0
+min{a,b} 
+
+=
+
+X
+
+k=0
+
+
+b
+β
+{−a + b − α; k}E b−k F (a−k) Tα+2a−2b
+k
+
+
+
+b
+{−a + b − α; k}Tαβ E b−k F (a−k) .
+k
+
+□
+
+26
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+5.3. Ribbon structure and factorizability. Next, u supports the structure of
+β̄
+
+, ᾱ
+
+β̄
+
+ᾱ
+
+2 2
+a ribbon Hopf G-bialgebra. Indeed, an R-matrix Rᾱ,
+∈ uᾱ2 ⊗ uβ̄2 is given by
+β̄
+′
+rX
+−1
+
+β̄ ᾱ
+2,2
+
+Rᾱ,β̄ =
+
+a,b,c=0
+
+β
+β
+α
+α
+{1}c c(c−1)
+q 2 −2(b+ 2 )(a+ 2 ) K b+ 2 E c ⊗ K a+ 2 F c
+[c]!
+
+(11)
+
+for any pair of representatives α, β ∈ C of ᾱ, β̄ ∈ G, as shown in [GHP22, Theorem 4.2]. The R-matrix can also be rewritten as follows:
+′
+
+′
+rX
+−1
+rX
+−1
+β̄ ᾱ
+c(c−1)
+β
+β
+α
+,
+2 2
+Rᾱ,
+=
+q −(2b+β)a K a+ 2  F (c)
+q 2 −(b+ 2 )α K b+ 2 E c ⊗ 
+β̄
+a=0
+
+b,c=0
+
+=
+
+′
+rX
+−1
+
+c(c−1)
+−
+2
+
+q
+
+(b+ β2 )α K b+ β2 E c ⊗ T α2
+
+2b+β F
+
+(c)
+
+(12)
+
+b,c=0
+
+=
+
+′
+rX
+−1
+
+q
+
+c(c−1)
+−
+2
+
+(
+
+a+ α
+2
+
+′
+
+rX
+−1
+β
+α
+)β 
+q −(2a+α)b K b+ 2  E c ⊗ K a+ 2 F (c)
+
+a,c=0
+
+b=0
+
+′
+
+=
+
+rX
+−1
+
+q
+
+c(c−1)
+−
+2
+
+β
+
+(a+ α2 )β T 2
+
+2a+α E
+
+c
+
+α
+
+⊗ K a+ 2 F (c) .
+
+(13)
+
+a,c=0
+
+A pivotal element gᾱ ∈ u0ᾱ is given by
+′
+
+gᾱ := K 1−r ,
+ᾱ
+−ᾱ
+−1
+with compatible ribbon element vᾱ−ᾱ := u−
+∈ uᾱ
+.
+ᾱ (gᾱ )
+0 ∗
+Furthermore, a left integral λα ∈ (uᾱ ) is given by
+√
+
+r′ [r′ − 1]! α(n+1−r′ )
+ℓ m n
+λα E F K = δℓ,r′ −1 δm,r′ −1 χ r2 Z (n + 1)
+q
+,
+{1}r′ −1
+r ′ −1
+
+
+
+{1}m X −(2n+α)b
+ℓ (m) 0
+q
+λα E ℓ F m K b
+λα E F
+T2n+α = ′
+r [m]!
+b=0
+
+′
+
+q (2n+α)(1−r )
+√
+= δℓ,r′ −1 δm,r′ −1
+r′
+for every α ∈ C, where we denote by χA the indicator function of A ⊂ C, defined
+as
+(
+1 if z ∈ A,
+χA (z) =
+0 if z ̸∈ A.
+This is a direct consequence of [GHP22, Theorem 4.2] and Remark 3.5.
+Remark 5.5. Similarly, we have
+
+ min{ℓ,m}
+
+
+X m
+0
+0
+λα F (ℓ) E m T2n+α
+=
+{ℓ − m − 2n − α; k}λα E m−k F (ℓ−k) T2n+α
+k
+k=0
+
+′
+
+q (2n+α)(1−r )
+√
+,
+r′
+′
+−1 (2a+α)n
+ rX
+q
+[ℓ]!  (ℓ) m 0 
+ℓ m n
+λα F E K =
+λα F E T2a+α
+ℓ
+{1}
+a=0
+= δℓ,r′ −1 δm,r′ −1
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES 27
+′
+
+r −1
+[r′ − 1]! X (2a+α)n+(2a+α)(1−r′ )
+√
+q
+=δ
+δ
+r′ {1}r′ −1 a=0
+√
+r′ [r′ − 1]! (n+1−r′ )α
+r
+q
+.
+= δℓ,r′ −1 δm,r′ −1 χ 2 Z (n + 1)
+{1}r′ −1
+ℓ,r ′ −1
+
+m,r ′ −1
+
+Lemma 5.6. A two-sided cointegral Λα ∈ uᾱ
+0 is given by
+′
+
+Λα := √
+
+′
+r −1
+{1}r −1 X r′ −1 r′ −1 a+α √ ′ r′ −1 (r′ −1) α
+E
+F
+K
+= rE
+F
+T0
+r′ [r′ − 1]! a=0
+
+for every α ∈ C.
+Proof. Thanks to Lemma 5.3, we have
+ ′
+ √
+√
+′
+′
+′
+S (Λα ) = r′ S F (r −1) E r −1 T0α = r′ T0−α E r −1 F (r −1) = Λ−α .
+Since
+EΛα = 0 = ε(E)Λα ,
+Λα F = 0 = ε(F )Λα ,
+KΛα = Λα = ε(K)Λα ,
+□
+
+the claim follows.
+Proposition 5.7. If r′ is odd, then
+
+Dᾱ,0 λ−α ◦ Sᾱ0 = Λα .
+Proof.
+Dᾱ,0 λ−α ◦ Sᾱ0
+=
+
+′
+rX
+−1
+
+q
+
+
+d(d−1)
+c(c−1)
++ 2 −(a+b)α
+2
+
+ 
+ α
+α
+2
+E c T2b2 F (d)
+λ−α Sᾱ0 K a F (c) K b E d T2a
+
+a,b,c,d=0
+
+=
+
+′
+rX
+−1
+
+q
+
+c(c−1)
+d(d−1)
++ 2 −(a+b)α
+2
+
+a,b,c,d=0
+{1}c −2ac+cα
+
+[c]!
+=
+
+q
+
+′
+rX
+−1
+
+q
+
+λ−α Sᾱ0 F c K a+b E d
+
+
+
+c(c−1)
+d(d−1)
++ 2 −(a+b−c)α−2ac
+2
+
+a,b,c,d=0
+
+α
+
+α
+
+2
+E c T2(a−c)
+T2b2 F (d)
+
+{1}c
+[c]!
+
+
+α (d)
+F
+(−1)c+d q c(c−1)−d(d−1) λ−α E d K −a−b+c−d F c δ2(a−c),2b E c T2b
+=
+
+′
+rX
+−1
+
+(−1)c+d q
+
+b,c,d=0
+
+3c(c−1)
+d(d−1)
+− 2 −2bα−2(b+c)c
+2
+
+{1}c
+[c]!
+
+
+α
+q 2(2b+d)c−2dα λ−α E d F c K −2b−d E c F (d) T2(b+d)
+√
+′
+′
+′
+′
+′
+= r′ (−1)2(r −1) q r (r −1) E r −1 F (r −1) T0α
+√
+′
+′
+= r′ E r −1 F (r −1) T0α .
+
+□
+
+28
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+5.4. Relation with homological representations. Let us suppose from now on
+that r ⩾ 3 is odd, and let Σg be the surface of genus g with one boundary component
+considered in Section 2.1. In [DM22, Theorem 6.1], the first two authors constructed
+an isomorphism
+ΦVg : HgV (r) → (uu 00 )⊗g ,
+V (r)
+
+where Hg
+is a vector space built from the twisted homology of configuration
+spaces of Σg . This isomorphism was shown to intertwine commuting actions of
+the mapping class group Mod(Σg ) and of the small quantum group u00 . On the
+V (r)
+one hand, the action of Mod(Σg ) on Hg
+is essentially the natural one obtained
+by lifting homeomorphisms to the corresponding regular covers, up to a correction
+on coefficients which is analogue, for odd values of r, to the one given in [BPS21,
+Theorem D]. On the other hand, the action on (uu 00 )⊗g is the one determined by
+Lyubashenko’s representations [Ly94, Section 4], which are part of the Kerler–
+V (r)
+Lyubashenko TQFT JH00 of Corollary 4.3 for H = u. It turns out that Hg
+can be deformed using a cohomology class ϑ ∈ H 1 (Σg ; C), as explained in [DM22,
+ϑ(r)
+Section 6.3.1]. The resulting vector space Hg
+carries an action of the Torelli subgroup I(Σg ) < Mod(Σg ) that was conjectured to be isomorphic to the representation that would arise from a construction generalizing Kerler–Lyubashenko TQFTs
+to cobordisms equipped with cohomology classes, see [DM22, Conjecture 6.6]. One
+of the goals of the present work was to build these generalized Kerler–Lyubashenko
+TQFTs, as a first step towards extending the isomorphism ΦVg to the case of representations depending on cohomology classes. We rephrase [DM22, Conjecture 6.6]
+more precisely in this section.
+In [DM22, Section 6.3.1], the authors define twisted homology groups5
+X
+Hn,g
+:= HnBM (Xn,g , Yn,g ; φX
+n,g ),
+
+where
+⋄ Xn,g is the configuration space of n unordered points in Σg (see [DM22,
+Equation (1)]),
+⋄ Yn,g is a specific subset of the boundary ∂Xn,g (see [DM22, Equation (4)]),
+X
+⋄ φX
+n,g : Z[πn,g ] → EndZ[q,X±1 ] (Wg ) is an action (see [DM22, Equation (31)])
+of the fundamental group πn,g of Xn,g onto a module WgX over a polynomial ring Z[q, X±1 ].
+This twisted version of the homology of the pair (Xn,g , Yn,g ) naturally admits the
+structure of a Z[q, X±1 ]-module (see [DM22, Appendix A.1]).
+The polynomial ring appearing above is
+±1
+±1 ±1
+Z[q, X±1 ] := Z[q, s±1
+1 , t1 , . . . , sg , tg ],
+
+where the formal variables sj , tj can be intepreted as the evaluations of a cohomology class against the homology classes aj , bj of Section 2.1 for every integer
+1 ⩽ j ⩽ g. Indeed, every cohomology class ϑ ∈ H 1 (Σg ; C) ∼
+= HomZ (H1 (Σg ); C)
+determines a ring homomorphism
+Z[q, X±1 ] → C
+(sj , tj ) 7→ (q ϑ(aj ) , q ϑ(bj ) ),
+2zπi
+
+X(r)
+
+X
+where q z = e r for every z ∈ C. If we consider the submodule Hg
+⊂ Hn,g
+spanned by small embedded cycles, as defined in [DM22, Definition 2.3.1], then the
+vector space
+Hgϑ(r) := HgX(r) ⊗Z[q,X±1 ] C
+5H BM stands for Borel–Moore homology.
+∗
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES 29
+
+is endowed with a projective representation
+
+
+ϑ(r)
+ρ̄ϑ(r)
+:
+I(Σ
+)
+→
+PGL
+H
+g
+C
+g
+g
+of the Torelli subgroup I(Σg ) ⊂ Mod(Σg ), as explained in [DM22, Section 6.3.1].
+Now, let us fix a cohomology class ϑ ∈ H 1 (Σg ; C) and the corresponding object Σ ϑ̄ := (Σg , ϑ̄, Lg ) of 3CobC/2Z , where ϑ̄ ∈ H 1 (Σg ; C/2Z) is the image of ϑ,
+and Lg is the Lagrangian subspace introduced in Section 2.2. Let us consider a
+diffeomorphism f ∈ I(Σg ), and let Σ ϑ̄ × [0, 1]f := (Σg × [0, 1]f , π ∗ (ϑ̄), 0) be the
+mapping cylinder of f , which is a morphism in 3CobC/2Z (see [DM22, Section 4.2.3]
+for a precise definition), where π : Σg × [0, 1] → Σg is the projection onto the first
+factor. Notice that f ∗ (ϑ̄) = ϑ̄, since f ∈ I(Σg ). The functor Ju provides a family
+of projective representations
+ϑ̄
+ρ̄u,
+: I(Σg ) → PGLC (Ju (Σ ϑ̄ ))
+g
+
+f → Ju (Σ ϑ̄ × [0, 1]f )
+parametrized by cohomology classes ϑ̄ ∈ H 1 (Σg ; C/2Z) and by roots of unity
+2πi
+q = e r . In [DM22, Section 4.2.3] we explain why this is actually a projective
+representation, by looking at compositions of elements of I(Σg ), and also why it
+is not in general a linear representation. Notice that, here, the fact that f is an
+element of the Torelli subgroup is crucial, otherwise Σ ϑ̄ ×[0, 1]f would not be an endomorphism of Σ ϑ̄ . We expect these representations to agree with the homological
+construction.
+Conjecture 5.8. There is an isomorphism
+Φϑg : Hgϑ(r) → u(ϑ̄(a)
+ϑ̄(a),ϑ̄(b)
+ϑ̄(b))
+that intertwines the actions of I(Σg ) and u⊕
+0 , where
+ϑ̄(b) = (ϑ̄(a1 ), ϑ̄(b1 ), . . . , ϑ̄(ag ), ϑ̄(bg )) ∈ (C/2Z)2g .
+(ϑ̄(a),
+ϑ̄(a) ϑ̄(b))
+ϑ(r)
+
+has not been defined yet, but should
+In Conjecture 5.8, the action of u⊕
+0 on Hg
+be a natural extension of the action of u00 on the twisted homology group of [DM22,
+Theorem 6.1].
+This conjecture is motivated by the fact that, when ϑ is the trivial cohomology
+class, an isomorphism ΦVg was constructed in [DM22, Theorem 6.1]. We expect all
+the computations involved in the proof to admit a generalization to the decorated
+case on both sides of the isomorphism. We expect this conjecture to imply, thanks
+to the integrality properties of homological representations, that the quantum repϑ̄
+resentations ρ̄u,
+are integral when computed in the integral bases of Section 5.1,
+g
+in the sense that their coefficients can be restricted to the polynomial ring Z[q, q ϑ ]
+(defined in [DM22, Conjecture 6.6]). This would imply a polynomial dependence
+in q and a polynomial dependence in coefficients of the cohomology class ϑ. To the
+best of our knowledge, this is not known for TQFT functors decorated with cohoϑ̄
+mology classes. The representations ρ̄u,
+would then form a family that depends
+g
+polynomially on the cohomology class ϑ̄, and that admit both a TQFT formulation,
+on one hand, and a homological intepretation, on the other.
+References
+[At88] M. Atiyah, Topological Quantum Field Theories, Publ. Math. Inst. Hautes Études Sci. 68
+(1988), no. 1, 175–186.
+[BBDP23] A. Beliakova, I. Bobtcheva, M. De Renzi, R. Piergallini, On Algebraization in LowDimensional Topology, arXiv:2312.15986 [math.GT].
+
+30
+
+M. DE RENZI, J. MARTEL, AND B. WANG
+
+[BCGP14] C. Blanchet, F. Costantino, N. Geer, B. Patureau-Mirand, Non-Semisimple TQFTs,
+Reidemeister Torsion and Kashaev’s Invariants, Adv. Math. 301 (2016), 1–78; arXiv:
+1404.7289 [math.GT].
+[BD21] A. Beliakova, M. De Renzi, Kerler–Lyubashenko Functors on 4-Dimensional 2-Handlebodies, Int. Math. Res. Not. IMRN (2022), rnac039; arXiv:2105.02789 [math.GT].
+[BD22] A. Beliakova, M. De Renzi, Refined Bobtcheva–Messia Invariants of 4-Dimensional 2Handlebodies, Essays in Geometry, 387–432, IRMA Lect. Math. Theor. Phys. 34, Eur. Math.
+Soc., Zürich, 2023; arXiv:2205.11385 [math.GT].
+[BHMV95] C. Blanchet, N. Habegger, G. Masbaum, P. Vogel, Topological Quantum Field Theories Derived from the Kauffman Bracket, Topology 34 (1995), no. 4, 883–927.
+[Bi00] S. Bigelow, Braid Groups Are Linear, J. Amer. Math. Soc. 14 (2001), no. 2, 471–486;
+arXiv:math/0005038 [math.GR].
+[BPS21] C. Blanchet, M. Palmer, A. Shaukat, Heisenberg Homology on Surface Configurations,
+arXiv:2109.00515 [math.GT].
+[CGP12] F. Costantino, N. Geer, B. Patureau-Mirand, Quantum Invariants of 3-Manifolds via
+Link Surgery Presentations and Non-Semi-Simple Categories, J. Topol. 7 (2014), no. 4,
+1005–1053; arXiv:1202.3553 [math.GT].
+[CGPV23] F. Costantino, N. Geer, B. Patureau-Mirand, A. Virelizier, Non Compact (2 + 1)TQFTs From Non-Semisimple Spherical Categories, arXiv:2302.04509 [math.QA].
+[CY94] L. Crane, D. Yetter, On Algebraic Structures Implicit in Topological Quantum Field Theories, J. Knot Theory Ramifications 8 (1999), no. 2, 125–163; arXiv:hep-th/9412025.
+[De17] M. De Renzi, Non-Semisimple Extended Topological Quantum Field Theories, Mem.
+Amer. Math. Soc. 277 (2022), no. 1364; arXiv:1703.07573 [math.GT].
+[De21] M. De Renzi, Extended TQFTs From Non-Semisimple Modular Categories, Indiana Univ.
+Math. J. 70 (2021), no. 5, 1769–1811; arXiv:2103.04724 [math.GT].
+[DGGPR19] M. De Renzi, A. Gainutdinov, N. Geer, B. Patureau-Mirand, I. Runkel, 3-Dimensional TQFTs from Non-Semisimple Modular Categories, Selecta Math. (N.S.) 28 (2022),
+42; arXiv:1912.02063 [math.GT].
+[DM22] M. De Renzi, J. Martel, Homological Construction of Quantum Representations of Mapping Class Groups, arXiv:2212.10940 [math.GT].
+[EGNO15] P. Etingof, S. Gelaki, D. Nikshych, V. Ostrik, Tensor Categories, Math. Surveys
+Monogr. 205, Amer. Math. Soc., Providence, RI, 2015.
+[GHP20] N. Geer, N. Ha, B. Patureau-Mirand, Modified Graded Hennings Invariants From Unrolled Quantum Groups and Modified Integral, J. Pure Appl. Algebra 226 (2022), no. 3,
+106815; arXiv:2006.12050 [math.QA].
+[GHP22] N. Geer, N. Ha, B. Patureau-Mirand, Modified Symmetrized Integral in G-Coalgebras,
+to appear in J. Knot Theory Ramifications; arXiv:2209.04691 [math.QA].
+[Ha05] K. Habiro, Bottom Tangles and Universal Invariants, Algebr. Geom. Topol. 6 (2006),
+no. 3, 1113–1214; arXiv:math/0505219 [math.GT].
+[He96] M. Hennings, Invariants of Links and 3-Manifolds Obtained from Hopf Algebras, J. London
+Math. Soc. 54 (1996), 594–624.
+[Ka95] C. Kassel, Quantum Groups, Grad. Texts in Math. 155, Springer-Verlag, New York, 1995.
+[Ke01] T. Kerler, Towards an Algebraic Characterization of 3-Dimensional Cobordisms, Diagrammatic Morphisms and Applications (San Francisco, CA, 2000), 141–173, Contemp. Math.
+318, Amer. Math. Soc., Providence, RI, 2003; arXiv:math/0106253 [math.GT].
+[Ke96] T. Kerler, Genealogy of Nonperturbative Quantum-Invariants of 3-Manifolds: The Surgical Family, in Geometry and Physics (Aarhus, 1955), 503–547, Lecture Notes in Pure and
+Appl. Math. 184, Dekker, New York, 1997; arXiv:q-alg/9601021.
+[KL01] T. Kerler, V. Lyubashenko, Non-Semisimple Topological Quantum Field Theories for 3Manifolds with Corners, Lecture Notes in Math. 1765, Springer-Verlag, Berlin, 2001.
+[KR93] L. Kauffman, D. Radford, A Necessary and Sufficient Condition for a Finite-Dimensional
+Drinfel’d Double to Be a Ribbon Hopf Algebra, J. Algebra 159 (1993), no. 1, 98–114.
+[KS97] A. Klimyk, K. Schmüdgen, Quantum Groups and Their Representations, Texts Monogr.
+Phys., Springer-Verlag, Berlin, 1997.
+[Ly94] V. Lyubashenko, Invariants of 3-Manifolds and Projective Representations of Mapping
+Class Groups via Quantum Groups at Roots of Unity, Comm. Math. Phys. 172 (1995),
+no. 3, 467–516; arXiv:hep-th/9405167.
+[Ma20] J. Martel, A Homological Model for Uq sl(2) Verma-Modules and Their Braid Representations, Geom. Topol. 26 (2022), no. 3, 1225–1289; arXiv:2002.08785 [math.GT].
+[Ma91] S. Majid, Braided Groups and Algebraic Quantum Field Theories, Lett. Math. Phys. 22
+(1991), no. 3, 167–175
+[Ma95] S. Majid, Foundations of Quantum Group Theory, Cambridge University Press, Cambridge, 1995.
+
+HENNINGS TQFTS FOR COBORDISMS DECORATED WITH COHOMOLOGY CLASSES 31
+
+[Oh93] T. Ohtsuki, Colored Ribbon Hopf Algebras and Universal Invariants of Framed Links, J.
+Knot Theory Ramifications 2 (1993), no. 2, 211–232.
+[Ra12] D. Radford, Hopf Algebras, Ser. Knots Everything 49, World Sci. Publ., Hackensack, NJ,
+2012.
+[Ro97] J. Roberts, Kirby Calculus in Manifolds With Boundary, Turkish J. Math. 21 (1997),
+no. 1, 111–117; arXiv:math/9812086 [math.GT].
+[RT91] N. Reshetikhin, V. Turaev, Invariants of 3-Manifolds via Link Polynomials and Quantum
+Groups, Invent. Math. 103 (1991), no. 1, 547–597.
+[Tu10] V. Turaev, Homotopy Quantum Field Theory, EMS Tracts Math. 10, European Mathematical Society (EMS), Zürich, 2010.
+[Tu94] V. Turaev, Quantum Invariants of Knots and 3-Manifolds, De Gruyter Stud. Math. 18,
+De Gruyter, Berlin, 1994.
+[Vi00] A. Virelizier, Hopf Group-Coalgebras, J. Pure Appl. Algebra 171 (2002), no. 1, 75–122,
+arXiv:math/0012073 [math.QA].
+[Wi89] E. Witten, Quantum Field Theory and the Jones Polynomial, Comm. Math. Phys. 121
+(1989), no. 3, 351–399.
+IMAG, Université de Montpellier, Place Eugène Bataillon, 34090 Montpellier,
+France
+Email address: marco.de-renzi@umontpellier.fr
+AGM, Cergy Paris Université, Site de Saint-Martin, 2 avenue Adolphe Chauvin,
+95300 Pontoise, France
+Email address: jules.martel-tordjman@cyu.fr
+Institute of Mathematics, University of Zurich, Winterthurerstrasse 190, CH8057 Zurich, Switzerland
+Email address: bangxin.wang@math.uzh.ch
+
+

@@ -1,0 +1,5186 @@
+A Kazhdan–Lusztig correspondence for L− 3 (sl3)
+2
+
+arXiv:2112.13167v1 [math.RT] 25 Dec 2021
+
+Thomas Creutzig∗
+
+David Ridout†
+
+Matthew Rupert‡
+
+Abstract
+The abelian and monoidal structure of the category of smooth weight modules over a non-integrable
+affine vertex algebra of rank greater than one is an interesting, difficult and essentially wide open problem.
+Even conjectures are lacking. This work details and tests such a conjecture for L− 3 (sl3 ) via a logarithmic
+2
+Kazhdan–Lusztig correspondence.
+H
+We first investigate the representation theory of U i (sl3 ), the unrolled restricted quantum group of
+sl3 at fourth root of unity. In particular, we analyse its finite-dimensional weight category, determining
+Loewy diagrams for all projective indecomposables and decomposing all tensor products of irreducibles.
+Our motivation is that this category is conjecturally braided tensor equivalent to a category of WA02 (2)modules. Here, WA02 (2) is an orbifold of the octuplet vertex algebra WA2 (2) of Semikhatov, the latter
+being the natural sl3 -analogue of the well known triplet algebra. Moreover, WA02 (2) is the parafermionic
+coset of the affine vertex algebra L− 3 (sl3 ).
+2
+
+We formulate an explicit conjecture relating the representation theory of WA02 (2) and U H
+i (sl3 ) and work
+out the resulting structures of the corresponding L− 3 (sl3 )-modules. In particular, we obtain conjectural
+2
+Loewy diagrams for the latter’s projective indecomposables and decompositions for the fusion products
+of its irreducibles. These products coincide with those recently computed via Verlinde’s formula. Finally,
+we give analogous results for WA2 (2).
+
+Contents
+1 Introduction
+1.1 Affine vertex algebras at admissible level . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.2 Logarithmic Kazhdan–Lusztig correspondences . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.3 Overview . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+2
+2
+3
+4
+
+2 Preliminaries
+2.1 The quantum group U H
+i (sl3 ) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.2 Finite-dimensional weight U H
+i (sl3 )-modules . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.3 Filtrations and BGG reciprocity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+6
+6
+7
+9
+
+3 Representation theory of U H
+i (sl3 )
+3.1 Verma modules and irreducible quotients . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 Projective modules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.3 Tensor product decompositions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+11
+11
+14
+19
+
+4 Categories related to L− 23 (sl3 )
+4.1 Representation theory of L− 32 (sl3 ) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2 A parafermionic coset . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.3 A logarithmic Kazhdan–Lusztig correspondence . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.4 Reconstructing L− 23 (sl3 )-modules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+24
+24
+26
+27
+31
+
+∗ Department of Mathematics, University of Alberta. creutzig@ualberta.ca
+† School of Mathematics and Statistics, University of Melbourne. david.ridout@unimelb.edu.au
+‡ Department of Mathematics and Statistics, Utah State University. matthew.rupert@usu.edu
+
+1
+
+4.5
+4.6
+
+1
+
+Fusion rules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+An octuplet algebra . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+32
+35
+
+Introduction
+
+Two excellent sources of braided tensor categories are the representation categories of modules of quantum
+groups and of vertex operator algebras. Here, we are mostly interested in categories that are not semisimple.
+Besides being interesting in their own right, such categories give rise to rich invariants of 3-manifolds [CGP14]
+and they naturally emerge from quantum field theories [CDGG]. In this work, we study the case of the
+unrolled restricted quantum group of sl3 at fourth root of unity, U H
+i (sl3 ), and its connection to the simple
+affine vertex operator algebra of sl3 at level − 23 , L− 32 (sl3 ). Let us start by reviewing the state of the art.
+
+1.1
+
+Affine vertex algebras at admissible level
+
+Let g be a finite-dimensional complex simple Lie algebra. Then, to any k ∈ C, one associates the simple
+
+affine vertex algebra of g at level k, which we denote by Lk (g). If k is a non-negative integer, then Lk (g) is
+rational and lisse, hence its module category is a semisimple modular tensor category [Hu08b]. It is a major
+research goal to thoroughly understand the module categories of Lk (g) for general k. A relatively accessible,
+though still extremely challenging, case is when k is an admissible level [KW88].
+This goal entails first classifying the irreducible modules, second understanding extensions between them
+and third establishing a vertex tensor category structure and determining its properties. There are of course
+different types of categories of modules that one can study. The simplest one is the category of ordinary
+modules, these being the positive-energy modules whose conformal weight spaces are finite-dimensional. For
+k admissible, this category is a semisimple vertex tensor category [Ar16, CHY18] for which rigidity is also
+mostly established [Cr19, CKL22, CGL].
+It turns out that when k is not a non-negative integer, Lk (g) usually has many modules that are not positiveenergy or have infinite-dimensional conformal weight spaces. Among other reasons, one must then extend
+the category of ordinary modules to include some of these in order to obtain a modular-invariant partition
+function [KW88, CR12, CR13b]. There is therefore significant current effort to understand these extended
+categories of Lk (g)-modules, particularly those that include the so-called relaxed highest-weight modules
+[FST98, RW15], see for example [Ad16, RW15a, AFR17, RSW18, Ad19, KR19, CKLR18, AP19, KR21,
+AW20, FMR20, FK21, AKR21, FKR21, FMK21, KRW21].
+In the case g = sl2 , the irreducible positive-energy modules were classified in [AM95]. Reducible positiveenergy modules were subsequently considered in many works, including [Ga01, Ri11, CR12, CR13b, KR19].
+Moreover, modules that are not positive-energy are often obtained by applying spectral flow functors to
+those that are. In fact, all irreducible weight modules with finite-dimensional weight spaces can be obtained
+in this fashion [FT01]. Non-trivial extensions between such spectrally flowed modules were introduced in
+[Ga01, Ri11] and a general construction of Adamović [Ad19] covers all the indecomposable projective modules
+[ACK] (in the category of weight modules).
+Beyond g = sl2 , the structures of indecomposable projective modules are currently unknown. There are
+however many conjectural correspondences between categories of modules of certain quantum groups and
+vertex operator algebras. These are often called logarithmic Kazhdan–Lusztig correspondences and we will
+
+2
+
+review them in a moment. One such correspondence relates the unrolled restricted quantum group U H
+i (sl3 ),
+at a fourth root of unity, and a vertex operator algebra related to L− 23 (sl3 ) [CR20]. (This correspondence
+is in fact a variant of the conjectured logarithmic Kazhdan–Lusztig correspondence between Feigin–Tipunin
+algebras and restricted quantum groups [FT10].) Since the representation theory of quantum groups is
+reasonably accessible, this is a promising direction to deduce otherwise unimaginable structural conjectures
+for indecomposable projective L− 23 (sl3 )-modules.
+Eventually, one would not only like to understand the linear categories of an affine vertex algebra, but also
+their monoidal structures. For example, one would like to obtain fusion rules for the irreducible modules.
+Verlinde’s formula [Ve88] is a particularly nice way to obtain (Grothendieck) fusion rules, though it is only
+established for rational and lisse vertex operator algebras [Hu08a]. There is nevertheless a generalised Verlinde
+conjecture [CR13a, RW15b] that has been successfully applied to Lk (sl2 ) at admissible levels [CR12, CR13b].
+This conjectural formula has been recently lifted to L− 32 (sl3 ) in a companion paper [KRW21], so that the
+tensor product decompositions of U H
+i (sl3 )-modules and the fusion rules of the corresponding L− 23 (sl3 )-modules
+may be compared.
+
+1.2
+
+Logarithmic Kazhdan–Lusztig correspondences
+
+The category of ordinary modules of the affine vertex operator algebra Lk (g), with g simple and k+h∨ ∈
+/ Q≥0 ,
+is equivalent as a braided tensor category to the category of finite-dimensional modules of Lusztig’s quantum
+∨
+
+group Uq (g) at q = eπi/ℓ(k+h ) , where h∨ and ℓ are the dual Coxeter and lacing numbers, respectively, of
+g. This is the original Kazhdan–Lusztig correspondence [KL93a, KL93b, KL94a, KL94b] established in the
+1990s.
+
+Related progress on the mathematics of logarithmic conformal field theory was made in the mid-2000s
+[FGST06a, FGST06b, FGST06c, FGST07]. These papers conjectured a logarithmic Kazhdan–Lusztig correspondence between the representation categories of the triplet algebras WA1 (p) (parameterised by an integer
+p ≥ 2) and the restricted quantum group U q (sl2 ) at q = eπi/p . It was later noticed that the correspon-
+
+dence is in fact between the triplet algebras and a quasi-Hopf algebra whose underlying algebra is the
+quantum group. One calls this a quasi-Hopf modification of the quantum group [GR17, CGR20]. In this
+
+instance, the quantum group category was quickly understood and it thus provided reliable conjectures about
+WA1 (p)-module categories, in particular their abelian structures and fusion rules. It then took many works
+[AM08, AM07, KS11, NT11, TW15, CGR20, MY20, CLR21, GN21] to completely settle these conjectures.
+A related conjectural logarithmic Kazhdan–Lusztig correspondence involves the unrolled restricted quantum
+πi/p
+and the singlet algebra WA01 (p) [CGP15], the latter being the U (1)-orbifold of
+group U H
+q (sl2 ) at q = e
+WA1 (p). This in turn means that WA1 (p) is a simple current extension of WA01 (p) [RW14]. The corresponding
+
+relation between the two quantum groups U q (sl2 ) and U H
+q (sl2 ) is sometimes called uprolling and was first
+worked out in [CGR20]. Moreover, a full understanding of the tensor category of WA01 (p) was recently achieved
+in [CMY20b, CKMY].
+This unrolled/singlet correspondence is of significant interest. One reason is that very interesting vertex
+algebras, called Bp -algebras [CRW14], may be realised as simple current extensions of WA01 (p) and a rank-one
+Heisenberg vertex algebra. For p = 2, one gets the βγ-vertex algebra [Ri10]; for p = 3, one gets L−4/3 (sl2 )
+[Ad05]; while for larger p, one gets certain subregular W-algebras of slp−1 [ACGY21]. We remark that the
+Bp -algebras are important in physics as they arise as chiral algebras of certain Argyres–Douglas theories
+3
+
+[BR18, Cr18, ACGY21], these being a type of four-dimensional superconformal quantum field theory.
+The quantum group correspondence was then used to give a complete, but of course still conjectural, description of the category of smooth weight modules of all the Bp -algebras [ACKR20]. In particular, fusion
+
+rules were conjectured via Verlinde’s formula and, even better, the normalised entries of the modular S-
+
+transformation corresponding to the generalised Verlinde formula were found to coincide with the normalised
+modified traces of open Hopf links, as was already anticipated in [CMR18, CG17, GR19]. In summary, these
+logarithmic Kazhdan–Lusztig correspondences between quantum group categories and categories of modules
+of vertex algebras, both associated to sl2 , have been invaluable for better understanding the representation
+theory of the vertex algebras. It is thus reasonable to extend this program to higher ranks.
+In this direction, there is a natural generalisation of the triplet algebras called the Feigin–Tipunin algebras
+[FT10]. They are parameterised by a simply laced simple Lie algebra g and an integer p ≥ 2. The corresponding quantum groups are expected to be quasi-Hopf modifications of the restricted quantum groups U q (g) at
+
+q = eπi/p . The unrolled version should moreover correspond to the orbifold of the Feigin–Tipunin algebra by
+the maximal torus of the Lie group of g. Unfortunately, very few results have thus far been established for
+these vertex algebras, see [Se14, Se13, CM17, Su21, AMW20, Su21b].
+
+As in the case of g = sl2 , there exist extensions of the tensor product of these Feigin–Tipunin orbifolds by
+Heisenberg vertex algebras of the same rank as g [Cr17]. These extensions also arise in physics as chiral
+algebras of Argyres–Douglas theories [BT17, Cr17]. The very first higher-rank example is g = sl3 and p = 2.
+In this case, the extension was identified by Adamović as L− 32 (sl3 ) [Ad16]. It is also worth pointing out that
+a different extension, obtained by first tensoring with a rank-one Heisenberg vertex algebra, gives the small
+N = 4 superconformal algebra at central charge −9.
+The quantum group associated to the orbifold WA02 (2) of the Feigin–Tipunin algebra for sl3 and p = 2 is
+UH
+i (sl3 ). General results for these unrolled restricted quantum groups and their uprollings were obtained
+in [GP13, CGP14, CGP15, Ru19, CR20], but the explicit structures of the projective indecomposables and
+decompositions of tensor products were not known. We thus decided to study this example in order to
+compare our findings with the recent results of [KRW21] on the representation theory of L− 32 (sl3 ), via the
+conjectural logarithmic Kazhdan–Lusztig correspondence.
+
+1.3
+
+Overview
+
+We begin in Section 2 by recalling the definition of the unrolled restricted quantum group U H
+i (sl3 ) and
+
+outlining some of the broader features of its representation theory, following [Ru19]. We also outline the
+theory of Loewy series and diagrams to fix notation and explain the subtle relation between this theory and
+duality.
+Section 3 is devoted to a detailed study of the category of finite-dimensional weight U H
+i (sl3 )-modules. The
+
+simple objects of this category are realised as irreducible quotients Lλ of Verma modules Mλ . It follows from
+[Ru19, Propositions 4.4 and 4.6] that the irreducibility of Mλ is determined by the “typicality” of the scalars
+
+λk = hλ + ρ, αk i, k = 1, 2, 3, where α1 and α2 are the simple roots of sl3 and α3 = ρ = α1 + α2 . We call
+λk ∈ C typical if λk ∈
+/ 2Z + 1 and a weight λ ∈ h∗ typical if all λj are typical. Weights that are not typical
+
+are called atypical and are further subdivided by the degree of atypicality, this being the number of λk that
+are atypical (in 2Z + 1).
+
+4
+
+We find that the structures and invariants of the irreducibles Lλ , Vermas Mλ and projective covers Pλ are
+captured by four different classes of atypicality for the weight λ:
+• λ typical (atypical of degree 0);
+• λ atypical of degree 1;
+• λ atypical of degree 2 with λ3 atypical;
+• λ atypical of degree 2 with λ3 typical.
+For example, the dimensions of the Lλ corresponding to these four classes are 8, 4, 3 and 1, respectively.
+This, along with the characters of the Lλ , is the content of Proposition 3.1.
+From here, we establish in Theorem 3.2 the Loewy diagrams that summarise the structures of the reducible
+Verma modules, see Figure 2. The quite non-trivial generalisation for the indecomposable projectives is
+reported in Theorem 3.5 and Figure 3. Both results again split into cases along the lines of the atypicality
+classes introduced above. This identification of projectives is moreover extremely helpful for decomposing
+many of the tensor products of irreducible U H
+i (sl3 )-modules, this being the subject of Section 3.3.
+The implications of these results for the representation theories of the vertex operator algebras WA02 (2),
+WA2 (2) and L− 23 (sl3 ) is discussed in Section 4. The latter here serves as a partial check as some features of
+the representation theory of L− 23 (sl3 ) have been recently established in [KRW21]. These results are reviewed
+in Section 4.1. However, the conjectural logarithmic Kazhdan–Lusztig correspondence involves the Feigin–
+Tipunin orbifold WA02 (2), not L− 23 (sl3 ), so Section 4.2 details the relationship between these two vertex
+operator algebras. In particular, we determine the branching rules of the irreducible L− 23 (sl3 )-modules, that
+is their decomposition into modules of WA02 (2) ⊗ H (where H denotes a rank-2 Heisenberg algebra).
+The Kazhdan–Lusztig correspondence itself is the topic of Section 4.3, see Conjecture 4.3. This immediately
+results in conjectural Loewy diagrams for the indecomposable projective WA02 (2)-modules, see Figure 6. To
+lift these to L− 23 (sl3 ), we use the theory of vertex algebra extensions to construct an exact monoidal functor
+of a suitable subcategory of WA02 (2) ⊗ H-modules to the weight category of L− 23 (sl3 ). This is detailed
+
+in Section 4.4 with the conjectured Loewy diagrams for the indecomposable projective L− 23 (sl3 )-modules
+reported in Figure 7. This gives the first predictions for the structures of these projective covers and will be
+invaluable guides for their subsequent construction and analysis.
+We also test the tensor part of the conjectured equivalence by using the tensor product decompositions for
+UH
+i (sl3 ), given in Section 3.3, to predict fusion rules for L− 23 (sl3 ) in Section 4.5 and checking that they
+descend to the Grothendieck fusion rules recently calculated in [KRW21]. This is a highly non-trivial check
+of both our Conjecture 4.3 and the standard Verlinde conjecture for logarithmic models [CR13a, RW15b].
+To conclude, we again use vertex algebra extension theory to study the representation theory of WA2 (2). This
+Feigin–Tipunin algebra was dubbed the octuplet algebra by Semikhatov [Se14, Se13] as it is generated by
+eight primary fields of conformal weight four. As an sl3 generalisation of the triplet algebras, it is expected
+to be C2 -cofinite. We verify in Section 4.6, again assuming Conjecture 4.3, that there are finitely many
+irreducibles (up to isomorphism) and that all are ordinary. Predictions for their fusion rules are deduced and
+Loewy diagrams for the projective indecomposables are proposed in Figure 8.
+
+5
+
+Acknowledgements
+The work of TC is supported by NSERC Grant Number RES0048511. DR’s research is supported by the
+Australian Research Council Discovery Projects DP160101520 and DP210101502, as well as an Australian
+Research Council Future Fellowship FT200100431.
+
+2
+
+Preliminaries
+
+In this section, the unrolled restricted quantum group U H
+i (sl3 ) is defined and various results are recalled for
+later use in identifying the Loewy diagrams of its reducible Verma modules and their projective covers.
+
+2.1
+
+The quantum group U H
+i (sl3 )
+
+Fix a choice of Cartan subalgebra h ⊂ sl3 . The simple roots are denoted by αi ∈ h∗ , i = 1, 2, and the
+highest root is α3 = α1 + α2 . The Killing form h−, −i is normalised so that hαi , αj i = Ai,j , i = 1, 2, where
+
+2 −1
+A = −1
+is the Cartan matrix. The dual form on h∗ will also be denoted by h−, −i. Fix also a lattice
+2
+∗
+L ⊂ h such that Q ⊆ L ⊆ P , where P and Q are the weight and root lattices of sl3 , respectively.
+√
+Here and below, i denotes −1 ≡ eπi/2 .
+Definition 2.1. The unrolled restricted quantum group U H
+i (sl3 ) is the complex Hopf algebra with generators
+X±j , Hj and Kγ , for j = 1, 2 and γ ∈ L, and relations
+K0 = 1,
+
+Kγ1 Kγ2 = Kγ1 +γ2 , Kγ X±j K−γ = i±hγ,αj i X±j ,
+
+Kαj − K−αj
+2
+,
+X±j
+= 0,
+2i
+[Hj , Hj ′ ] = 0,
+[Hj , X±j ′ ] = ±Aj,j ′ X±j ′ ,
+
+[Xj , X−j ′ ] = δj,j ′
+
+(X±1 X±2 )2 = (X±2 X±1 )2 ,
+
+(2.1a)
+
+[Hj , Kγ ] = 0.
+
+(The notation Kj = Kαj and K−γ = Kγ−1 will also be used.) The coproduct, counit and antipode are given
+by
+∆(Kγ ) = Kγ ⊗ Kγ ,
+
+ǫ(Kγ ) = 1,
+
+S(Kγ ) = K−γ ,
+
+∆(Xj ) = Xj ⊗ Kj + 1 ⊗ Xj ,
+
+ǫ(Xj ) = 0,
+
+S(Xj ) = −Xj Kj−1 ,
+
+∆(Hj ) = 1 ⊗ Hj + Hj ⊗ 1,
+
+ǫ(Hj ) = 0,
+
+∆(X−j ) = X−j ⊗ 1 + Kj−1 ⊗ X−j , ǫ(X−j ) = 0, S(X−j ) = −Kj X−j
+
+(2.1b)
+
+S(Hj ) = −Hj ,
+
+respectively.
+Normally, one would augment the relations (2.1a) with Serre relations. However, these become trivial when
+the quantum group parameter q is specialised to i.
+H ±
+The subalgebra of U H
+i (sl3 ) generated by the “simple root vectors” X±1 and X±2 will be denoted by U i (n ).
+
+As in [KS97, Section 6.2.3], the root vectors associated to ±α3 may be chosen to be
+X3 = −X1 X2 − iX2 X1
+
+and
+
+X−3 = −X−2 X−1 + iX−1 X−2 .
+
+2
+It is easy to check from (2.1a) that X±3
+= 0. The following result is easy to establish.
+
+6
+
+(2.2)
+
+ n1 n3 n2 
+
+±
+Proposition 2.2. The set X±1
+X±3 X±2 
+n1 , n2 , n3 = 0, 1 is a vector space basis for U H
+i (n ).
+
+2.2
+
+Finite-dimensional weight U H
+i (sl3 )-modules
+
+To discuss the representation theory of U H
+i (sl3 ), it will be convenient to identify the generators H1 and H2
+
+with the simple coroots of sl3 , so that span{H1 , H2 } = h.
+
+Definition 2.3. Given a U H
+i (sl3 )-module V , denote by V (λ) the simultaneous eigenspace of H1 and H2 with
+∗
+weight λ ∈ h :
+
+
+V (λ) = {v ∈ V 
+(2.3)
+Hj v = λ(Hj )v, j = 1, 2} .
+∗
+A UH
+i (sl3 )-module V is called a weight module if it is the direct sum of its weight spaces V (λ), λ ∈ h , and
+hγ,λi
+every Kγ , γ ∈ L, acts on each V (λ) as multiplication by i
+. A non-zero element of V (λ) is called a weight
+
+vector of weight λ. The category of all finite-dimensional weight U H
+i (sl3 )-modules will be denoted by C .
+
+Note that the category C is insensitive to the choice of lattice L made for U H
+i (sl3 ) (see Definition 2.1), because
+the action of the Kγ , γ ∈ L, in C is completely determined by the action of H1 and H2 .
+
+Definition 2.4. The character of a module V in C is the following formal series in z:
+ch[V ] =
+
+X
+
+dim V (λ) z λ .
+
+(2.4)
+
+λ∈h∗
+
+Definition 2.5. A weight vector in a U H
+i (sl3 )-module is said to be maximal if it is annihilated by X1 and
+X2 . Any U H
+i (sl3 )-module generated by a single maximal vector is called a highest-weight module and the
+weight of the generating maximal vector is called its highest weight.
+
+∗
+As usual, one may define the Verma U H
+i (sl3 )-module Mλ , λ ∈ h , as the (unique up to isomorphism) universal
+highest-weight module generated by a maximal vector of weight λ. It has a unique irreducible quotient which
+−
+we denote by Lλ . Moreover, Mλ is free as a U H
+i (n )-module so Proposition 2.2 gives the basis
+
+
+
+
+
+n1
+n3
+n2
+X−1
+X−3
+X−2
+mλ 
+n1 , n2 , n3 = 0, 1 ,
+
+(2.5)
+
+where mλ is any vector of weight λ. The character of a Verma module is thus given by
+ch[Mλ ] =
+
+1
+1
+1
+X
+X
+X
+
+z λ−n1 α1 −n2 α2 −n3 α3 = z λ
+
+n1 =0 n2 =0 n3 =0
+
+3
+Y
+
+(1 + z −αi ).
+
+(2.6)
+
+i=1
+
+It moreover follows that both Mλ and Lλ belong to the finite-dimensional weight category C , for all λ ∈ h∗ .
+As noted in [Ru19, Section 4.2], C has enough projectives. In particular, Lλ and Mλ have a common
+projective cover in C , which we denote by Pλ .
+The question of when Mλ is irreducible was decided in [Ru19] in terms of the notion of typical weights. Let
+ρ denote the Weyl vector of sl3 .
+
+7
+
+Figure 1: The atypical weights in h∗ , pictured with 0 at the centre. Grey dots indicate typical weights in P ,
+black lines indicate atypical weights of degree 1 and black dots are atypical weights of degree 2. The Weyl
+vector ρ is the grey dot closest to 0 along the ray 30◦ to the right of the upwards vertical.
+Definition 2.6. For each λ ∈ h∗ , let
+λj = hλ + ρ, αj i,
+
+j = 1, 2, 3,
+
+(2.7)
+
+and note that λ3 = λ1 + λ2 . The index λj is said to be atypical whenever λj ∈ 2Z + 1 and typical otherwise.
+If all of the λj , j = 1, 2, 3, are typical, then the weight λ ∈ h∗ is said to be typical. For n = 0, 1, 2, a weight
+λ with n atypical indices λj is said to be atypical of degree n.
+
+For convenience, we illustrate the atypical weights in Figure 1.
+Proposition 2.7 ([Ru19, Propositions 4.4 and 4.6]). Mλ is irreducible if and only if λ is typical.
+We shall see in Sections 3.1 and 3.2 that the subquotient structure of Mλ and Pλ is determined by which of
+the λj , j = 1, 2, 3, are atypical.
+It is easy to see that two irreducible modules in C are isomorphic if and only if they have the same character.
+One might not expect this to remain true when “irreducible” is replaced by “projective”. For example, it
+is false for general Drinfeld–Jimbo quantum groups (at roots of unity). However, unrolling allows us to
+consider additive module weights rather than just multiplicative ones (meaning Hj -eigenvalues rather than
+Kγ -eigenvalues). This has the following consequence.
+Proposition 2.8 ([Ru19, Proposition 4.13]). If two projective modules in C have the same character, then
+they are isomorphic.
+Note that the category C admits a character-preserving exact contravariant functor V 7→ Vq analogous to the
+
+usual duality functor on the category of finite-dimensional modules over a Lie algebra (see [Ru19, Section 4.2]
+for details).
+Definition 2.9. Let q denote the dual defined on C by the involutive antiautomorphism S ◦ Ω, where S is
+
+8
+
+H
+the antipode of U H
+i (sl3 ) and Ω is the automorphism of U i (sl3 ) defined by
+
+Ω(X±j ) = X∓j ,
+
+Ω(Kγ ) = K−γ ,
+
+Ω(Hj ) = −Hj ,
+
+j = 1, 2, γ ∈ L.
+
+(2.8)
+
+It is clear that irreducible modules in C are self-dual with respect to this definition.
+Theorem 2.10 ([Ru19, Theorem 4.14]). With respect to q , Pλ is self-dual: Pqλ ∼
+= Pλ .
+This result heavily constrains the Loewy diagram of Pλ and will be used extensively in Section 3.2.
+
+2.3
+
+Filtrations and BGG reciprocity
+
+Recall that a filtration, or series, of a module V is a strictly increasing family of submodules ordered by
+inclusion:
+0 = V0 ⊂ V1 ⊂ · · · ⊂ Vn−1 ⊂ Vn = V.
+
+(2.9)
+
+The integer n is called the length of the series. Such a series is called a composition series of V if the
+quotient of each non-zero submodule in the filtration by its predecessor is irreducible: for each j = 1, . . . , n,
+Vj /Vj−1 ∼
+= Lλj for some λj ∈ h∗ . Similarly, a series is called a standard filtration (or Verma flag) of V if the
+successive quotients are Verma modules: for each j = 1, . . . , n, Vj /Vj−1 ∼
+= Mλ for some λj ∈ h∗ .
+j
+
+Every module in C admits a composition series. While this series is not unique, they all have the same length.
+Moreover, the set of isomorphism classes of the irreducible quotients (the composition factors) is uniquely
+fixed by the isomorphism class of the module. The set of isomorphism classes of the quotients (the Verma
+factors) of a standard filtration is likewise unique, though not every module in C admits such a series.
+Given a module V ∈ C which admits a standard filtration, denote by (V : Mλ ) the multiplicity with which
+Mλ appears in the set of Verma factors of any standard filtration of V . Similarly, denote by [V : Lλ ] the
+multiplicity with which Lλ appears in the set of irreducible quotients of any composition series of V .
+Proposition 2.11 ([Ru19, Proposition 4.12]). BGG reciprocity holds for the category C . In other words,
+(Pλ : Mµ ) = [Mµ : Lλ ] for all λ, µ ∈ h∗ .
+We shall also be interested in a different type of filtration/series in which the successive quotients are required
+to be completely reducible. A composition series satisfies this property, but there are usually other examples.
+Definition 2.12. A Loewy series of V ∈ C is one with minimal length amongst all series in which the
+successive quotients are completely reducible.
+
+There are two standard examples of Loewy series. First, the radical series
+0 = radn V ⊂ radn−1 V ⊂ · · · ⊂ rad1 V ⊂ rad0 V = V
+
+(2.10)
+
+of V ∈ C is defined inductively by setting rad0 V = V and radj V = rad(radj−1 V ), for j ≥ 1. Here,
+the radical of W ∈ C , denoted by rad W , is the smallest submodule such that the quotient is completely
+
+reducible. Equivalently, rad W is the intersection of the maximal proper submodules of W . The successive
+
+semisimple quotients are denoted by radj V = radj−1 V radj V .
+9
+
+The second example is the socle series
+0 = soc0 V ⊂ soc1 V ⊂ · · · ⊂ socn−1 V ⊂ socn V = V
+
+(2.11)
+
+of V ∈ C , this being the series defined inductively by taking soc0 V = 0 and letting socj V be the unique
+
+
+submodule of V satisfying soc(V socj−1 V ) = socj V , where socj V = socj V socj−1 V . Here, the socle of
+W ∈ C , denoted by soc W , is the largest completely reducible submodule. Equivalently, it is the sum of the
+
+irreducible submodules of W .
+
+Note that the radical and socle series of V ∈ C are uniquely specified. The dual nature of the definitions
+
+suggests that they might actually coincide, however this need not be the case. Indeed, the radical series
+imposes maximality on quotients, starting from V and working down to 0, while the socle series imposes
+maximality on submodules, starting from 0 and working up to V . The upshot is that any Loewy series (2.9)
+must therefore lie between these two extremes:
+radn−k V ⊆ Vk ⊆ sock V,
+
+k = 0, 1, . . . , n.
+
+(2.12)
+
+Consequently, V admits a unique Loewy series if and only if the radical and socle series coincide.
+In general, it is difficult to know if Loewy series are unique. However, there are easily derived criteria if the
+length n of the series is sufficiently small. To see this, note that:
+• If soc1 V = soc V is irreducible, then radn−1 V = soc1 V .
+• If the head rad1 V = V / rad V of V is irreducible, then rad1 V = socn−1 V .
+It follows, when n = 2, that all Loewy series coincide if either the socle or head of V is irreducible. Similarly,
+when n = 3, all Loewy series coincide if both the socle and head are irreducible.
+As our category C admits a duality functor, one is naturally led to ask for a relationship between the Loewy
+series of a module V and its dual Vq . For the radical and socle series, this is the content of the Landrock
+lemma [La83, Lemma 8.4i)] which states that
+socj Vq ∼
+=
+
+
+
+
+q
+V
+j
+rad V
+
+and
+
+radj Vq ∼
+=
+
+
+
+
+q
+V
+.
+j
+soc V
+
+(2.13)
+
+The successive semisimple quotients are then related as follows:
+
+
+!
+ 
+ 
+
+q
+q q
+V
+V
+socj Vq q ∼
+=
+j
+j−1
+j−1
+rad V
+rad
+V
+Vq
+soc
+
+
+j−1
+rad
+V
+V
+V
+∼
+∼
+։
+= radj V.
+=
+= ker
+j
+j−1
+j
+rad V
+rad
+V
+rad V
+
+
+socj Vq q =
+
+(2.14)
+
+∼
+q
+Since the irreducible U H
+i (sl3 )-modules in C are self-dual, we therefore have radj V = socj V for all j = 1, . . . , n.
+Definition 2.13. Given a Loewy series (2.9) of V ∈ C , the associated Loewy diagram is a picture of the
+
+composition factors of V arranged in horizontal layers that reflect the successive quotients of the series. In
+particular, the j-th layer from the bottom consists of the irreducible direct summands of the completely
+reducible module Vj /Vj−1 .
+
+10
+
+We shall generally annotate a Loewy diagram with arrows pointing from a composition factor in the j-th layer
+to one in the (j − 1)-th layer whenever these factors correspond to a non-split subquotient of Vj /Vj−2 . This
+additional information helps to describe the submodule structure of V , though it need not fix it completely.
+
+Since the irreducibles Lλ are self-dual, (2.14) implies that the Loewy diagram for the radical (socle) series of
+Vq (sans arrows) is obtained from that of the socle (radical) series of V ∈ C by turning it upside-down. In
+
+particular, the radical and socle series of the projectives Pλ are related in this way, by Theorem 2.10.
+
+Representation theory of U H
+i (sl3 )
+
+3
+
+The Verma modules of U H
+i (sl3 ) are only 8-dimensional, implying that their submodule structures may be
+readily computed. This is the topic of the present section, along with the more intricate determination of
+the structures of the indecomposable projective modules and the decomposition of all tensor products of
+irreducibles in C .
+
+3.1
+
+Verma modules and irreducible quotients
+
+Recall from Proposition 2.7 that the irreducibility of the Verma module Mλ is determined by the typicality of
+the scalars λj = hλ + ρ, αj i, j = 1, 2, 3. Here, the structures of the reducible Verma modules are determined
+and the characters of their irreducible quotients computed. Note that at most two of the λj can be atypical
+
+(the third index must then lie in 2Z).
+Proposition 3.1.
+(i) If λ is typical, so λ1 , λ2 , λ3 ∈
+/ 2Z + 1, then dim Lλ = 8 and
+ch[Lλ ] = z λ + z λ−α1 + z λ−α2 + 2z λ−α3 + z λ−α1 −α3 + z λ−α2 −α3 + z λ−2α3 .
+
+(3.1)
+
+(ii) If λ is atypical of degree 1, then dim Lλ = 4 and
+ch[Lλ ] = z λ + z λ−αj + z λ−αk + z λ−αj −αk ,
+
+(3.2)
+
+where j, k ∈ {1, 2, 3} are chosen so that λj and λk are typical.
+(iii) If λ is atypical of degree 2 and λ3 is atypical, then dim Lλ = 3 and
+ch[Lλ ] = z λ + z λ−αj + z λ−α3 ,
+
+(3.3)
+
+where j ∈ {1, 2} is chosen so that λj is typical.
+(iv) Otherwise, λ is atypical of degree 2 and λ3 is typical. In this case, dim Lλ = 1 and
+ch[Lλ ] = z λ .
+
+(3.4)
+
+Proof. Case (i) follows immediately from Proposition 2.7 and the Verma character (2.6). We therefore start
+
+11
+
+with (iv), which assumes that λ1 , λ2 ∈ 2Z + 1. If v is a vector of weight λ and j, j ′ = 1, 2, then
+[Xj , X−j ′ ] v = δj,j ′
+
+
+Kj − Kj−1
+ihλ,αj i − i−hλ,αj i
+1
+v = δj,j ′
+v = − δj,j ′ iλj + i−λj v.
+2i
+2i
+2
+
+(3.5)
+
+Taking v = mλ , a generating maximal vector in Mλ , it follows that Xj X−j ′ mλ is always 0, for j 6= j ′ ,
+and Xj X−j mλ = 0 if and only if λj ∈ 2Z + 1. Thus, X−1 mλ and X−2 mλ belong to the maximal proper
+
+submodule Jλ of Mλ , when λ is typical, hence so does X−3 mλ . Lλ is therefore one-dimensional, spanned by
+the equivalence class of mλ , as claimed.
+
+In case (iii), take (without loss of generality) λ1 ∈ 2Z and λ2 , λ3 ∈ 2Z+1. Then, X−2 mλ ∈ Mλ is maximal, as
+above, and so it and its descendants lie in Jλ . We claim that X−1 X−3 mλ ∈ Jλ as well. Since X2 X−1 X−3 mλ
+
+vanishes for weight reasons, this follows from
+
+X1 X−1 X−3 mλ = −X1 X−1 X−2 X−1 mλ = −[X1 , X−1 ]X−2 X−1 mλ − X−1 X−2 [X1 , X−1 ]mλ
+
+
+1 λ1
+1 λ1 −1
+i
++ i−λ1 +1 X−2 X−1 mλ +
+i + i−λ1 X−1 X−2 mλ
+=
+2
+2
+
+1 λ1
+−λ1
+X−1 X−2 mλ ,
+i +i
+=
+2
+
+(3.6)
+
+which is non-zero since λ1 ∈ 2Z. Similar calculations establish that X2 sends X−3 mλ to a non-zero multiple
+
+of X−1 mλ , which is in turn sent to a non-zero multiple of mλ by X1 . These states are therefore not in Jλ ,
+hence their images span Lλ and dim Lλ = 3.
+It remains to prove (ii). Suppose first that λ2 ∈ 2Z + 1, so that λ1 , λ3 ∈ C \ Z. The previous case shows that
+X−2 mλ and its descendants are in Jλ . This time, X−1 X−3 mλ is not because
+X1 X−1 X−3 mλ =
+
+
+1  λ1 −1
+i
++ i−(λ1 −1) X−2 X−1 mλ
+2
+
+(mod Jλ ),
+
+(3.7)
+
+which is non-zero as λ1 ∈
+/ 2Z. Moreover, X−2 X−1 mλ ∈
+/ Jλ as X2 sends it to a non-zero multiple of X−1 mλ
+and X1 sends the latter to mλ . dim Lλ is thus 4.
+As λ1 ∈ 2Z + 1 obviously follows in the same way, the last case to consider is λ3 ∈ 2Z + 1 and λ1 , λ2 ∈ C \ Z.
+
+As above, it easily follows that X−1 mλ , X−2 mλ ∈
+/ Jλ . However there is a vector of weight λ − α3 , unique up
+to scalar multiples, that is maximal hence in Jλ :
+
+
+
+v = iλ1 + i−λ1 X−1 X−2 mλ − iλ1 +1 + i−λ1 −1 X−2 X−1 mλ .
+
+(3.8)
+
+Checking X1 v = 0 is straightforward and an easy computation gives
+
+
+X2 v = − iλ3 + i−λ3 X−1 mλ ,
+
+(3.9)
+
+which vanishes because λ3 ∈ 2Z + 1. Now one checks that v generates a four-dimensional submodule of Mλ
+(which is therefore Jλ ). It follows that dim Lλ = 4, completing the proof.
+It is very convenient that the dimension of Lλ completely determines the four different cases in Proposition 3.1.
+This dimension also completely determines the Loewy diagrams of the Verma modules of U H
+i (sl3 ).
+
+12
+
+(3)
+
+(1)
+
+Lλ
+
+(4)
+
+Lλ
+
+Lλ
+
+(1)
+
+Mλ
+
+Mλ
+
+Lλ−αi
+
+(1)
+
+Lλ+αi −2α3
+
+(3)
+
+Lλ−α1
+
+(3)
+
+Mλ
+
+Lλ−α2
+
+(4)
+
+Lλ−αi
+λ atypical of degree 1,
+λi ∈ 2Z + 1.
+
+Lλ−α3
+
+(3)
+
+Lλ−2α3
+
+λ atypical of degree 2,
+λi , λ3 ∈ 2Z + 1.
+
+λ atypical of degree 2,
+λ1 , λ2 ∈ 2Z + 1.
+
+(1)
+
+Figure 2: The Loewy diagrams of the reducible Verma modules Mλ of U H
+i (sl3 ). Here, the superscript on a
+composition factor indicates its dimension.
+Theorem 3.2. The Loewy series of any given Verma module Mλ of U H
+i (sl3 ) all coincide. When Mλ is
+reducible, its (unique) Loewy diagram is given in Figure 2.
+Proof. Suppose first that dim Lλ = 4, so that there is a unique i = 1, 2, 3 satisfying λi ∈ 2Z + 1 and thus
+
+λj ∈ C \ Z for all j 6= i. The proof of Proposition 3.1 established that the maximal proper submodule
+Jλ = rad Mλ is generated by a maximal vector of weight µ = λ − αi . Because µi = λi − 2 ∈ 2Z + 1 and
+µj = λj ± 1 ∈ C \ Z, for j 6= i, dim Lµ is also 4. This implies that rad Mλ ∼
+= Lµ , fixing the Loewy diagram of
+the radical series. Because this series has length 2 and the head is irreducible (true for all Verma modules),
+all Loewy series coincide and so the Loewy diagram is unique.
+Next, take dim Lλ = 1, so λ1 , λ2 ∈ 2Z+ 1. In this case, the proof of Proposition 3.1 established that rad Mλ is
+
+generated by the maximal vectors X−i mλ of weights λ − αi , i = 1, 2. Obviously, the submodule V i generated
+by X−i mλ does not contain the other. Moreover, dim Lλ−αi = 3, so the dimensions of the composition factors
+found thus far sum to 7. There is therefore one remaining and its dimension must be 1. It is easy to check that
+it is Lλ−2α3 , generated by the maximal vector (X−1 X−2 )2 mλ = (X−2 X−1 )2 mλ , which is clearly contained
+in V 1 ∩ V 2 . This forces rad2 Mλ ∼
+= Lλ−α ⊕ Lλ−α . The
+= V 1 + V 2 , hence rad2 Mλ ∼
+= Lλ−2α and rad1 Mλ ∼
+1
+
+3
+
+2
+
+length of the radical series is thus 3 and it has an irreducible head. The socle is obviously the irreducible
+Lλ−2α3 , so again there is a unique Loewy diagram.
+It remains to consider dim Lλ = 3. Without loss of generality, take λ1 ∈ 2Z and λ2 ∈ 2Z + 1. Then, the
+
+proof of Proposition 3.1 shows that rad Mλ is the 5-dimensional submodule generated by the maximal vector
+X−2 mλ and the non-maximal vector X−1 X−3 mλ . Under the action of X1 , the latter is mapped to a non-zero
+multiple of X−1 X−2 mλ which is easily checked to be maximal. We have thus identified three composition
+factors of rad Mλ : Lλ−α2 , Lλ−α1 −α3 and Lλ−α3 . Their dimensions are 1, 1 and 3 by Proposition 3.1, so there
+are no more factors. This proves that rad2 Mλ ∼
+= Lλ−α2 ⊕ Lλ−α1 −α3 . The length of
+= Lλ−α3 and rad2 Mλ ∼
+∼
+the radical series is thus 3 and soc Mλ = Lλ−α , so Mλ once more has a unique Loewy diagram.
+3
+
+A useful consequence of Theorem 3.2 is the classification of indecomposable extensions of irreducibles in
+C . Self-extensions are ruled out as they are necessarily non-weight, hence not in C . Such an extension is
+therefore a highest-weight module, hence a Verma quotient, or the dual of a highest-weight module. Either
+way, the extension is unique up to isomorphism.
+
+13
+
+Corollary 3.3. A non-split extension between Lλ and Lµ exists, and is then unique up to isomorphism, if
+and only if one of the following conditions is satisfied:
+• λ is atypical of degree 1 and µ = λ ± αi , where i = 1, 2, 3 satisfies λi ∈ 2Z + 1.
+• λ is atypical of degree 2 with λ1 , λ2 ∈ 2Z + 1 and µ = λ ± α1 , λ ± α2 , λ − α1 + 2α3 , λ − α2 + 2α3 .
+• λ is atypical of degree 2 with λ3 ∈ 2Z + 1 and µ = λ ± αi , λ + αi − 2α3 , where i = 1, 2 satisfies λi ∈ 2Z + 1.
+The blocks of U H
+i (sl3 ) are thus as follows. If λ is typical, then Lλ generates a semisimple block in which it is
+
+the only irreducible. There are three one-parameter families of blocks corresponding to λ atypical of degree
+1, one for each positive root αi . The parameter may be taken as either of the typical λi ∈ C \ Z. Finally,
+
+there is a unique block for λ atypical of degree 2. This is the principal block as it includes L0 .
+
+3.2
+
+Projective modules
+
+We turn to the Loewy diagrams of the projective indecomposables Pλ . These are almost completely determined by combining the Loewy diagrams of the Verma modules with their standard (and costandard)
+filtrations. The following lemma will help to complete the picture.
+Lemma 3.4. Given λi , λ3 ∈ 2Z + 1, for some i = 1, 2, there does not exist a U H
+i (sl3 )-module whose Loewy
+diagram is the form
+(3)
+
+Lλ
+
+(1)
+
+(1)
+
+Lλ+αi −2α3 .
+
+Lλ+αi
+
+(3.10)
+
+(3)
+
+Lλ
+
+Proof. Suppose that V is such a module, with i = 2 say (the argument for i = 1 is identical). Then,
+
+ch[V ] = z λ+α2 + 2 z λ + z λ−α1 + z λ−α3 + z λ+α2 −2α3 ,
+
+(3.11)
+
+by Proposition 3.1. Let v ∈ V be cyclic of weight λ. Then, the arrow from Lλ to Lλ+α2 in (3.10) means that
+X2 v 6= 0 and that from Lλ+α2 to Lλ means that w = X−2 X2 v is linearly independent of v (it generates the
+
+socle of V ). However, X−2 v = 0 since λ − α2 is not a weight of V , hence
+w = [X−2 , X2 ]v = −
+
+K2 − K2−1
+v
+2i
+
+(3.12)
+
+is proportional to v, a contradiction.
+Theorem 3.5. If λ is typical, then Pλ = Mλ = Lλ . Otherwise, the projective Pλ has a unique Loewy diagram
+which is presented, along with its character as a sum of Verma characters, in Figure 3.
+Proof. The fact that Lλ is projective, for λ typical, follows immediately from Corollary 3.3. Otherwise, the
+multiplicities of the Verma factors may be obtained from Proposition 2.11 and Theorem 3.2.
+
+14
+
+(16)
+
+(4)
+
+Pλ
+
+Lλ
+
+(4)
+
+(4)
+
+Lλ+αi
+
+Lλ−αi
+
+(4)
+
+Lλ
+
+λ atypical of degree 1, λi ∈ 2Z + 1,
+ch[Pλ ] = ch[Mλ+αi ] + ch[Mλ ].
+(24)
+
+(3)
+
+Pλ
+
+Lλ
+
+(1)
+
+(1)
+
+Lλ+αi
+
+(3)
+
+(3)
+
+Lλ+α3
+
+(1)
+
+Lλ−αi
+
+Lλ−α3
+
+Lλ
+
+(1)
+
+Lλ+αi
+
+(3)
+
+(3)
+
+Lλ+2αi −α3
+
+(1)
+
+Lλ+αi −2α3
+
+(1)
+
+Lλ−αi
+
+Lλ+αi −2α3
+
+(3)
+
+Lλ
+
+λ atypical of degree 2, λi , λ3 ∈ 2Z + 1,
+ch[Pλ ] = ch[Mλ+α3 ] + ch[Mλ+αi ] + ch[Mλ ].
+(48)
+
+(1)
+
+Pλ
+
+Lλ
+
+(3)
+
+(3)
+
+Lλ+α2 +α3
+
+(3)
+
+Lλ+α2 +α3
+
+(3)
+
+Lλ+α1 +α3
+
+(3)
+
+Lλ+α1
+
+Lλ+α1
+
+Lλ−α2
+
+(1)
+
+(1)
+
+Lλ−2α3
+
+Lλ−2α2
+
+Lλ−2α1
+
+(3)
+
+(3)
+
+Lλ+α2
+
+(3)
+
+Lλ−α1
+
+(1)
+
+(1)
+
+Lλ ⊕4
+
+Lλ+2α1
+
+Lλ+2α2
+
+(3)
+
+Lλ+α2
+
+(1)
+
+(1)
+
+(1)
+
+Lλ+2α3
+
+(3)
+
+Lλ+α1 +α3
+
+(3)
+
+Lλ−α1
+
+(3)
+
+Lλ−α2
+
+(1)
+
+Lλ
+
+λ atypical of degree 2, λ1 , λ2 ∈ 2Z + 1,
+ch[Pλ ] = ch[Mλ+2α3 ] + ch[Mλ+2α3 −α1 ] + ch[Mλ+2α3 −α2 ] + ch[Mλ+α1 ] + ch[Mλ+α2 ] + ch[Mλ ].
+(d)
+
+Figure 3: Loewy diagrams and characters of the projectives Pλ with λ atypical. Here, d is the dimension.
+Red arrows are associated with standard filtrations, blue with costandard filtrations and all other arrows
+are green. The bottom diagram is not quite complete, because we make no attempt to resolve the four
+(1)
+composition factors isomorphic to Lλ in the middle row.
+15
+
+Suppose first that dim Lλ = 4 and i = 1, 2, 3 is the unique index satisfying λi ∈ 2Z + 1. Then, Lλ can
+only appear as the head or the socle of another Verma of the same type. These two possibilities give
+(Pλ : Mµ ) = [Mµ : Lλ ] = δ µ,λ + δ µ,λ+αi . In the Grothendieck group of C , one therefore has
+[Pλ ] = [Mλ ] + [Mλ+αi ].
+
+(3.13)
+
+Obviously, only Mλ has the same head as Pλ . Moreover, Theorem 3.2 shows that only Mλ+αi has the same
+socle as Pλ :
+soc Pλ = soc1 Pλ ∼
+= rad1 Pλ =
+
+Pλ ∼
+= Lλ ,
+rad Pλ
+
+(3.14)
+
+Pλ thus admits a single standard filtration: 0 ⊂ Mλ+αi ⊂ Pλ .
+It follows that Lλ−αi appears in rad2 Pλ and Lλ+αi appears in soc2 Pλ . Since projectives are self-dual
+(Theorem 2.10), (2.14) leads to rad2 Pλ = soc2 Pλ ∼
+= Lλ−α ⊕ Lλ+α . The Loewy length of Pλ is thus 3 and
+i
+
+i
+
+the Loewy diagram (with some arrows missing) is
+
+Lλ
+Lλ+αi
+
+Lλ−αi
+
+.
+
+Lλ
+This diagram obviously needs two more arrows. While it is clear where they go, it is instructive for the other
+cases to see them arise from a costandard filtration of Pλ , that is one whose successive quotients are dual
+Verma modules. This series is easily deduced by applying the duality functor to the short exact sequence
+0 −→ Mλ+αi −→ Pλ −→ Mλ −→ 0,
+
+(3.15)
+
+
+|λ+αi . Since Verma modules have unique Loewy diagrams, the
+|λ ∼
+|λ ⊂ Pλ with Pλ M
+the result being 0 ⊂ M
+=M
+same is true for their duals and the latter’s diagrams are obtained by turning those of Figure 2 upside-down.
+Drawing in blue the arrows corresponding to these dual Verma modules on the partial Loewy diagram above
+(to distinguish them from the Verma arrows drawn in red), we arrive at the Loewy diagram of Figure 3. As
+the socle and head are irreducible, it follows that this is the unique Loewy series of Pλ .
+Suppose next that dim Lλ = 3, so that λi , λ3 ∈ 2Z+1 for some i = 1, 2. Consulting Figure 2, BGG reciprocity
+
+implies this time that
+
+[Pλ ] = [Mλ ] + [Mλ+αi ] + [Mλ+α3 ].
+
+(3.16)
+
+Again, the only Verma factor whose head matches that of Pλ is Mλ and the only Verma whose socle matches
+that of Pλ is Mλ+α3 . We conclude that in this case, there is also a unique standard series for Pλ and it has
+the form
+Pλ ∼
+N
+∼
+(3.17)
+with
+0 ⊂ Mλ+α3 ⊂ N ⊂ Pλ ,
+= Mλ+αi and
+= Mλ .
+Mλ+α3
+N
+Combining this with (2.14) and Theorem 3.2 identifies some of the composition factors in the second Loewy
+
+16
+
+layers of the radical and socle series:
+Lλ−αi ⊕ Lλ+αi −2α3 ⊆ rad2 Pλ ∼
+= soc2 Pλ ⊇ Lλ+αi ⊕ Lλ−αi .
+
+(3.18)
+
+It follows that Lλ+αi appears in rad2 Pλ and Lλ+αi −2α3 appears in soc2 Pλ . These extra composition factors
+are the head and socle of Mλ+αi , hence the length of the radical and socle series of Pλ is 5. In fact, these
+series coincide and the Loewy diagram (with some arrows missing) is as follows:
+Lλ
+Lλ+αi
+Lλ+α3
+
+Lλ+2αi −α3
+Lλ+αi
+
+Lλ+αi −2α3
+
+Lλ−αi
+
+Lλ−α3
+
+Lλ
+
+.
+
+Lλ+αi −2α3
+
+Lλ−αi
+Lλ
+
+To complement these red Verma arrows, one next computes the corresponding costandard filtration of Pλ by
+dualising (3.17):
+π
+|λ ֒→ Pλ ։
+q
+M
+N
+
+′
+
+π
+q։
+|λ+α3 .
+|λ+αi ֒→ N
+M
+M
+
+and
+
+(3.19)
+
+|λ = ker π is a submodule of Pλ and the second says that π −1 (M
+|λ+αi ) is too. Of
+The first says that M
+
+
+−1 |
+−1 |
+−1 |
+∼
+|
+|
+course, π (Mλ+αi ) Mλ = π (Mλ+αi ) ker π = Mλ+αi . Similarly, π (Mλ+αi ) = ker(π ′ ◦ π) and so
+
+|λ+α3 . The required costandard series is thus
+|λ+αi ) ∼
+Pλ π −1 (M
+=M
+|λ ⊂ π −1 (M
+|λ+αi ) ⊂ Pλ
+0⊂M
+
+(3.20)
+
+|λ+α3 . Drawing these dual Verma arrows on the Loewy
+|λ , M
+|λ+αi and M
+and the dual Verma quotients are M
+diagram of Pλ in blue (and not repeating if the arrow already exists) gives
+Lλ
+Lλ+αi
+Lλ+α3
+
+Lλ+2αi −α3
+Lλ+αi
+
+Lλ+αi −2α3
+
+Lλ−αi
+Lλ
+
+Lλ−αi
+
+Lλ−α3
+
+.
+
+Lλ+αi −2α3
+
+Lλ
+It remains to check for any additional arrows beyond those already established. There are only a few
+possibilities and most are ruled out by Corollary 3.3. The only possible additions are an arrow from the
+
+17
+
+composition factor Lλ−αi in the second-top layer to Lλ in the middle layer and from the latter factor to
+Lλ−αi in the second-bottom layer. In both cases, the absence of the arrow would imply that Pλ has a
+quotient or submodule whose Loewy diagram is
+Lλ
+Lλ+αi −2α3
+
+Lλ+αi
+
+.
+
+Lλ
+But, such a U H
+i (sl3 )-module does not exist, by Lemma 3.4. Both arrows must therefore be present and the
+
+Loewy diagram is thus as in Figure 3.
+
+Finally, we consider the case dim Lλ = 1, hence λ1 , λ2 ∈ 2Z + 1. Now, BGG reciprocity gives six Verma
+
+modules for the projective:
+
+[Pλ ] = [Mλ ] + [Mλ+α1 ] + [Mλ+α2 ] + [Mλ+2α3 −α1 ] + [Mλ+2α3 −α2 ] + [Mλ+2α3 ].
+
+(3.21)
+
+Following the same procedure as in the previous case, we find that the radical and socle series again coincide
+and have length 5. The Loewy diagram (with arrows corresponding to any of the standard filtrations) is
+Lλ
+
+Lλ−α1 +2α3 Lλ−α2 +2α3
+
+Lλ+2α3
+
+Lλ+2α2
+
+Lλ
+
+Lλ+2α1
+
+Lλ−α1 +2α3 Lλ−α2 +2α3
+
+Lλ+α2
+
+Lλ+α1
+
+Lλ
+
+Lλ
+
+Lλ+α2
+
+Lλ+α1
+
+Lλ−α2
+
+Lλ−α1
+
+Lλ−2α1
+
+Lλ−α1
+
+Lλ
+
+Lλ−2α2
+
+Lλ−2α3
+
+.
+
+Lλ−α2
+
+Lλ
+Unfortunately, it is not straightforward to add the arrows corresponding to (any of) the costandard filtrations
+because Lλ occurs in the middle row with multiplicity 4 — roughly speaking, it is difficult to identify which
+copy (more precisely, which linear combination of copies) of Lλ corresponds to the head or tail of the arrows
+in a costandard filtration. Rather than deal with this, we shall be content with a partial Loewy diagram in
+which these 4 copies of Lλ are collapsed to L⊕4
+λ . With this, adding the costandard arrows is easy. Finally,
+there are obvious arrows to add between the first and second, and fourth and fifth, rows. Corollary 3.3 then
+rules out any more.
+
+18
+
+3.3
+
+Tensor product decompositions
+
+Recall that there are four types of irreducible U H
+i (sl3 )-modules in C , distinguished by their dimensions.
+Including this dimension as a superscript (as in Figures 2 and 3), these types are characterised by the
+following conditions on their highest weights:
+(1)
+
+Lλ :
+
+(3)
+Lλ :
+(4)
+Lλ :
+(8)
+Lλ :
+
+λ1 , λ2 ∈ 2Z + 1, λ3 ∈ 2Z;
+λi , λ3 ∈ 2Z + 1, λj ∈ 2Z
+λi ∈ 2Z + 1, λj , λk ∈
+/Z
+λ1 , λ2 , λ3 ∈
+/ 2Z + 1.
+
+({i, j} = {1, 2});
+({i, j, k} = {1, 2, 3});
+
+(3.22)
+
+Recall also that λi is said to be atypical if λi ∈ 2Z+1 and typical otherwise. In this section, the tensor product
+of (almost) every pair of irreducible U H
+i (sl3 )-modules in C is explicitly decomposed (up to isomorphism) as
+a direct sum of indecomposables.
+
+It is worth mentioning that these computations are simplified by the fact that C is braided. This follows
+immediately from the fact that U H
+i (sl3 ) admits a quasitriangular structure [GP13, Theorem 41], see also
+[Ru19, Equations (4.8–9)].
+(1)
+
+The easiest tensor products to identify are those of the form Lλ ⊗ Lµ . These have dimension dim Lµ and
+possess a maximal vector of weight λ + µ. Since
+(λ + µ)i = λi + µi − hρ, αi i,
+
+i = 1, 2, 3,
+
+(3.23)
+
+and λi − hρ, αi i ∈ 2Z for each i, it follows that λ + µ satisfies the same set of conditions in (3.22) as µ. This
+leads to the following conclusion.
+Proposition 3.6. Given λ, µ ∈ h∗ satisfying λ1 , λ2 ∈ 2Z + 1, one has
+(1)
+Lλ ⊗ Lµ ∼
+= Lλ+µ .
+
+(3.24)
+
+(8)
+
+Tensor products involving a typical irreducible Lµ are likewise relatively easy to identify because of the
+following facts:
+• C is pivotal [GPV13, Lemma 17], so the projectives form a tensor ideal.
+• Every projective is self-dual (Theorem 2.10), thus injective, hence their extensions split.
+• Projectives are uniquely determined (up to isomorphism) by their characters (Proposition 2.8).
+(8)
+
+The tensor product of any module of C with an Lµ thus decomposes as a direct sum of projectives which
+may be identified from its character.
+(3)
+
+(8)
+
+To illustrate how one identifies such a tensor product, consider Lλ ⊗ Lµ , so that the µi , i = 1, 2, 3, are
+(1)
+(8)
+typical (note that Lλ ⊗ Lµ was already identified in Proposition 3.6). Without loss of generality, assume
+that λ1 ∈ 2Z + 1 and λ2 ∈ 2Z. Then, the character of the tensor product satisfies
+(3)
+
+(3)
+
+(8)
+λ
+λ−α2
++ z λ−α3 ) ch[Mµ ]
+ch[Lλ ⊗ L(8)
+µ ] = ch[Lλ ] ch[Lµ ] = (z + z
+
+= ch[Mλ+µ ] + ch[Mλ+µ−α2 ] + ch[Mλ+µ−α3 ].
+
+19
+
+(3.25)
+
+It therefore remains to identify which projective has this character. This splits into several cases.
+(8)
+
+(8)
+
+(8)
+
+When λ + µ, λ + µ − α2 and λ + µ − α3 are all typical, the projective is Pλ+µ ⊕ Pλ+µ−α2 ⊕ Pλ+µ−α3 , where the
+dimension of each indecomposable summand is likewise indicated in the superscript. By (3.23), the typicality
+of all three weights is equivalent to µi ∈
+/ Z, i = 1, 2, 3.
+Suppose now that µ1 ∈ 2Z, but µ2 , µ3 ∈
+/ Z. Then, λ + µ is typical while λ + µ − α2 and λ + µ − α3 are atypical
+
+of degree 1: (λ + µ − α2 )1 = λ1 + µ1 ∈ 2Z + 1 and (λ + µ − α3 )1 = λ1 + µ1 − 2 ∈ 2Z + 1. It follows that
+(8)
+Pλ+µ splits off as a direct summand of the tensor product and the remaining two Verma modules combine to
+form a 16-dimensional indecomposable projective. Comparing characters with those in Figure 3, the latter
+(16)
+projective is identified as Pλ+µ−α3 .
+
+The story is similar when µ2 or µ3 is the only integral label (which then lies in 2Z). The last remaining
+possibility is µ1 , µ2 , µ3 ∈ 2Z. Then, λ + µ, λ + µ − α2 and λ + µ − α3 are atypical of degree 2, corresponding
+(24)
+
+to irreducibles of dimension 3, 1 and 3, respectively. The only projective consistent with this is Pλ+µ−α3 ,
+again by Figure 3.
+
+Proposition 3.7. Given λ ∈ h∗ satisfying λi , λ3 ∈ 2Z + 1 and λj ∈ 2Z, where {i, j} = {1, 2}, and µ ∈ h∗
+(3)
+(8)
+typical, Lλ ⊗ Lµ is isomorphic to
+(24)
+
+Pλ+µ−α3 ,
+
+µ1 , µ2 , µ3 ∈ 2Z :
+
+(8)
+
+µi ∈ 2Z, µj , µ3 ∈
+/Z:
+
+µj ∈ 2Z, µi , µ3 ∈
+/Z:
+
+(8)
+
+(8)
+
+(16)
+
+Pλ+µ−αj ⊕ Pλ+µ−α3 ,
+(8)
+
+µ1 , µ2 , µ3 ∈
+/Z:
+(8)
+
+(16)
+
+Pλ+µ−αj ⊕ Pλ+µ−α3 ,
+
+µ3 ∈ 2Z, µ1 , µ2 ∈
+/Z:
+
+(4)
+
+(16)
+
+Pλ+µ ⊕ Pλ+µ−α3 ,
+
+(8)
+
+(3.26)
+
+(8)
+
+Pλ+µ ⊕ Pλ+µ−αj ⊕ Pλ+µ−α3 .
+(8)
+
+(8)
+
+Explicit decompositions for Lλ ⊗ Lµ and Lλ ⊗ Lµ may be readily found using the same methods. We
+omit the details.
+Proposition 3.8. Given λ ∈ h∗ satisfying λi ∈ 2Z + 1 and λj , λ3 ∈
+/ Z, where {i, j} = {1, 2}, and µ ∈ h∗
+(4)
+(8)
+typical, Lλ ⊗ Lµ is isomorphic to
+(8)
+
+(24)
+
+µi , λj + µj ∈ 2Z, λ3 + µ3 ∈ 2Z + 1 :
+
+Pλ+µ−α3 ⊕ Pλ+µ−αj −α3 ,
+
+µi , λ3 + µ3 ∈ 2Z, λj + µj ∈ 2Z + 1 :
+
+Pλ+µ ⊕ Pλ+µ−αj −α3 ,
+
+(8)
+
+(24)
+
+(8)
+
+(16)
+
+(8)
+
+µi ∈ 2Z, λj + µj , λ3 + µ3 ∈
+/Z:
+
+Pλ+µ ⊕ Pλ+µ−α3 ⊕ Pλ+µ−αj −α3 ,
+
+λj + µj ∈ 2Z, µi , λ3 + µ3 ∈
+/Z:
+
+Pλ+µ−αj ⊕ Pλ+µ−α3 ⊕ Pλ+µ−αj −α3 ,
+
+(8)
+
+(8)
+
+(16)
+(8)
+
+(8)
+
+(16)
+
+(8)
+
+(8)
+
+(16)
+
+λj + µj ∈ 2Z + 1, µi , λ3 + µ3 ∈
+/Z:
+
+Pλ+µ ⊕ Pλ+µ−α3 ⊕ Pλ+µ−αj −α3 ,
+
+λ3 + µ3 ∈ 2Z, µi , λj + µj ∈
+/Z:
+
+Pλ+µ ⊕ Pλ+µ−αj ⊕ Pλ+µ−αj −α3 ,
+
+λ3 + µ3 ∈ 2Z + 1, µi , λj + µj ∈
+/Z:
+µ1 , λ2 + µ2 , λ3 + µ3 ∈
+/ Z;
+
+(8)
+
+(16)
+
+(8)
+
+(3.27)
+
+Pλ+µ−αj ⊕ Pλ+µ−α3 ⊕ Pλ+µ−αj −α3 ,
+(8)
+
+(8)
+
+(8)
+
+(8)
+
+Pλ+µ ⊕ Pλ+µ−αj ⊕ Pλ+µ−α3 ⊕ Pλ+µ−αj −α3 .
+(4)
+
+(8)
+
+Proposition 3.9. Given λ ∈ h∗ satisfying λ1 , λ2 ∈
+/ Z and λ3 ∈ 2Z + 1, and µ ∈ h∗ typical, Lλ ⊗ Lµ is
+20
+
+isomorphic to
+(8)
+
+(24)
+
+(8)
+
+(8)
+
+(16)
+
+(16)
+
+(8)
+
+(8)
+
+Pλ+µ−αj ⊕ Pλ+µ−α3 ,
+
+λi + µi , µ3 ∈ 2Z, λj + µj ∈ 2Z + 1 :
+µ3 ∈ 2Z, , λ1 + µ1 , λ2 + µ2 ∈
+/Z:
+
+Pλ+µ−α1 ⊕ Pλ+µ−α2 ⊕ Pλ+µ−α3 ,
+
+λi + µi ∈ 2Z, λj + µj , µ3 ∈
+/Z:
+
+Pλ+µ−αi ⊕ Pλ+µ−αj ⊕ Pλ+µ−α3 ,
+
+(3.28)
+
+(16)
+(8)
+(8)
+Pλ+µ ⊕ Pλ+µ−αi ⊕ Pλ+µ−α3 ,
+(8)
+(8)
+(8)
+(8)
+Pλ+µ ⊕ Pλ+µ−α1 ⊕ Pλ+µ−α2 ⊕ Pλ+µ−α3 ,
+
+λi + µi ∈ 2Z + 1, λj + µj , µ3 ∈
+/Z:
+λ1 + µ1 , λ2 + µ2 , µ3 ∈
+/ Z;
+
+where {i, j} = {1, 2}.
+(8)
+
+(8)
+
+Proposition 3.10. Given typical λ, µ ∈ h∗ , Lλ ⊗ Lµ is isomorphic to
+λ1 + µ1 , λ2 + µ2 , λ3 + µ3 ∈ 2Z :
+
+(48)
+
+(8)
+
+2Pλ+µ−α3 ⊕ Pλ+µ−2α3 ,
+
+(24)
+
+(24)
+
+(8)
+
+(8)
+
+λi + µi ∈ 2Z, λj + µj , λ3 + µ3 ∈ 2Z + 1 :
+
+Pλ+µ−αj ⊕ Pλ+µ−αi −α3 ⊕ Pλ+µ−α3 ⊕ Pλ+µ−2α3 ,
+
+λ1 + µ1 , λ2 + µ2 ∈ 2Z + 1, λ3 + µ3 ∈ 2Z :
+
+Pλ+µ ⊕ Pλ+µ−α1 −α3 ⊕ Pλ+µ−α2 −α3 ⊕ Pλ+µ−2α3 ,
+
+λi + µi ∈ 2Z, λj + µj , λ3 + µ3 ∈
+/Z:
+
+λi + µi ∈ 2Z + 1, λj + µj , λ3 + µ3 ∈
+/Z:
+λ3 + µ3 ∈ 2Z, λ1 + µ1 , λ2 + µ2 ∈
+/Z:
+λ3 + µ3 ∈ 2Z + 1, λ1 + µ1 , λ2 + µ2 ∈
+/Z:
+λ1 + µ1 , λ2 + µ2 , λ3 + µ3 ∈
+/Z:
+
+(8)
+
+(8)
+
+(8)
+
+(16)
+
+(8)
+
+(24)
+
+(24)
+
+Pλ+µ−αi ⊕ Pλ+µ−αj ⊕ 2Pλ+µ−α3
+(16)
+
+(8)
+
+(8)
+
+⊕ Pλ+µ−αi −α3 ⊕ Pλ+µ−2α3 ,
+(16)
+
+(8)
+
+Pλ+µ ⊕ Pλ+µ−α1 ⊕ Pλ+µ−α3
+(8)
+
+(8)
+
+(8)
+
+(16)
+
+⊕ Pλ+µ−αi −α3 ⊕ Pλ+µ−αj −α3 ⊕ Pλ+µ−2α3 ,
+
+(3.29)
+
+(16)
+
+(8)
+
+Pλ+µ ⊕ 2Pλ+µ−α3 ⊕ Pλ+µ−α1 −α3
+(8)
+
+(16)
+
+(8)
+
+⊕ Pλ+µ−α2 −α3 ⊕ Pλ+µ−2α3 ,
+(16)
+
+(8)
+
+Pλ+µ−α1 ⊕ Pλ+µ−α2 ⊕ Pλ+µ−α3
+(8)
+
+(16)
+
+(8)
+
+(8)
+
+⊕ Pλ+µ−α1 −α3 ⊕ Pλ+µ−α2 −α3 ⊕ Pλ+µ−2α3 ,
+(8)
+
+(8)
+
+(8)
+
+Pλ+µ ⊕ Pλ+µ−α1 ⊕ Pλ+µ−α2 ⊕ 2Pλ+µ−α3
+(8)
+
+(8)
+
+(8)
+
+⊕ Pλ+µ−α1 −α3 ⊕ Pλ+µ−α2 −α3 ⊕ Pλ+µ−2α3 ,
+where {i, j} = {1, 2} and 2V means V ⊕2 .
+It only remains to decompose the tensor products of the 3- and 4-dimensional irreducibles. Here, identifying
+projective summands is not always sufficient and one must sometimes resort to brute force computation.
+However, there are still many cases for which projectivity is very helpful.
+(4)
+
+(4)
+
+As an illustration, consider the decomposition of Lλ ⊗ Lµ , where λ1 , µ1 ∈ 2Z + 1 and λ2 , µ2 ∈
+/ Z. This
+
+tensor product obviously has a maximal vector v of weight λ + µ that satisfies (λ + µ)1 ∈ 2Z + 1. Assume
+that λ + µ is atypical of degree 1, so (λ + µ)2 , (λ + µ)3 ∈
+/ Z. Then, v generates a submodule of dimension at
+least 4 in which X−2 v is not maximal.
+
+Now, the weight λ + µ − α2 has multiplicity 2 in the tensor product while λ + µ has multiplicity 1. X2 must
+(4)
+
+(4)
+
+therefore annihilate some vector w of weight λ + µ − α2 . As λ + µ + α1 − α2 is not a weight of Lλ ⊗ Lµ , w
+(8)
+is maximal. But, λ + µ − α2 is typical, hence w generates a copy of the irreducible projective Pλ+µ−α2 which
+is therefore a direct summand of the tensor product.
+
+(8)
+
+Of the 8 weights (counted with multiplicity) not accounted for by the copy of Pλ+µ−α2 , at least 4 belong to
+21
+
+(4)
+
+the submodule, isomorphic to Lλ+µ , generated by v. That leaves 4, the highest of which is easily checked to
+be λ + µ − α2 − α3 . However, this is also atypical of degree 1, hence the corresponding composition factor is
+(4)
+Lλ+µ−α2 −α3 which accounts for all the remaining weights.
+(4)
+
+(4)
+
+(8)
+
+The tensor product therefore has three composition factors: Lλ+µ , Pλ+µ−α2 and Lλ+µ−α2 −α3 . The only
+unknown left is whether the 4-dimensional irreducibles are direct summands or parts of an 8-dimensional
+indecomposable. However, the latter is impossible, by Corollary 3.3.
+Similar arguments result in the following decompositions.
+Proposition 3.11.
+(4)
+
+(4)
+
+• Given λ, µ, λ + µ ∈ h∗ atypical of degree 1, Lλ ⊗ Lµ is isomorphic to
+(8)
+
+λi , µj ∈ 2Z + 1 :
+
+(8)
+
+Pλ+µ ⊕ Pλ+µ−αk
+
+({i, j, k} = {1, 2, 3}),
+
+(4)
+(4)
+(8)
+Lλ+µ ⊕ Pλ+µ−αj ⊕ Lλ+µ−αj −α3
+
+λi , µi ∈ 2Z + 1 :
+
+({i, j} = {1, 2}),
+
+(8)
+(4)
+(4)
+Pλ+µ ⊕ Lλ+µ−α1 ⊕ Lλ+µ−α2 .
+
+λ3 , µ3 ∈ 2Z + 1 :
+
+(3)
+
+(3.30)
+
+(4)
+
+• Given λ ∈ h∗ atypical of degree 2 with λ3 ∈ 2Z + 1 and µ atypical of degree 1, Lλ ⊗ Lµ is isomorphic to
+(8)
+
+(4)
+
+(4)
+
+(8)
+
+λi , µj ∈ 2Z + 1 :
+
+Pλ+µ ⊕ Lλ+µ−αk
+
+λi , µi ∈ 2Z + 1 :
+
+Lλ+µ ⊕ Pλ+µ−αj
+
+(i ∈ {1, 2}, {i, j, k} = {1, 2, 3}),
+
+(3.31)
+
+({i, j} = {1, 2}).
+
+• Given λ, µ ∈ h∗ atypical of degree 2 with λi , λ3 , µj , µ3 ∈ 2Z + 1, where {i, j} = {1, 2}, one has
+(3)
+
+(8)
+
+(1)
+
+∼
+Lλ ⊗ L(3)
+µ = Pλ+µ ⊕ Lλ+µ−α3 .
+(4)
+
+(3.32)
+
+(4)
+
+(3)
+
+(3)
+
+The remaining tensor products are Lλ ⊗ Lµ , with λ + µ atypical of degree 2, and Lλ ⊗ Lµ , with
+
+λi , λ3 , µi , µ3 ∈ 2Z + 1. It seems that there is no easy way to identify these decompositions except by brute
+force computation. We outline the results below.
+Proposition 3.12.
+(4)
+
+(4)
+
+• Given λ, µ ∈ h∗ atypical of degree 1 and λ + µ atypical of degree of 2, Lλ ⊗ Lµ is isomorphic to
+(16)
+
+(i, j ∈ {1, 2}),
+
+λi , µi , (λ + µ)i , (λ + µ)j ∈ 2Z + 1 :
+
+Kλ+µ−αj
+
+λi , µi , (λ + µ)i , (λ + µ)3 ∈ 2Z + 1 :
+
+Rλ+µ−αj −α3 ⊕ Pλ+µ−αj
+
+λ3 , µ3 , (λ + µ)1 , (λ + µ)2 ∈ 2Z + 1 :
+
+Sλ+µ ,
+
+(8)
+
+(8)
+
+(i, j ∈ {1, 2}),
+
+(16)
+
+(8)
+
+(24)
+
+(24)
+
+(16)
+
+(3.33)
+
+where Kλ+µ−αj is an indecomposable quotient of Pλ+µ−αj ⊕Pλ+µ−αj −α3 , Rλ+µ−αj −α3 is an indecomposable
+(48)
+
+(16)
+
+(24)
+
+(24)
+
+quotient of Pλ+µ−αj −α3 and Sλ+µ is an indecomposable quotient of Pλ+µ−α1 ⊕ Pλ+µ−α2 . Their (unique)
+
+Loewy diagrams are pictured in Figure 4.
+
+• Given λ, µ ∈ h∗ atypical of degree 2 with λi , λ3 , µi , µ3 ∈ 2Z + 1, for some i ∈ {1, 2}, one has
+(9)
+
+(3)
+
+∼
+Lλ ⊗ L(3)
+µ = Nλ+µ−αj ,
+22
+
+(3.34)
+
+(16)
+
+Kλ
+
+(1)
+
+Lλ+αi
+
+(15)
+
+Sλ
+
+(1)
+
+Lλ−2α1
+
+(3)
+
+Lλ
+
+(3)
+
+Lλ−α3
+
+Lλ−αi
+
+(1)
+
+Lλ+αi −2α3
+
+Lλ
+
+(3)
+
+Lλ−α3
+
+Lλ−α1
+
+(3)
+
+Lλ−α2
+
+Lλ
+
+(1)
+
+Lλ−2α3
+
+(3)
+
+Lλ−α2
+
+Lλ−α1
+
+(1)
+
+(8)
+
+Rλ
+
+(3)
+
+(3)
+
+(1)
+
+Lλ−αj
+
+Lλ+αj +α3
+
+Lλ−αi −2α3
+
+(3)
+
+(1)
+
+Lλ
+
+(3)
+
+(1)
+
+(1)
+
+Lλ
+
+(9)
+
+(3)
+
+Nλ
+
+(1)
+
+Lλ
+
+(1)
+
+Lλ−2α2
+
+Lλ+αi
+
+(3)
+
+(1)
+
+(1)
+
+Lλ−αi
+
+Lλ+αi −2α3
+
+(3)
+
+Lλ
+
+Figure 4: The Loewy diagrams of the indecomposable U H
+i (sl3 )-modules appearing in Proposition 3.12.
+(24)
+
+(9)
+
+where Nλ+µ−αj is an indecomposable quotient of Pλ+µ−αj , {i, j} = {1, 2}. Its (unique) Loewy diagram is
+again pictured in Figure 4.
+
+Proof. We outline the argument resulting in (3.34), the other tensor products being similar though slightly
+(3)
+(3)
+more intricate. So let v ∈ Lλ ⊗ Lµ have weight λ + µ. Then, v is maximal and (λ + µ)1 , (λ + µ)2 ∈ 2Z + 1,
+(1)
+
+hence there is a composition factor Lλ+µ . Using the explicit coproduct of (2.1b) and the structure of the
+irreducibles worked out in the proof of Proposition 3.1, one computes that X−1 v = 0 but X−2 v 6= 0. Indeed,
+(3)
+
+X−2 v is maximal and so there is a composition factor Lλ+µ−α2 . From the structure of this factor, it follows
+that X−2 X−1 X−2 v 6= 0. However, (X−1 X−2 )2 v = (X−2 X−1 )2 v = 0 and so v generates a 4-dimensional
+(3)
+
+(3)
+
+submodule V of Lλ ⊗ Lµ .
+
+(3)
+
+(3)
+
+Next, note that λ + µ − α2 has multiplicity 2 in Lλ ⊗ Lµ . Explicit computation shows that X2 does not
+
+act as 0 on the corresponding weight space. In other words, there exists w of this weight with X2 w = v.
+(3)
+(3) 
+Since X1 w = 0 by weight considerations, [w] is maximal in (Lλ ⊗ Lµ ) V and so gives a second composition
+(3)
+
+factor Lλ+µ−α2 . It follows that X−1 [w], X−2 X−1 [w] 6= 0. However, explicit calculation shows that X−2 [w]
+and X−1 X−2 X−1 [w] are also non-zero, indicating that [w] does not generate an irreducible submodule of
+(3)
+(3) 
+(3)
+(3) 
+(3)
+(3)
+(1)
+(Lλ ⊗ Lµ ) V . Indeed, these calculations imply that (Lλ ⊗ Lµ ) V , and hence Lλ ⊗ Lµ , has Lλ+µ−2α2
+(1)
+and Lλ+µ−2α3 as composition factors.
+(3)
+
+(3)
+
+By dimensional considerations, these complete the set of composition factors of Lλ ⊗ Lµ . To complete
+the description of the structure of this module, one checks that X−1 X−2 w and X1 X−1 X−2 X−1 w are both
+(3)
+
+(3)
+
+non-zero multiples of X−2 X−1 X−2 v. With this, it is easy to compute the radical and socle series of Lλ ⊗Lµ
+(3)
+(3)
+(which again coincide) and draw the Loewy diagram. Finally, the fact that Lλ ⊗ Lµ may be realised as a
+(24)
+
+quotient of Pλ+µ−α2 follows from the latter’s role as the projective cover of the head of the former.
+
+23
+
+Categories related to L− 23 (sl3 )
+
+4
+
+In this section, a Kazhdan–Lusztig correspondence is conjectured between the category of finite-dimensional
+weight U H
+i (sl3 )-modules and a module category of a vertex operator algebra. More precisely, the conjecture is
+
+that this correspondence takes the form of an equivalence of braided tensor categories. The vertex operator
+algebra appearing in this correspondence is not L− 32 (sl3 ), but its parafermionic coset. This is of course
+the commutant of the rank-2 Heisenberg subalgebra of L− 32 (sl3 ) generated by the fields associated with the
+Cartan subalgebra of sl3 .
+The reason why one might expect a Kazhdan–Lusztig correspondence involving this parafermionic vertex
+operator algebra is that it has recently been shown [Ad16, AMW20] to be isomorphic to WA02 (2), a rank-2
+analogue of the singlet algebras WA01 (p), p ∈ Z≥2 [Ka91]. This isomorphism extends the known coincidences
+
+between the Lk (sl2 )-parafermions, with k = − 21 and − 34 , and the WA01 (p), with p = 2, 3 respectively [Ad05,
+Ri11] (as well as between k = − 32 and the bosonic orbifold of an N = 1 “supersinglet” algebra [Ad16, ACR18]).
+
+WA02 (2) is one of a family, parametrised by p ∈ Z≥2 and an ADE Dynkin diagram, of vertex algebras
+
+introduced by Feigin and Tipunin [FT10], see also [CM17]. Aside from the A1 case (the singlet algebras), the
+
+representation theories of these vertex operators algebras have not yet received much attention. However,
+that of the singlet algebras is very well understood, see [AM07, AM09, TW15, RW14, CMY20b]. In this case,
+a conjectural braided tensor equivalence has been proposed [CGP14, CM14] and studied [CMR18, CGR20,
+GN21, CLR21]. It connects a category of modules over WA01 (p) with the category of finite-dimensional weight
+πi/p
+.
+modules of the unrolled restricted quantum group U H
+q (sl2 ) with q = e
+
+It is thus natural to conjecture [CR20] that this equivalence generalises to higher ranks and, in particular,
+to a braided tensor equivalence between the category of finite-dimensional weight U H
+i (sl3 )-modules and an
+appropriate category of WA02 (2)-modules. Here, this conjecture is made explicit by comparing with the
+representation theory of the simple affine vertex operator algebra L− 23 (sl3 ). Consequences for other related
+vertex operator algebra categories are also explored.
+
+4.1
+
+Representation theory of L− 3 (sl3 )
+2
+
+The simple affine vertex operator algebra L− 23 (sl3 ) has central charge −8. A list of its irreducible modules
+includes the following:
+• Four highest-weight modules Lb0 , Lb− 32 ω1 , Lb− 23 ω2 and Lb− 21 ρ . These are highest-weight with respect to the
+b 3 ; the subscript indicates the projection of the highest weight onto h. Their ground
+standard Borel of sl
+states have conformal weight 0, − 21 , − 21 and − 21 , respectively.
+
+• A single family of semirelaxed highest-weight modules Sb[µ] , for all [µ] ∈ (− 23 ω1 + Cα1 )/Zα1 except for
+
+[µ] = [− 32 ω1 ] and [µ] = [− 12 ρ]. The root vectors of sl3 corresponding to ±α1 , −α2 and −α3 act injectively
+while those for α2 and α3 act locally nilpotently. The sl3 -weights of the ground states constitute the set
+µ + Zα1 − Z≥0 α2 − Z≥0 α3 ; these always have conformal weight − 21 .
+
+b [µ] , for all [µ] ∈ h∗ /Q except
+• A single family of relaxed highest-weight modules R
+[µ] ∈ [− 23 ω1 + Cα1 ] ∪ [− 21 ρ + Cα2 ] ∪ [− 23 ω1 + Cα3 ].
+
+(4.1)
+
+All root vectors of sl3 act injectively and the set of sl3 -weights of the ground states is µ + Q; these also
+
+24
+
+always have conformal weight − 21 .
+The highest-weight modules were originally classified in [Pe08], while the relaxed highest-weight modules
+were constructed, but not proved to be exhaustive, in [Ad16]. A complete classification was first obtained in
+[AFR17] using Gelfand-Tsetlin methods, see also [KR19] for an alternative classification based on Mathieu’s
+coherent families [Ma00].
+A complete set of irreducible positive-energy weight L− 23 (sl3 )-modules, with finite-dimensional weight spaces,
+is obtained from the irreducibles listed above by twisting by the automorphisms of sl3 that preserve the chosen
+Cartan subalgebra. These automorphisms form a group isomorphic to the dihedral group D6 . Similarly, a
+complete set of irreducible weight L− 32 (sl3 )-modules, with finite-dimensional weight spaces, is obtained by
+b 3 . Recall that the latter are defined by
+also twisting by the spectral flow automorphisms σ ω , ω ∈ P , of sl
+α
+σ ω (eα
+n ) = en−hα,ωi ,
+
+σ ω (hn ) = hn − hω, hiδn,0 K,
+
+σ ω (K) = K.
+
+(4.2)
+
+Occasionally, a given D6 - or spectral flow twist will relate two of the irreducibles listed above, for example
+σ ωi (Lb0 ) ∼
+= Lb−3ωi /2 for i = 1, 2. However, most twists result in new irreducibles. A complete list of the
+
+exceptions may be found in [KRW21, Equation (5.9)].
+
+Denote the category of irreducible positive-energy weight L− 23 (sl3 )-modules, with finite-dimensional weight
+spaces and real weights, by D. The list [KRW21, Equation (5.9)] of exceptions shows that the irreducibles
+in D may all be realised as spectral flows of the following irreducibles:
+Lb0 ,
+
+Lb− 21 ρ ,
+
+c(Lb− 12 ρ ),
+
+Sb[µ] ,
+
+w2 (Sb[µ] ),
+
+w1 w2 (Sb[µ] ),
+
+b [µ] .
+R
+
+(4.3)
+
+Here, wi ∈ D6 , i = 1, 2, 3, is the Weyl reflection of sl3 corresponding to αi and c ∈ D6 is the conjugation
+automorphism (which acts on the Cartan subalgebra of sl3 as multiplication by −1).
+b [µ] also includes reducible L− 3 (sl3 )-modules. Writing ω3 = ω2 − ω1 , their composition
+The relaxed family R
+2
+factors were determined in [KRW21, Equations (5.11–12)] and are as follows:
+µ ∈ − 23 ω1 + Cα1 , [µ] 6= [− 23 ω1 ], [− 21 ρ] :
+µ ∈ − 21 ρ + Cα2 ,
+
+[µ] 6= [− 21 ρ], [− 23 ω2 ] :
+
+Sb[µ] , σ −ω2 (Sb[µ− 12 α1 ] ),
+
+w1 w2 (Sb[w2 ·w1 (µ)] ), σ ω1 w1 w2 (Sb[w2 w1 ·µ+ 32 ω2 ] ),
+
+(4.4a)
+
+µ ∈ − 23 ω1 + Cα3 , [µ] 6= [− 23 ω1 ], [− 23 ω2 ] : w2 (Sb[w2 (µ)] ), σ ω3 w2 (Sb[w2 ·µ+ 23 ω2 ] ),
+
+µ = [− 23 ω1 ] : σ ω1 (Lb0 ), σ −ω1 (Lb0 ), σ ω2 c(Lb− 21 ρ ), σ −ω2 (Lb− 12 ρ ),
+µ = [− 21 ρ] :
+
+Lb− 21 ρ , c(Lb− 12 ρ ), σ ω3 (Lb0 ), σ −ω3 (Lb0 ),
+
+(4.4b)
+
+µ = [− 23 ω2 ] : σ ω2 (Lb0 ), σ −ω2 (Lb0 ), σ ω1 c(Lb− 21 ρ ), σ −ω1 (Lb− 12 ρ ).
+
+Here, every composition factor has been expressed as a spectral flow of an irreducible in (4.3).
+Grothendieck fusion rules for all irreducibles in D were computed in [KRW21] using a conjectural Verlinde
+formula [CR13a, RW15b]. As Grothendieck fusion respects D6 -twists and spectral flow,
+b w(N ) = w(M ⊠
+b N ),
+w(M ) ⊠
+′
+
+′
+
+b σ ω (N ) = σ ω+ω (M ⊠
+b N ),
+σ ω (M ) ⊠
+25
+
+w ∈ D6 ,
+
+ω, ω ′ ∈ P,
+
+(4.5)
+
+it suffices to list the following rules [KRW21, Equations (5.54, 56, 58, 61, 62, 64, 65 and 68)]:
+b Lb− 1 ρ = Lb0 + σ 2ω1 (Lb0 ) + σ 2ω2 (Lb0 ) + 2 σ ρ c(Lb− 1 ρ ),
+Lb− 21 ρ ⊠
+2
+2
+
+b c(Lb− 1 ρ ) = Lb0 + R
+b [0] ,
+Lb− 21 ρ ⊠
+2
+
+b [µ+ 1 α ] ),
+b Sb[µ] = σ ω1 (Sb[µ+ 1 α ] ) + σ ω2 (R
+Lb− 21 ρ ⊠
+2 1
+2 2
+
+(4.6a)
+(4.6b)
+(4.6c)
+
+ω1 b
+ω2 b
+b [µ] = R
+b
+bR
+Lb− 21 ρ ⊠
+[µ− 12 ρ] + σ (R[µ+ 21 α1 ] ) + σ (R[µ+ 12 α2 ] ),
+
+ω3 b
+b
+b Sb[µ] = σ ω1 (Sb[λ+µ+ 3 ω ] ) + σ ω2 (R
+Sb[λ] ⊠
+[λ+µ+ 32 ω2 ] ) + σ (S[λ+µ+ 23 ω3 ] ),
+2 1
+
+b
+b [λ+w (µ)] + σ ω1 (R
+b w2 (Sb[µ] ) = R
+Sb[λ] ⊠
+[λ+w2 (µ)+ 32 ω1 ] ),
+2
+
+b [λ+w w (µ)+ 3 ω ] ),
+b [λ+w w (µ)] + σ (R
+b w1 w2 (Sb[µ] ) = R
+Sb[λ] ⊠
+1 2
+1 2
+2 3
+P
+3
+ω
+i b
+b [µ] = R
+b [λ+µ] +
+bR
+Sb[λ] ⊠
+i=1 σ (R[λ+µ+ 32 ωi ] ),
+
+
+−ωi b
+ωi b
+b [λ] ⊠
+b [µ] = 2 R
+b [λ+µ] + P3
+bR
+(R[λ+µ+ 23 ωi ] ) .
+R
+i=1 σ (R[λ+µ+ 32 ωi ] ) + σ
+ω3
+
+(4.6d)
+(4.6e)
+(4.6f)
+(4.6g)
+(4.6h)
+(4.6i)
+
+The restriction made above, that modules in D have real weights, is purely technical in nature. However, it
+is worth noting that the decompositions (4.6) were also deduced in [KRW21] under the assumption that all
+weights are real.
+
+4.2
+
+A parafermionic coset
+
+The vertex operator algebra L− 23 (sl3 ) has a rank-2 Heisenberg subalgebra H generated by the fields associated
+with the Cartan subalgebra h. As noted above, the commutant of this subalgebra in L− 23 (sl3 ) is known [Ad16,
+AMW20] to be isomorphic to the Feigin–Tipunin algebra WA02 (2). The consequent conformal embedding
+WA02 (2) ⊗ H ֒→ L− 23 (sl3 ) then leads to decompositions of L− 32 (sl3 )-modules as WA02 (2) ⊗ H-modules.
+To analyse these decompositions, the following conjecture is useful. It is understood to be in force for all
+that follows.
+Conjecture 4.1. The category D of weight L− 23 (sl3 )-modules with finite-dimensional weight spaces and real
+weights admits the structure of a vertex tensor category. Furthermore, the tensor (fusion) product ⊠ of D
+descends to the Grothendieck group and the resulting Grothendieck fusion rules are as in (4.5) and (4.6).
+Assuming this conjecture, the results of [CKLR19] for general Heisenberg commutants imply that the submodule structure of a given module in D is shared by each of the WA02 (2)-modules appearing in its decomposition.
+Moreover, they also imply that L− 23 (sl3 ) decomposes into simple currents:
+L− 32 (sl3 ) ∼
+=
+
+M
+
+λ∈Q
+
+(1)
+
+Eλ ⊗ Fλ ,
+
+(1)
+
+(1)
+
+Eλ ⊠ Eµ(1) ∼
+= Eλ+µ .
+
+(4.7)
+
+(1)
+
+Here, Fλ denotes the Fock module of H of highest weight λ and Eλ , λ ∈ Q, is an irreducible WA02 (2)-module.
+The natural L− 32 (sl3 )-modules with which to start this decomposition game are the relaxed highest-weight
+b [µ] ∈ D, because these (along with their spectral flows) are the standard modules in the
+L− 3 (sl3 )-modules R
+2
+
+sense of [CR13a, RW15b]. In particular, every other irreducible weight module appears as a composition
+b [µ] are precisely the elements of [µ] = µ + Q, it
+factor of a standard one, see (4.4). As the sl3 -weights of R
+26
+
+decomposes into modules over WA02 (2) ⊗ H as follows:
+M
+
+b [µ] ∼
+R
+=
+
+(8)
+
+Eλ ⊗ Fλ .
+
+(4.8)
+
+λ∈µ+Q
+
+(8)
+(8)
+(1)
+(8)
+Here, the Eλ are WA02 (2)-modules satisfying Eλ ⊠ Eµ ∼
+= Eλ+µ [CKLR19].
+(8)
+
+The character of Eλ is now easily deduced from [KRW21, Equation (5.14)]:
+X q 3 kλk z λ q − 3 kλk
+1 X λ
+z
+=
+η(q)4
+η(q)2
+η(q)2
+1
+
+b [µ] ] =
+ch[R
+
+λ∈µ+Q
+
+2
+
+1
+
+2
+
+1
+
+q3
+(8)
+ch[Eλ ] =
+
+⇒
+
+λ∈µ+Q
+
+kλk2
+
+η(q)2
+
+.
+
+(4.9)
+
+(8)
+
+This suggests that Eλ may be constructed as another rank-2 Fock module, albeit one whose central charge is
+−10 (this free field approach to WA02 (2) is that originally used in [FT10]). Applying [KRW21, Equation (5.4)]
+now gives the character decomposition of a general standard module:
+b [µ] )] =
+ch[σ (R
+ω
+
+X q 31 kλk2 z λ− 32 ω q − 31 kλ− 32 ωk2
+
+λ∈µ+Q
+
+η(q)2
+
+η(q)2
+
+b [µ] is irreducible (typical), this shows that
+When R
+b [µ] ) ∼
+σ ω (R
+=
+
+M
+
+=
+
+X
+
+(8)
+
+ch[Eλ ] ch[Fλ− 32 ω ].
+
+(4.10)
+
+λ∈µ+Q
+
+(8)
+
+Eλ ⊗ Fλ− 32 ω ,
+
+(4.11)
+
+λ∈µ+Q
+
+hence that spectral flow only changes the Fock module labels. The same must then be true for the atypical
+b [µ] as well.
+R
+
+4.3
+
+A logarithmic Kazhdan–Lusztig correspondence
+
+(8)
+
+b [µ] is typical unless [µ] ∈ h∗ /Q belongs to the set in (4.1). The E appearing in (4.8) are then
+Recall that R
+λ
+
+irreducible (typical) unless
+
+λ∈
+
+3
+[
+
+(Z + 21 )αi + Rαj
+
+i,j=1
+i6=j
+
+
+
+(4.12)
+
+(recalling the restriction to real weights in the definition of D). These typicality conditions are illustrated
+(8)
+
+in Figure 5. Crucially, the conditions for Eλ match those given in Figure 1 for the Verma modules Mλ′ of
+′
+′
+∗
+UH
+i (sl3 ), if λ and λ are related by the affine transformation λ = ϕ(λ) + ρ of h . Here, ϕ is the linear map
+satisfying
+
+ϕ(α1 ) = 2ω1 ,
+
+ϕ(α2 ) = 2ω3
+
+and ϕ(α3 ) = 2ω2 .
+
+(4.13)
+
+This suggests the following (partial) Kazhdan–Lusztig correspondence.
+Conjecture 4.2. The WA02 (2)-modules obtained by decomposing the L− 32 (sl3 )-modules in D form a vertex
+(8)
+
+tensor category E . The identification of Eλ with Mϕ(λ)+ρ partially defines a braided tensor equivalence
+between E and the full subcategory CR of C containing the finite-dimensional weight U H
+i (sl3 )-modules with
+
+real weights.
+
+27
+
+(8)
+
+Figure 5: The atypical weights λ ∈ h∗ of the WA02 (2)-modules Eλ , pictured with 0 at the centre. Grey dots
+indicate typical weights in Q, black lines indicate atypical weights of degree 1 and black dots are atypical
+weights of degree 2. The highest root α3 is the grey dot closest to 0 along the ray 30◦ to the right of the
+upwards vertical.
+Of course, if λ is typical for WA02 (2), then ϕ(λ) + ρ is typical for U H
+i (sl3 ), hence Mϕ(λ)+ρ is irreducible and
+the identification in Conjecture 4.2 becomes
+(8)
+
+(8)
+
+Eλ ←→ Lϕ(λ)+ρ .
+
+(4.14)
+
+The complete (conjectural) Kazhdan–Lusztig correspondence is obtained by extending this identification to
+the remaining irreducible U H
+i (sl3 )-modules in CR .
+For this, note that degree-1 atypicality in C corresponds to the Sb[µ] and their D6 -twists in D. Decomposing
+(4)
+defines (generically irreducible) WA02 (2)-modules Eλ :
+Sb[µ] ∼
+=
+
+M
+
+(4)
+
+µ ∈ − 23 ω1 + Rα1 .
+
+Eλ ⊗ Fλ ,
+
+λ∈µ+Q
+
+(4.15a)
+
+(4)
+
+This defines the Eλ when λ ∈ − 32 ω1 + Rα1 + Q. However, twisting by w2 and w1 w2 extends this to
+λ ∈ − 32 ω1 + Rα3 + Q and λ ∈ − 21 ρ + Rα2 + Q, respectively:
+w2 (Sb[w2 (µ)] ) ∼
+=
+
+M
+
+(4)
+
+µ ∈ − 23 ω1 + Rα3 ,
+
+(4.15b)
+
+(4)
+
+µ ∈ − 21 ρ + Rα2 .
+
+(4.15c)
+
+(3)
+
+(4.16)
+
+Eλ ⊗ Fλ ,
+
+λ∈µ+Q
+
+w1 w2 (Sb[w2 w1 (µ)] ) ∼
+=
+
+M
+
+Eλ ⊗ Fλ ,
+
+λ∈µ+Q
+
+For degree-2 atypicality, the decompositions are instead
+Lb− 21 ρ ∼
+=
+
+M
+
+(3)
+
+c(Lb− 12 ρ ) ∼
+=
+
+Eλ ⊗ Fλ ,
+
+λ∈− 12 ρ+Q
+
+M
+
+Eλ ⊗ Fλ .
+
+λ∈− 12 ρ+Q
+
+(1)
+
+Recall also the decomposition (4.7) defining the Eλ , λ ∈ Q. In all cases, [CKLR19] gives
+(1)
+
+(d)
+
+Eλ ⊠ Eµ(d) ∼
+= Eλ+µ ,
+
+28
+
+d = 1, 3, 4, 8.
+
+(4.17)
+
+The full Kazhdan–Lusztig correspondence is as follows.
+Conjecture 4.3. There is a braided tensor equivalence between E and CR defined by
+(8)
+
+(8)
+
+for generic λ,
+
+(4.18a)
+
+for generic λ in − 23 ω1 + Rα1 + Q or − 23 ω1 + Rα3 + Q,
+
+(4.18b)
+
+Eλ ←→ Lϕ(λ)+ρ
+
+
+L(4)
+
+ϕ(λ)+ρ
+(4)
+Eλ ←→
+L(4)
+ϕ(λ)
+
+for generic λ in − 21 ρ + Rα2 + Q,
+
+(3)
+
+1
+for λ ∈ − ρ + Q,
+2
+for λ ∈ Q.
+
+(3)
+
+(3)
+
+Eλ ←→ Lϕ(λ)+ρ ,
+
+(3)
+
+Eλ ←→ Lϕ(λ)
+
+(1)
+
+(1)
+
+Eλ ←→ Lϕ(λ)
+
+(4.18c)
+(4.18d)
+
+This conjecture will be tested in what follows by comparing the tensor products of CR , computed in Section 3.3, with the Grothendieck fusion rules of D, computed in [KRW21] and listed in (4.6).
+This correspondence predicts Loewy diagrams for the projective covers of the irreducible WA02 (2)-modules in
+(8)
+
+E . More precisely, the prediction is that the irreducible Eµ are already projective and for the projective
+covers of the other irreducibles, Loewy diagrams are obtained by replacing each composition factor in Figure 3
+by its image in E under the equivalence (4.18), see Figure 6. For this, it is convenient to invert (4.18):
+(8)
+
+L(8)
+µ ←→ Eϕ−1 (µ−ρ)
+
+L(4)
+µ ←→
+
+
+E (8)
+ϕ−1 (µ−ρ)
+E (8)
+ϕ−1 (µ)
+
+(3)
+
+L(3)
+µ ←→ Eϕ−1 (µ−ρ)
+
+for generic µ,
+
+(4.19a)
+
+for generic µ in Rω1 + 2P or Rω2 + 2P ,
+for generic µ in ω1 + Rω3 + 2P = ω2 + Rω3 + 2P ,
+(3)
+
+for µ ∈ ω1 + 2P ,
+
+(1)
+L(1)
+µ ←→ Eϕ−1 (µ)
+
+L(3)
+µ ←→ Eϕ−1 (µ)
+
+for µ ∈ ω2 + 2P ,
+
+for µ ∈ 2P .
+
+(4.19b)
+(4.19c)
+(4.19d)
+
+(24)
+
+(3)
+
+To illustrate this replacement process, let Qλ denote the projective cover of Eλ , λ ∈ − 21 ρ + Q. Under
+(3)
+(3)
+(24)
+(24)
+the equivalence (4.18), Eλ ←→ Lµ so Qλ ←→ Pµ , where µ = ϕ(λ) + ρ ∈ ω1 + 2P . The composition
+(24)
+
+factors of Pµ
+
+are given in Figure 3. Ignoring repetitions, there are only 7:
+L(3)
+µ ,
+
+(3)
+
+(1)
+
+(1)
+
+(1)
+
+Lµ+α3 ,
+
+Lµ+α2 −2α3 ,
+
+Lµ−α2 ,
+
+Lµ+α2 ,
+
+(3)
+
+Lµ+2α2 −α3
+
+(3)
+
+and Lµ−α3 .
+
+(4.20)
+
+Noting that µ ± α3 , µ + 2α2 − α3 ∈ ω2 + 2P , the corresponding WA02 (2)-modules under (4.19) are
+(3)
+
+Eλ ,
+
+(1)
+
+Eλ+ 3 ρ ,
+2
+
+(1)
+
+Eλ− 3 ω ,
+2
+
+3
+
+(1)
+
+Eλ+ 3 ω ,
+2
+
+3
+
+(3)
+
+Eλ+3ω1 ,
+
+(3)
+
+Eλ
+
+(3)
+
+and Eλ+3ω2 ,
+
+(4.21)
+
+respectively. For this, it is convenient to record the following useful facts:
+ϕ−1 (α1 ) = − 23 ω3 ,
+
+ϕ−1 (α2 ) = 32 ω2
+(24)
+
+Making these replacements in the Loewy diagram of Pµ
+
+and ϕ−1 (α3 ) = 32 ω1 .
+
+(4.22)
+
+(24)
+
+now gives that of Qλ .
+(d)
+
+Note that the typical, atypical of degree 1 and atypical of degree 2 irreducibles Eλ
+
+appear in 1, 2 and 3
+
+distinct Loewy layers of its projective cover, suggesting that the Virasoro zero-mode acts on the projectives
+
+29
+
+(16)
+
+(4)
+
+(4)
+
+Qλ
+
+(4)
+
+Eλ
+
+Eλ
+(4)
+
+(4)
+
+(4)
+
+Eλ+ 3 ω2
+
+2
+
+(4)
+
+(4)
+
+Eλ+ 3 ω3
+
+Eλ− 3 ω2
+
+2
+
+Eλ
+
+(4)
+
+Eλ+ 3 ω1
+
+Eλ− 3 ω3
+
+2
+
+2
+
+Eλ− 3 ω1
+
+2
+
+2
+
+Eλ
+
+(4)
+
+Eλ
+
+(4)
+
+Eλ
+
+λ ∈ − 23 ω1 + Rα1 + Q,
+atypical of degree 1.
+
+λ ∈ − 23 ω1 + Rα3 + Q,
+atypical of degree 1.
+
+λ ∈ − 21 ρ + Rα2 + Q,
+atypical of degree 1.
+
+(24)
+
+(3)
+
+Qλ
+
+Eλ− 3 ω
+
+2
+
+(3)
+
+2
+
+(1)
+
+Eλ+ 3 ω
+
+3
+
+(3)
+
+Eλ+3ω1
+
+2
+
+Eλ− 3 ω
+
+2
+
+2
+
+2
+
+2
+
+(1)
+
+2
+
+2
+
+Eλ+ 3 ω
+
+3
+
+(3)
+
+(3)
+
+Eλ−3ω1
+
+Eλ
+(1)
+
+(1)
+
+Eλ− 3 ω
+
+3
+
+Eλ− 3 ρ
+
+3
+
+(3)
+
+(1)
+
+Eλ+ 3 ω
+
+3
+
+2
+
+Eλ−3ω2
+
+Eλ
+
+Eλ
+
+Eλ+ 3 ω
+
+3
+
+(3)
+
+(3)
+
+Eλ
+(1)
+
+(1)
+
+(1)
+
+(1)
+
+Eλ− 3 ω
+
+3
+
+(3)
+
+Eλ+3ω2
+
+Eλ+ 3 ρ
+
+Eλ
+
+Qλ
+
+(1)
+
+(1)
+
+(3)
+
+(24)
+
+Eλ
+
+Eλ+ 3 ρ
+
+(4)
+
+2
+
+(1)
+
+Eλ− 3 ρ
+
+3
+
+2
+
+Eλ
+
+(3)
+
+Eλ
+
+λ ∈ − 21 ρ + Q,
+atypical of degree 2.
+
+λ ∈ − 12 ρ + Q,
+atypical of degree 2.
+
+(3)
+
+(48)
+
+(1)
+
+Qλ
+
+Eλ
+
+Eλ− 3 ω
+2
+
+2
+
+Eλ− 3 ω
+2
+
+2
+
+(3)
+
+Eλ− 3 ω
+
+3
+
+2
+
+3
+
+2
+
+(3)
+
+2
+
+2
+
+(1)
+
+(1)
+
+Eλ−3ω1
+(3)
+
+(3)
+
+3
+
+Eλ− 3 ρ
+
+3
+
+Eλ−3ω2
+
+Eλ+3ω3
+
+Eλ− 3 ω
+
+3
+
+2
+
+(1)
+
+(1)
+
+Eλ+ 3 ω
+
+(3)
+
+(3)
+
+Eλ+ 3 ω
+
+3
+
+Eλ ⊕4
+(3)
+
+(3)
+
+(3)
+
+2
+
+Eλ−3ω3
+
+Eλ+3ω2
+
+Eλ+ 3 ρ
+
+Eλ+ 3 ω
+
+3
+
+(1)
+
+(1)
+
+(1)
+
+Eλ+3ω1
+
+(3)
+
+(3)
+
+(3)
+
+Eλ+ 3 ρ
+
+Eλ+ 3 ω
+2
+
+3
+
+Eλ− 3 ρ
+2
+
+(1)
+
+Eλ
+
+λ ∈ Q,
+atypical of degree 2.
+Figure 6: Conjectural Loewy diagrams for the projective covers of the atypical irreducible WA02 (2)-modules
+(4)
+
+(3)
+
+(3)
+
+(1)
+
+Eλ , Eλ , Eλ and Eλ .
+30
+
+with Jordan blocks of rank 1, 2 and 3, respectively.
+
+4.4
+
+Reconstructing L− 3 (sl3 )-modules
+2
+
+Just as WA02 (2)-modules, tensored with Fock modules, may be obtained by restricting L− 23 (sl3 )-modules, so
+too may L− 32 (sl3 )-modules be obtained by inducing WA02 (2)-modules, again after tensoring with appropriate
+Fock modules. For the situation at hand, the setup is as follows:
+• Restriction defines a functor from the category D of weight L− 32 (sl3 )-modules with finite multiplicities and
+real weights to a direct limit completion [CMY20a] of the Deligne product of the category E of WA02 (2)modules and the category F of Fock modules over H.
+• The Fock modules in F will be restricted to having real highest weights so that F is a vertex tensor
+category [CKLR19, Theorem 2.3]. This is the reason for restricting D to have real weights.
+• Conjecture 4.2 assumes that E is also a vertex tensor category.
+• As F is semisimple, the Deligne product of E and F is then a vertex tensor category [CKM19, Theorem 5.5]
+as is its direct limit completion [CMY20a].
+As L− 32 (sl3 ) is a simple current extension in this direct limit completion [CMY20a, AR18], it now follows
+from [CKL20a, CKM17] that D is the category of local modules for L− 32 (sl3 ), viewed as a commutative
+algebra object in the direct limit completion. There is therefore an induction functor that maps any module
+
+V in the completion that centralises the algebra object L− 23 (sl3 ) to an object Ind V in D. Moreover, this
+functor is a vertex tensor functor [CKM17], meaning that it respects the fusion products of the completion
+and D:
+
+
+
+
+b Ind V ′ .
+Ind V ⊠ V ′ ∼
+= Ind V ⊠
+
+(4.23)
+
+(8)
+
+Practically, one starts with a WA02 (2)-module such as Eλ , tensors it with some Fock module Fµ and induces
+to a L− 23 (sl3 )-module by fusing with the decomposition (4.7):
+ M
+ 
+ M  (8)
+(8)
+(8)
+Eλ+ν ⊗ Fµ+ν .
+Ind Eλ ⊗ Fµ =
+Eλ ⊗ Fµ ⊠ Eν(1) ⊗ Fν =
+
+(4.24)
+
+ν∈Q
+
+ν∈Q
+
+The resulting object in the direct limit completion defines a local L− 23 (sl3 )-module if and only if the conformal
+(8)
+
+weights of the summands differ by integers. By (4.9), the conformal weights of Eλ ⊗ Fµ are given (mod1)
+
+by
+
+∆(λ, µ) = 31 kλk2 − 12 − 31 kµk2 = 31 hλ − µ, λ + µi − 12 .
+
+(4.25)
+
+The difference between the conformal weights of summands whose ν-labels differ by β ∈ Q is then
+∆(λ + ν + β, µ + ν + β) − ∆(λ + ν, µ + ν) = 32 hλ − µ, βi.
+
+(4.26)
+
+(8)
+
+This proves that inducing Eλ ⊗ Fµ gives an L− 32 (sl3 )-module if and only if λ − µ ∈ 32 P . In this case, (4.10)
+identifies the result:
+
+
+2
+(8)
+b [λ] ).
+Ind Eλ ⊗ Fµ ∼
+= σ 3 (λ−µ) (R
+
+(4.27a)
+
+Similarly, the decompositions (4.7), (4.15) and (4.16) (and their spectral flows) lead to the following identi-
+
+31
+
+fications, again assuming that λ − µ ∈ 23 P :
+
+
+2
+
+
+λ ∈ − 23 ω1 + Rα1 + Q,
+σ 3 (λ−µ) (Sb[λ′ ] ),
+
+
+
+2
+(4)
+Ind Eλ ⊗ Fµ ∼
+= σ 3 (λ−µ) w2 (Sb[w2 (λ′ )] ),
+λ ∈ − 23 ω1 + Rα3 + Q,
+
+
+
+2
+1
+σ 3 (λ−µ) w w (Sb
+1 2 [w2 w1 (λ′ )] ), λ ∈ − 2 ρ + Rα2 + Q,
+
+(4.27b)
+
+(here, λ′ ∈ λ + Q is chosen so that λ′ ∈ − 23 ω1 + Rα1 , − 23 ω1 + Rα3 and − 32 ω3 + Rα2 , respectively)
+
+2
+(3)
+Ind Eλ ⊗ Fµ ∼
+= σ 3 (λ−µ) (Lb− 21 ρ ),
+
+2
+(3)
+Ind Eλ ⊗ Fµ ∼
+= σ 3 (λ−µ) c(Lb− 21 ρ ),
+
+2
+(1)
+Ind Eλ ⊗ Fµ ∼
+= σ 3 (λ−µ) (Lb0 ),
+
+λ ∈ − 21 ρ + Q,
+λ ∈ Q.
+
+(4.27c)
+(4.27d)
+
+With the inductions (4.27) identified, it is now straightforward to predict Loewy diagrams for the projective
+b [λ] are already projective and
+covers of the irreducible L− 3 (sl3 )-modules: the irreducible relaxed modules R
+2
+
+Loewy diagrams for the remaining projective covers are obtained by tensoring each composition factor in
+Figure 6 by Fµ and inducing. The results are pictured in Figure 7.
+
+b[λ] of Sb[λ] , [λ] ∈ (− 3 ω1 + Rα1 )/Zα1 , start with the
+To verify the (predicted) diagram of the projective cover Q
+2
+(16)
+
+(4)
+
+(predicted) diagram in Figure 6 for the projective cover Qλ of the irreducible WA02 (2)-module Eλ . The
+(16)
+composition factors of Qλ induce, after tensoring with Fλ , to give
+Sb[λ′ ] ,
+
+σ ω2 (Sb[(λ+ 23 ω2 )′ ] )
+
+and σ −ω2 (Sb[(λ− 32 ω2 )′ ] )
+
+(4.28)
+
+(the first with multiplicity 2), by (4.27b). Here, λ′ may be taken to be λ because the latter already belongs
+to − 23 ω1 + Rα1 by assumption. However, λ ± 32 ω2 does not. To determine the corresponding primed weight,
+note that 23 ω2 = 21 α1 + α2 so we may take
+
+(λ ± 32 ω2 )′ = λ ± ( 32 ω2 − α2 ) = λ ± 12 α1 ∈ λ ± 23 ω2 + Q,
+
+(4.29)
+
+which does lie in − 23 ω1 + Rα1 . The Loewy diagram in Figure 7 now follows.
+Note again that the multiplicity with which the head of each projective appears suggests that the Virasoro
+b[λ] and with rank-3 Jordan blocks on P
+b0 and P
+b 1 (and
+zero-mode acts with rank-2 Jordan blocks on the Q
+−2ρ
+
+their spectral flows). This is consistent with the recent work [ACG21] who have constructed indecomposable
+L− 23 (sl3 )-modules with rank-2 and 3 blocks using inverse quantum hamiltonian reduction [Ad19, AKR21].
+It will be interesting to try to identify their constructions in the setting presented here.
+
+4.5
+
+Fusion rules
+
+Another important check of this Kazhdan–Lusztig correspondence is that it is indeed a tensor equivalence:
+it maps tensor products in CR to fusion rules in E . As the latter are not known, the former will be used to
+deduce fusion rules in D (again using [CKM17]). These in turn will be compared with the Grothendieck fusion
+rules (4.6) computed for D in [KRW21]. Note that a given Grothendieck fusion rule completely characterises
+the corresponding fusion rule if the fusion product in question happens to be completely reducible.
+
+32
+
+b[λ]
+Q
+
+Sb[λ]
+σ −ω2 (Sb[λ− 12 α1 ] )
+
+σ ω2 (Sb[λ+ 21 α1 ] )
+Sb[λ]
+
+[λ] ∈ (− 23 ω1 + Rα1 )/Zα1 ,
+atypical of degree 1.
+Lb− 12 ρ
+
+Pb− 21 ρ
+σ ρ (Lb0 )
+σ 2ω1 c(Lb− 21 ρ )
+
+σ −ω3 (Lb0 )
+Lb− 12 ρ
+
+σ 2ω2 c(Lb− 12 ρ )
+
+σ ρ (Lb0 )
+
+σ ω3 (Lb0 )
+
+σ −ω3 (Lb0 )
+
+c(Lb− 12 ρ )
+σ ω3 (Lb0 )
+
+Lb− 21 ρ
+
+atypical of degree 2.
+Lb0
+
+b0
+P
+σ ρ c(Lb− 21 ρ )
+σ 2ω1 (Lb0 )
+
+σ −ω3 (Lb− 12 ρ )
+
+σ 2ω2 (Lb0 )
+
+σ ρ c(Lb− 21 ρ )
+
+σ ω3 (Lb− 21 ρ )
+
+σ −2ω3 (Lb0 )
+
+σ −ω3 (Lb− 12 ρ )
+
+σ −ω3 c(Lb− 12 ρ )
+
+Lb0 ⊕4
+
+σ ω3 (Lb− 21 ρ )
+
+σ ω3 c(Lb− 21 ρ )
+
+σ 2ω3 (Lb0 )
+
+σ −ω3 c(Lb− 12 ρ )
+
+σ −ρ (Lb− 12 ρ )
+
+σ −2ω2 (Lb0 )
+
+σ ω3 c(Lb− 21 ρ )
+
+σ −2ω1 (Lb0 )
+
+σ −ρ (Lb− 12 ρ )
+
+Lb0
+
+atypical of degree 2.
+Figure 7: Conjectural Loewy diagrams for the projective covers of the atypical irreducible L− 23 (sl3 )-modules
+Sb[λ] , Lb− 21 ρ and Lb0 . Projective covers for their D6 and spectral flow twists are obtained by applying the twist
+to each automorphism.
+33
+
+The first case to analyse is the generic fusion product of two relaxed L− 23 (sl3 )-modules (in which the result is
+(8)
+
+completely reducible). In the decomposition (4.8), the WA02 (2)-modules are the irreducible Eλ . Their fusion
+product is computed using Conjecture 4.3 and Proposition 3.10 as follows:
+(8)
+
+3
+M
+
+(8)
+
+(8)
+
+Eλ ⊠ Eµ(8) ←→ Lϕ(λ)+ρ ⊗ Lϕ(µ)+ρ ∼
+=
+
+(8)
+
+Lϕ(λ+µ)+2ρ−αi −αj =
+
+3
+M
+
+(8)
+
+Lϕ(λ+µ+ϕ−1 (α3 −αi −αj ))+ρ
+
+i,j=1
+
+i,j=1
+
+3 
+
+M
+(8)
+(8)
+(8)
+←→ 2 Eλ+µ ⊕
+Eλ+µ+ 3 ωi ⊕ Eλ+µ− 3 ωi .
+2
+
+(4.30)
+
+2
+
+i=1
+
+Tensoring with Fλ ⊠ Fµ ∼
+= Fλ+µ and inducing now gives
+
+
+
+(8)
+(8)
+b [λ] ⊠
+b [µ] ∼
+b Ind Eµ(8) ⊗ Fµ ∼
+bR
+R
+= Ind (Eλ ⊠ Eµ(8) ) ⊗ Fλ+µ
+= Ind Eλ ⊗ Fλ ⊠
+
+3 
+ M
+
+
+(8)
+(8)
+(8)
+∼
+Ind Eλ+µ+ 3 ω ⊗ Fλ+µ ⊕ Ind Eλ+µ− 3 ω ⊗ Fλ+µ
+= 2 Ind Eλ+µ ⊗ Fλ+µ ⊕
+i
+i
+2
+
+i=1
+
+∼
+b [λ+µ] ⊕
+= 2R
+
+2
+
+3 
+
+M
+−ωi b
+b
+3
+3
+σ ωi (R
+(
+R
+)
+⊕
+σ
+)
+[λ+µ+ 2 ωi ]
+[λ+µ− 2 ωi ] ,
+
+(4.31)
+
+i=1
+
+courtesy of (4.23) and (4.27a). This correctly reproduces the generic fusion rule given in (4.6i).
+Similar calculations recover the other generic fusion rules in (4.6) and thereby provide strong evidence for
+the proposed Kazhdan–Lusztig correspondence (Conjecture 4.3). Here, the generic fusion rule involving Sb[λ]
+and w1 w2 (Sb[w w (µ)] ), where λ ∈ − 3 ω1 + Rα1 and µ ∈ − 1 ρ + Rα2 , is computed to illustrate the different
+2
+
+2
+
+1
+
+2
+
+formulae in (4.18).
+
+(4)
+
+(4)
+
+First, note that Eλ ⊠ Eµ corresponds to
+(4)
+
+(4)
+
+(8)
+
+(8)
+
+Lϕ(λ)+ρ ⊗ Lϕ(µ) ∼
+= Lϕ(λ+µ)+ρ ⊕ Lϕ(λ+µ)+ρ−α1 ,
+
+by Proposition 3.11, because ϕ(λ) + ρ 2 , ϕ(µ)3 ∈ 2Z + 1. The conjectural fusion rule in E is thus
+(4)
+
+(8)
+
+(8)
+
+Eλ ⊠ Eµ(4) ∼
+= Eλ+µ ⊕ Eλ+µ+ 3 ω ,
+2
+
+3
+
+(4.32)
+
+(4.33)
+
+by (4.22). Inducing then yields the generic fusion rule
+b [λ+µ+ 3 ω ] )
+b w1 w2 (Sb[w w (µ)] ) ∼
+b [λ+µ] ⊕ σ ω3 (R
+Sb[λ] ⊠
+=R
+2 1
+2 3
+
+(4.34)
+
+in D, which is equivalent to (4.6g).
+
+More interesting are the non-generic fusion rules that result in reducible but indecomposable direct summands.
+The structures of these indecomposables are not visible in the Grothendieck fusion rules of (4.6), but they
+can now be predicted from the Loewy diagrams of the indecomposable projectives of D depicted in Figure 7.
+As an example, consider the tensor product rule
+(3)
+
+(24)
+
+∼
+Lλ ⊗ L(8)
+µ = Pλ+µ−α3
+
+(4.35)
+
+from Proposition 3.7, which holds if λi , λ3 ∈ 2Z + 1 and µ1 , µ2 , µ3 ∈ 2Z. Take i = 2, so that these conditions
+34
+
+are equivalent to λ ∈ ω1 + 2P and µ ∈ ρ + 2P . As λ + µ − α3 ∈ ω1 + 2P , the correspondence (4.18) converts
+this tensor product rule into the fusion rule
+(3)
+(8)
+(24)
+Eλ′ ⊠ Eµ′ ∼
+= Qλ′ +µ′ ,
+
+(4.36)
+
+where λ′ = ϕ−1 (λ − ρ) ∈ − 12 ρ + Q and µ′ = ϕ−1 (µ − ρ) ∈ Q. Tensoring with Fλ′ +µ′ and inducing now
+predicts the following fusion rule of L− 23 (sl3 )-modules:
+b− 1 ρ .
+bR
+b [0] ∼
+Lb− 21 ρ ⊠
+=P
+2
+
+(4.37)
+
+One can use (4.4b) to check that the composition factors of this fusion product match those given in the
+corresponding Grothendieck fusion rule (4.6d).
+As a second example, suppose that one wished to identify the fusion product of the irreducible L− 23 (sl3 )b [λ] and its conjugate c(R
+b [λ] ) ∼
+b [−λ] . This can be computed from the W 0 (2)-module fusion
+module R
+= R
+A2
+(8)
+
+(8)
+
+product Eλ ⊠ E−λ which corresponds, under the Kazhdan–Lusztig correspondence (4.18) to the U H
+i (sl3 )
+(8)
+(8)
+′
+′
+′
+′
+tensor product Lλ′ ⊗ Lµ′ , where λ = ϕ(λ) + ρ and µ = −ϕ(λ) + ρ. It is easy to verify that λi + µi ∈ 2Z,
+
+for i = 1, 2, 3, hence that the required tensor product rule is
+
+(48)
+
+(8)
+
+(8)
+
+Lϕ(λ)+ρ ⊗ L−ϕ(λ)+ρ ∼
+= 2L(8)
+ρ ⊕ P0
+
+,
+
+(4.38)
+
+by Proposition 3.10. Using the correspondence once again, specifically (4.19), the WA02 (2) fusion product is
+(8)
+
+(8)
+
+(8)
+
+(48)
+
+Eλ ⊠ E−λ ∼
+= 2E0 ⊕ Q0
+
+.
+
+(4.39)
+
+Tensoring with Fock spaces and inducing then gives the desired fusion rule for L− 23 (sl3 ):
+b [λ] ⊠
+b [λ] ) ∼
+b [0] ⊕ Pb0 .
+b c(R
+R
+= 2R
+
+(4.40)
+
+Many other affine fusion rules follow similarly from the tensor product computations of Section 3.3.
+
+4.6
+
+An octuplet algebra
+
+In [Se14, Se13], Semikhatov introduced and studied sl3 analogues of the well known triplet algebras WA1 (p)
+of Kausch [Ka91] (which correspond to sl2 ). As these analogues are generated by 8 W3 primary fields, rather
+than 3 Virasoro ones, he dubbed these the octuplet algebras. The first nontrivial octuplet algebra WA2 (2)
+has central charge c = −10 and turns out to be a simple current extension of WA02 (2), just as WA1 (p) is a
+simple current extension of WA01 (p).
+(1)
+
+Each of the Eλ , λ ∈ Q, is a simple current, by (4.7). The conformal weight ∆λ of its highest-weight vector
+is given by the difference between the minimal conformal weight of a vector of weight λ in L− 23 (sl3 ) and the
+conformal weight 31 kλk2 of the highest-weight vector of Fλ . Obviously, ∆0 = 0. The next-smallest conformal
+weights occur when λ = ±αi , i = 1, 2, 3, in which case ∆λ = 53 , and when λ = ±3ωi , i = 1, 2, 3, giving
+∆λ = 4. It is this latter set of six simple currents that define WA2 (2):
+WA2 (2) =
+
+M
+
+λ∈3P
+
+35
+
+(1)
+
+Eλ .
+
+(4.41)
+
+WA02 (2)-mod.
+(1)
+Eλ
+
+(3)
+
+Eλ
+
+(3)
+
+Eλ
+
+(8)
+
+Eλ
+
+WA2 (2)-mod.
+
+top-space dim.
+
+sl3 -weights
+
+conf. weight
+
+O[0]
+
+(1)
+
+1
+
+0
+
+0
+
+(1)
+O[ρ]
+(1)
+O[−ρ]
+(3)
+O[− 1 ρ]
+2
+(3)
+O[ 1 ρ]
+2
+(3)
+O[ 3 ρ]
+2
+(3)
+O[− 1 ρ]
+2
+(3)
+O[ 1 ρ]
+2
+(3)
+O[ 3 ρ]
+2
+(8)
+O[0]
+(8)
+O[ρ]
+(8)
+O[−ρ]
+
+3
+
+ρ, ρ − 3ω1 , ρ − 3ω2
+
+5
+3
+
+3
+
+−ρ, −ρ + 3ω1 , −ρ + 3ω2
+
+5
+3
+
+1
+
+− 12 ρ
+
+− 31
+
+3
+
+1
+1
+1
+2 ρ, 2 ρ − 3ω1 , 2 ρ − 3ω2
+
+2
+3
+
+3
+
+− 32 ρ, − 32 ρ + 3ω1 , − 32 ρ + 3ω2
+
+1
+
+3
+
+− 12 ρ,
+
+− 31
+
+− 12 ρ + 3ω1 ,
+
+− 12 ρ + 3ω2
+
+1
+
+1
+2ρ
+
+2
+3
+
+3
+
+3
+3
+3
+2 ρ, 2 ρ − 3ω1 , 2 ρ − 3ω2
+
+1
+
+1
+
+0
+
+− 21
+
+3
+
+ρ, ρ − 3ω1 , ρ − 3ω2
+
+3
+
+−ρ, −ρ + 3ω1 , −ρ + 3ω2
+
+1
+6
+
+1
+6
+
+Table 1: The dimensions, sl3 -weights and conformal weights of the top spaces of the (untwisted) irreducible
+(d)
+WA2 (2)-modules O[λ] , where [λ] ∈ Q/3P .
+The remaining two octuplet fields have weight 0. Their existence is easily checked by using the decomposition
+(4.7) to compute the character
+(1)
+
+ch[E0 ] = q 5/12 1 + q 2 + 2q 3 + 5q 4 + · · ·
+
+
+
+(4.42)
+
+and noting that the W3 -symmetry can only account for 3 of the 5 fields of conformal weight 4.
+It is now straightforward to induce an irreducible WA02 (2)-module to obtain a (possibly twisted) irreducible
+
+(1)
+(1)
+(1)
+(1)
+WA2 (2)-module. As Q/3P = [0], [ρ], [−ρ] , the Eλ yield three induced modules O[0] , O[ρ] and O[−ρ] ,
+respectively, by fusing with WA2 (2). The first is the vacuum module of WA2 (2) and the others are order-3
+simple currents, by (4.23).
+To determine if an irreducible induced module is untwisted, it suffices to check if the conformal weights of
+the component WA02 (2)-modules differ by integers. This will be the case if and only if the corresponding Fock
+space conformal weights do. Since
+2
+2
+1
+1
+3 kλ ± 3ωi k − 3 kλk = 2 ± h2λ, ωi i,
+(d)
+
+i = 1, 2, 3,
+
+(4.43)
+(1)
+
+(1)
+
+Eλ induces to an untwisted irreducible WA2 (2)-module if and only if λ ∈ 12 Q. In particular, O[0] , O[α3 ] and
+(1)
+
+O[−α3 ] are untwisted WA2 (2)-modules.
+
+Similar analyses result in further untwisted irreducible WA2 (2)-modules. Their top-space dimensions, sl3 (8)
+weights and conformal weights are summarised in Table 1. Note that the Eλ with λ ∈ 12 Q are reducible
+(4)
+
+unless λ ∈ Q. Similarly, the Eλ with λ ∈ 21 Q are always reducible. The number of irreducibles is finite in
+accord with the expectation that the octuplet algebra WA2 (2) is C2 -cofinite.
+
+36
+
+Predictions for the fusion rules of these irreducible WA2 (2)-modules now follow by applying (4.23) to the
+conjectural fusion rules of the irreducible WA02 (2)-modules, themselves deduced from the tensor product
+(1)
+
+computations of Section 3.3 and the Kazhdan–Lusztig correspondence of Conjecture 4.3. Of course, O[0] is
+(1)
+
+the vacuum module and O[±ρ] is easily seen to be an order-3 simple current:
+(1)
+(1)
+(1) e
+O[∓ρ] ∼
+O[±ρ] ⊠
+= O[0] .
+
+(1)
+(1)
+(1) e
+O[±ρ] ∼
+O[±ρ] ⊠
+= O[∓ρ] ,
+
+(4.44)
+
+(1)
+
+The orbits of the irreducible WA2 (2)-modules under fusion with O[ρ] are as follows:
+(1)
+
+(1)
+
+(1)
+
+(1)
+
+(3)
+
+(3)
+
+(3)
+
+(3)
+
+2
+
+2
+
+2
+
+2
+
+O[0] → O[ρ] → O[−ρ] → O[0] ,
+
+O[− 1 ρ] → O[ 1 ρ] → O[ 3 ρ] → O[− 1 ρ] ,
+
+O[0] → O[ρ] → O[−ρ] → O[0] ,
+
+(3)
+(3)
+(3)
+(3)
+O[− 1 ρ] → O[ 1 ρ] → O[ 3 ρ] → O[− 1 ρ] .
+2
+2
+2
+2
+
+(8)
+
+(8)
+
+(8)
+
+(1)
+
+(4.45)
+
+As fusion is associative, the remaining irreducible fusion rules are determined by the six involving the orbit
+(3)
+(8)
+(3)
+representatives O[ 3 ρ] , O[ 3 ρ] and O[0] . These rules are
+2
+
+2
+
+(3)
+
+(3)
+
+(9)
+
+(3)
+
+(3)
+
+(9)
+
+(3)
+
+(3)
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+(3)
+
+(8)
+
+(3)
+
+(8)
+
+(1)
+
+(8)
+
+eO3 ∼
+eO3 ∼
+eO3 ∼
+O[ 3 ρ] ⊠
+, O[ 3 ρ] ⊠
+N
+N , O[ 3 ρ] ⊠
+O[0] ⊕ O[0] ,
+[ ρ] = [ 3 ρ]
+[ ρ] = [ 3 ρ]
+[ ρ] =
+(24)
+
+eO ∼
+O[ 3 ρ] ⊠
+[0] = P[ 3 ρ] ,
+2
+
+(24)
+
+(24)
+
+2
+
+2
+
+2
+
+(24)
+
+eO ∼
+O[ 3 ρ] ⊠
+[0] = P[ 3 ρ] ,
+2
+
+2
+
+(48)
+
+(8)
+
+(8)
+
+(8)
+
+eO ∼
+O[0] ⊠
+[0] = 2O[0] ⊕ P[0] .
+
+(48)
+
+(3)
+
+(3)
+
+2
+
+2
+
+(4.46)
+
+(1)
+
+Here, P[ 3 ρ] , P[ 3 ρ] and P[0] are the (conjectural) projective covers of O[ 3 ρ] , O[ 3 ρ] and O[0] , respectively, while
+(9)
+
+(9)
+
+(3)
+
+(3)
+
+2
+
+2
+
+2
+
+2
+
+N[ 3 ρ] and N[ 3 ρ] are quotients of O[ 3 ρ] and O[ 3 ρ] , respectively.
+(9)
+
+(24)
+
+(48)
+
+(24)
+
+(9)
+
+Loewy diagrams for N[ 3 ρ] , P[ 3 ρ] and P[0] are pictured in Figure 8. Those of N[ 3 ρ] and P[ 3 ρ] are obtained from
+2
+2
+2
+2
+their unbarred cousins by exchanging 3 with 3 everywhere. Those of the projective covers of the remaining
+(1)
+
+irreducibles are then obtained by fusing each composition factor with whichever of the simple currents O[ρ]
+(1)
+
+(8)
+
+(8)
+
+(8)
+
+or O[−ρ] is appropriate. Finally, the irreducibles O[0] , O[ρ] and O[−ρ] are their own projective covers. The
+(24)
+
+(48)
+
+Virasoro zero-mode is expected to act with Jordan blocks of rank 3 on P[ 3 ρ] and P[0] .
+2
+
+References
+[ACG21]
+
+c3 . arXiv:2110.15203 [math.RT].
+D. Adamović, T. Creutzig, and N. Genra. Relaxed and logarithmic modules of sl
+
+[ACGY21] D. Adamović, T. Creutzig, N. Genra, and J. Yang. The vertex algebras R(p) and V (p) . Comm. Math. Phys.,
+383:1207–1241, 2021. arXiv:2001.08048 [math.RT].
+[ACK]
+
+T. Arakawa, T. Creutzig, and K. Kawasetsu. in preparation.
+
+[ACKR20] J. Auger, T. Creutzig, S. Kanade, and M. Rupert. Braided tensor categories related to Bp vertex algebras. Comm.
+Math. Phys., 378:219–260, 2020. arXiv:1906.07212 [math.QA].
+[ACR18]
+
+J. Auger, T. Creutzig, and D. Ridout. Modularity of logarithmic parafermion vertex algebras. Lett. Math. Phys.,
+108:2543–2587, 2018. arXiv:1704.05168 [math.QA].
+
+[Ad05]
+
+D. Adamović. A construction of admissible A1 -modules of level − 34 . J. Pure Appl. Algebra, 196:119–134, 2005.
+arXiv:math.QA/0401023.
+
+[Ad16]
+
+D. Adamović. A realization of certain modules for the N = 4 superconformal algebra and the affine Lie algebra
+(1)
+A2 . Transform. Groups, 21:299–327, 2016. arXiv:1407.1527 [math.QA].
+
+[Ad19]
+
+[ and osp(1,
+\2).
+D. Adamović. Realizations of simple affine vertex algebras and their modules: the cases sl(2)
+Comm. Math. Phys., 366:1025–1067, 2019. arXiv:1711.11342 [math.QA].
+
+(1)
+
+37
+
+(9)
+
+N[ 3 ρ]
+2
+
+(3)
+
+O[ 3 ρ]
+2
+
+(1)
+
+(1)
+
+(1)
+
+O[0]
+
+O[0]
+
+O[0]
+
+(3)
+
+O[ 3 ρ]
+2
+
+(24)
+
+P[ 3 ρ]
+2
+
+(3)
+
+O[ 3 ρ]
+2
+
+(3)
+
+2
+
+(1)
+
+(1)
+
+(1)
+
+O[ 3 ρ]
+
+2
+
+2
+
+O[0]
+
+O[0]
+
+O[0]
+
+(3)
+
+O[ 3 ρ]
+
+O[ 3 ρ]
+
+2
+
+O[0]
+
+O[0]
+
+(3)
+
+(3)
+
+O[ 3 ρ]
+
+(1)
+
+(1)
+
+(1)
+
+O[0]
+
+(3)
+
+O[ 3 ρ]
+2
+
+(48)
+
+P[0]
+
+(1)
+
+O[0]
+
+2
+
+(3)
+
+O[ 3 ρ]
+2
+
+(3)
+
+O[ 3 ρ]
+2
+
+(3)
+
+O[ 3 ρ]
+
+2
+
+2
+
+(1)
+
+(1)
+
+O[0]
+
+O[0]
+
+O[0]
+
+(3)
+
+O[ 3 ρ]
+
+2
+
+2
+
+(1)
+
+(1)
+
+O[ 3 ρ]
+
+O[ 3 ρ]
+
+2
+
+O[0] ⊕4
+
+O[0]
+
+O[0]
+
+(3)
+
+(3)
+
+O[ 3 ρ]
+
+2
+
+(1)
+
+(1)
+
+(1)
+
+(3)
+
+O[ 3 ρ]
+
+O[ 3 ρ]
+
+2
+
+O[0]
+
+(3)
+
+(3)
+
+(3)
+
+O[ 3 ρ]
+
+(3)
+
+(3)
+
+O[ 3 ρ]
+
+O[ 3 ρ]
+
+2
+
+2
+
+(1)
+
+O[0]
+
+(9)
+
+(24)
+
+2
+
+2
+
+(48)
+
+Figure 8: Conjectural Loewy diagrams for the WA2 (2)-modules N[ 3 ρ] , P[ 3 ρ] and P[0] .
+
+38
+
+[AFR17]
+
+T. Arakawa, V. Futorny, and L. Ramirez. Weight representations of admissible affine vertex algebras. Comm.
+Math. Phys., 353:1151–1178, 2017. arXiv:1605.07580 [math.RT].
+
+[AKR21]
+
+D. Adamović, K. Kawasetsu, and D. Ridout. A realisation of the Bershadsky–Polyakov algebras and their relaxed
+modules. Lett. Math. Phys., 111:38, 2021. arXiv:2007.00396 [math.QA].
+
+[AM07]
+
+D. Adamović and A. Milas. Logarithmic intertwining operators and W (2, 2p − 1)-algebras. J. Math. Phys.,
+48:073503, 2007. arXiv:math.QA/0702081.
+
+[AM08]
+
+D. Adamović and A. Milas. On the triplet vertex algebra W (p). Adv. Math., 217:2664–2699, 2008.
+arXiv:0707.1857 [math.QA].
+
+[AM09]
+
+D. Adamović and A. Milas. Lattice construction of logarithmic modules for certain vertex algebras. Selecta Math.
+New Ser., 15:535–561, 2009. arXiv:0902.3417 [math.QA].
+
+[AM95]
+
+D. Adamović and A. Milas. Vertex operator algebras associated to modular invariant representations of A1 .
+Math. Res. Lett., 2:563–575, 1995. arXiv:q-alg/9509025.
+
+[AMW20]
+
+D. Adamović, A. Milas, and Q. Wang. On parafermion vertex algebras of sl(2)−3/2 and sl(3)−3/2 .
+arXiv:2005.02631 [math.QA].
+
+[AP19]
+
+D. Adamović and V. Pedić. On fusion rules and intertwining operators for the Weyl vertex algebra. J. Math.
+Phys., 60:081701, 2019. arXiv:1903.10248 [math.QA].
+
+[Ar16]
+
+T. Arakawa. Rationality of admissible affine vertex algebras in the category O. Duke Math. J., 165:67–93, 2016.
+arXiv:1207.4857 [math.QA].
+
+[AR18]
+
+J. Auger and M. Rupert. On infinite order simple current extensions of vertex operator algebras. In Vertex
+algebras and geometry, volume 711 of Contemporary Mathematics, pages 143–168. American Mathematical
+Society, Providence, 2018. arXiv:1711.05343 [math.CT].
+
+[AW20]
+
+R. Allen and S. Wood. Bosonic ghostbusting — the bosonic ghost vertex algebra admits a logarithmic module
+category with rigid fusion. arXiv:2001.05986 [math.QA].
+
+[BR18]
+
+C. Beem and L. Rastelli. Vertex operator algebras, Higgs branches and modular differential equations. J. High
+Energy Phys., 1808:114, 2018. arXiv:1707.07679 [hep-th].
+
+[BT17]
+
+M. Buican and T. Nishinaka. On irregular singularity wave functions and superconformal indices. J. High Energy
+Phys., 2017:066, 2017. arXiv:1705.07173 [hep-th].
+
+(1)
+
+[CDGG]
+
+T. Creutzig, T. Dimofte, N. Garner, and N. Geer. A QFT for non-semisimple TQFT. arXiv:2112.01559 [hep-th].
+
+[CG17]
+
+T. Creutzig and T. Gannon. Logarithmic conformal field theory, log-modular tensor categories and modular
+forms. J. Phys., A50:404004, 2017. arXiv:1605.04630 [math.QA].
+
+[CGL]
+
+T. Creutzig, N. Genra, and A. Linshaw. in preparation.
+
+[CGP14]
+
+F. Costantino, N. Geer, and B. Patureau-Mirand. Quantum invariants of 3-manifolds via link surgery
+presentations and non-semisimple categories. J. Topol., 7:1005–1053, 2014. arXiv:1202.3553 [math.GT].
+
+[CGP15]
+
+F. Costantino, N. Geer, and B. Patureau-Mirand. Some remarks on the unrolled quantum group of sl(2). J. Pure
+Appl. Algebra, 219:3238–3262, 2015. arXiv:1406.0410 [math.QA].
+
+[CGR20]
+
+T. Creutzig, A. Gainutdinov, and I. Runkel. A quasi-Hopf algebra for the triplet vertex operator algebra. Comm.
+Contemp. Math., 22:1950024, 2020. arXiv:1712.07260 [math.QA].
+
+[CHY18]
+
+T. Creutzig, Y.-Z. Huang, and J. Yang. Braided tensor categories of admissible modules for affine Lie algebras.
+Comm. Math. Phys., 362:827–854, 2018. arXiv:1709.01865 [math.QA].
+
+[CKL20a]
+
+T. Creutzig, S. Kanade, and A. Linshaw. Simple current extensions beyond semi-simplicity. Comm. Contemp.
+Math., 22:1950001, 2020. arXiv:1511.08754 [math.QA].
+
+[CKL22]
+
+T. Creutzig, V. Kovalchuk, and A. Linshaw. Generalized parafermions of orthogonal type. J. Algebra,
+593:178–192, 2022. arXiv:2010.02303 [math.QA].
+
+[CKLR18]
+
+T. Creutzig, S. Kanade, T. Liu, and D. Ridout. Cosets, characters and fusion for admissible-level osp(1|2) minimal
+models. Nucl. Phys., B938:22–55, 2018. arXiv:1806.09146 [hep-th].
+
+[CKLR19]
+
+T. Creutzig, S. Kanade, A. Linshaw, and D. Ridout. Schur–Weyl duality for Heisenberg cosets. Transform.
+Groups, 24:301–354, 2019. arXiv:1611.00305 [math.QA].
+
+39
+
+[CKM17]
+
+T. Creutzig, S. Kanade, and R. McRae. Tensor categories for vertex operator superalgebra extensions.
+arXiv:1705.05017 [math.QA].
+
+[CKM19]
+
+T. Creutzig, S. Kanade, and R. McRae. Glueing vertex algebras. arXiv:1906.00119 [math.QA].
+
+[CKMY]
+
+T. Creutzig, S. Kanade, R. McRae, and J. Yang. in progress.
+
+[CLR21]
+
+T. Creutzig, S. Lentner, and M. Rupert. Characterizing braided tensor categories associated to logarithmic vertex
+operator algebras. arXiv:2104.13262 [math.QA].
+
+[CM14]
+
+T. Creutzig and A. Milas. False theta functions and the Verlinde formula. Adv. Math., 262:520–545, 2014.
+arXiv:1309.6037 [math.QA].
+
+[CM17]
+
+T. Creutzig and A. Milas. Higher rank partial and false theta functions and representation theory. Adv. Math.,
+314:203–227, 2017. arXiv:1607.08563 [math.QA].
+
+[CMR18]
+
+T. Creutzig, A. Milas, and M. Rupert. Logarithmic link invariants of U q (sl2 ) and asymptotic dimensions of
+singlet vertex algebras. J. Pure Appl. Algebra, 222:3224–3247, 2018. arXiv:1605.05634 [math.QA].
+
+H
+
+[CMY20a] T. Creutzig, R. McRae, and J. Yang. Direct limit completions of vertex tensor categories. arXiv:2006.09711
+[math.QA].
+[CMY20b] T. Creutzig, R. McRae, and J. Yang. On ribbon categories for singlet vertex algebras. Comm. Math. Phys.,
+387:865–925, 2021. arXiv:2007.12735 [math.QA].
+[CR12]
+
+T. Creutzig and D. Ridout. Modular data and Verlinde formulae for fractional level WZW models I. Nucl. Phys.,
+B865:83–114, 2012. arXiv:1205.6513 [hep-th].
+
+[CR13a]
+
+T. Creutzig and D. Ridout. Logarithmic conformal field theory: beyond an introduction. J. Phys., A46:494006,
+2013. arXiv:1303.0847 [hep-th].
+
+[CR13b]
+
+T. Creutzig and D. Ridout. Modular data and Verlinde formulae for fractional level WZW models II. Nucl. Phys.,
+B875:423–458, 2013. arXiv:1306.4388 [hep-th].
+
+[Cr17]
+
+T. Creutzig. W-algebras for Argyres–Douglas theories. Eur. J. Math., 3, 2017. arXiv:1701.05926 [hep-th].
+
+[Cr18]
+
+T. Creutzig. Logarithmic W-algebras and Argyres–Douglas theories at higher rank. J. High Energy Phys.,
+2018:188, 2018. arXiv:1809.01725 [hep-th].
+
+[Cr19]
+
+T. Creutzig. Fusion categories for affine vertex algebras at admissible levels. Selecta Math. New Ser., 25:27, 2019.
+arXiv:1807.00415 [math.QA].
+
+[CR20]
+
+T. Creutzig and M. Rupert. Uprolling unrolled quantum groups. arXiv:2005.12445 [math.RT].
+
+[CRW14]
+
+T. Creutzig, D. Ridout, and S. Wood. Coset constructions of logarithmic (1, p)-models. Lett. Math. Phys.,
+104:553–583, 2014. arXiv:1305.2665 [math.QA].
+
+[FGST06a] B. Feigin, A. Gainutdinov, A. Semikhatov, and I. Tipunin. Modular group representations and fusion in
+logarithmic conformal field theories and in the quantum group center. Comm. Math. Phys., 265:47–93, 2006.
+arXiv:hep-th/0504093.
+[FGST06b] B. Feigin, A. Gainutdinov, A. Semikhatov, and I. Tipunin. Kazhdan–Lusztig correspondence for the
+representation category of the triplet W -algebra in logarithmic CFT. Theo. Math. Phys., 148:1210–1235, 2006.
+arXiv:math.QA/0512621.
+[FGST06c] B. Feigin, A. Gainutdinov, A. Semikhatov, and I. Tipunin. Logarithmic extensions of minimal models: Characters
+and modular transformations. Nucl. Phys., B757:303–343, 2006. arXiv:hep-th/0606196.
+[FGST07]
+
+B. Feigin, A. Gainutdinov, A. Semikhatov, and I. Tipunin. Kazhdan–Lusztig-dual quantum group for logarithmic
+extensions of Virasoro minimal models. J. Math. Phys., 48:032303, 2007. arXiv:math.QA/0606506.
+
+[FK21]
+
+V. Futorny and L. Křižka. Positive energy representations of affine vertex algebras. Comm. Math. Phys.,
+383:841–891, 2021. arXiv:2002.05586 [math.RT].
+
+[FKR21]
+
+Z. Fehily, K. Kawasetsu, and D. Ridout. Classifying relaxed highest-weight modules for admissible-level
+Bershadsky–Polakov algebras. Comm. Math. Phys., 385:859–904, 2021. arXiv:2007.03917 [math.RT].
+
+[FMK21]
+
+V. Futorny, O. Morales, and L. Křižka. Admissible representations of simple affine vertex algebras.
+arXiv:2107.11128 [math.RT].
+
+[FMR20]
+
+V. Futorny, O. Morales, and L. Ramirez. Simple modules for affine vertex algebras in the minimal nilpotent orbit.
+arXiv:2002.05568 [math.RT].
+
+40
+
+[FST98]
+
+B. Feigin, A. Semikhatov, and I. Tipunin. Equivalence between chain categories of representations of affine sl(2)
+and N = 2 superconformal algebras. J. Math. Phys., 39:3865–3905, 1998. arXiv:hep-th/9701043.
+
+[FT01]
+
+V. Futorny and A. Tsylke. Classification of irreducible nonzero level modules with finite-dimensional weight spaces
+for affine Lie algebras. J. Algebra, 238:426–441, 2001.
+
+[FT10]
+
+B. Feigin and I. Tipunin. Logarithmic CFTs connected with simple Lie algebras. arXiv:1002.5047 [math.QA].
+
+[Ga01]
+
+M. Gaberdiel. Fusion rules and logarithmic representations of a WZW model at fractional level. Nucl. Phys.,
+B618:407–436, 2001. arXiv:hep-th/0105046.
+
+[GN21]
+
+T. Gannon and C. Negron. Quantum SL(2) and logarithmic vertex operator algebras at (p, 1)-central charge.
+arXiv:2104.12821 [math.QA].
+
+[GP13]
+
+N. Geer and B. Patureau-Mirand. Topological invariants from nonrestricted quantum groups. Algebr. Geom.
+Topol., 13:3305–3363, 2013. arXiv:1009.4120 [math.GT].
+
+[GPV13]
+
+N. Geer, B. Patureau-Mirand, and A. Virelizier. Traces on ideals in pivotal categories. Quantum Topol., 4:91–124,
+2013. arXiv:1103.1660 [math.QA].
+
+[GR17]
+
+A. Gainutdinov and I. Runkel. Symplectic fermions and a quasi-Hopf algebra structure on U i sℓ(2). J. Algebra,
+476:415–458, 2017. arXiv:1503.07695 [math.QA].
+
+[GR19]
+
+A. Gainutdinov and I. Runkel. The non-semisimple Verlinde formula and pseudo-trace functions. J. Pure Appl.
+Algebra, 223:660–690, 2019. arXiv:1605.04448 [math.QA].
+
+[Hu08a]
+
+Y.-Z. Huang. Vertex operator algebras and the Verlinde conjecture. Comm. Contemp. Math., 10:103–154, 2008.
+arXiv:math.QA/0406291.
+
+[Hu08b]
+
+Y.-Z. Huang. Rigidity and modularity of vertex tensor categories. Comm. Contemp. Math., 10:871–911, 2008.
+arXiv:math.QA/0502533.
+
+[Ka91]
+
+H. Kausch. Extended conformal algebras generated by a multiplet of primary fields. Phys. Lett., B259:448–455,
+1991.
+
+[KL93a]
+
+D. Kazhdan and G. Lusztig. Tensor structures arising from affine Lie algebras. I. J. Amer. Math. Soc., 6:905–947,
+1993.
+
+[KL93b]
+
+D. Kazhdan and G. Lusztig. Tensor structures arising from affine Lie algebras. II. J. Amer. Math. Soc.,
+6:949–1011, 1993.
+
+[KL94a]
+
+D. Kazhdan and G. Lusztig. Tensor structures arising from affine Lie algebras. III. J. Amer. Math. Soc.,
+7:335–381, 1994.
+
+[KL94b]
+
+D. Kazhdan and G. Lusztig. Tensor structures arising from affine Lie algebras. IV. J. Amer. Math. Soc.,
+7:383–453, 1994.
+
+[KR19]
+
+K. Kawasetsu and D. Ridout. Relaxed highest-weight modules I: rank 1 cases. Comm. Math. Phys., 368:627–663,
+2019. arXiv:1803.01989 [math.RT].
+
+[KR21]
+
+K. Kawasetsu and D. Ridout. Relaxed highest-weight modules II: classifications for affine vertex algebras. Comm.
+Contemp. Math. (to appear). arXiv:1906.02935 [math.RT].
+
+[KRW21]
+
+K. Kawasetsu, D. Ridout, and S. Wood. An admissible-level sl3 model. arXiv:2107.13204 [math.QA].
+
+[KS11]
+
+H. Kondo and Y. Saito. Indecomposable decomposition of tensor products of modules over the restricted quantum
+universal enveloping algebra associated to sl2 . J. Algebra, 330:103–129, 2011. arXiv:0901.4221 [math.QA].
+
+[KS97]
+
+A. Klimyk and K. Schmüdgen. Quantum groups and their representations. Texts and Monographs in Physics.
+Springer-Verlag, Berlin, 1997.
+
+[KW88]
+
+V. Kac and M. Wakimoto. Modular invariant representations of infinite-dimensional Lie algebras and
+superalgebras. Proc. Nat. Acad. Sci. USA, 85:4956–4960, 1988.
+
+[La83]
+
+P. Landrock. Finite group algebras and their modules, volume 84 of London Mathematical Society Lecture Note
+Series. Cambridge University Press, Cambridge, 1983.
+
+[Ma00]
+
+O. Mathieu. Classification of irreducible weight modules. Ann. Inst. Fourier (Grenoble), 50:537–592, 2000.
+
+[MY20]
+
+R. McRae and J. Yang. Structure of Virasoro tensor categories at central charge 13 − 6p − 6p−1 for integers p > 1.
+arXiv:2011.02170 [math.QA].
+
+41
+
+[NT11]
+
+K. Nagatomo and A. Tsuchiya. The triplet vertex operator algebra W (p) and the restricted quantum group
+πi
+
+U q (sl2 ) at q = e p . Adv. Stud. Pure Math., 61:1–49, 2011. arXiv:0902.4607 [math.QA].
+[Pe08]
+
+O. Perše. Vertex operator algebras associated to certain admissible modules for affine Lie algebras of type A.
+Glas. Mat. Ser. III, 43:41–57, 2008. arXiv:0707.4129 [math.QA].
+
+[Ri10]
+
+b (2)
+D. Ridout. sl
+−1/2 and the triplet model. Nucl. Phys., B835:314–342, 2010. arXiv:1001.3960 [hep-th].
+
+[Ri11]
+
+b (2)-theories with k = − 1 . Nucl. Phys., B848:216–250, 2011.
+D. Ridout. Fusion in fractional level sl
+2
+arXiv:1012.2905 [hep-th].
+
+[RSW18]
+
+c (1|2)-model: modular transformations and the
+D. Ridout, J. Snadden, and S. Wood. An admissible level osp
+Verlinde formula. Lett. Math. Phys., 108:2363–2423, 2018. arXiv:1705.04006 [hep-th].
+
+[Ru19]
+
+M. Rupert. Categories of weight modules for unrolled restricted quantum groups at roots of unity.
+arXiv:1910.05922 [math.RT].
+
+[RW14]
+
+D. Ridout and S. Wood. Modular transformations and Verlinde formulae for logarithmic (p+ , p− )-models. Nucl.
+Phys., B880:175–202, 2014. arXiv:1310.6479 [hep-th].
+
+[RW15]
+
+b (2) models.
+D. Ridout and S. Wood. Relaxed singular vectors, Jack symmetric functions and fractional level sl
+Nucl. Phys., B894:621–664, 2015. arXiv:1501.07318 [hep-th].
+
+[RW15a]
+
+D. Ridout and S. Wood. Bosonic ghosts at c = 2 as a logarithmic CFT. Lett. Math. Phys., 105:279–307, 2015.
+arXiv:1408.4185 [hep-th].
+
+[RW15b]
+
+D. Ridout and S. Wood. The Verlinde formula in logarithmic CFT. J. Phys. Conf. Ser., 597:012065, 2015.
+arXiv:1409.0670 [hep-th].
+
+[Se13]
+
+A. Semikhatov. A note on the logarithmic W3 octuplet algebra and its Nichols algebra. arXiv:1301.2227 [math.QA].
+
+[Se14]
+
+A. Semikhatov. Virasoro central charges for Nichols algebras. In Conformal field theories and tensor categories,
+Math. Lect. Peking Univ., pages 67–92. Springer, Heidelberg, 2014. arXiv:1109.1767 [math.QA].
+
+[Su21]
+
+S. Sugimoto. On the Feigin–Tipunin conjecture. Selecta Math. New Ser., 27:86, 2021. arXiv:2004.05769 [math.RT].
+
+[Su21b]
+
+S. Sugimoto. Simplicity of higher rank triplet W-algebras. arXiv:2105.00638 [math.RT].
+
+[TW15]
+
+A. Tsuchiya and S. Wood. On the extended W -algebra of type sl2 at positive rational level. Int. Math. Res. Not.,
+2015:5357–5435, 2015. arXiv:1302.6435 [hep-th].
+
+[Ve88]
+
+E. Verlinde. Fusion rules and modular transformations in 2D conformal field theory. Nucl. Phys., B300:360–376,
+1988.
+
+42
+
+

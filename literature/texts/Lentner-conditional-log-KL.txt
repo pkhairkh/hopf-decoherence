@@ -1,0 +1,2174 @@
+arXiv:2501.10735v1 [math.QA] 18 Jan 2025
+
+A conditional algebraic proof of the logarithmic
+Kazhdan-Lusztig correspondence
+Simon D. Lentner, University of Hamburg
+Abstract
+The logarithmic Kazhdan-Lusztig correspondence is a conjectural equivalence between braided tensor categories of representations of small quantum groups and representations of certain vertex operator algebras.
+In this article we prove such an equivalence, and more general versions,
+using mainly algebraic arguments that characterize the representation category of the quantum group by quantities that are accessible on the vertex
+algebra side. Our proof is conditional on suitable analytic properties of the
+vertex algebra and its representation category. More precisely, we assume
+that it is a finite braided rigid monoidal category where the FrobeniusPerron dimensions are given by asymptotics of analytic characters.
+
+Contents
+1 Introduction
+1.1 Conventions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.2 Background . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.3 Content of this article . . . . . . . . . . . . . . . . . . . . . . . .
+
+2
+2
+2
+3
+
+2 Categorical preliminaries
+11
+2.1 Braided monoidal categories . . . . . . . . . . . . . . . . . . . . . 11
+2.2 Commutative algebras . . . . . . . . . . . . . . . . . . . . . . . . 12
+2.3 Simple current extensions . . . . . . . . . . . . . . . . . . . . . . 13
+2.4 Central functors and algebras . . . . . . . . . . . . . . . . . . . . 15
+2.5 Frobenius-Perron dimension . . . . . . . . . . . . . . . . . . . . . 16
+3 Relative Drinfeld centers and reconstruction results
+17
+3.1 Relative Drinfeld center . . . . . . . . . . . . . . . . . . . . . . . 17
+3.2 Schauenburg functor . . . . . . . . . . . . . . . . . . . . . . . . . 17
+3.3 Adjoint algebra . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+3.4 Generalized quantum groups . . . . . . . . . . . . . . . . . . . . 18
+4 Reconstructing a categorical Hopf algebra
+20
+4.1 Realizing Hopf algebra . . . . . . . . . . . . . . . . . . . . . . . . 20
+4.2 Splitting subcategory . . . . . . . . . . . . . . . . . . . . . . . . . 20
+4.3 A Hochschild argument and the Nichols algebra of Ext1 . . . . . 21
+1
+
+5 Nichols algebra arguments
+23
+5.1 Nichols algebra . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+5.2 Two notions of connectivity . . . . . . . . . . . . . . . . . . . . . 24
+5.3 Liftings and generation in degree 1 . . . . . . . . . . . . . . . . . 25
+6 Proving Kazhdan-Lusztig using Frobenius-Perron dimension 27
+6.1 Vertex algebra setup . . . . . . . . . . . . . . . . . . . . . . . . . 28
+6.2 Producing elements in Ext1 . . . . . . . . . . . . . . . . . . . . . 28
+6.3 Main proof . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+7 Proving Kazhdan-Lusztig using asymptotics of characters
+32
+7.1 Flag variety and character formula . . . . . . . . . . . . . . . . . 32
+7.2 Main proof . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 35
+8 Counterexamples
+
+1
+
+Introduction
+
+1.1
+
+Conventions
+
+35
+
+We are working over the field of complex numbers C. All our categories are
+C-linear and abelian. We use the term tensor category for finite rigid monoidal
+categories as in [EGNO15]. We distinguish the three types of representations:
+For modules over a commutative algebra A in a braided monoidal category D
+with the tensor product ⊗A we use the notation DA . For modules over a bialgebra B in a braided monoidal category C with the tensor product ⊗ in C we
+use the notation Mod(B)(C). As linear categories, these notations coincide. For
+representations of a vertex operator algebra V we use the notation Rep(V) with
+tensor product ⊠V .
+
+1.2
+
+Background
+
+A vertex operator algebra V is, very roughly speaking, a commutative algebra whose multiplication depends analytically on a complex variable z. It is a
+mathematical axiomatization of the chiral parts of a 2-dimensional conformal
+quantum field theory. Its origin in mathematics is due to its distinguished role
+in the celebrated proof of the moonshine conjecture, a surprising numerical coincidence between coefficients of the modular j-function and the dimensions of
+simple modules of the sporadic monster group. Mathematical textbooks on vertex algebras are [Kac97, FBZ04], a broad introduction to moonshine is [Gan06].
+There is a notion of vertex modules, which features under suitable assumptions a tensor product with a commutativity law, so to a well-behaved vertex
+operator algebra V there is associated a braided tensor category Rep(V), see
+[HL94, HLZ06]. The data visible on the category level still retains some of the
+analytic aspects of the vertex operator algebra, for example, the braiding is related to the multivaluedness of certain analytic functions and the SL2 (Z)-action
+2
+
+on certain Hom-spaces captures the transformation behavior of certain modular
+forms, called q-characters, attached to each vertex module. These are particular
+instances of a topological field theory picture, which becomes more involved in
+the non-semisimple case.
+On the algebra side, a very interesting class of braided tensor categories is
+given by representations of the quantum group Uq (g), which is the universal
+enveloping algebra of a semisimple complex finite-dimensional Lie algebra g,
+deformed by a generic complex parameter q. Its category of representations is a
+semisimple infinite braided tensor category, which is as an abelian category the
+category of representations of g, but the braiding and associator are nontrivial
+expressions involving q. They are related to the monodromy of the KnishnikZomolochikov partial differential equation, which was the original motivation
+for defining quantum groups in [Dri89]. For an introduction to these topics and
+its application to produce topological invariants such as the Jones polynomial,
+the reader is referred to the textbook [Kas98].
+The Kazhdan-Lusztig correspondence [KL93] is an equivalence of braided
+tensor categories of representations of Uq (g) and of a vertex operator algebra
+associated to the affine Lie algebra ĝ at a level κ related to q, at generic values.
+In some sense, this gives a physical context to the observations above.
+If q is specified to an ℓ-th root of unity, then the quantum group Uq (g)
+admits a finite-dimensional quotient uq (g), called small quantum group [Lus89].
+Its category of representations is a nonsemisimple finite braided tensor category,
+related to the representations of g in finite characteristic.
+The logarithmic Kazhdan-Lusztig correspondence [FGST06, FT10, AM14,
+Len21, Sug21, CLR23] gives a conjectural construction of a vertex operator algebra W, whose braided tensor category of representations is equivalent to the
+category of representations of the small quantum group uq (g), or of generalized
+versions thereof. For more details, contributions and known cases, the reader is
+referred e.g. to our recent article [CLR23] and references therein.
+
+1.3
+
+Content of this article
+
+The present article builds on the approach we developed in [CLR23] in order
+to prove the logarithmic Kazhdan-Lusztig correspondence in small cases, such
+as sl2 . The idea is to classify braided tensor categories D that contain a commutative algebra A with a known category of local A-modules, which is the a-priori
+knowledge on the vertex algebra side in our situation. In [CLR23] we had assumed in addition that D is known as abelian category (from earlier by-hand
+computations) and then we reconstructed the braided tensor structure. In the
+present article, we will reconstruct D merely from information on certain Ext1 groups, using a Tannaka-Krein type reconstruction result we recently proved
+for this purpose [ML24] and deep known results about Nichols algebras. These
+Ext1 -groups in turn can be obtained systematically on the vertex algebra side.
+Our main application is the computation of the category of modules of a
+vertex algebra algebra W defined as a kernel of screening operators inside a
+3
+
+lattice vertex algebra VΛ . We prove that the category of representation of a
+certain Nichols algebra of diagonal type, which we have previously shown to be
+the algebra of screening operators [ST12, Len21], is contained in the category of
+twisted V-modules over W. From this it follows from the Schauenburg functor
+in [CLR23] that the category of representations of a generalized small quantum
+group [Hec10,AY15,CLR23] is a subquotient of the category of W-modules. This
+result also contains many interesting cases beyond finite-dimensional semisimple
+Lie algebra and Lie superalgebras, and it generalizes beyond kernels of screenings
+inside lattice vertex algebras.
+If now in addition, for example, the Frobenius-Perron dimensions on both
+sides of the logarithmic Kazhdan-Lusztig correspondence are known to match,
+then we have an equivalence of braided tensor categories. In particular, we
+can prove the logarithmic Kazhdan Lusztig correspondence in all cases related
+to simply-laced Lie algebras [FGST06, FT10, AM14, Len21, Sug21], if we allow
+ourselves to assume the existence of a tensor product and a braiding on the
+(analytic) vertex algebra side in accordance with [HLZ06], that enjoys favorable properties, namely finiteness, rigidity, and the quantum dimensions computed in [BM17] coinciding with categorical dimensions (nondegeneracy follows
+in our proof). Proving these existence results on the vertex algebra side are
+difficult question of a very different nature, with major recent developments in
+[CY21, CJOH+ 21, McR24, CMY21, CMY22, CMY23, NORW24].1 Note that our
+approach also considerably simplifies proofs in existing cases, and could be applied to other cases where the vertex tensor category is already established, see
+the table in [CMSY24].
+We now discuss the content of the article in more detail:
+In Section 2 we recall our main setup from [CLR23]: Let D be a braided
+monoidal category. Assume that A is a commutative algebra in D, then there
+is an associated monoidal category of modules DA and a braided monoidal
+loc
+category of local modules DA
+. There is a tensor functor, given by induction
+A ⊗ (−), and its right adjoint, the lax tensor functor forgetting the A-action.
+D
+
+A⊗(−)
+forgetA
+
+B = DA
+
+loc
+C = DA
+
+From the perspective in this article, D is difficult, unknown and non-semisimple
+and the goal is to reconstructed it from C, which is known and semisimple, and
+1 The experts will agree that rigidity and even more quantum dimensions, which in the
+semisimple case depends on the Verlinde formula, are quite substantial assumptions. For the
+role of rigidity in this article and possible resolutions see Remark 1.5.
+
+4
+
+from additional knowledge about B, in our case the group Ext1 of indecomposable extension in B of simple objects contained in the subcategory C.
+Some particular technical preliminaries we will require are as follows: In Section 2.2 we recall from [EO21, CMSY24, CSZ25] under which circumstances CA
+is rigid if C is. In Section 2.3 we recall for simple current extensions that induction is exact, and that simples and indecomposables extensions of simples are
+preserved in fixpoint free cases. This is used later-on to be flexible in our choice
+of Cartan part. In Section 2.5 we recall from [EGNO15, LW21, SY24] properties
+of the Frobenius-Perron dimension, in particular a formula for CA and bounds
+loc
+for CA
+, even if C has a-priori a degenerate braiding.
+In Section 3 we first review one of our key ideas in [CLR23]: A general braided
+monoidal category D with a commutative algebra A can be reconstructed as a
+loc
+relative Drinfeld center ZC (B) [LW22] of B = DA relative to C = DA
+, using a
+version of a functor introduced by Schauenburg [Sch01].
+The two fundamental example classes we have in mind for such a situaloc
+tion D, DA , DA
+are the following. Proving the logarithmic Kazhdan-Lusztig
+correspondence means to bring these two into match:
+• For a (quasi-)Hopf algebra with R-matrix, the category of representations
+is a braided monoidal category. If uq (g) is the small quantum group associated to a semisimple finite-dimensional complex Lie algebra g and an
+ℓ-th root of unity, then the dual Verma module of weight 0 is a commutative algebra A, the modules over A are equivalent (by induction) to the
+category of representations of the Borel part uq (g)≥0 , and the local modules are equivalent to the category of representations of the Cartan part
+uq (g)0 , which is the category VectΓ of vector spaces graded by weights or
+cosets of weights. Constructing the category of representations of uq (g)
+as a relative Drinfeld center [Lau20, LW22] is a categorical version of the
+construction of uq (g) as a Drinfeld double of uq (g)≥0 while merging the
+two copies of uq (g)0 .
+The Borel part, in turn, has the form of a semidirect product or Radford biproduct of a Nichols algebra over the Cartan part. The Nichols
+algebra B(X) is a certain universal graded Hopf algebra attached to an
+object X in a braided monoidal category C, such that X becomes the
+homogeneous component of B(X) of degree 1 and the space of primitive
+elements. A main textbook on this topic is [HS20]. Reconstructing an arbitrary pointed Hopf algebra from the corresponding Nichols algebra in
+VectΓ is a main idea in the Andruskiewitsch-Schneider program [AS10].
+In a certain sense, one could describe our attempts to reconstruct D as a
+categorical version and as a braided version (whence a Drinfeld center) of
+this program.
+If ℓ = 2p has even order, then having a nondegenerate braiding requires
+that VectΓ has a nontrivial associator, which means that uq (g)0 is a quasi-
+
+5
+
+Hopf algebra. Then the relative center of the Nichols algebra representation category can be read as a clean categorical definition of a factorizable
+quasi-Hopf algebra ũq (g) in the even order case.2
+• For a C2 -cofinite vertex operator algebra V, the category of representations
+is a braided monoidal category [HLZ06], with tensor product ⊠V and
+braiding defined by analytic means. If W ⊂ V is a conformal embedding
+of vertex operator algebras, then A = V can be regarded as a commutative
+algebra in the category D of representations of W, and the local modules
+over A recover the category C of representations of V.
+The category B of all A-modules in C is less studied on the vertex algebra
+side, it consists of V-modules which are nonlocal (that is, the vertex operator contains multivalued functions) but become local when restricted
+to W. For an orbifold by a finite group W = V G , such modules are called
+twisted modules and it can be shown that they are classified in terms of
+g-twisted modules with a precisely prescribed monodromy depending on a
+group element g [FLM88, DL96, DLM96].
+
+The vertex algebras W relevant to the logarithmic Kazhdan-Lusztig conjecture are defined as vertex subalgebras of easier vertex algebras V, this
+is called free field realization. In our case, V = VΛ is a lattice vertex algebra and its category of representations is C = VectΓ associated to the
+discriminant form of the lattice Γ = Λ∗ /Λ. The vertex-subalgebra W is
+defined as a kernel of nonlocal screening operators z1 , . . . , zn associated to
+elements α1 , . . . , αn ∈ Λ∗ , which we have shown in [Len21] to fulfill the
+relations of the generators in the Nichols algebra Z with respect to the
+braiding VectΓ .3 The category B consists of indecomposable extensions of
+local VΛ -modules. We would propose in general to interpret W as a kind of
+orbifold of V by the Nichols algebra of screenings Z. Ultimately, we expect
+the following big picture statement to be true. Its interpretation would be
+that all twisted modules are ”M -twisted” for some representation M of
+the Nichols algebra of screenings, and all such modules can be obtained
+by a deformation procedure (because the action is inner).
+Problem 1.1. Let W ⊂ V be a kernel of a set of screening operators z1 , . . . , zn .
+Prove that the tensor category B of modules over the commutative algebra A = V
+inside the category of W-modules (”twisted V-modules over W”) is equivalent
+to the tensor category of modules over the Nichols algebra Z generated by the
+screening operators inside Rep(V).
+Note that there is indeed a good candidate for a fully faithful exact functor
+F : Mod(Z)(Rep(V)) → Rep(W)A
+2 We expect this construction to coincide with the earlier alternatives constructions of this
+quasi-Hopf algebra in [CGR20, GLO18, Neg21], but the details would need to be worked out.
+3 Let us remark that we will not use this piece of information in the present article, rather,
+we use directly the universal property of the Nichols algebra and algebraic arguments.
+
+6
+
+as follows: Let again V be a lattice vertex algebra. Let M be a V-module with
+an additional action
+X ⊠V M → M
+L
+of the Nichols algebra B(X ) of the V-module X =
+i Vαi +Λ . Then we can
+f of M in the sense of [DLM96, Li97, FFH+ 02,
+consider the ∆-deformation M
+f contains logarithms coupled to the
+AM09]. The modified action of V on M
+screening operators zi associated to αi , so this should produce a V-twisted module which is single-valued over the kernel W of these screening operators. The
+question is whether this functor is an equivalence of categories.
+Hence the goal of our article is to first reconstruct B as representations of
+some Hopf algebra N, which we then prove to coincide with the algebra of
+screenings Z by algebraic methods. We then use the previous results on the
+Schauenburg functor to prove that D is its relative Drinfeld center. We now
+discuss in more detail how this is achieved:
+In Section 4, for a monoidal category B and a central full subcategory C, we
+define the subcategory B split consisting of all objects in B admitting a composition series with objects in C. Not surprisingly, this is a tensor subcategory of
+B and there is a tensor functor l : B split → B sending an object to the direct
+sum of its composition factors, see Lemma 4.5. By our recent result [ML24], any
+exact faithful tensor functor admitting a tensor functor section leads to a reconstruction by a categorical Hopf algebra (and vice versa); this is a categorical
+version of Tannaka-Krein reconstruction and the Radford projection theorem.
+In particular, this can be applied to B split and yields:
+Lemma 4.10. Let C be a braided tensor category, which is a central full abelian
+subcategory of a tensor category B, then there exists a Hopf algebra N in C and
+an equivalence of monoidal categories
+B split ∼
+= Comod(N)(C).
+Here, the functor l : B split → C corresponds to the functor forgetting the coaction
+of N and the full embedding C ֒→ B split corresponds to the functor endowing an
+object in C with the trivial N-coaction via the unit ηN : 1 → N.
+As we applied the reconstruction to B split , by construction N is a connected
+coalgebra in C, that is, all simple N-comodules in C are trivial N-comodules.4
+Example 1.2. In semisimple situations, for example for group orbifold vertex
+algebras, we have B split = C and B contains new simple objects. On the other
+hand in the logarithmic Kazhdan-Lusztig context we have or expect that B split =
+B, so all twisted modules are extensions of local modules.5
+4 In the dual situation, one could say N is a local algebra in the standard algebra sense
+[Zim14], which is unrelated to the notion of local modules used above.
+5 Recently [CN24] Section 5.5 give very interesting criteria when this situation arises.
+
+7
+
+In general we have a combination of these two situations, which can be interlocked: Consider the Nichols algebra of the non-invertible g-twisted object in
+the Tambara-Yamagami category. On the vertex algebra side, this corresponds,
+supposedly, to a Z2 -orbifold and then a kernel of a screening with respect to
+an intertwiner in the twisted sector. In this case, one would expect nontrivial
+extensions between local modules and this new g-twisted simple modules.
+In Section 4.3 we relate further properties of the category B split to properties
+of the coalgebra N. We discuss a categorical version of Hochschild cohomology
+related to Ext1 in Mod(N), in complete analogy to the classical versions [Zim14],
+and a dual version related to Ext1 in Comod(N). In particular, it is not difficult
+to see that the extensions between trivial N-comodules are in bijection with
+primitive elements in N:
+Lemma 4.15. The vector space Ext1Comod(N), C split (1η , Mη ) of C-split extensions between trivial N-comodules 1η , Mη is isomorphic to the vector space
+HomC (M, Nprim ), where we define the C-subobject Nprim of N as the equalizer
+of ∆N and id ⊗ η + η ⊗ id.
+In Section 5 we study the Hopf algebra N with methods from the theory
+of Nichols algebras. As a technical simplification, we restrict ourselves to the
+case of a C = VectΓ and as in [AG17] we extend the group Γ̃ → Γ (at the
+cost of modularity) in order to have a trivializable associator ω = 1 and thus a
+fibre functor to Vect. Hence, N can be viewed as a algebra and coalgebra in the
+ordinary sense and previous work on Nichols algebras applies. In Lemma 5.5 we
+check that the fibre functor sends a coalgebra N in C that is connected in the
+categorical sense (that is: all N-comodules in C are simple C-objects with trivial
+coaction) to a coalgebra in Vect that is connected in the ordinary sense (that
+is: the coradical is trivial).6
+At this point we know that N is a connected finite-dimensional Hopf algebra
+in C with a diagonal braiding. We invoke two major results in the context
+of the Andruskiewitsch-Schneider program, both proven in full generality for
+C = VectΓ by I. Angiono et.al. [Ang13, AKM15]:
+• N is graded with respect to the coradical filtration. Note that this would
+also follow in sufficiently unrolled situations in the sense of [CLR23] from
+the Γ-grading. Technically, it needs to be checked that the arguments
+do not depend on the extension Γ̃, but this has been done in [AG17].
+Counterexamples at this point would be the infinite-dimensional Nichols
+algebra C[X]/X p ⊗ C[Y ], which can be lifted to the Hopf algebra C[X]
+with an additional primitive X p = Y , a so-called pre-Nichols algebra.
+• N is generated in coradical degree 1, that is, there are no higher generators, which would be undetectable in Ext1 . Note that in finite dimension,
+6 We remark that this is a trick to connect to existing results and avoid more systematic
+work: ultimately one should develop a framework of (co)radical filtration and local algebras
+resp. connected coalgebras in the categorical setting, see Problem 5.3
+
+8
+
+this argument can be replaced by a dimension matching. Counterexamples
+at this point would be Lusztig’s infinite dimensional quantum group containing divided powers as generators of higher degree, for example, dual
+to the situation in the previous bullet, a generator Y = X (p) with
+∆(Y ) = 1 ⊗ Y +
+
+p−1
+X
+
+Xi
+X p−i
+⊗
++ Y ⊗ 1.
+[i]q ! [p − i]q !
+i=1
+
+Accordingly, this situation should appear e.g. for the category of modules
+over the Virasoro algebra.
+The Nichols algebra B(X) of an object X in C can be defined as the unique
+connected coradically-graded bialgebra, whose homogeneous component in degree 1 is X. Combined with the previous results this gives the following remarkable reconstruction result:
+Theorem 5.12. Let B be a finite monoidal category and C a central full tensor
+split
+subcategory, which is of the form C = VectQ
+Γ . Then the tensor subcategory B
+is equivalent to Comod(N)(C) where N = B(X) is the Nichols algebra of the
+object
+M
+X=
+Ext1B (Ca , 1)Ca .
+a∈Γ
+
+Of course, this role of the Nichols algebra is very similar to the role it plays
+in the classification of pointed Hopf algebras [AS10]: By definition, the Hopf
+algebra contains a lifting of the Nichols algebra B(X) of primitive elements. The
+two results quoted above show that the Nichols algebra itself has no nontrivial
+liftings and that no other generators are present. Hence the only thing left is to
+compute the nontrivial liftings between B(X) and C[Γ], but in our context the
+splitting condition rules out such liftings.
+The striking properties of Nichols algebras is that the finite-dimensional
+Nichols algebras can be classified in terms of root systems [Hec06,Hec09,AHS10,
+CH15]. Hence there is an explicit list of possible scenarios, containing quantum
+groups, quantum supergroups and exceptional cases, see [Hec06, AA17, FL22].
+In Section 6 we turn the results so far into a conditional proof of the Kazhdan Lusztig correspondence. The idea is to produce elements in Ext1 (Ca , 1)
+for twisted V-modules over the kernel of screenings W from the knowledge of
+Ext1 (Ca , 1) for twisted V-modules over the kernel of a single screening. This
+is a more restrictive condition on a module, and hence gives a full tensor subcategory, see Lemma 6.2. In turn, these Ext1 (Ca , 1) over the kernel of a single
+screening can be deduced from the the known case sl2 .
+Theorem 1.3. Let Λ be an even integral lattice and α1 , · · · , αn ∈ Λ elements,
+such that the cosets in Λ∗ /Λ are pairwise distinct and nonzero, and such that the
+inner product (αi , αi ) = 2/pi for integers pi > 1. Let VΛ be the lattice vertex algebra, with a conformal structure such that the conformal dimension h(αi ) = 1 and
+9
+
+let W the kernel of the screening operators z1 , . . . , zn associated to α1 , · · · , αn .
+Assume that the category of representations of W becomes a braided monoidal
+category with respect to the HLZ-construction. Then the category B = RepV (W)
+of twisted V-modules over W contains as a full subcategory the representations
+of the Nichols algebra B(q) associated to the diagonal braiding qij = eπi(αi ,αj )
+in VectΛ∗ /Λ .
+We could now attempt to conclude equivalence of these categories by comparing dimensions. Combined with the Schauenburg functor, the overall result
+is then as follows:
+Theorem 6.6. Let W by a kernel of screening operators in a lattice vertex
+algebra VΛ . Assume that Rep(W) is a braided tensor category. Assume the
+Frobenius-Perron dimension of A = VΛ over W is equal to the dimension of
+the diagonal Nichols algebra B(q). Then there is an equivalence of tensor categories resp. braided tensor categories
+RepW (V) = Mod(B(q))(C)
+
+Rep(W) = ZC (Mod(B(q))(C)).
+
+The last category should be considered a generalized quantum group.
+In Section 7.1 we demonstrate one of the ideas listed in Remark 6.7 to
+make this result effective, namely by an analytic computation of the FrobeniusPerron dimension: For the Feigin-Tipunin algebra Wp (g) with g simply-laced,
+the q-characters and their asymptotics are known [FT10,BM17,Sug21] and they
+indeed match the dimension of the respective Nichols algebra. Hence we get the
+following conditional proof of the logarithmic Kazhdan-Lusztig conjecture:
+Corollary 1.4. Assume that the Feigin-Tipunin algebra Wp (g) is C2 -cofinite
+and the quantum dimension of A (in the vertex algebra sense) coincides with the
+Frobenius Perron dimension of A (in the categorical sense). Then the category
+of representations of Wp (g) is equivalent, as braided monoidal category, to the
+category of representation of the quasi-Hopf version of the small quantum group
+2πi
+ũq (g) with q = e 2p and coradical Λ∗ /Λ, see Section 3.4.
+Problem 1.5. We have assumed rigidity of Rep(W) and we discuss its role
+and how it could be avoided.
+• The reconstruction of the Nichols algebra [ML24] in Section 4 and the
+Nichols algebra arguments in Section 5 do not essentially use rigidity, in
+particular all the arguments can be done for bialgebras instead of Hopf
+algebras, and moreover by [Mon93] any connected bialgebra is in fact a
+Hopf algebra (this is explicitly clear for the Nichols algebra). Note that
+this matches the nice and more general result in [CMSY24] Theorem 3.14.
+• The final argument uses Frobenius-Perron dimensions, which depends in
+its present form on rigidity. It seems reasonable that there is a submultiplicative Frobenius-Perron dimension for Grothendieck-Verdier categories
+10
+
+[BD13, FSSW24], having merely a right exact tensor product, which is the
+weaker duality we always have in vertex operator algebras by the contragradient module [ALSW21]. Note that the technical notion of transitivity in
+[EGNO15] Section 4.5 can be proven in such a setting. A good candidate
+would be the C1 -dimension, see Remark 6.7.
+• The Schauenburg functor being an equivalence in Theorem 3.2 requires
+rigidity, while in [CMSY24] this can be concluded if B = B split .
+Finiteness is used for Frobenius-Perron dimensions, and it is also used for the
+existence of a right adjoint (for a right-exact functor) and of a coend in [ML24].
+Acknowledgement: Many thanks to Thomas Creutzig for valuable insights
+and remarks and for hospitality at University of Alberta and Erlangen. The article was finished during a stay at RIMS Kyoto, thanks to T. Arakawa for hospitality and helpful remarks. Many thanks for remarks also to Jinwei Yang, Robert
+McRae, Shegonori Nakatsuka, Shoma Sugimoto and Christoph Schweigert.
+
+2
+
+Categorical preliminaries
+
+2.1
+
+Braided monoidal categories
+
+Let D be a monoidal category. We denote the associativity isomorphism by
+aX,Y,Z : (X ⊗ Y ) ⊗ Z → X ⊗ (Y ⊗ Z) and we omit it from formulas. If D is
+a braided monoidal category, we denote the braiding isomorphism by cX,Y :
+X ⊗ Y → Y ⊗ X. We reserve the word tensor category for finite and rigid
+monoidal categories in the sense of [EGNO15].
+As a first example, the following semisimple braided monoidal category is
+relevant to the present article:
+Example 2.1 (Quadratic Space). Let (Γ, +) be an abelian group. The C-linear
+category VectΓ of Γ-graded vector spaces is semisimple and its simple objects are
+1-dimensional vector spaces Ca for any a ∈ Γ. This category becomes a braided
+monoidal category when endowed with the following coherence data
+
+(Ca ⊗ Cb ) ⊗ Cc
+Ca+b+c
+
+aCa ,Cb ,Cc
+
+ω(a,b,c)
+
+Ca ⊗ (Cb ⊗ Cc ) Ca ⊗ Cb
+Ca+b+c
+
+Ca+b
+
+cCa ,Cb
+
+σ(a,b)
+
+Cb ⊗ Ca
+Cb+a
+
+for scalar function σ : Γ×Γ → C× and ω : Γ×Γ×Γ → C× that fulfill hexagon and
+pentagon relation. The trivial endofunctor with a nontrivial monoidal structure
+gives a nontrivial equivalence between the braided monoidal categories attached
+to different pairs (σ, ω).
+There is a cohomology theory called abelian cohomology [Mac52], where the
+compatible pairs (σ, ω) are abelian 3-cocycle, and the equivalence classes of pairs
+11
+
+in the sense above are abelian 3-cohomology classes. It is known [Mac52, JS93]
+that abelian 3-cohomology classes are classified by quadratic forms Q : Γ →
+C× , and we denote the associated bimultiplicative form by B(a, b) = Q(a +
+b)Q(a)−1 Q(b)−1 . An abelian 3-cocycle (σ, ω) is related to this data by σ(a, a) =
+Q(a) and σ(a, b)σ(b, a) = B(a, b) and ω can be thought to express to which
+extend the chosen σ(a, b) is not a bimultiplicative form.
+As a particularly relevant (infinite) example, let Γ = Rn with a choice of
+inner product and define Q(v) = eπi(v,v) , then B(v, w) = e2πi(v,w) . A choice of
+abelian 3-cocycle is σ(v, w) = eπi(v,w) and ω(u, v, w) = 1. In general, it is not
+always possible to choose ω = 1, if Γ has 2-torsion.
+
+2.2
+
+Commutative algebras
+
+For the following definitions and theorems we refer the reader for example to
+[FFRS06], to the textbook [EGNO15], to [CKM24] and to our article [CLR23]
+Section 2 and references therein.
+Definition 2.2. [EGNO15] Definition 7.8.1 An algebra in a monoidal category D is an object A in D together with a morphism called multiplication
+µ : A ⊗ A → A and a morphism called unit η : 1 → A, satisfying associativity and unitality.
+A commutative algebra A in a braided monoidal category D is an algebra
+in D such that the following morphisms coincide
+
+
+cA,A
+µ
+µ
+A ⊗ A −→ A = A ⊗ A −→ A ⊗ A −→ A
+
+A module (X, ρX ) over an algebra A in a monoidal category is an object
+X ∈ D and a morphism called action ρX : A ⊗ X → X in D, such that again
+the usual compatibility with µ holds. A morphism of A-modules f : (X, ρX ) →
+(Y, ρY ) is a morphism in D, which is compatible with the action.
+Definition 2.3. For A an algebra in a monoidal category D, we denote by DA
+the category of A-modules in D and by A DA the category of A-bimodules.
+For an algebra A in a monoidal category D, the category of A-bimodules is a
+monoidal category with tensor product ⊗A , defined as a coequalizer as usual. For
+a commutative algebra A in a braided monoidal category, an A-module can be
+turned into an A-bimodule, but there are choices of using over- or underbraiding.
+As a consequence, the situation for a general braiding is more complicated then
+in the classical case, where the braiding is symmetric:
+Definition 2.4. For A a commutative algebra in a braided monoidal category D,
+loc
+we denote by DA
+the subcategory of local A-modules, which by definition means
+that the following morphisms coincide :
+cX,A ◦cA,X
+
+A⊗X
+●●
+●●
+●●
+ρX ●●
+●#
+
+X
+12
+
+/ A⊗X
+✇
+✇✇
+✇ρ✇
+✇
+✇ X
+{✇
+✇
+
+Theorem 2.5 (see e.g. [CKM24] Thm. 2.53 and 2.55). For a commutative
+algebra A in a braided monoidal category, the category of A-modules DA is a
+monoidal category with the tensor product ⊗A . The subcategory of local modules
+loc
+DA
+is a braided monoidal category.
+We have an adjoint pair of functors: Left-adjoint the right-exact induction
+functor A ⊗ (−) : D → DA , which is a tensor functor, and right-adjoint the left
+exact functor forgetting the A-action forgetA : DA → D, which is a lax tensor
+functor. We summarize all structures in the following diagram:
+D
+
+A⊗(−)
+forgetA
+
+B = DA
+
+loc
+C = DA
+
+We need results that ensure rigidity and finiteness of DA :
+Theorem 2.6 ([SY24] Theorem 5.5 and Corollary 5.14b). Let A be an commutative algebra in a braided tensor category D (that is: finite and rigid). Assume
+A is haploid, meaning dim HomD (1, A) = 1, and exact, meaning DA is exact as
+loc
+is a braided
+a module category [EO04]. Then DA is a tensor category and DA
+tensor category.
+In [EO21] and [CMSY24] Section 2 several useful conditions for an algebra to
+be exact are given, for example if A is self-dual (Frobenius) and generalizations
+thereof, which would in principle be sufficient for our purposes. During the work
+on this article, the following conjecture in [EO21] was proven in [CSZ25], using
+a categorical version of the Jacobson radical, which should also be useful below.
+Theorem 2.7 ([CSZ25] Theorem 7.1). If A is a direct product of simple algebras, then A is exact.
+The converse was already known to hold. In our application, these results are
+loc
+used as follows: Suppose the unit in DA
+is known to be simple, then the algebra
+A is simple as an algebra, and it is then also haploid because HomD (1, A) =
+HomDA (A, A) = C as in the proof of [CMSY24] Theorem 2.24. Then the two
+previous theorems combined give:
+loc
+Corollary 2.8. Suppose D is a braided tensor category and the unit in DA
+is
+loc
+simple, then DA is a tensor category and DA is a braided tensor category.
+
+2.3
+
+Simple current extensions
+
+Definition 2.9. A simple current in a monoidal category D is an invertible
+object C, that is, there exists an object C −1 with C ⊗ C −1 ∼
+= C −1 ⊗ C = 1. The
+simple currents in D form a group.
+13
+
+A simple current extension is a L
+commutative algebra A in a braided monoidal
+category, which has the form A = i∈I Ci for a subgroup I of simple currents,
+with multiplication Ci ⊗ Cj → Ci+j nonzero for any i, j ∈ I.
+In particular, a simple current is rigid even if the category D is not known
+to be rigid. The following nice properties of simple current extension will be
+crucial. We adapt the following from [CMY21] Proposition 3.2.4:
+Lemma 2.10. For a simple current extension A the induction functor A⊗(−) :
+D → DA is exact.
+Moreover, it is not difficult to see
+L
+Lemma 2.11. For a simple current extension A =
+i∈I Ci with C0 = 1,
+assume it is fix-point-free in the sense that Ci ⊗ X ∼
+6= X for any i 6= 0 and any
+simple object X. Then the induction functor A ⊗ (−) : D → DA sends simple
+modules to simple modules and indecomposable extensions of simple modules to
+indecomposable extensions of simple modules. 7
+L
+Proof. Let X ∈ D be simple, then A ⊗ X =
+i∈I Ci ⊗ X is a direct sum of
+simple objects in D, which are by assumptions mutually nonisomorphic, because
+Ci ⊗ X ∼
+= Cj ⊗ X implies Ci−j ⊗ X ∼
+= X. Hence, any nonzero submodule of
+A ⊗ X in D contains at least one of these summands. Because we assumed the
+multiplication is nonzero, in DA any simple submodule of A ⊗ X is already all
+of A ⊗ X. This proves that induction preserves simplicity.
+ι
+π
+Let X → M → Y be a nonsplit extension of simple object in D. Then by
+exactness of A ⊗ (−) we have have an extension in DA
+M
+M
+M
+X ⊗ Ci →
+M ⊗ Cj ⇆
+Y ⊗ Ck .
+i
+
+j
+
+k
+
+Suppose now there is a section s in DA , contrary to the assertion. We consider
+this as a split exact sequence in D: The summands in the second sum are nonsplit
+exact extensions of simple objects X ⊗ Cj → M ⊗ Cj → Y ⊗ Cj . Hence the
+space of D-morphism s between any summands in the third and second sum is
+at most 1-dimensional, namely (ι ⊗ idCj ) ◦ f : M ⊗ Cj → Y ⊗ Ck in case there is
+for j, k an isomorphism of simple objects f : X ⊗ Cj → Y ⊗ Ck . But the image
+is in the kernel of π ⊗ idA , hence from such s we can never built a section of
+π ⊗ idA .
+Example 2.12. We discuss simple current extensions of quadratic spaces VectQ
+Γ:
+This should probably be attributed back to [DL93] in the vertex algebra context,
+it is well known, and the interested reader maybe also referred to our thorough
+discussion in [GLM24] Section 4.2: Let I ⊂ Γ be an isotropic subgroup, meaning
+7 We thank T. Creuztig for this remark. For iterated extensions, it seems fix-point-free has
+to be replaced by torsion-free. On the other hand, we only require later-on that the image
+contains non-simple indecomposables, which is probably true without such assumptions.
+
+14
+
+Q(i) = 1 for all i ∈ I and in consequence B(i, j) = 1 for i, j ∈ I. Then we can
+define a commutative algebra in VectQ
+Γ
+M
+A = Cǫ [I] =
+Ci
+i∈I
+
+ǫ(i,j)
+
+with multiplication Ci ⊗Cj 7→ Ci+j for a 2-cocycle ǫ such that ǫ(i, j)ǫ(j, i)−1 =
+σ(i, j), which exists since σ(i, j)σ(j, i) = 1 and σ(i, i) = 1. Then
+
+
+VectQ
+= VectQ
+Γ
+Γ/I ,
+A
+
+loc
+VectQ
+= VectIQ⊥I /I ,
+Γ
+A
+
+where I ⊥ is the set of all v ∈ Γ with B(v, i) = 1 for all i ∈ I and QI is the
+quadratic form Q restricted to I ⊥ and factored over I.
+A particular example, relevant to our application, is again the infinite group
+Γ = Rn with and quadratic form Q(v) = eπi(v,v) . Then, isotropic subgroups are
+even integral lattice Λ ⊂ Rn , and the local modules give the modular monoidal
+I
+∗
+category VectQ
+Λ∗ /Λ related to the discriminant form of the lattice (Λ /Λ, QI ).
+
+2.4
+
+Central functors and algebras
+
+Recall that for a monoidal category B the Drinfeld center Z(B) is a braided
+monoidal category consisting of pairs of objects X ∈ B and half-braidings cX,− .
+We use the following suggestive language, which has become common:
+Definition 2.13. A central tensor functor F : D → B between a braided
+monoidal category D and a monoidal category B is a tensor functor together
+with an upgrade to a braided tensor functor F̃ : D → Z(B) in the sense that the
+following diagram commutes
+Z(B)
+
+F̃
+
+D
+
+forget cX,−
+F
+
+B
+
+As a special case we have the notion of a central (full) subcategory.
+Definition 2.14. For a monoidal category B, a central commutative algebra
+is a commutative algebra in the Drinfeld center (A, cA,− ) ∈ Z(B).
+In a straightforward way, the constructions in Section 2.2 carry over, that
+is: The category B(A,c) of representations of a central commutative algebra in B
+with tensor product ⊗A is a monoidal category and the monoidal subcategory of
+loc
+local modules B(A,c)
+is a braided monoidal category.
+
+Of course, if B is braided, then every commutative algebra A in B becomes
+a central commutative algebra in the monoidal category B by using the the
+braiding present in B.
+15
+
+2.5
+
+Frobenius-Perron dimension
+
+Recall from [EGNO15] Section 3.3 that for any unital transitive Z+ -ring of
+finite rank we have a notion of the Frobenius-Perron dimension FPdim(X)
+of an object, defined as the largest non-negative eigenvalue of multiplication
+with X. Recall from [EGNO15] Proposition 4.5.4 that if C is a tensor category
+(that is: finite and rigid), then the Grothendieck ring K0 (C) fulfills the necessary
+properties. Recall from [EGNO15] Definition 6.1.6 the regular object
+X
+RC =
+FPdim(Xi )Pi ,
+i∈I
+
+where Xi , Pi run over all simple objects Xi and their projective covers Pi , and
+the global Frobenius-Perron dimension is defined as FPdim(C) := FPdim(RC ).
+We require in this article the following properties:
+Let F : C → D be a tensor functor between tensor categories:
+Lemma 2.15 ([EGNO15] Proposition 4.5.7). For every object X we have the
+equality FPdim(F (X)) = FPdim(X).
+Lemma 2.16 ([EGNO15] Proposition 6.3.3 and 6.3.4). If F is injective (that
+is: fully faithful), then FPdim(C) ≤ FPdim(D) and equality implies that F is an
+equivalence of categories.
+If F is surjective (that is: every simple X ∈ D is a subquotient of some
+F (Y )), then FPdim(C) ≥ FPdim(D) and equality implies that F is an equivalence of categories.
+More precisely, one can quantify
+Lemma 2.17 ([EGNO15] Proposition 6.2.4). If F is surjective and G a right
+adjoint, then for every object X
+FPdim(G(X)) =
+
+FPdim(C)
+FPdim(X)
+FPdim(D)
+
+In particular, in the situation of Lemma 2.2 we get for X = 1
+Corollary 2.18. For D a braided tensor category and DA a tensor category we
+have
+FPdim(C)
+.
+FPdim(CA ) =
+FPdim(A)
+On the other hand, for local modules we have
+Lemma 2.19 ([LW23] Corollary 4.26, [SY24] Lemma 5.17). For C a finite
+tensor category and DA a tensor category we have
+loc
+FPdim(CA
+)≥
+
+FPdim(C)
+,
+FPdim(A)2
+
+and equality holds iff C has a nondegenerate braiding.
+16
+
+Note that the converse statements holds, because equality means that the
+Schauenburg functor in the next section is injective and then our calculation
+shows it is also surjective.
+
+3
+
+Relative Drinfeld centers and reconstruction
+results
+
+3.1
+
+Relative Drinfeld center
+
+For C ⊂ B a central (full) subcategory, there is the notion of a relative Drinfeld
+center ZC (B), a braided monoidal subcategory of Z(B) defined as the the Müger
+centralizer of C rev embedded into C via the central structure, see [Lau20, LW22].
+Hence we have embeddings of braided monoidal categories
+C ⊂ ZC (B) ⊂ Z(B).
+
+3.2
+
+Schauenburg functor
+
+We recall our following result from [CLR23] Section 3, building on respective
+work in [Sch01].
+Definition 3.1. Let A be a commutative algebra in a braided monoidal category D. Then there is a braided tensor functor, called Schauenburg functor in
+loc
+what follows, to the relative Drinfeld center of DA over C = DA
+S : D ֒→ ZC (DA )
+
+X 7→ (A ⊗ X, c−,X ).
+
+That is, the induction functor is in fact a central functor compatible with
+the central subcategory C ⊂ DA . The main point is now that in good cases this
+is an equivalence of braided tensor categories.
+Theorem 3.2 ([CLR23] Corollary 3.8). Assume that D, DA are rigid and finite
+and D has trivial Müger center and A is haploid. Then the Schauenburg functor
+is an equivalence of braided monoidal categories
+S:D∼
+= ZDAloc (DA ).
+For the proof we first establish that S is fully faithful and then check that
+Frobenius-Perron dimensions on both sides coincide and apply Lemma 2.16.
+In fact, several weaker version of this statement can be proven. In [CLR23]
+Lemma 3.4 we establish fully faithulness in locally finite cases and in [CLR23]
+Corollary 3.13 we prove the equivalence in a ”relatively finite” situation. The
+intention of these versions is to manage the infinite examples of unrolled quantum group and singlet vertex algebra.
+
+17
+
+In [CMSY24] Theorem 3.21 the assumption of rigidity is largely removed
+and the nondegeneracy of the braiding is replaced by a version involving only
+simple modules contained in the algebra.
+
+3.3
+
+Adjoint algebra
+
+Conversely, we can consider the right adjoint to the tensor functor ZC (B) → B
+forgetting the half-braiding. The right adjoint is a lax tensor functor, so the
+image of 1 is an algebra A in ZC (B) called adjoint algebra. By [LW22] and
+[SY24] Section 6.2.3 this algebra reconstructs our initial situation:
+Corollary 3.3. Suppose B is a tensor category (so: finite and rigid) and C is a
+braided tensor category with nondegenerate braiding, then the adjoint algebra A
+in ZC (B) has the property
+ZC (B)A = B
+ZC (B)loc
+A = C
+
+In the more general case of a module category, see also [BMMC24] for the
+relative coend.
+Problem 3.4. These assertions would be very useful to have for suitable algebras in more general braided monoidal categories. Note that [LW22] give a
+version where B consists of modules of a Hopf algebra and which does not require finiteness.
+
+3.4
+
+Generalized quantum groups
+
+Quantum groups will appear in the present article in the following form, as
+discussed in detail in [CLR23] Section 6: Let N be a Hopf algebra in a rigid
+braided monoidal category C, then we have basically by construction a rigid
+monoidal category of modules
+Mod(N)(C), ⊗C .
+We can take the relative Drinfeld center of this monoidal category. For finite
+categories, this coincides with the category of N-Yetter-Drinfeld modules in C
+D=N
+N YD(C) = ZC (Mod(N)(C)).
+It is nondegenerately braided iff C is nondegenerately braided.
+In particular, this construction produces the category of representations of
+the quantum group. This has been present in some formulation since the beginning of quantum groups [Dri87, Maj98, AG03], we use the formulation obtained
+in [Lau20, LW22]:
+Example 3.5 (Quantum groups). Let g be a semisimple finite-dimensional
+complex Lie algebra and denote the simple roots by α1 , . . . , αn and the Killing
+form by (−, −). Let C = VectQ
+Γ be the braided tensor category in Example 2.1 for
+18
+
+Γ some choice of a group containing elements α1 , . . . , αn and Q a quadratic form
+(αi ,αj )
+with (σ, ω) a choice of abelian 3-cocycle
+Ln such that ω = 1 and σ(αi , αj ) = q
+for a choice of scalar q. Let X =
+i=1 Cαi be an object on C and B(X) the
+Nichols algebra associated to the braiding σ(αi , αj ), as briefly reviewed in Section
+5.1.
+Algebraically, we have the following: The dual group ring CΓ , which is a
+quasi-triangular Hopf algebra using σ, is the Cartan part of the quantum group
+uq (g)0 with the R-matrix R0 , and B(X) is the positive part of the small quantum
+group uq (g)+ , and the smash product uq (g)0 ⋉ B(X) is the Borel part uq (g)≥0 .
+Categorically, we have the following:
+• The braided tensor category C is the category of representations of uq (g)0 ,
+the category of weight-spaces.
+• The tensor category B = Mod(N)(C) is the category of representations of
+the Borel part uq (g)≥ 0 inside C, by the key property of the smash product.
+• We have an equivalence of braided tensor categories, see [Lau20] Cor. 4.10:
+N
+N YD(C) = ZC (B) = Mod(uq (g)).
+
+Under this correspondence, the functor
+ZC (Mod(N)(C)) → Mod(N)(C)
+corresponds to restriction to the Hopf subalgebra
+uq (g) ֒→ uq (g)≥0 .
+Accordingly, the left adjoint is the induction functor uq (g) ⊗uq (g)≥0 (−) and the
+right adjoint is the coinduction functor. In particular the adjoint algebra is the
+dual Verma module of weight zero.
+∗
+A = uq (g) ⊗uq (g)≥0 Cǫ .
+
+Example 3.6 (Quasi quantum group). Suppose now in the situation above that
+ω 6= 1 i.e. there is a nontrivial associator in C. For example, this is necessary if
+R0 should be a nondegenerate braiding and the order of q is even. Then we can
+take ZC (Mod(N)(C)) as definition of a braided tensor category with associator.
+We would strongly expect that it coincides with the respective constructions in
+[CGR20, GLO18, Neg21].
+
+Remark 3.7. The reader is advised that the duality induced from C may not be
+the same as the duality induced from D. In particular, the dual Verma module
+is not self-dual.
+
+19
+
+4
+
+Reconstructing a categorical Hopf algebra
+
+4.1
+
+Realizing Hopf algebra
+
+We recall a Tannaka-Krein type reconstruction result relative to a subcategory
+from our work [ML24]
+Theorem 4.1. Let B be a tensor category (that is: finite and rigid) and C be
+a braided tensor category. Assume there is a central functor ι : C → B and a
+left inverse tensor functor l : B → C, which is exact and faithful. Then there
+exists a Hopf algebra N in C, such that B = Comod(N)(C) and l is the functor
+forgetting the action of N and ι is the functor endowing an object in C with the
+trivial coaction via ηN .
+Remark 4.2. We could drop the assumption of rigidity and obtain a bialgebra
+N. Note that one needs to additionally require the action of C via ι on B to be
+exact. Since later Theorem 4.8 will ensure rigidity, we will forgo this discussion.
+Example 4.3. Note that if C is itself a category of representations of a finitedimensional Hopf algebra in vector spaces, this assertion is effectively the Radford projection theorem, see [CLR23] Example 4.10.
+
+4.2
+
+Splitting subcategory
+
+Definition 4.4. Let B be a monoidal category and C be a monoidal full abelian
+subcategory (that is, the embedding is exact). Then we define the abelian subcategory B split as consisting of all objects in B whose composition series has finite
+length and consists solely of objects in C. It is the smallest Serre subcategory
+containing C.
+Lemma 4.5. B split is a monoidal subcategory.
+
+Proof. We prove this inductively. For two objects X, Y ∈ C the tensor product
+X ⊗ Y is by assumption again in C. Let now X1 → X → X2 be an extension of
+objects in B split and Y an object in B split and assume inductively that already
+X1 ⊗ Y and X2 ⊗ Y are in B split . Then we have an exact sequence
+p
+
+i
+
+· · · −→ X1 ⊗ Y −→ X ⊗ Y −→ X2 ⊗ Y −→ · · · ,
+with possibly nontrivial terms · · · if the tensor product is not exact. Because
+we have assumed C to be a full abelian subcategory, with X1 ⊗ Y and X2 ⊗ Y
+also Im(i) and ker(p) have composition series in C and are hence in B split . Then
+we have a short exact sequence in B split
+0 −→ Im(i) −→ X ⊗ Y −→ ker(p) −→ 0.
+This proves inductively that also X ⊗ Y is in B split as asserted.
+Example 4.6. If B is semisimple, then B split = C. On the other hand if B =
+Mod(uq (g)≥0 ) and B = Mod(uq (g)0 ), then B split = B. The former is the typical
+setting for finite group orbifolds, the latter is the general setting in [CLR23].
+20
+
+Remark 4.7. There are arguments ensuring B split = B, for example if the
+category is graded and sufficiently unrolled. See [CLR23] Definition 5.5 and the
+interesting idea in [CN24] Section 5.5.
+Even under weaker duality assumptions on B we have rigidity for B split :
+Theorem 4.8 ([CMSY24] Theorem 3.13). If D is a locally finite abelian Grothendieck-Verdier category with dualizing object K = 1, whose simple objects are
+rigid, then D is rigid
+Corollary 4.9. If C is semisimple and rigid and B split is locally finite and a
+Grothendieck-Verdier category with dualizing object K = 1, then B split is rigid.
+We now apply the previous subsection to this particular situation
+Lemma 4.10. Let C be a braided tensor category, which is a central full abelian
+subcategory of a tensor category B, then there exists a Hopf algebra N in C and
+an equivalence of monoidal categories
+B split ∼
+= Comod(N)(C)
+Here, the functor l : B split → C corresponds to the functor forgetting the action
+of N and the functor ι : C → B split corresponds to the functor endowing an
+object in C with trivial B action via ǫN .
+Proof. There is a tensor functor l : B split → C given by sending a an object X to
+the direct sum of its composition factors. The functor is l is exact and faithful,
+so we can apply Theorem 4.1.
+
+4.3
+
+A Hochschild argument and the Nichols algebra of Ext1
+
+Let B = Mod(N)(C) for N a bialgebra in C and we assume that all simple objects
+in B are of the form Mǫ with M ∈ C simple and N acting trivially via ǫN . That
+is to say, in the language of the previous section B = B split .
+The goal of this section is to determine N in terms of a Nichols algebra associated to Ext1B (1, Mǫ ) for the various simple objects M .
+We start by discussing a version of first Hochschild cohomology and its relation to Ext1 in the category of modules over an augmented algebra N inside
+a monoidal category C. It is completely analogous to the classical algebra statements: Let N, η, µ be an algebra in a monoidal category C and ǫ : N → 1 be a
+fixed algebra augmentation. Consider an extension of N-modules between the
+unit object 1 with trivial N-action ǫ and some other object M with arbitrary
+N-action ρ
+Mρ → E → 1ǫ ,
+which we assume to be C-split, that is, the underlying extension of C-objects
+splits as E ∼
+= M ⊕ 1. Accordingly, the action N ⊗ E → E can be written in four
+21
+
+components (”block matrices”), of which three are fixed by the assumptions.
+ǫ : N ⊗ 1 → 1,
+0 : N ⊗ M → 1,
+
+dE : N ⊗ 1 → M,
+ρ : N ⊗ M → M.
+The remaining morphism dE : N → M inherits the following properties from
+the multiplicativity of the action
+Definition 4.11. A derivation with values in a N-module Mρ is a C-morphism
+d : N → M such that
+d ◦ η = 0,
+
+d ◦ µ = ρ ◦ (id ⊗ d) + d ⊗ ǫ
+
+Conversely, every such derivation defines an extension E. Next, an equivalence of extensions E, E ′ is an isomorphism of N-modules Φ : E ∼
+= E ′ such that
+the following diagram commutes
+Mρ
+
+E
+
+id
+
+Φ
+
+Mρ
+
+E′
+
+1ǫ
+id
+
+1ǫ
+
+Then again we write Φ in components, where the only nontrivial component
+is some C-morphism ϕ : 1 → M , and Φ is a N-module morphism iff dE + ϕ ◦ ǫ =
+dE ′ + ρ ◦ (idN ⊗ ϕ), which means
+dE − dE ′ = ρ ◦ (idN ⊗ ϕ) − ϕ ◦ ǫ.
+The difference could be called an inner derivation ∂ϕ. Note that if 1, M in C
+are simple and nonisomorphic, then there are no nonzero inner derivations.
+Lemma 4.12. The vector space Ext1Mod(N), C split (1ǫ , Mρ ) of extensions in the
+category of N-modules that split in C is isomorphic to the vector space of derivations d : N → M up to inner derivations ∂ϕ for ϕ : 1 → M .
+Example 4.13. Let ψ : N → 1 be another algebra morphism and Mψ be the
+corresponding N-module on the C-object M . Then a derivation dE with values
+in Mψ is a C-morphism dE : 1 → M such that
+dE ◦ η = 0,
+
+dE ◦ µ = ψ ⊗ dE + dE ⊗ ǫ,
+
+which could be called an (ǫ, ψ)-derivation an an inner derivation is ∂ϕ = ϕ ◦
+(ψ − ǫ) for ϕ : 1 → M .
+22
+
+In particular for an extension by N-modules of the form Mǫ for M ∈ C,
+called henceforth trivial N-action, we get:
+Corollary 4.14. The vector space Ext1Mod(N), C split (1ǫ , Mǫ ) of C-split extensions
+between N-modules with trivial action is isomorphic to the vector space of (ǫ, ǫ)derivations d : N → M . Note that there are no nonzero inner (ǫ, ǫ)-derivation.
+We also record the dual version of these results, which is proven by reversing
+arrows: Let N be a coalgebra in a monoidal category C. Let η : 1 → N be a
+fixed coalgebra morphism and denote for M ∈ C by Mη the N-comodule with
+coaction given by η, called henceforth trivial N-coaction.
+Lemma 4.15. The vector space Ext1Comod(N), C split (Mη , 1η ) of C-split extensions
+between trivial N-comodules is isomorphic to the vector space HomC (M, Nprim ),
+where we define the C-subobject Nprim of N as the equalizer of ∆N and id ⊗ ηN +
+ηN ⊗ id.
+Example 4.16. Let C = Vect and N a coalgebra with a fixed grouplike 1, then
+it is quite clear that primitive elements x ∈ N, that is ∆(x) = x ⊗ 1 + 1 ⊗ x, are
+in correspondence to self-extensions of the trivial comodule C → E → C.
+Let C = VectΓ and N a coalgebra with a fixed grouplike 1, then again it is
+quite clear that primitive elements in N in degree g−h ∈ Γ are in correspondence
+to extensions Cg → E → Ch of the 1-dimensional objects with trivial coaction.
+In the smash-product CΓ ⋉ N these become (g, h)-primitive elements. This and
+further assertions are known as the Taft-Wilson theorem, see [EGNO15] Corollary 1.13.6.
+Definition 4.17. An augmented algebra (A, ǫ) in C, whose simple modules are
+trivial modules Mǫ could be called local (in a different sense then above) or
+basic. Dually, a coalgebra C with a distinguished grouplike unit η : 1 → C,
+whose simple comodules are trivial comodules Mη could be called connected.
+
+5
+
+Nichols algebra arguments
+
+5.1
+
+Nichols algebra
+
+Let M be
+L an object in a braided monoidal category C. The tensor algebra
+T(M ) = k≥0 M ⊗k becomes a Hopf algebra in C: We define the coproduct on
+M by
+∆: M →1⊗M +M ⊗1
+∆ = 1 ⊗ id + id ⊗ 1
+
+(where 1 ⊗ (−) means the unitality constraint) and extend it uniquely to an
+algebra morphism on T(M ). The antipode is given on M by −id, and we extend
+it uniquely to an anti-algebra morphism on T(M ).
+Definition 5.1. Let M be an object in a braided monoidal category C. The
+Nichols algebra B(M ) is the Hopf algebra quotient of T(M ) by the largest graded
+Hopf ideal in degree ≥ 2.
+23
+
+For any bialgebra N in C we define the primitive subspace as an equalizer
+
+P (N) = Eq ∆N , ηN ⊗ idN + idB(M) ⊗ ηN
+
+By definition P (B(M )) ⊃ M . In fact, for a graded Hopf algebra N any homogeneous component in P (N) is a subcoalgebra and thus generates a Hopf
+subalgebra. Conversely, for any graded Hopf ideal in N the homogeneous component in lowest degree is contained in P (N). Hence
+Corollary 5.2. The Nichols algebra B(M ) is the universal Hopf algebra quotient of T(M ) such that P (B(M )) = M .
+For Nichols algebras in VectQ
+Γ or more generally in the category of YetterDrinfeld modules over a Hopf algebra in VectK there are several equivalent
+definitions of a Nichols algebra, see [HS20] Section 1.9. For example, it is the
+quotient by a nondegenerate Hopf pairing with B(M ∗ ) and it is the quotient of
+T(M ) by the kernel of the quantum symmetrizer map. For Hopf algebras in arbitrary braided tensor categories, the proofs for these equivalent characterization
+seem to carry over, but we refrain to do so in the present article.
+
+5.2
+
+Two notions of connectivity
+
+For Nichols algebras in VectQ
+A , or more generally in the category of YetterDrinfeld modules over a Hopf algebra in VectK , as in [HS20], the notion of
+connectivity and the coradical filtration is defined in terms of a coalgebra in
+VectK , not in the actual category. To apply their results, we need to compare
+these definition (or dually the definitions of local algebras).
+Problem 5.3. There is a rich theory of local and basic algebras, see for example [Zim14] Section 1.6, which in particular describes the radical filtration and
+Nakayama’s lemma, and Section 4.5, which discusses in particular Gabriel’s
+theorem to obtain a basic algebra as a quotient of a path algebra, where in our
+picture nodes correspond to simple objects and arrows to skew primitive elements
+and equivalently to elements in Ext1 . It is conceivable that most of this theory
+should carry over to the categorical setting. Note that the coradical filtration in
+this context is obtained in [EGNO15] Section 1.13 and a Jacobson radical has
+been developed recently in [CSZ25].
+We need another version of Frobenius reciprocity: Let F : C → C ′ be a tensor
+functor and F la its left adjoint. The adjunction gives a bijection of Hom-spaces
+HomC (F la (M ), N ) ∼
+= HomC ′ (M, F (N ))
+f 7→ F (f ) ◦ η F,F
+
+la
+
+Recall that F la is oplax, so it sends coalgebras to coalgebras and comodules
+to comodules, in particular if M is a C ′ -comodule and N is a C-module, then
+F la (M ) is a F la (C ′ )-comodule and F (N ) is a F (C)-comodule. If we choose
+C ′ = F (C), then the counit of the adjunction gives a coalgebra morphism
+F la (C ′ ) = F la (F (C)) → C, and thereby F la (M ) becomes a C-comodule.
+24
+
+Lemma 5.4. With these structures, the bijection of homomorphisms upgrades
+to a bijection of comodule homomorphisms
+HomComod(C) (F la (M ), N ) ∼
+= HomComod(F (C)) (M, F (N ))
+Proof. The action of F on Hom-spaces
+F
+
+HomC (F la (M ), N ) −→ HomC ′ (F (F la (M )), F (N ))
+la
+
+sends morphisms compatible with coactions
+ǫF,F
+◦ F la (δM ) and δN to morC′
+F,F la
+la
+phisms compatible with coactions F (ǫC ′ ) ◦ F (F (δM )) and F (δN ). Precomposing with ηM turns by naturality the C ′ coaction on M into the F (F la (C ′ ))
+coaction
+on F (F la (M )), and hence sends morphisms compatible with coactions
+F,F la
+F (ǫC ′ ) ◦ F (F la (δM )) and F (δN ) to morphisms compatible with coactions δM
+and D(δN ).
+With this preparation we can compare two notions of connectedness: We
+have in mind in particular the case of C ′ = Vect and C = VectQ
+Γ or YetterDrinfeld modules over a Hopf algebra.
+Lemma 5.5. Let C be a locally finite monoidal category and N in C a coalgebra
+with distinguished grouplike unit η : 1 → N that is connected in the sense of
+Definition 4.17, that is, all simple N-comodules in C are trivial N comodules
+Mη for simple M ∈ C.
+Now let F : C → C ′ be a faithful tensor functor admitting a left adjoint F la ,
+then F (N) is also connected as a coalgebra in C ′ .
+Proof. Let (M, δ) be a simple F (N)-comodule in C ′ . Then as in the previous
+Lemma F la (M ) is a F la (F (N))-comodule and using the counit of the adjunction
+a N-comodule. Since C is assumed to be locally finite, there exists a nonzero
+simple quotient comodule, and since N is assumed to be connected in C we know
+it is of the form Nη for N ∈ C. We now apply Lemma 5.4
+HomComod(N) (F la (M ), Nη ) ∼
+= HomComod(F (N)) (M, F (N )η )
+By construction of N as a quotient we have an epimorphism in the left spaces.
+Correspondingly, we have a nonzero map in the right space. Since M was assumed simple, there are two possibilities: F (N ) = 0, but a left-exact faithful
+functor F reflects zero-objects, so N = 0 in contradiction to its construction.
+Or F (N )η ∼
+= M , so M has trivial coaction as asserted.
+
+5.3
+
+Liftings and generation in degree 1
+
+Nichols algebras are by construction connected Hopf algebras. In the situations
+of a diagonal braiding, where we understand the Nichols algebras well, the converse can be proven to be also also true. This question and subsequent answers
+are a main content of the Andruskiewitsch-Schneider program [AS10] and the
+lifting method [AGI19]. We quote and then adapt the respective statements.
+The first asserts that there are no nontrivial deformations or liftings:
+25
+
+Theorem 5.6 ([AKM15] Theorem 6.4). If N is a finite-dimensional bialgebra
+in Γ-Yetter-Drinfeld modules with Γ abelian, whose associated graded bialgebra,
+with respect to the coradical filtration, is equivalent to a Nichols algebra B(M ),
+then N ∼
+= B(M ).
+We briefly discuss their proof strategy: In [MW09] Lemma 4.2.2 the authors
+discuss the possible lifting N as deformations by Hochschild cycles and show
+their existence requires a nonzero morphism (in the category) between M and
+the defining relations R. In L
+our case, let us denote by Cχg the simple Γ-YetterDrinfeld modules and M = t Cχgtt , then there cannot be liftings if (gR , χR ) 6=
+(gt , χt ) for all relations R and all t. In [AKM15] Proposition 6.2 the authors
+go through the classification of Nichols algebras of diagonal type [Hec09] and
+the presentation in terms of generators and relation [Ang13] and show that this
+condition holds.
+Remark 5.7. One typically also asks for all possible liftings of the smash product C[Γ]#B(M ) and here the answer is much more rich, see again [AGI19].
+However, the observation is that the lifting is always a Doi-cocycle twist, meaning that the categories of comodules is equivalent to the category of comodules for
+trivial lifting Comod(N)(C). In the present article we have already established a
+categorical splitting, so we already are categorically in the situation with trivial
+lifting. We will discuss the interplay between these observations in a separate
+joint article.
+The quoted articles assume, in our present language, that VectQ
+Γ can be
+realized with an abelian 2-cocycle (ω, σ) with ω = 1. In the general case ω 6= 1
+we can follow [AG17] and find an extension Γ̃ → Γ. Note that it is not clear
+a-priori that an argument excluding nontrivial liftings for Γ̃ is also excluding
+nontrivial liftings for the quotient Γ, because we could have (gR , χR ) = (gt , χt )
+albeit g̃R 6= g̃t . However, it follows from the equivariantization procedure in
+[AG17] that this conclusion holds.8 Alternatively, one can check directly that the
+casewise arguments in [AKM15] are based on braidings being different χR (gR ) 6=
+χt (gt ), and these quantities are kept invariant by the extension.
+Corollary 5.8. If N is a finite-dimensional bialgebra in VectQ
+Γ , whose associated graded bialgebra, with respect to the coradical filtration, is equivalent to a
+Nichols algebra B(M ), then N ∼
+= B(M ).
+Corollary 5.9. If N is a finite-dimensional bialgebra in VectQ
+Γ such that P (N) =
+M , then there is an injective morphism of bialgebras
+B(M ) ֒→ N
+We now want to see that the injective map in Lemma 5.9 is bijective. This
+was again settled by Angiono:
+8 We thank Ivan Angiono for pointing this out.
+
+26
+
+Theorem 5.10 ([Ang13] Theorem 4.15). Let H be a finite-dimensional Hopf
+algebra, whose coradical is an abelian group, then H is generated by its grouplikes
+and skew-primitive.
+Again we review the proof strategy and make minor adaptions: Essentially
+this theorem is proven as a dualization of [Ang13] Theorem 4.13, which states
+that a finite-dimensional graded Hopf algebra N in Γ-Yetter-Drinfeld modules
+with homogeneous component N0 = 1 and generated by N1 is already the
+Nichols algebra - that is, there are no finite-dimensional extensions of Nichols
+algebras of diagonal type. For such an extension, one can look at a minimal
+new element, which would be primitive. Then essentially the same arguments
+as in Theorem 5.6. In particular the theorem does not depend on H having an
+antipode and VectQ
+Γ instead of Yetter-Drinfeld modules.
+By combining these Nichols algebra results with Lemma 4.15, the main result
+in the previous section, we arrive at the following statement that characterizes
+a bialgebra in terms of its Ext1 :
+Theorem 5.11. A connected bialgebra L
+N in C = VectQ
+Γ is isomorphic to the
+Nichols algebra B(X) of the object X = a∈Γ Ext1Comod(N)(C) (Ca , 1)Ca .
+
+By further applying this to the bialgebra realizing B split by our TannakaKrein reconstruction in Section 4, we obtain the main result in this section:
+
+Theorem 5.12. Let B be a tensor category and C a central monoidal full subcategory, which is of the form C = VectQ
+Γ . Then the monoidal Serre subcategory
+B split is equivalent
+to
+Comod(N)(C)
+where
+N = B(X) is the Nichols algebra of
+L
+the object X = a∈Γ Ext1B (Ca , 1)Ca .
+
+Remark 5.13. Note again that the results in this section do not require N to
+be a Hopf algebra, so again rigidity is not used. Indeed, a connected bialgebra
+is always a Hopf algebra by [Mon93] Lemma 5.2.10 and Corollary 5.2.11, which
+goes back to Takeuchi.
+
+6
+
+Proving Kazhdan-Lusztig using Frobenius-Perron
+dimension
+
+From the technology developed so far, we can derive a first algebraic proof of the
+logarithmic Kazhdan Lusztig conjecture, if we assume that sufficient structure
+is known on the category of representations of the vertex algebras. We recall
+the categorical setup:
+Let D be a braided tensor category (that is: finite and rigid). Let A be
+loc
+a commutative algebra in D and B := DA and C := DA
+the corresponding
+split
+categories of modules and local modules. Let B
+⊂ B as in Definition 4.4,
+then by Lemma 4.10 there exists a Hopf algebra N ∈ C such that
+B split ∼
+= Comod(N)(C).
+27
+
+6.1
+
+Vertex algebra setup
+
+Our application is the following situation: Let C = Rep(V) be the category of
+representations of a suitable vertex operator algebra V. Let W ⊂ V be a conformal embedding of a suitable vertex operator algebra with D = Rep(W). Then
+loc
+A = V can be considered as a commutative algebra in Rep(W) and C = DA
+,
+see [HKL15, CKM24].
+We now assume that V = VΛ is a lattice vertex algebra associated to a even
+integral lattice Λ ⊂ Rn , which we assume to be positive-definite and full-rank n,
+so that the braided tensor category Rep(VΛ ) is a braided monoidal category,
+∗
+namely VectQ
+Γ for Γ = Λ /Λ the discriminant form, see Example 2.1. We denote
+∗
+by Vλ for λ ∈ Λ the modules corresponding to Cλ . As described for example in
+[Len21], let α1 , . . . , αn be vectors in Λ∗ and choose a conformal structure9 such
+that the conformal dimension h(αi ) = 1. Let z1 , . . . , zn be the corresponding
+screening operators
+zi : Vλ → Vλ+αi .
+
+We define W ⊂ V to be the intersection of the kernels of these screening operators z1 , . . . , zn on V.
+
+As a particular class of examples, let g be a semisimple finite-dimensional
+complex Lie algebra with simple roots α1 , . . . , αn and Killing form (−, −). For
+√
+a positive integer p ≥ 2 divisible by the lacity of g let Λ = pΛ∨ be the rescaled
+coroot lattice, then the kernel of screenings W = Wp (g) is the Feigin-Tipunin
+vertex algebra [FT10], see [CLR23] and references therein. The braiding matrix
+is qij = q (αi ,αj ) for q = eπi/p . Then the Nichols algebra associated to this
+braiding B(q) has generators x1 , . . . , xn and fulfills quantum Serre relations.
+It also is the algebra generated by the screening operators z1 , . . . , zn .10 The
+categories Mod(B(q))(VectQ
+Γ ) and ZC (Mod(B(q)) are the representations of the
+Borel part and the full (quasi-)quantum group as discussed in Section 3.4.
+Conjecture 6.1 (Logarithmic Kazhdan Lusztig correspondence). There is an
+equivalence of braided tensor categories
+Rep(Wp (g)) ∼
+= ZC (Mod(B(q))).
+The case sl2 is proven by [FGST06,AM08,TW13,CGR20,CLR21,GN23,CLR23].
+
+6.2
+
+Producing elements in Ext1
+
+Our goal is to identify several Nichols algebras: The Nichols algebra B(q), which
+underlies the generalized quantum group for which we want to prove the loga9 With such a modified conformal structure, Rep(V ) is a finite braided monoidal category
+Λ
+with a Grothendieck-Verdier structure.
+10 Note that there is some strange behavior for very small values of q, namely q 2 = 1 for
+ADE and q 4 = 1 for BCF and q 6 = 1 and q 4 = 1 for G2 , see [Len16] and in some other
+cases the Nichols algebra has relations in addition to the quantum Serre relations, for example
+q 2 = −1 for ADE, see the case by case discussions in [AA17]
+
+28
+
+rithmic Kazhdan-Lusztig conjecture above. It is isomorphic to the Nichols algebra Z of screening operators. We want to prove that it also coincides with the
+Nichols algebra N determined by Ext1 (DA ) using the results in Section 5, so
+loc
+that it is the Hopf algebra realizing DA over DA
+. Do do so, we now introduce
+1
+a tool to produce elements in Ext (DA ) from screenings:
+Lemma 6.2. Let Ai ⊂ A be a subalgebra of A ∈ D and denote A considered as
+loc
+an Ai -module by Ā. Then (DA
+) is a full tensor subcategory of DA = (DAi )Ā .
+i Ā
+In particular there is an injective map between the respective groups Ext1 (M, N ).
+Note this is not necessarily true for higher Exti .
+This has the following application to kernel of screening vertex algebras, not
+just those associated to quantum groups. In particular it shows now that N
+coincides with the Nichols algebras of screenings Z = B(q) for qij = eπi(αi ,αj ) .
+T
+Lemma 6.3. Let W = ni=0 kerzi (VΛ ) be the kernel of screening operators in
+VΛ . Assume that (αi , αi ) = 2/pi for some integer pi ≥ 2. Then there are nonzero
+elements Ei ∈ Ext1DA (Cαi , 1) for i = 1, . . . , n in the full tensor subcategory
+loc
+(DA
+) for the subalgebra Ai = kerzi (VΛ ) of A.
+i A
+Proof. We first consider the slightly smaller lattice Λi := p′i αi Z ⊕⊥ Λ′i where p′i
+is some integer such that Zαi ∩ Λ = p′i αi Z and Λ′i = α⊥
+i ∩ Λ is the orthogonal
+complement. This orthogonal sum Λi has finite index in Λ, and we have a
+decomposition of the associated lattice vertex algebra
+VΛi = Vp′i α∨i Z ⊗C VΛ′i ,
+and of the corresponding categories of representations
+Rep(VΛi ) = Rep(Vp′i αi Z ) ⊠ Rep(VΛ′i ).
+Since the screening charge αi is contained in the first factor and is by construction orthogonal to Λ′i , the kernel of screenings has also a factored form
+kerzi (VΛi ) = kerzi (Vp′i αi Z ) ⊗ VΛ′i .
+The first factor is the triplet vertex algebra Wpi (sl2 ), or possibly a version with
+a smaller or larger lattice if p′i 6= pi
+Wp0i (sl2 ) ⊂ kerzi (Vp′i αi Z ) ⊂ Wpi (sl2 )
+From the proven logarithmic Kazhdan-Lusztig conjecture for sl2 , even for the
+singlet vertex algebra Wp0i (sl2 ) corresponding to the unrolled quantum group,
+we know
+Ext1kerzi (Vp′ α Z ) (Vαi , 1) = C1 ,
+i
+
+=⇒
+
+i
+
+Ext1kerz (VΛ ) (Vαi , 1) = C1 .
+i
+i
+
+29
+
+Now VΛ ⊃ VΛi is a simple current extension, and correspondingly kerzi (VΛ ) ⊃
+kerzi (VΛi ) is a simple current extension. For simple current extensions, induction
+sends simples to simples and indecomposable extensions of simples to indecomposable extensions of simples by Lemma 2.11, hence
+C1 ֒→ Ext1kerzi (VΛ ) (Vαi , 1).
+This concludes the claim.
+Having a method to produce nonzero extension classes Ei ∈ Ext1D (Cα , 1), we
+have corresponding primitive elements in N by Lemma 4.15, and by Theorem
+5.12 we know:
+Corollary 6.4. In the situation of Lemma 6.3 we have an injection of Hopf
+algebras VectQ
+Γ
+B(q) ֒→ N,
+for qij = eπi(αi ,αj ) with 1 ≤ i, j ≤ n. By construction, the primitive generators xi
+correspond to the dual Hochschild cocycles corresponding to the extension 1 →
+Ei → Vαi .
+Note that the assertion of Theorem 5.12 (that uses the knowledge of Nichols
+algebras of finite diagonal type) is stronger: It states that N = B(X). However,
+we do not know if our previous construction covers all Ext1 (1, M ), and we do
+not know if B = B split . For example, we have not used that W is not smaller
+than the kernel of screenings.
+
+6.3
+
+Main proof
+
+Having constructed the correct Nichols algebra representation category inside
+DA , it is tempting to conclude the proof by comparing Frobenius-Perron dimensions (see Section 2.5) of N and our vertex algebra categories:
+Lemma 6.5. Assume that D, DA are tensor categories and B ′ ⊂ DA is a full
+monoidal subcategory and assume
+loc
+FPdim(B ′ ) = FPdim(A)FPdim(DA
+).
+
+Then B ′ = DA and DA is nondegenerate.
+Proof. We recalled in Corollary 2.18 and Corollary 2.19 the Frobenius-Peron
+loc
+dimensions of DA and an inequality of DA
+, hence with the assumption we get
+a chain of inequalities
+loc
+FPdim(DA ) ≥ FPdim(B ′ ) = FPdim(A)FPdim(CA
+)≥
+
+FPdim(C)
+,
+FPdim(A)
+
+that is an overall equality. This implies by Lemma 2.16 that DA = B ′ and by
+the last assertion in Corollary 2.19 that D has a nondegenerate braiding.
+30
+
+As a consequence of this observation, our main result can be strengthened
+as follows:
+Theorem 6.6. Let W by a kernel of screening operators in a lattice vertex
+algebra VΛ as in Lemma 6.3. Assume that Rep(W) is a braided tensor category.
+Assume the Frobenius-Perron dimension of VΛ over W is equal to the dimension
+of the diagonal rank n Nichols algebra B(q) in Corollary 6.4. Then there is an
+equivalence of tensor categories resp. braided tensor categories
+DA = Mod(B(q))(C)
+
+D = ZC (Mod(B(q)))
+
+This is to say, D is equivalent to representations over a generalized quantum
+group in the sense of Section 3.4.
+Proof. We first note that DA is a tensor category by Corollary 2.8.
+Now the assumption on FPdim(A) allows us to apply the previous Lemma 6.5
+to show that B = B split , which is described by the Nichols algebra. This shows
+DA = Mod(N)(C).
+We then use that the Schauenburg functor is an equivalence by Theorem 3.2,
+which we can apply because Lemma 6.5 also proved nondegeneracy of the braiding. This concludes D ∼
+= ZC (Mod(N(D)).
+Remark 6.7. It is not so clear how to get our hand on the Frobenius-Perron
+dimension without sufficient knowledge of the category D and DA , including the
+knowledge of some tensor products. The author can think of different strategies:
+• Prove that in DA all simple modules are local and Ext1 is as expected.
+This is roughly how we have proven Kazhdan-Lusztig for sl2 in [CLR23],
+namely from the knowledge of D as abelian category and some fusion products and then by-hand computing DA from using induction and Frobenius
+reciprocity. The results in this article reduce the knowledge of DA as an
+abelian category to the knowledge of Ext1 . Note that this is the only case
+in which Theorem 5.10 becomes fully effective (in contrast, all dimension
+arguments do not require to know generation in degree 1 in advance).
+• Compute A⊗W A and check that the composition series has dim B(q) many
+composition factors. In fact, A ⊗W A corresponds to N as the regular Nmodule. The results in this article reduces the required knowledge from its
+structure as a module to its mere size.
+• In the next section we will use vertex algebra characters to compute the
+Frobenius-Perron dimension. This requires the assumption of rigidity and
+of Frobenius-Perron dimension being given by analytic expressions, for
+which the proof seems to depend on some Verlinde formula.
+A much better approach in this direction would be to have a rigorous notion
+of dimension that can be computed and does not require rigidity (so it is
+31
+
+in general maybe only submultiplicative). A good candidate would be the
+C1 -dimension, see [MS23]. It would be an interesting problem to compute
+it for a kernel-of-screening vertex algebra.
+• A very different method to analyze the difference between N and the hypothetically larger category would be to compare the decomposition behavior
+of A to that of the regular representation of N, and it is quite surprising that this gives information about the ambient category without prior
+knowledge of the ambient category outside of the one described by N. This
+is our goal for the next paper on this topic.
+
+7
+
+Proving Kazhdan-Lusztig using asymptotics
+of characters
+
+7.1
+
+Flag variety and character formula
+
+We now introduce a very useful tool for vertex algebras that goes beyond categorical considerations: A vertex algebra V and all its modules M are by definition modules over the Virasoro algebra (that implements
+conformal symmetry),
+L
+in particular they are naturally graded M = h Mh by the (possibly generalized) eigenvalues h of L0 , called conformal weight, energy or scaling dimension.
+We typically require the homogeneous components Mh to be finite-dimensional
+and the degree bounded from below and discrete, then it makes sense to define
+the graded dimension or (maybe somewhat misleading) character 11
+X
+c
+χM (q) = tr(qL0 − 24 ) =
+dim(Mh )qh ,
+h
+
+where q is a formal variable, not to be confused with the root of unity q, and
+c
+q− 24 is a correction factor depending on the central charge of the Virasoro
+algebra. If there are additional gradings, these can be taken into account, for
+example in some cases below we have an action of the abelian Lie algebra h =
+hH1 , . . . , Hn iC , then we consider as character
+X
+c
+dim(Mh,λ )qh z λ ,
+χM (q, z) = tr(qL0 − 24 z H ) =
+h,λ
+
+where λ ∈ h∗ are simultaneous h-eigenvalues and we abbreviate
+z H = z1H1 · · · znHn
+
+and
+
+λ(H1 )
+
+z λ = z1
+
+(λ,ω1 )
+
+· · · znλ(Hn ) = z1
+
+· zn(λ,ωn ) ,
+
+11 In general we have graded characters for the action of an element a of the vertex algebra.
+For a = 1 this reproduces the graded dimension, the cases below correspond to certain a ∈ h.
+In a more general framework, this is what the conformal field theory assigns to a torus, with
+conformal structure given by q, and to a torus with a puncture decorated by a at z. This view
+suggests or explains the transformation behaviour of the former as a modular form and of the
+latter as a Jacobi form.
+
+32
+
+for (−, −) some nondegenerate inner product and ω1 , . . . , ωn a basis dual to
+H1 , . . . , Hn , later the fundamental weights.
+Example 7.1. The Heisenberg vertex algebra F n has modules called Fock modules Fλ for λ ∈ Rn , which are as graded vector space C[a−1 , a−2 , . . .]⊗n eλ .
+Depending on a choice Q ∈ h parametrizing different actions of the Virasoro
+algebra with central charge c = n − 12|Q|2 , the generator eλ has conformal
+2
+2
+weight h = q|λ−Q| −|Q| and the a−k have conformal weight k. Accordingly, the
+character is
+
+n
+X
+2
+2
+1
+1
+χFλ (q, z) = q− 24
+p(k)qk  q|λ−Q| z λ =
+q|λ−Q| z λ ,
+η(q)n
+k≥0
+
+with p(k) the number of partitions of the integer k and η(q) the Dedekind eta
+function.
+The lattice L
+vertex algebra VΛ is a simple current extension of F n and has
+modules Vλ = α∈Λ Fα+λ depending on a coset λ + Λ in the dual lattice Λ∗ .
+Accordingly the character is
+χVλ (q, z) =
+
+1 X |α+λ−Q|2 α+λ
+Θλ (q, z)
+q
+z
+=
+η(q)n
+η(q)n
+α∈Λ
+
+where Θλ (q, z) is a Jacobi theta series.
+The character is not directly multiplicative with respect to the tensor product ⊗V , since for example V is the tensor unit. For rational vertex algebras (i.e.
+category of representations a finite semisimple category), the Verlinde formula
+shows that the quantum dimension
+qdim(M) =
+
+lim
+
+χM (q)
+
+τ →+i∞ χV (q)
+
+q = e2πiτ
+
+,
+
+is a well-defined scalar and multiplicative with respect to ⊗V . For example (with
+z = 1, otherwise we obtain a h∗ -graded dimension)
+qdim(Fλ ) =
+
+2
+
+2
+
+lim q|λ−Q| −|Q | = 1
+
+τ →+i∞
+
+if the inner product is positive definite. Similarly qdim(Vλ ) = 1. For more general vertex algebras, such as Wp (g), a similar behavior is expected. For vertex
+algebras with continuous spectra of simple objects, a notion of regularized quantum dimensions is developed and applied to our setting in [CM17, CMW17].
+In the case of the Feigin-Tipunin algebra Wp (g), the kernel of screenings
+in Section 6.1 for g simply-laced with rank n, there is a beautiful method to
+produce modules (in good cases simple modules, see below) and compute the
+33
+
+graded characters. This approach was suggested in [FT10] Section 6 and done
+in [Sug21] Section 4.4, very useful early computations can be found in [BM17].
+It is inspired by the Borel-Weil-Bott theorem for Lie algebras and we shall now
+describe it briefly:
+Consider the action of the Borel subgroup B on VΛ by so-called long screening operators, take the corresponding bundle ξλ on G/B, and take the cohomology H0 (ξλ ). As announced in [FT10] and proven in [Sug21] Main Theorem
+we have that H0 (ξ0 ) = Wp (g) and H0 (ξλ ) = Wλ coincides with the module
+constructed as kernel of screenings, under a certain condition on λ. Moreover,
+by [Sug21] Corollary 4.11 the higher cohomologies vanish under the following
+assumption (conjecturally: always)
+√
+Assumption 7.2. Assume λ fulfills ( pλ̄ + ρ, θ) ≤ p, where θ is the longest
+root.
+Assumption 7.2 holds for λ̄ = 0 if p ≥ h∨ − 1. Indeed, the Coxeter number
+(which
+Pthe dual Coxeter number in the simply laced case) is h =
+P is equal to
+1 + i mi if θ = i mi αi and the dual Weyl vector (which is equal to the Weyl
+Vector in the simply laced case) has the property (ρ∨ , αi ) = 1.
+In this case the character can be computed by the Lefschetz- or Atiyah-Bott
+fixed point formula, where the fixed points of the action of the Cartan group on
+the flag variety is given by Weyl group elements, see [Sug21] formula (141)-(142)
+and the previous computations in [BM17]:
+X
+c H
+χHk (ξλ ) (q, z) =
+(−1)k trHk (ξλ ) (qL0 − 24 z z H )
+k≥0
+
+=
+
+X
+
+w∈W
+
+c
+
+H
+
+trOG/B (Uw )⊗Vλ (qL0 − 24 z z H )
+
+1 X 21 |√p(α+λ̂+ρ)+λ̄− √1p ρ|2 X
+z w.(α+ρ+λ̂)−ρ
+Q
+q
+−β )
+η(q)n
+β∈Φ+ (g) (1 − z
+w∈W
+α∈Q
+X
+=
+χLg (z)χT√+
+(q)
+=
+
+α∈P+ ∩Q
+
+α+λ̂
+
+pλ̄,α+λ̂
+
+Here Φ+ (g) is the set of positive roots and λ = λ̄ + λ̂ for λ ∈ √1p P is a presentaP
+√
+tion of λ with the unique pP -coset representative of the form λ̄ = √1p i si ωi
+
+1
+with 1 ≤ si ≤ p − 1 and λ̂. The second-to-last line without the factor η(q)
+n
+can be interpreted as a higher rank false theta function. The last computation
+describes how the module H0 (ξλ ) decomposes after restriction into a sum of
+simple modules Lgα+λ̂ module over g times a simple module defined in [AF19]
+over the W-algebra Wp (g), which is the Hamiltonian reduction of the affine Lie
+algebra ĝ. This decomposition is the key to many proofs in [Sug21, Sug23].
+
+Then [Sug23] Theorem 1.1 shows for p ≥ h∨ − 1 that Wp (g) is simple as a
+vertex algebra and in fact all modules Wλ are simple.
+34
+
+7.2
+
+Main proof
+
+[BM17] Theorem 8.1 computes the quantum dimension of these modules in
+lattice degree 0, i.e. as modules over the so-called singlet vertex algebra Wp (g) ∩
+F0 . Note the very useful computation in [BM17] Lemma 6.1, analogous to the
+Weyl dimension formula, which gives the limit z → 1 of the Weyl group sum
+above. Using the modularity of these characters and asymptotic expansions they
+find in [BM17] Theorem 6.2 that the asympotics τ = it → i∞ of the generalized
+false theta function is
+n
+
+η(q) χHk (ξλ ) (q, z) =
+
+dimC (Lg−√pλ̄ )
+p|Φ+ (g)|
+
+√
++ O( t).
+
+From this follows the quantum dimensions
+χHk (ξλ )∩F0 (q, z) = dimC (Lg−√pλ̄ ),
+
+(1)
+
+and in particular χHk (ξ0 )∩F0 (q, z) = 1, as it should be for the tensor unit. On
+the other hand, it becomes clear that over this vertex algebra the Fock module
+has quantum dimension
++
+
+χHk (ξλ )∩F0 (q, z) = p|Φ (g)| .
+
+(2)
+
+Hence we find that, over the singlet algebra and assuming p > h∨ − 1, the
+quantum dimension of A coincides with the dimension of the Nichols algebra
+B(M ) if q is a 2p-to root of unity and g is simply laced. In this case, Theorem 6.6
+reads as follows:
+Theorem 7.3. Let Wp (g) ⊂ VΛ be the Feigin-Tipunin algebra for g simplylaced and p > h∨ − 1. Assume that Rep(Wp (g)) is a braided tensor category,
+such that (at least for A) the quantum dimensions in the vertex algebra sense
+in Formulas (1) and (2) coincides with the Frobenius-Perron dimension in the
+categorical sense. Then we have an equivalence of tensor categories resp. braided
+tensor categories
+DA = Mod(N)(C)
+
+D = ZC (Mod(N)),
+
+where N ∼
+= uq (g)+ is the Nichols algebra associated to the diagonal braiding
+2πi
+qij = q (αi ,αj ) for q = e 2p . This is to say, D is equivalent to representations
+over a (quasi-) quantum group ũq (g).
+
+8
+
+Counterexamples
+
+We want to mention some situation in which the assertion cannot be true and
+which have to be kept in mind for the proofs in this article:
+
+35
+
+Example 8.1. The screening momenta α1 , · · · , αn should fulfill a condition we
+called supolarity on the scalar products (αi , αj ), not merely their exponentials
+qij , see [Len21] Section 5.2. It roughly states that the scalar products are not too
+negative and it ensures the convergence of certain Selberg-type integrals.
+If this is not the case, then the algebra of screening operators Z can be larger
+then the Nichols algebra N(q) with qij = eπi(αi ,αj ) , and in view of Section 5
+necessarily infinite-dimensional. In turn it is to be expected that the kernel-ofscreening vertex algebra is not C2 -cofinite, and one might hope for the category
+of representation to be related to Z instead.
+As concrete examples consider for the logarithmic Kazhdan-Lusztig correspondence the case p = 1 for g = sl3 . We have
+
+
+2 −1
+(αi , αj ) =
+−1 2
+Then z1 , z2 are at the same time long and short screening operators. A quick
+calculation with the usual vertex algebra OPE commutator formula shows that
+they generate roughly U (sl3 )+ in a version with nontrivial symmetric braiding
+NScr = hz1 , z2 | ([z1 , [z1 , z2 ]+ ]− = [z2 , [z2 , z1 ]+ ]− = 0i
+However, this is not the Nichols algebra: We have
+
+
+1 −1
+qij = eπi(αi ,αj ) =
+−1 1
+and hence the Nichols algebra is the q-commutative ring
+B(q) = hx1 , x2 | [x1 , x2 ]+ = 0i
+It differs by the additional primitive element [x1 , x2 ]+ , which is central and of
+infinite order. Accordingly, one can determine the kernel of screenings: it is a
+large non-simple vertex algebra extension of the Virasoro algebra.
+A similar behavior appears if p < 0, in which case the truncation relation
+(zi )pi = 0 is violated and instead is equal to the long screening, see [Len21]
+Section 6.4, and this case also appears hidden in many Lie superalgebras sl(n|m)
+for positive p, see [FL22].
+On the other hand there is examples that are known to be non-rigid and
+cannot fully described by the Nichols algebra in the free field realization
+Example 8.2. The vertex algebra W2,3 is an extension of the Virasoro algebra
+at central charge c = 0 and is the kernel of a single screening operator zα with
+(α, α) = 4/3. It is studied in our context in [RP08, GRW09] (with some parts
+conjectural): It has 13 simple modules. The tensor unit is an indecomposable
+extension
+W(2) → W → W(0),
+36
+
+hence the dual W ∗ is a non-isomorphic indecomposable extension. Some notable
+tensor products are
+W(0) ⊠W W(0) = W(0),
+
+W(0) ⊠W W(h) = 0, h 6= 0,
+
+and in particular the tensor product is not exact. The Grothendieck-ring obtained
+by setting the class [W(0)] = 0 corresponds conjecturally to a quantum group
+uq (sl2 ).
+If we try to apply the method in the present article, we discover that in this
+case the induction functor A ⊗ (−) is not faithful anymore, as it sends W(0)
+to the zero object. It would be reasonable to expect, that our results then prove
+precisely the conjecture in the previous paragraph.
+In principle, all Wp,q should be the rank 1 building blocks of a general kernelof-screening operator algebra, but for the reason discussed we have to restrict
+ourselves to those corresponding to Wp = Wp,1 , whence the condition (α, α) =
+2/p in our main theorem. One would expect that the quantum groups corresponding to p/q and q/p both appear in such a setting, as in the original KazhdanLusztig correspondence.
+Let us also mention that it would be very interesting to study Hopf algebras
+where the coradical is not a Hopf subalgebra.
+
+References
+[Kas98] Ch. Kassel, Quantum groups, Algebra and operator theory (Tashkent, 1997),
+Kluwer Acad. Publ., Dordrecht, 1998, pp. 213–236 (Spanish, with English summary). MR1643398 ↑3
+[Kac97] V. Kac, Vertex algebras for beginners, University Lecture Series, vol. 10, American
+Mathematical Society, Providence, RI, 1997. MR1417941 ↑2
+[FBZ04] E. Frenkel and D. Ben-Zvi, Vertex algebras and algebraic curves, 2nd ed., Mathematical Surveys and Monographs, vol. 88, American Mathematical Society, Providence, RI, 2004. MR2082709 ↑2
+[Gan06] T. Gannon, Moonshine beyond the Monster, Cambridge Monographs on Mathematical Physics, Cambridge University Press, Cambridge, 2006. The bridge connecting algebra, modular forms and physics. MR2257727 ↑2
+[KL93] D. Kazhdan and G. Lusztig, Tensor structures arising from affine Lie algebras. I,
+II, J. Amer. Math. Soc. 6 (1993), no. 4, 905–947, 949–1011, DOI 10.2307/2152745.
+MR1186962 ↑3
+[Lus89] G. Lusztig, Modular representations and quantum groups, Classical groups and
+related topics (Beijing, 1987), Contemp. Math., vol. 82, Amer. Math. Soc., Providence, RI, 1989, pp. 59–77, DOI 10.1090/conm/082/982278. MR0982278 ↑3
+[FGST06] B. L. Feĭgin, A. M. Gaĭnutdinov, A. M. Semikhatov, and I. Yu. Tipunin, The
+Kazhdan-Lusztig correspondence for the representation category of the triplet
+W -algebra in logorithmic conformal field theories, Teoret. Mat. Fiz. 148 (2006),
+no. 3, 398–427, DOI 10.1007/s11232-006-0113-6 (Russian, with Russian summary); English transl., Theoret. and Math. Phys. 148 (2006), no. 3, 1210–1235.
+MR2283660 ↑3, 4, 28
+
+37
+
+[AM08] D. Adamović and A. Milas, On the triplet vertex algebra W(p), Adv. Math. 217
+(2008), no. 6, 2664–2699, DOI 10.1016/j.aim.2007.11.012. MR2397463 ↑28
+[TW13] A. Tsuchiya and S. Wood, The tensor structure on the representation category of the Wp triplet algebra, J. Phys. A 46 (2013), no. 44, 445203, 40,
+DOI 10.1088/1751-8113/46/44/445203 . MR3120909 ↑28
+[CLR21] T. Creutzig, S. Lentner, and M. Rupert, Characterizing braided tensor categories
+associated to logarithmic vertex operator algebras (2021), arXiv 2104.13262 ↑28
+[GN23] T. Gannon and C. Negron, Quantum SL(2) and logarithmic vertex operator algebras at (p, 1)-central charge (2023), arXiv 2104.12821 archiveprefix=arXiv ↑28
+[Dri89] V. G. Drinfel′d, Quasi-Hopf algebras, Algebra i Analiz 1 (1989), no. 6, 114–
+148 (Russian); English transl., Leningrad Math. J. 1 (1990), no. 6, 1419–1457.
+MR1047964 ↑3
+[CLR23] T. Creutzig, S. Lentner, and M. Rupert, An algebraic theory for logarithmic
+Kazhdan-Lusztig correspondences (2023), arXiv 2306.11492 ↑3, 4, 5, 8, 12, 17,
+18, 20, 21, 28, 31
+[FT10] B. Feigin and I. Tipunin, Logarithmic CFTs connected with simple Lie algebras
+(2010), arXiv 1002.5047 ↑3, 4, 10, 28, 34
+[AM14] D. Adamović and A. Milas, C2 -cofinite W-algebras and their logarithmic representations, Conformal field theories and tensor categories, Math. Lect. Peking
+Univ., Springer, Heidelberg, 2014, pp. 249–270. MR3585369 ↑3, 4
+[ST12] A. M. Semikhatov and I. Yu. Tipunin, The Nichols algebra of screenings, Commun. Contemp. Math. 14 (2012), no. 4, 1250029, 66,
+DOI 10.1142/S0219199712500290 . MR2965674 ↑4
+[Len21] S. D. Lentner, Quantum groups and Nichols algebras acting on conformal field theories, Adv. Math. 378 (2021), Paper No. 107517, 71,
+DOI 10.1016/j.aim.2020.107517. MR4184294 ↑3, 4, 6, 28, 36
+[Sug21] S. Sugimoto, On the Feigin-Tipunin conjecture, Selecta Math. (N.S.) 27 (2021),
+no. 5, Paper No. 86, 43, DOI 10.1007/s00029-021-00662-1. MR4305499 ↑3, 4, 10,
+34
+[Sug23]
+
+, Simplicity of higher rank triplet W -algebras, Int. Math. Res. Not. IMRN
+8 (2023), 7169–7199, DOI 10.1093/imrn/rnac189. MR4574397 ↑34
+
+[FLM88] I. Frenkel, J. Lepowsky, and A. Meurman, Vertex operator algebras and the Monster, Pure and Applied Mathematics, vol. 134, Academic Press, Inc., Boston, MA,
+1988. MR0996026 ↑6
+[DL96] C. Dong and J. Lepowsky, The algebraic structure of relative twisted
+vertex operators, J. Pure Appl. Algebra 110 (1996), no. 3, 259–295,
+DOI 10.1016/0022-4049(95)00095-X. MR1393116 ↑6
+[DLM96] C. Dong, H. Li, and G. Mason, Simple currents and extensions of vertex operator
+algebras, Comm. Math. Phys. 180 (1996), no. 3, 671–707. MR1408523 ↑6, 7
+[HL94] Y.-Z. Huang and J. Lepowsky, Tensor products of modules for a vertex operator algebra and vertex tensor categories, Lie theory and geometry,
+Progr. Math., vol. 123, Birkhäuser Boston, Boston, MA, 1994, pp. 349–383,
+DOI 10.1007/978-1-4612-0261-5 13. MR1327541 ↑2
+[HLZ06] Y.-Z. Huang, J. Lepowsky, and L. Zhang, A logarithmic generalization of tensor
+product theory for modules for a vertex operator algebra, Internat. J. Math. 17
+(2006), no. 8, 975–1012, DOI 10.1142/S0129167X06003758. MR2261644 ↑2, 4, 6
+[CY21] T. Creutzig and J. Yang, Tensor categories of affine Lie algebras beyond admissible levels, Math. Ann. 380 (2021), no. 3-4, 1991–2040,
+DOI 10.1007/s00208-021-02159-w. MR4297204 ↑4
+[CJOH+ 21] T. Creutzig, C. Jiang, F. Orosz Hunziker, D. Ridout, and J. Yang, Tensor categories arising from the Virasoro algebra, Adv. Math. 380 (2021), Paper No.
+107601, 35, DOI 10.1016/j.aim.2021.107601. MR4205114 ↑4
+
+38
+
+[McR24] R. McRae, A general mirror equivalence theorem for coset vertex
+operator algebras, Sci. China Math. 67 (2024), no. 10, 2237–2282,
+DOI 10.1007/s11425-022-2181-0. MR4794620 ↑4
+[CMY22] T. Creutzig, R. McRae, and J. Yang, Tensor structure on the Kazhdan-Lusztig
+category for affine gl(1|1), Int. Math. Res. Not. IMRN 16 (2022), 12462–12515,
+DOI 10.1093/imrn/rnab080. MR4466006 ↑4
+[CMY23]
+
+, Ribbon tensor structure on the full representation categories of
+the singlet vertex algebras, Adv. Math. 413 (2023), Paper No. 108828, 79,
+DOI 10.1016/j.aim.2022.108828. MR4526492 ↑4
+
+[NORW24] H. Nakano, F. Orosz Hunziker, A. Ros Camacho, and S. Wood, Fusion rules and
+rigidity for weight modules over the simple admissible affine sl(2) and N = 2
+superconformal vertex operator superalgebras (2024), arXiv 2411.11387 ↑4
+[Sch01] P. Schauenburg, The monoidal center construction and bimodules, J. Pure
+Appl. Algebra 158 (2001), no. 2-3, 325–346, DOI 10.1016/S0022-4049(00)00040-2.
+MR1822847 ↑5, 17
+[CSZ25] K. Coulembier, M. Stroinski, and T. Zorman, Simple algebras and exact module
+categories (2025), arXiv 2501.06629 ↑5, 13, 24
+[CGR20] T. Creutzig, A. M. Gainutdinov, and I. Runkel, A quasi-Hopf algebra for the
+triplet vertex operator algebra, Commun. Contemp. Math. 22 (2020), no. 3,
+1950024, 71, DOI 10.1142/S021919971950024X. MR4082225 ↑6, 19, 28
+[GLO18] A. M. Gainutdinov, S. D. Lentner, and T. Ohrmann, Modularization of small
+quantum groups (2018), arXiv 1809.02116 ↑6, 19
+[Neg21] C. Negron, Log-modular quantum groups at even roots of unity and the
+quantum Frobenius I, Comm. Math. Phys. 382 (2021), no. 2, 773–814,
+DOI 10.1007/s00220-021-04012-2. MR4227163 ↑6, 19
+[Li97] H. Li, The physics superselection principle in vertex operator algebra theory, J.
+Algebra 196 (1997), no. 2, 436–457, DOI 10.1006/jabr.1997.7126. MR1475118 ↑7
+[FFH+ 02] J. Fjelstad, J. Fuchs, S. Hwang, A. M. Semikhatov, and I. Yu. Tipunin, Logarithmic conformal field theories via logarithmic deformations, Nuclear Phys. B 633
+(2002), no. 3, 379–413, DOI 10.1016/S0550-3213(02)00220-1. MR1910269 ↑7
+[AM09] D. Adamović and A. Milas, Lattice construction of logarithmic modules for
+certain vertex algebras, Selecta Math. (N.S.) 15 (2009), no. 4, 535–561,
+DOI 10.1007/s00029-009-0009-z. MR2565050 ↑7
+[Hua10] Y.-Z. Huang, Generalized twisted modules associated to general automorphisms
+of a vertex operator algebra, Comm. Math. Phys. 298 (2010), no. 1, 265–292,
+DOI 10.1007/s00220-010-0999-6. MR2657819 ↑
+[EGNO15] P. Etingof, S. Gelaki, D. Nikshych, and V. Ostrik, monoidal categories, Mathematical Surveys and Monographs, vol. 205, American Mathematical Society,
+Providence, RI, 2015. MR3242743 ↑2, 5, 11, 12, 16, 23, 24
+[Mac52] S. MacLane, Cohomology theory of Abelian groups, Proceedings of the International Congress of Mathematicians, Cambridge, Mass., 1950, vol. 2, Amer. Math.
+Soc., Providence, RI, 1952, pp. 8–14. MR0045115 ↑11, 12
+[JS93] A. Joyal and R. Street, Braided tensor categories, Adv. Math. 102 (1993), no. 1,
+20–78, DOI 10.1006/aima.1993.1055. MR1250465 ↑12
+[DL93] C. Dong and J. Lepowsky, Generalized vertex algebras and relative vertex operators, Progress in Mathematics, vol. 112, Birkhäuser Boston, Inc., Boston, MA,
+1993. MR1233387 ↑14
+[GLM24] C. Galindo, S. D. Lentner, and S. Möller, Computing G-Crossed Extensions and
+Orbifolds of Vertex Operator Algebras (2024), arXiv 2409.16357 ↑14
+[CMY21] T. Creutzig, R. McRae, and J. Yang, On ribbon categories for singlet vertex algebras, Comm. Math. Phys. 387 (2021), no. 2, 865–925,
+DOI 10.1007/s00220-021-04097-9. MR4315663 ↑4, 14
+
+39
+
+[BD13] M. Boyarchenko and V. Drinfeld, A duality formalism in the spirit of
+Grothendieck and Verdier, Quantum Topol. 4 (2013), no. 4, 447–489,
+DOI 10.4171/QT/45. MR3134025 ↑11
+[ALSW21] R. Allen, S. D. Lentner, C. Schweigert, and S. Wood, Duality structures for
+module categories of vertex operator algebras and the Feigin Fuchs boson (2021),
+arXiv 2107.05718 ↑11
+[FSSW23] J. Fuchs, G. Schaumann, C. Schweigert, and S. Wood, Grothendieck-Verdier duality in categories of bimodules and weak module functors (2023), arXiv 2306.17668
+↑
+[FSSW24]
+
+, Grothendieck-Verdier module categories, Frobenius algebras and relative
+Serre functors (2024), arXiv 2405.20811 ↑11
+
+[Lau20] R. Laugwitz, The relative monoidal center and tensor products of monoidal
+categories, Commun. Contemp. Math. 22 (2020), no. 8, 1950068, 53,
+DOI 10.1142/S0219199719500688 . MR4142329 ↑5, 17, 18, 19
+[LW22] R. Laugwitz and C. Walton, Constructing non-semisimple modular categories
+with relative monoidal centers, Int. Math. Res. Not. IMRN 20 (2022), 15826–
+15868, DOI 10.1093/imrn/rnab097. MR4498166 ↑5, 17, 18
+[LW23]
+
+,
+Constructing non-semisimple modular
+categories
+cal modules, Comm. Math. Phys. 403 (2023), no. 3,
+DOI 10.1007/s00220-023-04824-4. MR4652904 ↑16
+
+with lo1363–1409,
+
+[Mac71] S. MacLane, Categories for the working mathematician, Graduate Texts in Mathematics, vol. Vol. 5, Springer-Verlag, New York-Berlin, 1971. MR0354798 ↑
+[Rie16] E. Riehl, Category theory in context, Aurora Dover Modern Math Originals,
+Dover Publications, Inc., Mineola, NY, 2016. MR4727501 ↑
+[BV07] A. Bruguières and A. Virelizier, Hopf monads, Adv. Math. 215 (2007), no. 2,
+679–733, DOI 10.1016/j.aim.2007.04.011. MR2355605 ↑
+[See92] R. A. G. Seely (ed.), Category theory 1991, CMS Conference Proceedings, vol. 13,
+American Mathematical Society, Providence, RI; for the Canadian Mathematical
+Society, Ottawa, ON, 1992. Edited by R. A. G. Seely. MR1192136 ↑
+[BLV11] A. Bruguières, S. Lack, and A. Virelizier, Hopf monads on monoidal categories, Adv. Math. 227 (2011), no. 2, 745–800, DOI 10.1016/j.aim.2011.02.008.
+MR2793022 ↑
+[Dav10] A. Davydov, Centre of an algebra, Adv. Math. 225 (2010), no. 1, 319–348,
+DOI 10.1016/j.aim.2010.02.018. MR2669355 ↑
+[LW21] R. Laugwitz and C. Walton, Braided commutative algebras over quantized enveloping algebras, Transform. Groups 26 (2021), no. 3, 957–993,
+DOI 10.1007/s00031-020-09599-9. MR4309556 ↑5
+[SY24] K. Shimizu and H. Yadav, Commutative exact algebras and modular monoidal
+categories (2024), arXiv arXiv:2408.06314 ↑5, 13, 16, 18
+[BMMC24] N. Bortolussi, M. Mombelli, and A. Mejia Castano, Central Hopf Monads and
+Braided Commutative Algebras (2024), arXiv arXiv:2409.01918 ↑18
+[EO04] P. Etingof and V. Ostrik, Finite tensor categories, Mosc. Math. J. 4 (2004), no. 3,
+627–654, 782–783, DOI 10.17323/1609-4514-2004-4-3-627-654 (English, with English and Russian summaries). MR2119143 ↑13
+[EO21] P. Etingof and V. Ostrik, On the Frobenius functor for symmetric tensor categories in positive characteristic, J. Reine Angew. Math. 773 (2021), 165–198,
+DOI 10.1515/crelle-2020-0033. MR4237968 ↑5, 13
+[CMSY24] T. Creutzig, R. McRae, K. Shimizu, and H. Yadav, Commutative algebras in
+Grothendieck-Verdier categories, rigidity, and vertex operator algebras (2024),
+arXiv 2409.14618 ↑4, 5, 10, 11, 13, 18, 21
+
+40
+
+[Dri87] V. G. Drinfel′d, Quantum groups, Proceedings of the International Congress of
+Mathematicians, Vol. 1, 2 (Berkeley, Calif., 1986), Amer. Math. Soc., Providence,
+RI, 1987, pp. 798–820. MR0934283 ↑18
+[Maj98] S. Majid, Quantum double for quasi-Hopf algebras, Lett. Math. Phys. 45 (1998),
+no. 1, 1–9, DOI 10.1023/A:1007450123281. MR1631648 ↑18
+[AG03] S. Arkhipov and D. Gaitsgory, Another realization of the category of modules over the small quantum group, Adv. Math. 173 (2003), no. 1, 114–143,
+DOI 10.1016/S0001-8708(02)00016-6. MR1954457 ↑18
+[ML24] M. Mombelli and S. Lentner, Fibre functors and reconstruction of Hopf algebras
+(2024), arXiv arXiv:2311.14221 ↑3, 7, 10, 11, 20
+[CN24] T. Creutzig and W. Niu, Kazhdan-Lusztig Correspondence for Vertex Operator
+Superalgebras from Abelian Gauge Theories (2024), arXiv arXiv:2403.02403 ↑7,
+21
+[Zim14] A. Zimmermann, Representation theory, Algebra and Applications, vol. 19,
+Springer, Cham, 2014. A homological algebra point of view. MR3289041 ↑7,
+8, 24
+[Hec06] I. Heckenberger, The Weyl groupoid of a Nichols algebra of diagonal type, Invent.
+Math. 164 (2006), no. 1, 175–188, DOI 10.1007/s00222-005-0474-8. MR2207786
+↑9
+[Hec09]
+
+, Classification of arithmetic root systems, Adv. Math. 220 (2009), no. 1,
+59–124, DOI 10.1016/j.aim.2008.08.005. MR2462836 ↑9, 26
+
+[AHS10] N. Andruskiewitsch, I. Heckenberger, and H.-J. Schneider, The Nichols algebra
+of a semisimple Yetter-Drinfeld module, Amer. J. Math. 132 (2010), no. 6, 1493–
+1547. MR2766176 ↑9
+[CH15] M. Cuntz and I. Heckenberger, Finite Weyl groupoids, J. Reine Angew. Math.
+702 (2015), 77–108, DOI 10.1515/crelle-2013-0033. MR3341467 ↑9
+[HS20] I. Heckenberger and H.-J. Schneider, Hopf algebras and root systems, Mathematical Surveys and Monographs, vol. 247, American Mathematical Society, Providence, RI, 2020. MR4164719 ↑5, 24
+[AS10] N. Andruskiewitsch and H.-J. Schneider, On the classification of finitedimensional pointed Hopf algebras, Ann. of Math. (2) 171 (2010), no. 1, 375–417,
+DOI 10.4007/annals.2010.171.375. MR2630042 ↑5, 9, 25
+[AY15] I. Angiono and H. Yamane, The R-matrix of quantum doubles of Nichols
+algebras of diagonal type, J. Math. Phys. 56 (2015), no. 2, 021702, 19,
+DOI 10.1063/1.4907379. MR3390862 ↑4
+[AA17] N. Andruskiewitsch and I. Angiono, On finite dimensional Nichols algebras of diagonal type, Bull. Math. Sci. 7 (2017), no. 3, 353–573,
+DOI 10.1007/s13373-017-0113-x. MR3736568 ↑9, 28
+[AGI19] I. Angiono and A. Garcia Iglesias, Pointed Hopf algebras: a guided tour to the
+liftings, Rev. Colombiana Mat. 53 (2019), 1–44. MR4053365 ↑25, 26
+[Hec10] I. Heckenberger, Lusztig isomorphisms for Drinfel′d doubles of bosonizations
+of Nichols algebras of diagonal type, J. Algebra 323 (2010), no. 8, 2130–2182,
+DOI 10.1016/j.jalgebra.2010.02.013. MR2596372 ↑4
+[AG17] I. Angiono and C. Galindo, Pointed finite tensor categories over
+abelian groups, Internat. J. Math. 28 (2017), no. 11, 1750087, 18,
+DOI 10.1142/S0129167X17500872. MR3714361 ↑8, 26
+[Ang13] I. Angiono, On Nichols algebras of diagonal type, J. Reine Angew. Math. 683
+(2013), 189–251, DOI 10.1515/crelle-2011-0008. MR3181554 ↑8, 26, 27
+[AGI11] I. Angiono and A. Garcia Iglesias, Pointed Hopf algebras with standard braiding are generated in degree one, Groups, algebras and applications, Contemp. Math., vol. 537, Amer. Math. Soc., Providence, RI, 2011, pp. 57–70,
+DOI 10.1090/conm/537/10566. MR2799091 ↑
+
+41
+
+[MW09] M. Mastnak and S. Witherspoon, Bialgebra cohomology, pointed Hopf algebras, and deformations, J. Pure Appl. Algebra 213 (2009), no. 7, 1399–1417,
+DOI 10.1016/j.jpaa.2008.12.004. MR2497585 ↑26
+[AKM15] I. Angiono, M. Kochetov, and M. Mastnak, On rigidity of Nichols
+algebras, J. Pure Appl. Algebra 219 (2015), no. 12, 5539–5559,
+DOI 10.1016/j.jpaa.2015.05.032. MR3390038 ↑8, 26
+[Mon93] S. Montgomery, Hopf algebras and their actions on rings, CBMS Regional Conference Series in Mathematics, vol. 82, Conference Board of the Mathematical
+Sciences, Washington, DC; by the American Mathematical Society, Providence,
+RI, 1993. MR1243637 ↑10, 27
+[Len16] S. Lentner, A Frobenius homomorphism for Lusztig’s quantum groups for arbitrary roots of unity, Commun. Contemp. Math. 18 (2016), no. 3, 1550040, 42,
+DOI 10.1142/S0219199715500406 . MR3477402 ↑28
+[HKL15] Y.-Z. Huang, A. Kirillov Jr., and J. Lepowsky, Braided tensor categories and
+extensions of vertex operator algebras, Comm. Math. Phys. 337 (2015), no. 3,
+1143–1159, DOI 10.1007/s00220-015-2292-1. MR3339173 ↑28
+[CKM24] T. Creutzig, S. Kanade, and R. McRae, Tensor categories for vertex operator
+superalgebra extensions, Mem. Amer. Math. Soc. 295 (2024), no. 1472, vi+181,
+DOI 10.1090/memo/1472. MR4720880 ↑12, 13, 28
+[AF19] T. Arakawa and E. Frenkel, Quantum Langlands duality of representations of W-algebras, Compos. Math. 155 (2019), no. 12, 2235–2262,
+DOI 10.1112/s0010437x19007553. MR4016057 ↑34
+[BM17] K. Bringmann and A. Milas, W -algebras, higher rank false theta functions,
+and quantum dimensions, Selecta Math. (N.S.) 23 (2017), no. 2, 1249–1278,
+DOI 10.1007/s00029-016-0289-z. MR3624911 ↑4, 10, 34, 35
+[CMW17] T. Creutzig, A. Milas, and S. Wood, On regularised quantum dimensions of the
+singlet vertex operator algebra and false theta functions, Int. Math. Res. Not.
+IMRN 5 (2017), 1390–1432, DOI 10.1093/imrn/rnw037. MR3658169 ↑33
+[CM17] T. Creutzig and A. Milas, Higher rank partial and false theta functions and representation theory, Adv. Math. 314 (2017), 203–227,
+DOI 10.1016/j.aim.2017.04.027. MR3658716 ↑33
+[MS23] R. McRae and V. Sopin, Fusion and (non)-rigidity of Virasoro Kac modules in logarithmic minimal models at (p,q)-central charge (2023), arXiv
+arXiv:2302.08907 ↑32
+[FFRS06] J. Fröhlich, J. Fuchs, I. Runkel, and C. Schweigert, Correspondences of ribbon categories, Adv. Math. 199 (2006), no. 1, 192–329, DOI 10.1016/j.aim.2005.04.007.
+MR2187404 ↑12
+[FL22] I. Flandoli and S. D. Lentner, Algebras of non-local screenings and diagonal
+Nichols algebras, SIGMA Symmetry Integrability Geom. Methods Appl. 18
+(2022), Paper No. 018, 81, DOI 10.3842/SIGMA.2022.018. MR4392114 ↑9, 36
+[RP08] J. Rasmussen and P. A. Pearce, W-extended fusion algebra of critical percolation,
+J. Phys. A 41 (2008), no. 29, 295208, 30, DOI 10.1088/1751-8113/41/29/295208.
+MR2455281 ↑36
+[GRW09] M. R. Gaberdiel, I. Runkel, and S. Wood, Fusion rules and boundary conditions in the c = 0 triplet model, J. Phys. A 42 (2009), no. 32, 325403, 43,
+DOI 10.1088/1751-8113/42/32/325403 . MR2525862 ↑36
+
+42
+
+

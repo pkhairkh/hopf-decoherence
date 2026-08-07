@@ -1,0 +1,2076 @@
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF
+BOSONIZATIONS
+
+arXiv:2506.05267v1 [math.QA] 5 Jun 2025
+
+NICOLÁS ANDRUSKIEWITSCH, DAVID JAKLITSCH, VAN C. NGUYEN, AMREI OSWALD,
+JULIA PLAVNIK, ANNE V. SHEPLER, AND XINGTING WANG
+Abstract. We use deformation sequences of (Hopf) algebras, extending the results of
+Negron and Pevtsova, to show that bosonizations of some suitable braided Hopf algebras
+by some suitable finite-dimensional Hopf algebras have finitely generated cohomology. In
+fact, our results are shown in more generality for smash products. As applications, we
+prove the bosonizations of some Nichols algebras (such as Nichols algebras of diagonal
+type, the restricted Jordan plane, Nichols algebras of direct sums of Jordan blocks plus
+points labeled with 1), by some suitable finite-dimensional Hopf algebras, have finitely
+generated cohomology, recovering some known results as well as providing new examples.
+
+1. Introduction
+1.1. The context. Let k be a field, which we may assume algebraically closed by [36,
+Lemma 3.1]. In this paper, we contribute to the Etingof–Ostrik conjecture on the finite
+generation of the cohomology rings of finite tensor categories [21], cf. also [23]. We shall
+say that a finite-dimensional Hopf algebra H over k has finitely generated cohomology, fgc
+for short, if
+L
+(fgc1) the cohomology ring H(H, k) = n∈N0 ExtnH (k, k) is finitely generated, and
+L
+n
+(fgc2) H(H, M ) =
+n∈N0 ExtH (k, M ) is a finitely generated H(H, k)-module, for any
+finitely generated H-module M .
+For a finite tensor category C, the fgc property can be formulated by replacing k with the
+monoidal unit 1. See [5, Section 1.1] for background and references to the previous work.
+Notice that for defining the cohomology ring, and thus the fgc property, it is enough to
+consider an augmented algebra, i.e., a k-algebra R together with an algebra map ϵR : R → k.
+One possible approach to the conjecture is to argue recursively, that is, to reduce it to
+smaller algebras that have fgc. For example let us consider the bosonization R#K where
+K is a finite-dimensional Hopf algebra and R is a finite-dimensional Hopf algebra in the
+category K
+K YD of Yetter-Drinfeld modules over K, see [38]. If the Hopf algebra R#K has
+fgc, then both K and R have fgc by [5, Theorem 3.2.1]. It is natural to raise the following
+question.
+Question 1.1. [9, Section 4.1] Let K be a finite-dimensional Hopf algebra and R a finitedimensional Hopf algebra in K
+K YD. If K and R have fgc, does the bosonization R#K also
+have fgc?
+2020 Mathematics Subject Classification. 16T05; 16E40; 18M05.
+Date: June 9, 2025.
+1
+
+2
+
+ANDRUSKIEWITSCH ET. AL.
+
+Summarizing previous contributions and results in the present paper, we know now that
+Question 1.1 has a positive answer in the following cases:
+(a) By [5, 9], when K = kG, G is a finite group and char k does not divide |G|; and R
+has fgc. See Theorem 2.11.
+(b) By [5, 9], when K = kG := Hom(kG, k), G is a finite group; and R has fgc. See
+Theorem 2.11.
+(c) By [33], when K is cocommutative and R is its k-dual K ∗ where K acts on K ∗ by
+the coadjoint action. Indeed, it is well-known that K ∗ #K ∼
+= D(K), the Drinfeld
+double of K.
+(d) When K is semisimple and R admits a deformation sequence. See Theorem 3.8.
+(e) When K is cocommutative and R admits a K-equivariant deformation sequence.
+See Theorem 4.11.
+(f) When K admits a deformation sequence C and R admits a C-equivariant deformation
+sequence. See Theorem 5.9.
+1.2. The main results and terminology. In this paper, we contribute to Question 1.1
+based on the concept of deformation sequence. Since several variations of this notion are
+used, we list them below. The terminology comes from [33], although the meaning is
+slightly different. We start with the notions discussed in Section 3.
+ι
+
+π
+
+◦ A deformation sequence is a pair of algebra maps Z ,→ Q ↠ R satisfying the seven
+conditions in Definition 3.1; particularly Q has finite global dimension and is module
+finite over the smooth central subalgebra Z, while R is finite-dimensional. We say
+π
+ι
+that R admits a deformation sequence Z ,→ Q ↠ R if such one exists.
+◦ Closely related to the previous concept, a formal deformation sequence is a pair of
+π
+ι
+b↠
+R as in Definition 3.4.
+algebra maps k[[x1 , · · · , xn ]] ,→ Q
+Any deformation sequence gives rise to a formal one, see Lemma 3.6. Formal deformation
+sequences are instrumental to prove that algebras admitting a deformation sequence have
+fgc, a result from [34] summarized here in Theorem 3.7. Using ideas of the proof, we get
+our first result:
+Theorem 3.8. Let K be a semisimple Hopf algebra and R a finite-dimensional augmented
+K-module algebra. If R admits a deformation sequence, then the smash product R ⋊ K has
+fgc.
+We then follow two slightly different paths from [33]. First, we fix a finite-dimensional
+Hopf algebra K in Section 4 and consider the following notion.
+◦ An equivariant deformation sequence over a finite-dimensional Hopf algebra K is
+a deformation sequence whose components are K-module algebras and the pair of
+maps in the sequence are K-linear.
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+3
+
+By a careful analysis of the proof of [33], we prove in Section 4 our second result:
+Theorem 4.11. If K is a finite-dimensional cocommutative Hopf algebra and R is an
+augmented K-module algebra that admits a K-equivariant deformation sequence, then the
+smash product R ⋊ K has fgc.
+Second, we introduce in Section 5 an alternative notion:
+◦ A deformation sequence of Hopf algebras is a deformation sequence that is a central
+extension of Hopf algebras, see Definition 5.1 for the precise formulation.
+We then study the smash products of deformation sequences and prove our third result:
+Theorem 5.9. Let K be a finite-dimensional Hopf algebra. If K admits a deformation
+sequence C of Hopf algebras and R is a finite-dimensional algebra admitting a C-equivariant
+deformation sequence, then the smash product R ⋊ K has fgc.
+1.3. Applications. We finish the paper with Section 6 to provide examples of Hopf algebras that satisfy the hypotheses of our results, consequently obtain fgc property for
+these algebras. Concretely, we first discuss in Subsection 6.1 Nichols algebras as the class
+of braided Hopf algebras that are suitable for the applicability of our results. Then we
+consider:
+⋄ Quantum lines, a simple example to illustrate our techniques. See Subsection 6.2.
+⋄ Quantum linear spaces, the next level of complexity. See Subsection 6.3.
+⋄ Nichols algebras of diagonal type. We show that the techniques of the present paper
+apply to Cartan type (up to a small technical condition) but do not seem to work
+for the other types. See Subsection 6.4.
+⋄ The restricted Jordan plane. See Subsection 6.5.
+⋄ A class of Nichols algebras introduced in [3] that have fgc by [9]. See Subsection
+6.6.
+For all the Nichols algebras sketched above, we recover bosonizations known to have fgc
+(most of the time with new proofs) and obtain new examples of bosonizations having fgc.
+We close this introduction by pointing out that since we are addressing readers with
+expertise in Hopf algebras or in homological algebra, we included details of a few wellknown definitions or proofs to reach both communities.
+1.4. Notations and conventions. Throughout, let k be a base field of any characteristic, unless specified. We take all tensor products over k unless otherwise indicated. We
+abbreviate algebra for k-algebra and affine K-algebra for finitely generated algebra over a
+commutative ring K. We say an algebra is flat over a subalgebra if it is flat asL
+a module
+n
+via (left) multiplication over that subalgebra. We say a graded algebra A =
+n∈N0 A
+is connected if A0 ∼
+= k. We denote by AH the invariant subring of an algebra A under a
+suitable action of a Hopf algebra H.
+For any Hopf algebra H with coproduct ∆, we use Sweedler’s notation for the comultiplicative structure, with the summation notation being suppressed, writing ∆(h) =
+
+4
+
+ANDRUSKIEWITSCH ET. AL.
+
+h(1) ⊗ h(2) ∈ H ⊗ H for any h ∈ H. We write ϵH for the counit of a Hopf algebra, or a
+coalgebra, H.
+2. Preliminaries
+Our references for Hopf algebras and Nichols algebras are [38] and [1], respectively. We
+recall some well-known facts.
+2.1. Smash products and bosonizations. Let H be a Hopf algebra. An H-module
+algebra is an algebra R which is also a left H-module and satisfies
+h · (xy) = (h(1) · x)(h(2) · y),
+
+for all h ∈ H, x, y ∈ R.
+
+The smash product R ⋊ H is the vector space R ⊗ H with the multiplication
+(x ⊗ h)(y ⊗ t) = x(h(1) · y) ⊗ h(2) t,
+
+for all h, t ∈ H, x, y ∈ R.
+
+We shall omit the tensor product symbol in the calculations below and record for later use
+a result whose proof is straightforward.
+Lemma 2.1. Let φ : H → K be a morphism of Hopf algebras, R an H-module algebra, S
+a K-module algebra and ξ : R → S a morphism of algebras that satisfies
+ξ(h · x) = φ(h) · ξ(x),
+
+for all h ∈ H, x ∈ R.
+
+Then ξ ⋊ φ : R ⋊ H → S ⋊ K, xh 7→ ξ(x)φ(h), is an algebra map.
+
+□
+
+An H-module algebra R is augmented if the algebra R has an augmentation ϵR such
+that ϵR (h · x) = ϵH (h)ϵR (x), for h ∈ H, r ∈ R.
+Example 2.2. Recall that the action of H on a module M is trivial if h · x = ϵ(h)x for all
+h ∈ H and x ∈ M . An (augmented) algebra R becomes an (augmented) H-module algebra
+with the trivial action; any subalgebra of R is an (augmented) H-module subalgebra.
+Now let R be a Hopf algebra in the category H
+H YD of Yetter-Drinfeld modules over
+H. Then the bosonization R#H of R by H (aka Radford biproduct) is the vector space
+R ⊗ H with the smash product multiplication and the smash product comultiplication; see
+[38, Chapter 11] for details.
+Remark 2.3. The bosonization R#H is a Hopf algebra, which contains R as a subalgebra
+π
+
+and H as a Hopf subalgebra, provided with Hopf algebra maps R#H ⇄ H satisfying
+ι
+
+πι = idH . Thus, when R and H are both finite-dimensional, our results in this paper on
+the fgc property of R#H contribute to the Etingof–Ostrik conjecture.
+π
+
+Conversely, given a Hopf algebra A and Hopf algebra maps A ⇄ H with πι = idH , it
+ι
+
+∼
+turns out that R = Aco π is a Hopf algebra in H
+H YD and A = R#H as Hopf algebras.
+Remark 2.4. We use the symbol ⋊ for general smash product and reserve the symbol #
+for the bosonization.
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+5
+
+2.2. Extensions. Extensions of Hopf algebras were discussed by various authors in various
+contexts. We follow the expositions in [7, 40].
+Definition 2.5. A sequence of morphisms of Hopf algebras
+/W ȷ /H ℘ /K
+
+k
+
+/k,
+
+is exact, in which case we say that H is an extension of K by W , if
+(a) ȷ is injective, and we identify W with ȷ(W ),
+(b) ℘ is surjective,
+(c) ker ℘ = H W + , for W + = ker ϵW and
+(d) W = H co ℘ .
+℘
+
+ȷ
+
+We often abbreviate W ,→ H ↠ K for an exact sequence k
+
+/W ȷ /H ℘ /K
+
+/k.
+
+ȷ
+
+Remark 2.6. Let W ,−
+→ H be an injective morphism of Hopf algebras such that H is a
+faithfully flat W -module via ȷ and ȷ(W ) is stable by the left adjoint action of H. Define K
+℘
+
+by (c), i.e., K = H/Hȷ(W )+ and let H ↠ K be the natural projection. Then (d) holds,
+ȷ
+
+℘
+
+we have an exact sequence W ,→ H ↠ K, and H is a faithfully coflat K-comodule via ℘,
+see [7, Corollaries 1.2.5 and 1.2.14] and [40].
+℘
+
+Remark 2.7. Let H ↠ K be a surjective morphism of Hopf algebras such that H is a
+ȷ
+faithfully coflat K-comodule via ℘. Define W by (d), i.e., W = H co ℘ and let W ,−
+→ H be
+the natural inclusion, ȷ(W ) is stable by the left adjoint action of H. Then (c) holds, and
+ȷ
+
+℘
+
+we have an exact sequence W ,→ H ↠ K, see [7, Corollary 1.2.5 and 1.2.14] and [40].
+The following result is useful to verify faithful flatness over Hopf subalgebras.
+Remark 2.8. Let H be a Hopf algebra with bijective antipode and W ⊂ H a (not necessarily
+normal) Hopf subalgebra of H. Then the following conditions are equivalent, cf. [39,
+Corollary 1.8]:
+(1) H is faithfully flat as a left W -module.
+(2) H is projective as a left W -module.
+(3) H is a flat left W -module and W is a direct summand of H, as a left W -module.
+(4) Any of the conditions above with right instead of left.
+2.3. Finite generation and Noetherianity. Here we remind
+L a reformulation of the fgc
+property. We start by a well-known observation. If A = n∈N0 An is a graded algebra,
+L
+then we set Aeven := n∈N0 A2n . We say that A is graded-commutative if xy = (−1)nm yx
+whenever x ∈ An , y ∈ Am ; graded-centrality is defined accordingly.
+L
+Lemma 2.9. Let A = n∈N0 An be a graded algebra such that the subalgebra A0 is commutative and Noetherian.
+(i) If A is graded-commutative, then the following are equivalent:
+
+6
+
+ANDRUSKIEWITSCH ET. AL.
+
+(a) A is Noetherian,
+(b) A is A0 -affine,
+(c) A is a finite Aeven -module, and Aeven is A0 -affine.
+(ii) Let Z be a graded-central subalgebra of A with Z 0 = A0 . If A is Noetherian and a
+finite Z-module, then Z is Z 0 -affine and Noetherian.
+(iii) If A is left Noetherian, then A is A0 -affine.
+Proof. For (i) and (ii), see arguments and references in [36, Proposition 2.4]. For (iii), see
+e.g., [16, Proposition 10.7] or [25, Theorem 1.2].
+□
+The previous lemma supports the following reformulation of fgc stated in [36], taking into
+account the well-known fact that the cohomology ring H(H, k) of any finite-dimensional
+Hopf algebra H is graded-commutative, see e.g., [45].
+Lemma 2.10. [36, Proposition 2.9] A finite-dimensional Hopf algebra H has fgc if and only
+if H(H, M ) is a Noetherian H(H, k)-module for any finite-dimensional H-module M . □
+Finer characterizations of the fgc property will be discussed in Subsection 4.4.
+2.4. Bosonizations with semisimple Hopf algebras. Here we recall some positive
+results of a particular case of Question 1.1. Let K be a semisimple Hopf algebra and R a
+finite-dimensional Hopf algebra in K
+K YD that has fgc. It seems to be open whether R#K
+has fgc except in the cases considered in the next theorem. Let G be a finite group. For
+K = kG, this is [5, Theorem 3.1.6] assuming char k = 0 (but it is only needed that kG is
+semisimple); as observed in [9], the same proof applies for K = kG .
+Theorem 2.11. Let G be a finite group. Let K be either kG assumed semisimple, or else
+kG . If R is a finite-dimensional Hopf algebra in K
+K YD that has fgc, then the bosonization
+R#K has fgc.
+To trace the necessity of the hypothesis, we recall the lemmas that lead to the proof.
+The first step is the following result.
+Lemma 2.12. Let K be a semisimple Hopf algebra. Let R be an augmented finitedimensional K-module algebra and let M be an (R ⋊ K)-module. Then
+H(R ⋊ K, k) ∼
+= H(R, k)K ,
+
+H(R ⋊ K, M ) ∼
+= H(R, M )K ,
+
+and the action of H(R ⋊ K, k) on H(R ⋊ K, M ) is induced by that of H(R, k) on H(R, M ).
+Proof. This follows using the Lyndon-Hochschild-Serre spectral sequence, see for example [37, Theorem 2.17] or [22, Sections 7.2 and 7.3] for the case when K is a group algebra.
+□
+We will combine the previous lemma with the next result, a variation of the classical
+argument by Hilbert, cf. [5, Lemma 3.1.1].
+L
+Lemma 2.13. Let K be a semisimple Hopf algebra. Let A = n∈N0 An be a connected
+graded K-module algebra that is (right) Noetherian. Let M be a finitely generated (A ⋊ K)module. Then AK is finitely generated and M K is a finitely generated AK -module.
+□
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+7
+
+In order to apply Lemma 2.13 we need that H(R, k) is Noetherian under the recursive hypothesis that it has fgc. This follows from Lemma 2.9 when H(R, k) is graded-commutative
+(particularly when R is a Hopf algebra) but in general just a weaker version holds.
+Let K be a Hopf algebra, not necessarily semisimple. An algebra A in K
+K YD is braided
+commutative if the multiplication mA satisfies mA = mA cA,A ; in such case, the invariant
+subring AK is central in A.
+As in [5], we rephrase Corollary 3.13 of [29] noting that H(R, k) = ExtR (k, k) is isomorphic to HH(R, k) = ExtR⊗Rop (R, k), see [29, Section 2.4].
+Lemma 2.14. [29, Corollary 3.13] Let K be a (not necessarily semisimple) Hopf algebra
+and let R be a bialgebra in K
+K YD. Assume that either K or R is finite-dimensional. Then
+H(R, k) is a braided commutative graded algebra in K
+□
+K YD.
+Actually, the previous result also holds under weaker hypotheses, see [20].
+Lemma 2.15. [5, 9] Let G be a finite group and let A be a braided commutative algebra
+kG
+either in kG
+kG YD or in kG YD. If A is finitely generated (as an algebra), then A is Noetherian.
+Proof. See [5] for kG and [9] for kG .
+
+□
+
+We are ready to prove the theorem. Let K be either kG (assumed semisimple) or kG .
+Proof of Theorem 2.11. Lemma 2.15, Lemma 2.14 and the hypothesis imply that H(R, k) is
+Noetherian. Then H(R, k)K is finitely generated by Lemma 2.13. We conclude from Lemma
+2.12 that H(R#K, k) ∼
+= H(R, k)K is finitely generated, i.e., (fgc1) holds for R#K. The
+proof of (fgc2) for R#K is similar to the proof of the same fact in [5, Theorem 3.1.6]. □
+Let K and R be as in the beginning of the subsection. In order to show that R#K has
+fgc with the previous arguments, we only need to extend Lemma 2.15 to the general case.
+Question 2.16. Let K be a semisimple Hopf algebra and let A be a braided commutative
+algebra in K
+K YD, finitely generated as an algebra. Does it follow that A is Noetherian?
+See Theorem 3.8 below for a partial answer to this question. We remark that [36, Lemma
+5.8] assumes this property for H(R, k), to conclude that the smash product R ⋊ K has
+Noetherian cohomology ring.
+2.5. Power reductivity. Let K be a commutative ring and let G be a (flat affine) group
+scheme over K. The history of the following question goes back to the XIX century and to
+Hilbert’s Fourteenth Problem:
+Under which conditions is the ring of invariants RG affine for any affine commutative
+K-algebra R on which G acts?
+In [47], van der Kallen introduced the notion of power reductive group schemes. Given
+a group scheme G, he showed (under suitable hypotheses on K) that RG is affine for any
+affine commutative K-algebra R on which G acts if and only if G is power reductive. This
+generalizes the work of Hilbert, Noether, Nagata, Mumford, Haboush, Seshadri, . . . In
+particular, a finite group scheme is power reductive by a result of Grothendieck; other
+proofs were offered by Schneider and Ferrer Santos, see [32, Theorem 4.2.1]. Borrowing the
+terminology from [47], we introduce the following notion needed later.
+
+8
+
+ANDRUSKIEWITSCH ET. AL.
+
+Definition 2.17. A finite-dimensional Hopf algebra H is power reductive if any commutative H-module algebra R is integral over its invariant subring RH . In particular, if R is
+affine, then R is a finite module over RH and RH is affine (by the Artin-Tate Lemma).
+As it stands, it appears that Definition 2.17 is stronger than asking that the invariant
+subring is affine; we wonder whether the converse is true, namely if RH is affine, then
+necessarily R is integral over RH (assuming that H is finite-dimensional).
+We summarize some classes of finite-dimensional Hopf algebras that are power reductive.
+Lemma 2.18. A finite-dimensional Hopf algebra H is power reductive in any of the following cases:
+(i) the base field k has positive characteristic,
+(ii) H is semisimple,
+(iii) H is cosemisimple,
+(iv) H is cocommutative.
+Proof. See [42, Proposition 2.7] for (i), see [42, Theorem 6.1] for (ii), see [51, Theorem 2.1]
+for (iii), and, finally, note that (iv) was discussed above [47].
+□
+See [51] for more examples. Notice that Zhu [51] showed that the four-dimensional
+Sweedler Hopf algebra, in characteristic zero, is not power reductive.
+3. Deformation sequences of algebras
+In this section we review the notion of deformation sequence of algebras. Theorem 3.7
+from [34] gives a criterion for finite generation of the cohomology of an augmented algebra.
+3.1. Deformation sequences. Let us recall the main features of deformations as in [17],
+as set forth in [34]. In the next definition, we repeat the first three axioms used to define
+exact sequences of Hopf algebras (see Definition 2.5) and so enumerate them with (a), (b),
+(c) again. By smooth in condition (f), we mean that the Zariski spectrum of the finitely
+generated k-algebra Z has no singularities.
+ι
+
+π
+
+Definition 3.1. A deformation sequence is a pair of algebra maps Z ,→ Q ↠ R such that
+Z has a distinguished point ϵZ : Z → k satisfying the following seven conditions:
+(a) ι is injective, in which case we identify Z with ι(Z) in Q,
+(b) π is surjective,
+(c) ker π = Q Z + for Z + = ker ϵZ ,
+(e) Q is finitely generated and flat as a left Z-module,
+(f) Z is smooth, finitely generated, and central in Q,
+(g) Q and R are augmented algebras, and ι and π preserve the augmentations, and
+(h) Q has finite global dimension.
+In this case, we say R admits a deformation sequence.
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+9
+
+Remark 3.2. Note that in any deformation sequence Z ,→ Q ↠ R, both Q and Z are Noetherian and finitely generated, Q is PI and has finite Gelfand-Kirillov dimension. Indeed,
+Z is a finitely generated, commutative algebra by Definition 3.1 (f) and thus Noetherian by
+the Hilbert Basissatz. As Q is finite over Z by Definition 3.1 (e), it is also Noetherian and
+finitely generated. Finally, Q is PI by [30, Section 13.1.13, p. 481]; hence GKdim Q < ∞
+by [27, Corollary 10.7].
+Remark 3.3. Given a deformation sequence Z ,→ Q ↠ R, Definition 3.1 (e) implies that
+the fiber k ⊗Z Q ∼
+= R at the closed point ϵZ is finite-dimensional.
+3.2. Formal deformation sequences. There is a “formal” version of Definition 3.1:
+π
+b
+b
+ι
+b↠
+R is a formal deformation sequence if
+Definition 3.4. A pair of algebra maps Zb ,→ Q
+the conditions of Definition 3.1 hold with (f) replaced by
+
+b with Zb ∼
+(f’) Zb is central in Q
+= k[[y1 , ..., yn ]], formal power series in n coordinates.
+We verify below that every deformation sequence can be completed to a formal one, a
+fact used to prove Theorem 3.7 establishing the fgc for augmented algebra admitting a
+deformation sequence. Recall that an algebra A is semilocal if A/ Jac A is Artinian, where
+Jac A is its Jacobson radical. We now recall a well-known fact on semilocal algebras whose
+proof we include for completeness.
+Lemma 3.5. Let A be an algebra finitely generated as a module over a central local subalgebra Z with maximal ideal n.
+(i) A is semilocal.
+(ii) Let R = A/nA. Then A/ Jac A ∼
+= R/ Jac R.
+Proof. Let V be a simple A-module. Pick v ∈ V \0 and set I := Ann v ⊇ Ann V , where
+Ann stands for the annihilator. Thus I is a maximal left ideal and V ∼
+= A/I. We claim
+that J := I ∩ Z = Ann V ∩ Z.
+Here ⊇ is clear; for ⊆ we argue as follows. Pick x ∈ I ∩ Z. Since x ∈ I, xv = 0; since
+x ∈ Z, xav = axv = 0 for any a ∈ A hence x ∈ Ann Av = Ann V .
+Observe that the ideal J of Z is proper, otherwise 1 ∈ J and V would be 0; thus J ⊂ n.
+We claim that J = n.
+If nA ⊂ I, then n ⊂ I ∩ Z = J, hence J = n. So, suppose that nA is not contained in
+the maximal left ideal I; hence nA + I = A and a fortiori nV = V . Now the Z-module V is
+finitely generated by hypothesis; thus the Nakayama Lemma [16, Proposition 2.6] implies
+that V = 0, a contradiction.
+T
+Therefore, Jac A ∩ Z = V simple Ann V ∩ Z = n. Hence A/ Jac A is a finitely generated
+vector space over the field Z/n; thus A/ Jac A is Artinian, i.e., A is semilocal showing (i).
+Since n = Jac A ∩ Z, nA ⊆ Jac A, hence A/ Jac A ∼
+= (A/nA)/(Jac A/nA) ∼
+= R/ Jac R, proving
+(ii).
+□
+b ⊗Z Q as an algebra under multiplication in each tensor
+In the next lemma, we view Z
+component recalling that, in any deformation sequence Z ,→ Q ↠ R, we have Z is central
+
+10
+
+ANDRUSKIEWITSCH ET. AL.
+
+in Q. We include a proof for reader’s convenience. We use the notation m = Z + noting m
+has a geometric flavor whilst Z + is more algebraic.
+ι
+
+π
+
+Lemma 3.6. [34, Lemma 2.10] Any deformation sequence Z ,→ Q ↠ R gives rise to a
+formal deformation sequence
+π
+b
+b
+ι
+b ,→
+b ⊗Z Q ↠
+Z
+Z
+R
+
+(3.1)
+
+where Zb is the completion of the localization Zm with respect to the m-adic topology.
+ι
+
+π
+
+Proof. We first apply to Z ,→ Q ↠ R the localization functor at m as Z-modules. Then
+π
+ι
+we apply to Zm ,→ Qm ↠ R the completion functor at mm as Zm -modules. Concretely,
+the completion Zb of Zm at its maximal ideal mm = Zm+ is Zb = limn Zm /(Zm+ )n . By
+←−
+[16, Propositions 3.3 and 10.12], the functor from the category of Z-modules to that of
+b
+Z-modules
+given by
+c := lim Mm /(Zm+ )n Mm
+M →M
+←−
+n
+
+is exact. We obtain a sequence of algebra maps
+π
+b
+b
+ι
+b
+b ,→
+b↠
+R
+Z
+Q
+
+(3.2)
+
+b ∼
+satisfying conditions (a) and (b) of Definition 3.1. Also, R
+= R as m annihilates R
+d
+since Z ,→ Q ↠ R is a deformation sequence. Hence, we may apply the functor (−)
+π
+/ ker π
+/Q
+/R
+/ 0 of left Z-modules to conclude that
+to the exact sequence 0
+0
+
+/ ker
+[π
+
+b πb / R
+/Q
+
+b
+d ∼
+/ 0 is an exact sequence of left Z-modules.
+[π ∼
+But ker
+= mQ
+=
+
+b thus (3.2) satisfies Definition 3.1 (c). Now Q
+b ∼
+b
+b Q,
+m
+by
+= Zb ⊗Zm Qm as left Z-modules
+[16, Proposition 10.13] since Zm is Noetherian and Qm is finitely generated, and this is also
+an isomorphism of algebras as Zm is central in Qm . So, the sequence of algebra maps (3.2)
+boils down to (3.1).
+b is a central subalgebra of Q
+b and the latter is a finitely generated module
+Clearly, Z
+b
+b which is also PI. Also, Z
+b is flat over
+over the former. Since Z is Noetherian, so is Q,
+Z, see [16, Corollary 3.6 and Proposition 10.14]. By a standard argument, see [16, 2.2],
+b∼
+b because Q is flat over Z. Thus
+Q
+= Zb ⊗Z Q is flat over Q, analogously, it is also flat over Z
+(3.1) satisfies Definition 3.1 (e).
+Next, ϵZ : Z → k is a nonsingular point in Spec Z, hence Zb ∼
+= k[[x1 , . . . , xn ]] for
+n = dim Zm . Thus (3.1) satisfies Definition 3.1 (f’).
+It is clear from construction that (3.1) satisfies Definition 3.1 (g).
+b has finite global dimension. Let T := R/ Jac R. First note
+It remains to show that Q
+∼
+b
+b ⊗Z Tb as left Z-modules
+b
+that T = T since m annihilates R. Second observe that Tb ∼
+=Z
+again using [16, Proposition 10.13] (as Z is Noetherian and T is finitely generated). Third,
+π
+b
+b
+ι
+b ker π
+b Q
+b Zb+ as algebras since Z
+b ,→
+b ↠
+notice that R ∼
+b∼
+b∼
+Q
+R satisfies (a),
+= im π
+= Q/
+= Q/
+π
+ι
++
+∼
+(b), and (c) of Definition 3.1, and likewise R = Q/QZ as Z ,→ Q ↠ R is a deformation
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+11
+
+b and also over
+sequence. We use the induced bimodule structure on T = R/ Jac R over Q
+b
+Q. One may then check that the isomorphism of left Z-modules
+b ⊗Q T ∼
+b ⊗Z Q) ⊗Q T ∼
+Q
+= (Z
+= Zb ⊗Z T ∼
+= Tb
+b
+b
+is compatible with the left Q-action
+giving an isomorphism of left Q-modules
+b ⊗Q (R/ Jac R) = Q
+b ⊗Q T ∼
+Q
+= Tb ∼
+= T = R/ Jac R .
+b is a flat extension, we obtain an inequality of flat dimensions of left modules:
+Since Q → Q
+b ⊗Q (R/ Jac R)) ≤ flatdimQ (R/ Jac R) .
+flatdim b (R/ Jac R) = flatdim b (Q
+Q
+
+Q
+
+b is finite, we relate projective dimension to flat
+To finish the argument that gldim Q
+b is PI and Noetherian and, in addition,
+dimension of left modules and use the fact that Q
+semilocal by Lemma 3.5(i):
+♣
+♠
+b =
+b Jac Q)
+b =
+gldim Q
+projdimQb (Q/
+projdimQb (R/ Jac R)
+♢
+
+= flatdimQb (R/ Jac R) ≤ flatdimQ (R/ Jac R)
+♢
+
+♡
+
+= projdimQ (R/ Jac R) ≤ gldim Q < ∞.
+Here [49, Lemma 5.4 (2)] implies the equality ♣, Lemma 3.5 (ii) implies ♠, [48, Proposition 4.1.5] implies ♢ (see Remarks 3.2 and 3.3), and the definition of global dimension gives
+♡. Thus, (3.1) satisfies Definition 3.1 (h) and hence is a formal deformation sequence. □
+3.3. Deformation sequences and fgc. The following result is implicit in [34, Corollary
+4.7 and the proof of Theorem 4.8]. We sketch the argument for completeness.
+Theorem 3.7. [34] Any finite-dimensional augmented algebra R admitting a deformation
+sequence has fgc.
+Proof. By Lemma 3.6, we may assume that Z ,→ Q ↠ R is a formal deformation sequence.
+Let m = Z + . As in [34], consider the algebras
+◦ AZ := the symmetric algebra on the tangent space m/m2 shifted to degree 2;
+◦ BZ := the exterior algebra on the cotangent space m/m2 shifted to degree −1.
+By [34, Theorem 4.3], the following are equivalent, for any finite R-modules V and W :
+(I) ExtQ (V, W ) is finite over BZ ,
+
+(II) ExtR (V, W ) is finite over AZ .
+
+Since Q has finite global dimension, (I) holds by [34, Corollary 4.7], hence (II) holds.
+Assume that R is augmented. Then ExtR (k, k) is finite over AZ , which is a symmetric
+algebra in a finite number of variables, hence ExtR (k, k) is a finitely generated algebra.
+Given a finite R-module V , the action of AZ on ExtR (k, V ) factors through ExtR (k, k).
+So finiteness over AZ , which holds by [34, Theorem 4.3], implies finiteness over ExtR (k, k).
+This shows that R has fgc.
+□
+We obtain our first main result giving the fgc for smash products of semisimple Hopf
+algebras with algebras admitting deformation sequences.
+
+12
+
+ANDRUSKIEWITSCH ET. AL.
+
+Theorem 3.8. Let K be a semisimple Hopf algebra and R a finite-dimensional augmented
+K-module algebra. If R admits a deformation sequence, then the smash product R ⋊ K has
+fgc.
+Proof. Let M be a finitely generated (R ⋊ K)-module. Since R ⋊ K is finite-dimensional,
+M is in particular finitely generated over R. Now, since R admits a deformation sequence,
+R has fgc by Theorem 3.7, and thus H(R, M ) is finitely generated over H(R, k). Moreover,
+as explained in the proof of Theorem 3.7, H(R, k) is a finitely generated module over a
+Noetherian algebra AZ and thus H(R, k) is Noetherian as an algebra, as well. It follows
+that H(R, M ) is a Noetherian module over H(R, k). By Lemma 2.12, we have that
+H(R ⋊ K, M ) ∼
+= H(R, M )K
+
+and
+
+H(R ⋊ K, k) ∼
+= H(R, k)K .
+
+Then, Lemma 2.13 implies that H(R ⋊ K, M ) is finitely generated over H(R ⋊ K, k).
+
+□
+
+The following result is a straightforward consequence of Theorem 3.8.
+Corollary 3.9. Let K be a semisimple Hopf algebra and R a finite-dimensional Hopf
+algebra in K
+K YD. If R admits a deformation sequence, then the bosonization R#K has fgc.
+4. Equivariant deformation sequences
+In this section, we will closely follow the approach in [33], where instead of a finite group
+scheme G, we will consider a finite-dimensional Hopf algebra K. Some results will hold
+without the assumption of the cocommutativity of K.
+4.1. Equivariant deformation sequences. We look at deformation sequences that preserve the action of a finite-dimensional Hopf algebra K.
+Definition 4.1. [33, 34] Let K be a finite-dimensional Hopf algebra. A deformation seπ
+ι
+quence Z ,→ Q ↠ R is K-equivariant if Z, Q and R are K-module algebras and ι and π are
+K-module algebra maps. In this case, we say that R admits a K-equivariant deformation
+sequence.
+π
+b
+b
+ι
+b↠
+b Q
+b and
+Analogously, a formal deformation sequence Zb ,→ Q
+R is K-equivariant if Z,
+R are K-module algebras and ι and π are K-module algebra maps. In this case, we say
+that R admits an K-equivariant formal deformation sequence.
+Remark 4.2. Instead of smoothness of Spec Z imposed in Definition 3.1 (f), it is just
+required in [33, 34] that ϵZ is a nonsingular point of Spec Z.
+The following lemma, an extension of Lemma 3.6, shows that we may turn every Kequivariant deformation sequence for R into a formal one.
+Lemma 4.3. [33, Proposition 4.3] Let K be a finite-dimensional Hopf algebra. Suppose
+π
+ι
+that Z ,→ Q ↠ R is a K-equivariant deformation sequence. Then
+π
+b
+b
+ι
+b ,→
+b↠
+Z
+Q
+R
+
+is a K-equivariant formal deformation sequence, where Zb is the completion of the localizab := Z
+b ⊗Z Q for m = Z + .
+tion Zm with respect to the m-adic topology and Q
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+13
+
+Proof. By Lemma 3.6, we need only check equivariance of the deformation sequence given
+there. Since ϵZ = ϵR ◦ π ◦ ι : Z → k is K-linear, the maximal ideal m is K-stable. Hence,
+b and Q
+b are K-module algebras (cf. [33, Proposition 4.3]), and the corresponding
+both Z
+algebra maps between them are also K-linear. In particular, the unique maximal ideal
+b is K-invariant.
+m = (x1 , . . . , xn ) in Z
+□
+4.2. dg K-module algebras. Let K be a finite-dimensional Hopf algebra and denote by
+Rep K the tensor category of K-modules.
+We recall here some properties of dg K-module algebras and later associate them to an
+equivariant deformation sequence to show the fgc property. We refer to [50] for generalities
+on differential graded (dg) algebras.
+Definition 4.4. We define dg objects carrying an action of the Hopf algebra K.
+(i) A dg K-module algebra is a dg algebra A internal to Rep K, i.e., a dg algebra A
+which is also a K-module algebra such that all the dg algebra structure maps are
+K-linear.
+(ii) A dg K-module M over A is a dg module over A internal to Rep K, i.e., a dg
+module M over A that is a K-module for which the dg module structure maps on
+M are K-linear.
+(iii) Let A- dgmod(Rep K) denote the category of dg K-modules over A.
+Remark 4.5. For a dg K-module algebra A, the smash product A ⋊ K becomes an ordinary
+dg algebra by setting K to be concentrated in degree zero with zero differentials. Correspondingly, a dg K-module over A is an ordinary dg module over A ⋊ K. In summary, we
+have an equivalence A- dgmod(Rep K) ≃ (A ⋊ K)- dgmod. In view of this, we denote by
+Ddg (A ⋊ K) the derived category of dg K-modules over A.
+We say that two K-module dg algebras A, B are homotopically isomorphic (see [33]) if
+there is a zig-zag of K-linear dg algebra quasi-isomorphisms
+∼
+
+∼
+
+∼
+
+∼
+
+∼
+
+A←
+− S1 −
+→ S2 −
+→ ··· ←
+− Sn −
+→ B.
+Any homotopy isomorphism between two dg K-module algebras A and B provides a triangulated equivalence between their corresponding derived categories of dg modules:
+≃
+
+Ddg (A ⋊ K) → Ddg (B ⋊ K)
+L
+L
+Let S be a dg K-module algebra, and M = i∈Z Mi , N = i∈Z Ni two dg K-modules
+over S. Recall that
+M
+HomS (M, N ) =
+Homgr S (M, N [i])
+i∈Z
+
+where Homgr S (M, N [i]) = {f ∈ HomS (M, N ) | f (Mt ) = Nt+i } is a complex with differentials given by (df )(m) = df (m) − (−1)|f | f (dm). It is easy to see (cf. [26, Lemma 5.8]) that
+HomS (M, N ) becomes a graded right K-module via
+X
+(4.1)
+(f · h)(m) =
+S(h(1) ) · f (h(2) · m)
+for any f ∈ HomS (M, N ), h ∈ K, and m ∈ M , where S is the antipode of K. This
+K-action on HomS (M, N ) is different from the one defined in [33, Section 2.5]. However,
+
+14
+
+ANDRUSKIEWITSCH ET. AL.
+
+when K is cocommutative, we can apply the antipode of K to make HomS (M, N ) into a
+left K-module which coincides with the module structure in [33, Section 2.5].
+Moreover, the image RHomS (M, N ) of the right derived functor of HomS lies in D(K),
+the derived category of Rep K [33, Lemma 2.3], and thus extends to a functor
+RHomS (−, −) : Ddg (S ⋊ K)op × Ddg (S ⋊ K) → D(K).
+It is direct to check that the composition map
+HomS (P, N ) × HomS (M, P ) → HomS (M, N )
+is K-linear for any dg K-modules M , P , and N over S. Consequently, REndS (M ) is a dg
+K-module algebra.
+Lemma 4.6. [33, Lemma 2.4] Let K be a finite-dimensional Hopf algebra, S a dg K-module
+algebra and M a dg K-module over S. Then we have that:
+(i) The dg K-module algebra REndS (M ) is well-defined up to homotopy isomorphism.
+(ii) If M and N are isomorphic in Ddg (S ⋊ K), then REndS (M ) and REndS (N ) are
+homotopically isomorphic.
+Proof. The statement in [33, Lemma 2.4] considers a finite group scheme G, however, the
+proof does not require cocommutativity.
+□
+
+4.3. Constructing dg K-module algebras associated to a deformation sequence.
+This subsection summarizes the construction of certain K-equivariant dg algebras associated to an equivariant deformation sequence that were used in [33] to prove fgc for Drinfeld
+doubles of finite group schemes. This can be considered as a K-equivariant version of
+the dg algebra tools from [34] employed to show fgc for augmented algebras that admit a
+(non-equivariant) deformation sequence. We will rely on these tools in Section 4.5 to prove
+the fgc property for the smash product R ⋊ K when the augmented algebra R admits a
+K-equivariant deformation sequence.
+It is important to point out that in order to modify the dg resolution from [34] to the
+K-equivariant setting, we need K to be cocommutative where its representation category
+has a symmetric braiding given by the usual flipping map.
+Throughout this subsection we consider the following setting: let K be a finite-dimensional cocommutative Hopf algebra, R a finite-dimensional augmented K-module algebra and
+Z ,→ Q ↠ R
+a K-equivariant formal deformation sequence such that Z = k[[x1 , · · · , xn ]] with K-invariant maximal ideal m = (x1 , . . . , xn ).
+Lemma 4.7. [33, Lemma 3.1 and Lemma 5.2] There is a dg K-module algebra K satisfying:
+(i) K is a Z-algebra that is finite and flat over Z.
+(ii) K is homotopically isomorphic to k and k ⊗Z K is homotopically isomorphic to BZ ,
+the exterior algebra on the cotangent space m/m2 shifted to degree −1 with zero
+differentials.
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+15
+
+(iii) Consider K as a Z-central dg K-bimodule in D(K ⊗Z Kop ). Then the dg K-module
+algebra REndK⊗Z Kop (K) is homotopically isomorphic to AZ , the symmetric algebra
+on the tangent space m/m2 shifted to degree 2 with zero differentials.
+(iv) The dg K-module algebra KQ := Q⊗Z K is homotopically isomorphic to R and finite
+and flat over Z.
+Proof. The construction of the dg K-module algebra K and its properties stated in (i)
+and (ii) are provided in [33, Lemma 3.1]. Property (iii) is [33, Lemma 5.2]. For (iv), the
+construction of KQ = Q ⊗Z K and the fact that it is homotopically isomorphic to R are
+explained in [33, Section 5.1]. Since Q is finite and flat over Z, it is clear that KQ is finite
+and flat over Z by (i).
+□
+Consider the dg K-module algebras K and KQ = K ⊗Z Q from Lemma 4.7 that are homotopically isomorphic to k and R, respectively. In [33, Section 5.2], the authors construct
+a functor
+defK : Ddg ((K ⊗Z Kop ) ⋊ K) → Ddg (KQ ⋊ K)
+from the derived category of dg K-modules over K ⊗Z Kop to that of dg K-modules over
+KQ . In particular, for any dg K-module M over KQ , there is a dg K-module algebra map
+(4.2) defK
+M :
+
+−⊗L Q
+
+T := REndK⊗Z Kop (K) −−−Z−→ REndKQ ⊗Q Kop (M )
+Q
+
+−⊗L
+K M
+Q
+
+−→ REndKQ ⊗Kop (M ) −−−−−→ REndKQ (M ).
+Q
+
+Moreover, for any dg K-modules M and N over KQ , the dg K-module algebra T acts on
+K
+the dg K-module RHomKQ (M, N ) via either defK
+M or defN with actions coinciding. The
+following summarizes the finite generation property derived from a K-equivariant formal
+deformation sequence, which is an equivariantization of [34, Corollary 4.7].
+Lemma 4.8. [33, Theorem 5.4] Retain the above notation. Let M, N be two dg K-modules
+over KQ such that H(M ) and H(N ) are finite-dimensional. Then
+(i) H(defK
+M ) : H(T ) → H(REndKQ (M )) is a finite map of graded dg K-module algebras.
+(ii) H(RHomKQ (M, N )) is a finitely generated module over H(T ).
+Proof. Similarly to Lemma 4.7, the statement and proof appear in [33, Theorem 5.4] in
+terms of a finite group scheme G instead of the cocommutative Hopf algebra K.
+□
+4.4. Alternative formulations of fgc. In this subsection, K is a finite-dimensional Hopf
+algebra. Lemma 2.10 is the starting point for the following characterizations of the fgc
+property. Notice that the equivalence of the first four items was established in [36, Lemma
+3.3] while the equivalence with the last item is implicit in [33].
+Proposition 4.9. If K is power reductive, then the following are equivalent:
+(i) K has fgc.
+(ii) H(K, M ) is a Noetherian H(K, R)-module, for any affine commutative K-module
+algebra R and any finitely generated (R ⋊ K)-module M .
+(iii) H(K, R) is finitely generated for any affine commutative K-module algebra R.
+
+16
+
+ANDRUSKIEWITSCH ET. AL.
+
+(iv) Let T be a finitely generated non-negatively graded Noetherian K-module algebra and
+let M be a finitely generated (T ⋊ K)-module. Then H(K, M ) is Noetherian over
+H(K, T ) whenever T is module finite over a graded central K-module subalgebra Z.
+(v) Let S be a dg K-module algebra and M be a dg K-module over S. Assume that
+(a) H(S) is affine graded-commutative and concentrated in non-negative degrees,
+(b) H(M ) is finitely generated over H(S), and
+(c) S is homotopically isomorphic to its cohomology ring H(S).
+Then the cohomology H(RHomK (k, M )) is Noetherian over H(RHomK (k, S)).
+Proof. The equivalences (i) ⇐⇒ (ii) ⇐⇒ (iii) ⇐⇒ (iv) are proved in [36, Lemma 3.3].
+The delicate part is (i) =⇒ (ii); we recap the other implications as follows.
+• For (ii) =⇒ (iii), take M = R.
+• For (iii) =⇒ (i), take R = k to see that (fgc1) holds and then take R = k ⊕ M
+(with M 2 = 0) for a finite K-module M to see that (fgc2) holds.
+• For (ii) =⇒ (iv), take R = Z even to see that H(K, M ) is a Noetherian module
+over H(K, Z even ). Then H(K, M ) is a Noetherian module over H(K, T ) because the
+action of H(K, T ) on H(K, M ) restricts to the action of H(K, Z even ).
+• For (iv) =⇒ (ii), take T = R to be the affine commutative K-module algebra
+concentrated in degree zero.
+We now turn to the new part of the lemma. For (v) =⇒ (i), take S to be the trivial
+dg algebra k concentrated in degree zero. Since H(RHomK (k, k)) ∼
+= ExtK (k, k) the result
+follows by applying Lemma 2.10.
+We prove (iv) =⇒ (v). By the assumptions in (v), it is clear that both H(S) and H(M )
+are bounded below. Let P• → k be a projective resolution of k as a K-module. This gives
+a double complex HomK (P• , M ) whose cohomology yields a bounded spectral sequence
+E2p,q (M ) = ExtqK (k, Hp (M )) =⇒ E∞ (M ) = Hp+q (RHomK (k, M )).
+Take the finitely generated graded-commutative K-algebra T = H(S) (which is also
+Noetherian by Lemma 2.9 (i)), and N = H(M ), which is a finitely generated module
+over T and thus over T ⋊ K. We conclude by (iv) that H(K, N ) is Noetherian over
+H(K, T ) or, equivalently, that E2 (M ) = H(RHomK (k, H(M )) is Noetherian over E2 (S) =
+H(RHomK (k, H(S)).
+We claim that E2 (S) ∼
+= E∞ (S). This follows from assumption (v)(c) that there is a homotopical isomorphism between S and H(S), which induces an isomorphism of cohomology
+rings
+E2 (S) = H(RHomK (k, H(S)) ∼
+= H(RHomK (k, S)) = E∞ (S).
+It remains to show E∞ (M ) is Noetherian over E∞ (S), which follows from a classical
+argument of Friedlander and Suslin [23, Lemma 1.6]. Indeed, since the spectral sequence
+E2 (M ) =⇒ E∞ (M ) is compatible with the action of the cohomology ring E2 (S) ∼
+= E∞ (S),
+we have submodules over E2 (S)
+B2 (M ) ⊆ B3 (M ) ⊆ · · · ⊆ B∞ (M ) ⊂ Z∞ (M ) ⊆ · · · ⊆ Z3 (M ) ⊆ Z2 (M )
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+17
+
+with Ei (M ) ∼
+= Zi (M )/Bi (M ) for i ≥ 2. We take quotients by B2 (M ). As Z∞ (M )/B2 (M )
+is a submodule of the Noetherian E2 (S)-module Z2 (M )/B2 (M ) = E2 (M ), it is also Noetherian, and hence its quotient
+(Z∞ (M )/B2 (M )) / (B∞ (M )/B2 (M )) ∼
+= Z∞ (M )/B∞ (M ) = E∞ (M )
+□
+
+is Noetherian as well.
+
+4.5. The fgc property for smash products via equivariant deformation sequences.
+We can now extend the main result of [33] using the following lemma.
+Lemma 4.10. [36, Appendix A3] Let K be a finite-dimensional Hopf algebra, R a finitedimensional augmented K-module algebra and V a finitely generated (R⋊K)-module. Then
+RHomK (k, RHomR (k, V )) ∼
+= RHomR⋊K (k, V ) .
+Proof. We recall the spectral sequence related to R ⋊ K discussed in [36, Appendix A3].
+It is clear that HomR⋊K (k, V ) = HomK (k, HomR (k, V )), where K acts on HomR (k, V ) by
+(4.1). In particular, HomR (P, V ) is a projective K-module for any projective (R ⋊ K)module P [36, Lemma A.1]. By taking projective resolutions for k as a K-module and as
+a (R ⋊ K)-module, we obtain a Lyndon–Hochschild–Serre spectral sequence
+E2p,q (V ) = ExtqK (k, ExtpR (k, V )) =⇒ Extp+q
+R⋊K (k, V ),
+which in terms of the corresponding right-derived functors translates to the desired result.
+□
+We now obtain our second main result on the fgc property of smash products:
+Theorem 4.11. Let K be a finite-dimensional cocommutative Hopf algebra and R a finitedimensional augmented K-module algebra. If R admits a K-equivariant deformation sequence, then the smash product R ⋊ K has fgc.
+Proof. We need to show that H(R ⋊ K, k) is finitely generated and that for any finitely
+generated (R ⋊ K)-module V , we have that H(R ⋊ K, V ) is finitely generated over H(R ⋊
+K, k). Owing to Lemma 3.6, we can consider a formal K-equivariant deformation sequence
+Z = k[[x1 , · · · , xn ]] ,→ Q ↠ R .
+By Theorem 3.7, we have that the augmented algebra R has fgc. Additionally, K also has
+fgc by [23] and is power reductive owing to cocommutativity and Lemma 2.18.
+Consider the dg K-module algebras K and KQ = K ⊗Z Q from Lemma 4.7 that are
+homotopically isomorphic to k and R, respectively. Let T := REndK⊗Z Kop (K) and M =
+RHomR (k, V ) with T -action given by pulling back the action of RHomR (k) on M along
+the algebra morphism
+∼
+defK
+k : T = REndK⊗Z Kop (K) → REndKQ (k) = REndR (k)
+consisting of the composition of (4.2) with the induced isomorphism coming from the
+homotopic isomorphism between KQ and R granted by Lemma 4.7 (iv). We will use
+Proposition 4.9 (v), but in order to do so, we need to check the following requirements:
+
+18
+
+ANDRUSKIEWITSCH ET. AL.
+
+(a) H(T ) is affine graded-commutative and concentrated in non-negative degrees: according to Lemma 4.7 (iii), H(T ) is homotopically isomorphic to the symmetric
+algebra on m/m2 shifted to degree 2, which obeys the desired properties.
+(b) H(RHomR (k, V )) is finitely generated over H(T ): this follows from applying Lemma
+4.8 to M = k and N = V (the requirement that H(V ) is finite-dimensional is
+fulfilled since V is assumed finitely generated over R ⋊ K).
+(c) T is homotopically isomorphic to its cohomology ring H(T ): by Lemma 4.7 (iii),
+the cohomology of T is AZ which in turn is homotopically isomorphic to T itself.
+By Proposition 4.9 (v), we conclude that H(RHomK (k, RHomR (k, V ))) is Noetherian over
+H(RHomK (k, T )), which in view of Lemma 4.10 means that H(R ⋊ K, V ) is Noetherian
+over H(RHomK (k, T )).
+Now, the action of H(RHomK (k, T )) on H(R ⋊ K, V ) = H(RHomR⋊K (k, V )) factors
+through that of H(R ⋊ K, k) = H(RHomR⋊K (k, k)), thus H(R ⋊ K, V ) is also Noetherian
+over H(R ⋊ K, k) and, in particular, finitely generated over H(R ⋊ K, k). When V = k, we
+obtain that H(R ⋊ K, k) is Noetherian over itself, and thus, by Lemma 2.9 (iii), we have
+that H(R ⋊ K, k) is finitely generated as an algebra over H0 (R ⋊ K, k) ∼
+□
+= k.
+Corollary 4.12. Let K be a finite-dimensional cocommutative Hopf algebra and R a finitedimensional Hopf algebra in K
+K YD. If R admits a K-equivariant deformation sequence, then
+the bosonization R#K has fgc.
+5. Smash products of deformation sequences
+5.1. Deformation sequences of Hopf algebras. We combine the notions of deformation
+sequence and exact sequence of Hopf algebras in the following concept.
+Definition 5.1. A deformation sequence of Hopf algebras is an exact sequence of Hopf
+algebras (cf. Definition 2.5)
+ȷ
+
+℘
+
+W ,→ H ↠ K
+which is also a deformation sequence with respect to the counit ϵW of W (cf. Definition 3.1).
+In this case, we say the Hopf algebra K admits a deformation sequence of Hopf algebras.
+Remark 5.2. Note that a deformation sequence of Hopf algebras is a pair of Hopf algebra
+℘
+ȷ
+maps W ,→ H ↠ K satisfying
+(a) ȷ is injective, and we identify W with ȷ(W ),
+(b) ℘ is surjective,
+(c) ker ℘ = H W + for W + = ker ϵW ,
+(e)’ H is finitely generated as a left W -module,
+(f) W is smooth, finitely generated, and central in H, and
+(h) H has finite global dimension.
+We argue that these six conditions are indeed sufficient to imply those of Definitions 2.5
+and 3.1. Conditions (e)’, (f), and (h) imply that H is a finitely generated, right Noetherian
+PI Hopf algebra by Remark 3.2 and thus faithfully flat over as a left module over any Hopf
+subalgebra by [44, Corollary 4.6], giving condition (e) of Definition 3.1. Condition (d) of
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+19
+
+Definition 2.5 holds by Remark 2.6 and condition (g) of Definition 3.1 holds as ȷ and ℘ are
+Hopf algebra maps.
+Remark 5.3. When char k = 0, a commutative Hopf algebra is smooth whenever it is finitely
+generated, see [31, Theorem 3.38].
+Remark 5.4. Let W ,→ H ↠ K be a deformation sequence of Hopf algebras. It is wellknown that the antipodes of W and K are bijective, since W is commutative and K is
+finite-dimensional (cf. Remark 3.3). The antipode of H is bijective as well by [43, Corollary
+2] since H is a Noetherian, PI, finitely generated algebra (see Remark 3.2).
+Remark 5.5. The definition of integrable Hopf algebra in [34] requires that W is a coideal
+subalgebra; here we assume that W is a Hopf subalgebra in view of our applications below.
+We conclude immediately from Theorem 3.7:
+Corollary 5.6. [34] A finite-dimensional Hopf algebra admitting a deformation sequence
+of Hopf algebras has fgc.
+Deformation sequences of Hopf algebras form a category: a morphism Ψ : C → C′ from
+ȷ
+
+℘
+
+C : W ,→ H ↠ K
+
+ȷ′
+
+℘′
+
+C′ : W ′ ,→ H ′ ↠ K ′
+
+to
+
+is a morphism of Hopf algebras Ψ : H → H ′ such that Ψ(W ) ⊆ W ′ , thus inducing a
+commutative diagram
+W
+
+
+W′
+
+ȷ
+
+ȷ′
+
+/H
+
+℘
+
+/K
+
+Ψ
+
+
+′
+/ H ′ ℘ / K ′.
+
+
+It would be interesting to understand the subcategory of those deformation sequences of
+Hopf algebras with fixed K, where the induced map from K to K is the identity.
+5.2. Smash product of deformation sequences. We explore the fgc for smash products
+by formalizing an idea of deformation sequences equivariant with respect to a deformation
+sequence of Hopf algebras.
+Definition 5.7. Let K be a Hopf algebra admitting a deformation sequence of Hopf
+℘
+ȷ
+algebras C : W ,→ H ↠ K. A deformation sequence of algebras
+ι
+
+π
+
+M : Z ,→ Q ↠ R
+is C-equivariant if
+(j) Z, Q and R are augmented H-module algebras and ι and π are morphisms of
+augmented H-module algebras,
+(k) W acts trivially on Q, and
+(l) H acts trivially on Z.
+In this case, we say R admits a C-equivariant deformation sequence.
+
+20
+
+ANDRUSKIEWITSCH ET. AL.
+
+The axioms in the above definition allow us to define a deformation sequence for smash
+products in the next result. Note that conditions (k) and (l) imply that Z ⊗ W under
+component-wise multiplication is a subalgebra of Q ⋊ H.
+ȷ
+
+℘
+
+Proposition 5.8. Let C : W ,→ H ↠ K be a deformation sequence of Hopf algebras and
+π
+ι
+let M : Z ,→ Q ↠ R be a C-equivariant deformation sequence. Then
+(i) R is a K-module algebra and π(h · q) = ℘(h) · π(q), for all h ∈ H, q ∈ Q.
+(ii) We have a deformation sequence
+(5.1)
+
+ι⋊ȷ
+
+π⋊℘
+
+Z ⊗ W ,→ Q ⋊ H ↠ R ⋊ K.
+
+Proof. For (i): Let ρ : H → End R be the associated representation. We have to check
+that ρ(W + ) = 0; then ρ factors through K.
+Choose w ∈ W + and r ∈ R; then r = π(q) for some q ∈ Q and
+w · r = w · π(q) = π(w · q) = 0
+since by condition (k) of Definition 5.7, w · q = ϵ(w)q = 0.
+For (ii): We check the conditions (a) through (h) of Definition 3.1. By (k), Z is a W module subalgebra of Q, cf. Example 2.2; hence ι(w · z) = ȷ(w) · ι(z), for all w ∈ W , z ∈ Z.
+Because of this and (i), Lemma 2.1 implies that we have the algebra maps ι ⋊ ȷ and π ⋊ ℘.
+We verify that they satisfy the conditions in Definition 3.1. Evidently, (a) and (b) hold.
+Next we check (c):
+ker(π ⋊ ℘) = ker π ⊗ H + Q ⊗ ker ℘ = QZ + ⊗ H + Q ⊗ HW +
+= (Q ⋊ H)(Z + ⊗ W + Z ⊗ W + ) = (Q ⋊ H)(Z ⋊ W )+ .
+Next, if z ∈ Z, w ∈ W , q ∈ Q and h ∈ H, then
+(z ⊗ w)(q ⊗ h) = zw(1) · q ⊗ w(2) h = zq ⊗ wh,
+(q ⊗ h)(z ⊗ w) = qh(1) · z ⊗ h(2) w = qz ⊗ hw,
+by (k) and (l). Hence z ⊗ w is central in Q ⋊ H and Z ⋊ W = Z ⊗ W is smooth and finitely
+generated, being the tensor product of two smooth and finitely generated algebras, thus
+(f) holds. Note that Q ⋊ H is finite over Z ⊗ W .
+We argue that Q ⋊ H is flat over its subalgebra Z ⊗ W by viewing Q ⋊ H as a twisted
+tensor product algebra Q ⊗τ H (see [18]) with twisting map τ : H ⊗ Q → Q ⊗ H given by
+h ⊗ q 7→ h(1) q ⊗ h(2) . By Remark 5.4, the antipode of H is bijective so τ is an invertible
+map (e.g., see [41, Section 10]). Corollary A.2 with conditions (k) and (l) implies that
+Q ⋊ H = Q ⊗τ H is flat over Z ⊗ W = Z ⋊ W = Z ⊗τ W and (e) holds.
+Finally, by Definitions 3.1 and 5.1, H and Q have finite global dimension. By the main
+result of [28], Q ⋊ H also has finite global dimension, i.e., condition (h) of Definition 3.1
+holds. This proves that (5.1) is a deformation sequence.
+□
+We obtain the third main result of the paper.
+Theorem 5.9. Let K be a finite-dimensional Hopf algebra. If K admits a deformation
+sequence C of Hopf algebras and R is a finite-dimensional algebra admiting a C-equivariant
+deformation sequence, then the smash product R ⋊ K has fgc.
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+Proof. This follows from Proposition 5.8 and Theorem 3.7.
+
+21
+
+□
+
+We immediately conclude:
+Corollary 5.10. Let K be a finite-dimensional Hopf algebra and R a Hopf algebra in
+K YD, also finite-dimensional. If K admits a deformation sequence C of Hopf algebras and
+K
+
+R admits a C-equivariant deformation sequence, then the bosonization R#K has fgc.
+
+□
+
+6. Applications to Nichols algebras
+The applications we present of our main results are based on the notion of the Nichols
+algebra of a braided vector space. We briefly recall the main features here and refer to [1],
+[2] or [12] for more details.
+6.1. Deformation sequences of Nichols algebras. Let (V, c) be a braided vector space,
+that is, V is a vector space and the map c ∈ GL(V ⊗ V ), called the braiding, satisfies the
+braid equation
+(c ⊗ id)(id ⊗c)(c ⊗ id) = (id ⊗c)(c ⊗ id)(id ⊗c).
+Then the tensor algebra T (V ) is a braided Hopf algebra in the sense of [46]. The Nichols
+algebra B(V ) := T (V )/J (V ) is the quotient of T (V ) by a graded Hopf ideal J (V ), determined by the property
+P(B(V )) = V,
+where P(B(V )) stands for the space of primitive
+Lelements. Thus B(V ) is a braided Hopf
+algebra in the sense of [46]. Furthermore, if B = n≥0 B n is a graded braided Hopf algebra
+generated by B 1 and B 1 ∼
+= V as braided vector spaces, then there are morphisms of graded
+braided Hopf algebras
+T (V ) ↠ B ↠ B(V )
+which are the identity in degree one. A braided Hopf algebra like B above is called a
+pre-Nichols algebra.
+Natural examples of braided vector spaces are the Yetter-Drinfeld modules over a Hopf
+algebra H and, in turn, natural examples of braided Hopf algebras are the Hopf algebras
+in H
+H YD. However a given braided vector space may arise in many ways as a YetterDrinfeld module over H for many Hopf algebras H, and similarly for braided Hopf algebras.
+Precisely, we introduce the following terminology for further use:
+◦ A realization of a braided vector space V over a Hopf algebra H consists of an action
+and a coaction of H on V such that V becomes an object in H
+H YD and the braiding
+of V in H
+YD
+coincides
+with
+the
+original
+one.
+If
+such
+a
+realization
+exists, then we
+H
+say that V can be realized over H.
+◦ A realization of a braided Hopf algebra R over a Hopf algebra H consists of an
+action and a coaction of H on R such that R becomes a Hopf algebra in H
+H YD with
+the same multiplication, comultiplication and braiding in H
+YD
+as
+the
+original
+ones.
+H
+If such a realization exists, then we say that R can be realized over H.
+Remark 6.1. A realization of a braided vector space V over H induces realizations over
+H of the Hopf algebras T (V ) and B(V ), but not necessarily of an arbitrary pre-Nichols
+algebra B of V .
+
+22
+
+ANDRUSKIEWITSCH ET. AL.
+
+We will analyze examples according to the following considerations.
+Proposition 6.2. Let V be a braided vector space that can be realized over a finitedimensional Hopf algebra K. Assume that the Nichols algebra B(V ) is finite-dimensional
+and has fgc. Then B(V )#K has fgc, provided that
+(i) K = kG, where G is a finite group and char k does not divide |G|; or
+(ii) K = kG , where G is a finite group.
+□
+
+Proof. By Theorem 2.11.
+
+Proposition 6.3. Let V be a braided vector space that can be realized over a finitedimensional Hopf algebra K. Assume that the Nichols algebra B(V ) is finite-dimensional
+and that it admits a deformation sequence
+ι
+
+π
+
+B : Z ,→ B ↠ B(V )
+where B is a pre-Nichols algebra of V . Then B(V )#K has fgc, provided that
+(i) K is semisimple; or
+(ii) K is cocommutative and B is K-equivariant; or
+ȷ
+
+℘
+
+(iii) K admits a deformation sequence of Hopf algebras C : W ,→ H ↠ K such that B is
+C-equivariant.
+Proof. By Theorems 3.8, 4.11 and 5.9.
+
+□
+
+There are several reasons to consider this framework. First, Nichols algebras carry
+vital information on the structure of pointed Hopf algebras, see [12]. Second, pre-Nichols
+algebras fitting in a deformation sequence as above appeared naturally in the literature.
+Third, examples of Nichols algebras B(V ) such that B(V )#kΓ has fgc for a suitable finite
+abelian group Γ have been studied in [5, 9]; but the methods in loc. cit. do not allow us to
+conclude that B(V )#K has fgc for other Hopf algebras K. We contribute to this problem
+here.
+6.2. The quantum line. In this subsection and the next we discuss the simplest examples
+of Nichols algebras as an illustration of the considerations above.
+Let q lie in k× and let V be a vector space with dim V = 1 and basis {v}. Consider the
+braided vector space Vq := (V, c) with braiding c ∈ GL(V ⊗ V ) given by c(v ⊗ v) = q v ⊗ v.
+It is well-known, see e.g. [12], that the Nichols algebra B(Vq ) has finite dimension if and
+only if
+(6.1)
+
+q is a root of 1, and q ̸= 1 when char k = 0.
+
+Assume in the rest of this subsection that q is as in (6.1). Let n ∈ N be given by
+(
+p
+if char k = p > 0 and q = 1;
+n=
+ord q otherwise; notice that (p, n) = 1 if char k = p > 0.
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+23
+
+Then the Nichols algebra B(Vq ) is isomorphic to k[X]/⟨X n ⟩, where k[X] is the polynomial
+ring. Calling ι for the inclusion and π for the natural projection, we claim that
+(6.2)
+
+ι
+
+π
+
+Mq : k[X n ] ,→ k[X] ↠ k[X]/⟨X n ⟩ ∼
+= B(Vq ),
+
+is a deformation sequence, as the seven conditions of Definition 3.1 clearly hold.
+Realizations of Vq in K
+K YD are described by YD-pairs, a notion already implicit in [11].
+Definition 6.4. [1, Example 20] Let K be a Hopf algebra with antipode S. A YD-pair
+for K is a pair (g, χ) ∈ G(K) × homalg (K, k) such that
+χ(h) g = χ(h(2) ) h(1) g S(h(3) ),
+
+for any h ∈ K.
+
+If (g, χ) is a YD-pair for K, then g ∈ Z(G(K)), the center of the group G(K) of group-like
+elements in K.
+χ
+YD-pairs classify one-dimensional objects in K
+K YD: if (g, χ) is a YD-pair, then kg = k
+χ
+with action and coaction given by χ and g respectively, is in K
+K YD; the braiding of kg is
+χ
+multiplication by χ(g). Hence, kg realizes Vq if and only if χ(g) = q.
+
+The following fact was known under the hypothesis that K is either a group algebra
+(of dimension prime to the characteristic of the base field) or a dual group algebra as in
+Proposition 6.2; otherwise it appears to be new.
+Proposition 6.5. Let K be a finite-dimensional Hopf algebra that admits a YD-pair (g, χ)
+such that χ(g) = q, so that kχg realizes Vq in K
+K YD. If K is either semisimple or cocommutative, then B(Vq )#K has fgc.
+Proof. Proposition 6.3 applies, since k[X] and k[X n ] become Hopf algebras in K
+K YD and
+the deformation sequence Mq in (6.2) is K-equivariant.
+□
+When K is neither semisimple nor cocommutative, we still can apply Proposition 6.3
+(iii), i.e., Theorem 5.9.
+Proposition 6.6. Let K be a finite-dimensional Hopf algebra having a YD-pair (g, χ) such
+n
+that χ(g) = q, so that kχg realizes Vq in K
+K YD, and χ = ε. Assume that
+ȷ
+
+℘
+
+◦ K admits a deformation sequence of Hopf algebras C : W ,→ H ↠ K,
+◦ there exists γ ∈ G(H) such that ℘(γ) = g and (γ, χ℘) is a YD-pair for H, and
+◦ χ℘|W = ε.
+Then B(Vq )#K has fgc.
+Proof. We claim that the deformation sequence Mq in (6.2) is C-equivariant as in Definition
+5.7. The YD-pair (γ, χ℘) induces a realizations of B(Vq ), k[X] and k[X n ] as Hopf algebras
+n
+n
+n
+n
+in H
+H YD; hence (j) holds. Now H acts on X by (χ℘) = χ ℘, so if χ = ε, then (l) holds.
+The last assumption gives (k). The claim is proved, and therefore B(Vq )#K has fgc by
+Theorem 5.9.
+□
+
+24
+
+ANDRUSKIEWITSCH ET. AL.
+
+6.3. Quantum linear spaces. Assume char k = p. For θ ∈ N, we set Iθ := {1, 2, . . . , θ}.
+Fix a matrix q = (qij )i,j∈Iθ whose entries are roots of 1. Assume that
+qii ̸= 1
+qij qji = 1
+
+if p = 0,
+if i ̸= j ∈ Iθ .
+
+For i ∈ Iθ , set
+(
+p
+Ni =
+ord qii
+
+(6.3)
+
+if p > 0 and qii = 1;
+otherwise; so (p, Ni ) = 1 if p > 0.
+
+Let V be a vector space of dimension θ with a fixed basis v1 , . . . , vθ . Let Vq := (V, c) be
+the braided vector space whose braiding c ∈ GL(V ⊗ V ) is given by
+c(vi ⊗ vj ) = qij vj ⊗ vi
+
+(6.4)
+
+for any i, j ∈ Iθ .
+
+Lemma 6.7. The Nichols algebra B(Vq ) has a presentation
+N
+B(Vq ) ∼
+= k⟨X1 , . . . , Xθ | Xi Xj − qij Xj Xi , i ̸= j ∈ Iθ ; Xi i , i ∈ Iθ ⟩.
+Therefore, the ordered monomials
+X1h1 . . . Xθhθ :
+
+0 ≤ hi ≤ Ni − 1,
+
+i ∈ Iθ ,
+
+form a basis for B(Vq ) and in particular dim B(Vq ) = N1 . . . Nθ .
+As in [11], we refer to B(Vq ) as a quantum linear space.
+Proof. This was proved in [11] for p = 0 and is straightforward to establish for p > 0.
+
+□
+
+Let kq [X1 , . . . , Xθ ] be the quotient of the free algebra k⟨X1 , . . . , Xθ ⟩ by the ideal generated by Xi Xj − qij Xj Xi for all i ̸= j ∈ Iθ . By abuse of notation, we denote by the same
+symbol the image of Xi in kq [X1 , . . . , Xθ ]. We have in kq [X1 , . . . , Xθ ] the equality
+(6.5)
+
+m
+Xim Xj = qij
+Xj Xim ,
+
+i ̸= j ∈ Iθ ,
+
+m ∈ N.
+
+For i ∈ Iθ , we set
+
+Mi := lcm ord qij , j ∈ Iθ \{i} .
+Then XiMi is central in kq [X1 , . . . , Xθ ] by (6.5). Recall (6.3) and assume that
+(6.6)
+
+Mi divides Ni ,
+
+for all i ∈ Iθ .
+
+Then the subalgebra Zq = k⟨X1N1 , . . . , XθNθ ⟩ of kq [X1 , . . . , Xθ ] is central by (6.5). Hence
+(6.7)
+
+N
+Mq : Zq ,→ kq [X1 , . . . , Xθ ] ↠ B(Vq ) ∼
+= kq [X1 , . . . , Xθ ]/⟨X1N1 , . . . , Xθ θ ⟩
+
+is a deformation sequence; we recover, by Theorem 3.7, the well-known fact that the quantum linear space B(Vq ) has fgc, under the assumption (6.6).
+Proposition 6.8. Assume that the matrix q satisfies (6.6). Let K be a finite-dimensional
+Hopf algebra that admits a family of YD-pairs (gi , χi )i∈Iθ such that
+(6.8)
+
+χj (gi ) = qij ,
+
+for all i, j ∈ Iθ ,
+
+so that the family (gi , χi )i∈Iθ gives a realization of Vq in K
+K YD. If K is either semisimple
+or cocommutative, then B(Vq )#K has fgc.
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+25
+
+This was known for K a group algebra or a dual group algebra as in Proposition 6.2.
+Proof. The family (gi , χi )i∈Iθ induces a realization of the tensor algebra T (Vq ) as a Hopf
+algebra in K
+K YD; since the ideal generated by Xi Xj − qij Xj Xi for all i ̸= j ∈ Iθ is a
+K
+subobject in K
+K YD, we see that kq [X1 , . . . , Xθ ] is realized as a Hopf algebra in K YD. Also
+Zq = k⟨X1N1 , . . . , XθNθ ⟩ is a central Hopf subalgebra of kq [X1 , . . . , Xθ ] in K
+K YD; i.e., Mq is
+K-equivariant. We can then apply Proposition 6.3.
+□
+When K is neither semisimple nor cocommutative, we still can apply Proposition 6.3
+(iii), i.e., Theorem 5.9.
+Proposition 6.9. Assume that the matrix q satisfies (6.6). Let K be a finite-dimensional
+Hopf algebra that admits a family of YD-pairs (gi , χi )i∈Iθ such that (6.8) holds and
+(6.9)
+
+i
+χN
+i = ε,
+
+for all i ∈ Iθ .
+ȷ
+
+℘
+
+Assume that K admits a deformation sequence of Hopf algebras C : W ,→ H ↠ K such
+that
+◦ there exists γi ∈ G(H) such that ℘(γi ) = gi and (γi , χi ℘) is a YD-pair for H, for
+all i ∈ Iθ , and
+◦ χi ℘|W = ε for all i ∈ Iθ .
+Then B(Vq )#K has fgc.
+Proof. As in the proof of Proposition 6.8, the family (gi , χi )i∈Iθ gives a realization of Vq in
+K YD. As argued above, M in (6.7) is a deformation sequence because of (6.6). We claim
+q
+K
+that Mq is C-equivariant as in Definition 5.7. Since χj ℘(γi ) = χj (gi ) = qij for all i, j ∈ Iθ ,
+
+the family (γi , χi ℘) of YD-pairs induces realizations of B(Vq ), kq [X1 , . . . , Xθ ] and Zq as
+Hopf algebras in H
+H YD; hence (j) holds.
+i
+Now H acts on XiNi by (χi ℘)Ni = χN
+i ℘; then (l) holds by (6.9). The last assumption
+gives (k). The claim is proved, hence B(Vq )#K has fgc by Theorem 5.9.
+□
+6.4. Nichols algebras of diagonal type. We discuss informally how the methods exposed here apply to finite-dimensional Nichols algebras of diagonal type. See, e.g., the
+surveys [1, 2] for detailed expositions, unexplained terminology and more references.
+In this subsection, set char k = 0. Let θ ∈ N and fix a matrix q = (qij )i,j∈Iθ whose
+entries are roots of 1. We assume that the associated Dynkin diagram is connected. Let V
+be a k-vector space of dimension θ with a fixed basis {v1 , . . . , vθ }. Let Vq := (V, c) be the
+braided vector space whose braiding c ∈ GL(V ⊗ V ) is given by (6.4). We summarize the
+main features of the theory:
+• The classification of the matrices q such that dim B(Vq ) < ∞ was achieved in [24].
+In [2] an organization of the classification into several types was proposed; these
+types are:
+◦ Cartan type, related to finite-dimensional simple Lie algebras in char 0.
+◦ Super type, related to finite-dimensional simple contragredient Lie superalgebras in char 0.
+
+26
+
+ANDRUSKIEWITSCH ET. AL.
+
+◦ Modular type, related to finite-dimensional simple Lie algebras or superalgebras
+in char > 0, not in the previous classes.
+◦ UFO type, 12 examples not known to be related to Lie theory (yet).
+• The defining relations of the finite-dimensional B(Vq ) were described in [13]. Motivated by some arguments in the proof and by the theory of quantum groups dee q ) was
+veloped by De Concini and Procesi, a distinguished pre-Nichols algebra B(V
+e q ) has a normal braided Hopf subalgebra
+introduced in [14]. Furthermore, B(V
++
+Z (Vq ), see [14, Theorem 31].
+• We follow now the exposition in [6, Subsection 4.5]. Assume that the condition
+[6, Condition (4.26)] holds; notice that this extends (6.9). Then Z + (Vq ) is central
+e q ) and we have an exact sequence
+in B(V
+π
+
+ι
+
+e q ) ↠ B(Vq )
+Z + (Vq ) ,→ B(V
+
+(6.10)
+
+of braided Hopf algebras, see [8] for this notion. Now, for (6.10) to be a deformation
+e q ) to have finite global dimension. If q is of Cartan type,
+sequence, we need B(V
+e q ) has finite global dimension by standard arguments, and one can check
+then B(V
+that (6.10) is a deformation sequence. Otherwise, one of the degree 1 generators of
+e q ) is nilpotent, which prevents B(V
+e q ) from having finite global dimension.
+B(V
+ι
+
+π
+
+• If Z ,→ B ↠ B(Vq ) is a deformation sequence where B is a pre-Nichols algebra of
+Vq , then GKdim B < ∞ by Remark 3.2. Up to a short list of exceptions, it is known
+e q ), see [10, 15] and references therein. Therefore, when
+that B is a quotient of B(V
+q is not of Cartan type, B has infinite global dimension by the same argument as
+above. In conclusion, it appears that B(Vq ) has a deformation sequence only when
+q is of Cartan type, up to some mild conditions on q.
+• By a different technique, it was shown in [5] that B(Vq ) has fgc when q "belongs to
+a family", which leaves open only 27 examples of modular or UFO type.
+In conclusion, the methods of the present paper apply in Cartan type. See [6, Subsection
+4.5] for details of the following arguments. We need to introduce some notation. Fix a
+matrix q of Cartan type, i. e., there exists a finite Cartan matrix a = (aij )i,j∈Iθ such that
+a
+qij qji = qiiij for all i ̸= j ∈ Iθ . Let ∆+ be theP
+set of positive roots
+P corresponding to a with
+subset of simple roots {αi : i ∈ Iθ }. For α = i∈Iθ ai αi , β = i∈Iθ bi αi ∈ ∆+ , we set:
+Y ai bj
+qαβ =
+qij
+and
+Nβ = ord qββ .
+i,j∈Iθ
+
+e q ) (called eβ in loc. cit.), defined using the Weyl
+As explained in [6], there exists Xβ ∈ B(V
+group automorphisms and which is in fact an iterated braided commutator. Then
+N
+
+Z + (Vq ) = k⟨Xβ β : β ∈ ∆+ ⟩.
+e q ) we need to assume, cf. [6, Condition (4.26)]:
+For Z + (Vq ) to be central in B(V
+(6.11)
+
+N
+
+qαββ = 1,
+
+for all α, β ∈ ∆+ .
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+27
+
+Proposition 6.10. Let q be a matrix of Cartan type satisfying (6.11). Let K be a finitedimensional Hopf algebra that admits a family of YD-pairs (gi , χi )i∈Iθ such that (6.8) holds,
+so that it gives a realization of Vq in K
+K YD. Assume that either K is semisimple; or K is
+cocommutative and (6.10) is K-equivariant. Then B(Vq )#K has fgc.
+For the case when K is a group algebra or a dual group algebra, see [5] and [29].
+e q ) < ∞ in this case, so (6.10) is a deformation seProof. As discussed above, gldim B(V
+quence and Proposition 6.3 applies.
+□
+When K is neither semisimple nor cocommutative, we can apply Proposition 6.3 (iii).
+Proposition 6.11. Let q be a matrix of Cartan type satisfying (6.11). Let K be a finitedimensional Hopf algebra admitting a family of YD pairs (gi , χi )i∈Iθ such that (6.8) and
+N
+
+χβ β = ε,
+for all β ∈ ∆+ ,
+P
+hold, where for any β = i∈Iθ bi αi ∈ ∆+ , we set
+Y b
+χβ =
+qiji .
+(6.12)
+
+i∈Iθ
+ȷ
+
+℘
+
+Assume that K has a deformation sequence of Hopf algebras C : W ,→ H ↠ K such that
+◦ there exists γi ∈ G(H) such that ℘(γi ) = gi and (γi , χi ℘) is a YD-pair for H, for
+all i ∈ Iθ , and
+◦ χi ℘|W = ε for all i ∈ Iθ .
+Then B(Vq )#K has fgc.
+N
+
+Proof. The proof is analogous to that of Proposition 6.9, noting that H acts on Xβ β by
+N
+
+(χβ ℘)Nβ = χβ β ℘; then (l) holds by (6.12).
+
+□
+
+6.5. The restricted Jordan plane. In this subsection, assume char k = p is an odd
+prime. Let V(1, 2) be the 2-dimensional braided vector space with a basis {x, y} and the
+braiding determined by
+(6.13)
+
+c(x ⊗ x) = x ⊗ x,
+
+c(y ⊗ x) = x ⊗ y,
+
+c(x ⊗ y) = (y + x) ⊗ x, c(y ⊗ y) = (y + x) ⊗ y.
+
+It was shown in [19] that the Nichols algebra B (V(1, 2)), also called the restricted Jordan
+plane, is presented as
+B (V(1, 2)) ∼
+= k⟨x, y | yx − xy + 1 x2 , xp , y p ⟩.
+2
+
+The Jordan plane is the algebra J = k⟨x, y | yx − xy + 21 x2 ⟩. From [19, Lemma 3.8],
+xn y = yxn + n2 xn+1 ,
+n  
+X
+n (−1)k k! k+1 n−k
+n
+y x=
+x y
+.
+k
+2k
+k=0
+
+28
+
+ANDRUSKIEWITSCH ET. AL.
+
+We conclude that ZJ := k⟨xp , y p ⟩ is a central subalgebra of J. Actually, ZJ is a braided
+Hopf subalgebra of J, cf. [19, Lemma 3.8] and we have a deformation sequence
+J : ZJ ,→ J ↠ B (V(1, 2)) .
+We recover the fact that B (V(1, 2)) has fgc [35]. We turn to realizations of the restricted
+Jordan plane that can be obtained as follows.
+Definition 6.12. [1, Example 23] Let K be a Hopf algebra with antipode S. A YD-triple
+for K is a collection (g, χ, η) where (g, χ) is a YD-pair for K and η ∈ Derχ,χ (K, k) such
+that
+(6.14)
+
+η(h)g = η(h(2) )h(1) gS(h(3) ),
+
+(6.15)
+
+χ(g) = η(g) = 1.
+
+for any h ∈ K,
+
+A YD-triple (g, χ, η) gives rise to Vg (χ, η) ∈ K
+K YD, defined as the k-vector space with a
+basis {x, y}, whose K-action and K-coaction are respectively given by
+h · x = χ(h)x,
+
+h · y = χ(h)y + η(h)x,
+
+h ∈ K;
+
+δ(x) = g ⊗ x,
+
+δ(y) = g ⊗ y.
+
+By assumption (6.15), Vg (χ, η) ∼
+= V(1, 2) as a braided vector space, where the braiding of
+YD
+coincides
+with
+that of V(1, 2) given in (6.13).
+Vg (χ, η) in K
+K
+It was observed that a finite-dimensional Hopf algebra that admits a YD-triple (g, χ, η) is
+not semisimple [9, Remark 4.8]. For cocommutative Hopf algebras, Proposition 6.3 implies
+the following fact.
+Proposition 6.13. Let K be a finite-dimensional cocommutative Hopf algebra that admits
+a YD-triple (g, χ, η) for K. Then B (Vg (χ, η)) #K has fgc.
+□
+Example 6.14. [9, Remark 4.9] Let G be a finite group and let (g, χ, η) be a YDtriple for kG, so that g ∈ Z(G) and χ ∈ Homgps (G, k× ). Then the Hopf algebra H =
+B(Vg (χ, η))#kG fits into the abelian exact sequence
+(6.16)
+
+ι
+
+π
+
+k→K→H→L→k
+
+defined as follows:
+◦ K := k⟨x, γ : γ ∈ N ⟩ ≃ k⟨x⟩#kN , where N := ker χ ∩ Z(G) ◁ F ;
+k(G/N )
+◦ L := B(ζ)#k(G/N ) ≃ k[ζ]/(ζ p )#k(G/N ), where kζ ∈ k(G/N ) YD is given by the
+YD-pair (e, χ) and ζ is primitive;
+◦ ι is the inclusion and π is given by π(x) = 0, π(y) = ζ and π(γ) = γN in G/N .
+Observe that (6.16) is not necessarily split, e.g., when the exact sequence of groups 1 →
+N → G → G/N → 1 is not split.
+When G = Zp , H has fgc by [35] or by [9], with different proofs. Proposition 6.13 implies
+that H has fgc for any G. This fact also confirms that [9, Question 1.1], namely that an
+extension of finite-dimensional Hopf algebras has fgc whenever the kernel and the cokernel
+have fgc, has a positive answer.
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+29
+
+6.6. Sums of blocks and points. In this subsection, assume char k = p is an odd prime.
+We discuss informally a class of braided vector spaces, introduced in [3], which decompose
+as direct sums of Jordan blocks, super Jordan blocks and labeled points. Their Nichols
+algebras are finite-dimensional.
+Precisely, for θ ∈ N, we consider the subclass V+ consisting of braided vector spaces
+which decompose as a direct sum of θ summands, t > 0 of them being Jordan blocks and
+θ − t of them being points labeled with 1 (i.e., one-dimensional braided vector spaces with
+the usual transposition) plus some technical conditions, see [9, Section 6] for details. For
+fixed t and θ, the elements of V+ depend on two parameters:
+◦ a matrix q = (qij )i,j∈Iθ such that
+qij qji = 1,
+
+for all i, j ∈ Iθ , i ̸= j;
+
+qii = 1,
+
+◦ a family a = (aij )i∈It+1,θ , with entries in Fp ,
+j∈It
+
+where for k < ℓ ∈ N, we set Ik,ℓ = {k, k + 1, ..., ℓ}, and Iℓ = I1,ℓ .
+Let V (q, a) be the braided vector space corresponding to (q, a). By [9, Lemma 6.3], the
+Nichols algebra B(V (q, a)) is presented by generators xi and yj , for i ∈ Iθ , j ∈ It , and
+relations (45), . . . , (50) in loc. cit. Let B be the algebra presented by generators xi and yj ,
+for i ∈ Iθ , j ∈ It , and relations
+(45 ii)
+
+yj xj − xj yj + 21 x2j = 0,
+
+for all j ∈ It ,
+
+that is, the second part of (45), (46), (47), (48), (50) in loc. cit. The analogue of B in
+characteristic 0 was studied in [4]; indeed, it is a Nichols algebra in that setting. Arguing
+as in [4], we see that B is a pre-Nichols algebra that fits into a deformation sequence
+B : Z ,→ B ↠ B (V (q, a)) .
+Proposition 6.15. Let K be a finite-dimensional cocommutative Hopf algebra such that
+V (q, a) admits a realization over K. Then B (V (q, a)) #K has fgc.
+□
+
+Proof. By Proposition 6.3.
+This was proved also in [9, Theorem 6.7] by the following arguments:
+
+⋄ Let 1 be the matrix with all entries equal to 1. Then there exists a suitable finite abelian
+group Γ such that B (V (1, a)) #kΓ fits into a split exact sequence
+ι
+
+π
+
+k → W → B (V (1, a)) #kΓ → u(l) → k
+where W is a commutative Hopf subalgebra and l is a restricted Lie algebra.
+⋄ Then the Drinfeld double D (B (V (1, a)) #kΓ ) has fgc by [9, Theorem 3.6]. Consequently, B (V (1, a)) #kΓ and B (V (1, a)) have fgc.
+⋄ For the same group Γ , B(V (q, a))#kΓ is a cocycle deformation of B(V (1, a))#kΓ, cf.
+[9, Corollary A8]. Then D (B (V (q, a)) #kΓ ) is isomorphic to D (B (V (1, a)) #kΓ ) as
+algebras, hence it has fgc; a fortiori, B (V (q, a)) #kΓ and B (V (q, a)) have fgc.
+
+30
+
+ANDRUSKIEWITSCH ET. AL.
+
+Now Proposition 6.15 says that replacing kΓ by a cocommutative K, in particular by
+kG where G is a finite group, such that V (q, a) is realizable over K, we still have that
+B (V (q, a)) #K has fgc. It can be shown that this Hopf algebra fits into a (not necessarily
+quasi-split) abelian extension giving further evidence for a positive answer to [9, Question 1.1]. On the opposite side, the method of the present paper does not establish that
+D (B (V (q, a)) #kΓ ) has fgc, a fact that remains an open question.
+Funding. The work of N. Andruskiewitsch was partially supported by Secyt (UNC), CONICET (PIP 11220200102916CO), and FONCyT-ANPCyT (PICT-2019-03660). D. Jaklitsch
+was supported by the Research Council of Norway - project 324944. V. Nguyen was partially supported by US NSF grant DMS-2201146. J. Plavnik was partially supported by US
+NSF Grant DMS-2146392 and by Simons Foundation Award #889000 as part of the Simons
+Collaboration on Global Categorical Symmetries. A. Shepler was partially supported by
+Simons Foundation grant #429539.
+Disclaimer. The views expressed in this article are those of the author(s) and do not
+reflect the official policy or position of the U.S. Naval Academy, Department of the Navy,
+the Department of Defense, or the U.S. Government.
+Acknowledgments. This project began while the authors were participating in a workshop at the American Institute of Mathematics, whose hospitality and support are gratefully acknowledged. We thank Cris Negron, Julia Pevtsova, Serge Skryabin, and Sarah
+Witherspoon for helpful conversations.
+Appendix A. Flatness for twisted tensor products
+The semidirect product algebras we consider in this paper are examples of twisted tensor
+products. Recall that a twisted tensor product algebra Q ⊗τ H of two algebras Q and H
+is the vector space Q ⊗ H endowed with an algebra structure given by a twisting map
+τ : H ⊗ Q → Q ⊗ H, see [18]. We use the next results on twisted tensor products in the
+proof of Proposition 5.8.
+Lemma A.1. Suppose Q ⊗τ H is a twisted tensor product algebra defined by an invertible
+twisting map τ : H ⊗ Q → Q ⊗ H. If Q is flat over a subalgebra Q′ and τ restricts to a
+bijection H ⊗ Q′ → Q′ ⊗ H, then Q ⊗τ H is flat over Q′ ⊗τ H.
+Proof. For any right module M over Q′ ⊗τ H, consider the inherited right actions on M by
+Q′ and H obtained by identifying Q′ ∼
+= Q′ ⊗ k1H and H ∼
+= k1Q ⊗ H with vector subspaces
+of Q ⊗ H ∼
+= Q ⊗τ H. Note that H ⊗ Q itself is a left Q′ -module via the map
+(A.1)
+
+(idH ⊗ mQ )(τ −1 ⊗ idQ ) : Q′ ⊗ (H ⊗ Q) → H ⊗ Q
+
+for mQ : Q ⊗ Q → Q the multiplication map on Q. As τ −1 (Q′ ⊗ H) ⊂ H ⊗ Q′ , we may
+endow M ⊗Q′ Q with the structure of a right H-module via the composition
+(A.2)
+
+id
+
+⊗ τ −1
+
+ρ ⊗ idQ
+
+M
+(M ⊗Q′ Q) ⊗ H −−−
+−−−−→ M ⊗Q′ (H ⊗ Q) −−−−−→ M ⊗Q′ Q
+
+for ρ : M ⊗ H → H the right H-module structure map on M using the fact that twisting
+commutes with the multiplication in Q and in H, see [18].
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+31
+
+We define an abelian group isomorphism
+(A.3)
+
+idM ⊗ idQ ⊗ idK
+M ⊗Q′ Q ∼
+= (M ⊗Q′ Q) ⊗H H −−−−−−−−−−→ M ⊗(Q′ ⊗τ H) (Q ⊗τ H),
+
+with inverse map given by idM ⊗ idQ ⊗ idH , using the action in (A.2) and the fact that τ
+merely swaps tensor factors on any input with a tensor component from k.
+To see that Q ⊗τ H is flat over Q′ ⊗τ H, take any injective map f : M1 → M2 of
+right (Q′ ⊗τ H)-modules. As Q is flat over Q′ , this extends to an injective map f ⊗ id :
+M1 ⊗Q′ Q → M2 ⊗Q′ Q which is also a map of right H-modules under the action of (A.2)
+as f is a right H-module homomorphism. We obtain a commutative diagram using (A.3):
+(M1 ⊗Q′ Q) ⊗H H
+
+f ⊗id ⊗ id
+
+(M2 ⊗Q′ Q) ⊗H H
+
+id ⊗ id ⊗ id
+
+M1 ⊗(Q′ ⊗τ H) (Q ⊗τ H)
+
+id ⊗ id ⊗ id
+f ⊗(id ⊗ id)
+
+M2 ⊗(Q′ ⊗τ H) (Q ⊗τ H) .
+
+As the top row map is injective, so too is the bottom row map.
+
+□
+
+Corollary A.2. Suppose algebras Q and H are flat over subalgebras Q′ and H ′ , respectively, and Q ⊗τ H is a twisted tensor product algebra defined by a twisting map
+τ : H ⊗ Q → Q ⊗ H that restricts to bijections H ⊗ Q′ → Q′ ⊗ H and H ′ ⊗ Q′ → Q′ ⊗ H ′ .
+Then Q ⊗τ H is flat over Q′ ⊗τ H ′ .
+Proof. By Lemma A.1, Q ⊗τ H is flat over Q′ ⊗τ H and Q′ ⊗τ H is flat over Q′ ⊗τ H ′ ,
+hence Q ⊗τ H is flat over Q′ ⊗τ H ′ .
+□
+
+References
+[1] Nicolás Andruskiewitsch, An introduction to Nichols algebras, Quantization, geometry and noncommutative structures in mathematics and physics, 2017, pp. 135–195.
+[2] Nicolás Andruskiewitsch and Iván Angiono, On finite dimensional Nichols algebras of diagonal type,
+Bull. Math. Sci. 7 (2017), no. 3, 353–573.
+[3] Nicolás Andruskiewitsch, Iván Angiono, and István Heckenberger, Examples of finite-dimensional
+pointed Hopf algebras in positive characteristic, Representation theory, mathematical physics, and
+integrable systems, (2021), pp. 1–38.
+[4] Nicolás Andruskiewitsch, Iván Angiono, and István Heckenberger, On finite GK-dimensional Nichols
+algebras over abelian groups, Mem. Amer. Math. Soc. 271 (2021), no. 1329, ix+125. MR4298502
+[5] Nicolás Andruskiewitsch, Iván Angiono, Julia Pevtsova, and Sarah Witherspoon, Cohomology rings of
+finite-dimensional pointed Hopf algebras over abelian groups, Res. Math. Sci. 9 (2022), no. 1, Paper
+No. 12, 132.
+[6] Nicolás Andruskiewitsch, Iván Angiono, and Milen Yakimov, Poisson orders on large quantum groups,
+Adv. Math. 428 (2023), Paper No. 109134, 66.
+[7] Nicolás Andruskiewitsch and Jorge Devoto, Extensions of Hopf algebras, Algebra i Analiz 7 (1995),
+no. 1, 22–61.
+[8] Nicolás Andruskiewitsch and Sonia Natale, Braided Hopf algebras arising from matched pairs of groups,
+J. Pure Appl. Algebra 182 (2003), no. 2-3, 119–149. MR1903050
+[9] Nicolás Andruskiewitsch and Sonia Natale, On the finite generation of the cohomology of abelian
+extensions of Hopf algebras, Doc. Math. (2025). To appear.
+[10] Nicolás Andruskiewitsch and Guillermo Sanmarco, Finite GK-dimensional pre-Nichols algebras of
+quantum linear spaces and of Cartan type, Trans. Amer. Math. Soc. Ser. B 8 (2021), 296–329.
+
+32
+
+ANDRUSKIEWITSCH ET. AL.
+
+[11] Nicolás Andruskiewitsch and Hans-Jürgen Schneider, Lifting of quantum linear spaces and pointed
+Hopf algebras of order p3 , J. Algebra 209 (1998), no. 2, 658–691.
+[12] Nicolás Andruskiewitsch and Hans-Jürgen Schneider, Pointed Hopf algebras, New directions in Hopf
+algebras, 2002, pp. 1–68.
+[13] Iván Angiono, On Nichols algebras of diagonal type, J. Reine Angew. Math. 683 (2013), 189–251.
+[14] Iván Angiono, Distinguished pre-Nichols algebras, Transform. Groups 21 (2016), no. 1, 1–33.
+[15] Iván Angiono, Emiliano Campagnolo, and Guillermo Sanmarco, Finite GK-dimensional pre-Nichols
+algebras of (super)modular and unidentified type, J. Noncommut. Geom. 17 (2023), no. 2, 499–525.
+[16] Michael F. Atiyah and Ian G. Macdonald, Introduction to commutative algebra, Student economy
+edition, Boulder: Westview Press, 2016.
+[17] Roman Bezrukavnikov and Victor Ginzburg, On deformations of associative algebras, Ann. of Math.
+(2) 166 (2007), no. 2, 533–548.
+[18] Andreas Cap, Hermann Schichl, and Jiří Vanžura, On twisted tensor products of algebras, Comm. Alg.
+23 (1995), no. 12, 4701–4735.
+[19] Claude Cibils, Aaron Lauve, and Sarah Witherspoon, Hopf quivers and Nichols algebras in positive
+characteristic., Proc. Am. Math. Soc. 137 (2009), no. 12, 4029–4041.
+[20] Javier Cóppola and Andrea Solotar, Graded braided commutativity in Hochschild cohomology, Theory
+Appl. Categ. 41 (2024), Paper No. 46, 1596–1643.
+[21] Pavel Etingof and Viktor Ostrik, Finite tensor categories, Mosc. Math. J. 4 (2004), no. 3, 627–654,
+782–783.
+[22] Leonard Evens, The cohomology ring of a finite group, Trans. Am. Math. Soc. 101 (1961), 224–239.
+[23] Eric M. Friedlander and Andrei Suslin, Cohomology of finite group schemes over a field, Invent. Math.
+127 (1997), no. 2, 209–270.
+[24] István Heckenberger, Classification of arithmetic root systems, Adv. Math. 220 (2009), no. 1, 59–124.
+[25] Huan Jia and Yinhuo Zhang, Affineness on Noetherian graded rings, algebras and Hopf algebras (2025).
+arXiv:2503.12268.
+[26] Ellen E. Kirkman, James J. Kuzmanovich, and James J. Zhang, Gorenstein subrings of invariants
+under Hopf algebra actions, J. Algebra 322 (2009), no. 10, 3640–3669.
+[27] Günter R. Krause and Thomas H. Lenagan, Growth of algebras and Gelfand-Kirillov dimension.,
+Revised ed., Grad. Stud. Math., vol. 22, Providence, RI: American Mathematical Society, 2000.
+[28] Maria E. Lorenz and Martin Lorenz, On crossed products of Hopf algebras, Proc. of AMS 123 123
+(1995), 33–38.
+[29] Mitja Mastnak, Julia Pevtsova, Peter Schauenburg, and Sarah Witherspoon, Cohomology of finitedimensional pointed Hopf algebras., Proc. Lond. Math. Soc. (3) 100 (2010), no. 2, 377–404.
+[30] John C. McConnell and J. Chris Robson, Noncommutative Noetherian rings. With the cooperation of L.
+W. Small., Reprinted with corrections from the 1987 original, Grad. Stud. Math., vol. 30, Providence,
+RI: American Mathematical Society (AMS), 2001.
+[31] James S. Milne, Algebraic groups. The theory of group schemes of finite type over a field, Camb. Stud.
+Adv. Math., vol. 170, Cambridge: Cambridge University Press, 2017.
+[32] Susan Montgomery, Hopf algebras and their actions on rings, CBMS Regional Conference Series in
+Mathematics, vol. 82, Published for the Conference Board of the Mathematical Sciences, Washington,
+DC; by the American Mathematical Society, Providence, RI, 1993.
+[33] Cris Negron, Finite generation of cohomology for drinfeld doubles of finite group schemes, Selecta
+Mathematica 27 (2021), 1–20.
+[34] Cris Negron and Julia Pevtsova, Support for integrable Hopf algebras via noncommutative hypersurfaces, International Mathematics Research Notices 2023 (2023), no. 3, 1882–1958.
+[35] Van C. Nguyen, Xingting Wang, and Sarah Witherspoon, Finite generation of some cohomology rings
+via twisted tensor product and Anick resolutions, J. Pure Appl. Algebra 223 (2019), no. 1, 316–339.
+[36] Van C. Nguyen, Xingting Wang, and Sarah Witherspoon, New approaches to finite generation of
+cohomology rings, J. Algebra 587 (2021), 390–428.
+[37] Dragoş Ştefan and Cristian Vay, The cohomology ring of the 12-dimensional Fomin-Kirillov algebra,
+Adv. Math. 291 (2016), 584–620.
+
+ON THE FINITE GENERATION OF THE COHOMOLOGY OF BOSONIZATIONS
+
+33
+
+[38] David E. Radford, Hopf algebras, Series on Knots and Everything, vol. 49, World Scientific Publishing
+Co. Pte. Ltd., Hackensack, NJ, 2012.
+[39] Hans-Jürgen Schneider, Normal basis and transitivity of crossed products for Hopf algebras, J. Algebra
+152 (1992), no. 2, 289–312.
+[40] Hans-Jürgen Schneider, Some remarks on exact sequences of quantum groups, Comm. Algebra 21
+(1993), no. 9, 3337–3357.
+[41] Anne V. Shepler and Sarah Witherspoon, Twisted tensor products: Alexander-Whitney and EilenbergZilber maps (2024). arXiv:2411.04102.
+[42] Serge Skryabin, Invariants of finite Hopf algebras, Adv. Math. 183 (2004), no. 2, 209–239.
+[43] Serge Skryabin, New results on the bijectivity of antipode of a Hopf algebra, J. Algebra 306 (2006),
+no. 2, 622–633.
+[44] Serge Skryabin, Flatness over PI coideal subalgebras, Isr. J. Math. 245 (2021), no. 2, 735–772.
+[45] Mariano Suarez-Alvarez, The Hilton-Heckmann argument for the anti-commutativity of cup products,
+Proc. Am. Math. Soc. 132 (2004), no. 8, 2241–2246.
+[46] Mitsuhiro Takeuchi, Survey of braided Hopf algebras, New trends in Hopf Algebra Theory. Proceedings
+of the Colloquium on Quantum Groups and Hopf Algebras, La Falda, Sierras de Córdoba, Argentina,
+August 9–13, 1999, 2000, pp. 301–323.
+[47] Wilberd van der Kallen, Reductivity properties over an affine base, Indag. Math., New Ser. 32 (2021),
+no. 5, 961–967.
+[48] Charles Weibel, An introduction to homological algebra, Camb. Stud. Adv. Math., vol. 38, Cambridge:
+Cambridge University Press, 1994.
+[49] Quanshui S. Wu and James J. Zhang, Some homological invariants of local PI algebras, J. Algebra
+225 (2000), no. 2, 904–935.
+[50] Amnon Yekutieli, Derived categories, Camb. Stud. Adv. Math., vol. 183, Cambridge: Cambridge University Press, 2020.
+[51] Shenglin Zhu, Integrality of module algebras over its invariants, J. Algebra 180 (1996), no. 1, 187–205.
+FaMAF-CIEM (CONICET), Universidad Nacional de Córdoba, Medina Allende s/n,
+Ciudad Universitaria, 5000 Córdoba, Argentina
+Email address: nicolas.andruskiewitsch@unc.edu.ar
+Department of Mathematics, University of Oslo, Moltke Moes vei 35, 0851 Oslo, Norway
+Email address: dajak@math.uio.no
+Department of Mathematics, United States Naval Academy, Annapolis, MD 21402, USA
+Email address: vnguyen@usna.edu
+Department of Mathematics, University of Washington, Seattle, WA 98195, USA
+Email address: amreio@uw.edu
+Department of Mathematics, Indiana University, Bloomington, IN 47405, USA
+Department of Mathematics and Data Science, Vrije Universiteit Brussel, 1050 Brussels,
+Belgium
+Email address: jplavnik@iu.edu
+Department of Mathematics, University of North Texas, Denton, Texas 76203, USA
+Email address: anne.shepler@unt.edu
+Louisiana State University, Baton Rouge, Louisiana, 70803, USA
+Email address: xingtingwang@math.lsu.edu
+
+

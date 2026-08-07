@@ -1,0 +1,2360 @@
+[ZMP-HH/23-23]
+Hamburger Beiträge zur Mathematik Nr. 955
+
+The Lyubashenko Modular Functor for Drinfeld Centers
+via Non-Semisimple String-Nets
+
+arXiv:2312.14010v1 [math.QA] 21 Dec 2023
+
+Lukas Müller a , Christoph Schweigert b , Lukas Woike c and Yang Yang d
+c
+a
+
+Perimeter Institute
+31 Caroline Street North
+CA-N2L 2Y5 Waterloo
+b
+
+Fachbereich Mathematik
+Universität Hamburg
+Bereich Algebra und Zahlentheorie
+Bundesstraße 55
+D-20146 Hamburg
+
+Institut de Mathématiques de Bourgogne
+Université de Bourgogne
+UMR 5584 CNRS
+Faculté des Sciences Mirande
+9 Avenue Alain Savary
+F-21078 Dijon
+d
+
+Max-Planck-Institut für Mathematik
+in den Naturwissenschaften
+Inselstraße 22
+D-04103 Leipzig
+
+The Levin-Wen string-nets of a spherical fusion category C describe, by results of Kirillov and Bartlett, the representations of mapping class groups of closed surfaces obtained from the Turaev-Viro construction applied to C. We provide a far-reaching
+generalization of this statement to arbitrary pivotal finite tensor categories, including
+non-semisimple or non-spherical ones: We show that the finitely cocompleted string-net
+modular functor built from the projective objects of a pivotal finite tensor category is
+equivalent to Lyubashenko’s modular functor built from the Drinfeld center Z(C).
+Contents
+1
+2
+3
+4
+5
+6
+7
+8
+
+Introduction and summary. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+The non-semisimple string-net construction for the tensor ideal of projective objects. . . . .
+The open-closed string-net modular functor for a pivotal finite tensor category . . . . . . . . .
+The string-net description of the central monad . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+The finitely cocompleted string-net construction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+The Swiss-Cheese algebra underlying the string-net construction . . . . . . . . . . . . . . . . . . . .
+The comparison theorem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Applications and examples . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+1
+5
+13
+16
+19
+22
+25
+28
+
+1 Introduction and summary
+During the last few decades, an enormous amount of work has been devoted to the construction
+of representations of mapping class groups from certain monoidal and braided monoidal categories
+that appear in quantum algebra, for instance as categories of representations of quantum groups or
+vertex operator algebras. One of the classical constructions is the Turaev-Viro construction [TV92]
+that was developed further by Barrett-Westbury [BW96]. The input datum is a spherical fusion
+category, a certain type of monoidal category with rigid duals subject to finiteness and semisimplicity conditions. The construction yields for each surface Σ a finite-dimensional vector space ZCTV (Σ)
+(for us, a surface is always compact and oriented; if Σ has a boundary, additional boundary labels
+need to be specified), called the state space. It comes with a representation of the mapping class
+group of Σ on ZCTV (Σ). The assignment is compatible with gluing; it produces what is called
+1
+
+a modular functor in the sense of [Seg88, MS89, Tur94, Til98, BK01]. In fact, due to semisimplicity, one even obtains a three-dimensional topological field theory [TV92, BW96] that can be
+extended to codimension two [BK10, Bal10a, Bal10b, TV10, TV17]. This topological field theory
+conjecturally extends down to the point: In [DSPS20, Corollary 3.4.8] a framed three-dimensional
+fully extended topological field theory is built from a fusion category over a field of characteristic
+zero through the use of the cobordism hypothesis [BD95, Lur09]. According to [DSPS20, Conjecture 3.5.10], this topological field theory will descend to an oriented theory and, as a once-extended
+topological field theory, should coincide with the Turaev-Viro topological field theory.
+A different classical construction of mapping class group representations is the ReshetikhinTuraev construction [RT90, RT91] that takes as an input a modular fusion category A, a certain
+type of finitely semisimple braided fusion category. The construction relies on surgery. Once
+RT
+again the construction yields a three-dimensional topological field theory ZA
+that extends to
+codimension two [Tur94, BDSPV15, TV17].
+The mapping class group representations produced in this way are sometimes referred to as
+quantum representations of mapping class groups. These representations are highly non-trivial;
+they are, in certain examples, what is known as ‘asymptotically faithful’ [And06, FWW02]. However, they are generally difficult to describe explicitly. This creates a need for comparison results
+between different constructions because this allows to combine the knowledge that is available separately on both constructions. The arguably most famous comparison result is the one between the
+Turaev-Viro and the Reshetikhin-Turaev construction: For a spherical fusion category C over an
+algebraically closed field, we have the equivalence of once-extended three-dimensional topological
+field theories
+RT
+ZCTV ≃ ZZ(C)
+,
+
+(1.1)
+
+and hence in particular an equivalence of modular functors. Here Z(C) is the Drinfeld center of C,
+the braided monoidal category of all pairs (X, β) of an object X ∈ C together with a half braiding
+β : X ⊗− ∼
+= −⊗X. Since C is a spherical fusion category, Z(C) is a modular fusion category [Mü03].
+The result (1.1) was established independently by Balsam-Kirillov [BK10, Bal10a, Bal10b] (in
+characteristic zero) and Turaev-Virelizier [TV10], see also the monograph [TV17, Section 17.1.2].
+When it comes to obtaining an efficient description of the mapping class group representations
+involved, (1.1) is hardly helpful: Both the Turaev-Viro and the Reshetikhin-Turaev construction
+make heavy use of combinatorial tools like triangulations or surgery. While these tools are absolutely vital for the invariants of three-dimensional manifolds that these topological field theories
+produce, it seems unnecessary for the description of the two-dimensional part of the theories.
+Indeed there is a third, skein-theoretic model that has gained popularity in recent years because
+it affords a direct topological construction of the mapping class group representations coming
+from the Turaev-Viro construction, namely the string-net model that was developed by LevinWen [LW05] for applications in condensed matter physics and refined by Kirillov [Kir11]. The idea
+of the string-net model for a spherical fusion category C is extremely simple: In order to obtain the
+string-net space SNC (Σ) for a surface Σ (for simplicity, let us assume it is closed for the moment),
+we draw, roughly, all possible finite oriented graphs on the surface, label the edges by objects in
+C and the vertices with morphisms (the source and target object are obtained from the incident
+labels). One then imposes local relations coming from the evaluation of string-nets in disk-shaped
+regions via the graphical calculus of C. Through this definition, the graphical calculus is globalized
+from disks to surfaces. We recall in Section 2 how this intuitive idea is technically implemented.
+Kirillov proves in [Kir11] that
+ZCTV (Σ) ∼
+= SNC (Σ)
+
+(1.2)
+
+as vector spaces. The equivariance of these isomorphisms under the mapping class group Map(Σ)
+of Σ is a rather subtle point: It follows from the construction of the three-dimensional string-net
+topological field theory of Bartlett-Goosen [BG21] which, however, relies on the still unproven
+presentation of the three-dimensional bordism category through generators and relations used
+in [BDSPV15]. Nonetheless, by [Bar22] this presentation can be replaced by a known presentation
+given by Juhász [Juh18] that circumvents this problem at least at the level of non-extended threedimensional topological field theories. This gives us (1.2) as equivariant isomorphism for closed
+2
+
+surfaces, but strictly speaking no equivalence of modular functors (the Juhász presentation does
+not include codimension two). Remarkably, a proof of (1.2), even just as mapping class group representations for closed surfaces, that does not pass through a presentation of the three-dimensional
+cobordism category in terms of generators and relations is not known.
+The purpose of this article is to generalize the string-net construction beyond spherical fusion
+categories, more precisely to pivotal finite tensor categories (this will be the easy part), and establish comparison results of the above flavor (this will be the hard part). Let us first clarify
+the terminology: Finite tensor categories [EO04] are linear abelian monoidal categories with rigid
+duals, a simple unit and some finiteness assumptions on the underlying linear category; a pivotal
+structure is a monoidal trivialization of the double dual functor. The reason why this is actually a vast and relatively involved generalization is that, in contrast to fusion categories, finite
+tensor categories can be non-semisimple (this will allow for a much richer supply of examples,
+most notably those coming from logarithmic conformal field theory). While non-semisimplicity
+seems just like a technicality, it is known that it has the most dramatic consequences when it
+comes to the three mentioned constructions above: The Reshetikhin-Turaev type topological field
+theory cannot exist as a once-extended three-dimensional topological field theory by the results
+of [BDSPV15], but by a famous result of Lyubashenko [Lyu95a, Lyu95b, Lyu96] a not necessarily
+semisimple modular category still gives rise to a modular functor. In [DRGG+ 22a, DRGG+ 22b],
+see also [BCGPM16] for the sl(2)-case, this modular functor is extended to a partially defined
+three-dimensional topological field theory, with the modified trace being used to produce interesting invariants of closed three-dimensional manifolds [CGPM12]. The Turaev-Viro construction is
+not available in the non-semisimple case, but a framed modular functor is built in [FSS22] using a
+state-sum construction.
+The main result. With this being the status quo, our path towards a generalization of the
+string-net construction and towards the best possible comparison results is the following: First we
+generalize the string-net construction to a construction that takes as an input a pivotal finite tensor
+category C and outputs a modular functor, i.e. a system of mapping class group representations.
+Neither sphericality in the sense of [DSPS20] nor semisimplicity of C are needed. In fact, we
+even obtain an open-closed modular functor, which means that we include marked intervals on
+the boundaries of the surfaces. Setting up this generalization is not difficult, underlining once
+again the fact that the string-net construction is the easiest, most intuitive one of the abovementioned constructions. On a technical level, it will be sufficient to adapt the generalized stringnet construction of [FSY23] so that it can be applied to the tensor ideal of projective objects in a
+pivotal finite tensor category. The idea of restricting to projective objects also underlies the recently
+introduced admissible skeins [CGPM23] and ongoing work by Reutter and Walker [Reu, Wala].
+Focusing on the projective objects is what gives non-semisimple modular functors the correct
+behavior under gluing, as was observed in [SW21b, SW21a]. We establish in Theorem 3.3 that
+this non-semisimple string-net construction produces an open-closed modular functor. The only
+involved part of this construction is an excision result for string-nets (Theorem 3.2) that, in this
+generality, is to the best of our knowledge not covered by classical gluing results for field theories
+built through skein-theoretic methods [Walb, GJS23].
+Having the generalized string-net construction at our disposal, we can state our comparison
+result. More precisely, we will compare the modular functor SNC built from string-nets with
+coefficients in a pivotal finite tensor category C to the Lyubashenko modular functor for the Drinfeld
+center Z(C) of C; this amounts to a non-semisimple analog of the combination of (1.1) and (1.2).
+Theorem 7.1. For any pivotal finite tensor category C, the string-net modular functor SNC associated to C is equivalent to the Lyubashenko modular functor associated to the Drinfeld center
+Z(C).
+The notion of equivalence of modular functors used here is the one from [BW22, Section 3.2];
+the equivalence of the modular functor particularly implies that the (a priori projective) mapping
+class group representations are isomorphic.
+
+3
+
+The reader may have noticed that if C is not spherical, Z(C) does not have to be modular [Shi23].
+This has the consequence that Lyubashenko’s original construction actually does not apply to Z(C).
+Nonetheless in [BW22, Section 8.4] the algebraic results of [MW22] are used to build a modular
+functor from Z(C) in this more general situation in a way that the original Lyubashenko modular
+functor is recovered in the spherical case. In Theorem 7.1 the modular functor for Z(C) has to be
+understood in this generalized sense.
+The proof strategy. The methods used to prove Theorem 7.1 are completely different from
+the methods used for the above comparison results (1.1) and (1.2) in the semisimple case. The
+Lyubashenko modular functor was originally built using generators and relations for the mapping
+class groups. A similar description for the topologically defined string-nets seems completely
+beyond reach. Instead, we make ample use of the factorization homology classification of modular
+functors [BW22] that allows us to reduce the comparison result between the string-nets for C and the
+modular functor for Z(C) to a comparison between the ribbon Grothendieck-Verdier categories that
+both modular functors produce in genus zero [MW23b]. Nonetheless, no knowledge of factorization
+homology and almost no knowledge of Grothendieck-Verdier duality is needed for reading this
+article. The key ingredient for the genus zero comparison is a string-net description of the central
+monad (Section 4) and an analysis of the Swiss-Cheese algebra obtained by evaluation of an openclosed version of the string-net modular functor in genus zero (Section 6). The latter relies on
+Idrissi’s characterization of categorical Swiss-Cheese algebras in [Idr17]. Grothendieck-Verdier
+duality comes into play to describe the topological duality that orientation reversal induces on the
+category assigned by the string-net modular functor to the circle; it is one of the insights of this
+article that this duality need not coincide with the rigid one, see Remark 7.5.
+In the remaining subsections of this introduction, let us highlight some applications, calculations
+and special cases of our main result.
+The calculation of string-net spaces. The string-net spaces are easy to define, and the mapping class group action on them has a clear geometric origin. However, they have the disadvantage
+that the state spaces are difficult to compute from scratch, and not even their finite-dimensionality
+is obvious. With the comparison result from Theorem 7.1, we can express the string-net spaces as
+follows (we denote by Z(C)(−, −) the morphism spaces in the Drinfeld center):
+Corollary 8.1. Let C be a pivotal finite tensor category and Σ a surface with n boundary components that are labeled with X1 , . . . , Xn ∈ C. Then we can identify
+
+∗
+!⊗g
+Z
+SNC (Σ; X1 , . . . , Xn ) ∼
+X ⊗ X∨
+, α⊗(g−1)  ,
+= Z(C) F X1 ⊗ · · · ⊗ F Xn ⊗
+X∈Z(C)
+
+where F : C −→ Z(C) is left adjoint to the forgetful functor from Z(C) to C, and α is the distinguished invertible object of C, seen as object in the Drinfeld center via the pivotal structure and
+the Radford isomorphism. This isomorphism intertwines the Map(Σ)-action if SNC (Σ; X1 , . . . , Xn )
+is equipped with the geometric action and the right hand side with the (generalized) Lyubashenko
+action.
+With Corollary 8.1, we discuss in Example 8.4 the case where C is given by modules over a
+spherical Hopf algebra and give lower and upper bounds for the dimensions of string-net spaces.
+A full calculation of the string-net spaces in a non-spherical situation is given in Example 8.5.
+We should highlight that it is, in the general case, only the comparison result that allows us to
+conclude when string-net spaces are even non-zero. Indeed, this can hardly be decided through
+direct computations using the string-nets. One might think that it might be possible to find certain
+‘generic’ non-zero contributions to the string-net spaces (through local calculations or estimates,
+as they are available for spherical Hopf algebras), but the following result shows that this picture
+is too naı̈ve:
+
+4
+
+Corollary 8.6. Fix a closed surface Σ of genus g 6= 1. Then there exists a pivotal finite tensor
+category C such that SNC (Σ) = 0, even though the modular functor SNC is still overall non-trivial,
+i.e. non-zero on some other closed surface.
+The semisimple situation. In the semisimple spherical case, our main result specializes to
+the statement that the string-net construction for a spherical fusion category C describes the
+Reshetikhin-Turaev type mapping class group representations for closed surfaces constructed from
+the modular fusion category Z(C). Since the latter are equivalent to the Turaev-Viro type mapping
+class group representations built from C, we recover the result from [Kir11, Bar22]. It should be
+pointed out that our proof, also in the semisimple case, is genuinely new as it is two-dimensional.
+Moreover, the comparison as modular functors, as opposed to a comparison of representations of
+mapping class groups of surfaces, is to the best of our knowledge new. One might also slightly shift
+the perspective: As opposed to [Kir11, Bar22], we compare the string-net construction directly
+with the Reshetikhin-Turaev construction for the Drinfeld center, without passing through the
+Turaev-Viro construction. We can therefore use [Kir11, Bar22] in combination [BDSPV15] to give
+RT
+a new proof of ZCTV ≃ ZZ(C)
+(Corollary 8.10).
+For a non-spherical fusion category C, the string-net construction was considered in [Run20].
+We prove that this construction produces the modular functor for the Drinfeld center Z(C), but
+equipped with a Grothendieck-Verdier duality that does not coincide with the rigid duality (Corollary 8.8).
+Anomaly-freeness and extensions. As an application of our main result, we conclude from
+the properties of the string-nets:
+Corollary 8.7. For a pivotal finite tensor category C, the Lyubashenko modular functor for the
+Drinfeld center Z(C)
+(i) is anomaly-free
+(ii) and extends to an open-closed modular functor sending the open boundary to C.
+RT
+. In the nonIn the semisimple situation, the first result can be deduced from ZCTV ≃ ZZ(C)
+semisimple case, they are expected by experts, but we are not aware of a proof, and establishing
+these claims directly using the Lyubashenko modular functor seems relatively tedious.
+
+Acknowledgments. We thank David Reutter for helpful discussions related to skein theory with projective labels. LM gratefully acknowledges support of the Simons Collaboration on
+Global Categorical Symmetries. Research at Perimeter Institute is supported in part by the Government of Canada through the Department of Innovation, Science and Economic Development
+and by the Province of Ontario through the Ministry of Colleges and Universities. The Perimeter Institute is in the Haldimand Tract, land promised to the Six Nations. CS is supported by
+the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under SCHW1162/61 and under Germany’s Excellence Strategy - EXC 2121 “Quantum Universe” - 390833306. LW
+gratefully acknowledges support by the ANR project CPJ n°ANR-22-CPJ1-0001-01 at the Institut de Mathématiques de Bourgogne (IMB). The IMB receives support from the EIPHI Graduate School (ANR-17-EURE-0002). YY gratefully acknowledges support from the research group
+Mathematical Structures in Physics at the Max Planck Institute for Mathematics in the Sciences
+in Leipzig.
+2 The non-semisimple string-net construction for the tensor ideal of projective
+objects
+In this section, we recall the construction of the string-net vector spaces for surfaces that was
+inspired by the work of Levin and Wen [LW05] and subsequently developed further in [Kir11]. The
+presentation below is self-contained, but somewhat condensed. On a technical level, it uses insights
+
+5
+
+from a recent generalization of the string-net construction in [FSY23].
+In the sequel, a surface will be an abbreviation for compact oriented two-dimensional manifold
+with boundary (which can be empty). For a surface, the following will always be implicitly part
+of the data: The surface comes with a designated subset of its boundary components, the closed
+boundary components which are parametrized, meaning that each of the boundary components
+is identified with a standard circle through a diffeomorphism which is part of the data. In the
+remaining boundary components, we allow a finite number of disjoint parametrized intervals, the
+so-called open boundary intervals. The boundary components that are neither among the closed
+boundary components nor have embedded intervals in them are the free boundary components.
+Next let us establish our conventions regarding graphs: A finite combinatorial graph Γ consists
+of a finite set V of vertices, a finite set H of half edges, a source map s : H −→ V (assigning to a
+half edge its source vertex) and an involution i : H −→ H (gluing half edges together). The orbits
+of the involution are called the edges of the graph. Its fixed points are referred to as legs. Edges
+which are not legs will be called internal edges. For any vertex v ∈ V , we call |v| := |s−1 (v)| the
+valence of v; we require that it is always non-zero. For any finite combinatorial graph Γ , we denote
+by |Γ | the 1-dimensional CW complex obtained by geometric realization. A finite combinatorial
+graph Γ is called a tree if |Γ | is contractible. A special case of a tree is a corolla, a graph with one
+vertex and a finite number of legs attached to it.
+The role of decoration data for the string-nets that we will define in this section will be played by a
+pivotal tensor category in the sense of Etingof-Ostrik; we will recall here the basic notions and refer
+to [EO04] for details. A finite (linear) category is an abelian linear category (over an algebraically
+closed field k that we fix throughout) with finite-dimensional morphism spaces, enough projective
+objects, finitely many isomorphism classes of simple objects, such that every object has finite
+length; these are exactly those linear categories linearly equivalent to finite-dimensional modules
+over some finite-dimensional algebra. A finite tensor category C is a finite category equipped with
+a left and right rigid monoidal product with simple unit I. It is a consequence of this definition
+that any finite tensor category is self-injective, i.e. the projective objects are exactly the injective
+ones. A pivotal structure on a finite tensor category is a monoidal isomorphism from the double
+dual functor to the identity. We denote the duality by −∨ : C opp −→ C (thanks to pivotality, left
+and right duality can be identified).
+There is another condition that will not play a role in the next definition, but only later, namely
+sphericality: Etingof-Nikshych-Ostrik define in [ENO04] the distinguished invertible object α ∈ C
+of a finite tensor category C. This object describes the quadruple dual of C via the Radford
+isomorphism
+−∨∨∨∨ ∼
+= α ⊗ − ⊗ α−1 .
+
+(2.1)
+
+One says that C is unimodular if α ∼
+= I. As a result, any unimodular pivotal finite tensor category
+C comes with two trivializations of −∨∨∨∨ , namely the one arising from α ∼
+= I (since I is simple,
+this trivialization does not depend on the choice of the isomorphism α ∼
+= I), and the square of
+the pivotal structure. A spherical finite tensor category in the sense of Douglas-Schommer-PriesSnyder [DSPS20, Definition 3.5.2] is a unimodular pivotal finite tensor category such that these
+two trivializations of −∨∨∨∨ agree. We should warn the reader that the notion ‘spherical’ that
+is defined via the quantum trace will generally only agree with the notion just defined in the
+semisimple case [DSPS20, Proposition 3.5.4 & Example 3.5.5].
+Definition 2.1 (Labeled graphs on a surface, following [FSY23, Definition 3.6]). Let Σ be a surface and C a pivotal finite tensor category. A C-labeled graph on Σ is the following data:
+• A non-empty finite combinatorial graph Γ whose edges are each labeled with a projective
+object in C and an orientation of the edge. We will frequently suppress the orientation in
+what follows and only mention it when it is necessary.
+• An admissible embedding of |Γ | into Σ. Here admissible means the following:
+– The part of |Γ | that is mapped to ∂Σ consists precisely of the endpoints of the legs
+(those ends of the legs which do not lie in a vertex; in particular, vertices and internal
+edges can never be mapped to the boundary). We require the intersection of the image
+6
+
+of the external legs with ∂Σ to be transversal. In the sequel, we will often identify a
+graph with its image under the embedding.
+– Each closed boundary component and each open boundary interval of ∂Σ is hit by at
+least one leg. The free boundary components are not hit by legs.
+We write a C-labeled graph in Σ as pair (Γ, X) of the graph Γ (being identified here with its image
+under the embedding) and a labeling X. One defines a category C-Graphs(Σ) of C-labeled graph
+on Σ as follows:
+• Objects are C-labeled graphs in Σ, as just defined.
+• Morphisms are generated by the replacements of graphs with corollas within disks (see Figure 1): For any (Γ, X) ∈ C-Graphs(Σ) and any disk D ⊂ Σ embedded in the interior of Σ
+such that ∂D intersects at least one of the legs of Γ ⊂ Σ, and only transversally without
+intersecting any vertex of Γ , one adds a morphism from (Γ, X) to the embedded graph Γ ′
+that agrees with Γ outside of D, but inside of D is replaced with a corolla whose center
+is the center of D ⊂ Σ and whose legs connect to the finitely many points in Γ ∩ ∂D.
+The morphisms are generated by these replacements within disks, subject to the following
+relations:
+– Any replacement within a single disk that is also an endomorphism, i.e. having the same
+domain and codomain, is the identity.
+– Replacements within disjoint disks commute, which allows us to unambiguously define
+the replacement within a multidisk, i.e. a disjoint union of finitely many disks.
+– Suppose that D ⊂ D′ are multidisks. Then the morphism
+replacement in D′
+
+replacement in D
+
+(Γ, X) −−−−−−−−−−−−→ (Γ ′ , X ′ ) −−−−−−−−−−−−→ (Γ ′′ , X ′′ ) .
+and the morphism
+replacement in D′
+
+(Γ, X) −−−−−−−−−−−−→ (Γ ′′ , X ′′ )
+agree. It is always assumed that the relative position of the graphs and the disks is such
+that the replacement is allowed according to the above definition.
+Remark 2.2. It follows from the relations that any two disk replacements with the same domain
+and the same codomain differing only by rescaling of the disk are identical.
+
+Z
+Y
+
+W
+
+X
+
+Z
+
+Z
+
+−−−−−−−−−−−−−−−−−−→
+
+Y
+
+Y
+W
+
+X
+
+W
+
+X
+
+W
+
+Figure 1: Here we illustrate a generating morphism in the category C-Graphs(Σ), where Σ is a
+genus one surface with two boundary circles. Note that each edge label is a projective
+object in C.
+
+Definition 2.3 (String-net spaces, following [FSY23, Section 3.2]). Let C be a pivotal finite tensor
+category. For a surface Σ, a boundary label is a collection of points in ∂Σ such that we have at least
+7
+
+one point per closed or open boundary component and none on the free boundary components;
+each of the boundary points is labeled with a projective object in C and + or − encoding the
+orientation of edges ending at the point. We agree that + corresponds to the outwards pointing
+orientation while − corresponds to the inward pointing orientation. Each (Γ, X) ∈ C-Graphs(Σ)
+defines such a boundary label by taking the intersection of ∂Σ with Γ and using the labels and
+orientations of the external legs of Γ . We denote this boundary label by ∂(Γ, X). For a boundary
+label B of Σ, we denote by C-Graphs(Σ; B) the full subcategory of C-Graphs(Σ) spanned by those
+(Γ, X) with ∂(Γ, X) = B. There is an evaluation functor
+EΣ,B
+: C-Graphs(Σ; B) −→ Vectk
+C
+
+(2.2)
+
+to the category of k-vector spaces defined as follows:
+• If (Γ, X) ∈ C-Graphs(Σ; B) is a corolla, then
+EΣ,B
+(Γ, X) := C(I, X1ε1 ⊗ · · · ⊗ Xnεn )
+C
+
+(2.3)
+
+where εi ∈ {+, −} is the sign encoding the orientation of the edges, and Xi+ := Xi , and
+Xi− := Xi∨ if X consists of the objects X1 , . . . , Xn ∈ Proj C in the cyclic order induced from
+the embedding into the oriented surface Σ. (The definition (2.3) suggests that not only a
+cyclic order is chosen, but an actual order. This however is done here only to be explicit. The
+definition can be made without this choice by using the fact that C, being a pivotal tensor
+category, is a category-valued cyclic associative algebra [MW23b, Section 4].)
+• If (Γ, X) ∈ C-Graphs(Σ, B) is not corolla, we cut (Γ, X) at all internal edges and obtain
+a finite disjoint union of corollas to each of which we assign the vector space (2.3). Then
+EΣ,B
+(Γ, X) is obtained by tensoring all these vector spaces together (formally, this is an
+C
+unordered tensor product).
+• If Σ is a disk D and B = (B1 , . . . , Bℓ ) a boundary label in which all Bi carry the sign +,
+then the graphical calculus provides us with a map
+(Tℓ−1 , (B1 , . . . , Bℓ )) ,
+ED,B
+(Γ, X) −→ C(I, B1 ⊗ · · · ⊗ Bℓ ) = ED,B
+C
+C
+where Tℓ−1 is the corolla with ℓ legs. This affords the definition of (2.2) on morphisms.
+We define the string-net space for the surface Σ with coefficients in C and boundary label B as
+the colimit
+snC (Σ; B) :=
+
+colim
+
+(Γ,X)∈C-Graphs(Σ;B)
+
+EΣ,B
+(Γ, X)
+C
+
+(2.4)
+
+Vectors in this vector space are called string-nets.
+Remark 2.4. By definition an element of the vector space snC (Σ) can be represented by a linear
+combination of fully labeled oriented graphs (Γ, X, f ), where f ∈ EΣ,B
+(Γ, X) is a choice of labels
+C
+for the vertices (note that for the objects in C-Graphs(Σ; B), no labels for the vertices are specified),
+by simply applying the structural map
+EΣ,B
+(Γ, X) −→ snC (Σ; B) :=
+C
+
+colim
+
+(Γ,X)∈C-Graphs(Σ;B)
+
+EΣ,B
+(Γ, X)
+C
+
+(2.5)
+
+Two of such fully labeled graphs (Γ, X, f ) and (Ω, Y , g) represent the same string-net precisely
+if (Γ, X) and (Ω, Y ) can be connected by a zigzag in C-Graphs(Σ; B) such that the evaluation of
+EΣ,B
+on this zigzag transforms f to g.
+C
+Remark 2.5. The colimit definition of string-net spaces is not the one used in [Kir11], but it is
+equivalent when C is the spherical fusion category (which was the only case considered in [Kir11]).
+This is the content of [FSY23, Theorem 3.7]. Hence, we use (2.4) already as a definition for reasons
+of conciseness.
+
+8
+
+Remark 2.6. There is another motivation for the colimit definition of string-net spaces, see also
+[FSY23, Section 3.2]: The colimit in (2.5) can ‘simply’ be replaced by a homotopy colimit, thereby
+leading to a derived version of string-nets. This lies beyond the scope of the present paper, see
+however Remark 7.6 for an additional comment.
+We conclude this section with some of the more obvious, but extremely crucial results and the
+constructions for string-nets that are analogous to those from [FSY23], which are in turn inspired
+by [Walb, Kir11]. Because of the modifications that we implement in this paper, these results do
+not follow directly from [FSY23].
+We begin by calculating the string-net space of the disk, see Figure 2:
+Lemma 2.7. For any pivotal finite tensor category C and any disk D with boundary label B
+formed by projective labels X1 , . . . , Xn cyclically ordered through the orientation of D, there is an
+isomorphism
+snC (D; B) ∼
+= C(I, X1 ⊗ · · · ⊗ Xn ) .
+Proof. The corolla consisting of one vertex in the middle of D radially connected to the boundary
+labels is a terminal object in C-Graphs(Σ; B), see also [FSY23, Example 3.4]. This implies the
+assertion.
+X1
+X4
+X5
+f1
+
+f2
+
+X2
+X3
+Figure 2: Here we illustrate a typical string-net in snC (D; B) ∼
+= C(I, X1 ⊗ X2 ⊗ X3 ⊗ X4 ). Our
+convention is that when the disk D is oriented counterclockwise, the labels X1 , · · · , X4 ∈
+Proj C are placed clockwise on the boundary circle.
+Isotopies can be decomposed into isotopies supported in disks [EK71, Corollary 1.3]. As in
+[FSY23, Section 3.1], this implies the isotopy invariance of string-nets:
+Proposition 2.8 (Isotopy invariance of string-nets). For a pivotal finite tensor category C, a
+surface Σ and a boundary label B, consider a labeled graph (Γ, X) ∈ C-Graphs(Σ; B) and a
+labeling f ∈ EΣ,B
+(Γ, X) of the vertices of Γ . If we change Γ through an isotopy relative boundary
+C
+to a different admissible graph Γe in Σ, then Γe inherits a labeling for its edges and vertices, again
+denoted by X and f , respectively. Then (Γ, X, f ) and (Γe, X, f ) represent the same vector in
+snC (Σ; B).
+As a preparation for the definition of boundary categories, we recall two key examples of a
+symmetric monoidal bicategory. For an introduction to symmetric monoidal bicategories, we refer
+to [SP09, Chapter 2].
+Definition 2.9. We denote by Catk the bicategory
+• whose objects are k-linear categories,
+• whose 1-morphisms are k-linear functors,
+9
+
+• and whose 2-morphisms are natural transformations.
+The naı̈ve monoidal product ⊗ turns Catk into a symmetric monoidal bicategory. Concretely, the
+naı̈ve monoidal product C ⊗ D of two k-linear categories C and D has as objects pairs (c, d) with
+c ∈ C and d ∈ D and morphism spaces (C ⊗ D)((c, d), (c′ , d′ )) = C(c, c′ ) ⊗ D(d, d′ ). The monoidal
+unit is the k-linear category 1k with one object whose endomorphism algebra is k.
+Definition 2.10. We denote by Bimodk the bicategory
+• whose objects are k-linear categories,
+• whose 1-morphisms are bimodules (also called profunctors), i.e. a 1-morphism C −→ D is a
+k-linear functor C ⊗ Dopp −→ Vectk (Vectk is the category of k-vector spaces; composition is
+defined via coends),
+• and whose 2-morphisms are natural transformations between bimodules.
+The naı̈ve monoidal product defines the structure of a symmetric monoidal category on Bimodk .
+The monoidal unit is 1k .
+Definition 2.11 (Boundary categories, following [FSY23, Section 3.2]). For a pivotal finite tensor
+category C and a compact one-dimensional manifold S with boundary, we denote by snC (S) the
+category whose objects are collections of finitely many points in the interior of S, at least one in
+each component of S, and each decorated with a projective object in C. For B, C ∈ snC (S), the
+morphism space is defined as
+snC (S)(B, C) := snC (S × [0, 1]; B ∨ , C) ,
+where B ∨ is the dual boundary label obtained by replacing each label in B by its dual. Note
+that we tacitly identify a C-labeled line with its orientation reversal whose label is given by the
+dual object. This allows us to define composition via stacking cylinders. It is immediate from
+the definition of snC (S) that for any surface Σ with boundary ∂Σ (union of the closed and open
+boundary components), the spaces snC (Σ; −) assemble into a linear functor
+snC (Σ) : snC (∂Σ) −→ Vectk ,
+
+(2.6)
+
+i.e. a 1-morphism in Bimodk from snC (∂Σ) to the monoidal unit 1k of Bimodk .
+Remark 2.12. We have a functor snC ([0, 1]) −→ Proj C that sends n points on the interval labeled
+with X1 , . . . , Xn ∈ Proj C to X1 ⊗ · · · ⊗ Xn . Clearly, this functor is essentially surjective. The
+functor is also fully faithful and hence an equivalence because the morphism spaces in snC ([0, 1])
+are exactly the hom spaces in Proj C by Lemma 2.7.
+Remark 2.13. The assignment S 7−→ snC (S) is symmetric monoidal with respect to the disjoint
+union of compact one-dimensional manifolds S with boundary and the naı̈ve monoidal product of
+linear categories.
+For any surface Σ, the diffeomorphisms of Σ preserving the boundary parametrizations form
+a topological group Diff(Σ) (the free boundary components are not parametrized and hence not
+preserved point-wise). Its group of path components Map(Σ) := π0 (Diff(Σ)) is the mapping class
+group of Σ. Clearly, the diffeomorphism group of Σ acts on the string-net space of Σ. Thanks to
+the isotopy invariance statement from Proposition 2.8, the action descends to the mapping class
+group:
+Corollary 2.14. For any pivotal finite tensor category C and any surface Σ, the linear functor
+snC (Σ) : snC (∂Σ) −→ Vectk carries a representation of the mapping class group Map(Σ) of Σ
+through natural isomorphisms.
+The definition of boundary categories is compatible with the orientation reversal of manifolds,
+see also [FSY23, eq. (3.35)]:
+10
+
+Lemma 2.15. Let S be an oriented 1-dimensional manifold and S̄ the same manifold with reversed
+orientation. There is a canonical equivalence
+snC (S)opp ≃ snC (S̄) .
+Proof. The equivalence sends an object (S, P1 , . . . , Pn ) to (S̄, P1∨ , . . . , Pn∨ ) and a morphism, i.e. an
+equivalence class of string-nets in S × [0, 1], to the same string-net composed with the diffeomorphism S × [0, 1] −→ S × [0, 1], (s, t) 7−→ (s, 1 − t).
+As a direct consequence of Lemma 2.15, we note that for a cobordism Σ : S1 −→ S2 the linear
+functor snC (Σ) : snC (S1 ) ⊗ snC (S2 ) −→ Vectk can also be interpreted as a morphism snC (Σ) :
+snC (S1 ) −→ snC (S2 ) in Bimodk .
+Proposition 2.16 (Additivity for string-nets). Let C be a pivotal finite tensor category and let
+(Γ, X, f ) be a string-net in a surface Σ with boundary label B such that a fixed internal edge e is
+labeled by the direct sum P ⊕ Q of two projective objects. Denote by (Γ, X P , f P ) and (Γ, X Q , f Q )
+the restricted string-nets, i.e.
+• the label P ⊕ Q of e is replaced with P or Q, respectively,
+• and the morphism at the start and end of the edge e is restricted to the object P or Q,
+respectively.
+Then we have
+(Γ, X, f ) = (Γ, X P , f P ) + (Γ, X Q , f Q )
+as elements of snC (Σ; B).
+Proof. The colimit defining the string-net space snC (Σ; B) from (2.4) can be written as the coequalizer of
+M
+
+EΣ,B
+(Ω, Y )
+C
+
+id
+E
+
+morphisms
+g:(Ω,Y )−→(Ω ′ ,Y ′ )
+in C-Graphs(Σ;B)
+
+M
+
+EΣ,B
+(Ω, Y ) ,
+C
+
+(Ω,Y )∈C-Graphs(Σ;B)
+
+where
+• id projects the morphism used for indexing to its source object and is summand-wise the
+identity (therefore we denote this map by id, even though it is a slight abuse of notation),
+• and E (as in ‘evaluation’) on the summand EΣ,B
+(Ω, Y ) indexed by g : (Ω, Y ) −→ (Ω ′ , Y ′ )
+C
+Σ,B
+Σ,B
+′
+′
+′
+′
+maps to EC (Ω , Y ) indexed by (Ω , Y ) via EC (g) : EΣ,B
+(Ω, Y ) −→ EΣ,B
+(Ω ′ , Y ′ ).
+C
+C
+We now choose a disk D ⊂ Σ which completely contains e and whose boundary intersects Γ
+transversely in at least one point. The replacement on D gives us morphisms
+a : (Γ, X) −→ (Γ ′ , X ′ ) ,
+b : (Γ, X P ) −→ (Γ ′ , X ′ P ) ,
+c : (Γ, X Q ) −→ (Γ ′ , X ′ Q ) .
+With the equality idP ⊕Q = ιP ◦ πP + ιQ ◦ πQ of morphisms in C (π denotes the projection and ι
+the embedding), we arrive at
+
+
+
+
+
+E a, (Γ, X, f ) = E b, (Γ, X P , f P ) + E c, (Γ, X Q , f Q ) .
+As vectors in snC (Σ; B), we have moreover
+
+
+(Γ, X, f ) = E a, (Γ, X, f ) ,
+
+(Γ, X P , f P ) = E(Γ, X P , f P ) ,
+(Γ, X Q , f Q ) = E(Γ, X Q , f Q )
+11
+
+(thanks to the coequalizer), and therefore
+
+(Γ, X, f ) = E a, (Γ, X, f )
+
+
+
+
+= E b, (Γ, X P , f P ) + E c, (Γ, X Q , f Q )
+= (Γ, X P , f P ) + (Γ, X Q , f Q ) .
+
+Remark 2.17 (Relation to admissible skein modules in dimension two). The string-net construction used in this paper follows to a large extent the general bicategorical string-net construction [FSY23]. It seems likely that one could also use the admissible skein modules of CostantinoGeer-Patureau-Mirand [CGPM23] (the fact that the two-dimensional version of the admissible
+skein modules is a string-net construction is also mentioned and used there). More precisely, for a
+pivotal finite tensor category C, the string-net construction snC used in this paper will agree with
+the two-dimensional admissible skein module construction applied to the tensor ideal Proj C. We
+will not expand further on this comparison as it would not — to the best of our knowledge —
+simplify the proof of our main result (with the exception of the finite-dimensionality statement
+in Corollary 2.18 below that is known for admissible skein modules). We can, however, use our
+results to infer results about admissible skein modules, see Remark 8.11.
+As just mentioned, one could use the comparison to admissible skein modules to derive from
+[CGPM23, Section 5.4] that the vector spaces snC (Σ; B) for any surface Σ and any boundary label
+B are always finite-dimensional. For completeness, we prove the result here as a consequence of
+the additivity statement from Proposition 2.16:
+Corollary 2.18. Let C be a pivotal finite tensor category and Σ a surface with boundary label
+B. Then the string-net space snC (Σ; B) is finite-dimensional.
+Proof. We fix a graph Γ embedded in Σ with at least one edge and one vertex such that its
+intersection with the boundary is exactly given by the marked points prescribed by the boundary
+value B and such that Σ (minus one point in case the boundary is empty) admits a deformation
+retract onto Γ . To obtain such a graph, we use a ribbon graph description for Σ or, in the case
+that Σ is closed, Σ with an additional free boundary component, see e.g. [Cos07] for the ribbon
+graph description of the moduli space of surfaces.
+Using the deformation retract and merging internal edges/vertices whenever necessary, we can
+transform every string-net drawn on Σ such that its underlying graph becomes a subgraph of Γ .
+Since C is finite by assumption, we can choose a projective generator A ∈ C. For every projective
+object P there exist an m ≥ 0 and maps ι : P −→ A⊕m and π : A⊕m −→ P such that π ◦ ι = idp .
+Let (Γ, X, f ) be a string-net with an edge labeled by P representing an equivalence class in the
+string-net space. Then there is another string-net in which the same edge is labeled by A⊕m , which
+is constructed by ‘inserting the relation π ◦ ι = idP on the edge’; the precise description is given
+in Figure 3.
+This combined with Proposition 2.16 together implies that every vector in snC (Σ, B) can be
+represented by a linear combination of string-nets whose internal edges are all labeled by A (the
+labels of the legs are fixed by the prescribed boundary value B).
+Since the underlying graph of every string-net appearing in these linear combinations is a subgraph of Γ (note that the subgraphs of Γ form a finite set) and the space of labels for each
+vertex is isomorphic to a morphism space of C and therefore finite-dimensional, the string-net
+space snC (Σ, B) itself must be the quotient of a finite direct sum of finite tensor products of
+finite-dimensional vector spaces, hence finite-dimensional.
+
+12
+
+ψ
+
+ψ
+
+ψ̃
+
+P
+π
+P
+
+=
+
+=
+
+Am
+
+Am
+
+ı
+ϕ
+
+ϕ
+
+P
+ϕ̃
+
+Figure 3: On the very left, we see a string-net with an edge labeled by a projective object P . Since
+π◦ι = idP , the string-net in the middle represents the same vector in the string-net space.
+In the last step, we perform an evaluation on the disks bounded by the dashed circles.
+This produces a representative for the string-net in which the edge initially labeled by P
+is now labeled by A⊕m .
+3 The open-closed string-net modular functor for a pivotal finite tensor
+category
+In this section we will prove that the non-semisimple string-net construction with projective boundary labels as given in Section 2 produces an open-closed modular functor; an informal reminder
+on the definition of a modular functor plus precise references will be given below. Large parts
+of this statement will follow from the construction or are a straightforward adaption of [FSY23,
+Theorem 3.27], with the exception being that the needed gluing result (‘excision’) does strictly
+speaking not follow from the existing gluing results as they appear in [Walb] (see also [Coo23] and
+[GJS23, Section 2.1-2.3]) that use skein-theoretic constructions involving all objects. After a free
+finite cocompletion (as we will discuss it in Section 5), this would not lead to the desired results:
+it would have the consequence that the category associated to the circle becomes semisimple.
+Let us now state the needed excision results for string-nets:
+Lemma 3.1 (Excision for disks that are glued along an interval). Let C be a pivotal finite tensor
+category. The gluing of two disks D and D′ along a boundary interval I induces an isomorphism
+Z P ∈Proj C
+
+∼
+=
+
+snC (D; X, P ) ⊗ snC (D′ ; P ∨ , X ′ ) −−→ snC (D ∪I D′ ; X, X ′ ) .
+
+Here the respective projective boundary labels (X, P ) and (P ∨ , X ′ ) for D and D′ are written such
+that P and P ∨ are exactly the part of the boundary label lying on I. It is required that the label
+(X, X ′ ) has at least length one.
+Proof. Without loss of generality, we can assume that the label X has length one. Then
+snC (D; X, P ) ∼
+= C(I, X ⊗ P ) ∼
+= C(X ∨ , P )
+by Lemma 2.7. We can understand C(X ∨ , P ) as the morphism space between X ∨ and P in Proj C
+because both objects are projective. Now the statement follows from the (co-)Yoneda Lemma, see
+e.g. [Rie14, Example 1.4.6].
+Theorem 3.2 (Excision). Let C be a pivotal finite tensor category. The gluing of a surface Σ
+along a pair of boundaries of shape S (here S is a finite disjoint union of boundary intervals and
+boundary circles) induces an isomorphism
+Z P ∈snC (S)
+
+∼
+=
+
+snC (Σ; X, P, P ∨ ) −−→ snC (Σ ′ ; X) for
+
+13
+
+X ∈ snC (∂Σ ′ ) ,
+
+(3.1)
+
+where Σ ′ is the surface obtained by gluing and the boundary label (X, P, P ∨ ) is partitioned such
+that P lives on the first copy S, P ∨ on the second copy of S and X on the remaining boundary
+that is not involved in the gluing.
+Proof. The gluing maps snC (Σ; X, P, P ∨ ) −→ snC (Σ ′ ; X) are clearly dinatural and hence induce
+the map (3.1).
+Any admissible Proj C-labeled graph in Σ ′ can be isotoped such that it intersects the gluing
+boundary only transversally and at least once. Thanks to isotopy invariance (Proposition 2.8),
+this does not change the vector in the string-net space. After cutting the graph at the gluing
+boundary, we obtain an admissible Proj C-labeled graph in Σ that after re-gluing recovers our
+original graph up to isotopy. This proves that (3.1) is surjective.
+To prove that (3.1) is injective, we need to show that a relation arising through the evaluation
+on any disk D ⊂ Σ ′ on the right hand side of (3.1) holds already on the left hand side. To
+this end, denote by S ⊂ Σ ′ the image of the gluing boundary in Σ ′ (by slight abuse of notation
+we use the same symbol as for the gluing boundary). If D ∩ S = ∅, there is clearly nothing to
+show. If D ∩ S 6= ∅, we can slightly deform D such that ∂D and S only intersect transversally
+without changing the relations induced by evaluation on D (this is because the evaluation on D
+only induces relations on string-nets that are transversal to ∂D, so we can always slightly adjust
+the shape of D). Next observe that ∂D ∩ S ⊂ S is compact, i.e. it is given by a disjoint union of
+finitely many closed intervals in S. But these intervals must each just consist of a point because of
+transversality. Therefore, ∂D ∩ S is a finite set. This implies, as one can see through an induction
+on the cardinality of ∂D ∩ S, that S cuts D into finitely many disks D1 , . . . , Dℓ that can each be
+seen as disks in Σ. The finitely many disks intersect along closed intervals in their boundary and
+reproduce D when glued along these closed intervals. This entails by Lemma 3.1 that snC (D; −)
+is the coend of the functors snC (Di ; −), with one coend for the gluing along each interval. This
+implies that the relations in snC (Σ ′ ; X) resulting from the evaluation on D are exactly the following
+ones:
+• The relations in snC (Σ; X, P, P ∨ ) for each P that arise from evaluation on the disks D1 , . . . , Dℓ
+R P ∈snC (S)
+snC (Σ; X, P, P ∨ ).
+in Σ. But these relations hold obviously already in
+• The relations that arise from moving string-nets through the intervals along which one has
+to glue the D1 , . . . , Dℓ to get D, i.e. relations implemented through coends
+Z Q∈snC (I)
+
+snC (Di ; Q, Yi ) ⊗ snC (Dj ; Q∨ , Yj )
+
+for all disks Di and Dj with boundary labels Yi and Yj among the D1 , . . . , Dm that share a
+R P ∈snC (S)
+boundary interval I ⊂ S. To see that these relations hold in
+snC (Σ; X, P, P ∨ ), we
+need to see that the map
+snC (Di ; Q, Yi ) ⊗ snC (Dj ; Q∨ , Yj ) −→ snC (Σ; X, P, P ∨ ) −→
+
+Z P ∈snC (S)
+
+snC (Σ; X, P, P ∨ ) (3.2)
+
+induced by the embedding Di ∪Dj ⊂ Σ (we choose the labels compatibly) and the projection
+R Q∈snC (I)
+to the coend factors through
+snC (Di ; Q, Yi ) ⊗ snC (Dj ; Q∨ , Yj ). This indeed follows
+from the fact that the inclusion I ⊂ S induces a map
+Z Q∈snC (I)
+
+∨
+
+snC (Di ; Q, Yi ) ⊗ snC (Dj ; Q , Yj ) −→
+
+Z P ∈snC (S)
+
+snC (Σ; X, P, P ∨ )
+
+through which (3.2) clearly factors.
+This concludes the proof that (3.1) is injective and therefore the proof of the statement.
+For the notion of a modular functor, many different definitions exist [Seg88, MS89, Tur94, Til98,
+BK01]. A sufficiently general one can be compactly defined using modular operads in the sense
+of Getzler-Kapranov [GK98]. We first treat ordinary modular functors and then indicate the
+modifications needed for the open-closed case: A modular functor is a modular algebra over the
+14
+
+modular operad of surfaces (or over a suitable extension of the modular surface operad, but this
+will not be relevant for the class of examples treated in this article). The modular algebra takes
+values in a suitable symmetric monoidal bicategory of linear categories. This is the definition given
+in [MW23b, Section 7.3] or, in more generality, in [BW22, Section 3.1]. There are different options
+for the symmetric monoidal target category of linear categories, and this is actually an important
+choice to make; we will expand on this in Section 5.
+We do not want to reproduce here all the details of the formal definition. Instead, we restrict
+ourselves to the rough picture, with attention to the case at hand. A modular functor will then
+consist of the following:
+• An object A in the symmetric monoidal bicategory of linear categories that we are considering. (If we are looking at Bimodk , this would just be a linear category.) We think of A as
+being the category associated to the circle.
+• For a surface Σ with n ≥ 0 boundary circles, we get a 1-morphism F(Σ) : A⊗n −→ I, where
+⊗ the monoidal product of linear categories that we are using and I is the monoidal unit of
+our symmetric monoidal bicategory of linear categories that we choose. The mapping class
+group of Σ acts on F(Σ) through 2-isomorphisms.
+• There is a compatibility with gluing. To this end, we will need a non-degenerate symmetric
+pairing κ : A ⊗ A −→ I. Non-degeneracy means that there is a coevaluation ∆ : I −→ A ⊗ A
+that together with κ satisfies the usual zigzag identities up to isomorphism. Symmetry means
+that coherent isomorphisms κ(X, Y ) ∼
+= κ(Y, X) are part of the data.
+The surface Σ appearing above is traditionally not an open-closed surface, but we will actually
+need this case, thereby leading us to the notion of an open-closed modular functor. In that
+case, there will be a second linear category B (the category associated to a boundary interval),
+and if Σ has, in addition to its n boundary circles, m open boundaries, we get a 1-morphism
+F(Σ) : A⊗n ⊗ B ⊗m −→ I. Again, the mapping class group of Σ acts through 2-isomorphisms on
+this functor.
+A modular functor a priori only allows us to assign morphisms A⊗n −→ I to surfaces Σ with
+n ‘incoming’ boundaries. However, since the pairing κ yields an equivalence between A and Aopp ,
+we can also assign morphisms A⊗p −→ A⊗q to Σ, which we interpret as the value of the modular
+functor on the cobordism Σ from p ‘incoming’ circles to q ‘outgoing’ circles, see [MW23a, Remark
+2.2] for more details. This process of turning incoming to outgoing boundaries and vice versa can
+be extended to the open-closed case.
+The result that we want to record in this section is the following: For a pivotal finite tensor
+category C, the string-net construction snC from Section 2 will give us an open-closed modular
+functor with values in Bimodk . The category associated to a boundary circle is snC (S1 ); the category
+associated to a boundary interval is snC ([0, 1]). For a surface with n closed boundary components
+and m open boundary components, we get by (2.6) a linear functor sn(Σ) : snC (∂Σ) −→ Vectk on
+which the mapping class group acts (Corollary 2.14). Since snC (∂Σ) ≃ snC (S1 )⊗n ⊗ snC ([0, 1])⊗m
+(Remark 2.13), this is exactly what we need for an open-closed modular functor in Bimodk . The
+compatibility with gluing amounts exactly to the excision result (Theorem 3.2). The needed nondegenerate symmetric pairings on snC ([0, 1]) and snC (S1 ) are given by the string-nets on an elbow
+which is the cobordism ES : S ⊔ S −→ ∅ built from [0, 1] × S and an the orientation-reversing
+reflection diffeomorphism:
+κ : snC ([0, 1]) ⊗ snC ([0, 1]) ≃ Proj C ⊗ Proj C −→ Vectk
+(X, Y ) 7−→ snC (E[0,1] ; X, Y ) ∼
+= C(I, X ⊗ Y )
+β : snC (S1 ) ⊗ snC (S1 ) −→ Vectk
+1
+∨
+∨
+((X1 , . . . , Xn ), (Y1 , . . . , Ym )) 7−→ snC (ES1 ; X, Y ) ∼
+= snC (S ) (Xn , . . . , X1 ), (Y1 , . . . Yn )
+
+
+
+Here we used Lemma 2.15 for the identifications. Put differently, the rigid duality on snC ([0, 1]) ≃
+Proj C induces a non-degenerate symmetric pairing on snC (S1 ).
+We can now summarize:
+
+15
+
+Theorem 3.3. Let C be a pivotal finite tensor category. By assigning to a surface Σ the linear
+functor sn(Σ) : snC (∂Σ) −→ Vectk from (2.6) one obtains a Bimodk -valued open-closed modular
+functor that we denote by snC .
+
+4 The string-net description of the central monad
+By an important result of Day and Street [DS07] refined by Brugières and Virelizier [BV12] for
+any finite tensor category C, one can build a monad,
+Z Y ∈C
+Y∨⊗X ⊗Y
+(4.1)
+Z : C −→ C , X 7−→
+the so-called central monad, whose Eilenberg-Moore category of algebras is equivalent to the Drinfeld center (for simplicity, we continue to assume pivotality of C throughout). The central monad
+is defined in algebraic terms, and the purpose of this section is to give a topological interpretation
+of the central monad in terms of string-nets. We will use this to describe explicitly the category
+snC (S1 ) that the string-net construction associates to the circle. The idea is of course to relate
+this circle category to the Drinfeld center. This was done in the spherical fusion case in [Kir11]
+without the use of monads. Monadic techniques for the reconstruction of the circle category as a
+Kleisli category of some version of the central monad are used in [KST23] in a framed setting. The
+construction of that article is applied to all objects of a not necessarily semisimple finite tensor
+category. We have to repeat here the warning from the beginning of Section 3 that, after the
+finite cocompletion that we will have to perform later to be able to compare to the Lyubashenko
+construction, applying the construction to all objects would produce a modular functor whose
+category on the circle is inevitably semisimple (this is not an issue in [KST23] because a different
+cocompletion is used). Therefore, the results of [KST23] do not directly apply. They serve however
+as a guiding principle for this section.
+In order to discuss all of this in more detail, recall e.g. from [ML98, Section VI.1] that a monad
+on a category D is an endofunctor T : D −→ D equipped with natural transformations idD −→ T
+and T 2 −→ T making T a unital and associative algebra in the monoidal category of endofunctors
+of D. For a monad T on D, one can define the Kleisli category KL(T ) of T whose objects are the
+objects of D with the hom sets given by KL(T )(d, d′ ) := D(d, T d′ ) for d, d′ ∈ D (the composition
+comes from the monad structure on T ). We can also define the Eilenberg-Moore category EM(T )
+of T -algebras, i.e. the category of objects d ∈ D equipped with a morphism f : T d −→ d in D
+subject to a condition. A morphism (d, f ) −→ (d′ , f ′ ) of T -algebras is a morphism g : d −→ d′ in
+D with f ′ T (g) = gf .
+The central monad Z : C −→ C of a pivotal finite tensor category C is defined via the coend (4.1),
+with the monad structure induced by the tensor product of dummy variables and the isomorphism
+(P ⊗ Q)∨ ∼
+= Q∨ ⊗ P ∨ . By [DS07] the Eilenberg-Moore category of Z-algebras is linearly equivalent
+to the Drinfeld center, i.e. the braided monoidal category of objects X ∈ C equipped with a
+half braiding (a natural isomorphism X ⊗ − ∼
+= − ⊗ X satisfying the usual hexagon relations of
+braidings). Under the equivalence
+EM(Z) ≃ Z(C)
+the free-forgetful adjunction between C and EM(Z) (the forgetful functor forgets the algebra structure; its left adjoint freely adds one) translates to the adjunction between the forgetful functor
+U : Z(C) −→ C forgetting the half braiding and its left adjoint F : C −→ Z(C) that sends X ∈ C
+R Y ∈C ∨
+Y ⊗ X ⊗ Y equipped with the non-crossing half braiding that is explained in Figure 4.
+to
+
+Through the string-net construction, we will not directly find the central monad, but its restriction to Proj C. The fact that the central monad correctly restricts is a priori not obvious, but can
+be shown easily:
+
+Lemma 4.1. For any pivotal finite tensor category C, the central monad Z restricts to a monad
+z : Proj C −→ Proj C on Proj C.
+16
+
+W
+
+U F (X)
+
+W
+
+U F (X)
+
+=
+
+ıY
+
+Y∨ X Y
+
+ıY ⊗W
+
+Y∨ X Y
+
+W
+
+W
+
+Figure 4: The non-crossing half braiding (depicted by a crossing of U F (X) over an arbitrary object
+W ∈ C) is defined by the above formula, where the half-disk shaped coupons stand for
+the components of the universal dinatural transformation.
+Proof. Clearly, we can restrict Z to Proj C, but we have to verify that it correctly restricts to Proj C
+in range. To this end, recall that both the forgetful functor U : Z(C) −→ C and its left adjoint
+F : C −→ Z(C) are exact [Shi17, Corollary 6.9] and their composition is U F = Z. This implies
+that F preserves projective objects and that U preserves injective objects (which however in C and
+Z(C) are the same as the projective ones by self-injectivity of finite tensor categories). Therefore
+Z = U F preserves projective objects.
+We can now prove the following generalization of [KST23, Theorem 6.3]:
+Proposition 4.2 (Central monad from string-nets). Let C be a pivotal finite tensor category.
+Consider projective objects P and Q of C, each seen as an object in snC (S1 ). Then
+snC (S1 )(P, Q) ∼
+= C(P, zQ)
+
+(4.2)
+
+for the restriction z : Proj C −→ Proj C of the central monad from Lemma 4.1. The composition
+in snC (S1 )(P, Q) comes from the monad structure on z. In this way, (4.2) exhibits snC (S1 ) as the
+Kleisli category of z:
+snC (S1 ) ≃ KL(z) .
+Proof. Excision from Theorem 3.2 and snC ([0, 1]) ≃ Proj C from Remark 2.12 tells us
+snC (S1 )(P, Q) = snC (S1 × [0, 1]; P ∨, Q) ∼
+=
+
+Z X∈Proj C
+
+C(P, X ∨ ⊗ Q ⊗ X) .
+
+(4.3)
+
+The coend over Proj C can be expressed as finite colimit via the Agreement Principle [McC94,
+Kel99], see [SW21b, Theorem 2.9] for a version adapted for finite (tensor) categories. Since P is
+projective, C(P, −) is exact and preserves finite colimits. This implies
+!
+Z X∈Proj C
+X∨ ⊗ Q ⊗ X
+snC (S1 )(P, Q) ∼
+= C P,
+∼
+=C
+
+P,
+
+Z X∈C
+
+= C(P, zQ) .
+
+∨
+
+X ⊗Q⊗X
+
+!
+
+(4.4)
+
+R X∈Proj C
+R X∈C
+The replacement of
+with
+is possible in this particular case because of the exactness
+of ⊗ [KL01, Proposition 5.1.7].
+17
+
+The functor z is the restriction of the central monad (Lemma 4.1), but we still need to verify that
+the composition of morphisms in snC (S1 ) comes from the monad structure on z. The composition
+in snC (S1 ) can also be described via excision, and the result is the following: Under the excision
+isomorphism (4.3) the composition is
+Z X∈Proj C
+∼
+=
+
+∨
+
+C(P, X ⊗ Q ⊗ X) ⊗
+
+Z X,Y ∈Proj C
+
+∨
+
+Z Y ∈Proj C
+
+C(P, X ⊗ Q ⊗ X) ⊗ C(Q, Y
+
+C(Q, Y ∨ ⊗ R ⊗ Y )
+
+∨
+
+⊗ R ⊗ Y ) −→
+
+Z U∈Proj C
+
+C(P, U ∨ ⊗ R ⊗ U ) ,
+
+where the first isomorphism is the Fubini isomorphism for coends, and the second one is induced
+by composition in snC ([0, 1]) under the coend, i.e. it amounts to the composition over Q and by
+tensoring X and Y together to obtain a new dummy variable U = X ⊗ Y (this uses (X ⊗ Y )∨ ∼
+=
+Y ∨ ⊗ X ∨ ). Under the isomorphism (4.4), the composition in snC (S1 ) is therefore induced by the
+monad structure
+Z X,Y ∈C
+Z U∈C
+Y ∨ ⊗ X ∨ ⊗ P ⊗ X ⊗ Y −→
+U∨ ⊗ P ⊗ U
+on z : Proj C −→ Proj C coming from the monoidal product and the fact that −∨ is opp-monoidal.
+But this is exactly the restriction of the central monad structure.
+Since all objects in snC (S1 ) are isomorphic to some projective object in C (seen as object in snC (S1 )
+by placing it on the circle), we obtain from (4.2), together with the fact that the composition in
+snC (S1 ) is the one coming from the monad structure of z, that snC (S1 ) is the Kleisli category of
+z.
+The Kleisli category of a monad T on a category D comes with a functor R : KL(T ) −→ D
+sending d ∈ KL(T ) to T d and a morphism f from d to d′ in KL(T ), i.e. a morphism f : d −→ T d′ in
+T (f )
+
+T 2 −→T
+
+D to T d −−−−→ T 2 d′ −−−−−−→ T d′ . This functor is right adjoint to the functor L : D −→ KL(T )
+g
+
+unit id −→T
+
+sending d ∈ D to d and a morphism g : d −→ d′ in D to d −−→ d′ −−−−−−D−−−−→ T d′ . The
+adjunction L ⊣ R induces the monad T = RL, and in fact, it is initial among all such adjunctions,
+see e.g. [Rie16, Proposition 5.2.12]. We hence conclude from Proposition 4.2: Since snC (S1 ) is
+the Kleisli category of z, it comes with an adjunction ℓ ⊣ r between ℓ : Proj C −→ snC (S1 ) and
+r : snC (S1 ) −→ Proj C.
+The Eilenberg-Moore category of T , with its free-forgetful adjunction, is terminal among all
+adjunctions inducing T . Fortunately, the Eilenberg-Moore category of the restricted central monad
+z can be described explicitly:
+Lemma 4.3. For any pivotal finite tensor category C, the Eilenberg-Moore category EM(z) of the
+restricted central monad z : Proj C −→ Proj C can be canonically identified with the full subcategory
+U -Proj Z(C) of the Drinfeld center Z(C) of all U -projective objects, i.e. all those X ∈ Z(C) such
+that U X is projective, where U : Z(C) −→ C is the forgetful functor.
+Proof. Denote by EM(Z) the Eilenberg-Moore category of the central monad Z : C −→ C and by
+F ⊣ U the free-forgetful adjunction associated to it. Now the U -projective objects in EM(Z) are
+exactly pairs of a projective object P ∈ C and a map ZP −→ P making P a Z-module. By the
+definition of z a map ZP −→ P is just a map zP −→ P . For this reason, U -Proj EM(Z) = EM(z).
+But by [DS07] EM(Z) is equivalent to Z(C) such that U takes the role of the forgetful functor
+Z(C) −→ C and F the role of its left adjoint. This implies the assertion.
+We denote by f : Proj C −→ U -Proj Z(C) and u : U -Proj Z(C) −→ Proj C the restriction of
+F : C −→ Z(C) and U : Z(C) −→ C, respectively. It is a consequence of Lemma 4.1 and its proof
+that these restrictions exist.
+
+18
+
+Theorem 4.4. For any pivotal finite tensor category C, there is a unique embedding
+h : snC (S1 ) −→ U -Proj Z(C)
+such that hℓ ∼
+= r. The essential image of h consists exactly of those X ∈ Z(C) that
+= f and uh ∼
+are of the form F (P ) for P ∈ Proj C, i.e. h induces an equivalence
+≃
+
+h : snC (S1 ) −−→ F (Proj C)
+after restriction in range.
+Proof. For existence of uniqueness of the functor h, one applies [Rie16, Proposition 5.2.12] to
+Proposition 4.2 and Lemma 4.3. From [Rie16, Lemma 5.2.13], one deduces that h is fully faithful
+as well as the description of its essential image.
+
+5 The finitely cocompleted string-net construction
+So far, we have seen that the string-net construction gives rise to an open-closed modular functor
+with values in the category Bimodk (Theorem 3.3). For the comparison to other constructions of
+modular functors, working with bimodules is slightly inconvenient. For this reason, we explain
+in this section how to pass from a sufficiently finite subcategory of Bimodk to other bicategories
+of linear categories. This will be accomplished through a well-known process called free finite
+cocompletion, see e.g. [DL07] for a reference. The material up to Proposition 5.6 is standard, or a
+minor variation of standard material that we give here for completeness and to fix notation.
+Definition 5.1. For any linear category A with finite-dimensional morphism spaces, we define the
+category of right A-modules as the category Ab = Catk (Aopp , vectk ) of linear functors from Aopp
+to the category vectk of finite-dimensional k-vector spaces (in different contexts, these would be
+called vectk -valued presheaves). The linear category Ab is called the finite cocompletion of A.
+
+b the Yoneda
+Remark 5.2. Through A ∋ a 7−→ A(−, a) we obtain an embedding ιA : A −→ A,
+embedding. Since presheaves on A with values in finite-dimensional vector spaces are compact
+objects in the (non-finite) free cocompletion Catk (Aopp , Vectk ), they are finite colimits of representable objects. On the other hand, finite colimits of representable presheaves on A (note that
+A has finite dimensional hom spaces by assumption) are valued in vectk . Therefore, Ab is indeed
+the finite cocompletion in the conventional sense: The category Ab has the universal property that
+a linear functor A −→ B with finitely cocomplete target extends uniquely up to canonical isomorphism along ιA : A −→ Ab to a right exact functor Ab −→ B (a linear functor preserving finite
+colimits). If A has only one object whose endomorphism algebra is A, the finite cocompletion is
+the category of finite-dimensional right A-modules.
+We call a linear category A pre-finite if its category of right modules is a finite category (the
+definition of a finite category was recalled on page 6).
+Lemma 5.3. An object A of Bimodk is pre-finite if and only if it is equivalent (in Bimodk this
+means: Morita equivalent) to a linear category BA with one object and finite-dimensional endomorphism algebra A via finite-dimensional bimodules.
+Proof. Let us assume that there is a finite-dimensional algebra A and a Morita equivalence A MA
+from BA to A (an equivalence in Bimodk ). It is standard that M induces an equivalence between
+the cocompletions Catk (BA, Vectk ) ≃ Catk (A, Vectk ) which sends a right A-module NA to the
+A-module NA ⊗A (A MA ), see e.g. [GJS23, Section 1.1]. This map preserves the class of finitedimensional modules because M is finite-dimensional by assumption and hence also induces an
+equivalence between the finite cocompletions.
+19
+
+Conversely, assume that A is pre-finite. We pick a projective generator P ∈ Ab and consider
+b A (−), P ), which is a Morita equivalence via a finite-dimensional
+the A-B End(P )-bimodule A(ι
+bimodule.
+Definition 5.4. We define Bimodfk ⊂ Bimodk as the subcategory whose objects are pre-finite
+linear categories, with bimodules taking values in finite-dimensional vector spaces as 1-morphisms
+and all 2-morphisms in Bimodk between those 1-morphisms.
+Note that the composition in Bimodfk is well-defined thanks to Lemma 5.3.
+Definition 5.5. We denote by Rexf the bicategory of finite categories, right exact functors and
+natural transformations. The monoidal product is the Deligne product and the monoidal unit is
+the category vectk of finite-dimensional vector spaces.
+There is a natural symmetric monoidal functor Proj (−) : Rexf −→ Bimodfk sending a finite
+category to its subcategory of projective objects and a functor F : C −→ D to the bimodule
+Proj (F ) : Proj (C) ⊗ Proj (D)opp −→ vectk
+c ⊗ d 7−→ D(d, F (c)) .
+b from Definition 5.1 can be extended to a functor Bimodfk −→ Rexf by sending
+The assignment −
+a bimodule M : A ⊗ B opp −→ vectk to the functor
+c : Ab = Catk (Aopp , vectk ) −→ Bb = Catk (B opp , vectk )
+M
+Z a∈A
+opp
+c
+:=
+M (a, −) ⊗ H(a) .
+(H : A
+−→ vectk ) 7−→ M (H)(−)
+
+R a∈A
+To show that this functor is well-defined, we need to verify that
+M (a, −) ⊗ H(a) is a finitedimensional right B-module. Indeed, when composing with the Morita equivalences BAA ≃ A and
+R a∈A
+BAB ≃ B from Lemma 5.3, the functor H 7−→
+M (a, −) ⊗ H(a) corresponds to tensoring with
+a finite-dimensional AA -AB -bimodule. Therefore, it is evident that this preserves finite-dimensional
+modules.
+Proposition 5.6. The pair of functors
+b
+−
+
+Bimodfk
+
+≃
+
+Rexf
+
+Proj (−)
+
+is a pair of inverse symmetric monoidal equivalences of symmetric monoidal bicategories.
+b sends the naı̈ve monoidal product of linear categories to the Deligne
+Proof. It is standard that −
+b is a symmetric monoidal functor
+product, see e.g. [Fra13, Example 11 & Remark 12]. Therefore, −
+between symmetric monoidal bicategories.
+b ◦ Proj (−) is naturally equivalent to the identity via the restricted Yoneda
+The composition −
+embedding; more precisely, the component at C ∈ Rexf is given by
+Yoneda embedding
+restriction
+\
+C −−−−−−−−−−−−−→ Cb −−−−−−−→ Proj
+C.
+
+(5.1)
+
+Note that for this natural transformation between functors between bicategories, the naturality
+squares do not commute strictly; there is coherence data involved. Since it is given by the ‘obvious’
+isomorphisms, we suppress this data here.
+We need to prove that (5.1) is an equivalence. First we observe that it is fully faithful: For X, Y ∈
+C, the space of natural transformations from C(−, X) to C(−, Y ), seen as functors (Proj C)opp −→
+20
+
+vectk can be calculated by
+Hom(C(−, X), C(−, Y )) =
+
+Z
+
+C(P, X) ⊗ C(P, Y ) ∼
+=C
+∗
+
+P ∈C
+
+Z P ∈Proj C
+
+C(P, X) ⊗ P, Y
+
+!
+
+.
+
+With the Agreement Principle [McC94, Kel99], see also the proof of Proposition 4.2, we conclude
+R P ∈Proj C
+that the map
+C(P, X) ⊗ P −→ X is an isomorphism, which leaves us with
+Hom(C(−, X), C(−, Y )) ∼
+= C(X, Y ) ,
+
+thereby proving full faithfulness. Hence, in order to conclude that (5.1) is an equivalence, we
+\
+only need to show that it is also essentially surjective. An arbitrary object X in Proj
+(C) is
+a finite colimit of representable presheaves, see Remark 5.2. This colimit can be represented
+by an object in the original category C since the colimit can be computed pointwise and since
+colimi C(P, Ci ) = C(P, colimi Ci ) for all finite colimits and a projective object P .
+b Let A ∈ Bimodfk . Evaluation defines for us a
+Now consider the other composition Proj (−) ◦ −.
+b
+(A, Proj (A))-bimodule
+b ⊗ Aopp −→ vectk
+Proj (A)
+F ⊗ a 7−→ F (a)
+
+b
+b −→ A in Bimodfk . We also have a morphism ι : A −→ Proj (A)
+and hence a morphism ev : Proj (A)
+in Bimodk given by the bimodule
+b opp −→ vectk
+ι : A ⊗ Proj (A)
+b
+a ⊗ G 7−→ A(G,
+A(−, a))
+
+b
+We compute their compositions: For F, G ∈ Proj (A),
+!
+Z a∈A
+Z a∈A
+b
+b
+A(−, a) ⊗ F (a) ∼
+A(G,
+A(−, a)) ⊗ F (a) ∼
+F) ,
+ι ◦ ev(G, F ) =
+= Ab G,
+= A(G,
+
+b
+where we use for the first isomorphism that G is projective (thereby making A(G,
+−) exact), and
+opp
+for the last step the Yoneda lemma for functors A
+−→ vectk . For the other composition, we
+find with a, a′ ∈ A
+Z G∈Proj Ab
+Z b∈A
+′ ∼
+′
+b
+b
+A(G, A(−, a)) ⊗ G(a ) =
+A(A(−,
+b), A(−, a)) ⊗ A(a′ , b)
+ev ◦ι(a, a ) =
+Z b∈A
+∼
+A(b, a) ⊗ A(a′ , b) ∼
+=
+= A(a′ , a) ,
+
+where we used for the second isomorphism that it is enough to let the coend run over representable
+b and
+functors, again by the Agreement Principle [McC94, Kel99]. This finishes the proof that −
+Proj (−) are inverse equivalences.
+For a pivotal finite tensor category C, we want to post-compose the open-closed modular functor
+snC from Theorem 3.3 with the symmetric monoidal equivalence from Proposition 5.6, of course
+after verifying that the Bimodk -valued open-closed modular functor snC factors through Bimodfk .
+We then obtain the finitely freely cocompleted Rexf -valued string-net open-closed modular functor
+SNC whose value on the open interval and the circle we want to describe. This will need some
+preparations:
+Lemma 5.7. Let C be a pivotal finite tensor category and X ∈ Z(C). Then
+FUFUX
+
+FUX
+
+X .
+
+(5.2)
+
+(with the maps coming from the monad structure on Z = U F , and the Z-algebra structure of X)
+is a coequalizer in Z(C). The coequalizer is split in Z(C) if X is projective.
+21
+
+Proof. The Drinfeld center Z(C) is the Eilenberg-Moore category of algebras over the central monad
+Z = U F [DS07]. Now the statement that (5.2) is a coequalizer is just a standard Lemma about
+monads and their algebras, see e.g. [Bor94, Lemma 4.3.3] or (the proof of) [ML98, Section VI.7.,
+Theorem 1].
+Let us now assume that X is projective. With ∂ being the difference of the two morphisms
+in (5.2), we get an exact sequence
+∂
+
+F U F U X −−→ F U X −→ X −→ 0 .
+Since X is projective, the exact sequence and therefore the coequalizer splits in Z(C).
+Lemma 5.8. For any pivotal finite tensor category C, a linear functor F (Proj C) −→ vectk defined
+on the subcategory F (Proj C) ⊂ Proj Z(C) uniquely extends to Proj Z(C). In particular, the finite
+cocompletion of F (Proj C) is equivalent to Z(C).
+Proof. Lemma 5.7 that tells us in particular that any projective object in Z(C) is a split coequalizer
+of objects in F (Proj C). Hence, any projective object in Z(C) is an absolute finite colimit of objects
+in F (Proj C), i.e. a finite colimit preserved by all functors. This implies the existence of unique
+extension. Therefore, F (Proj C) and Proj Z(C) have the same finite cocompletion. Finally, we use
+that the finite cocompletion of Proj Z(C) is Z(C) by Proposition 5.6.
+Theorem 5.9. Let C be a pivotal finite tensor category. After free finite cocompletion, the openclosed modular functor snC from Theorem 3.3 yields an open-closed modular functor in Rexf that
+we denote by SNC . The Rexf -valued modular functor SNC associates C to [0, 1] and Z(C) to S1 in
+≃
+the sense that the equivalence h : snC (S1 ) −−→ F (Proj C) from Theorem 4.4 induces after finite
+cocompletion an equivalence
+≃
+
+H : SNC (S1 ) −−→ Z(C) .
+Proof. The Bimodk -valued open-closed modular functor snC from Theorem 3.3 factors through
+Bimodfk . This can be seen as follows:
+• The categories associated by snC to one-dimensional manifolds are finite after finite cocompletion. Indeed, for the category snC ([0, 1]) ≃ Proj C associated to the interval (Remark 2.12),
+this is trivial. On S1 , we obtain snC (S1 ) ≃ F (Proj C) by Theorem 4.4. After finite free cocompletion, this yields Z(C) by Lemma 5.8. The category Z(C) is finite [EO04, Theorem 3.34].
+• The bimodules associated to surfaces take values in finite-dimensional vector spaces. This is
+a consequence of Corollary 2.18.
+Now we apply the equivalence from Proposition 5.6 to get a Rexf -valued open-closed modular
+functor.
+6 The Swiss-Cheese algebra underlying the string-net construction
+This section is devoted the following improvement of Theorem 5.9:
+Theorem 6.1. For any pivotal finite tensor category C, the equivalence
+≃
+
+H : SNC (S1 ) −−→ Z(C)
+from Theorem 4.4 comes naturally with a braided monoidal structure. Here the braided monoidal
+structure on SNC (S1 ) is the one that it has by virtue of being the value of a modular functor on
+the circle while the braided monoidal structure on Z(C) is the standard one.
+A direct proof of this improvement seems relatively hard, and we will choose an indirect approach
+based on Idrissi’s characterization of categorical Swiss-Cheese algebras in [Idr17]. Swiss-Cheese
+22
+
+algebras will not be needed elsewhere in the article, and the reader willing to accept Theorem 6.1
+can skip the rest of this section.
+We do not want to go too far into the operadic details (and luckily, we do not have to). For us,
+it is enough to briefly discuss the Swiss-Cheese operad that was defined by Voronov [Vor99]. The
+framed Swiss-Cheese operad [KM23, Section 3.4.1] is formed by genus zero open-closed surfaces (no
+cyclic structure for the operad is included for the moment). It has two colors, one for the boundary
+interval, and one for the boundary circle. Voronov’s Swiss-Cheese operad is the suboperad with
+the same colors, but the Dehn twist on the cylinder excluded from its operations. So once we look
+at a Swiss-Cheese algebra in categories (or certain types of linear categories), we obtain a category
+A for the boundary interval and a category B for the boundary circle. Idrissi [Idr17, Theorem A]
+proved that the operations on A and B are exactly the following ones:
+• The category A is monoidal (this is the evaluation on the ‘open part’).
+• The category B is braided (this the evaluation on the ‘closed part’).
+• There is a braided monoidal functor F : B −→ Z(A).
+The relation to our present situation is the following: We know from Theorem 5.9 that stringnets for a pivotal finite tensor category C produce an open-closed modular functor. Clearly, we
+can restrict an open-closed modular functor to open-closed genus zero surfaces. We then obtain
+the underlying Swiss-Cheese algebra
+(SNC ([0, 1]) ≃ C, SNC (S1 ), B : SNC (S1 ) −→ Z(C))
+in Rexf . To the boundary interval, it associates C; in fact, not only as linear category, but as
+monoidal category because the multiplication comes just from a disk with three marked boundary
+intervals. One can see with the help of Lemma 2.7 that the topologically inherited monoidal
+structure on C is then really the original one. Extracting the braided category associated to
+the closed boundary is way harder: We know that we associate SNC (S1 ) by definition, but with
+some a priori unknown braided monoidal structure coming from the evaluation on genus zero
+surfaces. However, thanks to [Idr17, Theorem A], we know that we get a braided monoidal functor
+B : SNC (S1 ) −→ Z(C).
+In order to get the braided monoidal structure on the functor H : SNC (S1 ) −→ Z(C) in Theorem 6.1, it suffices to prove H ∼
+= B as functors:
+Proposition 6.2. For a pivotal finite tensor category C, denote by
+(C, SNC (S1 ), B : SNC (S1 ) −→ Z(C))
+the Swiss-Cheese algebra underlying the open-closed modular functor given by the string-net construction applied to Proj C. Then the underlying functor of B is naturally isomorphic to the functor
+H : SNC (S1 ) −→ Z(C) from Theorem 4.4.
+Proof. It follows from the main result of [Idr17] that U B is obtained by evaluation of SNC on
+the annulus with one incoming boundary circle and one outgoing boundary interval. From (4.2),
+we can deduce that U B sends a projective object placed on the circle to the object U F P ∼
+=
+R X∈C ∨
+X ⊗ P ⊗ X in C. The lift B of U B to Z(C) is obtained by extracting from the Swiss-Cheese
+R X∈C ∨
+X ⊗ P ⊗ X. The way that this half braiding
+algebra a half braiding for the object U BP ∼
+=
+arises topologically is described in [Idr17]. When specified to the case at hand, we obtain it as
+follows: Consider an annulus A = S1 × [0, 1] with
+• an incoming boundary interval on S1 × {0} labeled by X ∈ Proj C,
+• an incoming boundary interval on S1 × {1} labeled by Y ∈ Proj C,
+• and an outgoing boundary interval on S1 × {1} labeled by V ∈ Proj C.
+
+23
+
+V∨
+
+Y
+
+V∨
+
+Y
+
+ϕ
+
+ϕ
+7−→
+
+X
+
+X
+
+Figure 5: Here we suppress the intervals and label the points living on the outgoing boundary intervals by the dual of V ∈ Proj (C). The cut line is kept still while the diffeomorphism swaps
+the relative positions of marked points living on S1 × {1}. To facilitate the visualization,
+a string-net is included on both sides.
+The string-net construction snC assigns to A with these labels the vector space
+Z P ∈Proj C
+Z P ∈Proj C
+C(V, P ∨ ⊗ X ⊗ P ⊗ Y )
+C(I, P ∨ ⊗ X ⊗ P ⊗ Y ⊗ V ∨ ) ∼
+=
+∼
+=C
+∼
+=C
+
+V,
+V,
+
+Z P ∈Proj C
+Z P ∈C
+
+P∨ ⊗ X ⊗ P ⊗ Y
+
+∨
+
+P ⊗X ⊗P ⊗Y
+
+!
+
+!
+.
+
+(6.1)
+
+This follows from excision (Theorem 3.2); the simplifications made here use again the arguments
+in the proof of Theorem 4.2. Through the diffeomorphism moving around Y counterclockwise on
+S1 × {1} past X, we obtain an isomorphism
+!
+!
+Z
+Z
+P ∈C
+
+τ :C
+
+V,
+
+P∨ ⊗ X ⊗ P ⊗ Y
+
+∼
+=
+
+−−→ C
+
+Q∈C
+
+V, Y ⊗
+
+Q∨ ⊗ X ⊗ Q
+
+The resulting isomorphism
+Z Q∈C
+Z P ∈C
+∼
+=
+∨
+Q∨ ⊗ X ⊗ Q
+P ⊗ X ⊗ P ⊗ Y −−→ Y ⊗
+β:
+
+.
+
+(6.2)
+
+(6.3)
+
+R P ∈C ∨
+is the sought after half braiding on
+P ⊗ X ⊗ P . We refer to Figure 5 for a sketch of
+the action of this isomorphism on string-nets. It remains to read off (6.2) from the string-net
+construction and to translate it into an isomorphism of the form (6.3): First note that the coend
+in (6.2) can be pulled out of the hom argument (see the calculations in (6.1)). Therefore, we can see
+C (V, P ∨ ⊗ X ⊗ P ⊗ Y ) as the integrand of the coend on the left hand side of (6.2), with the dummy
+variable being P . From the definition of the string-net construction and excision (Theorem 3.2),
+it follows that τ is induced by the map sending a morphism ϕ : V −→ P ∨ ⊗ X ⊗ P ⊗ Y to
+bY ⊗ ϕ : V −→ Y ⊗ Y ∨ ⊗ P ∨ ⊗ X ⊗ P ⊗ Y ; here bY : I −→ Y ⊗ Y ∨ is the coevaluation of Y , and
+the new dummy variable is Q = P ⊗ Y . When translated to an isomorphism of the form (6.2),
+R P ∈C ∨
+this yields the non-crossing half braiding of
+P ⊗ X ⊗ P , see Figure 4. Since the functor
+R P ∈C ∨
+P ⊗ X ⊗ P plus the non-crossing half braiding, it follows
+F : C −→ Z(C) sends X ∈ C to
+from this computation and the description of the functor h in Theorem 4.4 that the composition
+B
+
+snC (S1 ) ⊂ SNC (S1 ) −−→ Z(C)
+agrees with
+h
+
+snC (S1 ) −−→ F (Proj C) ⊂ Z(C) .
+24
+
+(6.4)
+
+By the definition of the finite cocompletion there is, up to natural isomorphism, exactly one right
+exact functor SNC (S1 ) −→ Z(C) extending (6.4), namely H (by its construction in Theorem 4.4).
+This implies B ∼
+= H.
+Remark 6.3. The strategy of the proof of Theorem 6.1 is informed by the examination of the
+algebraic structure underlying bulk-boundary systems in [FSV13]. This does not actually simplify
+the proof, but it provides some context that might be helpful for the physically inclined reader.
+In [FSV13, Section 3] several algebraic properties of bulk-boundary conditions are postulated based
+on physical considerations, without explicit reference to the Swiss-Cheese operad. Nonetheless, the
+result is closely related to the structure of a categorical Swiss-Cheese algebra (A, B, F : B −→ Z(A))
+from [Idr17, Theorem A]. The category A would then be called the category of boundary Wilson
+lines; B is the category of bulk Wilson lines. There is however one crucial difference: In [FSV13,
+Section 3], a class of boundary conditions is singled out by imposing the requirement that the
+functor F : B −→ Z(A) is not only braided monoidal, but also an equivalence, thereby providing a
+so-called Witt trivialization of B. It is important to note that this is not a property enforced by the
+Swiss-Cheese operad. The results of this section can be rephrased by saying that (C, SNC (S1 )) is
+a mathematical incarnation of a bulk-boundary system that actually has this additional property
+postulated in [FSV13].
+
+7 The comparison theorem
+In this section, we finally prove the main result of this article, namely the equivalence, in the sense
+of [BW22, Section 3.2], between the string-net modular functor for a pivotal finite tensor category
+C and the Lyubashenko modular functor for the Drinfeld center Z(C):
+Theorem 7.1. For any pivotal finite tensor category C, the string-net modular functor SNC associated to C is equivalent to the Lyubashenko modular functor associated to the Drinfeld center
+Z(C).
+As recalled in the introduction, the Lyubashenko construction [Lyu95a, Lyu95b, Lyu96] is a
+modular functor construction that takes as an input a modular category, i.e. a finite ribbon category
+with non-degenerate braiding. If the pivotal finite tensor category C is spherical in the sense
+of [DSPS20], then Z(C) is modular by [Shi23], so that the Lyubashenko construction can be
+applied to Z(C). If C is not spherical, one can still construct a modular functor from Z(C) by
+[BW22, Section 8.4], even if Z(C) is not modular. We understand the Lyubashenko modular
+functor in Theorem 7.1 in this generalized sense.
+A direct comparison at all genera of the two types of modular functors appearing in Theorem 7.1 seems difficult, and we will therefore follow a indirect approach that uses the results of
+[MW23b, BW22]: By [MW23b, Theorem 7.17] the value of a modular functor on the circle inherits
+through the evaluation of the modular functor on genus zero surfaces a ribbon Grothendieck-Verdier
+structure, a notion defined by Boyarchenko-Drinfeld [BD13]. A ribbon Grothendieck-Verdier category in Rexf is
+• a finite category A with right exact monoidal product ⊗ : A ⊠ A −→ A, braiding cX,Y :
+∼
+∼
+=
+=
+X ⊗ Y −−→ Y ⊗ X and balancing θX : X −−→ X, i.e. a natural automorphism of the identity
+with θI = idI and θX⊗Y = cY,X cX,Y (θX ⊗ θY ),
+• an object K, called the dualizing object, such that A(X ⊗−, K) is representable for all X ∈ A,
+i.e. A(X ⊗ −, K) ∼
+= A(−, DX) for some DX ∈ A, such that D : A −→ Aopp , X 7−→ DX is
+an equivalence and DθX = θDX .
+The dualizing object K can be recovered from D via K = DI.
+By Theorem 5.9 SNC is a modular functor. By what was just explained, the evaluation on the
+circle (and genus zero surfaces) produces a ribbon Grothendieck-Verdier category. This ribbon
+Grothendieck-Verdier structure will be explicitly calculated through our next result.
+25
+
+In order to state the result, recall from (2.1) the distinguished invertible object α ∈ C of [ENO04]
+and the Radford isomorphism −∨∨∨∨ ∼
+= α ⊗ − ⊗ α−1 . If C is pivotal, the square of the pivotal
+structure endows α with a half braiding, thereby promoting it to an object in the Drinfeld center
+Z(C). By [MW22] this object then becomes the dualizing object for a ribbon Grothendieck-Verdier
+structure on Z(C) that agrees with the unit of Z(C) if and only if C is spherical.
+Theorem 7.2. For any pivotal finite tensor category, the functor H : SNC (S1 ) −→ Z(C) is an
+equivalence of ribbon Grothendieck-Verdier categories, where
+• SNC (S1 ) carries the ribbon Grothendieck-Verdier structure that it inherits by virtue of being
+the value of a modular functor on the circle,
+• and Z(C) carries the ribbon Grothendieck-Verdier structure D = −∨ ⊗ α−1 with the distinguished invertible object α of C (equipped with a half braiding through the Radford
+isomorphism and the pivotal structure) as dualizing object in Z(C).
+Proof. By Theorem 6.1 the functor H is already a braided monoidal equivalence.
+Next we prove that H also preserves the balancing. To this end, we place a projective object
+P ∈ Proj C on the circle and denote the corresponding object in SNC (S1 ) by Pe . The component
+C
+e
+of the balancing in SNC (S1 ) at Pe is denoted by θPSN
+e . By construction H sends P to F P ∈ Z(C).
+We denote the balancing on Z(C) by θ; this is the ‘standard’ balancing that Z(C) is endowed with
+because it is braided and pivotal. It now suffices to prove
+C
+HθPSN
+= θF (P )
+e
+
+(7.1)
+
+SNC
+because this implies HθX
+= θHX for all X ∈ SNC (S1 ) (this is because any object in SNC (S1 )
+and Z(C) receives an epimorphism from an object of the form Pe and F (P ), respectively, see
+Lemma 5.7).
+
+For the proof of (7.1), we compute both sides separately: The balancing θF (P ) : F (P ) −→ F (P )
+at F (P ), as a consequence of the adjunction F ⊣ U , is completely determined by the map
+UθF (P )
+
+ι
+
+P −−I→ U F (P ) −−−−−→ U F (P )
+ιI
+in C (here P ∼
+= I ∨ ⊗ P ⊗ I −−→ U F (P ) is the structure map of the coend) given by:
+
+U F (P )
+
+U F (P )
+
+ıI
+
+U F (P )
+
+U F (P )
+
+ıP
+
+ıP
+=
+
+=
+
+=
+ıI
+
+P
+
+P
+
+P
+
+P
+
+(7.2)
+
+P
+
+P
+
+This uses the naturality of the half braiding and the definition of the non-crossing half braiding
+(that F (P ) comes equipped with by definition, see Figure 4). On the string-net side, we can read
+C
+off the balancing topologically: The automorphism θPSN
+is the image of the identity at Pe under
+e
+C
+the Dehn twist along the waist of the cylinder. Graphically, the balancing θPSN
+is given by the
+e
+
+26
+
+automorphism
+
+in the category SNC (S1 ). Here the opposite vertical sides of the rectangle are identified. Under the
+isomorphism from (4.4), this automorphism in the category SNC (S1 ) agrees with the right hand
+side of (7.2), i.e. with the ‘standard’ balancing for the Drinfeld center computed before. This
+establishes that H : SNC (S1 ) −→ Z(C) is a balanced braided monoidal equivalence.
+It now follows that H is also an equivalence of ribbon Grothendieck-Verdier categories because
+for the two categories in question the ribbon Grothendieck-Verdier structure is unique relative to
+the underlying balanced braided structure as follows from [MW22, Theorem 2.12] because Z(C),
+and therefore also snC (S1 ), has a non-degenerate braiding in the sense that they Müger center is
+trivial [ENO04, Proposition 4.4].
+Remark 7.3. The Grothendieck-Verdier duality mentioned in the last paragraph of the previous
+proof is unique, but actually we can say even more: The space of choices is Bk × , the classifying
+space of the group of units of the field k. This follows from [MW22, Corollary 4.5].
+Proof of Theorem 7.1. By [BW22, Theorem 6.6] two Rexf -valued modular functors are equivalent
+if and only if the underlying ribbon Grothendieck-Verdier categories are equivalent in the sense of
+[MW23b, Section 2.4]. The ribbon Grothendieck-Verdier category extracted from SNC is described
+in Theorem 7.2: It agrees with Z(C) with the ribbon Grothendieck-Verdier structure from [MW22].
+But this is by construction (see [BW22, Section 8.4]) the ribbon Grothendieck-Verdier structure
+that the Lyubashenko construction for Z(C) produces. This finishes the proof.
+It is very instructive to compute the Grothendieck-Verdier duality on Z(C) that corresponds to
+the topological Grothendieck-Verdier duality on SNC (S1 ) directly. For this, we need:
+Lemma 7.4. Let C be a pivotal finite tensor category. The left adjoint F : C −→ Z(C) to the
+forgetful functor U : Z(C) −→ C comes with a canonical isomorphism
+F (−∨ ) ∼
+= (F (α ⊗ −))∨ ,
+where α is the distinguished invertible object of C.
+Proof. With the right adjoint G : C −→ Z(C) of the forgetful functor U : Z(C) −→ C, we find for
+X ∈ C and Y ∈ Z(C),
+Z(C) (F (X ∨ ) , Y ) ∼
+= C (X ∨ , U Y )
+
+∨
+∼
+= C (U Y ) , X
+
+∼
+= C (U (Y ∨ ) , X)
+∼
+= Z(C) (Y ∨ , GX)
+
+∼
+= Z(C) ((GX)∨ , Y )
+and hence F (−∨ ) ∼
+= (G(−))∨ . Together with [Shi17, Lemma 4.7], this implies F (−∨ ) ∼
+= (F (α ⊗
+∨
+−)) .
+Remark 7.5 (Direct comparison of the Grothendieck-Verdier dualities on SNC (S1 ) and Z(C),
+independently of Theorem 7.2). We can directly prove using Lemma 7.4 that H : SNC (S1 ) −→ Z(C)
+27
+
+is compatible with the canonical Grothendieck-Verdier dualities that we have on both sides: The
+Grothendieck-Verdier duality on SNC (S1 ) is the topological one induced by orientation reversal
+which sends an object P ∈ Proj C on the circle to P ∨ [MW23b, Theorem 7.17]. The corresponding
+duality functor D on Z(C) satisfies therefore DF P = F (P ∨ ). We need to prove that this implies
+DX = X ∨ ⊗ α−1
+
+for all X ∈ Z(C) .
+
+(7.3)
+
+Indeed, with Lemma 7.4 we find
+DF P = F (P ∨ ) ∼
+= (F (α ⊗ P ))∨ .
+With the half braiding of α induced by the pivotal structure and the Radford isomorphism [MW22,
+Lemma 2.1], we can simplify further:
+DF P ∼
+= (α ⊗ F P )∨ ∼
+= (F P )∨ ⊗ α−1 .
+This proves (7.3) on F (Proj C) and therefore on all objects because F (Proj C) generates Z(C) under
+finite colimits (Lemma 5.8) and D is an equivalence.
+Remark 7.6 (Towards a derived generalization of the main result). One could ask whether there
+is a relation between a derived version of the string-nets for C, see Remark 2.6, and the differential
+graded modular functor for Z(C), as a special case of the construction in [SW21a]. This would
+be a derived generalization of Theorem 7.1. As plausible as such a generalization might seem,
+it would be somewhat involved because basically none of the technical tools that we used in the
+linear setting, i.e. in this paper, are currently available in the derived setting.
+
+8 Applications and examples
+If we spell out Theorem 7.1, we arrive at the following:
+Corollary 8.1. Let C be a pivotal finite tensor category and Σ a surface with n boundary components that are labeled with X1 , . . . , Xn ∈ C. Then we can identify
+
+∗
+!⊗g
+Z
+SNC (Σ; X1 , . . . , Xn ) ∼
+, α⊗(g−1)  ,
+X ⊗ X∨
+= Z(C) F X1 ⊗ · · · ⊗ F Xn ⊗
+X∈Z(C)
+
+where F : C −→ Z(C) is left adjoint to the forgetful functor from Z(C) to C, and α is the distinguished invertible object of C, seen as object in the Drinfeld center via the pivotal structure and
+the Radford isomorphism. This isomorphism intertwines the Map(Σ)-action if SNC (Σ; X1 , . . . , Xn )
+is equipped with the geometric action and the right hand side with the (generalized) Lyubashenko
+action.
+
+Remark 8.2. The object α⊗(g−1) can be replaced by the monoidal unit I ∈ Z(C) if C is spherical.
+In fact, α ∼
+= I in Z(C) if and only if C is spherical (see the explanations on page 26). For g = 1,
+the contribution α⊗(g−1) ∼
+= I disappears automatically. This is not a surprise because the space
+of conformal blocks for the torus (as vector space, without the mapping class group action) never
+sees more than the linear structure of the category [MW23a, Corollary 6.6].
+Proof of Corollary 8.1. By Theorem 7.1 SNC (Σ; X1 , . . . , Xn ) is isomorphic to the space of conformal blocks for Z(C) evaluated at Σ with boundary labels F X1 , . . . , F Xn . The latter space
+of conformal blocks is calculated for a general ribbon Grothendieck-Verdier category in [MW23b,
+Theorem 7.9] in the Lexf -valued case; the dual Rexf -valued version is given in [BW22, Corollary 8.1].
+So far, this tells us
+
+∗
+!⊗g
+Z
+SNC (Σ; X1 , . . . , Xn ) ∼
+X ⊗ DX
+, α−1  .
+= Z(C) F X1 ⊗ · · · ⊗ F Xn ⊗
+X∈Z(C)
+
+28
+
+With DX = X ∨ ⊗ α−1 (see Theorem 7.2), we obtain the desired result.
+If we combine Theorem 7.1 with [MW22, Corollary 3.1], we obtain:
+Corollary 8.3. For any pivotal finite tensor category C,
+
+k , if C is spherical,
+2 ∼
+SNC (S ) =
+0 , else.
+Example 8.4. Let H be a finite-dimensional spherical Hopf algebra and Σ a closed surface of
+genus g. Then
+⊗g
+SNH−mod (Σ) ∼
+= HomD(H) (D(H)adj , k)∗ ,
+
+where D(H) is the Drinfeld double and D(H)adj is D(H) equipped with the adjoint action. The
+object D(H)adj is the canonical end of D(H)−mod, and since this category is unimodular [ENO04,
+Proposition 4.5] the object becomes self-dual [Shi17, Theorem 4.10]. This implies
+⊗g
+SNH−mod (Σ) ∼
+= HomD(H) (k, D(H)adj )∗ .
+
+The vector space HomD(H) (k, D(H)adj ) ∼
+= HomD(H) (D(H)adj , k) is the center Z(D(H)), or equivalently the space of class functions of D(H). Since HomD(H) (k, D(H)adj )⊗g ⊂ HomD(H) (k, D(H)⊗g
+adj ),
+we can see Z(D(H))⊗g as a subspace of SNH−mod (Σ)∗ . In combination with
+⊗g
+dim HomD(H) (k, D(H)⊗g
+= n2g
+adj ) ≤ dim D(H)
+
+with n := dim H, this gives us
+dim Z(D(H))g ≤ dim SNH−mod (Σ) ≤ n2g .
+Example 8.5. For a finite group G, denote by vectdG the finite tensor category of finite-dimensional
+G-graded vector spaces, with the pivotal structure given by a group morphism d : G −→ k ×
+(one could twist the associator with a 3-cocycle on G, but we refrain from doing that here). We
+suppress the field from the notation. The description of the pivotal structure via a group morphism
+d : G −→ k × is standard and can be found e.g. in [TV17, Example 1.7.3]. For the considerations
+made here, this description will not be relevant. It suffices to know that vectdG is spherical if and
+only if d2 = 1. The modular functor for Z(vectdG ) is discussed in [MW22, Example 2.2, 2.13 & 3.4].
+Thanks to Theorem 7.1, we know that it is equivalent to the string-net modular functor SNvectdG ,
+a fact that we can now exploit: If G is abelian, it implies that SNvectdG (Σ) for a closed surface of
+genus g is |G|2g -dimensional if dχ(Σ) = 1, with χ(Σ) = 2 − 2g being the Euler characteristic of
+Σ. Otherwise, it is the zero vector space. Hence, this modular functor is always non-trivial on the
+torus; this is clear because the space of conformal blocks of the torus must be the k-linear span of
+the |G|2 many simple object of Z(vectdG ) [MW23a, Corollary 6.6]. For every other closed surface
+of genus g 6= 1, we can choose appropriate input data to make the space of conformal blocks at
+genus g zero while still maintaining an overall non-trivial modular functor: If g = 0, we choose G
+such that we can arrange d2 6= 1, thereby making Z(vectdG ) non-spherical (see Corollary 8.3). If
+g ≥ 2, we choose G = Zn = Z/nZ with n = −χ(Σ) + 1 > 0, k = C and
+
+
+2πiℓ
+d(ℓ) = exp
+for ℓ ∈ Zn .
+n
+Then dχ(Σ) (1) 6= 1 and hence SNvectdG (Σ) = 0.
+One insight from Example 8.5 is the following:
+Corollary 8.6. Let Σ be a closed surface of genus g 6= 1. Then there exists a pivotal finite tensor
+category C such that SNC (Σ) = 0, even though the modular functor SNC is still overall non-trivial,
+i.e. non-zero on some other closed surface.
+29
+
+Generally, modular functors are defined over an extension of the modular surface operad. For the
+string-nets, this extension is obviously not needed because the mapping class group acts directly;
+in other words, the string-net modular functor is anomaly-free. Thanks to Theorem 7.1, the same
+is true for the Lyubashenko modular functor for a Drinfeld center Z(C). Moreover, the modular
+functor for Z(C) extends in fact an open-closed modular functor simply because this is true for the
+string-net modular functor (Theorem 5.9). Let us summarize this:
+Corollary 8.7. For a pivotal finite tensor category C, the Lyubashenko modular functor for the
+Drinfeld center Z(C)
+(i) is anomaly-free
+(ii) and extends to an open-closed modular functor sending the open boundary to C.
+If C is a non-spherical fusion category (in particular, C is then semisimple), then the string-net
+construction discussed in this paper agrees with the one given by Runkel in [Run20]. When we
+apply Theorem 7.1 to this special case, we find:
+Corollary 8.8. The string-nets for a non-spherical fusion category C defined by Runkel extend to
+an open-closed modular functor that sends the circle to Z(C), but with a non-rigid GrothendieckVerdier duality in which α is the dualizing object.
+Remark 8.9. Corollary 8.1 tells us that for the disk and one variable boundary label the nonspherical string-net construction gives us the functor Z(C)(−, α−1 )∗ , so that α−1 acts as a background charge in the sense of [Run20, Remark 7.2].
+Corollary 8.10 (originally [BK10, Bal10a, Bal10b, TV10]). For a spherical fusion category C,
+RT
+ZCTV ≃ ZZ(C)
+
+as once-extended three-dimensional topological field theories.
+New proof using string-nets, assuming [BDSPV15]. By [BDSPV15] it suffices to prove that the
+balanced braided categories obtained by evaluation of both field theories on the circle are equivalent. These categories are necessarily modular fusion categories, again by [BDSPV15], so we may
+equivalently ask them to be equivalent as ribbon Grothendieck-Verdier categories [MW22, CorolRT
+lary 4.4]. For ZZ(C)
+, this modular fusion category is Z(C); for ZCTV we obtain, thanks to [Bar22],
+1
+SNC (S ). Strictly speaking, [Bar22] does not give us this comparison as balanced braided categories
+as explained in the introduction, but it does follow if we assume the results of [BDSPV15] and use
+additionally [BG21]. Now the claim follows from Theorem 7.2.
+Remark 8.11 (Transfer of knowledge to and from admissible skein modules in dimension two).
+The relation to admissible skein modules that was explained in Remark 2.17 can be used for a
+substantial transfer of results between [CGPM23] and our paper, simply because we can relate
+the constructions, but have almost no intersection as far as results about the constructions are
+concerned. We do not want to expand on this comparison too much here and just state the main
+points. From the results in [CGPM23], we learn the following facts about the string-net spaces:
+• As explained in Remark 2.17, the finite-dimensionality of string-net spaces could have been
+deduced from [CGPM23, Section 5.4].
+• From [CGPM23, Theorem 3.1], we learn that the string-net space SNC (S2 ) is (dual to) the
+space of two-sided modified traces on Proj C. This space is k if C is spherical, zero otherwise.
+If we combine these two insights, we recover the algebraic result [SS21, Corollary 6.11] that
+a two-sided modified trace on Proj C exists if and only if C is spherical.
+Conversely, we learn the following facts about admissible skein modules through our results on
+SNC :
+30
+
+• From Theorem 3.2, it follows that admissible skein modules in dimension two satisfy excision.
+• From Theorem 7.1, we learn that the admissible skein modules in dimension two for Proj C
+extend to an open-closed modular functor, namely the Lyubashenko modular functor for
+Z(C) that has an open-closed extension thanks to Corollary 8.7 (ii).
+References
+[And06]
+
+J. E. Andersen. Asymptotic faithfulness of the quantum SU(n) representations of the mapping class groups. Ann. Math., 163(1):347–368, 2006.
+
+[Bal10a]
+
+B. Balsam. Turaev-Viro invariants as an extended TQFT II. arXiv:1010.1222 [math.QA],
+2010.
+
+[Bal10b]
+
+B. Balsam. Turaev-Viro invariants as an extended TQFT III. arXiv:1012.0560 [math.QA],
+2010.
+
+[Bar22]
+
+B. Bartlett. Three-dimensional TQFTs via string-nets and two-dimensional surgery.
+arXiv:2206.13262 [math.QA], 2022.
+
+[BCGPM16]
+
+C. Blanchet, F. Costantino, N. Geer, and B. Patureau-Mirand. Non-Semisimple TQFTs,
+Reidemeister Torsion and Kashaev’s Invariants. Adv. Math., 301:1–78, 2016.
+
+[BD95]
+
+J. Baez and J. Dolan. Higher-Dimensional Algebra and Topological Quantum Field Theory.
+J. Math. Phys., 36(11):6073–6105, 1995.
+
+[BD13]
+
+M. Boyarchenko and V. Drinfeld. A duality formalism in the spirit of Grothendieck and
+Verdier. Quantum Top., 4(4):447–489, 2013.
+
+[BDSPV15]
+
+B. Bartlett, C. L. Douglas, C. Schommer-Pries, and J. Vicary. Modular categories as representations of the 3-dimensional bordism category. arXiv:1509.06811 [math.AT], 2015.
+
+[BG21]
+
+B. Bartlett and G. Goosen. Extended TQFTs via generators and relations I: The extended
+toric code. Comm. Contemp. Math., 23, 2021.
+
+[BK01]
+
+B. Bakalov and A. Kirillov. Lectures on tensor categories and modular functors, volume 21
+of University Lecture Series. Am. Math. Soc., 2001.
+
+[BK10]
+
+B. Balsam and A. Kirillov. Turaev-Viro invariants as an extended TQFT. arXiv:1004.1533
+[math.GT], 2010.
+
+[Bor94]
+
+F. Borceux. Handbook of Categorical Algebra, Volume 2: Categories and Structures, volume 51 of Encyclopedia of Math. and its Applications. Cambridge University Press, 1994.
+
+[BV12]
+
+A. Brugières and A. Virelizier. Quantum double of Hopf monads and categorical centers.
+Trans. Am. Math. Soc., 364(3):1225–1279, 2012.
+
+[BW96]
+
+J. Barrett and B. Westbury. Invariants of Piecewise-Linear 3-Manifolds. Trans. Amer. Math.
+Soc., 348(10):3997–4022, 1996.
+
+[BW22]
+
+A. Brochier and L. Woike. A classification of modular functors via factorization homology.
+arXiv:2212.11259 [math.QA], 2022.
+
+[CGPM12]
+
+F. Costantino, N. Geer, and Patureau-Mirand. Quantum Invariants of 3-Manifolds via Link
+Surgery Presentations and Non-Semi-Simple Categories. J. Top., 7:1005–1053, 2012.
+
+[CGPM23]
+
+F. Costantino, N. Geer, and B. Patureau-Mirand.
+arXiv:2302.04493 [math.GT], 2023.
+
+[Coo23]
+
+J. Cooke. Excision of skein categories and factorisation homology. Adv. Math., 414:108848,
+2023.
+
+[Cos07]
+
+K. Costello. A dual version of the ribbon graph decomposition of moduli space. Geom.
+Top., 11(3):1637–1652, 2007.
+
+[DL07]
+
+Admissible skein modules.
+
+B. Day and S. Lack. Limits of small functors. J. Pure Appl. Alg., 210(3):651–683, 2007.
++
+
+[DRGG 22a] M. De Renzi, A. M. Gainutdinov, N. Geer, B. Patureau-Mirand, and I. Runkel. 3Dimensional TQFTs from Non-Semisimple Modular Categories. Selecta Math. New Ser.,
+28(42), 2022.
+[DRGG+ 22b] M. De Renzi, A. M. Gainutdinov, N. Geer, B. Patureau-Mirand, and I. Runkel. Mapping
+class group representations from non-semisimple TQFTs. Comm. Contemp. Math., page
+2150091, 2022.
+[DS07]
+
+B. Day and R. Street. Centres of monoidal categories of functors, categories in algebra.
+Cont. Math., 2007.
+
+31
+
+[DSPS20]
+
+C. L. Douglas, C. Schommer-Pries, and N. Snyder. Dualizable Tensor Categories. Mem.
+Amer. Math. Soc., 2020.
+
+[EK71]
+
+R. Edwards and R. Kirby. Deformations of spaces of imbeddings. Ann. Math., 93:63–88,
+1971.
+
+[ENO04]
+
+P. Etingof, D. Nikshych, and V. Ostrik. An analogue of Radford’s S 4 formula for finite
+tensor categories. Int. Math. Res. Not., 54:2915–2933, 2004.
+
+[EO04]
+
+P. Etingof and V. Ostrik. Finite tensor categories. Mosc. Math. J., 4(3):627–654, 2004.
+
+[Fra13]
+
+Ignacio López Franco. Tensor products of finitely cocomplete and abelian categories. J.
+Alg., 396:207–219, 2013.
+
+[FSS22]
+
+J. Fuchs, G. Schaumann, and C. Schweigert. A modular functor from state sums for finite
+tensor categories and their bimodules. Theory App. Cat., 38:436–594, 2022.
+
+[FSV13]
+
+J. Fuchs, C. Schweigert, and A. Valentino. Bicategories for boundary conditions and for
+surface defects in 3-d TFT. Comm. Math. Phys., 321:543–575, 2013.
+
+[FSY23]
+
+J. Fuchs, C. Schweigert, and Y. Yang.
+arXiv:2302.01468 [math.QA], 2023.
+
+[FWW02]
+
+M. Freedman, K. Walker, and Z. Wang. Quantum SU(2) faithfully detects mapping class
+groups modulo center. Geom. Top., 6:523–539, 2002.
+
+[GJS23]
+
+S. Gunningham, D. Jordan, and P. Safronov. The finiteness conjecture for skein modules.
+Invent. Math., 232:301–363, 2023.
+
+[GK98]
+
+E. Getzler and M. Kapranov. Modular operads. Compositio Math., 110:65–126, 1998.
+
+[Idr17]
+
+N. Idrissi. Swiss-Cheese operad and Drinfeld center. Israel J. Math., 221:941–972, 2017.
+
+[Juh18]
+
+A. Juhász. Defining and classifying TQFTs via surgery. Quantum Topology, 9(2):229–321,
+2018.
+
+[Kel99]
+
+B. Keller. On the cyclic homology of exact categories. J. Pure Appl. Alg., 136:1–56, 1999.
+
+[Kir11]
+
+A. Kirillov. String-net model of Turaev-Viro invariants. arXiv:1106.6033 [math.AT], 2011.
+
+[KL01]
+
+T. Kerler and V. V. Lyubashenko. Non-Semisimple Topological Quantum Field Theories
+for 3-Manifolds with Corners, volume 1765 of Lecture Notes in Math. Springer, 2001.
+
+[KM23]
+
+C. Keller and L. Müller. Finite symmetries of quantum character stacks. Theory Appl.
+Categ., 39(3):51–97, 2023.
+
+[KST23]
+
+H. Knötzele, C. Schweigert, and M. Traube. Twisted Drinfeld centers and framed string-nets.
+arXiv:2302.14779 [math.QA], 2023.
+
+[Lur09]
+
+J. Lurie. On the classification of topological field theories. Current development in math,
+2008:129–280, 2009.
+
+[LW05]
+
+M. A. Levin and X.-G. Wen. String-net condensation: A physical mechanism for topological
+phases. Phys. Rev. B, 71:045110, 2005.
+
+[Lyu95a]
+
+V. V. Lyubashenko. Invariants of 3-manifolds and projective representations of mapping
+class groups via quantum groups at roots of unity. Comm. Math. Phys., 172:467–516, 1995.
+
+[Lyu95b]
+
+V. V. Lyubashenko. Modular transformations for tensor categories. J. Pure Appl. Alg.,
+98:279–327, 1995.
+
+[Lyu96]
+
+V. V. Lyubashenko. Ribbon abelian categories as modular categories. J. Knot Theory and
+its Ramif., 5:311–403, 1996.
+
+[Mü03]
+
+M. Müger. From Subfactors to Categories and Topology II. The quantum double of tensor
+categories and subfactors. J. Pure App. Alg., 180:159–219, 2003.
+
+[McC94]
+
+R. McCarthy. The cyclic homology of an exact category. J. Pure Appl. Alg., 93:251–296,
+1994.
+
+[ML98]
+
+S. Mac Lane. Categories for the working mathematician, volume 5 of Graduate Texts in
+Mathematics. Springer, 1998. Second edition.
+
+[MS89]
+
+G. Moore and N. Seiberg. Classical and Quantum Conformal Field Theory. Comm. Math.
+Phys., 123:177–254, 1989.
+
+[MW22]
+
+L. Müller and L. Woike. The distinguished invertible object as ribbon dualizing object in
+the Drinfeld center. arXiv:2212.07910 [math.QA], 2022.
+
+[MW23a]
+
+L. Müller and L. Woike. Classification of Consistent Systems of Handlebody Group Representations. Int. Math. Res. Not., rnad178, 2023.
+
+32
+
+String-net models for pivotal bicategories.
+
+[MW23b]
+
+L. Müller and L. Woike. Cyclic framed little disks algebras, Grothendieck-Verdier duality
+and handlebody group representations. Quart. J. Math., 74(1):163–245, 2023.
+
+[Reu]
+
+D.
+Reutter.
+From
+non-unital
+skein
+theory
+to
+ified
+traces
+and
+non-semisimple
+TQFTs.
+Slides
+https://drive.google.com/file/d/1IslyZdNdYoAaqe_GRZ60uLEN9IOiAiEM/view.
+
+[Rie14]
+
+E. Riehl. Categorical Homotopy Theory, volume 24 of New Math. Monogr. Cambridge
+University Press, 2014.
+
+modat
+
+[Rie16]
+
+E. Riehl. Category Theory in Context. Dover Publications Inc., 2016.
+
+[RT90]
+
+N. Reshetikhin and V. G. Turaev. Ribbon graphs and their invariants derived from quantum
+groups. Comm. Math. Phys., 127:1–26, 1990.
+
+[RT91]
+
+N. Reshetikhin and V. Turaev. Invariants of 3-manifolds via link polynomials and quantum
+groups. Invent. Math., 103:547–598, 1991.
+
+[Run20]
+
+I. Runkel. String-net models for non-spherical pivotal fusion categories. J. Knot Theory
+Ramif., 29(6):2050035, 2020.
+
+[Seg88]
+
+G. Segal. Two-dimensional conformal field theories and modular functors. In IX International Conference on Mathematical Physics (IAMP), 1988.
+
+[Shi17]
+
+K. Shimizu. On unimodular finite tensor categories. Int. Math. Res. Not., 2017(1):277–322,
+2017.
+
+[Shi23]
+
+K. Shimizu. Ribbon structures of the Drinfeld center of a finite tensor category. Kodai
+Math. J., 46(1):75–114, 2023.
+
+[SP09]
+
+C. J. Schommer-Pries. The classification of two-dimensional extended topological field theories. PhD thesis, Berkeley, 2009.
+
+[SS21]
+
+T. Shibata and K. Shimizu. Modified Traces and the Nakayama Functor. Alg. Rep. Theory,
+2021.
+
+[SW21a]
+
+C. Schweigert and L. Woike. Homotopy Coherent Mapping Class Group Actions and Excision for Hochschild Complexes of Modular Categories. Adv. Math., 386:107814, 2021.
+
+[SW21b]
+
+C. Schweigert and L. Woike. The Hochschild Complex of a Finite Tensor Category. Alg.
+Geom. Top., 21(7):3689–3734, 2021.
+
+[Til98]
+
+U. Tillmann. S-Structures for k-Linear Categories and the Definition of a Modular Functor.
+J. London Math. Soc., 58(1):208–228, 1998.
+
+[Tur94]
+
+V. G. Turaev. Quantum Invariants of Knots and 3-Manifolds, volume 18 of Studies in Math.
+De Gruyter, 1994.
+
+[TV92]
+
+V Turaev and O. Viro. State sum invariants of 3-manifolds and quantum 6j-symbols. Topology, 31(4):865–902, 1992.
+
+[TV10]
+
+V. Turaev and A. Virelizier. On two approaches to 3-dimensional TQFTs. arXiv:1006.3501
+[math.GT], 2010.
+
+[TV17]
+
+V. Turaev and A. Virelizier. Monoidal categories and topological field theory. Number 322
+in Progress in Math. Birkhäuser, 2017.
+
+[Vor99]
+
+A. Voronov. The Swiss-Cheese operad. In J.-P. Meyer, J. Morava, and W. S. Wilson, editors,
+A Conference in Honor of J. Michael Boardman, pages 365–373. Contemp. Math., Amer.
+Math. Soc., 1999.
+
+[Wala]
+
+K. Walker. Going from n + ε to n + 1 in non-semisimple oriented TQFTs. Talk in UQSL
+seminar, February 2022, Slides at https://canyon23.net/math/talks/np1.pdf.
+
+[Walb]
+
+K. Walker. TQFTs. Notes available at http://canyon23.net/math/tc.pdf.
+
+33
+
+

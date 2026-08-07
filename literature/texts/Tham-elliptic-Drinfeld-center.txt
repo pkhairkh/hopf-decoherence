@@ -1,0 +1,2285 @@
+The Elliptic Drinfeld Center of a Premodular Category
+
+arXiv:1904.09511v2 [math.QA] 2 Dec 2020
+
+Ying Hong Tham
+Abstract
+Given a tensor category C, one constructs its Drinfeld center Z(C) which is a
+braided tensor category, having as objects pairs (X, λ), where X ∈ Obj(C) and λ is a
+half-braiding. For a premodular category C, we construct a new category Z el (C) which
+we call the Elliptic Drinfeld Center, which has objects (X, λ1 , λ2 ), where the λi ’s are
+half-braidings that satisfy some compatibility conditions. We discuss an SL2 (Z)-action
+on Z el (C) that is related to the anomaly appearing in Reshetikhin-Turaev theory.
+This construction is motivated from the study of the extended Crane-Yetter TQFT, in
+particular the category associated to the once punctured torus.
+
+1
+
+Introduction and Preliminaries
+
+In [CY1993], Crane and Yetter define a 4d TQFT using a state-sum involving 15j
+symbols, based on a sketch by Ooguri [Oog1992]. The state-sum begins with a coloring of the 2- and 3-simplices of a triangulation of the four manifold by integers from
+0, 1, . . . , r. These 15j symbols then arise as the evaluation of a ribbon graph living on
+the boundary of a 4-simplex. The labels 0, 1, . . . , r correspond to simple objects of the
+Verlinde modular category, the semi-simple subquotient of the category of finite dimensional representations of the quantum group Uq sl2 at q = eπi/r+2 as defined in [AP1995].
+Later Crane, Kauffman, and Yetter [CKY1997] extend this definition to colorings with
+objects from a premodular category (i.e. artinian semisimple tortile/ribbon).
+The invariant for closed 4-manifolds that one obtains from the Crane-Yetter (CY)
+state-sum essentially boils down to the signature and Euler characteristic of the manifold, though it is still interesting because it expresses the signature of a 4-manifold in
+terms of local combinatorial data [CKY1993]. It is believed that the CY TQFT, with
+a modular category as input, is a boundary theory, in that ZCY (M 4 ) for a 4-manifold
+with boundary is determined by its boundary ∂M 4 and classical invariants of M 4 like
+the signature and Euler characteristic.
+In [CKY1997], the authors speculate that their theory, when extended to include
+insertions at surfaces and points, could be related to Donaldson-Floer (DF) theory
+[Don1983]. Attempts have been made (e.g. [Yet1993],[Rob1997]) to modify the statesum in [CKY1997] in the presence of insertions on surfaces. In principle, these insertions are labellings of a codimension-2 submanifold by objects in a category associated
+
+1
+
+to the abstract homeomorphism class of that submanifold. These categories should be
+related to each other via some gluing axioms.
+The construction presented in this paper arose out of studying such categories.
+Namely, starting with a fixed premodular category C (which would be used to produce
+the CY TQFT), we have an abstract schema of producing a category ZCY (Σ) for each
+surface Σ (possibly with punctures and boundaries). In brief, the basic objects in
+ZCY (Σ) are configurations of finitely many points, each labelled with an object in C;
+morphisms are skein modules with appropriate boundary conditions. One then completes the category by considering the Karoubian closure.
+In [BZBJ2015], [BZBJ2016], Ben-Zvi, Brochier, and Jordan use factorization homology to construct such categories, integrating certain algebras over surfaces. We
+expect that our constructions agree.
+Although we have abstractly defined these categories ZCY (Σ) from skeins, the goal
+of our studies is to relate them to the input premodular category C. For example, we
+have that
+ZCY (D2 ) = C (by default)
+ZCY (S 2 ) = ZMü (C), the Müger center
+ZCY (S 1 × [0, 1]) = Z(C), the Drinfeld center
+ZCY (T21 ) = Z el (C)
+ZCY (T2 ) = Vec for C modular
+where Z el (C) is the category we construct in this paper, which we call the Elliptic
+Drinfeld center. We will establish these results in future work, as our main goal in this
+paper is to define and study Z el (C).
+Briefly, Z el (C) has as objects (X, λ1 , λ2 ), where λ1 , λ2 are half-braidings on X. λ1
+and λ2 are required to satisfy certain commutativity relations involving the braiding
+on C. Thus we stress that while the Drinfeld center can be defined for any monoidal
+category, our elliptic Drinfeld center requires that C be braided. The other conditions
+(fusion, ribbon) are not essential for the definition but are needed to define the (extended) TQFT. They also lead Z el (C) to have nice properties.
+Choose a pair of oriented simple closed curves on T21 so that T21 deformation retracts
+onto their union (see Remark 3.20 for a picture). Then there is a functor
+∼
+
+Z el (C) Ð
+→ ZCY (T21 )
+that sends (X, λ,1 , λ2 ) to the image of a projection on the configuration with one
+marked point labelled by X. The projection is built out of λ1 and λ2 , somehow assigning them to the two chosen curves. In hand-wavy terms, Z el (C) is a “coordinate
+representation” of ZCY (T21 ), in the sense that we have picked a marked point and a
+
+2
+
+pair of such curves in order to express our objects with “coefficients” in C, and this
+“coordinate representation” changes when we change these choices. Further discussions
+of this can be seen in e.g. Remark 3.12, Section 3.3, Remark 5.4).
+Let us give a brief outline of the paper. In Section 2, we first recall some properties
+of the usual Drinfeld center Z(C). In Section 3, we then discuss various properties
+of Z el (C) in parallel with those of Z(C) laid out in Section 2. We show that Z el (C)
+is monoidal (see Definition-Proposition 3.1). Being the category associated to T21 , it
+naturally carries an action of SL2 (Z) (see Theorem 3.21). However, some of the arguments are of a topological nature, and is more naturally understood in the context of
+the extended Crane-Yetter TQFT, hence to limit the scope of the paper, we postpone
+full proofs to future work.
+As mentioned above, when C is modular, it is expected that ZCY is a boundary
+theory. Since ZCY (D2 ) = C, one expects ZCY (T21 ) ≅ C as well. To this end, we prove in
+Section 4 that:
+Theorem 4.3. If C is modular, then the composition
+i = I1 ○ ι ∶ C → Z el (C)
+is an equivalence of abelian categories, where ι ∶ C → Z(C) is the functor X ↦ (X, c−,X ),
+and I1 is the intermediate induction functor defined in Proposition 3.9.
+In Section 4.1, we discuss the connection of the SL2 (Z)-action on Z el (C) with the
+anomaly in Chern-Simons/Reshetikhin-Turaev theory via Theorem 4.3. However, in
+part due to the reliance of this action on the SL2 (Z)-action on Z el (C), we’ve decided
+to omit some details and proofs and once again relegate them to future work.
+In Section 5, we consider C = H − mod, where H is a Hopf algebra. In this case,
+the Drinfeld center is equivalent to the category of modules over Drinfeld’s quantum
+double, D(H). In the same spirit, when H is braided, we construct an algebra Del (H),
+which we call the Elliptic Drinfeld double, such that
+Theorem 5.2. For C = H − mod, Z el (C) ≅ Del (H) − mod as abelian categories.
+Brochier and Jordan [BJ2014] defined an algebra which they also call the elliptic
+double, and also arising from studying the category associated to the once-punctured
+torus. These algebras are not isomorphic, but we expect them to be Morita equivalent.
+̃
+In [BJ2014], they also obtain an SL
+2 (Z)-action on their elliptic double; we touch on
+this briefly in Remark 5.4.
+When C is symmetric, there is a tensor product on Z el (C) different from the one
+defined in Section 3.2. When H is cocommutative, Del (H) has a ribbon Hopf structure, thus Del (H) − mod is a tensor category. Then with respect to these monoidal
+structures, the equivalence in Theorem 5.2 is one of tensor categories.
+
+3
+
+In Section 6, we discuss a generalization of our construction of Z el (C), corresponding to considering surfaces other than T21 . Finally, the last section is an Appendix,
+with some useful lemma that are frequently used in computing with string diagrams,
+and a discussion of group actions on categories given by generators and relations.
+To conclude this section, let us compare the structures on the elliptic Drinfeld center with the usual Drinfeld center. Beginning with a monoidal category C, the Drinfeld
+center Z(C) is a braided monoidal category. On the other hand, beginning with a
+braided monoidal category C, the elliptic Drinfeld center Z el (C) is a monoidal category
+but not braided (this is discussed in Section 3.2, but full proofs will be given in future
+work). In addition, Z el (C) carries an action of SL2 (Z).
+This difference is a feature of the topology of surfaces: as mentioned above, the
+Drinfeld center is associated to the annulus, while the elliptic Drinfeld center is associated to the once-punctured torus. In both cases, the monoidal structure arises from a
+generalized pair of pants1 (see Remark 3.20). For the annulus, this generalized pair of
+pants is just a thicked pair of pants, so has a homeomorphism swapping the two inputs,
+making the monoidal structure a braided one, while for the once-punctured torus, this
+generalized pair of pants does not admit such a swapping operation.
+Note that in both cases, the (braided) monoidal structure differs from that of C:
+thinking of C as an E2 algebra, the monoidal structure manifests as inclusion of little
+disks in the little disks operad, so in a very loose sense governs “local behaviour”. However, the monoidal structures on Z(C) and Z el (C) are an artefact of global topology
+of the relevant surfaces. For example, the braided structure on Z(C) is quite different
+from that of C - it is constructed using only the monoidal structure of C. The takeaway is that we should not think of “gaining” or “losing” structures from C when we
+construct Z(C) and Z el (C), but rather observe that they merely reflect the topology
+of surfaces.
+Acknowledgements. The author thanks Alexander Kirillov and Jin-Cheng Guu for
+many helpful conversations.
+
+1.1
+
+Notation and Conventions
+
+Throughout, let us fix an algebraically closed field k of characteristic 0.
+Let C be a k-linear premodular category, that is, a ribbon fusion category. Some
+assumptions and notations:
+• For simplicity of exposition and minimality of parentheses, we suppress applications of the associativity constraint unless it leads to confusion.
+• We implicitly identify V ∗∗ with V via the pivotal structure δV ∶ V → V ∗∗ .
+• We denote the braiding by cA,B ∶ A ⊗ B → B ⊗ A.
+1
+
+This is not the generalized pair of pants in the sense of Floer theory in symplectic geometry.
+
+4
+
+• C bop is the same underlying category as C but with opposite braiding.
+• The set of isomorphism classes of simples is denoted by J, and we fix a representative Xj for each j ∈ J. 0 ∈ J will index the unit object, X0 = 1.
+• We fix isomorphisms ϕi ∶ Xj∗ → Xj ∗ compatible with the pivotal structure, i.e.
+∗∗
+δXj = ϕ∗i ○ ϕ−1
+i∗ ∶ Xi → Xi .
+• Evaluation, coevaluation maps are
+evX ∶ X ∗ ⊗ X → 1
+
+coevX ∶ 1 → X ⊗ X ∗
+
+̃ X = evX ∗ ∶ X ⊗ X ∗ → 1
+ev
+
+c̃
+oevX = ○ coevX ∗ ∶ 1 → X ∗ ⊗ X
+
+(where in the third and fourth line we suppressed the pivotal map δX ∶ X → X ∗∗ )
+• The categorical dimension
+of Xj is denoted dj = dimC Xj ∈ End(1). For each j,
+√
+we fix a square root dj . The dimension of C is denoted D = ∑j d2j , and we will
+√
+assume that D ≠ 0. We also fix a square root D.
+• Quite often we will omit the symbol ⊗, so that concatenation of objects denote
+tensor products, e.g. cA,B ∶ AB → BA.
+• We use an “Einstein convention”: when latin lowercase alphabet appear in dual
+pairs, they will be summed over the set of simple objects J. For example, Xj Xj∗
+is short for ⊕ Xj Xj∗ .
+We will describe morphisms using graphical calculus (see for example [BK2001],
+[KJ2011]). Here are some conventions:
+• All diagrams represent morphisms in C; morphisms in the other categories that
+show up, Z(C) and Z el (C), are subspaces of morphisms in C.
+• Our convention will be that morphisms go from the bottom object to the top.
+• If a string is shown without orientation, it is going up by default.
+• In string diagrams, some strings with be labelled with a lowercase latin alphabet.
+This means we are meant to sum the diagram over J. There is a similar notion
+for greek letters (see Appendix).
+• Dashed lines will stand for the sum over all colorings of an edge/loop by simple
+objects j, each taken with coefficient dj :
+
+(note this is to be summed over j ∈ J, as mentioned above)
+
+5
+
+• A pair of morphisms labelled with the same greek letter (sometimes with an
+overline) will denote a sum over a pair of dual bases with respect to a certain
+pairing - see appendix for details.
+We refer the reader to the appendix for examples, useful identities, and further
+clarification.
+Remark 1.1. All of our constructions are purely algebraic, but we try to explain their
+topological underpinnings. Thus, topological discussion will be a little sloppy; in particular, we will confuse boundaries and punctures on a surface unless they lead to
+confusion.
+
+2
+
+The Drinfeld Center
+
+Let us recall the construction and properties of the Drinfeld center. There is nothing
+new here, so the expert may skip to Section 3; we include this so as to make the constructions and proofs for the elliptic Drinfeld center more transparent and to set some
+notation.
+The following construction is due to Drinfeld (unpublished), and appears in [Maj],[JS1991]:
+Definition 2.1. The Drinfeld center Z(C) of a monoidal category C is a category
+consisting of the following:
+An object of Z(C) is a pair (X, λ), where X is an object of C and λ is a half-braiding
+on X, i.e. a natural transformation λ ∶ − ⊗ X → X ⊗ − that respects tensor products,
+i.e. satisfies the equation on the left below:
+
+;
+
+The morphisms HomZ(C) ((X, λ), (Y, µ)) are the subspace of those morphisms in HomC (X, Y )
+that intertwine the half-braidings λ, µ (equation on the right above).
+△
+A more concise way to simultaneously state the naturality of λ and the above
+condition on λ is the following, which will be used frequently to manipulate diagrams
+and prove equations:
+
+6
+
+When C is spherical fusion, a useful alternative description of HomZ(C) ((X, λ), (Y, µ))
+is as the image of a projection, which will be very useful for checking that a certain
+morphism is actually in Z(C):
+Lemma 2.2. Let (X, λ), (Y, µ) ∈ Obj Z(C). Define the operator
+Pλ,µ ⟳ HomC (X, Y )
+as follows:
+
+Then Pλ,µ is a projector onto the subspace HomZ(C) ((X, λ), (Y, µ)) ⊆ HomC (X, Y ).
+Proof. See e.g. [BKJ2010, Lemma 2.2]
+
+2.1
+
+Properties of Z(C)
+
+Let us recall some well-known facts about Z(C). In this section we will work with
+spherical fusion categories C.
+Proposition 2.3. [Müg2003] Let C be a spherical fusion category. Then Z(C) is
+modular.
+We give a sketch of a proof and relevant constructions since we will be using similar
+techniques for the new category. Our proof differs slightly from [Müg2003], particularly
+proof of semisimplicity and finiteness. The expert may wish to skip to the next section
+and refer back later.
+Proof Sketch. We first show it is abelian. It is clearly additive. The kernel, cokernel,
+and image of a morphism f ∶ (X, λ) → (Y, µ) is obtained from the kernel, cokernel,
+and image of f thought of as a morphism in C, and the object inherits a half-braiding
+from X or Y . We illustrate this in more detail for the kernel, since we will repeat the
+construction for the elliptic Drinfeld center. The cokernel and image follow a similar
+pattern.
+For an exact sequence 0 → K → X → Y , we have the following commutative
+diagram:
+0
+
+A⊗K
+
+idA ⊗ι
+
+K ⊗A
+
+ι⊗idA
+
+A⊗X
+
+idA ⊗f
+
+µA
+
+λA
+
+0
+
+X ⊗A
+
+A⊗Y
+
+f ⊗idA
+
+Y ⊗A
+
+The top and bottom rows are exact by the exactness of A ⊗ − and − ⊗ A. The leftmost
+vertical arrow exists and is unique by universal property of kernels. The half-braiding
+condition is automatically satisfied by the uniqueness of this arrow.
+
+7
+
+Denote by λ∣K the half-braiding on K constructed above (i.e. the vertical arrow in the commutative diagram above), so that the candidate kernel constructed
+above is (K, λ∣ι , or simply (K, λ∣K ) when there is no confusion. We still need to
+show that this object satisfies the universal property of kernels. Consider the diagram
+g
+(W, ζ) → (X, λ) → (Y, µ) which composes to gf = 0. As morphisms in Z(C) are subsets
+of morphisms in C, gf = 0 in Z(C) implies gf = 0 as morphisms in C, so g must factor
+uniquely in C through ι, so that there exists a unique C-morphism h ∶ W → K such
+that g = ιh.
+To see that h is a morphism in Z(C), i.e. intertwines half-braidings, consider the
+following diagram:
+A⊗W
+idA ⊗g
+
+idA ⊗h
+
+ζA
+
+W ⊗A
+
+A⊗K
+
+h⊗idA
+
+idA ⊗ι
+
+(λ∣K )A
+g⊗idA
+
+K ⊗ A ι⊗id
+
+A
+
+A⊗X
+λA
+
+X ⊗A
+
+We need to show that the front left parallelogram commutes. This follows from the
+facts that: (1) all other faces commute, (2) so composing the parallelogram in question
+ι⊗idA
+
+with the bottommost arrow K ⊗ A → A ⊗ K commutes, and (3) this arrow (ι ⊗ idA )
+is monic.
+For the cokernel of f , there is a similar construction of half-braiding on C =
+cokerC (f ) using the universal property of cokernels, and we will denote the half-braiding
+inherited from (Y, µ) by µC . For the image, one simply notes that the two ways of
+constructing a half-braiding on I = im f (from ker(coker(f )) and coker(ker(f ))) agree,
+I
+
+so that λ = µ∣I .
+ι
+
+Semisimplicity of Z(C): Let (K, λ∣K ) ↪ (X, λ) be a subobject (any other subobι′
+
+ject (K, µ) ↪ (X, λ) is isomorphic to (K, λ∣K ) since by monicity, ι′ = ker(coker(ι′ )) in
+Z(C)).
+ι
+In particular, K ↪ X is a subobject in C, so by semisimplicity of C, there is a
+C-morphism X → K such that p ○ ι = idK . Consider p̄ = Pλ,λ∣K (p). Since ι is a Z(C)morphism, we have Pλ,λ∣K (p) ○ ι = Pλ∣K ,λ∣K (p ○ ι) = Pλ∣K ,λ∣K (idK ) = idK , thus ι, p̄ are an
+inclusion-projection pair that exhibites (K, λ∣K ) as a direct summand of (X, λ).
+Z(C) has finitely many simple objects: this is a consequence of Proposition 2.6,
+which asserts that (Y, λ) ∈ Z(C) is a direct summand of IY . So if (X, λ) is a simple
+⊕n
+object, with X = ⊕j Xj j , then (X, λ) ⊆ ⊕(IXj )⊕nj , hence it must be a subobject of
+some IXj . Since EndZ(C) (IXj ) is finite dimensional, there can only be finitely many
+simple subobjects of IXj . Finally, there are only finitely many simples Xj in C.
+Tensor structure: The tensor product of two objects (X, λ) and (Y, µ) is given
+
+8
+
+by
+(X, λ) ⊗ (Y, µ) ∶= (X ⊗ Y, λ ⊗ µ)
+where the tensor product X ⊗ Y is from C, and
+(λ ⊗ µ)A ∶= (idX ⊗µA ) ⊗ (λA ⊗ idY ) =
+The associativity constraint is given by the one from C, and easily seen to respect the
+half-braiding.
+The unit object is (1, id− ) (with the left/right unit constraints from C). It has
+endomorphism ring k, so is simple.
+Rigidity: (X, λ) has left dual (X ∗ , λ∗ ), where (λ∗ )A = (λ ∗A )∗ . Similarly, the
+right dual is ( ∗X , ∗λ ), where ∗λ A = ∗(λA∗ ) . A simple computation shows that the
+(co)evaluation maps on X are morphisms 1 → (X, λ) ⊗ (X ∗ , λ∗ ) etc. The pivotal
+structure on C naturally induces one on Z(C), because δX ∶ X → X ∗∗ is always a
+morphism δX ∶ (X, λ) → (X ∗∗ , λ∗∗ ) (see e.g. [EGNO2015, Exercise 7.13.6]). It is
+clearly still spherical on Z(C).
+The braiding is given by the half-braiding of the second factor:
+c̃(X,λ),(Y,µ) = µX ∶ (X, λ) ⊗ (Y, µ) → (Y, µ) ⊗ (X, λ)
+We do not prove modularity here as it will not be needed later, referring the reader to
+[Müg2003], [EGNO2015, Corollary 8.20.14].
+Proposition 2.4. The forgetful functor F ∶ Z(C) → C has a two-sided “induction”
+adjoint functor I ∶ C → Z(C), where on objects, I sends
+X ↦ (Xj XXj∗ , Γ),
+where
+
+(where α, α are defined in the appendix) and on morphisms, f ∈ HomC (X, Y ),
+f ↦ ∑ idXi ⊗f ⊗ idXi∗
+i
+
+9
+
+The adjunction is given by the functorial isomorphisms
+HomC (X, Y ) ≅ HomZ(C) (IX, (Y, µ))
+
+HomC (X, Y ) ≅ HomZ(C) ((X, λ), IY )
+
+Proof. By Lemma 7.3, Γ is a half-braiding. It is also easy to check that I is a welldefined functor, and that the maps between Hom spaces are indeed isomorphisms,
+natural in each each variable. We refer the reader to [KJ2011, Theorem 8.2] and
+[BKJ2010, Theorem 2.3] for more details.
+Note that I is not a monoidal functor, while F is naturally a tensor functor, but is
+not braided tensor.
+A useful consequence of this adjunction is a description of morphisms HomZ(C) (IX, IY ):
+Corollary 2.5. HomZ(C) (IX, IY ) consists of morphisms of the form
+
+where gk ∈ HomC (X, Xk Y Xk∗ ).
+The point here is that the “struts” in the √
+middle
+√ are labelled by the same simple
+object, and is independent of j, j ′ (up to the dj dj ′ factor hidden in α); these are
+not true for a general morphism f ∈ HomC (Xj XXj∗ , Xj ′ Y Xj∗′ ).
+Proposition 2.6. (Y, µ) ∈ Z(C) is a direct summand of IY . In particular, Z(C) is
+the Karoubian completion of the full image of I.
+Proof. It is easy to see that the morphism defined below (on the left) projects IY
+onto a direct summand that is isomorphic to (Y, µ). For example, the first half of this
+
+10
+
+projection is a morphism from I to (Y, µ) in Z(C):
+
+;
+(note the change from α to α in the first equality; in the second equality, we use Lemma
+7.1.)
+
+2.2
+
+Special C’s
+
+In this section we study what happens when we take special C’s, in particular when C
+is modular and when C is given as the category of finite-dimensional representations
+of a Hopf algebra H. We will be considering analogs of these results for the elliptic
+Drinfeld center in Sections 4 and 5.
+
+2.2.1
+
+C Modular
+
+Since Z(C) is modular, one may expect interesting things to happen when C itself is
+modular. Indeed, one has the following:
+Proposition 2.7. [ENO2004] If C is modular, then Z(C) ≃⊗,br C ⊠ C bop , where C bop
+is the same underlying fusion category with the opposite braiding, and ⊠ is Deligne’s
+tensor product [Del1990].
+Proof Sketch. There are braided tensor functors C → Z(C) and C bop → Z(C) given by
+X ↦ (X, c−,X ) and X ↦ (X, c−1
+X,− ) respectively, where recall that c−,− is the braiding
+on C. These fit together into a braided tensor functor C ⊠ C bop →⊗,br Z(C), and the
+modularity of C ensures that this is fully faithful. To show essential surjectiveness, one
+checks that this functor hits all the simple objects of Z(C) by counting dimensions of
+endomorphism algebras EndZ(C) (Xj Xk Xj∗ ), or one checks that their Frobenius-Perron
+dimensions are the same, as in [EGNO2015, Prop 8.20.12].
+We will use this in studying the elliptic Drinfeld center Z el (C) when C is modular
+in Section 4, in particular it will be the key fact in proving Lemma 4.2.
+
+2.2.2
+
+C = H − mod
+
+Next we consider when C = H − mod, the category of finite-dimensional modules over
+a finite-dimensional spherical Hopf algebra H. We outline the construction of D(H),
+Drinfeld’s quantum double of H, defined in [Dri1986], which is a ribbon Hopf algebra
+(in the sense of [RT1990]), and show that Z(C) ≃ D(H) − mod. Since we work with
+semisimple C, we implicitly assume that H is semisimple, even though the construction
+of D(H) does not use semisimplicity. Most of this is follows [EGNO2015, Section 7.14];
+see also [Kas, Section XIII.5].
+
+11
+
+Definition-Proposition 2.1. Let (H, m, 1, ∆, ε, S, v) be a finite-dimensional spherical
+Hopf algebra. The Drinfeld double of H, denoted D(H), is a ribbon Hopf algebra
+defined as folows:
+• As a coalgebra, it is H ⊗ H ∗,cop , where H ∗,cop = (H, ∆∗ , ε, (m∗ )cop , 1, − ○ S −1 ) is
+the dual Hopf algebra with opposite comultiplication.
+• As an algebra, the obvious inclusions H ≅ H ⊗ 1 ↪ H ⊗ H ∗,cop and H ∗,cop ≅
+1 ⊗ H ∗,cop ↪ H ⊗ H ∗,cop are algebra maps, and the commutation relation is given
+by
+f h = ⟨f3 , S −1 (h1 )⟩⟨f1 , h3 ⟩h2 f2
+where we use Sweedler’s notation ∆2 (h) = h1 ⊗h2 ⊗h3 and ∆2 (f ) = ((m∗ )cop )2 (f ) =
+f3 ⊗ f2 ⊗ f1 (note the opposite numbering is used in [EGNO2015]).
+• The antipode is given componentwise, i.e. S(hf ) = f (S −1 (⋅))S(h)
+• v ∈ H ↪ D(H) is the pivotal element.
+• The R-matrix is ∑ hi ⊗ h∗i ∈ D(H) ⊗ D(H), where {hi } is a basis of H, and {h∗i }
+the dual basis of H ∗,cop .
+△
+Proof. Straightforward elementary computations, e.g. see [EGNO2015, Section 7.14].
+Example 2.8 (Group Algebra). For H = k[G], where G is a finite group, H ∗,cop ≅
+F (G)cop , the Hopf algebra of functions on G with the opposite comultiplication m∗,cop (δg ) =
+∑g1 g2 =g δg2 ⊗ δg1 . By definition, {g}g∈G serves as a basis for k[G]; let {δg }g∈G be the
+corresponding dual basis of F (G)cop . Then in these bases, for h ∈ G and δg ∈ F (G)cop ,
+the commutation relations between k[G] and F (G)cop is simply
+δg h = hδh−1 gh
+Denote D(G) ∶= D(k[G]). Using this explicit description of D(G), we can interpret
+representations of D(G) as G-equivariant bundles over G, where G acts on itself by
+conjugation. Briefly, the δg are projections, giving us a (vector space) decomposition
+of a representation V of D(G) into ⊕g∈G Vg , where Vg = δg V . Then for vg = δg v ∈ Vg ,
+h ⋅ vg = hδg ⋅ v = δhgh−1 h ⋅ v ∈ Vhgh−1
+thus the bundle with Vg sitting over g ∈ G is G-equivariant.
+For each conjugacy class ḡ ∈ G, the sum δḡ = ∑g∈ḡ δg is a central idempotent, and
+the collection of such δḡ is pairwise orthogonal and sum to 1. So the category of finitedimensional representations D(G)−mod is semisimple with simple objects Vḡ,π labelled
+̂ is an isomorphism
+by pairs (ḡ, π), where ḡ ∈ Ḡ is a conjugacy class of G and π ∈ Z(g)
+class of irreducible representations of the centralizer Z(g) of some representative g ∈ ḡ.
+We refer the reader to [BK2001, Section 3.2] for further details. (Note that in terms of
+our set up in Definition 2.1, they are working with D(F (G)) ≅ D(k[Gop ])cop .)
+
+12
+
+Let us also note that D(k[G]) ≅ D(F (G)), but this will not quite hold true for the
+elliptic double Del (H) defined later in Definition 5.1 - there the input Hopf algebra H
+must at least be ribbon, so Del (F (G)) is not even defined, unless G is abelian. We will
+discuss the elliptic analog of this example in Example 5.7.
+△
+Proposition 2.9. For a finite-dimensional Hopf algebra H, let C = H − mod, the
+category of finite-dimensional left H-modules. Then Z(C) ≃⊗,br D(H) − mod.
+Proof Sketch. We essentially follow [EGNO2015, Section 7.14], referring the reader to
+it for more details.
+The functor D(H) − mod → Z(C) is constructed as follows. Let X be a left D(H)module. It is in particular an H-module, i.e. an object in C. As an object of C, it has
+a natural half-braiding, given by the R-matrix of D(H): for A ∈ C some H-module,
+define
+λA ∶ A ⊗ X → X ⊗ A
+to be the linear map given by first acting by R = ∑ hi ⊗ h∗i (the action is defined on
+A⊗X because the first factors appearing in R are in H), and then swapping the factors.
+This is a half-braiding on X because (∆ ⊗ id)(R) = R13 R23 ∈ H ⊗ H ⊗ H ∗,cop . Thus,
+we have defined a functor D(H) − mod → Z(C).
+For the other way, let (X, λ) ∈ Z(C). By functoriality of λ and finite-dimensionality,
+λ is completely determined by λH ∶ H ⊗ X → X ⊗ H. Then we define for f ∈ H ∗ ,
+f ⋅ x = ⟨idX ⊗f, λH (1 ⊗ x)⟩
+Said otherwise, it is the action of H ∗ on X such that λ = P ⋅ R. There are commutation
+relations between these actions, which can be derived from looking at the Yang-Baxter
+equation on H ⊗X ⊗H ∗ , and one sees that they are precisely those as imposed on D(H).
+Since morphisms of Z(C) are precisely those that intertwine half-braidings, it is
+easy to see that they are also precisely those that intertwine the H ∗ -actions, so that
+we have a fully faithful functor back Z(C) → D(H) − mod, and it’s not hard to see that
+it is an equivalence.
+So far we haven’t used the coalgebra structure of D(H). The monoidal structure
+on Z(C) should carry over to D(H) − mod, and the claim is that it agrees with that
+which arise from the coalgebra structure on D(H). We can see this as follows: The
+tensor product of (X, λ) and (Y, µ) is (X ⊗ Y, λ ⊗ µ), where recall λ ⊗ µ is just braiding
+by λ and then µ, so
+(λ ⊗ µ)H ∶ 1 ⊗ x ⊗ y ↦ h∗i ⋅ x ⊗ h∗j ⋅ y ⊗ hj hi = (m∗ )cop (h∗k ) ⋅ (x ⊗ y) ⊗ hk
+so the action of f is
+f ⋅(x⊗y) = ⟨1⊗f, (λ⊗µ)H (1⊗(x⊗y)⟩ = ⟨f, hk ⟩(m∗ )cop (h∗k )⋅(x⊗y) = (m∗ )cop (f )⋅(x⊗y)
+
+13
+
+So the functors we have defined here are tensor functors, and in fact braided. The
+pivotal structure on C is naturally a pivotal structure on Z(C), and these functors
+clearly respect the pivotal structures. Once again we refer the reader to [EGNO2015,
+Section 7.14] for more details.
+Corollary 2.10. If H is semisimple, then so is D(H).
+
+3
+
+The Elliptic Drinfeld Center
+
+In this section we define the Elliptic Drinfeld Center Z el (C) of a braided monoidal
+category C. It is analogous to the Drinfeld center Z(C), in that objects consist of an
+object of C and, not one, but two half-braidings which are related by some equation
+involving the braiding on C. As mentioned in the introduction, the motivation for
+constructing Z el (C) comes from studying the value of the extended Crane-Yetter TQFT
+on a once-punctured torus. We discuss some of the properties of the elliptic Drinfeld
+center parallel to those of the Drinfeld center as discussed in Section 2. We put a
+monoidal structure on Z el (C) in Section 3.2, and discuss an SL2 (Z)-action on Z el (C)
+in Section 3.3. Just as with Z(C), Z el (C) has particularly nice descriptions when C
+is modular and when C = H − mod for a quasi-triangular Hopf algebra H, which we
+discuss in Sections 4 and 5 respectively.
+
+3.1
+
+Definition ad Properties of Z el (C)
+
+Definition 3.1. Given a braided monoidal category C, the Elliptic Drinfeld Center of
+C, denoted Z el (C), is the category with objects of the form (X, λ1 , λ2 ), where X is an
+object in C, and λ1 , λ2 ∶ − ⊗ X → X ⊗ − are half-braidings on X satisfying the following
+compatibility condition which we refer to as COMM:
+
+COMM:
+
+We point out that on the l.h.s one has the universal braiding c−,− , while on the
+r.h.s. it is the reverse c−1
+−,− . We also note that COMM is a condition on an ordered pair
+of half-braidings, in that if (λ1 , λ2 ) satisfies COMM, it does not imply that (λ2 , λ1 )
+satisfies COMM; however in some sense λ1 , λ2 should be treated on equal footing - see
+Remark 3.13.
+The morphisms from (X, λ1 , λ2 ) to (Y, µ1 , µ2 ) are given by those in HomC (X, Y )
+that intertwine both half-braidings, i.e.
+HomZ el (C) ((X, λ1 , λ2 ), (Y, µ1 , µ2 )) ∶= HomZ(C) ((X, λ1 ), (Y, µ1 )) ⋂ HomZ(C) ((X, λ2 ), (Y, µ2 ))
+△
+
+14
+
+Remark 3.2. As a visual aid, it is helpful to think of COMM as allowing the strands
+labelled A and B to pass through each other - at the moment they meet, they should
+be transverse to each other, so that if the A strand was above, then after meeting, the
+A strand would be below.
+Morally, the A strand goes around a meridian in the once-punctured torus, while the B
+strand goes around a longitude, and a pair of meridian and longitude can be isotoped
+to intersect once and intersect transversally.
+Later in Section 6, we discuss a variant of COMM, where instead of being transverse,
+the strands become tangent at the moment of meeting. This reflects the fact that two
+embedded closed curves in a thrice-punctured sphere can be isotoped to not intersect
+each other.
+△
+For the rest of the section, we will work with premodular C. A simple consequence
+of COMM is the following analog of Lemma 2.2:
+Lemma 3.3. Let (X, λ1 , λ2 ), (Y, µ1 , µ2 ) be objects in Z el (C). The projections Pλ1 ,µ1 , Pλ2 ,µ2 ⟳
+HomC (X, Y ) defined in Lemma 2.2 commute, and hence we have
+HomZ el (C) ((X, λ1 , λ2 ), (Y, µ1 , µ2 )) = im(Pλ1 ,µ1 ○ Pλ2 ,µ2 ) ⊆ HomC (X, Y ).
+Proof.
+
+The second equality uses COMM.
+Proposition 3.4. Let C be a premodualr category. Then Z el (C) is abelian and semisimple, and has finitely many simple objects.
+Proof. The proof is similar to that of Proposition 2.3, and we will use some notation
+established there.
+Z el (C) is clearly additive. The proof that Z el (C) is abelian is pretty much the same
+as for Z(C). For example, to get the kernel of a morphism f ∶ (X, λ1 , λ2 ) → (Y, µ1 , µ2 ),
+first find the kernel of f as a morphism in C, say ι ∶ K ↪ X. K inherits two halfbraidings λ1 ∣K , λ2 ∣K from X by restricting along ι (see proof sketch of Proposition
+2.3). These two half-braidings satisfy COMM naturally from the universal property of
+
+15
+
+kernels:
+
+KBA
+
+XBA
+
+XBA
+
+idX ⊗cA,B
+
+KAB
+
+XAB
+
+BXA
+
+λ1A ⊗idB
+
+AKB
+
+BKA
+
+idB ⊗λ1A
+
+AXB
+
+BAX
+
+BAK
+
+c−1
+B,A ⊗idX
+
+idA ⊗λ2B
+
+ABK
+
+KBA
+
+λ2B ⊗idA
+
+ABX
+
+ABX
+
+ABK
+
+(The inner octagon commutes because λ1 , λ2 satisfy COMM by definition, so the outer
+octagon commutes, hence λ1 ∣K , λ2 ∣K satisfy COMM. The equal signs should really be
+some associativity constraints, but we suppress them.)
+C
+
+C
+
+So kerZ el (C) (f ) = (K, λ1 ∣K , λ2 ∣K ). Likewise, cokerZ el (C) (f ) = (C, µ1 , µ2 ), and
+I
+
+I
+
+im(f ) = (I, λ1 = µ1 ∣I , λ2 = µ2 ∣I ), where C, I are respectively the cokernel, image in C.
+Semisimplicity of Z el (C) follows from the same argument for Z(C) almost verι
+batim - we again start with (K, λ1 ∣K , λ2 ∣K ) ↪ (X, λ1 , λ2 ), noting that abelian-ness of
+ι
+Z el (C) implies that any subobject of (X, λ1 , λ2 ) is of this form. In particular, K ↪ X
+is a subobject in C, so by semisimplicity of C, there is a C-morphism X → K such that
+p ○ ι = idK . Consider p̄ = Pλ2 ,λ2 ∣K Pλ1 ,λ1 ∣K (p). Since ι is a Z el (C)-morphism, we have
+Pλ2 ,λ2 ∣K Pλ1 ,λ1 ∣K (p) ○ ι = Pλ2 ,λ2 ∣K Pλ1 ,λ1 ∣K (p ○ ι) = Pλ2 ,λ2 ∣K Pλ1 ,λ1 ∣K (idK ) = idK , thus ι, p̄
+are an inclusion-projection pair that exhibites (K, λ1 ∣K , λ2 ∣K ) as a direct summand of
+(X, λ1 , λ2 ).
+Z el (C) has finitely many simple objects: similarly to the proof of Proposition 2.3, this is a consequence of Proposition 3.8, which asserts that (Y, µ1 , µ2 ) is
+⊕n
+a direct summand of I el Y . Then if (X, λ1 , λ2 ) is simple with X = ⊕j Xj j , then
+(X, λ1 , λ2 ) ⊆ ⊕j (I el Xj )⊕nj , hence it must be a subobject of some I el Xj . Since
+EndZ el (C) (I el Xj ) is finite dimensional, there can only be finitely many simple subobjects of IXj . Finally, there are only finitely many simples Xj in C.
+
+The following is the analog of Proposition 2.4:
+Proposition 3.5. The forgetful functor F el ∶ Z el (C) → C has a two-sided adjoint
+I el ∶ C → Z el (C), where on objects, I el sends
+X ↦ (⊕ Xi Xj XXj∗ Xi∗ , Γ1 , Γ2 )
+i,j
+
+16
+
+where
+
+,
+
+,
+
+(where α is defined in the appendix) and on morphisms, f ∈ HomC (X, Y ),
+I el (f ) = ⊕ idXi Xj ⊗f ⊗ idXj∗ Xi∗
+i,j
+
+The adjunction is given by the functorial isomorphisms
+HomC (X, Y ) ≅ HomZ el (C) (I el X, (Y, µ1 , µ2 ))
+
+HomC (X, Y ) ≅ HomZ el (C) ((X, λ1 , λ2 ), I el Y )
+
+Remark 3.6. Note that Γ1 can also be described as the half-braiding given by induction
+I ∶ C → Z(C), that is, (⊕i,j Xi Xj XXj∗ Xi∗ , Γ1 ) ≅ I(⊕j Xj XXj∗ ) in Z(C). There is a
+similar description for Γ2 that we will elaborate on later. See Proposition 3.9, Remark
+3.10.
+Proof. By Lemma 7.3, Γ1 , Γ2 are half-braidings. To see that I el is a well-defined
+functor, one easily checks that the two half-braidings Γ1 , Γ2 satisfy COMM (but see
+Remark 3.7), and that on morphisms, I el (f ) intertwines both Γ1 and Γ2 , and I el
+respects identity and composition. The maps between the Hom spaces are also easily
+checked to be inverses.
+Remark 3.7. It is trivial to check that Γ1 , Γ2 satisfy COMM, but more illuminating is
+the “reason” that they do. I el X = (⊕i,j Xi Xj XXj∗ Xi∗ , Γ1 , Γ2 ) is the prototype of an
+object in Z el (C). Indeed, in the skein-theoretic approach to the extended Crane-Yetter
+TQFT that we are studying, such objects I el X arise naturally in the category ZCY (T21 )
+as the configuration consisting of one marked point in T21 labelled with X ∈ C. The
+other objects are obtained by taking all images of idempotents, i.e. we consider the
+Karoubian closure. In the current context, this takes the form of Proposition 3.8. In
+other words, the definition of compatible half-braidings was cooked up to capture the
+essential features of this prototypical object.
+△
+The following is the analog of Proposition 2.6:
+
+17
+
+Proposition 3.8. (Y, µ1 , µ2 ) ∈ Z el (C) is a direct summand of I el Y . In particular,
+Z el (C) is the Karoubian completion of the full image of I el .
+Proof. The morphism below projects I el Y onto (Y, µ1 , µ2 ) (see proof of Proposition
+2.6).
+
+So far we have only discussed the relation between Z el (C) and C. As Remark 3.6
+suggests, I el actually factors through Z(C). Indeed, observe that F el factors through
+an intermediate forgetful functor F1 ∶ Z el (C) → Z(C), which forgets only the first
+braiding, (X, λ1 , λ2 ) ↦ (X, λ2 ), so that F el = F ○ F1 .
+Proposition 3.9. The intermediate forgetful functor F1 ∶ Z el (C) → Z(C) which forgets the first braiding, F1 ∶ (X, λ1 , λ2 ) ↦ (X, λ2 ), has a two-sided adjoint I1 ∶ Z(C) →
+Z el (C), such that I el factors through it, i.e. I el = I1 ○ I.
+On objects, I1 sends
+
+λ)
+(X, λ) ↦ (Xi XXi∗ , Γ, ̃
+
+where Γ was defined in Proposition 2.4 and
+
+and on morphisms, f ∈ HomZ(C) ((X, λ), (Y, µ)),
+I1 (f ) = idXi ⊗f ⊗ idXi∗
+̃.
+which clearly intertwines ̃
+λ and µ
+The adjunction
+HomZ(C) ((X, λ), (Y, µ2 )) ≅ HomZ el (C) (I1 (X, λ), (Y, µ1 , µ2 ))
+HomZ(C) ((X, λ2 ), (Y, µ)) ≅ HomZ el (C) ((X, λ1 , λ2 ), I1 (Y, µ))
+is given by the same maps as in Proposition 2.4, just with λ’s and µ’s replaced by λ1
+and µ1 ’s, respectively.
+Remark 3.10. In Remark 3.6, we noted that Γ1 can be described as the half-braiding
+̃ where
+given by I. Now, we can describe Γ2 , the second braiding of I el X, as Γ,
+∗
+recall Γ is the braiding (Xi XXi , Γ) = IX. Indeed, this had better be the case since
+̃
+I el X = (Xi Xj XXj∗ Xi∗ , Γ1 , Γ2 ) while I1 (IX) = I1 (Xj XXj∗ , Γ) = (Xi Xj XXj∗ Xi∗ , Γ1 , Γ),
+and the proposition claims they are the same.
+
+18
+
+Proof. Similar to Proposition 3.5.
+The forgetful functor F1 ∶ Z el (C) → Z(C) was defined to be forgetting the first
+half-braiding. There is nothing special about the first braiding compared to the second
+(see Remark 3.13). We define F2 ∶ Z el (C) → Z(C) to be the forgetful functor forgetting
+the second half-braiding. One then also has a two-sided adjoint functor I2 :
+Proposition 3.11. The intermediate forgetful functor F2 ∶ Z el (C) → Z(C) which forgets the second braiding, F2 ∶ (X, λ1 , λ2 ) ↦ (X, λ1 ), has a two-sided adjoint I2 ∶ Z(C) →
+Z el (C), such that I el = I2 ○ I.
+On objects, I2 sends
+
+(X, λ) ↦ (Xi XXi∗ , λ, Γ)
+∼
+
+where
+
+(note the different braidings used compared to ̃
+λ in Proposition 3.9)
+and on morphisms, f ∈ HomZ(C) ((X, λ), (Y, µ)),
+I2 (f ) = idXi ⊗f ⊗ idXi∗
+The adjunction
+HomZ(C) ((X, λ), (Y, µ1 )) ≅ HomZ el (C) (I2 (X, λ), (Y, µ1 , µ2 ))
+HomZ(C) ((X, λ1 ), (Y, µ)) ≅ HomZ el (C) ((X, λ1 , λ2 ), I2 (Y, µ))
+is given by the same maps as in Proposition 2.4, just with λ’s and µ’s replaced by λ2
+and µ2 ’s, respectively.
+Proof. Similar to Proposition 3.5.
+Remark 3.12. In fact, there are infinitely many such pairs of induct-forget pairs, indexed by elements of SL2 (Z). Indeed, in Section 3.3, we exhibit an SL2 (Z)-action
+on Z el (C). Then precomposing F1 and postcomposing I1 with the action of a group
+element gives another forget-induction adjoint pair. For example, F2 = F1 ○ Ts , and
+I2 ≃ Ts−1 ○ I1 . This has a simple explanation in terms of the Crane-Yetter TQFT.
+Namely, each forgetful functor corresponds to one way to cut the once-punctured torus
+along an embedded arc into an annulus (the arc necessarily connects puncture to puncture), while the corresponding induction functor would be an inclusion of the annulus
+into the once-punctured torus that avoids the cut. This description is inspired by the
+description given in [KJ2011] for the forget-induction adjunction between C and Z(C)
+in terms of the string-nets interpretation of Turaev-Viro theory. We will say more in
+forthcoming work.
+△
+
+19
+
+Remark 3.13. As pointed out in Definition 3.1, the COMM relation is not commutative,
+so it may appear that the first and second half-braidings somehow have distinct characteristics. However, this is merely a manifestation of the dependence of the equivalence
+Z el (C) → ZCY (T21 ) on certain “coordinate” choices (see Introduction). The action of s
+in the SL2 (Z)-action discussed in Section 3.3 lends further credence to this, swapping
+the first and second half-braidings on an object, but to satisfy COMM, one of them is
+half-twisted.
+△
+In summary, we have the following (2-)commutative diagram:
+I
+
+C
+F
+
+F
+I
+
+Z(C)
+
+3.2
+
+F el
+
+Z(C)
+I el
+
+I2
+F2
+
+F1
+
+I1
+
+Z el (C)
+
+Tensor Product on Z el (C)
+
+Recall that for a monoidal category C, the Drinfeld center Z(C) is a braided monoidal
+category, with tensor product given by
+(X, λ) ⊗ (Y, µ) ∶= (X ⊗ Y, λ ⊗ µ)
+(see Proposition 2.3). One might naively try to define a tensor product on Z el (C) by
+(X, λ1 , λ2 ) ⊗ (Y, µ1 , µ2 ) = (X ⊗ Y, λ1 ⊗ µ1 , λ2 ⊗ µ2 )
+Unfortunately, this doesn’t work, because the two half-braidings λ1 ⊗ µ1 and λ2 ⊗ µ2
+do not satisfy COMM (unless C is symmetric, which we discuss in Section 5.1).
+All is not lost, however. A closer look at the tensor product on the Drinfeld center
+reveals that it arises from considering the pair of pants in Turaev-Viro. There is a
+modified version of the pair of pants for the once-punctured torus (see Remark 3.20)
+that leads to the following definition:
+Definition 3.14. Let λ, µ be half-braidings on X, Y , respectively. Define X λ⊗µ Y to
+be the image of the projection Qλ,µ ⟳ X ⊗ Y , where
+
+We call X λ⊗µ Y the reduced tensor product of X and Y (with respect to λ and µ). △
+Remark 3.15. Strictly speaking, in defining X λ⊗µ Y as the image of some projection,
+we have to make a choice of some object along with certain maps relating it to X ⊗ Y .
+
+20
+
+We make such a choice arbitrarily for each X, Y , but identify morphisms out of X λ⊗µ Y
+with morphisms out of X ⊗ Y that are invariant under precomposing with Qλ,µ , and
+similarly for morphisms into X λ⊗µ Y :
+HomC (X λ⊗µ Y, N ) ≅ {g ∈ HomC (X ⊗ Y, N )∣g = g ○ Qλ,µ } = HomC (X ⊗ Y, N ) ○ Qλ,µ
+HomC (M, X λ⊗µ Y ) ≅ {f ∈ HomC (M, X ⊗ Y )∣f = Qλ,µ ○ f } = Qλ,µ ○ HomC (M, X ⊗ Y )
+For brevity, when describing a morphism g ∶ X λ⊗µ Y → N , we will sometimes omit
+Qλ,µ , or more accurately we implicitly precompose g with Qλ,µ . Likewise for morphisms
+f ∶ M → X λ⊗µ Y .
+△
+Lemma 3.16. Let λ, µ be half-braidings on X, Y , respectively. For A ∈ C, we have the
+following equality of morphisms A ⊗ (X λ⊗µ Y ) → (X λ⊗µ Y ) ⊗ A:
+
+So defined, λ⊗µ is a half-braiding on X λ⊗µ Y .
+Proof. The first and third equality uses the fact that λ is a half-braiding. The second
+equality uses Lemma 7.1. This also easily implies the fact that λ⊗µ is a half-braiding.
+The last equality follows from similar sequence of equalities.
+The third equality also easily implies that λ⊗µ is a half-braiding.
+Corollary 3.17. Let λ, µ, ζ be half-braidings on X, Y, Z ∈ C, respectively. Then
+(X λ⊗µ Y ) λ⊗µ⊗ζ Z = im(Qλ,µ,ζ ⟳ (X ⊗ Y ) ⊗ Z)
+X λ⊗µ⊗ζ (Y µ⊗ζ Z) = im(Qλ,µ,ζ ⟳ X ⊗ (Y ⊗ Z))
+where Qλ,µ,ζ = (idX ⊗Qµ,ζ ) ○ (Qλ,µ ⊗ idZ ).
+More generally, if we have half-braidings λ1 , . . . λk on X1 , . . . , Xk , respectively, then
+(. . . (X1 λ1 ⊗λ2 X2 ) . . .) ...⊗λk Xk is the image of the projection
+
+and similarly for any order of taking reduced tensor products.
+
+21
+
+Definition-Proposition 3.1. Z el (C) admits the following monoidal structure:
+For objects (X, λ1 , λ2 ), (Y, µ1 , µ2 ) ∈ Z el (C), their tensor product is defined by
+(X, λ1 , λ2 ) ⊗ (Y, µ1 , µ2 ) = (X λ1 ⊗µ1 Y, λ1 ⊗µ1 , λ2 ⊗ µ2 )
+where X λ1 ⊗µ1 Y was defined in Definition 3.14, and λ1 ⊗µ1 was defined in Lemma 3.16.
+The associativity constraint a is given by the associativity constraint of C (understood as in Remark 3.15).
+̃− , with left and right
+The unit object 1el is I1 (1, id− ) = (Xj Xj∗ , Γ, Ω), where Ω = id
+unit constraint given by
+
+△
+Proof. Let X = (X, λ1 , λ2 ), Y = (Y, µ1 , µ2 ), Z = (Z, ζ 1 , ζ 2 ). It is easy to see that λ1 ⊗µ1
+and λ2 ⊗ µ2 satisfy COMM, so the definition of X ⊗ Y makes sense.
+By Corollary 3.17, the associativity constraint aX ,Y,Z is just Qλ1 ,µ1 ,ζ 1 ∶ (X⊗Y )⊗Z →
+X ⊗(Y ⊗Z), so is an isomorphism (X λ1 ⊗µ1 Y ) λ1 ⊗µ1 ⊗ζ 1 Z → X λ1 ⊗µ1 ⊗ζ 1 (Y µ1 ⊗ζ 1 Z). The
+pentagon axiom also follows from Corollary 3.17.
+To see that lX , rX are isomorphisms, we provide morphisms
+
+and check that they are inverses: lX ○ lX = idX , lX ○ lX = QΓ,λ1 , and likewise for rX . For
+example,
+
+The triangle axiom for unit constraints is a simple consequence of Lemma 3.16 (in
+particular the last equality). Let us note that the Ω in 1el is the same Ω as in the proof
+of Lemma 4.1 but specifically for X = 1, so that 1el = i1.
+
+22
+
+Proposition 3.18. For (X, λ), (Y, µ) ∈ Z(C), let J(X,λ),(Y,µ) = JX,Y ∶ I1 (X, λ) ⊗
+I1 (Y, µ) → I1 ((X, λ) ⊗ (Y, µ)) be defined by
+
+Then (I1 , J) ∶ Z(C) → Z el (C) is a monoidal functor.
+Proof. By construction, I1 sends unit to unit. We check that JX,Y has an inverse,
+JX,Y , as follows:
+
+(using Lemma 7.4 repeatedly), and similarly check that JX,Y ○ JX,Y = id. That J
+satisfies the hexagon axiom follows from
+
+JX⊗Y,Z ○ (JX,Y ⊗ idZ ) =
+
+= JX,Y ⊗Z ○ (idX ⊗JY,Z )
+
+We work out in Example 5.8 what this tensor product looks like when C = Rep(G),
+the category of finite-dimensional representations of a finite group G.
+Remark 3.19. The presence of the projection in Definition 3.14 leads this tensor product to be highly non-commutative, and also makes Z el (C) multi-tensor but generally
+not tensor.
+△
+Remark 3.20. Definition 3.14 of the tensor product looks rather ad hoc, but it actually
+arises from understanding the functor that ZCY associates to the following cobordism
+
+23
+
+Y from T21 ⊔ T21 to T21 :
+
+T21 ∶
+
+Y ∶
+
+In the diagram, T21 is drawn as the “plumbing” of two annuli, that is, it is the union
+of two annuli, the gray 1-annulus (annulus labelled with a 1) and the black 2-annulus,
+glued along the common gray square in a transverse manner (the 1-annulus and 2annulus do not meet away from the gray square in the middle). We use the names 1and 2-annuli suggestively, to indicate that they are related to the first and second halfbraidings respectively. While the picture has a boundary, we should imagine it to be
+at infinity, so that we are actually plumbing two open annuli to get a once-punctured
+torus (and not a torus with one boundary component).
+In the picture for Y , we omit most of the 1-annulus, just drawing the bit that meets
+the 2-annulus. The first (left) half of the cobordism goes from T21 ⊔ T21 to T22 , the twice
+punctured torus, using a thickened pair of pants on the 2-annuli, leaving the 1-annuli
+untouched. The second (right) half of the cobordism goes from T22 to T21 , leaves the
+2-annulus untouched, and “stacks” the two first annuli (see next picture and explanation of Y1 ).
+We can also picture Y as the union of the two cobordisms Y2 and Y1 , shown below,
+each of which is a cobordism from two annuli to one annulus. Y2 and Y1 are identified
+along the dark gray portions Y, which is a three-dimensional thickened ‘Y’, thought
+of as a cobordism from two disks to one disk.
+
+Y = Y2 ⋃ Y1 =
+Y
+
+The cobordism on the right, Y1 , governs the behaviour of the 1-annuli. It is obtained
+by taking a two-dimensional thickened ‘Y’ (like the light gray part) and crossing with
+S 1 . (In the first picture of Y , only a small neighbourhood of Y in Y1 appears.) We
+call this “stacking” because the cobordism takes in two annuli, each thought of as a
+cylinder going from one circle boundary to the other, and glues the outgoing boundary
+of one cylinder to the incoming boundary of the other. The cobordism on the left, Y2 ,
+is just a thickened pair of pants, and governs the behaviour of the 2-annuli.
+
+24
+
+Recall that the tensor product of Definition 3.1 is the usual λ2 ⊗ µ2 for the second
+half-braiding, and the “reduced tensor product” λ1 ⊗µ1 for the first half-braiding. This
+is reflected in (or more accurately, a consequence of) the cobordism Y : the 2-annuli
+are governed by the usual pair of pants Y2 , while the 1-annuli are governed by this
+“stacking” cobordism Y1 .
+The cobordism Y ∶ T21 ⊔ T21 → T21 is not “commutative” in the way that the usual
+pair of pants is - that is, there is no homeomorphism from the cobordism to itself that
+flips the two input boundary components. However, it is still associative, so leads to a
+tensor product structure.
+In the Introduction, we mention that the category we associate to the annulus is
+the Drinfeld center. The cobordism Y2 leads to the usual tensor product, while the
+cobordism Y1 leads to a different (multitensor) monoidal structure on Z(C). This has
+been discussed in [BZBJ2016], though not in terms of half-braidings. This will be the
+subject of an upcoming paper.
+△
+
+3.3
+
+SL2 (Z)-action on Z el (C)
+
+As briefly discussed in the introduction, Z el (C) is the category we associate to a oncepunctured torus in an extended Crane-Yetter TQFT, so we expect properties of the
+once-punctured torus to manifest in Z el (C). For example, in Remark 3.12, we reveal
+that the intermediate induction functors I1 , I2 has a topological interpretation.
+Here, we will discuss an SL2 (Z)-action on Z el (C), since SL2 (Z) is the mapping class
+group of T21 . We define the action by generators and relations, but do not prove that
+they are coherent in the appropriate sense. This is because our proof uses the topology
+of surfaces in a crucial way, so we postpone full proofs to future work in the context of
+the extended Crane-Yetter TQFT.
+Recall that SL2 (Z) is generated by two matrices
+0 −1
+1 1
+s=(
+) and t = (
+)
+1 0
+0 1
+subject to the relations
+r1 ∶ s4 = 1
+r2 ∶ sts = t−1 st−1
+so that SL2 (Z) = ⟨s, t∣r1 , r2 ⟩.
+Since SL2 (Z) is finitely presented, we would like to write an action of SL2 (Z) on
+Z (C) with a finite amount of data, i.e. describe the action by “generators and relations”. The general framework for this is spelled out in the Appendix Section 7.2, so
+el
+
+25
+
+here we just provide the relevant data, and discuss concretely what needs to be proved.
+To begin, we need to say how s, t act on Z el (C). We define auto-equivalences
+Us , Ut ∈ Aut(Z el (C)) on objects as follows:
+Us ∶ (X, λ1 , λ2 ) ↦ (X, (λ2 )† , λ1 )
+Ut ∶ (X, λ1 , λ2 ) ↦ (X, λ1 , λ2 ⋉ λ1 )
+where
+
+(Intuitively, λ† is obtained from λ by twisting the X ribbon strand by a half-twist,
+and dragging the cross-strand along.) On morphisms, they will act “trivially” in the
+following sense: it is easy to check that
+HomZ el (C) ((X, λ1 , λ2 ), (Y, µ1 , µ2 )) = HomZ el (C) (Us (X, λ1 , λ2 ), Us (Y, µ1 , µ2 )) ⊆ HomC (X, Y )
+so we specify that Us acts as identity on this vector space (likewise for Ut ). Us , Ut are
+in fact isomorphisms, so they have canonical inverses Us−1 , Ut−1 .
+Next, we need to relate the actions of two words which are equal in SL2 (Z). To
+this end, for each of the relations r1 , r2 , we specify a natural isomorphism:
+∼
+
+→ idZ el (C)
+γ1 ∶ Us4 Ð
+∼
+
+γ2 ∶ Us Ut Us Ð
+→ Ut−1 Us Ut−1
+These γ’s are given by
+(γ1 )(X,λ1 ,λ2 ) = θX ∶ Us4 (X, λ1 , λ2 ) = (X, (λ1 )†† , (λ2 )†† ) → (X, λ1 , λ2 )
+(γ2 )(X,λ1 ,λ2 ) =
+where µ2 = (λ2 )† is the second half-braiding of Us Ut Us (X, λ1 , λ2 ), and θ is the twist or
+balancing structure on C. (Intuitively, θ is a full twist that turns (λ1 )†† back to λ1 .)
+Theorem 3.21. Us , Ut , γ1 , γ2 generate an SL2 (Z)-action on Z el (C).
+We will prove this in future work, but let us briefly discuss how one generates the
+action, and what is entailed in the proof of the theorem.
+To a word w in s, t (and inverses s−1 , t−1 , we associate the appropriate composition
+of U ’s, which we denote Uw . Each group element g ∈ SL2 (Z) has many word representatives, so the associated Uw ’s of various word representatives should be in some
+
+26
+
+sense equal. Being functors, they should not be expected to be equal on the nose, but
+related by a natural isomorphism - these are provided by applying γ1 and γ2 .
+Now the natural isomorphisms themselves should be compatible with each other as
+follows. Consider two ways to get from s8 to 1:
+s2 ⋅r1 ⋅s2
+
+r1
+
+s8 = s2 ⋅ s4 ⋅ s2 ÐÐÐÐ→ s2 ⋅ 1 ⋅ s2 = s4 Ð→ 1
+and
+
+s4 ⋅r1
+
+r1
+
+s8 = s4 ⋅ s4 ÐÐ→ s4 ⋅ 1 = s4 Ð→ 1
+The data in Theorem 3.21 gives us two natural isomorphisms Us4 → idZ el (C) :
+Us8
+
+Us4 γ1
+
+Us2 γ1 Us2
+
+Us4
+γ1
+
+γ1
+
+Us4
+
+id
+
+and in order for the group action to be well-defined, this diagram must commute.
+In general, for any pair of words w1 , w2 , any path of applying relations from w1 to
+w2 gives rise to a natural isomorphism, and all paths must result in the same natural
+isomorphism. In the Appendix Section 7.2, we show that when this is satisfied, one
+obtains an SL2 (Z)-action on Z el (C) (see Proposition 7.9, Corollary 7.11).
+Once again, our proof of Theorem 3.21, that is, checking the above condition, uses
+the topology of surfaces in an essential way, hence we find it best to present the proof
+in the context of the extended Crane-Yetter TQFT, which will appear in future work.
+Remark 3.22. The action described above does not respect the monoidal structure
+defined in Section 3.2. Instead, it intertwines the many tensor product structures one
+can put on Z el (C), each coming from choosing how to identify T21 as the plumbing of
+two annuli (see Remark 3.20).
+△
+Remark 3.23. Later in Theorem 4.3, we prove that when C is modular, Z el (C) ≃ C, so
+we should have an SL2 (Z)-action on C as well. It is not yet clear to us how to write
+this action on C explicitly without reference to Z el (C).
+△
+
+4
+
+Modular Case
+
+In this section, we prove Theorem 4.3, which says that when C is modular, Z el (C) ≅ C.
+As discussed in the introduction, this is a natural result to expect from the supposition
+that the Crane-Yetter TQFT is a boundary theory.
+We will need two lemmas:
+
+27
+
+Lemma 4.1. Let i be the composition
+i = I1 ○ ι ∶ C → Z el (C)
+where ι ∶ C → Z(C) is the functor X ↦ (X, c−,X ), and I1 is the intermediate induction
+functor defined in Proposition 3.9. Then i is fully faithful.
+Proof. The functor i sends X ↦ (Xj XXj∗ , Γ, Ω), where Ω = c̃
+−,X (the Ω in DefinitionProposition 3.1 is for X = 1), and on morphisms, i sends f ∶ X → Y to i(f ) =
+∑j idXj ⊗f ⊗ idXj∗ .
+Faithfulness follows without modularity of C: indeed, the way i is defined means
+the following diagram commutes:
+HomZ el (C) (iX, iY )
+
+HomC (Xj XXj∗ , Xj Y Xj∗ )
+
+i
+
+HomC (X, Y )
+so i must be an injection.
+
+To show that i is full, let us study HomZ el (C) (iX, iY ) as the intersection HomZ(C) ((Xj XXj∗ , Γ), (Xj Y Xj∗ , Γ
+HomZ(C) ((Xj XXj∗ , Ω), (Xj Y Xj∗ , Ω)). The first space is just HomZ(C) (IX, IY ), so it
+is of the form seen in Corollary 2.5.
+Further intersecting with the second space, or equivalently finding the image of the
+first space under the projection PΩ,Ω ,
+
+so all morphisms in HomZ el (C) (iX, iY ) are indeed of the form i(f ), f ∈ HomC (X, Y ),
+hence i is full. This computation depends on the modularity of C, specifically in the
+third equality, where we use Lemma 7.5. Note that it was crucial that in the first step
+we deduced from Corollary 2.5 that the “struts” between the middle strand and the
+outer strands are labelled by the same thing, so that killing one also kills the other.
+
+Lemma 4.2. If C is modular, then for any object (Y, µ) ∈ Z(C),
+I1 (Y, µ) ≅ iY
+
+28
+
+Observe that the lemma implies I1 (Y, µ) ≅ iY = I1 (Y, c−,Y ), so this lemma is saying
+that when C is modular, I1 kills the difference in braiding in Z(C).
+Proof. By Proposition 2.7, we have Z(C) ≃⊗,br C ⊠ C bop , so we may write
+ϕ′
+
+(Y, µ) ≅ ⊕(Ak , c−,Ak ) ⊗ (Bk , c−1
+Bk ,− ) = (⊕ Ak Bk , σ)
+k
+
+k
+
+where
+
+Let ϕ = ∑k ϕk ∶ Y → ⊕k Bk Ak be an isomorphism in C (say ϕ = c ○ ϕ′ ), and let
+̃ ∶ Xj Y Xj∗ →
+ψ = ∑k ψk ∶ ⊕k Bk Ak → Y be its inverse. Consider the morphisms ϕ
+̃ ∶ Xj (⊕k Ak Bk )X ∗ → Xj Y X ∗ described below:
+Xj (⊕k Ak Bk )Xj∗ and ψ
+j
+j
+
+These are in fact morphisms in Z el (C), that is,
+̃ ∈ HomZ el (C) (iY, I1 (⊕ Ak Bk , σ))
+ϕ
+k
+
+̃ ∈ Hom el (I1 (⊕ Ak Bk , σ), iY )
+ψ
+Z (C)
+k
+
+For the first braiding, it follows from properties of α, (see proof of Lemma 7.3),
+while for the second braiding, it is apparent from the diagrams.
+̃ are inverses:
+̃ and ψ
+Finally, we see that ϕ
+
+(the first equality follows from the fact that Γ is a half-braiding - we just swapped the
+relative positions of the “walls”), and the other way is similar.
+
+29
+
+̃
+ψ
+
+Thus I1 (Y, µ) = I1 (⊕k Ak Bk , σ) ≅ iY .
+Now we can prove:
+Theorem 4.3. If C is modular, then the composition
+i = I1 ○ ι ∶ C → Z el (C)
+is an equivalence of abelian categories, where ι ∶ C → Z(C) is the functor X ↦ (X, c−,X ),
+and I1 is the intermediate induction functor defined in Proposition 3.9.
+Proof. Recall that i sends X ↦ (Xj XXj∗ , Γ, Ω), where Ω = c̃
+−,X , and on morphisms, i
+sends f ∶ X → Y to i(f ) = ∑j idXj ⊗f ⊗ idXj∗ .
+By Lemma 4.1, i is fully faithful. It remains to show that i is essentially surjective.
+Observe that Lemma 4.2 implies that any object of the form I el X is isomorphic to
+some object iX ′ , X ′ ∈ C - just take (Y, µ) in Lemma 4.2 to be (Xj XXj∗ , Γ) = IX (see
+Proposition 2.4), so that
+I el X = I1 (IX) = I1 (Y, µ) ≅ iY
+By Proposition 3.8, any object A of Z el (C) is a direct summand of some I el X, hence
+by the above observation, A is a direct summand of some iX ′ ≅ I el X. But by Lemma
+4.1, i is fully faithful, so if QA is a projection in EndZ el (C) (iX) such that im(QA ) ≅ A,
+then QA = i(qA ) for some projection qA ∈ EndC (X), so i(im(qA )) ≅ im(QA ) ≅ A.
+Hence, i is essentially surjective, and we are done.
+The last paragraph in the proof above can be phrased in more abstract but conceptually clearer terms, encapsulated in the following diagram:
+E
+
+f.f.
+
+D
+
+⊕
+
+f.f.
+
+D
+
+E
+
+f.f.
+
+Z el (C)
+
+⊕
+
+where E is the full image of I el ∶ C → Z el (C), D is the essential image of i, and f.f. stands
+for fully faithful. Let us explain this diagram and its relation to the proof above. The
+observation that any object I el X is isomorphic to some iX ′ can be restated as the
+fact that the full image E of I el is contained in the essential image D of i. It follows
+that the Karoubian completion of D (which can be thought of as a subcategory of
+Z el (C) since Z el (C) is abelian) contains the Karoubian completion of E. By Lemma
+4.1, D is a full subcategory of Z el (C), so the Karoubian completion of D is D itself.
+By Proposition 3.8, any object in Z el (C) is a direct summand of some I el X, hence the
+⊕
+⊕
+Karoubian completion of E is the entire Z el (C). So Z el (C) = E ⊆ D ⊆ Z el (C), hence
+⊕
+D = D = Z el (C). In other words, i is essentially surjective.
+By Proposition 3.18, I1 is a monoidal functor, and ι is also monoidal in a natural
+way. Thus,
+
+30
+
+Corollary 4.4. If C is modular, then (i, j) = (I1 , J) ○ ι ∶ C → Z el (C) is a monoidal
+equivalence.
+
+4.1
+
+Connection to Reshetikhin-Turaev Central Charge Anomaly
+
+One manifestation of the central charge anomaly in Reshetikhin-Turaev theory at C,
+ZRT;C , already discussed in Witten’s work [Wit1989], is that one has a projective action
+of the mapping class group of a closed surface Σ on ZRT,C (Σ), and the deviation from
+being an honest (i.e. not projective) action is known as the central charge anomaly. In
+particular, for the torus Σ = T2 , we have ZRT,C (Σ) = HomC (1, Xj Xj∗ ), and there are
+morphisms ξs , ξt in EndC (Xj Xj∗ ) so that post-composing with them gives an action
+∗
+̃
+of SL
+2 (Z) on HomC (1, Xj X ), but only factors through a projective action of SL2 (Z)
+j
+
+on HomC (1, Xj Xj∗ ). One also gets projective actions on HomC (U, Xj Xj∗ ) for simple U
+(see e.g. [BK2001, Section 3.1]).
+
+We recover this projective representation in Z el (C), in part from the SL2 (Z)-action
+on Z el (C) as defined in Section 3.3. Consider the Hom space
+HomZ el (C) (i1, I el 1)
+By Lemma 4.2, I el 1 = I1 (I1) ≅ I1 (ιXj Xj∗ ) = i(Xj Xj∗ ), so
+HomZ el (C) (i1, I el 1) ≅ HomZ el (C) (i1, i(Xj Xj∗ )) ≅ HomC (1, Xj Xj∗ )
+where the second equality follows from Theorem 4.3 (or just Lemma 4.1).
+So we want to describe a projective SL2 (Z)-action on HomZ el (C) (i1, I el 1). To
+this end, we put a projectively-SL2 (Z)-equivariant structure on i1, and an SL2 (Z)equivariant structure on I el 1.
+For I el 1, let
+νs ∶ Us (I el 1) → I el 1
+νt ∶ Ut (I el 1) → I el 1
+be the isomorphisms
+
+For i1, let
+µs ∶ Us (i1) → i1
+µt ∶ Ut (i1) → i1
+
+31
+
+be the isomorphisms
+
+Proposition 4.5. With respect to the SL2 (Z)-action on Z el (C) defined in Section 3.3,
+νs , νt define an SL2 (Z)-equivariant structure on I el 1, and µs , µt define a projectivelySL2 (Z)-equivariant structure on i1.
+We do not prove this here, since we have not shown the validity of the SL2 (Z)action on Z el (C) in Section 3.3. Even if we grant that the action is well-defined, some
+of the computations are lengthy and belies their topological origins.
+So let us grant Proposition 4.5 for now. SL2 (Z) acts on HomZ el (C) (i1, I el 1) as
+follows: for g ∈ SL2 (Z) and ψ ∈ HomZ el (C) (i1, I el 1),
+Ug (ψ)=ψ
+
+µ−1
+g
+
+νg
+
+Ð→ Ug (i1) ÐÐÐÐÐ→ Ug (I el 1) Ð→ I el 1
+ρg (ψ) = νg ○ ψ ○ µ−1
+g ∶ i1 Ð
+We use the explicit isomorphism Φ ∶ I el 1 → i(Xj Xj∗ ),
+
+to identify HomZ el (C) (i1, I el 1) → HomZ el (C) (i1, i(Xj Xj∗ )).
+The actions of s, t ∈ SL2 (Z) on HomC (1, Xj Xj∗ ) are given by post-composing with
+ξs = µ−1
+s
+ξt = (θ−1 ⊗ id) ○ µs ○ (θ−1 ⊗ id)
+respectively, where we just think of µs as a morphism in C, and θ is the balancing
+structure of C. (Note that in [BK2001], the actions of s, t are given by ξs , θ ⊗ id, respectively. These actions are related by twisting by the automorphism of SL2 (Z) sending
+s ↦ s, t ↦ t−1 s−1 t−1 .)
+Finally, we may state the connection of our work to the central charge anomaly in
+Reshetikhin-Turaev theory as follows:
+Proposition 4.6.
+HomC (1, Xj Xj∗ ) → HomZ el (C) (i1, I el 1)
+ϕ ↦ Φ−1 ○ i(ϕ)
+intertwines the projective SL2 (Z)-action in Reshetikhin-Turaev theory and the one described above.
+
+32
+
+Once again we do not prove this here for the same reasons as before, but we verify
+it for the action of s ∈ SL2 (Z). Since {coevXj }j∈J forms a basis of HomC (1, Xj Xj∗ ), it
+suffices to consider ϕj ∶= coevXj , for which we check that Φ ○ ρs (Φ−1 ○ i(ϕj )) = i(ξs ○ ϕj )
+below (we leave out coefficients for readability, and diagrams read left to right):
+
+Φ ○ ρs (Φ−1 ○ i(ϕj )) =
+
+=
+
+=
+
+=
+
+=
+
+= i(ξs ○ ϕj )
+
+The computation for t is similar.
+To conclude this section, let us say a few words in relation to the extended CraneYetter TQFT. I el 1 is the “empty configuration” in ZCY (T21 ), with no marked points
+or projections, so it is natural to expect that it has an SL2 (Z)-equivariant structure.
+i1 is the object ZCY (M ), where M is the solid torus with a point removed from its
+interior. M depends on the choice of an isotopy class of a simple closed curve on T2 ,
+the one that is made contractible in M . Clearly the action of SL2 (Z) on ∂M ≅ T2
+doesn’t extend to M , since it doesn’t fix isotopy classes of curves on T2 , so while
+Us i1 ≅ T i1 ≅ i1, these isomorphisms are not expected to be coherent with the action
+of SL2 (Z) on ZCY (T21 ) ≅ Z el (C).
+
+5
+
+C = H − mod and Elliptic Drinfeld Double
+
+In this section, we treat the case when C = H − mod for a finite-dimensional quasitriangular Hopf algebra H (as in Section 2.2.2, once again we implicitly assume semisimplicty of H to keep C semisimple, but we never really use it).
+
+33
+
+In Section 2.2.2, we saw that for a Hopf algebra H, Z(H − mod) ≅ D(H) − mod,
+where D(H) is Drinfeld’s quantum double (see Proposition 2.9). Here we will construct
+a similar algebra Del (H) associated to a quasi-triangular Hopf algebra H, which we
+call the Elliptic Drinfeld double. We then show that Z 2 (H − mod) ≅ Del (H) − mod
+(see Theorem 5.2 below). While D(H) is a ribbon algebra, in general, Del (H) has no
+obvious coalgebra structure, but it does when H is cocommutative.
+Remark 5.1. As mentioned in the introduction, [BJ2014] defines a similar algebra
+which the authors also call the elliptic double, and we expect these elliptic doubles to
+be Morita equivalent.
+Let us first define Del (H) as an algebra:
+Definition-Proposition 5.1. Let (H, m, 1, ∆, ε, S, R, v, u) be a finite-dimensional ribbon
+Hopf algebra, where v, u are the pivotal and ribbon elements respectively. The Elliptic
+Drinfeld double of H, denoted Del (H), is defined as the vector space H ⊗H1∗,cop ⊗H2∗,cop
+(where H1 = H2 = H, indexing for clarity) with the following algebra structure:
+• the three obvious inclusions of H, H1∗,cop , and H2∗,cop into H ⊗ H1∗,cop ⊗ H2∗,cop are
+algebra maps.
+• Each copy of H ∗,cop commutes past H in the same manner as in D(H): e.g. for
+h ∈ H and f ∈ H1∗,cop ,
+f h = ⟨f3 , S −1 (h1 )⟩⟨f1 , h3 ⟩h2 f2
+where we use Sweedler’s notation ∆2 (h) = h1 ⊗h2 ⊗h3 and ∆2 (f ) = ((m∗ )cop )2 (f ) =
+f3 ⊗ f2 ⊗ f1 . In other words, the inclusions
+ι1
+
+D(H) ≅ H ⊗ H1∗,cop ⊆ Del (H)
+ι2
+
+D(H) ≅ H ⊗ H2∗,cop ⊆ Del (H)
+are algebra maps.
+• The two copies of H ∗,cop commute by the following relation: writing R = sa ⊗ ta
+(suppressing the sum), for f 1 ∈ H1∗,cop , f 2 ∈ H2∗,cop ,
+f 2 f 1 = ⟨f11 , ta ⟩⟨f31 , sa′ ⟩⟨f12 , sa ⟩⟨f32 , ta′ ⟩f21 f22
+Note that the coproduct on H ∗,cop is not used here, but will be important later when
+considering the (symmetric) tensor product structures on Z el (C) and Del (H) − mod.
+Theorem 5.2. For C = H − mod, Z el (C) ≅ Del (H) − mod as abelian categories.
+Proof. The proof will be very similar to Z(H − mod) ≅ D(H) − mod (see Proposition
+2.9).
+The functor Del (H) − mod → Z el (C) is constructed as follows. Let X be a left
+Del (H)-module. It is in particular an H-module, i.e. an object in C. The action of
+H1∗,cop on X gives us one half-braiding: for A another H-module,
+λ1A = P ○ R1 ∶ A ⊗ X → X ⊗ A
+
+34
+
+where P is the swapping of factors, and R1 stands for acting by R1 = (ι1 ⊗ ι1 )(R) =
+∗,cop
+⊆
+∑ hi ⊗ ι1 (h∗i ), where recall ι1 is the first inclusion of algebras D(H) ≅ H ⊗ H1
+el
+el
+D (H) (we suppress ι1 on H because H ↪ D (H) is unambiguous). Likewise, we can
+define a second half-braiding by
+λ2A = P ○ R2 ∶ A ⊗ X → X ⊗ A
+where R2 = (ι2 ⊗ ι2 )(R).
+We need to show that λ1 , λ2 satisfy COMM, and it suffices to check it for A = B = H
+by the naturality of half-braidings. This boils down to checking that
+R12 R113 R223 = R223 R113 (R−1 )21 ∈ H ⊗ H ⊗ Endk (X)
+or equivalently,
+R12 R113 R223 R21 = R223 R113
+Here R21 = (Rop )12 . Once again we point out that in COMM, one side has c−,− while
+−1 op
+the other has c−1
+−,− , hence the appearance of (R ) . So
+sa hi ta′ ⊗ ta hj sa′ ⊗ ι1 (h∗i )ι2 (h∗j ) = hl ⊗ hk ⊗ ι2 (h∗l )ι1 (h∗k )
+where R = sa ⊗ ta . For f 1 , f 2 ∈ H ∗ , applying f 2 ⊗ f 1 ⊗ id, we get
+ι2 (f 2 )ι1 (f 1 ) = ⟨f 2 , sa hi ta′ ⟩⟨f 1 , ta hj sa′ ⟩ι1 (h∗i )ι2 (h∗j )
+= ⟨f12 , sa ⟩⟨f32 , ta′ ⟩⟨f11 , ta ⟩⟨f31 , sa′ ⟩ι1 (f22 )ι2 (f21 )
+which is implied by the commutation relation between H1∗,cop and H2∗,cop in Del (H).
+For the other way, let (X, λ1 , λ2 ). Using the same methods in the proof of Proposition 2.9, for each half-braiding λ1 , λ2 , we cook up two H ∗ -actions on X, so that we
+have an action of H ∗ H1∗ ∗ H2∗ on X, where the ∗ denotes free product of algebras. To
+see that this action factors through Del (H), we check that the commutation relations
+between factors H, H1∗,cop , H2∗,cop of Del (H) are satisfied in their actions on X. For
+commutation relations between H1∗,cop and H2∗,cop , it basically follows from the same
+computations above but in reverse, while for the other two pairs, it follows from the
+proof of Proposition 2.9.
+Corollary 5.3. If H is semisimple, then so is Del (H).
+
+̃
+Remark 5.4. The elliptic double in [BJ2014] carries an action of SL
+2 (Z), but ours
+do not. Via the equivalence in Theorem 5.2, the SL2 (Z)-action on Z el (C) laid out
+in Section 3.3 defines an SL2 (Z)-action on Del (H) − mod, hence some sort of action
+on Del (H) as well. However, due to the flexibility of group actions on categories
+(manifested in the extra data of natural isomorphisms γ1 , γ2 ), we don’t get an honest
+action on Del (H).
+More precisely, from reconstruction theory, we have equivalences
+End(F ) − mod
+
+End(F ○ Us ) − mod
+Z el (C)
+
+35
+
+End(F ) − mod
+Us
+
+Z el (C)
+
+where F is the forgetful functor to Vec (forgetting the half-braidings and H − mod
+structure. Since Us only changes the half-braidings, F = F ○ Us ). Thus s ∈ SL2 (Z) acts
+on the right by
+−○Us
+
+ψs ∶ Del (H) ≅ End(F ) ÐÐÐ→ End(F ○ Us ) = End(F ) ≅ Del (H)
+and similarly for t. Concretely, since Us changes the half-braidings (X, λ1 , λ2 ) ↦
+(X, (λ2 )† , λ1 ), it changes the resulting action of H1∗,cop , H2∗,cop on X, and ψs encodes
+this (and likewise for Ut ).
+However, for the relation r1 ∶ s4 = 1, we don’t get ψs4 = idDel (H) , but we have
+Us4
+
+End(F ○ Us ) − mod
+
+γ1 =θ
+
+End(F ) − mod
+
+id
+
+So instead we have
+θ ∶ Us4 (X, λ1 , λ2 ) → (X, λ1 , λ2 )
+hence u, the ribbon element of H, intertwines:
+u ⋅ ψs4 (x) = x ⋅ u
+̃
+for every x ∈ Del (H). This suggests an SL
+2 (Z)-action, but the other relation r2 ∶ sts =
+−1 −1
+t st also requires a functorial isomorphism γ2 . So instead we have the action of
+the mapping class group of a genus 1 surface with one puncture and one boundary
+2
+̃
+componenet, which is some extension of SL
+2 (Z) by π1 (T1 ) ≅ Z ∗ Z; this is not too
+el
+el
+surprising since our definition of Z (C) (and hence D (H)) comes from fixing a point
+and a pair of meridian and longitude (see Introduction), giving rise to a unnaturalness
+of the action. We will investigate this and connections to the elliptic double in [BJ2014]
+further in upcoming work.
+△
+
+5.1
+
+H cocommutative, C symmetric
+
+In the usual Drinfeld center case, we have a braided tensor equivalence Z(H − mod) ≃
+D(H) − mod (see Proposition 2.9). The proof presented there implicity uses the perspective of reconstruction theory of finite dimensional Hopf algebras, in that we start
+with the forgetful functor F ∶ Z(H − mod) → Vec, and D(H) appears as the Hopf
+algebra of endomorphisms of F (see also Remark 5.4). We can try to do the same
+thing with the tensor product structure on Z el (C) sketched in Section 3.2. However,
+since the tensor product on Z el (C) defined in Section 3.2 is generally multitensor but
+not tensor, the obvious forgetful functor to Vec cannot be tensor, so there’s no clear
+way to use reconstruction theory to recover a coalgebra structure on Del (H).
+
+36
+
+If we restrict ourselves to H cocommutative (so that it is quasi-triangular with
+R = 1 ⊗ 1 and C is symmetric), we can consider the naive tensor product
+(X, λ1 , λ2 ) ⊙ (Y, µ1 , µ2 ) = (X ⊗ Y, λ1 ⊗ µ1 , λ2 ⊗ µ2 )
+on Z el (C), and here λ1 ⊗ µ1 , λ2 ⊗ µ2 indeed satisfy COMM:
+
+The associativity constraint will just be the one from C. The obvious forgetful functor
+to Vec has an obvious tensor structre, so we can apply reconstruction theory again. In
+particular, we may upgrade Del (H) to a ribbon Hopf algebra:
+Definition-Proposition 5.2. Let (H, m, 1, ∆, ε, S, v) be a finite-dimensional cocommutative ribbon Hopf algebra (with R = 1 ⊗ 1 and u = 1). The elliptic Drinfeld double
+Del (H) as defined in Definition 5.1 admits the following additional structure, making
+it a ribbon Hopf algebra:
+• As a coalgebra, it is simply H ⊗ H1∗,cop ⊗ H2∗,cop , i.e. ∆(h ⊗ f 1 ⊗ f 2 ) = (h1 ⊗ f21 ⊗
+f22 ) ⊗ (h2 ⊗ f11 ⊗ f22 ),
+• The antipode is also given componentwise, i.e.
+S(hf 1 f 2 ) = S −1 (f2 )S −1 (f1 )S(h)
+where f 1 ∈ H1∗,cop , f 2 ∈ H2∗,cop .
+• v ∈ H ↪ Del (H) is the pivotal element.
+Proof. Checking compatibility between the various structures boils down to familiar
+computations.
+Observe that in this case of H cocommutative, the actions of H1∗,cop and H2∗,cop
+commute, since R = 1 ⊗ 1, so
+f 2 f 1 = ⟨f11 , 1⟩⟨f31 , 1⟩⟨f12 , 1⟩⟨f32 , 1⟩f21 f22 = ε(f11 )ε(f31 )ε(f12 )ε(f32 )f21 f22 = f 1 f 2
+Remark 5.5. By Deligne’s theorem on tensor categories [Del1990],[Del2002], any symmetric fusion category is tensor equivalent to Rep(G) for some finite group G, and
+is braided tensor equivalent to it up to a twist by some central element z of order 2.
+Thus, H − mod covers basically all symmetric fusion categories.
+Theorem 5.6. When H is cocommutative, the equivalence in Theorem 5.2 is a tensor
+equivalence.
+Proof. Essentially the same as in the proof of Proposition 2.9.
+
+37
+
+Example 5.7 (Group Algebra). Recall the setup of Example 2.8: H = k[G], H ∗,cop =
+F (G)cop , so we have
+op
+op
+op
+Del (H) = k[G] ⊗ F (Gop
+1 ) ⊗ F (G2 ) = k[G] ⊗ F (G1 × G2 )
+
+as coalgebras, where of course G1 = G2 = G (the second equality is justified because
+op
+the actions of F (Gop
+1 ) and F (G2 ) commute). Then the commutation relations read
+δ(g1 ,g2 ) h = hδ(h−1 g1 h,h−1 g2 h)
+Denote Del (G) ∶= Del (k[G]). Similar to Example 2.8, representations of Del (G)
+can be interpreted as G-equivariant vector bundles over G × G, where G acts on G × G
+by conjugation on each factor.
+The diagonal map G ↪ G×G is G-equivariant, and pulls back G-equivariant bundles,
+giving us a restriction functor Del (G) − mod → D(G) − mod. On the level of algebras,
+this corresponds to the inclusion
+D(G) ↪ Del (G)
+g↦g
+δg ↦ δ(g,g)
+This is not a coalgebra map, or equivalently, the restriction functor is not tensor.
+For example, bundles supported on the orbits of (g, 1) and (1, g), respectively, would
+each restrict to 0 on the diagonal, but their tensor product would have a non-trivial
+vector space over (g, g).
+However, the diagonal inclusion G ↪ G × G induces a push-forward functor
+D(G) − mod → Del (G) − mod
+and this is tensor; equivalently, it is easy to verify that the projection Del (G) → D(G)
+induced from the central idempotent ∑g δ(g,g) ∈ Del (G) is a coalgebra map. In terms
+of half-braidings, this functor
+Z(G − mod) → Z 2 (G − mod)
+is given by
+(X, λ) → (X, λ, λ)
+△
+Example 5.8. We may consider the group algebra example above, but instead consider the tensor product discussed in Section 3.2. So our objects are still G-equivariant
+bundles over G × G, but the tensor product of two bundles V = ⊕g1 ,g2 V(g1 ,g2 ) and
+W = ⊕h1 ,h2 W(h1 ,h2 ) is the image of the usual V ⊗ W under the projection Qλ1 ,µ1 (see
+Definition 3.1).
+Recall from Theorem 5.2 that to interpret a Del (H)-module V as an object in
+Z (H − mod), the first half-braiding is given by λ1 = P ○ R1 , where P is the usual
+el
+
+38
+
+swapping of factors, and R1 = ∑j hj ⊗ι1 (h∗j ), and similarly for the second half-braiding.
+Here H = k[G], so R1 = ∑g g ⊗ δ(g,∗) , where δ(g,∗) ∶= ι1 (δg ) = ∑h δg,h .
+Concretely, Qλ1 ,µ1 works out to the following. We write it as a sum Qλ1 ,µ1 =
+1
+j
+∑
+∣G∣ j dim Xj ⋅ Q (recall the dashed line represents a sum over simples, weighted by
+dj = dim Xj , and D = ∑j d2j = ∣G∣).
+For each j, Qj works out to be (implicitly summing over a basis {el } of Xj )
+v ⊗ w ↦ el ⊗ e∗l ⊗ v ⊗ w
+
+↦ ∑ el ⊗ δ(g,∗) ⋅ v ⊗ g ⋅ e∗l ⊗ w
+g
+
+↦ ∑ δ(g,∗) ⋅ v ⊗ el ⊗ w ⊗ g ⋅ e∗l
+g
+
+↦ ∑ δ(g,∗) ⋅ v ⊗ δ(h,∗) ⋅ w ⊗ h ⋅ el ⊗ g ⋅ e∗l
+g,h
+
+↦ ∑⟨g ⋅ e∗l , h ⋅ el ⟩δ(g,∗) ⋅ v ⊗ δ(h,∗) ⋅ w
+g,h
+
+= ∑ trXj (g −1 h)δ(g,∗) ⋅ v ⊗ δ(h,∗) ⋅ w
+g,h
+
+Then Qλ1 ,µ1 is
+v⊗w ↦
+=
+
+1
+−1
+∑ dim Xj trXj (h g)δ(g,∗) ⋅ v ⊗ δ(h,∗) ⋅ w
+∣G∣ j,g,h
+1
+−1
+∑ trk[G] (h g)δ(g,∗) ⋅ v ⊗ δ(h,∗) ⋅ w
+∣G∣ g,h
+
+= ∑ δg,h δ(g,∗) ⋅ v ⊗ δ(h,∗) ⋅ w
+g,h
+
+= ∑ δ(g,∗) ⋅ v ⊗ δ(g,∗) ⋅ w
+g
+
+In short, Qλ1 ,µ1 is projection onto those V(g1 ,g2 ) ⊗W(h1 ,h2 ) ⊆ V ⊗W such that g1 = h1 ,
+so that
+(V ⊗ W )(g,h) = ∑ V(g,h1 ) ⊗ W(g,h2 )
+h1 h2 =h
+
+Thus, under this tensor product, Z (C) decomposes as a direct sum of ∣G∣ copies
+of Z(C) as monoidal categories:
+el
+
+Z el (C) ≃⊗ ⊕ Z(C)
+g
+
+V ↦ (δ(g,∗) ⋅ V )g
+△
+
+39
+
+6
+
+Concluding remarks, Future directions
+
+Recall that our motivation for constructing Z el (C) is to understand the extended CraneYetter TQFT, and Z el (C) ≅ ZCY (T21 ). We have a similar construction of the category
+associated to each open surface. For example, the thrice-punctured sphere can also be
+thought of as built out of two annuli, except that instead of plumbing to get the oncepunctured torus (see figures in Remark 3.20), you identify a segment on the boundary
+of each annulus. This results in a category with similar looking objects, (X, λ1 , λ2 ),
+except that the compatibility relation between the half-braidings λ1 , λ2 is different:
+instead of COMM, they should satisfy the following variant, which was mentioned in
+Remark 3.2:
+
+Note now the braidings used on both sides are the same, where they were different in
+COMM. While both the once-punctured torus and the thrice-punctured sphere can be
+obtained from a disk by attaching two 1-handles to the boundary, the crucial difference
+is that the 1-handles “link” in the former but don’t in the latter. In general, for a surface
+Σg,n of genus g with n > 0 punctures, upon presenting it as a disk with 2g + n − 1 1handles attached to the boundary, the associated category should consist of objects of
+the form (X, λ1 , . . . , λ2g+n−1 ), where λi are half-braidings on X, and pairs of λi ’s satisfy
+some variant of COMM or the above relation depending on whether the corresponding
+1-handles are “linked” or not. The idea here is reminiscent of the way “gluing patterns”
+of a surface are used to compute factorization homology in [BZBJ2015].
+
+7
+
+Appendix
+
+7.1
+
+Useful Lemmas for Computing with String Diagrams
+
+We record some useful results about string diagrams, adapted mostly from [KJ2011],
+[BKJ2010].
+Let us denote
+⟨V1 , . . . , Vn ⟩ = HomC (1, V1 ⊗ . . . ⊗ Vn )
+There is a symmetric non-degenerate pairing
+⟨V1 , . . . , Vn ⟩ ⊗ ⟨Vn∗ , . . . , V1∗ ⟩
+
+k
+
+P
+
+=
+
+⟨Vn∗ , . . . , V1∗ ⟩ ⊗ ⟨V1 , . . . , Vn ⟩
+
+k
+
+where P is the usual swapping W ⊗ W ′ → W ′ ⊗ W of vector spaces, and the horizontal
+arrows are given by (V = V1 ⊗ . . . ⊗ Vn , ϕ ∈ ⟨V ⟩, f ∈ ⟨V ∗ ⟩)
+
+40
+
+ϕ⊗f
+
+̃V
+ev
+
+f ⊗ϕ
+
+evV
+
+(ϕ, f ) = (1 ≅ 1 ⊗ 1 ÐÐ→ V ⊗ V ∗ ÐÐ→ 1)
+(f, ϕ) = (1 ≅ 1 ⊗ 1 ÐÐ→ V ∗ ⊗ V ÐÐ→ 1)
+We will use the following convention: if a figure contains a pair of vertices, one
+with outgoing edges labelled V1 , . . . , Vn , and the other with outgoing edges labelled
+Vn∗ , . . . , V1∗ , and the vertices are labelled by the same greek letter, say α, it will stand
+for
+
+where {ϕα }, {ϕ∗α } are a pair of dual bases of ⟨V1 , . . . , Vn ⟩, ⟨Vn∗ , . . . , V1∗ ⟩ respectively,
+dual respect with respect to the pairing above.
+We also establish the following convention: when α’s (or any pair of greek letters)
+appear with a bar α, and two pairs of edges are labelled with small-case latin alphabets
+it will stand for the following sum:
+
+The i, j will also often be omitted when the context is clear.
+Here are some lemmas that are mostly adapted from [BKJ2010] and [KJ2011]. We
+leave out the proofs, which are standard.
+Lemma 7.1.
+
+(recall the convention of dashed line in the introduction)
+Lemma 7.2. (Variant of Lemma 3.6 in [KJ2011]) For Φ ∶ V → W ,
+
+41
+
+Lemma 7.3. Γ, as defined in Proposition 2.4, is a half-braiding.
+Proof. Naturality is immediate from Lemma 7.2 above, and respecting tensor product
+is checked as follows:
+
+(Recall our convention of summing over all latin lower case labels.) The first equality
+uses Lemma 7.2 with Φ = β, and the second follows from Lemma 7.1.
+The following lemma is often used when the half-braiding Γ shows up, allowing us
+to switch the “main branch” with the “side branch” (see proof of Proposition 3.18).
+Lemma 7.4.
+
+Lemma 7.5. (Charge conservation) When C is modular,
+
+Proof. See e.g. [BK2001, Cor 3.1.11].
+
+7.2 Group Actions on Categories by Generators and Relations
+Let G be a group acting on a category A, in the sense of [EGNO2015, Section 2.7].
+This consists of an auto-equivalence Tg ∶ A ⟲ for each g ∈ G, and natural isomorphisms
+γg,h ∶ Tg ○ Th → Tgh satisfying the cocycle condition
+Tg Th Tk
+
+Tg γh,k
+
+γg,h Tk
+γgh,k
+Tgh Tk
+
+42
+
+Tg Thk
+γg,hk
+
+Tghk
+
+For convenience, we will refer to this as the usual definition of a group action, and in
+particular refer to the above as the usual cocycle condition.
+It is convenient to rephrase this as simply a monoidal functor
+(F, J) ∶ Cat(G) →⊗ Aut(A)
+where Cat(G) is the monoidal category whose objects are elements of G, with only
+identity morphisms, and the monoidal structure is the group operation. Then in
+this interpretation, Tg = F (g), the γ’s correspond to the natural isomorphism Jg,h ∶
+F (g) ○ F (h) → F (gh), and the cocycle condition is just the hexagon axiom relating the
+associativity constraints with J (both Cat(G) and Aut(A) are strict, so the hexagon
+is just a square).
+When G is presented by generators and relations, say SL2 (Z) = ⟨s, t∣r1 , r2 ⟩ as in
+Section 3.3, we would like to describe a G-action on A by generators and relations
+as well. In a typical group action, say on some set X, it suffices to provide an automorphism of X for each generator, and check that the relations are satisfied. For an
+action on a category, one provides an auto-equivalence for each generator, a natural
+isomorphism for each relation, and check certain equalities between compositions of
+such natural isomorphisms; these are the analogs of Tg , γg,h , and the cocycle condition
+in the usual definition of a group action on a category given above. It is the goal of
+this note to spell this out in more detail.
+In this note, we fix a group G and a presentation of it, G = ⟨gi ∣rj ⟩. Since we will
+be working with unreduced words, we will include among the relations the trivial ones
+gi gi−1 = 1, gi−1 gi = 1. All words (henceforth assumed to be unreduced) will be in the
+generators gi (and their inverses gj−1 ). We will think of a relation rj as a move to
+transform one word into another; more precisely, it is given by a pair of words vj,1 , vj,2 ,
+so that for any words x, y, we may transform xvj,1 y into xvj,2 y when working in G.
+When we need to be precise, we will denote this move by xrj y, and the inverse move
+by xrj−1 y. (Ambiguities can arise, for example, “applying rj to vj,1 vj,1 ” could mean
+rj vj,1 ∶ vj,1 vj,1 → vj,2 vj,1 or vj,1 rj ∶ vj,1 vj,1 → vj,1 vj,2 .)
+First, let us give a definition:
+Definition 7.6. Let G = ⟨gi ∣rj ⟩ be a group presentation as above, and let A be a
+category. A pre-G-action on A given by generators and relations consists of
+the following data:
+• For each generator gi , auto-equivalences Ugi , Ug−1 ∶ A ⟲.
+i
+
+• For each relation rj ∶ vj,1 = vj,2 , a natural isomorphism γj ∶ Uvj1 → Uvj2 , where
+we write Uw = Ua1 . . . Uak for a word w = a1 . . . ak .
+△
+From γj , we also get, for words x, y, a natural isomorphism Ux γj Uy ∶ Uxvj1 y → Uxvj2 y .
+We will sometimes abuse notation and denote this natural isomorphism as γj too.
+
+43
+
+Definition 7.7. In the set up of Definition 7.6, a G-action on A given by generators and relations is a pre-G-action that satisfies the following cocycle condition:
+rj1
+
+rjp
+
+a sequence of moves (i.e. application of relation) w1 Ð→ . . . Ð→ w2 gives rise to a
+γjp
+
+γj1
+
+sequence of natural isomorphisms Uw1 ÐÐ→ . . . ÐÐ→ Uw2 whose composition is some natural isomorphism γ ∶ Uw1 → Uw2 ; the cocyle condition says that any sequence of moves
+from w1 to w2 results in the same γ.
+△
+Remark 7.8. We do not need to include the trivial relations gi gi−1 = 1 if we can guarantee
+that the Ugi ’s are isomorphisms, and Ug−1 = Ug−1
+. This was the case in Section 3.3. △
+i
+i
+
+Now we justify this definition. Let us first sketch an approach that is more intuitive.
+Consider the following CW-complex Ξ: the 0-skeleton/vertices is the set of unreduced
+words, and for words x, y and relation rj , there is a 1-cell xrj y going from xvj,1 y to
+xvj,2 y. The set of connected components is clearly in bijective correspondence with
+G. (We can even impose an H-group structure on Ξ so that the obvious quotient map
+Ξ → G is a map of H-groups, but since we are just giving intuition, we leave this discussion to the more formal discussions to come.)
+Given a pre-G-action (as in Definition 7.6), we can assign to a vertex w the autoequivalence Uw , and to a 1-cell xvj1 y → xvj2 y we can assign the natural isomorphism
+Ux γj Uy ∶ Uxvj1 y → Uxvj2 y . Then the cocycle condition in Definition 7.7 means that for
+any loop beginning and ending at a vertex w, the composition of natural isomorphisms
+encountered along the loop is just the identity idUw ∶ Uw ⟲.
+So if we have a G-action in the sense of Definition 7.7, we can get a usual action
+of G by picking a representative word wg for each g ∈ G, and specifying Tg = Uwg , and
+γ
+
+′
+γg,h
+∶ Tg Th = Uwg wh Ð
+→ Uwgh = Tgh , where γ is the appropriate composition of natural
+isomorphisms - by the cocyle condition in the sense of Definition 7.7, any choice gives
+′
+is automatically satthe same natural isomorphism. The cocycle condition for Tg , γg,h
+isfied.
+
+Now let us give a more precise discussion. Let G = ⟨gi ∣rj ⟩ as above. Consider
+̃ its objects are all unreduced words in gi ’s. The
+the following monoidal category G:
+morphisms are given by compositions of applications of rj ’s; more precisely, we consider
+the arrows qj,x,y ∶ xvj,1 y → xvj,2 y for all words x, y, and then a morphism w1 → w2 in
+G̃ is just a (possibly empty) composable sequence of such arrows or their reverse,
+reduced in the sense that an arrow and its reverse cancel out. (If we didn’t include
+the trivial relations among the rj ’s, we may end up with no morphisms between gi gi−1
+and the empty word.) Alternatively, the set of morphisms from w1 to w2 is the set of
+homotopy classes of paths from w1 to w2 in Ξ, the CW-complex considered above. The
+morphisms consisting of a single qj,x,y will be called simple. The monoidal structure
+on G̃ is given by concatenation of words for objects, and for morphism, if we have
+morphisms f ∶ w1 → w2 and g ∶ w1′ → w2′ , we set
+w1 ⋅f ′
+
+f ⋅w2′
+
+f ⊗ f ′ = f ○ f ′ ∶ w1 w1′ ÐÐÐ→ w1 w2′ ÐÐ→ w2 w2′
+
+44
+
+It is easy to see that this forms a well-defined monoidal category.
+Next consider G to be the category with the same objects, but with fewer morphisms: there is a unique morphism w1 → w2 in G if there is at least one morphism in
+̃ and there are no morphisms otherwise. In other words,
+G,
+⎧
+⎪
+⎪{∗} if HomG̃(w1 , w2 ) ≠ ∅
+HomG (w1 , w2 ) = ⎨
+⎪
+⎪
+⎩∅ otherwise
+The monoidal structure on G is also concatenation. There is an obvious monoidal “quotient functor” Q ∶ G̃ → G which is the identity on objects, and identifies all morphisms
+with common source and target.
+There is a canonical functor π ∶ G → Cat(G) that sends a word to the corresponding element in G, and the morphisms are sent to the identity morphisms. Clearly this
+functor is fully faithful and essentially surjective, and is monoidal (in a unique way),
+so is an equivalence of monoidal categories.
+Thus, we can describe a G-action on A by giving a monoidal functor
+(F, J) ∶ G →⊗ Aut(A)
+The point of using G instead of Cat(G) is that we know G is somehow built out of
+generators and relations. Precomposing such a monoidal functor with an inverse to
+π ∶ G → Cat(G) gives a monoidal functor (F ′ , J ′ ) ∶ Cat(G) →⊗ Aut(A), recovering a
+group action in the usual sense. Note that any two such inverses are naturally isomorphic by a unique natural isomorphism. We say more at the end of this section.
+Let us see how (F, J) gives us a G-action in the sense of Definition 7.7. F in
+particular gives us, for each generator gi , auto-equivalences
+Ugi ∶= F (gi ) ∶ A → A
+Ug−1 ∶= F (gi−1 ) ∶ A → A
+i
+
+For a word w = a1 . . . ak , where al = gi or gi−1 , we write Uw = Ua1 . . . Ual . J gives us
+Ua1 a2 = F (a1 )F (a2 ) → F (a1 a2 ), and similarly, successive applications of J’s gives us
+F (a1 )...F (ak−2 )Jak−1 ,ak
+
+Uw = F (a1 ) . . . F (ak ) ÐÐÐÐÐÐÐÐÐÐÐÐÐ→ F (a1 ) . . . F (ak−2 )F (ak−1 ak )
+⋮
+Ja1 ,a2 ...ak
+
+ÐÐÐÐÐ→ F (a1 . . . ak ) = F (w)
+For brevity, we call the composition of these natural isomorphisms J too. (By the
+hexagon axiom, the order by which we group the al ’s together is immaterial.) Then
+for each relation rj ∶ vj,1 = vj,2 , we have
+J
+
+U (rj )
+
+J −1
+
+γj ∶ Uvj,1 Ð
+→ F (vj1 ) ÐÐÐ→ F (vj2 ) ÐÐ→ Uvj,2
+
+45
+
+So Ugi , Ug−1 , γj defines a pre-G-action (as in Definition 7.6), and in fact satisfies the
+i
+cocycle condition, so it is a G-action (in the sense of Definition 7.7). Indeed, suppose
+rj1
+
+rjp
+
+we have a path w1 Ð→ . . . Ð→ w2 . The resulting sequence of isomorphism compose
+J
+
+F (r)
+
+J −1
+
+→ F (w1 ) ÐÐ→ F (w2 ) ÐÐ→ Uw2 , where r is the unique morphism in
+to simply Uw1 Ð
+HomG (w1 , w2 ). Since this natural isomorphism is independent of the path we started
+with, we see that we indeed have a G-action.
+Conversely, suppose we are provided with a pre-G-action Ugi , Ug−1 , γj (see Definition
+i
+7.6). We can easily construct a monoidal functor
+̃ ∶ G̃ →⊗ Aut(A)
+(F̃, J)
+as follows: for a word w = a1 . . . ak , we define
+F̃(w) ∶= Ua1 . . . Uak
+and make J̃ = id. For the simple morphism qj,x,y ∶ xvj,1 y → xvj,2 y we define
+F̃(x)γ F̃(y)
+
+j
+F̃(qj,x,y ) ∶ F̃(xvj,1 y) ÐÐÐÐÐÐ→ F̃(xvj,2 y)
+
+Since a morphism q in G̃ is a sequence of simple qj,x,y and their reverses, we take F̃(q)
+to be the composition of the appropriate F̃(qj,x,y )’s (these are natural isomorphisms,
+so if the sequence uses a reversed arrow, we associate the inverse natural isomorphism).
+̃ ∶ G̃ →⊗
+It is easy to see that this gives a well-defined monoidal functor (F̃, J)
+̃
+̃ factors
+Aut(A). Then we would get a monoidal functor (F, J) ∶ G →⊗ Aut(A) if (F , J)
+through Q:
+G̃
+Q
+
+G
+
+̃
+(F̃,J)
+
+(F,J)
+
+Aut(A)
+
+In concrete terms, factoring through Q means that for each pair of unreduced words
+w1 , w2 , any sequence of applications of relations to get from w1 to w2 (i.e. a morphism
+in G̃ from w1 to w2 ), will result in the same natural isomorphism F̃(w1 ) → F̃(w2 ).
+In other words, it is equivalent to the statement that Ugi , Ug−1 , γj satisfy the cocycle
+i
+condition of Definition 7.7. In summary,
+Proposition 7.9. Given a monoidal functor (F, J) ∶ G →⊗ Aut(A), the values of F
+on generators and relations, interpreted appropriately with J, defines a group action
+in the sense of Definition 7.7.
+Conversely, from a group action in the sense of Definition 7.7, one can construct
+̃ ∶ G̃ →⊗ Aut(A) that factors through Q, and hence defines a
+a monoidal functor (F̃, J)
+
+46
+
+monoidal functor (F, J) ∶ G →⊗ Aut(A).
+Furthermore, beginning with some (F, J) ∶ G →⊗ Aut(A), applying the first construction and then the second, we get a new monoidal functor (F ′ , J ′ ) ∶ G →⊗ Aut(A),
+and (F, J), (F ′ , J ′ ) are naturally isomorphic as monoidal functors.
+Proof. It remains to prove the last part, that (F, J), (F ′ , J ′ ) are naturally isomorphic
+as monoidal functors. It is easy to check that ηw = J −1 works, where recall we abuse
+notation for J to also mean successive applications of J’s: for w = a1 . . . ak , F ′ (w) =
+Uw = F (a1 ) . . . F (ak ) → . . . → F (a1 . . . ak ) = F (w).
+Remark 7.10. If we take the trivial presentation G = ⟨ḡ for g ∈ G∣rḡ,h̄ ∶ ḡ h̄ = gh⟩, we
+find that we recover the usual notion of a group action of G on A, as first discussed at
+the beginning of this section.
+△
+Finally, let us relate this back to the usual notion of group action on a category:
+Corollary 7.11. Given a G-action on A by generators and relations Ugi , Ug−1 , γj , as
+i
+in Definition 7.7, we can obtain a group action in the usual sense by first applying
+Proposition 7.9 to get a monoidal functor (F, J) ∶ G →⊗ Aut(A), then choosing an
+inverse to the canonical π ∶ G → Cat(G).
+More concretely, one chooses, for each g ∈ G, a word wg , and sets Tg = F (wg ) = Uwg ,
+′
+and for g, h ∈ G, set γg,h
+= F (r) ∶ Tg Th = F (wg )F (wh ) → F (wgh ) = Tgh , where r is the
+unique morphism in HomG (wg wh , wgh ). The uniqueness of r also guarantees that the
+′
+usual cocycle condition is satisfied by Tg , γg,h
+.
+Any two inverses to π are naturally isomorphic by unique natural isomorphism, so
+the resulting group actions are equivalent.
+Remark 7.12. In general, it is not so clear how to check that a pre-G-action in the sense
+of Definition 7.6 satisfies the cocycle conditions of Definition 7.7 to be a G-action. If
+we are to rely solely on algebra, we need to understand the presentation G = ⟨gi ∣rj ⟩ a
+little better, somehow know the “relations between relations”, not unlike the second
+syzygies of a module as studied in homological algebra.
+Let us clarify. Recall the CW-complex Ξ defined above as justification for Definition 7.7. Suppose we have checked that two paths r, r′ from w1 to w2 in Ξ lead to the
+same natural isomorphism Uw1 → Uw2 ; we call this a second-order relation. We attach
+a 2-cell along the loop r−1 r′ . For any words x, y, we automatically have that the two
+paths xry, xr′ y from xw1 y to xw2 y in Ξ also lead to the same natural isomorphism
+Uxw1 y → Uxw2 y , so we also attach a 2-cell along the loop (xry)−1 (xr′ y).
+Now suppose we have found several second-order relations, so that upon attaching
+the corresponding 2-cell and its “translates” as above for each one, each connected
+component of the new CW-complex Ξ′ is simply connected. Then it is easy to see
+that this implies that the pre-G-action we started with is actually a G-action. Indeed,
+
+47
+
+this means that any loop is contractible via a sequence of 2-cells; each time a loop
+homotopes through a 2-cell, the second-order relation implies that the corresponding
+natural isomorphism doesn’t change. Since the constant loop is associated the identity
+natural isomorphism, we find that the original loop is also associated the identity, hence
+the cocycle condition is satisfied.
+△
+
+7.2.1
+
+Equivariant Objects
+
+Suppose we are given a group G acting on a category A in the usual sense, as described
+at the beginning of the previous Section 7.2. Then recall that a G-equivariant object
+of A is an object A ∈ A with isomorphisms µg ∶ Tg (A) → A, and µ− is required to be
+compatible with T− in the sense that
+Tg (Th (A))
+
+Tg (µh )
+
+γg,h
+
+Tg
+µg
+
+µgh
+
+Tgh (A)
+
+A
+
+commutes for every pair of g, h ∈ G (see for example [EGNO2015, Section 2.7]).
+If G and its action are presented by generators and relations as in Definition 7.7,
+we would like to describe a G-equivariant object by making use of the presentation.
+In particular, if G is finitely presented, one would hope to be able to describe a Gequivariant object by a finite amount of data that satisfy a finite number of equations.
+The goal of this subsection is to spell this out in detail.
+We begin with a G-action on A that is given by the following data: for each generator gi , auto-equivalences Ugi , Ug−1 , and for each relation rj ∶ vj,1 = vj,2 , we have
+i
+γj ∶ Uvj,1 → Uvj,2 .
+Suppose we are given an object A ∈ A, and for each generator gi of G, we are given
+an isomorphism
+µgi ∶ Ugi (A) → A
+Ug−1 (µ−1
+gi )
+
+γli
+
+From this, we can define µg−1 ∶ Ug−1 (A) ÐÐÐÐÐ→ Ug−1 (Ugi (A)) Ð→ A where γli is
+i
+i
+i
+the natural isomorphism corresponding to the relation gi−1 gi = 1. We can then construct
+µw ∶ Uw (A) → A for a word w = a1 . . . ak as the composition
+i
+
+Ua1 ...Uak−1 (µak )
+
+Uw (A) = Ua1 . . . Uak (A) ÐÐÐÐÐÐÐÐÐ→ Ua1 . . . Uak−1 (A)
+⋮
+µa1
+
+ÐÐ→ A
+
+48
+
+Now just by construction, we have that, for words w1 , w2 ,
+Uw1 (µw2 )
+
+Uw1 (Uw2 (A))
+
+Uw1 (A)
+µw1
+
+µw1 w2
+
+Uw1 w2
+
+A
+
+so it seems that there is nothing to prove.
+Thinking back to the usual definition of a G-equivariant object as in the beginning
+of this section, one should have exactly one µg ∶ Ug (A) → A for each g, so we should
+expect that if two words w1 , w2 are equal in G, then µw1 should be equal to µw2 . This
+cannot literally be true, being morphisms from different objects. We may however
+impose that for each relation rj ∶ vj,1 = vj,2 ,
+
+Rj ∶
+
+(γj )A
+
+Uvj,1 (A)
+µvj,1
+
+Uvj,2 (A)
+µvj,2
+
+A
+This implies a similar commutative diagram for xrj y relating xvj,1 y to xvj,2 y:
+Uxvj,1 y (A)
+
+Ux Uvj,1 Uy (A)
+
+(Ux γj Uy )A
+
+Ux Uvj,2 Uy (A)
+
+Ux Uvj,1 (µy )
+
+Ux Uvj,2 (µy )
+
+Ux Uvj,1 (A)
+Ux (µvj,1 )
+µxvj,1 y
+
+Uxvj,2 y (A)
+
+(Ux γj )A
+
+Ux (A)
+µx
+
+Ux Uvj,2 (A)
+Ux (µvj,2 )
+µxvj,2 y
+
+A
+Definition 7.13. Let an action of G = ⟨gi ∣rj ⟩ on a category A be given by generators and relations in the sense of Definition 7.7. Then a generators-and-relations
+presentation of a G-equivariant object structure on A consists of an isomorphism
+µgi ∶ Ugi (A) → A for each gi , subject to the equation Rj above for each relation rj . △
+Note that, in contrast to checking the cocycle condition of Definition 7.7, there is
+no need to use “second order relations” (as discussed at the end of the previous section).
+Finally, let us relate this to the usual notion of group action on categories and
+equivariant objects. Recall that in Corollary 7.11, we see that to go from a generatorsand-relations description of a group action to the usual one, we make a choice of word
+′
+wg for each g ∈ G, and set Tg = Uwg , and γg,h
+∶ Tg Th → Tgh is determined from γj ’s. Then
+we can obtain a usual G-equivariant structure on A from a generators-and-relations
+
+49
+
+description as in Definition 7.13 as follows: Take νg = µwg ∶ Tg (A) = Uwg (A) → A. The
+compatibility of ν− with the group action T− , γ ′ (i.e. whether ν− defines a G-equivariant
+structure on A) is equivalent to the commutativity of the diagram
+Uwg (µwh )
+
+Uwg (Uwh (A))
+
+Uwg (A)
+µwh
+
+γ
+
+Uwgh (A)
+
+µwgh
+
+A
+
+where γ is the composition of some γj ’s corresponding to a path from wg wh to wgh . We
+see that this diagram is commutative precisely because we have imposed the equations
+Rj on µj .
+
+References
+[AP1995] Henning Haahr Andersen and Jan Paradowski, Fusion categories arising from
+semisimple Lie algebras, Communications in Mathematical Physics 169 (1995),
+563-588.
+[BK2001] Bojko Bakalov and Alexander Kirillov Jr., Lectures on tensor categories and modular functors, University Lecture Series, vol. 21, American Mathematical Society,
+Providence, RI, 2001. MR1797619 (2002d:18003)
+[BKJ2010] Benjamin Balsam and Alexander Kirillov Jr., Turaev-Viro Invariants as an Extended TQFT (2010), arXiv:1004.1533.
+[BZBJ2015] David Ben-Zvi, Adrien Brochier, and David Jordan, Integrating Quantum Groups
+over Surfaces (2015), arXiv:1501.04652.
+[BZBJ2016]
+
+, Quantum Character Varieties and Braided Module Categories (2016),
+arXiv:1606.04769.
+
+[BJ2014] Adrien Brochier and David Jordan, Fourier Transform for Quantum D-modules
+via the Punctured Torus Mapping Class Group (2014), arXiv:1403.1841.
+[CY1993] Louis Crane and David Yetter, A Categorical Construction of 4D Topological
+Quantum Field Theories, Quantum Topology (1993), 120-130.
+[CKY1997] Louis Crane, Louis Kauffman, and David Yetter, State-sum Invariants of 4Manifolds, I, Jounral of Knot Theory and Its Ramifications 06 (1997), 177-234.
+[CKY1993]
+
+, Evaluating the Crane-Yetter Invariant, Quantum Topology (1993), 120130.
+
+[Don1983] Simon K. Donaldson, An Application of Gauge Theory to Four Dimensional
+Topology, Journal of Differential Geometry 18 (1983).
+[Del1990] Pierre Deligne, Catégories tannakiennes, The Grothendieck Festschrift, Vol II 87
+(1990), 111-195.
+[Del2002]
+
+, Catégories tensorielles, Moscow Math Journal (2002).
+
+[Dri1986] Vladimir Drinfeld, Quantum Groups, Journal of Soviet Mathematics 155 (1986).
+[ENO2004] Pavel Etingof, Dmitri Nikshych, and Victor Ostrik, An analog of Radford’s S 4
+formula for finite tensor categories, Int. Math. Res. Not. 54 (2004).
+
+50
+
+[EGNO2015] Pavel Etingof, Shlomo Gelaki, Dmitri Nikshych, and Victor Ostrik, Tensor Categories, 1st ed., Mathematical Surveys and Monographs, American Mathematical
+Society, 2015.
+[JS1991] André Joyal and Ross Street, Tortile Yang-Baxter operators in tensor categories,
+Jounral of Pure and Applied Algebra 71 (1991), 43-51.
+[Kas] Christian Kassels, Quantum Groups, 1st ed., Graduate Texts in Mathematics,
+Springer-Verlag.
+[KJ2011] Alexander Kirillov Jr., String-net Model of Turaev-Viro Invariants (2011),
+arXiv:1106.6033.
+[Maj] Shahn Majid, Representations, duals and quantum doubles of monoidal categories,
+Proceedings of the Winter School ”Geometry and Physics”, 197-206.
+[Müg2003] Michael Müger, From subfactors to categories and topology. II. The quantum double of tensor categories and subfactors, J. Pure Appl. Algebra 180 (2003), no. 1-2,
+159–219, DOI 10.1016/S0022-4049(02)00248-7. MR1966525 (2004f:18014)
+[Oog1992] Hirosi Ooguri, Topological Lattice Models in Four Dimensions, Modern Physics
+Letters A 7 (1992), 2799-2810.
+[RT1990] Nicolai Reshetikhin and Vladimir Turaev, Ribbon Graphs and Their Invariants
+Derived from Quantum Groups, Comm. Math. Phys 127 (1990), 1-26.
+[Rob1997] Justin Roberts, Refined State-Sum Invariants of 3- and 4-Manifolds, Geometric
+Topology: 1993 Georgia International Topology Conference (1997).
+[Wit1989] Edward Witten, Quantum Field Theory and the Jones Polynomial, Comm. Math.
+Phys 121 (1989), no. 3, 351–399.
+[Yet1993] David Yetter, Homologically Twisted Invariants Related to (2+1)- and
+(3+1)-Dimensional State-Sum Topological Field Theories (1993), arXiv:hepth/9311082.
+
+51
+
+

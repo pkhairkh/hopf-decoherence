@@ -1,0 +1,6163 @@
+Derived representations
+of quantum character varieties
+M. Faitg1
+
+arXiv:2502.04267v2 [math.QA] 19 Dec 2025
+
+1
+
+Institut de Mathématiques de Toulouse, Université Paul Sabatier, 118 route de Narbonne,
+F-31062 Toulouse, France.
+
+E-mail adress: matthieu.faitg@math.univ-toulouse.fr
+Abstract
+Quantum moduli algebras Linv
+g,n (H) were introduced by Alekseev–Grosse–Schomerus
+and Buffenoir–Roche in the context of quantization of character varieties of surfaces and
+exist for any quasitriangular Hopf algebra H. In this paper we construct representations of
+m
+Linv
+g,n (H) on cohomology spaces ExtH (X, M ) for all m ≥ 0, where X is any H-module and
+M is any Lg,n (H)-module endowed with a compatible H-module structure. As a corollary
+and under suitable assumptions on H, we obtain projective representations of mapping
+class groups of surfaces on such Ext spaces. This recovers the projective representations
+obtained in [LMSS23] from Lyubashenko theory, when the category C = H-mod is used in
+their construction. Other topological applications are matrix-valued invariants of knots
+in thickened surfaces and representations of skein algebras on Ext spaces.
+
+1
+
+Introduction
+
+1.1
+
+Context
+
+The basic algebraic inputs in quantum topology are ribbon tensor categories, from which one
+constructs invariants of links, 3-manifolds or more generally TQFTs. Some assumptions are
+generally made on the category C one wants to use. In the famous Reshetikhin–Turaev construction [RT91, Tur94], one assumes that C is finite, semisimple (or is truncated to its semisimple
+part) and its braiding is non-degenerate. While non-degeneracy and usually also finiteness
+are widely accepted as reasonable assumptions, many works have focused on the creation of
+topological invariants based on non-semisimple categories, like representations of mapping class
+groups [Lyu95], link invariants [GKP13], invariants of 3-manifolds [CGP14] (where finiteness is
+also weakened) and TQFTs [DGGPR22], to cite a few.
+An aspect which is peculiar to the non-semisimple situation, and which has been much less
+explored from a topological perspective, is the existence of non-zero Ext spaces Extm
+C (−, −)
+for m > 0. It is natural to wonder how these cohomology spaces interact with the topological
+invariants defined from C. Eventually one would like to obtain “derived TQFTs” with values in
+a category of complexes, or whose state spaces are cohomology spaces. Pioneering work in this
+direction are [LMSS23] where it is proved that the Lyubashenko construction [Lyu95] can be
+extended to projective representations of mapping class groups of surfaces on certain Ext spaces
+(the torus mapping class group was proved to act on the Hochschild cohomology of suitable
+Hopf algebras in [LMSS18]) and [SW21b] where homotopy coherent actions of mapping class
+groups of surfaces on the Hochshild complex of a modular category are constructed (the torus
+case being treated in [SW21a]).
+1
+
+The present paper was inspired by the work of Lentner, Mierach, Schweigert and Sommerhäuser [LMSS23]. Let us explain their main result in some detail; this will give a more
+precise idea of what is a “derived topological invariant” and will facilitate the comparison with
+our results explained below.
+Let Σ◦g,n be the compact oriented surface of genus g with n + 1 boundary circles, one of
+which is distinguished. Let C be a ribbon finite tensor category which is factorizable (i.e. nondegeneracy of the braiding). Label the boundary circles of Σ◦g,n by any objects X, X1 , . . . , Xn ∈
+C and denote the resulting “colored surface” by ΣX
+g,X1 ,...,Xn :
+
+X
+
+ΣX
+g,X1 ,...,Xn =
+
+g
+
+1
+
+X1
+
+Xn
+
+To such a colored surface, associate the vector space
+⊗g
+Z(ΣX
+g,X1 ,...,Xn ) := HomC X ⊗ X1 ⊗ . . . ⊗ Xn , L
+
+
+
+(1)
+
+R X∈C ∗
+where L is the coend
+X ⊗ X, an important object in C. Denote by MCG(Σ◦g,n ) the
+mapping class group which fixes the boundary pointwise. In [Lyu95, §4.4], Lyubashenko defined
+a projective representation
+
+ZX : MCG(Σ◦g,n ) → PGL Z(ΣX
+(2)
+g,X1 ,...,Xn ) .
+The values of ZX are defined on a set of generators of MCG(Σ◦g,n ) by explicit dinatural transformations which factor through the coend L⊗g . Moreover the choice X = 1 (the unit object
+of C) is special: Z1 descends to a projective representation of the mapping class group of the
+surface Σg,n where the distinguished boundary component has been closed.
+The idea of [LMSS23] is to replace the space Z(ΣX
+g,X1 ,...,Xn ) by its derived version:
+m
+⊗g
+Z m (ΣX
+g,X1 ,...,Xn ) = ExtC (X ⊗ X1 ⊗ . . . ⊗ Xn , L ) for all m ≥ 0.
+
+One can imagine that the distinguished boundary circle of Σ◦g,n is now colored by a projective
+resolution 0 ← X ← P0 ← P1 ← . . . in C, which by application of the functor Z(Σ−
+g,X1 ,...,Xn ) =
+⊗g
+HomC (− ⊗ X1 ⊗ . . . ⊗ Xn , L ) gives the cochain complex
+P1
+0
+) −→ Z(Σg,X
+) −→ . . .
+0 −→ Z(ΣPg,X
+1 ,...,Xn
+1 ,...,Xn
+
+whose cohomology is Z m (ΣX
+g,X1 ,...,Xn ). It is not hard to see that the differential of this complex commute with the representations (2) on each cochain space, resulting in a projective
+representation of MCG(Σ◦g,n ) on the cohomology spaces:
+
+ 
+
+m
+m
+ZX
+: MCG(Σ◦g,n ) → PGL Z m (ΣX
+ZX
+(f ) [s] = ZPm (s)
+(3)
+g,X1 ,...,Xn ) ,
+m
+for all cocycle s ∈ Z(ΣPg,X
+), where [ ] denotes cohomology classes. The hard part, which
+1 ,...,Xn
+is the main result of [LMSS23], is to prove that for X = 1 the morphism Z1m descends to a
+projective representation of MCG(Σg,n ). Thanks to the classical fact that Ext0C = HomC , the
+case m = 0 recovers Lyubashenko’s construction.
+Let H be a ribbon Hopf algebra and take C = H-mod. To give an overview, the contents of
+the present paper can be quickly summarized as follows:
+◦
+(1) We prove that a certain quantization Linv
+g,n (H) of the character variety of Σg,n has representations on (a variant of) the cohomology spaces Z m (ΣX
+g,X1 ,...,Xn ). As the notation suggests,
+
+2
+
+the algebra Linv
+g,n (H) is defined as the subalgebra of H-invariant elements in a H-module-algebra
+Lg,n (H), which is itself a quantization of the representation variety of Σ◦g,n . The existence of
+such “derived representations” of Linv
+g,n (H) follows easily from elementary remarks on representations of H-module-algebras. See Theorem 1 in §1.2 below.
+(2) The H-module-algebra Lg,n (H) is known to be isomorphic to the stated skein algebra
+of the surface Σ◦g,n [BFR25, §6], which is defined as a vector space of “decorated” ribbon
+graphs in Σ◦g,n × [0, 1] modulo relations given by the Reshetikhin–Turaev functor [Lê18, CL22,
+LS24, BFR25]. We observe that this isomorphism allows for a natural definition of Wilson
+loop maps, which to a knot K ⊂ Σ◦g,n × [0, 1] associates an element Wφ (K) ∈ Linv
+g,n (H), where
+∗
+φ
+φ ∈ H is any “trace-like” linear form. These maps W agree with previous definitions in
+[BR96, BFK98a, Fai25]. We prove that if two knots K1 , K2 ⊂ Σ◦g,n × [0, 1] become isotopic in
+Σg,n × [0, 1], then Wφ (K1 ) and Wφ (K2 ) have equal representations on Z m (Σkg,X1 ,...,Xn ) for all m.
+This gives a sense to the idea that coloring the distinguished boundary component ◦ of Σ◦g,n by
+the trivial H-module k is like “closing” it, thus passing to Σg,n . See Theorem 2 in §1.2 below.
+(3) There is a natural action of the mapping class group MCG(Σ◦g,n ) on the character variety
+of Σ◦g,n . It is known that the action survives quantization: there is an action of MCG(Σ◦g,n )
+on Lg,n (H) and Linv
+g,n (H) by algebra automorphisms [AS96a, Fai20]. Actually this fact becomes
+obvious through the isomorphism between Lg,n (H) and the stated skein algebra of Σ◦g,n , because
+MCG(Σ◦g,n ) clearly acts on the latter. Let us restrict to surfaces Σ◦g,0 (i.e. n = 0). When H is
+finite-dimensional and factorizable, Lg,0 (H) is a matrix algebra. The Skölem–Noether theorem
+then implies that each f ∈ MCG(Σ◦g,0 ) acts by conjugation on Lg,0 (H) by a unique up to
+scalar element fb, which turns out to belong to the subalgebra Linv
+g,0 (H). Then using item (1)
+◦
+above, we can represent fb on Z m (ΣX
+g ). This defines a projective representation of MCG(Σg,0 )
+m
+X
+on Z (Σg ) for each m. We prove that when X = k is the trivial H-module, it descends to a
+projective representation of the mapping class group of the closed surface Σg,0 . Through the use
+of explicit formulas, we show that our projective representations of MCG(Σ◦g,0 ) and MCG(Σg,0 )
+are equivalent to those of [LMSS23]. See Theorem 3 in §1.2 below.
+In the next section the definitions and results are explained in detail and precisely.
+
+1.2
+
+Detailed summary of results
+
+In order to explain our results precisely, we begin with a short description of the quantization of
+character varieties of surfaces that we use here and which is due to Alekseev–Grosse–Schomerus
+[AGS95] and Buffenoir–Roche [BR95]. For a reductive algebraic Lie group G and an oriented
+surface Σ, the affine variety of representations (resp. characters) of π1 (Σ) with values in G is
+
+RepG (Σ) = HomGrp π1 (Σ), G
+(resp. ChG (Σ) = RepG (Σ)//G)
+
+
+
+G-inv
+where G acts by conjugation on RepG (Σ). By definition O ChG (Σ) = O RepG (Σ)
+,
+◦ 1
+◦
+where O denotes the algebra of regular functions. Assume that Σ = Σg,n . Since π1 (Σg,n ) is
+
+
+a free group on 2g + n generators, we have O RepG (Σ◦g,n ) ∼
+= O(G)⊗(2g+n) . The idea of the
+
+
+quantization is to consider the vector space Oq RepG (Σ◦g,n ) = Oq (G)⊗(2g+n) , where Oq (G) is the
+standard quantized algebra of functions on G, and to endow it with a “twisted product” which
+involves
+the R-matrix
+of Uq (g) where g = Lie(G). A crucial feature of the construction is that
+
+
+◦
+Oq RepG (Σg,n ) is an Uq (g)-module-algebra under a certain coadjoint action. This permits to
+
+
+
+Uq (g)-inv
+define the subalgebra Oq ChG (Σ◦g,n ) := Oq RepG (Σ◦g,n )
+, called quantum moduli algebra
+or quantum character variety.
+Because of the use of stated skein algebras to be explained below, it is more convenient to assume that Σ◦g,n
+is the oriented surface of genus with n punctures and one boundary circle, instead of n + 1 boundary circles as
+in §1.1. This is what Σ◦g,n means in the sequel.
+1
+
+3
+
+Being purely algebraic, this construction can be applied to any quasitriangular Hopf algebra
+H instead of Uq (g), with the restricted dual H ◦ instead of Oq (G). In this way, see §4.1 for the
+precise definitions, one gets a (right) H-module-algebra Lg,n (H) which is (H ◦ )⊗(2g+n) as a vector
+space and which has a subalgebra
+H-inv
+Linv
+g,n (H) := Lg,n (H)
+
+of invariant elements under the coadjoint action of H.2 In particular L0,1 (H) is a variant of the
+R X∈H-mod ∗
+coend L =
+X ⊗ X used in Lyubashenko theory.
+It is well-known that Lg,n (H) has a representation on the space
+(H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn
+
+(4)
+
+for all H-modules X1 , . . . , Xn . Moreover, we prove in §4.2 that there is a H-module structure
+on the space (4) such that the action of Lg,n (H) is H-linear. This is called a H-equivariant
+module, see Definition 2.1. Note that, topologically, the representation of Lg,0 (H) on (H ◦ )⊗g
+corresponds to the representation of the stated skein algebra of the surface Σ◦g,0 (as defined in
+§5.1.1) on the stated skein module of the handlebody Σ◦0,g [Fai25, §6].
+Let k be the ground field of the ribbon Hopf algebra H. Take another H-module X and
+consider the k-vector spaces
+
+◦
+⊗g
+V (ΣX
+⊗ X1 ⊗ . . . ⊗ Xn
+(5)
+g,X1 ,...,Xn ) = HomH X, (Hcoad )
+
+m
+◦
+⊗g
+V m (ΣX
+⊗ X1 ⊗ . . . ⊗ Xn for all m ≥ 0
+g,X1 ,...,Xn ) = ExtH X, (Hcoad )
+where coad is the coadjoint action of H on H ◦ . These are variants of the Lyubashenko spaces
+3
+Z(ΣX
+g,X1 ,...,Xn ) and of their derived version discussed in §1.1. The H-equivariance of (4) easily
+X
+implies that Linv
+g,n (H) has a representation on V (Σg,X1 ,...,Xn ) for all X, given by acting on the
+target of any H-linear map. Thus if 0 ← X ← P0 ← P1 ← . . . is a projective resolution of
+H-modules, we have a representation of Linv
+g,n (H) on each of the cochain spaces in the complex
+1
+0
+0 −→ V (ΣPg,X
+) −→ . . .
+) −→ V (ΣPg,X
+1 ,...,Xn
+1 ,...,Xn
+
+which are easily seen to commute with the differential. Hence:
+Theorem 1. (Thm. 4.12) Let H be any quasitriangular Hopf algebra over a field k. For all Hm
+X
+modules X, X1 , . . ., Xn and all m ≥ 0 there is a representation of Linv
+g,n (H) on V (Σg,X1 ,...,Xn ).
+Besides being elementary, the arguments which lead to Theorem 1 are completely general.
+They are explained in detail for any H-module-algebra A in §2.1, giving representations of Ainv
+on Extm
+H (X, M ) where X is any H-module and M is any H-equivariant A-module. The only
+property which is peculiar to Linv
+g,n (H) in Theorem 1 is thus the existence of the H-equivariant
+modules (4).
+Assume from now on that H is a ribbon Hopf algebra. Before stating our first topological
+application of Theorem 1 we need a few preliminary material. Given an element φ ∈ Linv
+0,1 (H),
+
+◦
+2
+i.e. a linear form φ ∈ H which satisfies φ(xy) = φ yS (x) , one can define a map
+Wφ :
+
+ isotopy classes
+of oriented framed
+
+knots in Σ◦g,n × [0, 1] → Linv
+g,n (H).
+
+(6)
+
+
+
+
+
+
+The relation with the previous notations is thus Oq RepG (Σ◦g,n ) = Lg,n Uq (g) and Oq ChG (Σ◦g,n ) =
+
+◦
+Linv
+g,n Uq (g) , modulo the use of Oq (G) instead of the whole Uq (g) .
+3
+X
+X
+One might think that V (Σg,X1 ,...,Xn ) is related to Z(Σg,X1 ,...,Xn ) from (1) simply by duality, but actually
+this is more subtle because we use a right H-action. See §5.2.3 for an explicit isomorphism in the case n = 0.
+2
+
+4
+
+They appear in [BR96, BFK98a, Fai25] under the name of Wilson loop maps. In §5.1 we
+give yet another construction of Wφ which is based on an isomorphism of algebras between
+st
+◦,•
+◦
+Lg,n (H) and the stated skein algebra SH
+(Σ◦,•
+g,n ), where Σg,n is Σg,n with a puncture on the
+st
+◦,•
+boundary. The main defining properties of SH (Σg,n ) are recalled in §5.1.1 from [BFR25, §6.1].
+It is a generalization to any ribbon Hopf algebra H of the stated skein algebras defined in
+[Lê18, CL22] and [LS24], which correspond to the cases H = Uq (sl2 ) and H = Uq (sln ). The
+st
+∼
+isomorphism SH
+(Σ◦,•
+g,n ) = Lg,n (H) was established in [BFR25, §6.2] building upon [Fai25] and is
+quickly recalled in §5.1.3. Taking advantage of the topological nature of stated skein algebras,
+we note in §5.1.2-§5.1.3 that there is a natural definition of knot maps
+iK : L0,1 (H) → S st (Σ◦,• ) ∼
+= Lg,n (H)
+H
+
+g,n
+
+◦,•
+where K ⊂ Σ◦,•
+g,n × [0, 1] is any oriented framed knot which has a basepoint in ∂(Σg,n ) × [0, 1].
+φ
+When iK is restricted to Linv
+0,1 (H) the basepoint can be forgotten and we define W (K) = iK (φ).
+φ
+
+Combining W with the representation in Theorem 1, we obtain a map
+
+
+rep.
+Wφ
+φ,m
+m
+X
+classes
+IX
+: of isotopy
+knots in Σ◦g,n × [0, 1] −−→ Linv
+g,n (H) −−→ Endk V (Σg,X1 ,...,Xn ) .
+oriented framed
+
+for any φ ∈ Linv
+0,1 (H), m ≥ 0 and H-module X. This map is an isotopy invariant of knots and
+allows us to give a precise statement of the idea that the distinguished boundary component of
+Σ◦g,n “disappears” if we color it by X = k, the trivial H-module:
+Theorem 2. (Thm. 5.10) Assume that the ribbon Hopf algebra H and the H-modules X1 , . . . , Xn
+are finite-dimensional. If two knots K1 , K2 ⊂ Σ◦g,n × [0, 1] become isotopic in Σg,n × [0, 1], then
+Ikφ,m (K1 ) = Ikφ,m (K2 ).
+Said differently, Ikφ,m descends to a (matrix-valued) isotopy invariant of knots in Σg,n × [0, 1].
+This is a nice interaction between topology and homological algebra, because the boundary
+component of Σ◦g,n disappears only when passing to the cohomology spaces. For n = 0 we
+obtain an isotopy invariant of knots in closed surfaces which in the case m = 0 was studied in
+[Fai25, §6]. It makes no doubt that Theorem 2 can be extended to links, see Remark 5.12.
+The second topological application of Theorem 1 is the construction of projective representations of mapping class groups. There is a natural action of the mapping class group on
+the character variety. This action survives quantization: there is an action of MCG(Σ◦g,n ) on
+Lg,n (H) by algebra automorphisms. The previous proof of this fact [AS96a, Fai20] was rather
+st
+involved. In §5.2.1 we note that MCG(Σ◦g,n ) obviously acts on the stated skein algebra SH
+(Σ◦,•
+g,n )
+and thus on Lg,n (H) thanks to the isomorphism between them; we then prove that it equals
+the “old” action defined by means of explicit formulas. Moreover the subalgebra Linv
+g,n (H) is
+stable under this action.
+We then restrict to n = 0, that is to surfaces Σ◦g,0 , and assume that the ribbon Hopf
+k-algebra H is finite-dimensional and factorizable.
+It is known that for such H there is an
+
+∗ ⊗g
+∼
+algebra isomorphism Lg,0 (H) = Endk (H )
+([Fai20], reviewed in Appendix A). In other
+words Lg,0 (H) is a matrix algebra and hence any algebra automorphism is by conjugation.
+Since MCG(Σ◦g,0 ) acts on Lg,0 (H) by algebra automorphisms, we obtain a unique-up-to-scalar
+conjugation element fb ∈ Lg,0 (H) for each mapping class f ∈ MCG(Σ◦g,0 ). Actually fb ∈ Linv
+g,0 (H)
+(Lemma 5.17) and Theorem 1 gives a projective representation
+
+◦
+inv
+×
+×
+Rm
+−→ PGL V m (ΣX
+g )
+X : MCG(Σg,0 ) −→ Lg,0 (H) /k
+f
+7−→
+fb
+7−→
+rep. of fb
+for all H-module X and m ≥ 0.
+For a Dehn twist τc about a simple closed curve c there is a simple formula for τbc in terms
+of the knot map ic (Prop. 5.21). This allows us to deduce the following result from Theorem
+2, thanks to the presentation of MCG(Σg,0 ) as a quotient of MCG(Σ◦g,0 ) [Waj83]:
+5
+
+Theorem 3. (Thm. 5.18 and §5.2.3) Assume that the ribbon Hopf algebra H is finite-dimensional
+and factorizable, and let k be the trivial H-module. For all m ≥ 0, Rm
+k descends to a projective
+m
+representation of MCG(Σg,0 ) which is equivalent to the representation ZX
+of [LMSS23] for the
+category C = H-mod.
+It should be noted that the definition of Rm
+X and the proof of the fact that it descends to
+MCG(Σg,0 ) for X = k do not rely on explicit formulas for the representation of generators of
+the mapping class group. However the proof of the equivalence with [LMSS23] in §5.2.3 uses
+such formulas, which are given in Prop. 5.22 for the Lickorish generators.
+For m = 0, Theorem 3 recovers the projective representations of [AS96a] (which was for
+semisimple H) and of [Fai20] (non-semisimple H). The approach with stated skein algebras
+and knot maps presented here gives a less computational construction of these representations.
+Moreover, we use new notations (taken from [BFR25]) that should be easier to understand than
+the matrix formalism employed in previous papers.
+Let SH (Σ◦g,n ) be the skein algebra spanned by H-colored oriented framed links in Σ◦g,n ×[0, 1],
+modulo the linear relations given by the Reshetikhin–Turaev tangle invariant for H-mod. When
+H = Uq (sl2 ) this is the Kauffman bracket skein algebra Sq (Σ◦g,n ). In §5.3 we obtain, as another corollary of Theorem 1, representations of the skein algebra SH (Σ◦g,n ) on the spaces
+◦
+V m (ΣX
+g,X1 ,...,Xn ). This is simply due to the existence of an algebra morphism W : SH (Σg,n ) →
+Linv
+g,n (H) which is a variant of (6) and also called Wilson loop map. In particular, for the Kauffman algebra Sϵ (Σ◦g,n ) with q specialized to a root of unity ϵ ∈ C, we use a finite-dimensional
+quotient of Uϵ2 (sl2 ), known as small quantum group and denoted by Uϵ2 (sl2 ), to define repre
+X, (Uϵ∗2 )⊗g ⊗ X1 ⊗ . . . ⊗ Xn for
+sentations of Sϵ (Σ◦g,n ) on the finite-dimensional spaces Extm
+U2
+ϵ
+
+all X, X1 , . . . , Xn ∈ Uϵ2 (sl2 )-mod and m ≥ 0 (Corollary 5.26).
+Remark 1.1. Quantum character varieties and mapping class group representations can also be
+defined and studied through the use of factorization homology,R as proved in [BZBJ18]. Here
+are some remarks relating the two approaches. First we have Σ◦ H-mod ∼
+= Lg,n (H)-modH ,
+g,n
+see [BZBJ18, Th. 5.14], and the existence of the mapping class group action on Lg,n (H) is
+recovered through this equivalence in [BZBJ18, §5.4]. At least for H = Uq (sl2 ), it is known
+that Lg,n (H) is isomorphic to the so-called internal skein algebra appearing in factorization
+homology; this follows from [Hai22] and [BFR25, §6.2] (or [Fai25, §5]). Representations of
+mapping class groups, or more precisely modular functors, are investigated through the lens of
+factorization homology in [MW24, BW22]. There are also categorical versions of skein algebras
+and handlebody skein modules which are suited to the non-semisimple setting [BW22, §4],
+[BH24] and which according to [BW22, §4.3] should be closely related to the algebra Linv
+g,n (H)
+X
+and its representation space V (Σg,X1 ,...,Xn ) defined in (5).
+Acknowledgements. I thank S. Baseilhac and P. Roche for discussions and encouragements,
+and the anonymous referees for their relevant remarks. Part of this work was done when the
+author was a postdoc at IMT funded by the CIMI (Labex ANR 11-LABX-0040).
+
+2
+
+Equivariant modules over H-module-algebras
+
+This section contains elementary remarks on representations of H-module-algebras, where H is
+a Hopf algebra. The key notion is that of H-equivariant module over a H-module-algebra A. We
+observe that any such module M gives rise to representations of the invariant subalgebra Ainv
+on the spaces Extm
+H (X, M ) for any H-module X (“derived representations”, §2.1). The derived
+representations of quantum character varieties constructed in §4 will appear as a corollary of
+this general fact and of the braided tensor product operation for H-equivariant modules which
+6
+
+will be recalled in §3 below. Subsection 2.2 is independent and discusses a situation where any
+A-module is automatically H-equivariant.
+
+2.1
+
+Derived representations for H-equivariant modules
+
+Let H = (H, ·, 1, ∆, ε, S) be a Hopf algebra with invertible antipode S over a field k. We use
+Sweedler’s notation for the coproduct and its iterations:
+∆(h) = h(1) ⊗ h(2) ,
+
+(∆ ⊗ id) ◦ ∆(h) = h(1) ⊗ h(2) ⊗ h(3) ,
+
+etc.
+
+Denote by Mod-H the category of (not necessarily finite-dimensional) right modules over H,
+which is monoidal. To avoid confusion, in all this paper, the action on a left module over a
+given associative algebra A will be denoted by a dot ( · ) while the action on a right H-module
+will be denoted by a black square ( ).
+A (right) H-module-algebra is an algebra object A ∈ Mod-H. More explicitly, it is a vector
+space A endowed with structures of associative algebra and of right H-module such that
+■
+
+∀ x, y ∈ A, ∀ h ∈ H, (xy) h = (x h(1) )(y h(2) ),
+∀ h ∈ H, 1A h = ε(h)1A .
+■
+
+■
+
+(7)
+(8)
+
+■
+
+■
+
+We use the following name for A-module objects in Mod-H (taken from [VV10, §1.4] except
+that here we use right H-modules instead of left ones):
+Definition 2.1. A H-equivariant A-module (M, ·, ) is a left A-module (M, ·) which is also a
+right H-module (M, ) and such that
+■
+
+■
+
+∀ a ∈ A, ∀ v ∈ M, ∀ h ∈ H,
+
+(a · v) h = (a h(1) ) · (v h(2) ).
+■
+
+■
+
+(9)
+
+■
+
+We denote by (A-Mod)H the category of such modules; its morphisms are linear maps which
+commutes with both the actions of A and H.
+Remark 2.2. In terms of representations, a H-equivariant module is a triple (M, ρ, D) where
+ρ : A → Endk (M ) and D : H → Endk (M )op are morphisms of algebras such that
+
+∀ a ∈ A, ∀ h ∈ H, ρ(a h) = D(h(1) ) ◦ ρ(a) ◦ D S −1 (h(2) ) .
+(10)
+■
+
+The relation with the notations in Def. 2.1 is of course ρ(a)(v) = a · v and D(h)(v) = v h. The
+superscript op indicates that D is an anti-morphism (because M is a right H-module).
+■
+
+For any X, M ∈ Mod-H let HomH (X, M ) be the subspace of linear maps X → M which
+commute with the right action of H. In particular when X = k is the trivial H-module defined
+by the counit ε : H → k we get
+
+HomH (k, M ) ∼
+= M inv = v ∈ M ∀ h ∈ H, v h = ε(h)v
+■
+
+i.e. the subspace of H-invariant elements in M . Note that Ainv is a subalgebra of A.
+Lemma 2.3. 1. Any H-equivariant A-module is an (Ainv , H)-bimodule, i.e. the left action of
+Ainv and the right action of H commute.
+2. For any right H-module X there is a functor
+VX : (A-Mod)H → Ainv -Mod,
+
+M 7→ HomH (X, M ).
+
+where the action of a ∈ Ainv on f ∈ HomH (X, M ) is by acting on the target:
+∀ x ∈ X,
+
+(a · f )(x) = a · f (x).
+
+(11)
+
+3. In particular for any M ∈ (A-Mod)H the subspace M inv is stable under the action of Ainv .
+7
+
+Proof. 1. Obvious from (9).
+2. We just need to show that the subspace HomH (X, M ) ⊂ Homk (X, M ) is stable under the
+action (11), i.e. that a · f is H-linear. Using item 1 and H-linearity of f , we have for all
+a ∈ Ainv :
+
+
+
+(11)
+(11)
+(a · f )(x) h = a · f (x) h = a · f (x) h = a · f (x h) = (a · f )(x h).
+■
+
+■
+
+■
+
+■
+
+■
+
+3. Immediate consequence of item 1. It is also a consequence of item 2 with X = k.
+We now establish the “derived version” of Lemma 2.3. Let X, Y ∈ Mod-H and take a
+projective resolution of X (in Mod-H):
+0
+
+X
+
+d0
+
+P0
+
+d1
+
+P1
+
+d2
+
+(12)
+
+...
+
+Then the cohomology of the complex of vector spaces
+HomH (P0 , Y )
+
+d∗1
+
+HomH (P1 , Y )
+
+d∗2
+
+HomH (P2 , Y )
+
+d∗3
+
+...
+
+(13)
+
+(where d∗n means pullback) is denoted by Ext•H (X, Y ), i.e.
+ExtnH (X, Y ) = ker(d∗n+1 )/im(d∗n )
+for all n ≥ 1 and Ext0H (X, Y ) = ker(d∗1 ). In other words:
+• An element in ExtnH (X, Y ) is a cohomology class [f ] where f ∈ HomH (Pn , Y ) satisfies
+f ◦ dn+1 = 0, i.e. f is a cocycle of degree n in the complex (13).
+• Two cohomology classes [f ], [f ′ ] are equal if and only if f − f ′ = g ◦ dn for some g ∈
+HomH (Pn−1 , Y ), i.e. f − f ′ is a coboundary of degree n in the complex (13).
+Two different projective resolutions of X yield isomorphic Ext spaces, see e.g. [ML75, §III.6].
+Recall that (A-Mod)H denotes the category of H-equivariant A-modules (Def. 2.1).
+Theorem 2.4. For all n ∈ N and any X ∈ Mod-H there is a functor
+n
+VX
+: (A-Mod)H → Ainv -Mod,
+
+M 7→ ExtnH (X, M ).
+
+The action of a ∈ Ainv on a cohomology class [f ] ∈ ExtnH (X, M ) is given by a · [f ] = [a · f ],
+where a · f is the action on the target M of the cocycle f as defined in (11).
+Proof. Take M ∈ (A-Mod)H with representation morphism ρM : A → Endk (M ). Recall the
+projective resolution (12). By Lemma 2.3 the representation of Ainv on HomH (Pn , M ), which
+we denote here by ρn , is given by pushforward of ρM , i.e. ρn (a)(f ) = ρM (a)∗ (f ) = ρM (a) ◦ f .
+On the other hand the differential of the complex HomH (P• , M ) is given by pullback:
+ρ0 (a)=ρM (a)∗
+
+HomH (P0 , M )
+
+ρ1 (a)=ρM (a)∗
+d∗1
+
+HomH (P1 , M )
+
+ρ2 (a)=ρM (a)∗
+d∗2
+
+HomH (P2 , M )
+
+d∗3
+
+...
+
+
+Hence the family of morphisms ρn (a)∗ n∈N commutes the differential and thus each ρn (a)
+
+
+
+n
+descends
+to
+an
+endomorphism
+ρ̄
+(a)
+of
+Ext
+(X,
+M
+)
+given
+by
+ρ̄
+(a)
+[f
+]
+=
+ρ
+(a)(f
+)
+=
+n
+n
+n
+H
+
+
+ρM (a) ◦ f . It is clear that ρ̄n (ab) = ρ̄n (a) ◦ ρ̄n (b) since this is true for ρn .
+n
+If φ : M → W is a morphism of H-equivariant A-modules we define VX
+(φ)([f ]) = [φ ◦ f ] for
+n
+all [f ] ∈ ExtnH (X, M ). It is readily seen that VX
+(φ) is Ainv -linear, by A-linearity of φ. This
+n
+defines VX
+as a functor.
+8
+
+When the Hopf algebra H is finite-dimensional one might prefer to work within the category
+mod-H of finite-dimensional modules. All of the above remains true with this restriction.
+0
+∼
+Remark 2.5. Note that Ainv ∼
+= Hom
+H (k, A) = ExtH (k, A). One of the referees suggested to
+L
+m
+der
+consider more generally Ader =
+m∈N ExtH (k, A). In this
+L remarkmwe explain that A is a
+der
+graded algebra which acts on the graded space MX =
+m∈N ExtH (X, M ), where M is any
+H-equivariant A-module and X is any right H-module. This uses the internal product on the
+Ext spaces of a Hopf algebra, which we recall from e.g. [ML75, Chap.VIII, §4]. If P• → X → 0
+and P•′ → X ′ → 0 are projective resolutions in Mod-H, then we have the projective resolution
+(P ⊗ P ′ )• → X ⊗ X ′ → 0 in Mod-(H ⊗ H) and thus in particular in Mod-H L
+since H acts on
+tensor products by means of the coproduct H → H ⊗ H, where (P ⊗ P ′ )c = a+b=c Pa ⊗ Pb′ .
+For f ∈ HomH (Pk , Y ) and f ′ ∈ HomH (Pm′ , Y ′ ) define f ∪ f ′ ∈ HomH (P ⊗ P ′ )k+m , Y ⊗ Y ′ by
+f ⊗f ′
+
+canonical projection
+
+f ∪ f ′ : (P ⊗ P ′ )k+m −−−−−−−−−−−−→ Pk ⊗ Pm′ −−−→ Y ⊗ Y ′ .
+This associative operation descends to cohomology classes
+k+m
+′
+′
+∪ : ExtkH (X, Y ) ⊗ Extm
+(X ⊗ X ′ , Y ⊗ Y ′ ),
+H (X , Y ) → ExtH
+
+[f ] ∪ [f ′ ] = [f ∪ f ′ ].
+
+Now, using that ExtiH is a bifunctor (Mod-H)op × (Mod-H) → Vectk for all i, the H-linearity
+of the multiplication map mA : A ⊗ A → A allows us to define
+Extk+m (idk ,mA )
+
+∪
+
+H
+ExtkH (k, A) ⊗ Extm
+−→ Extk+m
+(k, A ⊗ A) −−−−
+−−−−−−→ Extk+m
+(k, A)
+H (k, A) −
+H
+H
+
+as the product in Ader , making it a graded algebra. Similarly, the H-linearity of the action
+ρM : A ⊗ M → M allows us to define
+Extk+m (idX ,ρM )
+
+∪
+
+H
+ExtkH (k, A) ⊗ Extm
+−→ Extk+m
+(X, A ⊗ M ) −−−−
+−−−−−−−→ Extk+m
+(X, M )
+H (X, M ) −
+H
+H
+
+as the action of Ader on MXder , making it a graded module. Theorem 2.4 is recovered by
+restriction to the degree 0 subalgebra in Ader , which is isomorphic to Ainv .
+
+2.2
+
+Quantum moment maps and derived representations
+
+Let A be a right H-module-algebra, with right H-action
+definition is found in [Lu93, Def. 1.2] and [VV10, §1.5]:
+
+■
+
+: A ⊗ H → A. The following
+
+Definition 2.6. A quantum moment map (QMM) is a morphism of algebras µ : H → A such
+that
+
+∀ a ∈ A, ∀ h ∈ H, a µ(h) = µ(h(1) ) a h(2) .
+(14)
+■
+
+Until the end of this subsection we assume that a QMM µ is given on A. The property (14) is
+equivalent to
+
+∀ a ∈ A, ∀ h ∈ H, a h = µ S(h(1) ) aµ(h(2) )
+(15)
+■
+
+and in this form we see that the right H-module structure on A is entirely determined by µ. If
+we put a = µ(x) in (15) we find in particular
+
+∀ x, h ∈ H, µ(x) h = µ adr (h)(x)
+(16)
+■
+
+which means that µ is H-linear when H is endowed with the right adjoint action defined by
+∀ x, h ∈ H,
+
+adr (h)(x) = S(h(1) )xh(2) .
+9
+
+(17)
+
+Recall that Ainv denotes the subalgebra of H-invariant elements in A. By (15) it is clear
+that
+
+Ainv = a ∈ A ∀ h ∈ H, µ(h)a = aµ(h) .
+(18)
+In other words Ainv is the centralizer of µ(H).
+Having a quantum moment map on A implies that any A-module is automatically Hequivariant [VV10, §1.5]:
+Lemma 2.7. Let (M, ·) be any A-module. Define
+
+v µ h = µ S(h) · v.
+
+∀ v ∈ M, ∀ h ∈ H,
+Then (M, ·,
+
+■
+
+(19)
+
+■
+
+µ ) becomes a H-equivariant A-module. As a result there is a functor
+
+A-Mod → (A-Mod)H ,
+
+(M, ·) 7→ (M, ·,
+
+■
+
+µ ).
+
+Proof. Condition (9) is easily checked:
+
+
+
+(a · v) µ h = µ S(h) a · v = µ S(h(1) ) aµ(h(2) )µ S(h(3) ) · v = (a h(1) ) · (v µ h(2) )
+■
+
+■
+
+■
+
+where the second equality is a trick and the third equality uses (15).
+Warning. It is important to distinguish the algebra A and the regular module A A. Indeed the
+right H-action on the algebra A is a h = µ S(h(1) ) aµ(h(2) ) by(15) while the right H-action
+on the A-module A A provided by Lemma 2.7 is a µ h = µ S(h) a.
+Let X be any H-module. If we compose the functors in Lemmas 2.7 and 2.3 we get a functor
+■
+
+■
+
+eX : A-Mod → Ainv -Mod,
+V
+
+M 7→ HomH (X, Mµ ).
+
+where Mµ is M endowed with the H-equivariant structure (19) and the action of Ainv on
+HomH (X, Mµ ) is by acting on the target as in (11). In particular for any M ∈ A-Mod the
+subspace
+
+Mµinv = HomH (k, Mµ ) = v ∈ M ∀ h ∈ H, µ(h) · v = ε(h)v
+is stable under the action of Ainv . More generally if we compose the functor in Lemma 2.7 with
+n
+in Theorem 2.4 we get
+the functor VX
+Corollary 2.8. For all n ∈ N and any X ∈ Mod-H there is a functor
+e n : A-Mod → Ainv -Mod,
+V
+X
+
+M 7→ ExtnH (X, Mµ ).
+
+The action of a ∈ Ainv on a cohomology class [f ] ∈ ExtnH (X, Mµ ) is given by a · [f ] = [a · f ]
+where a · f denotes the action (11) defined by acting on the target M of the cocycle f .
+
+3
+
+Reminder on braided tensor product
+
+If A1 , A2 are associative k-algebras then the vector space A1 ⊗k A2 has a canonical algebra
+structure defined by (a1 ⊗ a2 )(a′1 ⊗ a′2 ) = (a1 a′1 ) ⊗ (a2 a′2 ); this is known as tensor product of
+algebras. If Mi is an Ai -module for i = 1, 2 then the vector space M1 ⊗k M2 has a canonical
+structure of (A1 ⊗k A2 )-module defined by (a1 ⊗ a2 )(v1 ⊗ v2 ) = (a1 · v1 ) ⊗ (a2 · v2 ); this is known
+as external product of modules and denoted by M1 ⊠ M2 . The well-known definitions below
+generalize these basic facts to other ambient braided monoidal categories than Vectk .
+Let C be a monoidal category, say strict for simplicity. We assume that
+ C is equipped with
+∼
+a braiding, which is a natural isomorphism c = cX,Y : X ⊗ Y −→ Y ⊗ X X,Y ∈C satisfying the
+usual axioms, see e.g. [Kas95, §XIII.1]. In this case it is well-known that algebras and modules
+in C behave well with respect to the monoidal product [Maj92, Lem. 9.2.12]:
+10
+
+Definition 3.1. Let A1 , A2 be algebra objects in C, with products mi ∈ HomC (Ai ⊗ Ai , Ai ) and
+units ηi ∈ HomC (1, Ai ).
+e A2 is the algebra object (A1 ⊗ A2 , m12 , η12 ) where
+1. The braided tensor product A1 ⊗
+idA ⊗cA ,A ⊗idA
+
+m ⊗m
+
+2
+2
+m12 : (A1 ⊗ A2 ) ⊗ (A1 ⊗ A2 ) −−−1−−−2−−1−−−→
+A1 ⊗ A1 ⊗ A2 ⊗ A2 −−1−−→
+A1 ⊗ A 2 ,
+
+η1 ⊗η2
+
+η12 : 1 = 1 ⊗ 1 −−−→ A1 ⊗ A2 .
+2. For i = 1, 2 let Mi be an Ai -module object in C, with action ρi ∈ HomC (Ai ⊗ Mi , Mi ). The
+e M2 is the (A1 ⊗
+e A2 )-module object (M1 ⊗ M2 , ρ12 ) where
+braided external product M1 ⊠
+idA ⊗cA ,M ⊗idM
+
+ρ1 ⊗ρ2
+
+1
+2
+ρ12 : (A1 ⊗ A2 ) ⊗ (M1 ⊗ M2 ) −−−
+−−−2−−1−−−→
+A1 ⊗ M1 ⊗ A2 ⊗ M2 −−−→ M1 ⊗ M2 .
+
+Let H = (H, ·, 1, ∆, ε, S, R) be a quasitriangular Hopf algebra over a field k, with invertible
+antipode [CP94, Kas95]. We write the R-matrix R ∈ H ⊗2 as
+R = R[1] ⊗ R[2]
+which is a shortand for R =
+
+P
+
+i R[1],i ⊗ R[2],i . For future reference, recall:
+
+Quasi-cocommutativity: ∀ h ∈ H, R[1] h(1) ⊗ R[2] h(2) = h(2) R[1] ⊗ h(1) R[2] ,
+1
+2
+1
+2
+Quasitriangularity: R[1](1) ⊗ R[1](2) ⊗ R[2] = R[1]
+⊗ R[1]
+⊗ R[2]
+R[2]
+,
+1
+2
+2
+1
+R[1] ⊗ R[2](1) ⊗ R[2](2) = R[1]
+R[1]
+⊗ R[2]
+⊗ R[2]
+,
+1
+2
+1
+3
+2
+3
+2
+1
+3
+1
+3
+2
+Yang–Baxter equation: R[1]
+R[1]
+⊗ R[2]
+R[1]
+⊗ R[2]
+R[2]
+= R[1]
+R[1]
+⊗ R[1]
+R[2]
+⊗ R[2]
+R[2]
+Inverse: S(R[1] ) ⊗ R[2] = R[1] ⊗ S −1 (R[2] ) = R−1 ,
+
+(20)
+(21)
+(22)
+(23)
+
+Consequence of previous: S(R[1] ) ⊗ S(R[2] ) = R[1] ⊗ R[2] ,
+1
+2
+2
+1
+1
+2
+2
+1
+“Skew-inverse”: R[1]
+R[1]
+⊗ S(R[2]
+)R[2]
+= R[1]
+S −1 (R[1]
+) ⊗ R[2]
+R[2]
+= 1 ⊗ 1,
+
+(24)
+(25)
+(26)
+
+Unitality for counit: ε(R[1] ) R[2] = R[1] ε(R[2] ) = 1
+
+(27)
+
+3
+3
+2
+2
+1
+1
+denote three copies of R.
+⊗ R[2]
+and R3 = R[1]
+⊗ R[2]
+, R2 = R[1]
+⊗ R[2]
+where R1 = R[1]
+The R-matrix induces a braiding on the category Mod-H of right modules over H, given by
+
+cX,Y (x ⊗ y) = (y R[1] ) ⊗ (x R[2] ).
+
+∀ x ∈ X, ∀ y ∈ Y,
+
+■
+
+■
+
+(28)
+
+We record that, with this choice of ambient category, Definition 3.1 translates as follows:
+Lemma 3.2. Let A1 and A2 be right H-module-algebras.
+e A2 is the vector space A1 ⊗k A2 equipped with the product and
+1. The H-module-algebra A1 ⊗
+the right H-module structure given by
+e a2 )(a′1 ⊗
+e a′2 ) = a1 (a′1 R[1] ) ⊗
+e (a2 R[2] )a′2 ,
+(a1 ⊗
+e a2 ) h = (a1 h(1) ) ⊗
+e (a2 h(2) ).
+(a1 ⊗
+■
+
+■
+
+■
+
+■
+
+■
+
+(29)
+(30)
+
+e A2 )-module
+2. For i = 1, 2, let Mi be a H-equivariant Ai -module. The H-equivariant (A1 ⊗
+e M2 is the vector space M1 ⊗k M2 equipped with the left (A1 ⊗
+e A2 )-module structure and
+M1 ⊠
+the right H-module structure given by
+e v2 ) = a1 · (v1 R[1] ) ⊠
+e (a2 R[2] ) · v2 ,
+e a2 ) · (v1 ⊠
+(a1 ⊗
+e v2 ) h = (v1 h(1) ) ⊠
+e (v2 h(2) ).
+(v1 ⊠
+■
+
+■
+
+■
+
+11
+
+■
+
+■
+
+(31)
+(32)
+
+e a2 is just a
+In all the sequel, tensor products are understood to be over k. Note that a1 ⊗
+notation for a1 ⊗ a2 ∈ A1 ⊗ A2 which allows us to insist on the use of the braided product in
+e v2 is just a notation for v1 ⊗ v2 ∈ M1 ⊗ M2 .
+A1 ⊗ A2 . Similarly v1 ⊠
+As a side remark, quantum moment maps (Def. 2.6) behave well with respect to the braided
+tensor product of H-module-algebras, see Remark C.3 in Appendix C.
+Let A1 , . . . , Al be a family of right H-module-algebras and let Mj be a H-equivariant Aj module for each j. For further use we write down the generalization of formulas (29)–(32)
+e ... ⊗
+e Al
+in this situation. It is very convenient to introduce the linear maps ei : Ai → A1 ⊗
+defined by
+e 1A2 ⊗
+e ... ⊗
+e 1Al ,
+e1 (a1 ) = a1 ⊗
+
+e a2 ⊗
+e 1A3 ⊗
+e ... ⊗
+e 1Al ,
+e2 (a2 ) = 1A1 ⊗
+
+etc
+
+(33)
+
+for all ai ∈ Ai . The maps ei are morphisms of H-module-algebras which moreover satisfy
+e a2 ⊗
+e ... ⊗
+e al
+e1 (a1 )e2 (a2 ) . . . el (al ) = a1 ⊗
+
+
+and ej (aj )ei (ai ) = ei ai R[1] ej aj R[2] if i < j
+■
+
+(34)
+(35)
+
+■
+
+because of (8) and (27). It is clear that these two properties are enough to compute any product
+e ... ⊠
+e Ml is entirely described by
+e ... ⊗
+e Al . The action of A1 ⊗
+e ... ⊗
+e Al on M1 ⊠
+in A1 ⊗
+e ... ⊠
+e vl )
+ei (ai ) · (v1 ⊠
+e ... ⊠
+e vi−1 R[1](i−1) ⊠
+e (ai R[2] ) · vi ⊠
+e vi+1 ⊠
+e ... ⊠
+e vl .
+= v1 R[1](1) ⊠
+■
+
+■
+
+(36)
+
+■
+
+where the subscripts (1) , . . . , (i−1) indicate iterated coproduct on R[1] .
+Keeping these notations, we record a few further facts which will be useful in Appendix A.
+For all i = 1, . . . , l consider the associated representation morphisms ρi : Ai → Endk (Mi )
+and Di : H → Endk (Mi )op as in Remark 2.2. By (36), the representation morphism ρ of
+e ... ⊗
+e Al on the vector space M1 ⊗ . . . ⊗ Ml is given by
+A1 ⊗
+e ... ⊗
+e Al → Endk (M1 ) ⊗ . . . ⊗ Endk (Ml )
+ρ : A1 ⊗
+ei (ai ) 7→ D1 (R[1](1) ) ⊗ . . . ⊗ Di−1 (R[1](i−1) ) ⊗ ρi (ai R[2] ) ⊗ idMi+1 ⊗ . . . ⊗ idMl .
+
+(37)
+
+■
+
+The target of ρ is of course the usual (i.e. unbraided) tensor product of algebras. We can promote ρ to a morphism of right H-module-algebras if we define a right H-action on Endk (M1 ) ⊗
+. . . ⊗ Endk (Ml ) by
+
+N
+(E1 ⊗ . . . ⊗ El ) h = li=1 Di (h(i) ) ◦ Ei ◦ Di (S −1 (h(2l+1−i) )) .
+(38)
+■
+
+Lemma 3.3. Assume that the representation morphisms ρi : Ai → Endk (Mi ) are injective
+(resp. surjective) for all i. Then ρ defined in (37) is injective (resp. surjective) as well.
+Proof. It suffices to prove this for l = 2 because this case implies the result for all l by induction.
+Note first that:
+
+ (37)
+e a2 ) (34)
+ρ(a1 ⊗
+= ρ e1 (a1 ) ◦ ρ e2 (a2 ) = ρ1 (a1 ) ◦ D1 (R[1] ) ⊗ ρ2 (a2 R[2] )
+■
+
+(10)
+
+= ρ1 (a1 ) ◦ D1 (R[1] ) ⊗ D2 (R[2](1) ) ◦ ρ2 (a2 ) ◦ D2 (S −1 (R[2](2) ))
+
+Hence, using (26) and the fact that D1 , D2 and S are anti-morphism of algebras, we can rewrite
+this as
+
+
+e a2 ) ◦ D1 (S −1 (R[1] )) ⊗ D2 (S −1 (R[2](2) ))
+ρ1 (a1 ) ⊗ ρ2 (a2 ) = idM1 ⊗ D2 (R[2](1) ) ◦ ρ(a1 ⊗
+e aj2 ) = 0, with
+where ◦ is here the product in Endk (M1 ) ⊗ Endk (M2 ). It follows that if ρ(aj1 ⊗
+implicit summation on j, then ρ1 (aj1 ) ⊗ ρ2 (aj2 ) = 0. If ρ1 and ρ2 are injective, then ρ1 ⊗ ρ2 is
+also injective and thus aj1 ⊗ aj2 = 0. Surjectivity is proven along the same lines.
+12
+
+4
+
+Derived representations of moduli algebras
+
+In all this section, H = (H, ·, 1, ∆, ε, S, R) is a quasitriangular Hopf algebra over a field k;
+recall from §3 that we write R = R[1] ⊗ R[2] . We introduce some more notations which will be
+intensively used in the sequel.
+The Drinfeld element and its inverse are
+u−1 = S −2 (R[2] )R[1] .
+
+u = S(R[2] )R[1] ,
+
+(39)
+
+Its relevance comes from the fact that
+∀ h ∈ H,
+
+S 2 (h) = uhu−1 .
+
+(40)
+
+Let H-mod be the category of finite-dimensional left H-modules. For any X ∈ H-mod,
+σ ∈ X ∗ and x ∈ X the linear form
+σ
+X ϕx : H → k,
+
+h 7→ σ(h · x)
+
+(41)
+
+is called a matrix coefficient of X. The subspace H ◦ ⊂ H ∗ spanned by matrix coefficients of
+objects in H-mod is called restricted dual of H. When H is finite-dimensional one has H ◦ = H ∗
+because any linear form φ ∈ H is the matrix coefficient H ϕφ1 of the regular module H. The
+vector space H ◦ has the structure of a Hopf algebra which is dual to that of H. Its product ⋆
+is defined by
+σ
+τ
+σ⊗τ
+X ϕx ⋆ Y ϕy = X⊗Y ϕx⊗y
+
+i.e. ∀ h ∈ H,
+
+(φ ⋆ ψ)(h) = φ(h(1) )ψ(h(2) )
+
+(42)
+
+while its coproduct is defined on matrix coefficients by
+∆(X ϕσx ) = X ϕσxi ⊗ X ϕxx
+
+i
+
+(43)
+
+with implicit summation on i, where (xi ) is a basis of X and (xi ) is its dual basis. It is readily
+seen that
+∀ φ ∈ H ◦ , ∀ h, h′ ∈ H, φ(1) (h) φ(2) (h′ ) = φ(hh′ ).
+(44)
+The unit is 1H ◦ = ε = k ϕ11 , namely the counit of H. The counit εH ◦ (resp. antipode SH ◦ ) is
+defined by εH ◦ (φ) = φ(1H ) (resp. SH ◦ (φ) = φ ◦ S).
+The left and right coregular actions ▷, ◁ of H on H ∗ are defined by
+∀ h, h′ ∈ H, ∀ φ ∈ H ∗ ,
+
+(h ▷ φ)(h′ ) = φ(h′ h),
+
+(φ ◁ h)(h′ ) = φ(hh′ ).
+
+(45)
+
+The subspace H ◦ ⊂ H ∗ is stable by these actions; actually, even the subspace spanned by the
+matrix coefficients of a given H-module X is stable:
+∀ h ∈ H,
+
+h ▷ X ϕσx = X ϕσh·x ,
+
+σ
+σ(h·?)
+X ϕx ◁ h = X ϕx
+
+(46)
+
+where σ(h ·?) ∈ X ∗ is the linear form x′ 7→ σ(h · x′ ). Note that h ▷ φ = φ(2) (h) φ(1) and
+φ ◁ h = φ(1) (h) φ(2) . Also
+h ▷ (φ ⋆ ψ) = (h(1) ▷ φ) ⋆ (h(2) ▷ ψ),
+for all h ∈ H and φ, ψ ∈ H ◦ .
+
+13
+
+(φ ⋆ ψ) ◁ h = (φ ◁ h(1) ) ⋆ (ψ ◁ h(2) )
+
+(47)
+
+4.1
+
+Definition of Lg,n (H) and Linv
+g,n (H)
+
+Recall that H denotes a quasitriangular Hopf algebra. Our notations are those of [BFR25, §3.1,
+§4.1] where a construction of Lg,n (H) using twists is provided. Here we just recall the resulting
+definitions.
+We first treat the cases (g, n) = (0, 1) and (g, n) = (1, 0) which are the building blocks of
+the general definition.
+Definition 4.1. The right H-module-algebra L0,1 (H) is the vector space H ◦ endowed with the
+product
+
+
+2
+1
+2
+1
+φψ = R[2]
+S(R[2]
+) ▷ φ ⋆ R[1]
+▷ ψ ◁ R[1]
+(48)
+and with the right coadjoint action of H:
+∀ h ∈ H, ∀ φ ∈ H ◦ ,
+
+
+coadr (h)(φ) = S(h(2) ) ▷ φ ◁ h(1) = φ h(1) ?S(h(2) ) .
+
+(49)
+
+Here R1 , R2 denote two copies of the R-matrix R ∈ H ⊗ H, ⋆ is defined in (42) and ▷, ◁ are
+defined in (45). The product in L0,1 (H) is associative (straightforward computation using (23))
+and has unit element ε, the counit of H. The module-algebra axioms are easily checked.
+Definition 4.1 is a version of Majid’s transmutation of H ◦ [Maj92, Th. 7.4.1 and Ex. 9.4.10]
+(but here we work with H-modules instead of H ◦ -comodules), also called “braided dual”. It is
+R X∈H-mod ∗
+also a variant of Lyubashenko’s coend
+X ⊗ X (see Lemma 5.2).
+For later use we mention that L0,1 (H) is a Hopf algebra in Mod-H with the coproduct
+∆H ◦ defined in (43), but now viewed as a morphism of right H-module-algebras L0,1 (H) →
+e L0,1 (H). The antipode is given by
+L0,1 (H) ⊗
+
+
+SL0,1 : L0,1 (H) → L0,1 (H), φ 7→ SH ◦ S(R[1] ) ▷ φ ◁ R[2] u−1 = φ R[2] u−1 S(?)S(R[1] )
+(50)
+where SH ◦ = S ∗ is the antipode on H ◦ and u is the Drinfeld element (39). The counit is the
+same as in H ◦ , i.e. φ 7→ φ(1H ). By [Maj92, eq. (9.39)] the antipode of a Hopf algebra in a
+braided category is an antimorphism, but where one uses the braiding to switch the factors. If
+we apply this to L0,1 (H) in the category Mod-H with the braiding (28), it means that
+
+
+SL0,1 (φψ) = SL0,1 coadr (R[1] )(ψ) SL0,1 coadr (R[2] )(φ) .
+(51)
+One can also check directly this equality from the definitions, but the computation is involved.
+The subalgebra of H-invariant elements in L0,1 (H) is
+
+r
+Linv
+0,1 (H) = φ ∈ L0,1 (H) ∀ h ∈ H, coad (h)(φ) = ε(h)φ
+
+
+(52)
+= φ ∈ L0,1 (H) ∀ x, y ∈ H, φ(xy) = φ yS 2 (x) .
+
+Example 4.2. For a finite-dimensional H-module X let qTrX (h) = Tr ρX (uh) where ρX :
+H → Endk (X) is the representation morphism, u is the Drinfeld element (39) and Tr is the
+trace. It follows from (40) and the cyclicity of the trace that qTrX ∈ Linv
+0,1 (H). When H-mod is
+inv
+semisimple these are all the elements of L0,1 (H), see e.g. [BR19, Prop. 6.22]. If H has a ribbon
+element v we can use the pivotal element g = uv −1 instead of u for defining qTrX .
+Lemma 4.3. For all φ ∈ L0,1 (H) and ψ ∈ Linv
+0,1 (H) we have φψ = φ ⋆ ψ = ψφ. In particular
+
+inv
+L0,1 (H) ⊂ Z L0,1 (H) , where Z denotes the center.
+Proof. For all φ, ψ ∈ L0,1 (H) we can rewrite the product (48) as
+
+ (21)
+
+(25)
+1
+2
+2
+1
+φψ = S(R[2]
+R[2]
+) ▷ φ ⋆ S(R[1]
+) ▷ ψ ◁ R[1]
+= S(R[2] ) ▷ φ ⋆ coadr (R[1] )(ψ)
+14
+
+and also as
+
+ (21)
+
+(20)
+1
+2
+1
+2
+ψφ = φ ◁ R[1]
+R[1]
+⋆ S(R[2]
+) ▷ ψ ◁ R[2]
+= φ ◁ R[1] ⋆ coadr (R[2] )(ψ).
+If ψ ∈ Linv
+0,1 (H) the R-matrices disappear because (ε ⊗ id)(R) = (id ⊗ ε)(R) = 1.
+The inclusion in Lemma 4.3 is actually an equality for H = Uq (g) [BR19, Prop. 6.19] and for
+H finite-dimensional and factorizable [Fai19a, Th. 3.7].
+Let ib , ia : H ◦ → H ◦ ⊗ H ◦ be the linear embeddings given by ib (φ) = φ ⊗ ε, ia (φ) = ε ⊗ φ.
+Definition 4.4. The right H-module-algebra L1,0 (H) is the vector space H ◦ ⊗ H ◦ and its
+structure is uniquely characterized by the following conditions:
+• the linear maps ib , ia are morphisms of H-module-algebras L0,1 (H) → L1,0 (H),
+• for all β, α ∈ L0,1 (H) it holds
+ib (β)ia (α) = β ⊗ α,
+
+(53)
+
+2
+
+
+4
+
+4
+3
+1
+3
+1
+2
+ia (α) ib (β) = ib R[2]
+R[1]
+▷ β ◁ R[1]
+R[1] ia R[2]
+S(R[2]
+) ▷ α ◁ R[2]
+R[1]
+
+(54)
+
+where R1 , . . . , R4 denote four copies of the R-matrix.
+See [BFR25, §3.1] for more details. The unit element is ε ⊗ ε. As in the case of L0,1 (H), we
+denote by coadr the right action of H on L1,0 (H). Due to (53) and (7) we see that it is just
+the diagonal action of (49):
+∀ h ∈ H, ∀ β ⊗ α ∈ L1,0 (H),
+
+coadr (h)(β ⊗ α) = coadr (h(1) )(β) ⊗ coadr (h(2) )(α).
+
+(55)
+
+Said differently, L1,0 (H) is L0,1 (H) ⊗ L0,1 (H) as a right H-module.
+e in Mod-H (recalled in §3)
+For the general definition we use the braided tensor product ⊗
+of many copies of the H-module-algebras L1,0 (H) and L0,1 (H):
+e ... ⊗
+e L1,0 (H) ⊗
+e L (H) ⊗
+e ... ⊗
+e L0,1 (H).
+Definition 4.5. Lg,n (H) = L1,0 (H) ⊗
+{z
+} | 0,1
+{z
+}
+|
+g copies
+
+n copies
+
+As a vector space, Lg,n (H) is (H ◦ )⊗(2g+n) . By construction it is a right H-module-algebra
+for the diagonal action of (49), which we denote again by coadr :
+coadr (h)(φ1 ⊗ . . . ⊗ φ2g+n ) = coadr (h(1) )(φ1 ) ⊗ . . . ⊗ coadr (h(2g+n) )(φ2g+n ).
+
+(56)
+
+Said differently, Lg,n (H) is L0,1 (H)⊗(2g+n) as a right H-module.
+In order to describe the product in Lg,n (H) it is convenient to introduce some notations. Let
+b1 , a1 , . . . , bg , ag , mg+1 , . . . , mg+n be formal symbols. Later they will be interpreted as generators
+for the fundamental group of the oriented surface of genus g with n punctures and one boundary
+component. Label each copy of L0,1 (H) in Lg,n (H) by a symbol as follows:
+L1,0 (H)
+
+L1,0 (H)
+
+z
+
+}|
+z
+}|
+{
+{
+e ... ⊗
+e L0,1 (H) ⊗ L0,1 (H) ⊗
+e L0,1 (H) ⊗
+e ... ⊗
+e L0,1 (H).
+Lg,n (H) = L0,1 (H) ⊗ L0,1 (H) ⊗
+b1
+
+a1
+
+bg
+
+ag
+
+mg+1
+
+mg+n
+
+This gives H-linear embeddings4
+ibi , iai , img+j : L0,1 (H) → Lg,n (H)
+
+(1 ≤ i ≤ g, 1 ≤ j ≤ n).
+
+(57)
+
+For instance ib1 (φ) = φ ⊗ ε⊗(2g+n−1) , where ε is the counit of H. The following conditions
+[BFR25, Prop. 4.4] entirely characterize the H-module-algebra structure in Lg,n (H):
+4
+
+These embeddings were denoted by iB(i) , iA(i) , iM (g+j) in [BFR25]. This slight change of notation will be
+more convenient for later purpose.
+
+15
+
+Proposition 4.6. 1. For all 1 ≤ i ≤ g and 1 ≤ j ≤ n the embeddings ibi , iai , img+j : L0,1 (H) →
+Lg,n (H) are morphisms of H-module-algebras.
+2. For all β1 , α1 , . . . , βg , αg , γ1 , . . . , γn ∈ L0,1 (H) we have
+ib1 (β1 ) ia1 (α1 ) . . . ibg (βg ) iag (αg ) img+1 (γ1 ) . . . img+n (γn )
+= β1 ⊗ α1 ⊗ . . . ⊗ βg ⊗ αg ⊗ γ1 ⊗ . . . ⊗ γn .
+3. For all 1 ≤ i ≤ g and all φ, ψ ∈ L0,1 (H) we have
+
+
+4
+3
+1
+2
+3
+1
+2
+4
+iai (φ) ibi (ψ) = ibi R[2]
+R[1]
+▷ ψ ◁ R[1]
+R[1]
+iai R[2]
+S(R[2]
+) ▷ φ ◁ R[2]
+R[1]
+.
+4. Define ind(bi ) = ind(ai ) = i and ind(mg+j ) = g + j and let s, t be symbols5 with ind(t) >
+ind(s). For all φ, ψ ∈ L0,1 (H) and 1 ≤ i < j ≤ g + n we have
+
+
+it (φ) is (ψ) = is coadr (R[1] )(ψ) it coadr (R[2] )(φ)
+
+
+3
+4
+1
+2
+4
+2
+3
+1
+.
+R[2]
+) ▷ φ ◁ R[2]
+R[2]
+= is S(R[1]
+R[1]
+) ▷ ψ ◁ R[1]
+R[1]
+it S(R[2]
+In the two items above R1 , . . . , R4 are four copies of the R-matrix.
+Proof. Note first that by (33) we have embeddings of algebras
+e1 , . . . , eg : L1,0 (H) → Lg,n (H) and eg+1 , . . . , eg+n : L0,1 (H) → Lg,n (H).
+By definition, ibi = ei ◦ ib , iai = ei ◦ ia and img+j = eg+j , where ib , ia : L0,1 (H) → L1,0 (H)
+are morphisms of algebras by Definition 4.4. Thus item 1 is proven. For item 2 we note that
+ibi (βi )iai (αi ) = ei (βi ⊗ αi ) and use (34). Item 3 is obtained by applying ei to (54). Finally item
+4 comes from (35) and (21)-(22).
+In any H-module-algebra the subspace of elements which are H-invariant is a subalgebra,
+so we can make the following definition:
+Definition 4.7. The moduli algebra, or quantum character variety, is
+
+Linv
+(H)
+=
+x ∈ Lg,n (H) ∀ h ∈ H, coadr (h)(x) = ε(h)x
+g,n
+with coadr from (56) and ε is the counit of H.
+
+4.2
+
+H-equivariant Lg,n (H)-modules and derived representations
+
+Since the seminal work by Alekseev [Ale94], it is known that Lg,n (H) has representations on
+the vector spaces (H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn where each Xi is a H-module. Our purpose here is to
+put a H-equivariant structure (Def. 2.1) on these spaces and to deduce derived representations
+for Linv
+g,n (H) thanks to Theorem 2.4.
+For this we first define H-equivariant representations of L0,1 (H) on any H-module X and of
+L1,0 (H) on H ◦ and then assemble them thanks to the braided product of equivariant modules
+(Lem. 3.2). This will result in a representation of Lg,n (H) on (H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn which is
+H-equivariant and is equivalent to the one obtained from the Alekseev morphism, see App. A.
+Let adr be the right adjoint action (17) of H on itself; then (H, adr ) is a right H-modulealgebra. Consider the linear map
+Φ0,1 : L0,1 (H) → H,
+
+φ 7→ (φ ⊗ idH )(RR′ )
+
+(58)
+
+where R′ = R[2] ⊗ R[1] is the flip of R. It is well-known
+and not
+
+ difficult to check that Φ0,1 is a
+morphism of H-module-algebras L0,1 (H), coadr → H, adr .
+5
+
+That is elements in the list b1 , a1 , . . . , bg , ag , mg+1 , . . . , mg+n .
+
+16
+
+Lemma 4.8. Let (X, ·) be any left H-module and define
+∀ φ ∈ L0,1 (H), ∀ h ∈ H, ∀ x ∈ X,
+
+φ · x = Φ0,1 (φ) · x,
+
+x h = S(h) · x.
+■
+
+With this structure, X is a H-equivariant L0,1 (H)-module.
+Proof. The H-equivariance condition (9) follows from the H-linearity of Φ0,1 :
+
+
+coadr (h(1) )(φ) · (x h(2) ) = Φ0,1 coadr (h(1) )(φ) S(h(2) ) · x = adr (h(1) ) Φ0,1 (φ) S(h(2) ) · x
+= S(h(1) )Φ0,1 (φ)h(2) S(h(3) ) · x = S(h)Φ0,1 (φ) · x = (φ · x) h.
+■
+
+■
+
+Next we define a L1,0 (H)-module structure on the restricted dual H ◦ by means of an induced representation. This strategy was already used in [AS96a, §7.2] and has a topological
+interpretation discussed in [Fai25, §6]; here we promote it to a H-equivariant representation.
+The resulting module is cyclic, generated by the counit ε:
+Lemma 4.9. There is a structure of H-equivariant L1,0 (H)-module on H ◦ given by
+
+ib (φ) · ψ = φψ, ia (φ) · ψ = Φ0,1 coadr (R[2] )(φ) ▷ ψ ◁ R[1] ,
+ψ h = coadr (h)(ψ)
+■
+
+for all φ ∈ L0,1 (H), ψ ∈ H ◦ , h ∈ H and where φψ is the product (48), coadr is defined in (49).
+
+Proof. Let A = ia (φ) | φ ∈ L0,1 (H) , which is a subalgebra of L1,0 (H) isomorphic to L0,1 (H).
+Lemma 4.8 gives a representation of L0,1 (H) on the ground field k given by φ · 1k = φ(1H )1k
+due to (27). Consider the induced representation L1,0 (H) ⊗A k. Recall from (53) that any
+element in L1,0 (H) can be written as a linear combination of products of the form ib (β) ia (α)
+with α, β ∈ L0,1 (H). Since
+ib (β) ia (α) ⊗A 1k = ib (β) ⊗A α · 1k = α(1H ) ib (β) ⊗A 1k
+
+(59)
+
+we have an isomorphism of vector spaces
+∼
+
+L1,0 (H) ⊗A k → H ◦ ,
+
+ib (ψ) ⊗A 1k 7→ ψ.
+
+(60)
+
+Let us compute the resulting representation of L1,0 (H) on H ◦ . We have
+ib (φ) · ψ ∼
+= ib (φ)ib (ψ) ⊗A 1k = ib (φψ) ⊗A 1k ∼
+= φψ
+for all φ ∈ L0,1 (H) and ψ ∈ H ◦ , where ∼
+= denotes the identification (60). This shows in
+particular that this representation is cyclic, because ψ = ib (ψ) · ε for all ψ ∈ H ◦ , where ε is the
+counit of H. For the action of ia (φ), note that (59) is rewritten as
+ib (β) ia (α) · ε = (β ⊗ α) · ε = α(1H ) β
+
+(61)
+
+Hence
+
+
+(54)
+4
+3
+1
+2
+3
+1
+2
+4
+ia (φ) · ψ = ia (φ) ib (ψ) · ε = ib R[2]
+R[1]
+▷ ψ ◁ R[1]
+R[1]
+ia R[2]
+S(R[2]
+) ▷ φ ◁ R[2]
+R[1]
+·ε
+ 4 3
+ 4 3
+2
+4
+3
+1
+1
+2 (22)
+1
+4
+3
+1
+1
+= φ R[2]
+R[1]
+R[2]
+S(R[2]
+) R[2]
+R[1] ▷ ψ ◁ R[1]
+R[1]
+= φ R[2](1)
+R[1]
+R[2]
+S(R[2](2)
+) R[2]
+R[1] ▷ ψ ◁ R[1]
+which is the announced formula, by definitions of coadr in (49) and Φ0,1 in (58). To prove the
+H-equivariant property, note first that for all β ⊗ α ∈ L1,0 (H)
+ (55)
+
+coadr (h) β ⊗ α · ε = coadr (h(1) )(β) ⊗ coadr (h(2) )(α) · ε
+17
+
+(61),(49)
+
+=
+
+
+α S(h(2) )h(3) coadr (h(1) )(β)
+
+
+(61)
+= α(1H ) coadr (h)(β) = coadr (h) (β ⊗ α) · ε .
+It follows that coadr (h)(x) · ε = coadr (h)(x · ε) for all x ∈ L1,0 (H). Since L1,0 (H) is H-modulealgebra under coadr , we deduce that condition (9) holds as follows:
+
+coadr (h(1) )(x) · coadr (h(2) )(ψ) = coadr (h(1) )(x) ib coadr (h(2) )(ψ) · ε
+
+
+= coadr (h) x ib (ψ) · ε = coadr (h) x ib (ψ) · ε = coadr (h)(x · ψ)
+for all x ∈ L1,0 (H), ψ ∈ H ◦ and h ∈ H.
+e L0,1 (H)⊗e n . Combining Lemmas 4.8 and
+Recall that by definition Lg,n (H) = L1,0 (H)⊗e g ⊗
+4.9 thanks to item 2 in Lemma 3.2, we obtain the H-equivariant Lg,n (H)-modules
+e e
+e ... ⊠
+e Xn
+(H ◦ )⊠ g ⊠
+X1 ⊠
+
+(62)
+
+where X1 , . . . , Xn are any left H-modules endowed with the H-equivariant structure from
+Lemma 4.8. As a vector space this is just (H ◦ )⊗g ⊗X1 ⊗. . .⊗Xn . We write elements in the mode ... ⊠
+e ψg ⊠
+e x1 ⊠
+e ... ⊠
+e xn .
+ule (62) as ψ1 ⊗. . .⊗ψg ⊗x1 ⊗. . .⊗xn instead of the heavy notation ψ1 ⊠
+In order to describe explicitly the structure on (62) we use the embeddings ibi , iai , img+j :
+L0,1 (H) → Lg,n (H) from (57), which by Prop. 4.6 are the main tool to compute in Lg,n (H).
+Proposition 4.10. The right H-module structure on (62) is
+
+ψ1 ⊗ . . . ⊗ ψg ⊗ x1 ⊗ . . . ⊗ xn h
+= coadr (h(1) )(ψ1 ) ⊗ . . . ⊗ coadr (h(g) )(ψg ) ⊗ S(h(1) ) · x1 ⊗ . . . ⊗ S(h(g+n) ) · xn .
+■
+
+(63)
+
+The left Lg,n (H)-module structure on (62) is given by
+
+ibi (φ) · ψ1 ⊗ . . . ⊗ ψg ⊗ x1 ⊗ . . . ⊗ xn
+= coadr (R[1](1) )(ψ1 ) ⊗ . . . ⊗ coadr (R[1](i−1) )(ψi−1 ) ⊗ coadr (R[2] )(φ)ψi
+⊗ ψi+1 ⊗ . . . ⊗ ψg ⊗ x1 ⊗ . . . ⊗ xn ,
+
+iai (φ) · ψ1 ⊗ . . . ⊗ ψg ⊗ x1 ⊗ . . . ⊗ xn
+
+1
+1
+1
+2
+2
+= coadr (R[1](1)
+)(ψ1 ) ⊗ . . . ⊗ coadr (R[1](i−1)
+)(ψi−1 ) ⊗ Φ0,1 coadr (R[2]
+R[2]
+)(φ) ▷ ψi ◁ R[1]
+⊗ ψi+1 ⊗ . . . ⊗ ψg ⊗ x1 ⊗ . . . ⊗ xn .
+img+j (φ) · ψ1 ⊗ . . . ⊗ ψg ⊗ x1 ⊗ . . . ⊗ xn
+
+
+
+= coadr (R[1](1) )(ψ1 ) ⊗ . . . ⊗ coadr (R[1](g) )(ψg ) ⊗ S(R[1](g+1) ) · x1
+
+⊗ . . . ⊗ S(R[1](g+j−1) ) · xj−1 ⊗ Φ0,1 coadr (R[2] )(φ) · xj ⊗ xj+1 ⊗ . . . ⊗ xn .
+for all φ ∈ L0,1 (H), with 1 ≤ i ≤ g, 1 ≤ j ≤ n, where coadr is defined in (49) and
+coadr (R[2] )(φ)ψi means product in the sense of (48).
+Proof. The formula for the right H-action directly follows from (32) and the H-equivariant
+structures we put on H ◦ and the Xi ’s. The formulas for the action of Lg,n (H) directly follow
+from (36) and Lemma 4.9.
+Remark 4.11. When φ ∈ Linv
+0,1 (H), the formulas in Proposition 4.10 simplify dramatically:
+N
+N 
+N
+ibi (φ) ·
+ψ
+⊗
+k
+k
+l xl = ψ1 ⊗ . . . ⊗ (ψi ⋆ φ) ⊗ . . . ⊗ ψg ⊗
+l xl ,
+
+N
+N 
+N
+iai (φ) ·
+k ψk ⊗
+l xl = ψ1 ⊗ . . . ⊗ Φ0,1 (φ) ▷ ψi ⊗ . . . ⊗ ψg ⊗
+l xl ,
+
+N
+N  N
+img+j (φ) ·
+k ψk ⊗
+l xl =
+k ψk ⊗ x1 ⊗ . . . ⊗ Φ0,1 (φ) · xi ⊗ . . . ⊗ xn ,
+because of (27) and Lemma 4.3, where ⋆ is the usual product (42) in H ◦ .
+18
+
+For any left H-modules X, X1 , . . . , Xn let ΣX
+g,X1 ,...,Xn be the oriented surface of genus with
+n punctures labelled by X1 , . . . , Xn and one boundary circle labelled by X:6
+
+X
+
+ΣX
+g,X1 ,...,Xn =
+
+g
+
+1
+
+X1
+
+Xn
+
+To such a labelled surface, we associate the vector space
+◦ ⊗g
+V (ΣX
+⊗ X1 ⊗ . . . ⊗ Xn
+g,X1 ,...,Xn ) = HomH X, (H )
+
+
+
+(64)
+
+where (H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn has the right H-module structure (63) and X is viewed as a right
+H-module thanks to the antipode: x h = S(h) · x for all x ∈ X and h ∈ H (or equivalently one
+can directly take X ∈ Mod-H). In particular when X = k, the trivial H-module, V (Σkg,X1 ,...,Xn )
+is identified with the subspace of H-invariant elements in (H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn under (63).
+r
+Recall the subalgebra Linv
+g,n (H) of H-invariant elements under the right action coad (Def. 4.7).
+By Lemma 2.3 applied to the H-equivariant module (H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn there is a repreX
+sentation of Linv
+g,n (H) on the space V (Σg,X1 ,...,Xn ) given by acting on the target:
+■
+
+X
+∀ a ∈ Linv
+g,n (H), ∀f ∈ V (Σg,X1 ,...,Xn ), ∀ x ∈ X,
+
+(a · f )(x) = a · f (x).
+
+(65)
+
+In order to obtain the “derived” generalization of this representation, consider a projective
+resolution 0 ← X ← P0 ← P1 ← . . . of X in Mod-H. Using the functor V (Σ−
+g,X1 ,...,Xn ) =
+◦ ⊗g
+HomH (−, (H ) ⊗ X1 ⊗ . . . ⊗ Xn ) we build the complex
+1
+0
+) −→ . . .
+) −→ V (ΣPg,X
+0 −→ V (ΣPg,X
+1 ,...,Xn
+1 ,...,Xn
+
+We denote the m-th cohomology space of this complex by
+
+m
+◦ ⊗g
+V m (ΣX
+⊗ X1 ⊗ . . . ⊗ Xn .
+g,X1 ,...,Xn ) = ExtH X, (H )
+
+(66)
+
+0
+X
+∼
+∼
+Note that V 0 (ΣX
+g,X1 ,...,Xn ) = V (Σg,X1 ,...,Xn ) due to the general fact that Ext (M, N ) = Hom(M, N ).
+
+Theorem 4.12. For all H-modules X, X1 , . . ., Xn and all m ≥ 0 there is a representation of
+m
+X
+Linv
+g,n (H) on V (Σg,X1 ,...,Xn ) given as follows:
+∀ a ∈ Linv
+g,n (H),
+
+∀ [f ] ∈ V m (ΣX
+g,X1 ,...,Xn ),
+
+a · [f ] = [a · f ]
+
+Pm
+where [f ] is the cohomology class of a cocycle f ∈ V (Σg,X
+) and a · f is defined in (65).
+1 ,...,Xn
+
+Proof. Particular case of Theorem 2.4.
+
+L
+L
+m
+m
+X
+Remark 4.13. Let Lder
+(H)
+=
+Ext
+k,
+L
+(H)
+and V • (ΣX
+g,n
+g,n
+H
+g,X1 ,...,Xm ) =
+m
+m V (Σg,X1 ,...,Xm ).
+der
+•
+X
+Then by Remark 2.5, Lg,n (H) is a graded algebra which acts on the graded space V (Σg,X1 ,...,Xm ).
+der
+Theorem 4.12 is the restriction to the degree 0 subalgebra Linv
+g,n (H) ⊂ Lg,n (H).
+6
+
+The only reason we switch to n punctures and one boundary circle instead of n + 1 boundary circles (as in
+§1.1) is because it will be more convenient to have only one boundary circle when using stated skein algebras
+in §5.1.
+
+19
+
+5
+
+Topological applications
+
+Assumption: H = (H, ·, 1, ∆, ε, S, R, v) is a ribbon Hopf algebra with invertible antipode over
+a field k. In the course of the text more assumptions on H will be required (finite-dimensionality
+for Theorem 5.10(2) and moreover factorizability in §5.2.2 and §5.2.3) .
+We denote the ribbon element of H by v. Recall from e.g. [CP94, §4.2.C], [Kas95, §XIV.6]
+that it is a central and invertible element such that
+∆(v) = (R′ R)−1 (v ⊗ v),
+
+ε(v) = 1,
+
+S(v) = v,
+
+v 2 = uS(u)
+
+where u is the Drinfeld element (39). The pivotal element of H is
+g = uv −1 .
+
+(67)
+
+It satisfies
+∆(g) = g ⊗ g,
+
+and
+
+∀ h ∈ H, S 2 (h) = ghg −1 .
+
+(68)
+
+The category H-mod of finite-dimensional left H-modules is ribbon, with braiding given by
+cX,Y (x ⊗ y) = R[2] · y ⊗ R[1] · x and twist θX : X → X given by θX (x) = v −1 · x. We recall
+ that
+∗
+for any X ∈ H-mod the H-module structure on X is given by (h · σ)(x) = σ S(h) · x for all
+h ∈ H, σ ∈ X ∗ , x ∈ X.
+
+5.1
+
+Knot maps and boundary closure
+
+Let Σg,n be the oriented surface of genus g with n punctures and Σ◦g,n be the surface obtained
+by cutting an open disk from Σg,n . Recall that the notation ΣX
+g,X1 ,...,Xn means the boundary
+circle is colored by X while the punctures are colored by X1 , . . . , Xn . It is natural to expect
+that the choice X = k (the trivial H-module) has something to do with the surface where this
+boundary component has been closed. In this section we prove a precise statement supporting
+this idea. Namely, to each isotopy class of knot K ⊂ Σ◦g,n × [0, 1], we associate an element
+φ
+m
+k
+Wφ (K) ∈ Linv
+g,n (H) and we show that the representation of W (K) on the space V (Σg,X1 ,...,Xn )
+defined in Theorem 4.12 only depends of the isotopy class of K viewed in Σg,n × [0, 1]. The
+superscript φ is any element in Linv
+0,1 (H)
+The elements Wφ (K) were first defined in [BR96] under the name Wilson loops. They
+were re-defined in [BFK98a] (in a different formalism) through an axiomatic system of rules.
+Finally in [Fai25] they were recovered as a particular case of a holonomy operation for tangles
+in Σ◦g,n × [0, 1].
+It was proved in [BFR25] that there is an isomorphism between Lg,n (H) and a so-called
+st
+φ
+stated skein algebra SH
+(Σ◦,•
+g,n ). This allows for an even more natural construction of W which is
+st
+◦,• ∼
+presented here. The point is to first define knot maps iK : Linv
+0,1 (H) → SH (Σg,n ) = Lg,n (H) and
+φ
+then to let W (K) = iK (φ). This approach also greatly simplifies the construction of mapping
+class group representations in §5.2.
+5.1.1
+
+Stated skein algebras
+
+◦
+Let Σ◦,•
+g,n be the surface obtained by removing a point on the circle ∂(Σg,n ). The extra puncture
+• is relevant only when considering tangles whose endpoints lie in ∂(Σ◦,•
+g,n ) × [0, 1], as we will
+shortly recall. As a result we indicate the puncture • only when it is relevant to do so; for
+◦
+instance there is no reason to write π1 (Σ◦,•
+g,n ) instead of π1 (Σg,n ).
+◦,•
+Below is a picture of the surface Σ◦,•
+g,n . We fix some basepoint on ∂(Σg,n ), not to be confused
+with the puncture •, for the fundamental group π1 (Σ◦g,n ) and fix generators b1 , a1 , . . ., bg , ag ,
+mg+1 , . . ., mg+n of this (free) group:
+
+20
+
+bi
+
+ai
+i
+
+mg+j
+g
+
+i+1
+
+1
+
+1
+
+j
+
+n
+
+∂g,n
+
+We also put a preferred direction on the boundary arc ∂(Σ◦,•
+g,n ) and introduce a simple loop
+◦
+∂g,n ∈ π1 (Σg,n ). Note that the orientation of ∂g,n is opposed to the preferred direction on
+◦,•
+∂(Σ◦,•
+g,n ). By retracting ∂(Σg,n ) to a tubular neighborhood of the loops bi , ai , mg+j we get
+◦,•
+another picture for Σg,n , which will be more convenient in the sequel:
+
+b1
+
+a1
+
+bg
+
+mg+n
+
+mg+1
+
+ag
+
+(69)
+
+With this view it is immediate that
+−1
+−1 −1
+−1 −1
+∂g,n = b1 a−1
+1 b1 a1 b2 a2 b2 a2 . . . bg ag bg ag mg+1 mg+2 . . . mg+n .
+
+(70)
+
+st
+◦,•
+Let SH
+(Σ◦,•
+g,n ) the stated skein algebra of the bordered punctured surface Σg,n . The definition
+of this algebra is explained in great detail in [BFR25, §6.1].7 Let us just recall that one
+considers the k-vector space spanned by isotopy classes of H-colored oriented stated ribbon
+◦,•
+graphs G ⊂ Σ◦,•
+g,n × [0, 1] such that ∂G ⊂ (∂Σg,n ) × [0, 1] and the points of ∂G have strictly
+increasing heights when one follows the preferred direction on ∂(Σ◦,•
+g,n ) fixed above. A state is
+a label of each end-point of the graph G by a vector in the H-module coloring the strand to
+st
+which that point belong (or in its dual depending on the orientation). Then SH
+(Σ◦,•
+g,n ) is the
+quotient of this vector space by skein relations obtained by applying the Reshetikhin–Turaev
+functor [RT90] near the boundary. Examples of important stated skein relations are given in
+Figure 1. Hopefully the reader can grasp the definition from these examples; otherwise look at
+[BFR25, §6.1].
+The product G1 ∗ G2 of two stated ribbon graphs G1 , G2 is obtained by putting G1 (resp.
+1
+1
+◦,•
+G2 ) in Σ◦,•
+g,n × [0, 2 [ (resp. in Σg,n ×] 2 , 1]) by isotopy without changing the states and then taking
+st
+◦,•
+their union. This turns SH (Σg,n ) into an algebra.
+st
+(Σ◦,•
+There is moreover a right H-module-algebra structure on SH
+g,n ) obtained by acting on
+◦,•
+states: let G be a stated ribbon graph and p1 , . . . , pl ∈ ∂(Σg,n ) × [0, 1] be its boundary points,
+ordered by increasing height. Let si be the state at pi and Xi ∈ H-mod be the color of the
+strand in G which contains pi . For all h ∈ H, we define G h to be G with the new states
+s1 h(1) ⊗ . . . ⊗ sl h(l) , where
+(
+S(h(i) ) · si if si ∈ Xi (i.e. the strand goes upwards at pi )
+si h(i) =
+(71)
+si (h(i) ·?)
+if si ∈ Xi∗ (i.e. the strand goes downwards at pi )
+■
+
+■
+
+■
+
+■
+
+with si (h(i) ·?) ∈ Xi∗ the linear form defined by xi 7→ si (h(i) · xi ). Here is an example with three
+boundary points labelled by states s1 ∈ X1∗ , s2 ∈ X2 , s3 ∈ X3 :
+s1 (h(1) ·?) S(h(2) ) · s2 S(h(3) ) · s3
+s2
+s3
+s1
+X1
+
+X2
+
+X3
+
+■
+
+h=
+
+X1
+
+7
+
+X2
+
+X3
+
+(72)
+
+F. Costantino, J. Korinman and T. Lê are working on the definition and properties of stated skein algebras for surfaces with arbitrary many boundary components and arbitrary many punctures on each of these
+components.
+
+21
+
+x
+(i)
+
+f
+
+f (x)
+
+=
+
+X
+∗
+
+ψ
+Y
+
+(ii)
+
+Y
+
+f
+
+Y
+
+x
+
+Y
+
+X
+
+x⊗y
+
+=
+
+(v)
+
+x
+
+x
+(vi)
+
+xi
+X
+
+ψ
+
+φ
+
+X
+
+Y
+
+ψ
+
+x
+
+X
+
+Y
+
+=
+
+=
+
+idX⊗Y
+
+=
+
+φ(g −1 ·x)
+
+xi g·xi
+
+=
+(viii)
+
+X
+
+X
+
+y
+
+φ
+
+X
+
+Y
+
+(x)
+
+Y
+
+S(R[1] )·x ψ(R[2] ·?)
+
+(xii)
+
+Y
+
+Y
+
+X
+
+φ(R[1] ·?) ψ(R[2] ·?)
+
+X
+
+φ
+
+xi
+X
+
+X
+
+X⊗Y
+
+Y
+
+X
+
+φ(x)
+
+=
+
+X
+
+X
+
+φ⊗ψ
+
+=
+
+X
+
+X
+
+(vii)
+
+(xi)
+
+(iv)
+
+id(X⊗Y )∗
+
+=
+
+(ix)
+
+φ ψ
+
+X⊗Y
+
+Y
+
+φ
+
+X
+X
+
+y
+(iii)
+
+f ∗ (ψ)
+
+=
+
+y
+
+x
+
+X
+
+Y
+
+=
+
+X
+
+φ(R[1] ·?) S(R[2] )·y
+X
+
+=
+
+R[1] ·x
+X
+
+Y
+
+R[2] ·y
+Y
+
+Figure 1: Examples of stated skein relations. X and Y are finite-dimensional left H-modules,
+x ∈ X, φ ∈ X ∗ , y ∈ Y , ψ ∈ Y ∗ , f ∈ HomH (X, Y ). (xi ) is a basis of X, (xi ) is its dual basis.
+In (i) and (ii), f ∗ means the transpose of f . In (vii) and (viii) we use implicit summation on
+the index i.
+The arrow on the boundary in (72) indicates that the heights of the boundary points labelled
+by s1 , s2 , s3 form a strictly increasing sequence in [0, 1] along this direction.
+We now introduce the ingredients which will later enter in the definition of knot maps.
+Definition 5.1. 1. A knot K ⊂ Σ◦g,n × [0, 1] is an oriented and framed embedding of the circle
+S 1 , up to isotopy.
+2. A based knot K ⊂ Σ◦,•
+× [0, 1] is an oriented and framed embedding of the circle S 1 such
+g,n
+
+that K ∩ ∂(Σ◦,•
+g,n ) × [0, 1] is reduced to a point (the basepoint of the knot). We consider these
+knots up to isotopies such that the basepoint remains in ∂(Σ◦,•
+g,n ) × [0, 1].
+3. We say that a based knot is positively oriented if its orientation near its basepoint looks like
+when we draw it on the surface (69); otherwise we say it is negatively oriented.
+4. From a based knot one can obtain a knot, by forgetting the conditions regarding the basepoint.
+Note that a (based) knot is not allowed to contain coupons. Here is an example of a positively
+oriented and a negatively oriented based knot in Σ◦,•
+1,0 × [0, 1]:
+Kba =
+
+Lba =
+(73)
+
+When consider as usual knots, Kba and Lba become isotopic up to orientation. Simple (i.e.
+non-self intersecting) loops in π1 (Σ◦g,n ) have a basepoint in ∂(Σ◦g,n ) by definition and can be
+22
+
+embedded in Σ◦,•
+g,n × {t} for an arbitrary t ∈ [0, 1]; they are thus particular cases of based knots.
+This is illustrated in the example above: the based knot Lba is the simple loop (ba)−1 .
+∗
+σ
+st
+◦,•
+For a based knot K ⊂ Σ◦,•
+g,n × [0, 1], X ∈ H-mod, x ∈ X and σ ∈ X let X Kx ∈ SH (Σg,n ) be
+defined by:
+• If K is positively oriented then
+σ
+σ
+X Kx =
+
+x
+
+σ
+
+for instance:
+
+x
+
+σ
+X (Kba )x =
+
+X
+
+K
+
+K
+
+(74)
+
+which means that the stated skein follows exactly K in Σ◦,•
+g,n × [0, 1] according to its
+orientation, except in this small neighbourhood of the basepoint where K is represented
+in dashed line.
+• If K is negatively oriented then
+σ
+
+x
+
+σ
+X Kx =
+
+X
+
+K
+
+σ
+
+for instance:
+σ
+X Lba x =
+
+x
+
+K
+
+(75)
+
+where the picture has the same meaning as in the previous item.
+We see from (i) and (ii) in Fig. 1 that these elements obey dinaturality:
+τ
+f ∗ (τ )
+Y Kf (x) = X Kx
+
+∀ f ∈ HomH (X, Y ), ∀ x ∈ X, ∀ τ ∈ Y ∗ ,
+
+(76)
+
+where f ∗ is the transpose of f , because the coupon colored by f as in Fig. 1 can slide along K.
+st
+(Σ◦,•
+Moreover, by definition (71) of the right H-action on SH
+g,n ) we have
+■
+
+∀ h ∈ H,
+
+σ(h(1) ·?)
+σ
+X Kx ■ h = X KS(h(2) )·x .
+
+(77)
+
+If K is positively oriented then
+x
+
+σ τ
+
+σ
+⟨−,x⟩
+
+= X ∗ Kσ(g−1 ·?)
+
+X
+
+K−1
+
+yx
+
+Y
+
+X
+
+K−1
+
+K
+
+Y
+
+X
+
+K
+
+= X⊗Y Kσ⊗τ
+x⊗y
+(78)
+
+where in the first picture K−1 is K with the opposite orientation and ⟨−, x⟩ : X ∗ → k is defined
+by σ 7→ σ(x), while in the second picture the strands colored by X and Y are parallel and follow
+K closely. These facts are proved as in [BFR25, Proof of Lem. 6.4]. Note that if K is positively
+oriented then K−1 is negatively oriented and (xi) in Fig. 1, the 1st equality in (78) and (67)
+yield
+⟨−,S(R[1] )·x⟩
+−1 σ
+(79)
+X (K )x = X ∗ Kσ(R[2] u−1 ·?) .
+5.1.2
+
+Knot maps for stated skein algebras
+
+We denote by H-mod the category of finite-dimensional left H-modules. Recall from §4 that
+H ◦ ⊂ H ∗ is the subspace spanned by matrix coefficients X ϕσx : h 7→ σ(h · x), for all X ∈ H-mod
+and σ ∈ X ∗ , x ∈ X. Also recall that, to prevent confusion, left actions are denoted by · while
+right actions are denoted by .
+■
+
+23
+
+For any X ∈ H-mod consider the map
+dX : X ∗ ⊗ X → H ◦ ,
+
+σ ⊗ x 7→ X ϕσx .
+
+If we define a right H-action on X ∗ ⊗ X by
+(80)
+(σ ⊗ x) h = σ(h(1) · ?) ⊗ S(h(2) ) · x
+
+
+then dX becomes a right H-linear map X ∗ ⊗ X,
+→ H ◦ , coadr , with coadr from (49).
+The following fact was noted in [Lyu95, §3.3] and [BZBJ18, §6.1]; we give a proof within
+our conventions for convenience. This property holds for any Hopf k-algebra H:
+
+Lemma 5.2. Let (V, ) be any right H-module and jX : X ∗ ⊗ X → V X∈H-mod be a family
+of H-linear maps (with respect to the right action (80)) which satisfies dinaturality:
+■
+
+■
+
+■
+
+∀ f ∈ HomH (X, Y ),
+
+jX ◦ (f ∗ ⊗ idX ) = jY ◦ (idY ∗ ⊗ f ).
+
+Then there exists a unique H-linear map ω : (H ◦ , coadr ) → (V, ) such that jX = ω ◦ dX for
+all X ∈ H-mod.
+■
+
+Proof. As in (45), denote by ▷ the left coregular action of H on H ◦ . Given φ ∈ H ◦ , let H ▷ φ be
+the H-submodule generated by φ in (H ◦ , ▷). Observe that H ▷ φ is finite-dimensional because
+φ is a finite sum of matrix coefficients and the subspace C(X) ⊂ H ◦ of matrix coefficients of
+any X ∈ H-mod is finite-dimensional and stable under ▷. Let ⟨?, 1H ⟩ be the evaluation at 1H
+on H ◦ , which by restriction gives an element in (H ▷ φ)∗ . Define
+
+ω : H ◦ → V, φ 7→ jH ▷ φ ⟨?, 1H ⟩ ⊗ φ .
+We first claim that ω is k-linear. To see this note that, for any inclusion X ⊂ Y of left
+H-modules, dinaturality gives jY (σ ⊗ ι(x)) = jX (σ|X ⊗ x) for all x ∈ X and σ ∈ Y ∗ where
+ι : X ,→ Y is the inclusion map; we write this more briefly as jY (σ ⊗ x) = jX (σ ⊗ x). Then,
+for all φ, ψ ∈ H ◦ and λ ∈ k,
+
+ω(φ + λψ) = jH ▷ (φ + λψ) ⟨?, 1H ⟩ ⊗ φ + λψ
+
+
+= jH ▷ (φ + λψ) ⟨?, 1H ⟩ ⊗ φ + λjH ▷ (φ + λψ) ⟨?, 1H ⟩ ⊗ ψ
+
+
+= jH ▷ φ ⟨?, 1H ⟩ ⊗ φ + λjH ▷ ψ ⟨?, 1H ⟩ ⊗ ψ = ω(φ) + λ ω(ψ)
+where the third equality uses the inclusion trick explained just above.
+∗
+Now let
+subspace
+ us prove that ω ◦ dX =◦ jX . Fix σ ∈ X and consider the finite-dimensional
+Fσ = dX (σ ⊗ x) x ∈ X ⊂ H . Note that Fσ is a H-submodule of (H ◦ , ▷) because
+
+h ▷ dX (σ ⊗ x) = h ▷ X ϕσx = h ▷ σ(? · x) = σ(?h · x) = dX σ ⊗ (h · x) .
+This yields the left H-linear map πσ : X → (Fσ , ▷), x 7→ dX (σ ⊗ x). Hence for all x ∈ X,
+
+
+ω ◦ dX (σ ⊗ x) = jH ▷ dX (σ⊗x) ⟨?, 1H ⟩ ⊗ dX (σ ⊗ x) = jFσ ⟨?, 1H ⟩ ⊗ dX (σ ⊗ x)
+
+
+= jFσ ⟨?, 1H ⟩ ⊗ πσ (x) = jX ⟨πσ (?), 1H ⟩ ⊗ x = jX (σ ⊗ x)
+where the first equality is by definition of ω, the second is by the inclusion trick explained
+above, the third is by definition of πσ , the fourth is by dinaturality and for the fifth note that
+⟨πσ (?), 1H ⟩(x′ ) = ⟨πσ (x′ ), 1H ⟩ = σ(1H · x′ ) = σ(x′ ) for all x′ ∈ X.
+To prove H-linearity of ω, note that by definition of H ◦ any φ ∈ H ◦ is a finite sum of dX (σ ⊗ x)
+for certain X, σ, x. By k-linearity of ω, it suffices to check H-linearity of ω on such elements:
+
+
+ω coadr (h) dX (σ ⊗ x) = ω dX (σ ⊗ x) h
+■
+
+24
+
+
+
+= jX (σ ⊗ x) h = jX (σ ⊗ x) h = ω dX (σ ⊗ x) h
+■
+
+■
+
+■
+
+where we used H-linearity of dX and jX . Uniqueness of ω follows from the same argument: if
+there is ω ′ : H ◦ → V such that jX = ω ′ ◦ dX for all X then ω and ω ′ agree on all elements
+dX (σ ⊗ x), whence on the whole H ◦ by definition.
+Let K ⊂ Σ◦,•
+g,n ×[0, 1] be a based knot (Def. 5.1). Given X ∈ H-mod, the based knot elements
+σ
+X Kx defined in (74)–(75) assemble into a map
+st
+jK,X : X ∗ ⊗ X → SH
+(Σ◦,•
+g,n ),
+
+σ ⊗ x 7→ X Kσx .
+
+By (76) and (77), the family (jK,X )X∈H-mod satisfies the assumptions of Lemma 5.2. As a result
+we have a factorisation
+dX
+/ H◦
+X∗ ⊗ X
+jK,X
+
+&
+
+
+
+∃! jK
+
+st
+SH
+(Σ◦,•
+g,n )
+
+for all X. Recall from Definition 4.1 that L0,1 (H) is H ◦ as a k-vector space, so the following
+definition makes sense:
+st
+(Σ◦,•
+Definition 5.3. We call jK : L0,1 (H) → SH
+g,n ) the based knot map associated to K. It is
+σ
+σ
+σ
+given by jK (X ϕx ) = X Kx , where X ϕx : h 7→ σ(h · x) is any matrix coefficient of any finitedimensional H-module X.
+
+Here are the first basic properties of the based knot maps jK :
+Lemma 5.4. 1. For all based knot K the map jK is H-linear with respect to the right actions
+st
+(Σ◦,•
+coadr on L0,1 (H) from (49) and on SH
+g,n ) from (71).
+2. Let K be a positively oriented based knot and K−1 be K with the opposite orientation (thus
+negatively oriented). Then
+
+∀ φ ∈ L0,1 (H), jK−1 (φ) = jK SL0,1 (φ)
+■
+
+where SL0,1 is defined in (50).
+Proof. 1. By construction of jK thanks to Lemma 5.2.
+2. It is a consequence of (79):
+
+
+⟨−,S(R[1] )·x⟩
+⟨−,S(R )·x⟩
+jK−1 (X ϕσx ) = X ∗ Kσ(R[2] u[1]
+−1 ·?) = jK X ∗ ϕσ(R u−1 ·?)
+[2]
+
+
+
+.
+
+Now observe that for all h ∈ H,
+D
+E
+⟨−,S(R[1] )·x⟩
+∗
+ϕ
+,
+h
+= h · σ(R[2] u−1 ·?), S(R[1] ) · x = σ(R[2] u−1 ·?), S(h)S(R[1] ) · x
+X
+σ(R[2] u−1 ·?)
+
+
+= σ R[2] u−1 S(h)S(R[1] ) · x = SH ◦ S(R[1] ) ▷ X ϕσx ◁ R[2] u−1 , h = SL0,1 (X ϕσx ), h .
+From a based knot K ⊂ Σ◦,•
+g,n × [0, 1] one obtains a knot K by forgetting that the basepoint
+inv
+of K is constrained to be attached to ∂(Σ◦,•
+g,n ) × [0, 1] (item 4 in Def. 5.1). Recall that L0,1 (H)
+r
+is the subspace of invariant elements in L0,1 (H) under the right H-action coad ; see (52).
+Proposition 5.5. Let K1 and K2 be based knots in Σ◦,•
+g,n × [0, 1] which reduce to the same knot
+when we forget that they are based. If φ ∈ Linv
+(H)
+then
+jK1 (φ) = jK2 (φ).
+0,1
+inv
+st
+As a result there is a well-defined linear map jK : L0,1 (H) → SH
+(Σ◦,•
+g,n ) for all knot K.
+25
+
+Proof. The first claim is proven in Appendix B.1. For the second claim, choose any based knot
+K such that K reduces to K when we forget its basepoint. Then it suffices to put jK (φ) = jK (φ)
+and the first claim ensures that this value is independent of the choice of K.
+We recall that a loop γ ∈ π1 (Σ◦g,n ) is called simple if it can be represented by a curve without
+self-intersections. This is a particular case of a based knot, so we have the map jγ . Recall the
+st
+algebra structure on L0,1 (H) from Definition 4.1. Also recall the product ∗ on SH
+(Σ◦,•
+g,n ), which
+is given by stacking.
+Proposition 5.6. Let γ ∈ π1 (Σ◦g,n ) be a simple loop.
+1. If γ is positively oriented then jγ is a morphism of right H-module-algebras L0,1 (H) →
+st
+SH
+(Σ◦,•
+g,n ).
+st
+2. If γ is negatively oriented then jγ is a morphism of right H-modules L0,1 (H) → SH
+(Σ◦,•
+g,n )
+which satisfies
+
+
+∀ φ, ψ ∈ L0,1 (H), jγ (φψ) = jγ coadr (R[1] )(ψ) ∗ jγ coadr (R[2] )(φ) .
+Proof. The H-linearity was already proven for any based knot in item 1 of Lemma 5.4.
+1. We check the algebra morphism property as follows:
+1
+2
+2
+1
+σ x
+τ y
+σ τ (R[1] ·?) R[1] ·y R[2] S(R[2] )·x
+jγ (X ϕσx ) ∗ jγ (Y ϕτy ) =
+
+=
+X
+
+Y
+
+X⊗Y
+
+ϕR2 S(R1 )·x⊗R2 ·y
+[2]
+
+= jγ
+
+[2]
+
+Y
+
+γ
+
+1
+σ⊗τ (R[1]
+·?)
+
+
+
+
+X
+
+γ
+
+γ
+= jγ
+
+X
+
+Y
+
+[1]
+
+
+
+Y
+
+X
+
+γ
+
+1
+τ (R[1]
+·?)
+= jγ X ϕσR2 S(R1 )·x ⋆ Y ϕR2 ·y
+[2]
+[2]
+[1]
+
+
+
+
+
+
+
+
+1
+2
+1
+2
+= jγ X ϕσx Y ϕτy .
+▷ Y ϕτy ◁ R[1]
+) ▷ X ϕσx ⋆ R[1]
+S(R[2]
+R[2]
+
+In the pictures γ is drawn in dashed line and we only represent a neighborhood of its basepoint.
+Outside of this, the strands colored by X and Y are parallel to γ and all three stay in a same
+layer Σ◦,•
+g,n × {t}. For the second equality we used (x) and (xii) in Fig. 1, for the third we used
+the 2nd formula in (78), for the fourth we used the definition of ⋆ in (42), for the fifth we used
+(46) and the last is (48).
+2. Follows immediately from item 2 in Lemma 5.4, (51) and the previous item.
+To conclude this subsection, we note that there is an obvious action of the mapping class
+group on the stated skein algebra. Indeed, let MCG(Σ◦g,n ) be the mapping class group of Σ◦g,n ,
+i.e. the group of isotopy classes of diffeomorphisms Σ◦g,n → Σ◦g,n which fix pointwise both the
+punctures and the boundary. A mapping class f ∈ MCG(Σ◦g,n ) acts on an isotopy class of
+stated ribbon graph G ⊂ Σ◦,•
+g,n × [0, 1] simply by f (G) = (f × id[0,1] )(G) and without changing
+the states. Let us linearly extend this formula to formal linear combinations of stated ribbon
+graphs. Then the skein relations are compatible with the resulting action, since they occur only
+◦
+a small neighborhood of ∂(Σ◦,•
+g,n ) × [0, 1]. As a result, for all f ∈ MCG(Σg,n ) we get a linear
+map
+st
+st
+◦,•
+fe : SH
+(Σ◦,•
+G 7→ (f × id[0,1] )(G)
+(81)
+g,n ) → SH (Σg,n ),
+−1 . It is clear that fe is an algebra automorphism, because the product in
+whose inverse is fg
+st
+◦,•
+SH (Σg,n ) is given by stacking in the height component [0, 1] which is not modified by fe. From
+these remarks we get a group morphism
+
+st
+f 7→ fe.
+MCG(Σ◦g,n ) → Autalg SH
+(Σ◦,•
+g,n ) ,
+
+26
+
+We note as a side remark that fe is also compatible with the right H-module structure on
+st
+SH
+(Σ◦,•
+g,n ) from (71), and is thus an automorphism of H-module-algebra.
+An element f ∈ MCG(Σ◦g,n ) transforms a based knot K into the based knot f (K) =
+(f × id[0,1] )(K) because f fixes the boundary. Moreover f preserves the orientation of K
+and hence it is immediate from the definitions that
+∀ f ∈ MCG(Σ◦g,n ),
+5.1.3
+
+fe ◦ jK = jf (K) .
+
+(82)
+
+Knots maps for Lg,n (H) and boundary closure
+
+In [BFR25, §6.2] a morphism of algebras
+∼
+
+st
+holst : SH
+(Σ◦,•
+g,n ) −→ Lg,n (H)
+
+was defined by building upon results of [Fai25], and proved to be an isomorphism; the notation
+stands for “stated holonomy”.
+Remark 5.7. In [BFR25, eq. (88)] certain assumptions on H were added (besides being ribbon).
+The only reason for adding these assumptions was a concern regarding the well-definedness of
+st
+st
+a map ξg,n : Lg,n (H) → SH
+(Σ◦,•
+g,n ). This map was then proved to be the inverse of hol without
+using the extra assumptions. But using Lemma 5.2 above, one can easily show that ξg,n is
+always well-defined, thus the concern disappears and holst is an isomorphism for any ribbon
+Hopf algebra H.
+We give a property which characterizes holst and is enough for our purposes. Recall that a
+simple loop in π1 (Σ◦g,n ) can be seen as a based knot in Σ◦,•
+g,n ×[0, 1] (Def. 5.1). Consider the result◦,•
+st
+ing knot map js : L0,1 (H) → SH (Σg,n ) for any generator s ∈ {b1 , a1 , . . . , bg , ag , mg+1 , . . . , mg+n }
+of π1 (Σ◦g,n ) fixed in (69). Also recall the canonical embeddings is : L0,1 (H) → Lg,n (H) from
+(57). Then for each such s there is a commutative diagram
+L0,1 (H)
+
+js
+
+/ S st (Σ◦,• )
+g,n
+
+H
+
+is
+
+%
+
+
+
+(83)
+
+holst
+
+Lg,n (H)
+st
+In particular we deduce that holst is an isomorphism of H-module-algebras when SH
+(Σ◦,•
+g,n ) is
+r
+endowed with the right H-action in (71) and Lg,n (H) is endowed as usual with coad in (56),
+because is and js are H-linear.
+For any based knot K ⊂ Σ◦,•
+g,n × [0, 1] define a linear map
+
+iK = holst ◦ jK : L0,1 (H) → Lg,n (H)
+
+(84)
+
+where jK is the based map knot associated to K (Def. 5.3). Obviously:
+Corollary 5.8. The statements of Lemma 5.4 and Propositions 5.5 and 5.6 remain true if we
+replace everywhere j by i.
+In particular, by Proposition 5.5, for all (unbased) knot K ⊂ Σ◦g,n × [0, 1] there is a knot map
+inv
+iK : Linv
+0,1 (H) → Lg,n (H),
+
+φ 7→ iK (φ)
+
+(85)
+
+where K is any based knot which is isotopic to K when we consider it as an unbased knot.
+Example 5.9. In Σ◦0,2 × [0, 1] let
+27
+
+K=
+
+K=
+
+(the puncture on the boundary is relevant only when working with based knots). Then K
+reduces to K when considered as an unbased knot and we have
+1
+i
+2
+1
+2
+σ S(R[1] )R[2] xj x (R[2] ·?) S(R[1] )gxi xj
+x
+σ
+x
+jK (X ϕσx ) =
+
+X
+
+σ
+
+2
+1
+−, S(R[1]
+)R[2]
+xj
+
+
+= jm1
+
+1
+2 −1
+)gxi xj
+xi (R[2]
+g ·?) S(R[1]
+
+X∗
+
+X
+
+=
+
+X
+
+X
+
+=
+
+X
+
+x
+
+X
+
+2 )R1 ·x
+σ⊗ −,S(R[1]
+[2] j
+X⊗X ∗ ϕS(R1 )g·x ⊗xi (R2 g −1 ·?)
+i
+[1]
+[2]
+
+
+
+jm2 X ϕxx
+
+j
+
+The first equality is by definition of jK from (74) and Def. 5.3, the second equality uses (vii),
+(xi) and (xii) in Fig. 1, the third equality uses the first identity (78)and the last equality uses
+the second identity in (78). To obtain a simpler expression, let us evaluate this on an element
+h ⊗ k ∈ H ⊗ H:
+E
+D
+
+1
+i
+2 −1
+2
+1
+σ h(1) S(R[1] )g · xi h(2) · x R[2] g ·? , S(R[1] )R[2] · xj xj (k · x)
+
+
+
+
+1
+2 −1
+2
+1
+2
+1
+2
+1
+= σ h(1) S(R[1]
+)gR[2]
+g S(h(2) )S(R[1]
+)R[2]
+k · x = σ h(1) S(R[2]
+R[1]
+)S(h(2) )R[1]
+R[2]
+k·x
+where the second equality uses (68) and (25). It follows that for all φ ∈ L0,1 (H), the element
+iK (φ) ∈ L0,2 (H) = H ◦ ⊗ H ◦ ⊂ (H ⊗ H)∗ is characterized by
+
+2
+1
+2
+1
+∀ h, k ∈ H,
+iK (φ), h ⊗ k = φ h(1) S(R[2]
+R[1]
+)S(h(2) )R[1]
+R[2]
+k .
+For more complicated knots/surfaces it is faster to use the technique à la Hennings to evaluate
+iK (φ) [Fai25, §4.3]. The following picture illustrates this technique:
+1
+S(R[1]
+)
+
+henK (h ⊗ k)
+1 )gR2 g −1 S(h )S(R2 )R1 k
+= h(1) S(R[1]
+(2)
+[2]
+[1]
+[2]
+
+1
+R[2]
+
+g
+h(1)
+
+2
+S(R[1]
+)
+
+g −1 S(h(2) )
+
+2
+R[2]
+
+
+iK (φ), h ⊗ k = φ henK (h ⊗ k)
+
+k
+
+for all h, k ∈ H. In the general case of a based knot K drawn on the surface Σ◦g,n , this procedure
+defines a linear map henK : H ⊗(2g+n) → H which is dual to iK : H ◦ → (H ◦ )⊗(2g+n) . Note that
+in [Fai25, §4.3] there was an extra pivotal element g in henK because we used symmetric linear
+forms (i.e. φ(xy) = φ(yx)) instead of elements of Linv
+0,1 (H), see (52) and (68).
+Now let us change our point of view on the knot map (85): we fix φ while we allow K to
+vary. More precisely if Σ is an oriented surface denote by Knots(Σ) the set of isotopy classes
+of (unbased) oriented framed knots in Σ × [0, 1]. Then for any φ ∈ Linv
+0,1 (H) we have a map
+Wφ : Knots(Σ◦g,n ) → Linv
+g,n (H),
+28
+
+K 7→ iK (φ).
+
+(86)
+
+The inclusion Σ◦g,n ,→ Σg,n induces a surjection
+π : Knots(Σ◦g,n ) ↠ Knots(Σg,n ).
+Recall from §4.2 the spaces V (ΣX
+g,X1 ,...,Xn ) for all X, X1 , . . . , Xn ∈ H-Mod, their derived version
+V m (ΣX
+)
+and
+the
+representations
+of Linv
+g,n (H) on these spaces. In the next result we take
+g,X1 ,...,Xn
+X = k, the ground field on which H acts through the counit ε : H → k.
+Theorem 5.10. Recall that H is a ribbon Hopf algebra over a field k and let φ ∈ Linv
+0,1 (H).
+1. We have a commutative diagram
+Wφ
+
+Knots(Σ◦g,n )
+π
+
+/ Linv (H)
+g,n
+
+
+
+
+
+Knots(Σg,n )
+
+∃!
+
+rep. from (65)
+
+/ Endk V (Σk
+
+g,X1 ,...,Xn )
+
+
+
+2. Assume that H and X1 , . . . , Xn are all finite-dimensional. We have a commutative diagram
+Wφ
+
+Knots(Σ◦g,n )
+π
+
+g,n
+
+
+
+Knots(Σg,n )
+
+/ Linv (H)
+
+
+∃!
+
+rep. from Thm. 4.12
+
+/ Endk V m (Σk
+
+
+
+g,X1 ,...,Xn )
+
+In item 1, V (Σkg,X1 ,...,Xn ) is just the subspace of invariant elements in (H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn
+for the right action of H in (63).
+In order to prove the theorem, note that two knots K1 , K2 satisfy π(K1 ) = π(K2 ) if and
+only if they are related by a finite sequence of the following transformation taking place in a
+small neighborhood of the boundary annulus ∂(Σ◦g,n ) × [0, 1]:
+
+(87)
+On the left picture the strand represent any portion of a knot which is brought near the
+boundary by isotopy. We need to find how the transformation (87) interacts with the knot
+maps iK . Consider two based knots K and K∂ which look as follows in a neighborhood of
+∂(Σ◦,•
+g,n ) × [0, 1]:
+K∂ =
+
+K=
+
+(88)
+Thanks to isotopy we can always assume that the unbased knots in (87) have this orientation
+in the neighborhood of the boundary.
+Lemma 5.11. For all φ ∈ L0,1 (H),
+
+iK∂ (φ) = iK (φ(1) ) i∂g,n SL0,1 (φ(2) )
+with the coproduct (43), the antipode (50) and ∂g,n is the boundary loop (70).
+st
+Proof. It is a simple computation in SH
+(Σ◦,•
+g,n ). Since K∂ is negatively oriented,
+
+29
+
+X
+
+σ
+
+jK∂ (X ϕσx ) =
+
+X
+
+σ
+
+=
+x
+
+σ
+xi
+xi
+x
+
+X
+
+=
+x
+
+i
+
+x
+−1 (X ϕ ).
+= jK (X ϕσxi )j∂g,n
+x
+
+The first equality is from the definition of jK∂ in (75), the second equality uses isotopy and
+naturality of the twist, the third equality uses (vii) in Fig. 1 and the last equality is by the
+st
+definition of jK , j∂g,n in (74), (75) and the definition of the product in SH
+(Σ◦,•
+g,n ). The result
+now follows from the formula (43) which gives the coproduct on matrix coefficients, item 2 in
+Lemma 5.4 and finally by applying holst , recall the definition of iK in (84).
+The use of the resolution (97) and of the comparison theorem in the proof below were inspired
+by [LMSS23, p. 50], although they are used to prove a different result there.
+Proof of Theorem 5.10. In both items, for K1 , K2 ∈ Knots(Σ◦g,n ) such that π(K1 ) = π(K2 ), we
+want to show that the representations of iK1 (φ) and iK2 (φ) are equal. It suffices to show this
+for iK (φ) and iK∂ (φ), where K and K∂ are based knots which look like (88) in a neighborhood
+of the boundary. Write
+M = (H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn
+equipped with the H-equivariant structure from Prop. 4.10, so that V (Σkg,X1 ,...,Xn ) = HomH (k, M ) ∼
+=
+m
+inv
+inv
+m
+k
+M and V (Σg,X1 ,...,Xn ) = ExtH (k, M ). Let φ ∈ L0,1 (H) and consider the element
+
+si ⊗ ti = iK (φ(1) ) ⊗ Φ0,1 SL0,1 (φ(2) ) ∈ Lg,n (H) ⊗ H
+with implicit summation on i, where Φ0,1 has been introduced in (58). According to Lemma
+5.11 and Proposition C.1 in App. C we have
+
+
+iK∂ (φ) · w = iK (φ(1) ) i∂g,n SL0,1 (φ(2) ) · w = si · w S −1 (ti )
+(89)
+■
+
+for all w ∈ M . Also note that
+si ε(ti ) = iK (φ)
+
+(90)
+
+because εH ◦ Φ0,1 = εH ∗ and εH ∗ ◦ SL0,1 = εH ∗ .
+
+Proof of item 1. If w ∈ M inv then by (89) and (90), iK∂ (φ) · w = si · w ε(S −1 (ti )) = iK (φ) · w.
+Proof of item 2. Since φ ∈ Linv
+0,1 (H), it is easily seen from (44) and (52) that
+
+∀ h ∈ H, coadr (h)(φ(1) ) ⊗ φ(2) = φ(1) ⊗ coadr S(h) (φ(2) ).
+By H-linearity of the maps iK , SL0,1 and Φ0,1 we deduce that
+∀ h ∈ H,
+
+
+coadr (h)(si ) ⊗ ti = si ⊗ adr S(h) (ti )
+
+(91)
+
+where adr is the right adjoint action (17). Recall that for all P ∈ mod-H the representation
+(65) of Linv
+g,n (H) on HomH (P, M ) is given by acting on the target. Using Lemma 5.11 and
+Proposition C.1 we get
+
+
+(89)
+iK∂ (φ) · f, p = iK (φ) · f (p) = si · f (p) S −1 (ti ) = si · f p S −1 (ti )
+■
+
+■
+
+(92)
+
+for all f ∈ HomH (P, M ) and p ∈ P . Endow the dual vector space M ∗ with the right H-action
+defined by
+
+∀ ξ ∈ M ∗ , ∀ h ∈ H, ∀ w ∈ M, ⟨ξ h, w⟩ = ξ w S −1 (h) .
+(93)
+■
+
+30
+
+■
+
+By finite-dimensionality of M (due to the assumption), there is an isomorphism
+∼
+
+JP : HomH (P, M ) −→ HomH (M ∗ ⊗ P, k),
+
+⟨JP (f ), ξ ⊗ p⟩ = ξ(f (p))
+
+and the family J = (JP )P ∈mod-H is a natural isomorphism. Through JP we can transport
+∗
+the representation of Linv
+g,n (H) on HomH (P, M ) to a representation on HomH (M ⊗ P, k). For
+∗
+a ∈ Linv
+g,n (H) and F ∈ HomH (M ⊗ P, k) it is defined by
+
+∀ ξ ⊗ p ∈ M ∗ ⊗ P, ⟨a · F, ξ ⊗ p⟩ = F ξ(a·?) ⊗ p
+(94)
+where ξ(a·?) is the linear form w 7→ ξ(a · w). It follows from (92) and (94) that
+∀ F ∈ HomH (M ∗ ⊗ P, k),
+
+iK∂ (φ) · F = F ◦ TP∂
+
+and iK (φ) · F = F ◦ TP .
+
+(95)
+
+where TP∂ and TP are the endomorphisms of M ∗ ⊗ P defined by
+
+
+TP∂ (ξ ⊗ p) = ξ(si ·?) ⊗ p S −1 (ti ) , TP (ξ ⊗ p) = ξ iK (φ)·? ⊗ p.
+■
+
+A key property is that these endomorphisms are H-linear. Indeed,
+
+
+(93)
+TP∂ (ξ ⊗ p) h = ξ si · (? S −1 (h(1) ) ⊗ p S −1 (ti )h(2)
+
+
+= ξ si · (? S −1 (h(1) ) ⊗ p h(3) S −1 adr (h(2) )(ti )
+
+
+(91)
+= ξ coadr (S −1 (h(2) ))(si ) · (? S −1 (h(1) ) ⊗ p h(3) S −1 (ti )
+
+
+
+(9)
+= ξ (si ·?) S −1 (h(1) ) ⊗ p h(2) S −1 (ti ) = TP∂ (ξ ⊗ p) h
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+while H-linearity of TP is clear because iK (φ) ∈ Linv
+g,n (H) by H-linearity of iK (and hence the
+action of iK (φ) on M commutes with by item 1 in Lemma 2.3). The following naturality
+property is readily seen: for all d ∈ HomH (P, Q) we have commutative diagrams
+■
+
+M∗ ⊗ Q o
+∂
+TQ
+
+idM ∗ ⊗d
+
+M∗ ⊗ Q o
+
+M∗ ⊗ P
+
+
+
+
+
+TP∂
+
+TQ
+
+M ⊗ Q o id ∗ ⊗d M ⊗ P
+∗
+
+∗
+
+d
+
+
+
+M∗ ⊗ P
+
+
+(96)
+
+TP
+
+M ⊗ Q o id ∗ ⊗d M ⊗ P
+∗
+
+M
+
+d
+
+idM ∗ ⊗d
+
+∗
+
+M
+
+d
+
+Now let 0 ←− k ←−0− P0 ←−1− P1 ←−2− . . . be a projective resolution of k in mod-H. For
+P, X ∈ mod-H, it is well-known that if P is projective then so is X ⊗ P . Moreover the functor
+M ∗ ⊗ − is clearly exact (because it is exact in Vectk ). Thus
+id
+
+∗ ⊗d0
+
+id
+
+∗ ⊗d1
+
+id
+
+∗ ⊗d2
+
+M
+M
+M
+0 ←− M ∗ ←−−
+−−−− M ∗ ⊗ P0 ←−−
+−−−− M ∗ ⊗ P1 ←−−
+−−−− . . .
+
+(97)
+
+is a projective resolution of M ∗ in mod-H. This observation together with the naturality of J
+yields the isomorphism
+
+
+∼
+m
+∗
+J m : Extm
+[f ] 7→ JPm (f )
+(98)
+H (k, M ) −→ ExtH (M , k),
+for all m ≥ 0. Through J m , the representation from Th. 4.12 translates of course to a·[F ] = [a·F ]
+∗
+for all a ∈ Linv
+g,n (H) with F ∈ HomH (M ⊗ Pm , k) and a · F defined in (94).
+We are finally
+ready to prove item 2. By (96), the collections of H-morphisms T•∂ =
+
+Tk∂ , TP∂0 , TP∂1 , . . . and T• = Tk , TP0 , TP1 , . . . both are endomorphisms of the complex (97).
+Note from (90) that
+
+
+Tk∂ (ξ ⊗ 1) = ξ(si ·?) ⊗ 1 S −1 (ti ) = ξ(si ·?) ⊗ ε S −1 (ti ) = Tk (ξ ⊗ 1)
+■
+
+31
+
+for all ξ ∈ M ∗ , so that Tk∂ = Tk . Hence the endomorphisms of complexes T•∂ and T• both lift
+Tk along the projective resolution (97). By the comparison theorem, see e.g. [ML75, Th. 6.1],
+it follows that T•∂ and T• are chain-homotopic. Applying the pullback functor HomH (−, k) to
+T•∂ , T• and to the homotopy between them, we conclude that the endomorphisms of complexes
+HomH (M ∗ ⊗ P• , k) → HomH (M ∗ ⊗ P• , k),
+
+F 7→ F ◦ TP∂•
+
+and F 7→ F ◦ TP•
+
+are chain-homotopic as well. They thus yield the same maps on cohomology, i.e. on Ext•H (M ∗ , k).
+∗
+∗
+Hence for all cohomology class [F ] ∈ Extm
+H (M , k) coming from a cocycle F ∈ HomH (M ⊗
+Pm , k) we have
+(95)
+
+(95)
+
+iK∂ (φ) · [F ] = [iK∂ (φ) · F ] = [F ◦ TP∂m ] = [F ◦ TPm ] = [iK (φ) · F ] = iK (φ) · [F ]
+which is the desired result through the isomorphism (98).
+Remark 5.12. The maps Wφ defined in (86) can be generalized to a map W on the set of framed
+and oriented links in Σ◦g,n × [0, 1], which are moreover colored by elements in Linv
+0,1 (H) i.e. each
+connected component of the link is labelled by such an element; see [Fai25, Def. 4.13]8 . It is a
+generalization in the sense that Wφ (K) = W(K φ ) where K φ is K colored by φ. It is possible to
+define W by means of stated skein algebras as we did for knots. It is very likely that Theorem
+φ
+5.10 remains true when generalized to these Linv
+0,1 (H)-colored links, with W replaced by W. We
+have restricted ourselves to knots to avoid technicalities induced by having multiple basepoints
+(one for each connected component of the link).
+
+5.2
+
+Projective representations of mapping class groups
+
+The mapping class group of an oriented surface Σ is the group of orientation-preserving homeomorphisms of Σ considered up to isotopy; we denote it by MCG(Σ). A reference is [FM12].
+Recall that Σg,0 denotes the closed oriented surface of genus g and Σ◦g,0 is Σg,0 with one
+boundary circle; in this section we mainly work with such surfaces. Our goal is to obtain projective representations of the mapping class group MCG(Σ◦g,0 ) on the derived spaces V m (ΣX
+g ) as
+inv
+a corollary of the representations of Lg,0 (H) on these spaces (Thm. 4.12). Moreover we prove as
+a corollary of Theorem 5.10 that the choice X = k “closes the boundary” and gives projective
+representations of MCG(Σg,0 ). These representations are shown to be equivalent to those from
+[LMSS23] and generalise our previous work [Fai20] where we constructed a projective
+represen
+0
+k
+∗ ⊗g ∼
+0
+H
+∗ ⊗g ∼
+◦
+tation of MCG(Σg,0 ) on (H ) = V (Σg ) and of MCG(Σg,0 ) on Inv (H )
+= V (Σg ). These
+results require to assume that the ribbon Hopf algebra H is finite-dimensional and factorizable.
+The starting point of the construction is an action of MCG(Σ◦g,n ) on Lg,n (H) by algebra
+automorphisms. While in previous papers [AS96a, Fai20] this action was rather painful to
+st
+define (see Remark 5.16), the isomorphism Lg,n (H) ∼
+(Σ◦,•
+= SH
+g,n ) makes its existence obvious.
+5.2.1
+
+Mapping class group action on Lg,n (H)
+
+Here H is any ribbon Hopf algebra over a field k. Recall from (81) the action of the group
+st
+∼
+MCG(Σ◦g,n ) on SH
+(Σ◦,•
+g,n ) by algebra automorphisms. Thanks to the isomorphism Lg,n (H) =
+st
+◦,•
+SH (Σg,n ) we obtain a group morphism
+
+MCG(Σ◦g,n ) → Autalg Lg,n (H) ,
+8
+
+f 7→ fe
+
+(99)
+
+In [Fai25] the links are colored by symmetric linear forms, i.e. φ(xy) = φ(yx). These are in bijection with
+
+Linv
+0,1 (H) via φ 7→ φ ◁ g where g is the pivotal element, because of (52) and (68).
+
+32
+
+which actually takes values in the subgroup of H-module-algebra automorphisms, as already
+noted below (81). Recall the canonical embeddings ibi , iai , img+j : L0,1 (H) → Lg,n (H) from (57);
+they are particular cases of the based knots maps (84). Using the compatibility (82) between
+the mapping class group action and the based knots maps, we see that fe is described as follows:
+Corollary 5.13. Let f ∈ MCG(Σ◦g,n ). Then for any based knot K we have fe ◦ iK = if (K) . In
+particular
+
+
+
+∀ φ ∈ L0,1 (H), fe ibi (φ) = if (bi ) (φ), fe iai (φ) = if (ai ) (φ), fe img+j (φ) = if (mg+j ) (φ)
+for all 1 ≤ i ≤ g, 1 ≤ j ≤ n and these values entirely define fe by item 2 in Prop. 4.6.
+In order to have explicit formulas for fe, one would like to express each if (bi ) , if (ai ) and
+if (mg+j ) in terms of the “standard” embeddings ib1 , ia1 , . . . , ibg , iag , img+1 , . . . , img+n used to describe Lg,n (H) in Prop. 4.6. This relies on a remarkably simple formula:
+Proposition 5.14. Let γ ∈ π1 (Σ◦g,n ) be a simple loop and γ = γ1 . . . γl be its decomposition in
+±1
+±1
+terms of the generators a±1
+i , bi , mg+j fixed in (69). Then
+∀ φ ∈ L0,1 (H),
+
+
+iγ (φ) = φ(1) v N (γ) iγ1 (φ(2) )iγ2 (φ(3) ) . . . iγl (φ(l+1) )
+
+where φ(1) ⊗ . . . ⊗ φ(l+1) is iteration of the coproduct (43), v ∈ H is the ribbon element and
+N (γ) ∈ Z is defined in Def. B.2 of Appendix B.2.
+Proof. The proof is contained in Appendix B.2. Here we just note that π1 (Σ◦g,n ) is a free group
+generated by the loops ai , bi , mg+j . Hence the decomposition γ = γ1 . . . γl is almost unique:
+the only possible variations are of the form ss−1 and s−1 s for some generator s. They can be
+cancelled without changing the claimed formula for iγ because by item
+ 2 in Lemma 5.4 and
+item 1 in Proposition 5.6 we have is (φ(1) )is−1 (φ(2) ) = is φ(1) SL0,1 (φ(2) ) = is (ε) = 1SHst (Σ◦,•
+and
+g,n )
+−1
+similarly for s s.
+This example shows how to use Cor. 5.13 and Prop. 5.14 to describe explicitly fe:
+Example 5.15. Let τa1 be the Dehn twist about the of the loop a1 ∈ π1 (Σ◦g,n ) [FM12, §3.1].
+Precisely, one must consider the free homotopy class of a1 , i.e. forget that it is attached to
+the basepoint. Then we have τa1 (ai ) = ai for all i, τa1 (b1 ) = b1 a1 , τa1 (bj ) = bj if j > 1 and
+τa1 (mg+k ) = mg+k for all k. Hence τf
+a1 : Lg,n (H) → Lg,n (H) is given by
+
+
+−1
+τf
+τf
+a1 ib1 (φ) = ib1 a1 (φ) = φ(1) (v ) ib1 (φ(2) ) ia1 (φ(3) ),
+a1 ia1 (φ) = ia1 (φ),
+
+
+
+τf
+τf
+τf
+a1 ibj (φ) = ibj (φ),
+a1 iaj (φ) = iaj (φ),
+a1 img+k (φ) = img+k (φ)
+for all φ ∈ H ◦ , 2 ≤ j ≤ g and 1 ≤ k ≤ n.
+Remark 5.16. Proposition 5.14 and Corollary 5.13 were definitions of iγ and fe in [Fai19b, §5.3.3]
+and [Fai20, §5.2], building upon the ideas of [AS96a, §9.1]. Actually in my papers this was only
+for surfaces Σ◦g,0 . The automorphisms fe were first defined for a generating set of MCG(Σ◦g,0 );
+then long computations were required to check that they were indeed morphisms of algebras
+and that (99) was indeed a group morphism. This was then used to prove that iγ is a morphism
+of algebras, by transforming γ into a1 thanks to the mapping class group. Clearly the approach
+based on stated skein algebras presented here is much more natural. Note that these papers use
+a matrix formalism which makes their formulas look different from the ones here; the relation
+with the present notations is explained in [BFR25, §3.1, §4.1].
+
+33
+
+5.2.2
+
+Construction of the representation
+
+Recall that a quasitriangular Hopf algebra H is called factorizable if the morphism Φ0,1 from
+(58) is bijective [RS88].
+Assumption: From now on, we assume that H is finite-dimensional, ribbon and factorizable.
+We recall that k denotes the ground field of H.
+It is proven in Proposition A.1 that, under these assumptions on H, there is an isomorphism
+of algebras
+
+Lg,n (H) ∼
+= Endk (H ∗ )⊗g ⊗ H ⊗n , and in particular Lg,0 (H) ∼
+= Endk (H ∗ )⊗g .
+Hence Lg,0 (H) is isomorphic to a matrix algebra. By the Skolem–Noether theorem, any automorphism of Lg,0 (H) is the conjugation by some invertible element unique up to scalar. In
+other words there is an isomorphism of groups
+
+AutAlg Lg,0 (H) ∼
+(100)
+= Lg,0 (H)× /k×
+where the superscript × means subset of invertible elements.
+Recall the action of MCG(Σ◦g,n ) on Lg,n (H) by algebra automorphisms, described in Corollary 5.13 and which comes from the isomorphism between Lg,n (H) and the stated skein algebra.
+Combined with (100), it gives a map
+ ∼
+MCG(Σ◦g,0 ) −→ AutAlg Lg,0 (H) −→ Lg,0 (H)× /k×
+(101)
+f
+7−→
+fe
+7−→
+fb
+where the unique up to scalar invertible element fb is defined by
+∀ x ∈ Lg,0 (H),
+
+fe(x) = fbx fb−1 .
+
+(102)
+
+b
+Lemma 5.17. For all f ∈ MCG(Σ◦g,0 ) we have fb ∈ Linv
+g,0 (H), i.e. the element f is invariant
+r
+for the H-module structure coad from (56).
+Proof. Since H is factorizable we have the quantum moment map µg,0 = i∂g,0 ◦ Φ−1
+0,1 : H →
+Lg,0 (H) where ∂g,0 is the boundary loop (70), see Appendix C. Thus by (18) it suffices to check
+that fb commutes with µg,0 (h) for all h ∈ H:
+
+
+
+
+−1
+−1
+b
+b
+b
+b
+fbµg,0 (h) = fe µg,0 (h) fb = fe ◦ i∂g,0 Φ−1
+0,1 (h) f = if (∂g,0 ) Φ0,1 (h) f = i∂g,0 Φ0,1 (h) f = µg,0 (h) f
+where the first equality uses the defining property of fb, the third uses Corollary 5.13 and the
+fourth uses that the mapping class group fixes pointwise ∂g,0 by definition.
+Lemma 5.17 allows us to combine the
+(101) with the
+ groupm morphism
+ representations of
+m
+∗ ⊗g
+X
+∗ ⊗g
+X, (H )
+and V (Σg ) = ExtH X, (H )
+from §4.2. Hence,
+for all X ∈ mod-H, we get projective representations:
+
+X
+Linv
+g,0 (H) on V (Σg ) = HomH
+
+ ∼
+
+(65)
+RX : MCG(Σ◦g,0 ) −→ AutAlg Lg,0 (H) −→ Lg,0 (H)× /k× −−−→ PGL V (ΣX
+g ) ,
+
+ ∼
+◦
+×
+× Th. 4.12
+m
+X
+Rm
+X : MCG(Σg,0 ) −→ AutAlg Lg,0 (H) −→ Lg,0 (H) /k −−−−−→ PGL V (Σg ) .
+
+(103)
+
+More explicitly
+∀ f ∈ MCG(Σ◦g,0 ), ∀ s ∈ V (ΣX
+g ),
+
+34
+
+RX (f )(s) = fb · s
+
+(104)
+
+where fb · s is given by acting on the target of s, i.e. on (H ∗ )⊗g , thanks to the representation
+of Lg,0 (H) on (H ∗ )⊗g in Lemma 3.2. If 0 ← X ← P0 ← P1 ← . . . is a projective resolution in
+Pm
+mod-H, then for any cohomology class [s] ∈ V m (ΣX
+g ) of a cocycle s ∈ V (Σg ) we have
+∀ f ∈ MCG(Σ◦g,0 ),
+
+ 
+ 
+
+b
+Rm
+X (f ) [s] = RPm (f )(s) = f · s .
+
+(105)
+
+X
+0
+∼
+Note that V 0 (ΣX
+g ) = V (Σg ) and the projective representation RX is equivalent to RX .
+The natural group morphism MCG(Σ◦g,0 ) → MCG(Σg,0 ) is surjective [FM12, §4.2.5] and
+thus MCG(Σg,0 ) is a quotient of MCG(Σ◦g,0 ). For a special choice of X in (103) we obtain a
+projective representation of this quotient:
+
+Theorem 5.18. Let k be the trivial H-module. Then Rm
+k descends to a projective represenm
+k
+tation of MCG(Σg,0 ) on V (Σg ), for all m ≥ 0. In particular this is true for the projective
+representation Rk on V (Σkg ).
+The rest of this section is dedicated to the proof of this theorem.
+Lemma 5.19. Let ρ : MCG(Σ◦g,0 ) → G be a group morphism. Consider the curves αg and δ
+defined in Fig. 2 on p.38 below. If ρ(ταg ) = ρ(τδ ) then ρ factors through MCG(Σg,0 ).
+Proof. This follows from Wajnryb’s presentation of MCG(Σ◦g,0 ) and MCG(Σg,0 ) ([Waj83], also
+given in [FM12, Th. 5.3]). In this presentation one uses the Humphries generators, which are
+the Dehn twists about the curves α1 , α2 , βi (1 ≤ i ≤ g) and γj (1 ≤ j ≤ g − 1) in Fig. 2 below.
+For commodity write γ0 = α1 and let
+f = (τβg τγg−1 )(τβg−1 τγg−2 ) . . . (τβ1 τγ0 )(τγ0 τβ1 )(τγ1 τβ2 ) . . . (τγg−1 τβg )
+where τc means the Dehn twist about the curve γ. Then the presentation for MCG(Σg,0 ) is
+obtained by adding the relation f τδ f −1 = τδ to the presentation of MCG(Σ◦g,0 ).9 Making many
+drawings, it is not hard to see that f (δ) = αg and thus
+
+ρ(f )ρ(τδ )ρ(f )−1 = ρ f τδ f −1 = ρ(τf (δ) ) = ρ(ταg )
+where the second equality is a classical fact on Dehn twists [FM12, §3.3]. Hence by assumption
+on ρ we have ρ(f )ρ(τδ )ρ(f )−1 = ρ(τδ ), which shows that ρ is compatible with the extra relation.
+We want to apply Lemma 5.19 with ρ = Rm
+k . This is based on an auxilliary result
+(Prop. 5.21) whose statement and proof require some preliminaries.
+Recall that a left integral for H is a non-zero linear form λ ∈ H ∗ such that
+∀ h ∈ H,
+
+λ(h(2) )h(1) = λ(h)1H .
+
+Such a λ is known to be unique up to non-zero scalar and satisfies
+
+∀ x, y ∈ H, λ(xy) = λ yS 2 (x) ,
+i.e. λ ∈ Linv
+0,1 (H)
+
+(106)
+
+(107)
+
+see e.g. [Rad11]. A consequence of the factorizability assumption on H is the following formula
+λ ◦ S −1 = λ ◁ g −2
+
+(108)
+
+where g is the pivotal element (67); for a proof see e.g. [Fai19a, Lem. 5.9].
+9
+
+Actually to have a presentation in the formal sense one must express τδ in terms of the Humphries generators,
+see [FM12, p. 127].
+
+35
+
+Lemma 5.20. Let SL0,1 be the antipode (50) on L0,1 (H). We have
+SL0,1 (λ) = λ,
+
+SL0,1 (v ▷ λ) = v ▷ λ.
+
+Proof. For all h ∈ H,
+ (107)
+
+⟨SL0,1 (λ), h⟩ = λ R[2] u−1 S(h)S(R[1] ) = λ S −1 (R[1] )R[2] u−1 S(h) .
+Note that
+
+(39)
+(67)
+S −1 (R[1] )R[2] u−1 = S −1 S(R[2] )R[1] u−1 = S −1 (u)u−1 = S −1 (gv)g −1 v −1 = g −2
+because g is grouplike (whence S(g) = g −1 ) and
+ v is central and satisfies S(v) = v by definition.
+We conclude that ⟨SL0,1 (λ), h⟩ = λ g −2 S(h) = λ(h) thanks to (108). For the second claim,
+simply note that SL0,1 (v ▷ λ) = v ▷ SL0,1 (λ) because v is central and satisfies S(v) = v.
+Let c ⊂ Σ◦g,0 be a closed curve considered up to homotopy. As opposed to elements in
+π1 (Σ◦g,0 ), c is not assumed to be attached to a basepoint or to have an orientation. The closed
+curve c is called simple if its homotopy class contains a representative without self-intersections.
+In this case we have the Dehn twist τc ∈ MCG(Σ◦g,0 ), see e.g. [FM12, §3.1].
+We now give a formula for the element τbc ∈ Linv
+g,n (H) defined by (102). Note that a simple
+closed curve c endowed with an orientation can be seen as a knot in Σ◦g,0 × [0, 1] and thus by
+inv
+(85) we have the knot map ic : Linv
+0,1 (H) → Lg,n (H). Also recall that c is called non-separating
+if Σ◦g,0 \c is connected.
+Proposition 5.21. Let c ⊂ Σ◦g,0 be a non-separating simple closed curve endowed with an
+arbitrary orientation and denote by τc the Dehn twist about c. Then
+τbc = ic (v ▷ λ).
+A related formula was given in [AS96a, §9.2] for semisimple H; it was generalized to any H
+in [Fai20, Lem. 5.3] and proved through the isomorphism between L1,0 (H) and the Heisenberg
+double (see App. A). Here is a proof entirely in Lg,0 (H) and within the current notations:
+Proof. Note that the element ic (v ▷ λ) is independent of the orientation on c, thanks to item
+2 in Lemma 5.4 and Lemma 5.20. We first prove the result in the case where c is the simple
+closed curve α1 in Fig. 2 below. The generator a1 ∈ π1 (Σ◦g,0 ) defined in (69) can be choosen as a
+based knot representing α1 , so that by definition (85) we have iα1 (v ▷ λ) = ia1 (v ▷ λ). According
+to Example 5.15 we must show that for all φ ∈ L0,1 (H):
+ia1 (v ▷ λ)ia1 (φ) = ia1 (φ)ia1 (v ▷ λ),
+ia1 (v ▷ λ)ib1 (φ) = φ(1) (v −1 ) ib1 (φ(2) )ia1 (φ(3) )ia1 (v ▷ λ),
+ia1 (v ▷ λ)iaj (φ) = iaj (φ)ia1 (v ▷ λ), ia1 (v ▷ λ)ibj (φ) = ibj (φ)ia1 (v ▷ λ) for j ≥ 2.
+
+(109)
+(110)
+(111)
+
+(109) is immediate from Lemma 4.3 and (107). The two equalities in (111) are also immediate
+from item 4 in Prop. 4.6 and (107). For (110) note that φ(v ▷ λ) = φ ⋆ (v ▷ λ) for all φ ∈ L0,1 (H),
+due to (107) and Lemma 4.3. But
+
+ (106)
+
+⟨φ ⋆ (v ▷ λ), h⟩ = φ(h(1) )λ(vh(2) ) = φ S(v(1) )v(2) h(1) λ v(3) h(2) = φ S(v(1) ) (λ ◁ v(2) ), h .
+(112)
+Using this fact we get that the right-hand side of (110) equals
+φ(1) (v −1 ) ib1 (φ(2) )ia1 φ(3) (v ▷ λ)
+
+ (112)
+
+= φ(1) (v −1 ) ib1 (φ(2) )φ(3) S(v(1) ) ia1 (λ ◁ v(2) )
+36
+
+(44)
+
+
+= ib1 v −1 S(v(1) ) ▷ φ ia1 (λ ◁ v(2) )
+
+where we also used the centrality of v. The exchange relation in item 3 of Prop. 4.6 allows us
+to check that this result agrees with the left-hand side of (110):
+
+
+4
+2
+1
+3
+2
+1
+3
+4
+R[1]
+) ▷ λ ◁ R[2]
+S(R[2]
+ia1 vR[2]
+R[1]
+▷ φ ◁ R[1]
+R[1]
+ia1 (v ▷ λ)ib1 (φ) = ib1 R[2]
+
+
+(107)
+4
+3
+1
+2
+3
+1
+2
+4
+= ib1 R[2]
+R[1]
+▷ φ ◁ R[1]
+R[1]
+ia1 λ ◁ vS −2 (R[2]
+)S −1 (R[2]
+)R[2]
+R[1]
+
+
+(24)
+4
+3
+3
+4
+= ib1 R[2]
+R[1]
+▷ φ ia1 λ ◁ vS −2 (R[2]
+)R[1]
+
+
+
+
+(25)
+4
+3
+4
+3
+= ib1 v −1 S(v(1) ) ▷ φ ia1 (λ ◁ v(2) )
+R[1]
+) ▷ φ ia1 λ ◁ vR[2]
+)S −1 (R[2]
+= ib1 S S(R[1]
+where for the last equality we used (24) and the axiom ∆(v) = (R′ R)−1 (v ⊗ v) of the ribbon
+element, also recall (24) for R−1 . Now let c be as in the statement. By the change of coordinate
+principle [FM12, §1.3.1], there exists f ∈ MCG(Σ◦g,0 ) such that f (α1 ) = c. Then τc = f ◦τα1 ◦f −1
+[FM12, Fact 3.7] and ic = fe ◦ iα1 (Cor. 5.13). Hence, using the result for α1 just established, we
+find
+
+
+e
+b−1 (102)
+= fe τc
+τbc = fbτc
+α1 = f iα1 (v ▷ λ) = ic (v ▷ λ).
+α1 f
+m
+Proof of Theorem 5.18. By Lemma 5.19 it suffices to show that Rm
+k (ταg ) = Rk (τδ ). Recall
+that simple closed curves in Σ can be seen as knots in Σ × [0, 1]. Note that the simple closed
+curves αg and δ become isotopic under the injection Σ◦g,0 ,→ Σg,0 , thus the same is true if we
+look at them as knots in Σ◦g,0 × [0, 1]. As a result Thm. 5.10 applies to the associated knot
+inv
+maps iαg , iδ : Linv
+0,1 (H) → Lg,0 (H) and we get
+
+ (105)
+
+(105)
+m
+Rm
+= τc
+αg · [s] = iαg (v ▷ λ) · [s] = iδ (v ▷ λ) · [s] = τbδ · [s] = Rk (τδ ) [s] .
+k (ταg ) [s]
+for all [s] ∈ V m (Σkg ), where the second and fourth equalities use Prop. 5.21 while the third
+equality uses Thm. 5.10.
+5.2.3
+
+Explicit formulas and equivalence with the LMSS representations
+
+We continue with the assumptions of §5.2.2
+ on H.
+∗ ⊗g ∼
+Note that V (ΣH
+)
+=
+Hom
+H,
+(H
+)
+= (H ∗ )⊗g , where H is considered as a module over
+H
+g
+itself (regular representation). Through this identification, RH from (103) becomes a projective
+representation on (H ∗ )⊗g which we simply denote by R:
+∀ f ∈ MCG(Σ◦g,0 ), ∀ Ψ ∈ (H ∗ )⊗g ,
+
+R(f )(Ψ) = fb · Ψ
+
+where · is the representation of Lg,0 (H) on (H ∗ )⊗g (§4.2) and fb is defined in (102). As a side
+remark, R(f ) commutes with the right action (63) of H on (H ∗ )⊗g ; this is due to Lemma 5.17
+and item 1 in Lemma 2.3. The representation R encapsulates the action of MCG(Σ◦g,0 ) on the
+m
+X
+spaces V (ΣX
+g ) and their derived version V (Σg ) for all X ∈ mod-H. Indeed (104) is rewritten
+as
+RX (f )(s) = R(f ) ◦ s.
+(113)
+∀ f ∈ MCG(Σ◦g,0 ), ∀ s ∈ V (ΣX
+g ),
+Similarly (105) is rewritten as
+∀ f ∈ MCG(Σ◦g,0 ), ∀ [s] ∈ V m (ΣX
+g ),
+
+ 
+
+Rm
+X (f ) [s] = R(f ) ◦ s .
+
+(114)
+
+Let us then give the value of R on the Lickorish generators of MCG(Σ◦g,0 ), which are the Dehn
+twists about the curves αi , βi , γj represented in Fig. 2.
+37
+
+δ
+β1
+
+α1
+
+γ1
+
+βg−1
+
+β2
+γ2
+
+γg−1
+
+γg−2
+
+α2
+
+αg−1
+
+βg
+
+αg
+
+Figure 2: Some simple closed curves on the surface Σ◦g,0 .
+Proposition 5.22. The representations of the Lickorish generators through R are given by
+R(ταi )(ψ1 ⊗ . . . ⊗ ψg ) = ψ1 ⊗ . . . ⊗ ψi−1 ⊗ (v −1 ▷ ψi ) ⊗ ψi+1 ⊗ . . . ⊗ ψg ,
+
+R(τβi )(ψ1 ⊗ . . . ⊗ ψg ) = ψi S(v(1) ) ψ1 ⊗ . . . ⊗ ψi−1 ⊗ (λ ◁ v(2) ) ⊗ ψi+1 ⊗ . . . ⊗ ψg ,
+
+
+−1
+−1
+R(τγj )(ψ1 ⊗ . . . ⊗ ψg ) = ψ1 ⊗ . . . ⊗ ψj−1 ⊗ S(v(1)
+) ▷ ψj ⊗ ψj+1 ◁ v(2)
+⊗ ψj+2 ⊗ . . . ⊗ ψg
+for all ψ1 ⊗ . . . ⊗ ψg ∈ (H ∗ )⊗g , where v is the ribbon element and λ is the left integral of H
+normalized by λ(v) = 1.
+Proof. We already computed these formulas in [Fai20, Th. 5.12], modulo the fact that there
+we used another representation of Lg,0 (H) on (H ∗ )⊗g , namely the Alekseev representation
+explained in appendix A. This gives another projective representation R′ of MCG(Σ◦g,0 ) on
+
+(H ∗ )⊗g defined by R′ (f ) = Φ′g,0 (fb) with Φ′g,0 : Lg,0 (H) → Endk (H ∗ )⊗g from Prop. A.1.
+Within the present notations, the resulting formulas are10
+R′ (ταi )(ψ1 ⊗ . . . ⊗ ψg ) = ψ1 ⊗ . . . ⊗ ψi−1 ⊗ (v −1 ▷ ψi ) ⊗ ψi+1 ⊗ . . . ⊗ ψg ,
+
+
+R′ (τβi )(ψ1 ⊗ . . . ⊗ ψg ) = ψ1 ⊗ . . . ⊗ ψi−1 ⊗ v −1 ▷ (λ ◁ g −1 v) ⋆ (v ▷ ψi ) ⊗ ψi+1 ⊗ . . . ⊗ ψg ,
+
+
+′
+1 −1 2
+−1
+2
+1
+R (τγj )(ψ1 ⊗ . . . ⊗ ψg ) = ψ1 ⊗ . . . ⊗ ψj−1 ⊗ R[2] v(2) R[2] ▷ ψj ◁ S (R[1] )R[1]
+
+
+−1
+3
+4
+4
+3
+⊗ R[2]
+R[2]
+▷ ψj+1 ◁ S −1 (R[1]
+)S −1 (v(1)
+)R[1]
+⊗ ψj+2 ⊗ . . . ⊗ ψg
+From (126) below we have an isomorphism F ⊗g : (H ∗ )⊗g → (H ∗ )⊗g from the representation
+of §4.2 (used to build R) to the Alekseev representation (used to build R′ ), where F (ψ) =
+R[2] ▷ ψ ◁ R[1] . Hence
+
+
+F ⊗g R(f )(ψ1 ⊗ . . . ⊗ ψg ) = R′ (f ) F (ψ1 ) ⊗ . . . ⊗ F (ψg ) .
+The formula for R(ταi ) immediately follows from this equality by centrality of v. The formula
+for R(τγj ) is easily seen as well, using that S(v) = v. The formula for R(τβi ) can also be
+obtained from the isomorphism F ⊗g , but it is a non-trivial exercise which requires involved
+computations. It is much faster to prove it directly. Due to Proposition 5.21, the fact (107)
+that v ▷ λ ∈ Linv
+0,1 (H) and Remark 4.11 we have
+
+R(τβi )(ψ1 ⊗ . . . ⊗ ψg ) = ibi (v ▷ λ) · (ψ1 ⊗ . . . ⊗ ψg ) = ψ1 ⊗ . . . ⊗ ψi ⋆ (v ▷ λ) ⊗ . . . ⊗ ψg .
+
+In (112) we already noted that ψ ⋆ (v ▷ λ) = ψ S(v(1) ) λ ◁ v(2) , whence the result.
+Remark 5.23. Recall the morphism Φ0,1 from (58). One can show that Φ0,1 (v ▷ λ) = v −1 due
+to the property ∆(v) = (R′ R)−1 (v ⊗ v). This fact together with Proposition 5.21 and Remark
+4.11 gives a direct proof of the formula for R(ταi ), i.e. without using R′ . The formula for
+R(τγj ) is much harder to obtain directly (as it was with R′ ).
+10
+
+In [Fai19b], αi was denoted by aj , βj by bj and γj by dj+1 . Note the shift in this last case.
+
+38
+
+We finish by discussing the relation of our construction with that of [Lyu95] and [LMSS23].
+As already recalled in §1.1, for any finite ribbon factorizable category C, the Lyubashenko
+construction [Lyu95] produces a projective representation ZX of MCG(Σ◦g,0 ) on the space
+R X∈C ∗
+⊗g
+X ⊗ X. It is given by pushforZ(ΣX
+g ) = HomC (X, L ) for all X ∈ C, where L =
+ward:
+∀ f ∈ MCG(Σ◦g,0 ), ∀ s ∈ HomC (X, L⊗g ), ZX (f )(s) = Z(f ) ◦ s
+(115)
+where Z(f ) ∈ AutC (L⊗g ) is defined on the Lickorish generators by means of certain dinatural
+transformations which factorize through L⊗g .
+Take C = H-mod. Then L is H ∗ endowed with the left coadjoint action: coadl (h)(φ) =
+h(2) ▷ φ ◁ S(h(1) ) = φ S(h(1) )?h(2) for all h ∈ H and φ ∈ H ∗ . Recall that any right H-module
+(X, ) is automatically a left module (and conversely) through the formula h · x = x S −1 (h).
+For the vector space (H ∗ )⊗g endowed with the right H-action (63) this gives the left H-action
+
+
+h · (ψ1 ⊗ . . . ⊗ ψg ) = h(2g−1) ▷ ψ1 ◁ S −1 (h(2g) ) ⊗ . . . ⊗ h(1) ▷ ψg ◁ S −1 (h(2) ) .
+■
+
+■
+
+Denote by L′g this left H-module structure on (H ∗ )⊗g . Then
+
+(64)
+∗ ⊗g
+= HomH-mod (X, L′g )
+V (ΣX
+)
+=
+Hom
+X,
+(H
+)
+mod-H
+g
+for any H-module X. The map
+I : L⊗g → L′g ,
+
+ψ1 ⊗ . . . ⊗ ψg 7→ (ψg ◦ S) ⊗ . . . ⊗ (ψ2 ◦ S) ⊗ (ψ1 ◦ S)
+
+is easily seen to be an isomorphism of H-modules, where L⊗g is of course equipped with the
+X
+∼
+diagonal action given by coproduct. As a result the pushforward I∗ : Z(ΣX
+g ) = V (Σg ) is an
+isomorphism of vector spaces for all X. We proved in [Fai20, §6.2]11 that
+∀ f ∈ MCG(Σ◦g,0 ),
+
+I ◦ Z(f ) = R(f ) ◦ I.
+
+It immediately follows from (113) and (115) that I∗ is an intertwiner between Lyubashenko’s
+projective representation ZX and the projective representation RX defined in (103).
+m
+We also explained in §1.1 that in [LMSS23] the projective representation ZX
+of MCG(Σ◦g,0 )
+m
+⊗g
+m
+X
+on Z (Σg ) = ExtH-mod (X, L ) is given by
+⊗g
+∀ f ∈ MCG(Σ◦g,0 ), ∀ [s] ∈ Extm
+H-mod (X, L ),
+
+ 
+
+m
+ZX
+(f ) [s] = Z(f ) ◦ s
+
+(116)
+
+for all m ≥ 0. It immediately follows from (114) and (116) that the linear map [s] 7→ [I ◦ s]
+m
+is an intertwiner between the projective representation ZX
+of [LMSS23] and the projective
+m
+representation RX defined in (103).
+If X is the trivial H-module k then they all descend to equivalent projective representations
+of MCG(Σg,0 ).
+
+5.3
+
+Derived representations of skein algebras
+
+We first explain how Theorem 4.12 yields derived representations for skein algebras defined from
+any ribbon Hopf algebra H by means of the Reshetikhin–Turaev tangle invariant for H-mod.
+We then discuss the case of the Kauffman bracket skein algebra at roots of unity, which is
+different in nature since it is defined by specialization.
+11
+
+The intertwiner I has a simpler expression here than the intertwiner used in [Fai20] because here we use R
+while in [Fai20] we used R′ , where R′ was recalled in the proof of Prop. 5.22.
+
+39
+
+5.3.1
+
+General skein algebras
+
+Let H be a ribbon Hopf algebra over a field k. The skein algebra SH (Σ) of an oriented surface
+Σ is the k-vector space spanned by isotopy classes of H-colored framed and oriented links in
+Σ × [0, 1], modulo so-called skein relations which are obtained by applying the Reshetikhin–
+Turaev invariant of tangles inside small cubes in Σ × [0, 1]; see e.g. [BFR25, §6.2] for a complete
+definition.
+st
+Recall the stated skein algebra SH
+(Σ◦,•
+g,n ) from §5.1.1. There is a natural map
+
+
+st
+(Σ◦,•
+H-colored, framed, oriented links in Σ◦g,n × [0, 1] → SH
+g,n )
+
+because a link in Σ◦g,n × [0, 1] can be seen as a ribbon graph in Σ◦,•
+g,n × [0, 1] without boundst
+ary points. By very definition of the right action of H on SH
+(Σ◦,•
+g,n ) in (71), we see that this
+inv
+st
+map actually takes values in the subalgebra of invariant elements SH
+(Σ◦,•
+g,n ) . It is moreover
+st
+compatible with the skein relations in SH
+(Σ◦g,n ) [BFR25, Lem. 6.7] so it descends to an alge◦
+st
+◦,• inv
+bra morphism SH (Σg,n ) → SH (Σg,n ) . This morphism is not surjective when H-mod is not
+semisimple. More surprisingly, it might a priori be not injective; the point is that there are
+st
+◦
+more skein relations in SH
+(Σ◦,•
+g,n ) than in SH (Σg,n ) because of the possibility to interact with
+inv
+st
+is
+(Σ◦,•
+the boundary. On the other hand when H-mod is semisimple then SH (Σ◦g,n ) → SH
+g,n )
+an isomorphism [BFR25, Cor. 6.12].
+Recall from §5.1.3 that for any ribbon Hopf algebra H, there is a (iso)morphism of Hst
+(Σ◦,•
+module-algebras holst : SH
+g,n ) → Lg,n (H). We thus have an algebra morphism
+holst
+
+st
+inv
+W : SH (Σ◦g,n ) → SH
+(Σ◦,•
+−−→ Linv
+g,n )
+g,n (H)
+
+called Wilson loop map. By Theorem 4.12, its existence implies:
+Corollary 5.24. For all m ≥ 0 there is a representation of SH (Σ◦g,n ) on the derived spaces
+V m (ΣX
+g,X1 ,...,Xn ).
+The skein algebra SH (Σg,n ) is the quotient of SH (Σ◦g,n ) by the relation (87). Because of Theorem
+5.10, when H is finite-dimensional, it is natural to expect that the choice X = k (trivial Hmodule) in Corollary 5.24 closes the boundary component:
+g,n
+
+
+
+SH (Σg,n )
+
+/ Linv (H)
+
+W
+
+SH (Σ◦g,n )
+
+∃!
+
+
+/ Endk V m (Σk
+
+g,X1 ,...,Xn )
+
+
+
+More precisely this would immediately follow from the generalization of Thm. 5.10 suggested
+in Rmk. 5.12, because a H-colored link is a particular case of a Linv
+0,1 (H)-colored link, where all
+colors are of the form qTrX with X ∈ H-mod (see Example 4.2). In particular this would give
+representations of the skein algebra of the closed surface Σg,0 .
+5.3.2
+
+Kauffman bracket skein algebras at roots of unity
+
+Let q be a formal variable and Uq2 = Uq2 (sl2 ) be the quantum envelopping algebra of sl2 (C),
+considered over the ground ring C[q ±1/2 ].12 It is generated by E, F, K ±1 modulo the well-known
+relations, see e.g. in [Kas95, Def. VI.1.1]. It has a Hopf structure which can be found e.g. in
+12
+
+We choose this ground ring because the stated skein algebra is defined over it [Lê18, CL22], as we will recall
+later. It is even possible to work over Z[q ±1/2 ].
+
+40
+
+[Kas95, §VII.1]. For H = Uq2 , we use Oq2 (SL2 ) instead of the whole H ◦ .13 Although the Hopf
+algebra Uq2 (sl2 ) is not quasitriangular in the usual sense, there is the well-known formula for
+R whose action is well defined on X ⊗ Y for all finite-dimensional Uq2 -modules X, Y ; see e.g.
+[CP94, Prop 6.4.8]. This is enough to define Lg,n (Uq2 ) as the C[q ±1/2 ]-module Oq2 (SL2 )⊗(2g+n)
+endowed with the product described in Prop. 4.6.
+
+Here is a more concrete description of Lg,n (Uq2 ). Let ρ : Uq2 → M2 C[q ±1/2 ] be the 2dimensional representation of Uq2 given by
+
+
+
+
+ 2
+
+0 1
+0 0
+q
+0
+ρ(E) =
+, ρ(F ) =
+, ρ(K) =
+(117)
+0 0
+1 0
+0 q −2
+ 0
+
+ϕ (h) ϕ0 (h)
+and write ρ(h) = ϕ01 (h) ϕ11 (h) for all h ∈ Uq2 . This defines the matrix coefficients ϕ00 , ϕ01 , ϕ10 , ϕ11 ∈
+0
+
+1
+
+Oq2 (SL2 ) of ρ. A more popular notation is ϕ00 = a, ϕ01 = b, ϕ10 = c, ϕ11 = d. Then Lg,n (Uq2 ) is
+the C[q ±1/2 ]-algebra generated by
+ibi (ϕst ),
+
+iai (ϕst ),
+
+img+j (ϕst ) with 1 ≤ i ≤ g, 1 ≤ j ≤ n, 0 ≤ s, t ≤ 1
+
+modulo the relations that can be found e.g. in [Fai25, Lem. 5.1].14
+The right action coadr of Uq2 on L0,1 (Uq2 ) is easily computed: thanks to the module-algebra
+property, it suffices to determine the action of the generators E, F, K ∈ Uq2 on the generators
+ϕst ∈ L0,1 (Uq2 ). Since the embeddings ibi , iai , img+j : L0,1 (Uq2 ) → Lg,n (Uq2 ) are morphisms of
+module-algebras, this also entirely determines the action of Uq2 on Lg,n (Uq2 ). For instance:
+
+
+ −2 1 2 1
+
+q ϕ0 q (ϕ1 − ϕ00 )
+coadr (E)(ϕ00 ) coadr (E)(ϕ01 )
+−1
+−1
+.
+= −ρ(?EK ) + ρ(E?K ) =
+0
+−q 2 ϕ10
+coadr (E)(ϕ10 ) coadr (E)(ϕ11 )
+Recall that we denote by Linv
+g,n (Uq 2 ) the subalgebra of invariant elements for this action.
+st
+Denote by Sq (Σ) the Kauffman bracket stated skein algebra of a punctured bordered oriented surface Σ. It is the C[q ±1/2 ]-module freely spanned by the isotopy classes of framed
+(unoriented, uncolored) tangles in Σ × [0, 1] whose endpoints in ∂(Σ) × [0, 1] are labelled by
+states + or −, modulo the Kauffman bracket skein relations and additional boundary relations
+as defined in [Lê18, CL22]. The only difference with these papers here is that we use the
+opposite product.15 .
+Remark 5.25. This particular definition of stated skein algebra is of course equivalent to the
+one given in §5.1.1 if one takes H = Uq2 (sl2 ) there. The states −, + have to be interpreted as
+the basis vectors (1, 0), (0, 1) of the representation ρ in (117). All strands can be colored by
+ρ because every Uq2 -module appears as a direct summand of some tensor power ρ⊗k , see e.g.
+[Kas95, §VII.7]. Finally the orientation of the strands can be forgotten because ρ is self-dual,
+modulo the choice of a non-standard pivotal element [Fai25, §5] (i.e. we do not use g = K).
+Denote by Sq (Σ) the usual Kauffman bracket skein algebra of Σ, still over the ground ring
+C[q ±1/2 ]. In [Fai25, §5] we proved that there is a commutative diagram of C[q ±1/2 ]-algebras
+Sqst (Σ◦,•
+g,n )
+O
+
+?
+
+Sq (Σ◦g,n )
+
+∼
+=
+holst
+
+∼
+=
+W
+
+/ Lg,n (U 2 )
+O q
+?
+
+(118)
+
+(subalg.)
+
+/ Linv (U 2 )
+g,n
+
+q
+
+Uq2 (sl2 )◦ is generated by the matrix coefficients of the irreducible highest modules Vk± defined e.g. in
+[Kas95, VI.3.5]. For Oq2 (SL2 ) we only take matrix coefficients
+of thetype 1 modules Vk+ .
+
+0
+i (ϕ ) ibi (ϕ01 )
+14
+The change of notations with [Fai25] is B(i) = bi 01
+and similarly for A(i) and M (g + j).
+ibi (ϕ0 ) ibi (ϕ11 )
+15
+In our convention, L1 ∗ L2 means that put L1 below L2 in Σ × [0, 1].
+13
+
+41
+
+where Sq (Σ◦g,n ) is sent to the subalgebra of links in Sqst (Σ◦,•
+g,n ). The isomorphism W is explicit:
+if γ is a simple closed curve in Sq (Σ◦g,n ) we have W (γ) = iγ (qTrρ ) = −iγ (q 2 ϕ00 + q −2 ϕ11 ), with
+qTrρ from Example 4.2 and iγ : L0,1 (Uq2 ) → Lg,n (Uq2 ) can be computed through Proposition
+5.14. We note that J. Korinman generalized the diagram (118) to surfaces with arbitrary many
+boundary circles and arbitrary many punctures on each boundary circle [Kor23].
+Now let ϵ be a root of unity, say of order 4p with p ≥ 2 to follow the choices in [Fai25, §7].
+Being C[q ±1/2 ]-modules, the algebras above can be specialized to q = ϵ (with an arbitrary choice
+◦
+of ϵ1/2 ) and we denote them by Uϵ2 , Lg,n (Uq2 )ϵ2 , Linv
+g,n (Uq 2 )ϵ2 and Sϵ (Σg,n ); they are C-algebras.
+◦
+We want to construct “derived representations” of Sϵ (Σg,n ). Note that Theorem 4.12 cannot
+be applied to Lg,n (Uq2 )ϵ2 because this algebra is not of the form Lg,n (H). Instead the idea is
+to use a finite-dimensional quotient which has this form.
+Recall that the small quantum group is the following 2p3 -dimensional quotient of Uϵ2 :
+Uϵ2 = U ϵ2 (sl2 ) = Uϵ /⟨E p , F p , K 2p − 1⟩.
+The Hopf algebra Uϵ2 is not quasitriangular; instead there is an R-matrix in the extension of Uϵ2
+by a square root of K [FGST06a, §4.1]. Despite this small technical issue one can still define
+the algebra Lg,n (Uϵ2 ): it is (Uϵ∗2 )⊗(2g+n) as a C-vector space and is endowed with the product
+of §4.1 [Fai19a, §6]. Let ρ : Uϵ2 → M2 (C) be the representation defined as ρ in (117) but with
+q replaced by ϵ and consider the associated matrix coefficients ϕst with 0 ≤ s, t ≤ 1. Then
+Lg,n (Uϵ2 ) is generated by the elements ibi (ϕst ), iai (ϕst ) and img+j (ϕst ) with 1 ≤ i ≤ g, 1 ≤ j ≤ n,
+0 ≤ s, t ≤ 1 modulo the same relations as Lg,n (Uq )ϵ2 together with the extra relations
+is ϕ01
+
+p
+
+= 0,
+
+is ϕ10
+
+p
+
+= 0,
+
+is ϕ11
+
+2p
+
+=1
+
+for all s ∈ {b1 , a1 , . . . , bg , ag , mg+1 , . . . , mg+n }. As a result there are projections pr : Uϵ2 ↠ Uϵ2
+and prg,n : Lg,n (Uq )ϵ2 ↠ Lg,n (Uϵ2 ) which readily satisfy
+
+
+
+∀ h ∈ Uϵ2 , ∀ a ∈ Lg,n (Uq )ϵ2 , prg,n coadr (h)(a) = coadr pr(h) prg,n (a) .
+inv
+It follows that prg,n restricts to a morphism Linv
+g,n (Uq )ϵ2 → Lg,n (Uϵ2 ), which as a side remark is
+no longer surjective. Composing with W in (118) specialized to ϵ, we obtain a morphism of
+C-algebras
+prg,n
+Wϵ
+W : Sϵ (Σ◦g,n ) −−→
+Linv
+−−→ Linv
+g,n (Uq )ϵ2 −
+g,n (Uϵ2 )
+
+and Theorem 4.12 gives:
+Corollary 5.26. For any Uϵ2 -modules X, X1 , . . . , Xn and all m ≥ 0, there is a representation
+
+X, (Uϵ∗2 )⊗g ⊗ X1 ⊗ . . . ⊗ Xn .
+of the Kauffman bracket skein algebra Sϵ (Σ◦g,n ) on Extm
+U2
+ϵ
+
+This is less abstract than what it might look. Take the example of Σ◦1,0 . It is known that
+
+Sϵ (Σ◦1,0 ) is generated by the simple loops α, β in Fig. 2 [BP99]. We have W (α) = ia qTrρ and
+
+W (β) = ib qTrρ , where qTrρ = −ϵ2 ϕ00 − ϵ−2 ϕ11 ∈ Linv
+0,1 (Uϵ2 ). A straightforward computation
+2
+−2
+reveals that Φ0,1 (qTrρ ) = Ω where Ω = (ϵ − ϵ )F E + ϵ2 K + ϵ−2 K −1 ∈ Z(Uϵ2 ) is the Casimir
+element. By Remark 4.11, the action on any ψ ∈ Uϵ∗2 is
+W (α) · ψ = Ω ▷ ψ,
+
+W (β) · ψ = ψ ⋆ qTrρ .
+
+Endow Uϵ∗2 with the right coadjoint
+P ∈ mod-Uϵ2 , the action of
+ action (55). Then for any
+◦
+∗
+∗
+L ∈ Sϵ (Σ1,0 ) on f ∈ HomUϵ2 P, Uϵ2 is by acting on the target Uϵ2 , i.e. (L · f )(x) = W (L) · f (x).
+Finally, for a projective resolution 0 ← X ← P0 ← P1 ← . . . in mod-Uϵ2 , the action of L on a
+42
+
+
+
+cohomology class [f ] ∈ ExtUm 2 X, Uϵ∗2 represented by a cocycle f ∈ HomUϵ2 Pm , Uϵ∗2 is given
+ϵ
+
+
+by L · [f ] = L · f . Projective resolutions of simple Uϵ2 -modules are given in [FGST06b, §3.1].
+It is very likely that if X is the trivial module C then Corollary 5.26 descends
+ to a repre∗ ⊗g
+sentation of Sϵ (Σg,0 ). For m = 0, i.e. for the representation on HomUϵ2 C, (Uϵ2 ) , this is true
+and was proved in [Fai25, §7].16
+Remark 5.27. 1. In the forthcoming paper [BFR], building upon techniques in [BR24], we
+generalize some of the arguments above to any simple complex Lie algebra g, thus working
+with Uq (g) instead of Uq (sl
+surjection
+
+ 2 ). More precisely, we show that there is an algebra
+inv
+u
+(g)
+, where
+U
+(g)
+→
+L
+Lg,n Uq (g) ζ ↠ Lg,n uζ (g) which restricts to a morphism Linv
+ζ
+q
+g,n
+g,n
+ζ
+ζ ∈ C is a root of a unity whose order has suitable arithmetic properties and uζ (g) is a small
+quantum group, finite-dimensional quotient of Uζ (g).
+2. Let Sq (Σ, g) be the skein algebra whose relations come from the Reshetikhin–Turaev tangle invariant for Uq (g). At least for g = slN (C), there is a complete list of skein relations
+with coefficients in C[q ±1 ] [Sik05, LS24], and hence a specialization Sζ(Σ, g) of Sq (Σ, g) at the
+inv
+root of unity ζ is possible. For Σ = Σ◦g,n , the morphism Linv
+g,n Uq (g) ζ → Lg,n uζ (g) yields
+representations of Sζ (Σ, g) on Ext spaces over uζ (g) as in Corollary 5.26.
+
+A
+
+Alekseev morphism and representations of Lg,n(H)
+
+Let H be a quasitriangular Hopf algebra over a field k, with invertible antipode S and Rmatrix R = R[1] ⊗ R[2] . In this appendix we provide a short construction of a morphism
+Φ′g,n : Lg,n (H) → Endk (H ◦ )⊗g ⊗ H ⊗n which is an adaptation of [Ale94] and was used in
+[Fai20]. An important property, which was a key-fact for the construction of mapping class
+group representations in §5.2.2, is that Φ′g,n is an isomorphism when H is finite-dimensional and
+factorizable. The morphism Φ′g,n also yields representations of Lg,n (H) on (H ◦ )⊗g ⊗X1 ⊗. . .⊗Xn
+for any H-modules Xi and we will see that they are isomorphic to those of §4.2.
+Recall first that the Heisenberg double H(H ◦ ) = H ◦ # H is the vector space H ◦ ⊗H endowed
+with the (associative) product
+(α # a)(β # b) = α ⋆ (a(1) ▷ β) # a(2) b
+where ▷ is the left coregular action (45) and ⋆ is the product (42) which is dual to the coproduct
+∆ of H. Its unit element is ε # 1H where ε is the counit of H. It is customary to write #
+instead of ⊗ because H(H ◦ ) is a smash product [Mon93, §4.1.10]. In [BFR25, Lem. 3.6] it is
+proved that H(H ◦ ) is a right H-module-algebra when endowed with the following action:
+(α # a) h = S(h(2) ) ▷ α ◁ h(3) # S(h(1) )ah(4) .
+■
+
+There is a well-known representation of H(H ◦ ) on H ◦ given by
+∀ (α # a) ∈ H(H ◦ ), ∀ ψ ∈ H ◦ ,
+
+(α # a) · ψ = α ⋆ (a ▷ ψ).
+
+(119)
+
+We can make it H-equivariant (Def. 2.1) by letting
+∀ ψ ∈ H ◦ , ∀ h ∈ H,
+
+ψ h = S(h(1) ) ▷ ψ ◁ h(2) .
+■
+
+(120)
+
+Now recall the morphisms ib , ia : L0,1 (H) → L1,0 (H) from Def. 4.4 and consider the linear map
+Φ1,0 : L1,0 (H) → H(H ◦ )
+
+2
+3
+1
+3
+2
+1
+ib (φ) 7→ R[2]
+R[2]
+▷ φ ◁ R[1]
+R[1]
+# R[2]
+R[1]
+
+(121)
+
+ia (φ) 7→ ε # Φ0,1 (φ)
+16
+
+Actually in that paper we considered a slightly different representation which is a right representation, but
+the computations can be easily reproduced in the present setting.
+
+43
+
+for all φ ∈ L0,1 (H), where Φ0,1 : L0,1 (H) → H is defined in (58) and R1 , R2 , R3 are three copies
+of the R-matrix. It is known that Φ1,0 is a morphism
+of algebras [Ale94] which is moreover a
+
+r
+◦
+[BFR25, Prop. 3.7]. As a result, by pullback of
+H-linear map L1,0 (H), coad → H(H ),
+(119) and (120), we get a structure of H-equivariant L1,0 (H)-module on H ◦ :
+ 
+
+
+2
+3
+1
+3
+2
+1
+▷ ψ , ia (φ) · ψ = Φ0,1 (φ) ▷ ψ,
+R[1]
+⋆ R[2]
+R[1]
+▷ φ ◁ R[1]
+R[2]
+ib (φ) · ψ = R[2]
+(122)
+ψ h = S(h(1) ) ▷ ψ ◁ h(2)
+■
+
+■
+
+for all φ ∈ L0,1 (H), ψ ∈ H ◦ and h ∈ H. Introduce the following notations for the corresponding
+representation morphisms:
+ρ1,0 : L1,0 (H) → Endk (H ◦ ),
+D : H → Endk (H ◦ )op ,
+
+ρ1,0 (β ⊗ α)(ψ) = ib (β)ia (α) · ψ,
+D(h)(ψ) = S(h(1) ) ▷ ψ ◁ h(2) .
+
+Let e1 , . . . , eg : L1,0 (H) → Lg,n (H) and eg+1 , . . . , eg+n : L0,1 (H) → Lg,n (H) be the tensor-wise
+e L0,1 (H)⊗e n , defined as in (33). With these notations:
+embeddings in Lg,n (H) = L1,0 (H)⊗e g ⊗
+Proposition A.1. 1. There is a morphism of algebras
+Φ′g,n : Lg,n (H) → Endk (H ◦ )⊗g ⊗ H ⊗n
+(where the target is equipped with the usual tensor-wise product) defined by
+
+
+⊗(g−i)
+Φ′g,n ei (x) = D(R[1](1) ) ⊗ . . . ⊗ D(R[1](i−1) ) ⊗ ρ1,0 coadr (R[2] )(x) ⊗ idH ◦
+⊗ 1⊗n
+H
+for all 1 ≤ i ≤ g, x ∈ L1,0 (H), with coadr from (55), and
+
+Φ′g,n eg+j (φ) = D(R[1](1) ) ⊗ . . . ⊗ D(R[1](g) ) ⊗ S(R[1](g+1) ) ⊗ . . . ⊗ S(R[1](g+j−1) )
+
+⊗ Φ0,1 coadr (R[2] )(φ) ⊗ 1⊗n−j
+H
+for all 1 ≤ j ≤ n, φ ∈ L0,1 (H), with coadr from (49) and Φ0,1 from (58).
+2. If we endow Endk (H ◦ )⊗g ⊗ H ⊗n with the following structure of right H-module-algebra
+
+E1 ⊗ . . . ⊗ Eg ⊗ k1 ⊗ . . . ⊗ kn h
+
+
+= D(h(1) ) ◦ E1 ◦ D(S −1 (h(2g+2n) )) ⊗ . . . ⊗ D(h(g) ) ◦ Eg ◦ D(S −1 (h(g+2n+1) ))
+⊗ S(h(g+1) )k1 h(g+2n) ⊗ . . . ⊗ S(h(g+n) )kn h(g+n+1)
+■
+
+then Φ′g,n becomes a morphism of H-module-algebras.
+3. If the Hopf algebra H is finite-dimensional and factorizable, then Φ′g,n is an isomorphism.
+Proof. 1. By Lemma 4.8 there is a H-equivariant representation of L0,1 (H) on H; the corresponding representation morphisms are
+ρ0,1 : L0,1 (H) → Endk (H),
+D′ : H → Endk (H)op ,
+
+ρ0,1 (φ)(k) = Φ0,1 (φ)k,
+D′ (h)(k) = S(h)k.
+
+(123)
+
+Combining it with the H-equivariant representation (122) of L1,0 (H) on H ◦ , item 2 in Lemma
+e H ⊠e n . By (37) the
+e L0,1 (H)⊗e n on (H ◦ )⊠e g ⊠
+3.2 gives a representation of Lg,n (H) = L1,0 (H)⊗e g ⊗
+associated representation morphism ρg,n : Lg,n (H) → Endk (H ◦ )⊗g ⊗ Endk (H)⊗n is given by
+
+
+⊗(g−i)
+ρg,n ei (x) = D(R[1](1) ) ⊗ . . . ⊗ D(R[1](i−1) ) ⊗ ρ1,0 coad(R[2] )(x) ⊗ idH ◦
+⊗ 1⊗n
+H
+44
+
+for all 1 ≤ i ≤ g and
+
+
+
+ρg,n eg+j (φ) = D(R[1](1) ) ⊗ . . . ⊗ D(R[1](g) ) ⊗ D′ S(R[1](g+1) ) ⊗ . . . ⊗ D′ S(R[1](g+j−1) )
+
+⊗ ρ0,1 coadr (R[2] )(φ) ⊗ 1⊗n−j
+H
+for all 1 ≤ j ≤ n. Now note that because of the particular form of ρ0,1 and D′ (based on left
+multiplication in H), ρg,n actually takes values in Endk (H ◦ )⊗g ⊗ End(HH )⊗n , where End(HH )
+is the subspace of linear maps f : H → H such that f (hk) = f (h)k for all h, k ∈ H. Using the
+∼
+isomorphism of algebras End(HH ) → H given by f 7→ f (1H ), we define
+ρg,n
+
+∼
+
+Φ′g,n : Lg,n (H) −−−→ Endk (H ◦ )⊗g ⊗ End(HH )⊗n −→ Endk (H ◦ )⊗g ⊗ H ⊗n
+
+(124)
+
+which is a morphism of algebras as a composition of such. The claimed formulas for Φ′g,n
+immediately follow.
+2. Note from (123) that if f ∈ End(HH ) then for all h, h′ ∈ H we have D′ (h) ◦ f ◦
+′
+D (S −1 (h′ )) (1H ) = S(h)f (h′ ) = S(h)f (1H )h′ . Now the result follows from (38) and (124).
+3. This is [Fai20, Prop. 3.5]. Since the notations used there look quite different, here are a
+few details. By assumption Φ0,1 is an isomorphism and thus ρ0,1 is injective. Recall that ρ1,0
+Φ1,0
+
+(119)
+
+is the composition L1,0 (H) −−→ H(H ∗ ) −−−→ Endk (H ∗ ). It is not difficult to see that Φ1,0 is
+an isomorphism under our assumptions on H [Fai19a, Th. 4.8]. Moreover, it is a remarkable
+fact that the representation of H(H ◦ ) on H ◦ is faithful [Mon93, Lem. 9.4.2] for all H. Hence,
+when H is finite-dimensional, the arrow H(H ∗ ) → Endk (H ∗ ) is an isomorphism by equality of
+dimensions. As a result ρ1,0 is an isomorphism. It follows that ρg,n is injective by Lemma 3.3
+and thus Φ′g,n is injective as well because of the factorization (124). To conclude, it suffices to
+note that the source and target of Φ′g,n have the same dimension, namely dim(H)2g+n .
+Remark A.2. 1. In [Fai20] we used an isomorphism which has H(H ∗ )⊗g ⊗ H ⊗n for target.
+When H is finite-dimensional we have H(H ∗ ) ∼
+= Endk (H ∗ ) and the morphism Φ′g,n above
+coincide exactly with the one in [Fai20] through this identification.
+2. Our definition of Φ′g,n is especially suited for finite-dimensional H. See [BFR25, §5] for the
+definition of a morphism Φg,n which is more suited for the infinite-dimensional case, because in
+this case its target is smaller. Also see [BFR25, Rmk. 5.5] for a comparison on the two different
+conventions to combine Φ0,1 and Φ1,0 in order to define Φ′g,n and Φg,n .
+e of H-equivariant modules from Lemma 3.2. Let H ◦
+Recall the braided external product ⊠
+old
+◦
+(resp. Hnew ) be the representation of L1,0 (H) defined in (122) (resp. in Lemma 4.9) and let
+X1 , . . . , Xn be left H-modules. On the one hand, the morphism Φ′g,n gives a representation of
+Lg,n (H) on the vector space (H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn ; by the proof of Proposition A.1, this
+e e
+◦ ⊠
+e ... ⊠
+e Xn . On the other hand, the representation of
+representation is exactly (Hold
+) g⊠
+X1 ⊠
+e
+◦
+e X1 ⊠
+e ... ⊠
+e Xn by definition. The linear map
+Lg,n (H) constructed in §4.2 is (Hnew
+)⊠ g ⊠
+◦
+◦
+F : Hnew
+→ Hold
+,
+
+ψ 7→ R[2] ▷ ψ ◁ R[1]
+
+(125)
+
+is easily seen to be an isomorphism of H-equivariant L1,0 (H)-modules. As a result
+e e
+e e
+◦
+◦ ⊠
+e ... ⊠
+e Xn → (Hold
+e ... ⊠
+e Xn
+F ⊗g ⊗ idX1 ⊗ . . . ⊗ idXn : (Hnew
+)⊠ g ⊠
+) g⊠
+X1 ⊠
+X1 ⊠
+
+is an isomorphism of H-equivariant Lg,n (H)-modules.
+
+B
+
+Proofs of results on based knot maps
+
+We recall that in these results H is a ribbon Hopf algebra over a field k.
+45
+
+(126)
+
+B.1
+
+Proof of Prop. 5.5
+
+Recall that given a finite-dimensional H-module X and σ ∈ X ∗ , x ∈ X, we denote by X ϕσx :
+H → k the linear form h 7→ σ(h · x) which is called a matrix coefficient of X. By definition,
+L0,1 (H) = H ◦ is the k-vector subspace of H ∗ generated by matrix coefficients (§4). We start
+with the following well-known fact (see e.g. [Mon93, Lem. 9.1.1]):
+Lemma B.1. Let φ ∈ H ◦ . There is a two-sided ideal I ⊂ H of finite codimension such that φ
+vanishes on I. It follows that φ can be seen as an element of (H/I)∗ and we have φ = H/I ϕφ1̄ ,
+where 1̄ is the class of 1H in H/I.
+P
+Proof. If φ ∈ H ◦ then φ = i Xi ϕσxii (finite sum). For all i, let ρi : H → Endk (Xi ) be the
+representation morphism of the H-module Xi . Being an algebra morphism, its kernel
+
+ker(ρi ) = Ann(Xi ) = h ∈ H ∀ x ∈ Xi , h · x = 0
+is a two-sided ideal, which has finite codimension because ρi descends to an injection of
+σi
+H/Ann(Xi ) into the finite-dimensional space End
+on
+ P Xi ϕxi clearly vanishes
+
+T k (Xi ). Moreover
+Ann(Xi ). It simply remains to note that codim
+Ann(X
+)
+≤
+codim
+Ann(X
+)
+<
+∞
+and
+i
+i
+i
+i
+T
+that φ vanishes on the two-sided ideal I = i Ann(Xi ), as desired. The last claim is obvious:
+φ
+H/I ϕ1̄ (h) = φ(h · 1̄) = φ(h̄) = φ(h) for all h ∈ H.
+We are now ready to prove Proposition 5.5. Let K be a knot in Σ◦g,n × [0, 1] and choose two
+arbitrary points p1 , p2 ∈ K. By isotopy we can assume that these two points are very close to
+∂Σ◦,•
+g,n × [0, 1]. Then by another small isotopy, we can put p1 (resp. p2 ) on the boundary and
+consider it as the basepoint of a based knot K1 (resp. K2 ). Using well-chosen isotopies, we can
+always arrange the following configuration:
+K=
+
+p1
+
+p2
+
+K2 =
+
+K1 =
+
+The dashed lines schematize the knot K outside of this small neighborhood of the boundary.
+Then Prop. 5.5 will clearly follow from the following equality:
+∀ φ ∈ Linv
+0,1 (H),
+
+jK1 (φ) = jK2 (φ).
+
+To prove it, write φ = H/I ϕφ1̄ as in Lemma B.1. Note that H/I is of course a finite-dimensional
+left H-module but also an algebra (since I is two-sided); this extra structure is used below.
+Denote by h̄ the class of h ∈ H modulo I and by (bi ) a basis of H/I, with dual basis (bi ).
+Assume first that K1 is positively oriented; then so is K2 . We have
+φ 1̄
+φ 1̄ bi ḡbi
+φ 1̄ bi
+1̄
+H/I
+
+jK1 (φ) =
+φ
+=
+
+rḡbi
+
+H/I
+
+= H/I
+
+1̄ bi
+H/I
+
+H/I
+
+∗
+rḡb
+i
+
+φ(?ḡbi ) 1̄ bi 1̄
+
+1̄
+H/I
+
+= H/I
+
+=
+
+H/I
+
+H/I
+
+where the first equality is by Def. 5.3 and (74), while the second uses (viii) in Fig. 1. For the
+third equality, note that for all a ∈ H/I the map ra : H/I → H/I, x 7→ xa is H-linear so we
+can use it to color a coupon; then we applied (i) in Fig. 1. The fourth equality is by sliding the
+46
+
+coupon along the strand, and the fifth is by (ii) in Fig. 1. To continue the computation, note
+using (52) and the defining property (68) of the pivotal element g that for all x̄, ȳ ∈ H/I,
+
+φ(? ḡ bi ) ⊗ bi , x̄ ⊗ ȳ = φ(xgy) = φ yS 2 (x)g = φ(ygx) = bi ⊗ φ(? ḡ bi ), x̄ ⊗ ȳ
+where φ is viewed both in H ∗ and (H/I)∗ by means of φ(x̄) = φ(x). Hence
+bi 1̄ φ(?ḡbi ) 1̄
+jK1 (φ) = H/I
+
+bi ḡbi
+=
+
+H/I
+
+φ
+
+H/I
+
+φ 1̄
+
+1̄
+=
+
+H/I
+
+H/I
+
+= jK2 (φ).
+
+where the second equality is obtained as above by using a coupon colored by rḡbi and the third
+equality is by (viii) in Fig. 1.
+−1
+Now if K1 is negatively oriented then so is K2 . Let K−1
+1 and K2 be the based knots with
+opposite orientations (then positively oriented). By item 2 in Lemma 5.4 and the previous
+computation,
+
+
+jK1 (φ) = jK−1 SL0,1 (φ) = jK−1 SL0,1 (φ) = jK2 (φ)
+2
+
+1
+
+for all φ ∈ Linv
+0,1 (H). We used that SL0,1 is a H-linear endomorphism of L0,1 (H) and thus
+inv
+SL0,1 (φ) ∈ L0,1 (H) so that the previous computation applies.
+
+B.2
+
+Proof of Prop. 5.14
+
+Let γ ∈ π1 (Σ◦g,n ). Fix a particular drawing Dγ of γ on the surface (69). We allow only drawings
+which do not contain self-intersections and such a drawing is made of oriented caps (∩), cups
+(∪), two lines ending to the base point and half-circles in handles (the punctured half-disks in
+(69) being also considered as handles). Let:
+→
+
+• N ∩ (Dγ ) be the number of caps oriented from left to right in the picture Dγ .
+←
+
+• N ∩ (Dγ ) be the number of caps oriented from right to left in the picture Dγ .
+→
+
+• N ∪ (Dγ ) be the number of half-circles oriented from left to right in handles and cups
+oriented from left to right in the picture Dγ .
+←
+
+• N ∪ (Dγ ) be the number of half-circles oriented from right to left in handles and cups
+oriented from right to left in the picture Dγ .
+−1
+−1
+−1
+Here is an example in Σ◦,•
+1,1 , with a particular drawing Dγ of the loop γ = b1 a1 = b1 a1 m2 m2
+
+(127)
+→
+
+←
+
+→
+
+←
+
+Then we have N ∩ (Dγ ) = 3, N ∩ (Dγ ) = 1, N ∪ (Dγ ) = 3 and N ∪ (Dγ ) = 2.
+We have an important relation:
+←
+
+→
+
+←
+
+→
+
+N ∪ (Dγ ) + N ∪ (Dγ ) = N ∩ (Dγ ) + N ∩ (Dγ ) + 1.
+
+(128)
+
+Indeed, when we follow Dγ along its orientation starting from the basepoint, we necessarily first
+meet a cup or a half-circle in a handle. After we necessarily meet a cap, and then again a cup
+47
+
+or a half-circle etc, which gives a sequence [CUP, cap], [CUP, cap], . . . , [CUP, cap], CUP where
+CUP means cup or half-circle. The sequence necessarily ends by a CUP, in order to return
+to the basepoint. Thus any CUP is paired with a cap as indicated by square brackets in the
+sequence above, except for the last one, whence the “+1” term in the formula.
+Now define
+←
+
+←
+
+←
+
+→
+
+N (γ) = N ∪ (Dγ ) − N ∩ (Dγ ),
+
+→
+
+→
+
+N (γ) = N ∪ (Dγ ) − N ∩ (Dγ )
+
+(129)
+
+where Dγ is some drawing of γ. These quantities are independent of the particular drawing,
+whence the notation. This is because the only possible variations in a drawing are zig-zags
+made of cups-caps and cc−1 where c is a half-circle in a handle, as in (127).
+Definition B.2. Recall item 3 in Definition 5.1 about positive orientation of based knots (which
+applies in particular to simple loops). For any simple loop γ ∈ π1 (Σ◦g,n ) we let
+←
+N (γ)
+if γ is positively oriented,
+N (γ) =
+←
+−N (γ −1 ) if γ is negatively oriented.
+←
+
+Lemma B.3. 1. If γ is a negatively oriented simple loop then N (γ) = N (γ) − 1.
+2. For any simple loop γ we have N (γ) = −N (γ −1 ).
+←
+
+→
+
+←
+
+→
+
+Proof. 1. By (128) we have N (γ) + N (γ) = 1. Note also that N (γ −1 ) = N (γ) for all γ, which
+←
+
+→
+
+←
+
+follows immediately from the definitions. Hence N (γ) = −N (γ −1 ) = −N (γ) = N (γ) − 1.
+2. Immediate by definition.
+We now give a recursion formula for N (γ), based on a factorization γ = γ ′ γ ′′ where γ ′ , γ ′′
+are non-intersecting simple loops. Such a factorization is obtained by bringing a cap of γ near
+the basepoint without creating self-intersections and then turning the cap into a concatenation
+of two loops. Near the basepoint, there are 6 possible configurations for a positively oriented
+simple loop:
+case 3+
+case 1+
+case 2+
+γ ′′
+
+γ′
+
+γ′
+
+γ ′′
+
+case 6+
+γ ′′
+
+γ′
+
+γ ′′
+
+γ′
+
+case 5+
+
+case 4+
+γ′
+
+γ ′′
+
+γ′
+
+γ ′′
+
+Of course this is schematic and the dashed parts of the loops γ ′ and γ ′′ never intersect. Similarly
+there are 6 possible configurations for a negatively oriented simple loop:
+case 3−
+case 1−
+case 2−
+γ′
+
+γ ′′
+
+γ ′′
+
+γ
+
+γ
+
+′
+
+case 6−
+γ′
+
+γ ′′
+
+48
+
+γ′
+
+γ ′′
+
+case 5−
+
+case 4−
+′′
+
+γ′
+
+γ ′′
+
+γ′
+
+With these notations, define
+
+
+−1
+′
+′′
+P (γ , γ ) = 0
+
+
+1
+
+in cases 4+ , 1− , 5− ,
+in cases 2+ , 3+ , 6+ , 2− , 3− , 6− ,
+in cases 1+ , 5+ , 4− .
+
+(130)
+
+Lemma B.4. For any simple loop γ ∈ π1 (Σ◦g,n ) we have
+N (γ) = N (γ ′ ) + N (γ ′′ ) + P (γ ′ , γ ′′ ).
+←
+
+←
+
+←
+
+←
+
+Proof. Note that in any case we have N ∪ (γ) = N ∪ (γ ′ ) + N ∪ (γ ′′ ). The computation of N ∩ (γ)
+is a case-by-case analysis. Here are two examples, the others are left to the reader. In case
+←
+
+←
+
+←
+
+←
+
+←
+
+4+ it holds N ∩ (γ) = N ∩ (γ ′ ) + N ∩ (γ ′′ ) + 1; hence since γ ′ and γ ′′ are positively oriented we
+←
+
+get N (γ) = N (γ) = N (γ ′ ) + N (γ ′′ ) − 1 = N (γ ′ ) + N (γ ′′ ) − 1 by Def. B.2 and (129). In case
+←
+
+←
+
+←
+
+2+ it holds N ∩ (γ) = N ∩ (γ ′ ) + N ∩ (γ ′′ ) + 1; hence since γ ′ is negatively oriented and γ ′′ is
+←
+
+←
+
+←
+
+positively oriented we get N (γ) = N (γ) = N (γ ′ ) + N (γ ′′ ) − 1 = N (γ ′ ) + N (γ ′′ ) by Def. B.2,
+(129) and item 1 in Lemma B.3. Also the result for negatively oriented loops can be deduced
+from oriented loops. For instance if γ = γ ′ γ ′′ is in case 1− then γ −1 = γ ′′−1 γ ′−1 is in case 1+ and
+thus N (γ) = −N (γ −1 ) = −N (γ ′′−1 ) − N (γ ′−1 ) − 1 = N (γ ′ ) + N (γ ′′ ) − 1 by item 2 in Lemma
+B.3.
+Now we give a recursion formula for the loop maps iγ : L0,1 (H) → Lg,n (H), which are
+particular cases of the based knot maps defined in (84).
+Proposition B.5. Let γ ∈ π1 (Σ◦g,n ) be a simple loop and take a decomposition γ = γ ′ γ ′′ where
+γ ′ , γ ′′ are two non-intersecting simple loops. Then
+′ ′′ 
+iγ (φ) = φ(1) v P (γ ,γ ) iγ ′ (φ(2) ) iγ ′′ (φ(3) )
+for all φ ∈ L0,1 (H), with P (γ ′ , γ ′′ ) ∈ {−1, 0, 1} from (130) and φ(1) ⊗ φ(2) ⊗ φ(3) is iteration of
+the coproduct (44).
+Proof. The proof is a case-by-case verification for each possible configuration of γ ′ and γ ′′ listed
+above. In each case, one first compute jγ in terms of jγ ′ , jγ ′′ thanks to the stated skein relations
+and gets the desired result by applying the morphism holst . We give details in two cases, the
+other cases are left to the reader.
+In case 2+ , γ is positively oriented so jγ is defined by (74) and we have:
+xi xi x
+x
+x
+σ
+σ
+σ
+=
+jγ (X ϕσx ) =
+X
+X
+=
+X
+X
+γ ′′
+γ′
+γ′
+
+γ ′′
+
+γ′
+
+γ ′′
+
+where the third equality uses naturality of the twist and (vii) in Fig. 1. Note that γ ′ is negatively
+oriented while γ ′′ is positively oriented, so jγ ′ is defined by (75) while jγ ′′ is defined by (74) and
+i
+st
+the last term is equal to jγ ′ (X ϕσxi )jγ ′′ (X ϕxx ) by definition of the product in SH
+(Σ◦,•
+g,n ). Applying
+i
+st
+σ
+σ
+x
+hol to this equality gives the result, because ∆(X ϕx ) = X ϕxi ⊗ X ϕx by (43).
+In case 4− , γ is negatively oriented so jγ is defined by (75) and we have:
+
+49
+
+σ
+
+x
+
+X
+
+jγ (X ϕσx ) =
+γ ′′
+
+x
+
+σ
+=
+γ′
+
+X
+
+σ
+
+xi xi (v·?) x
+
+X
+
+X
+
+=
+γ′
+
+γ ′′
+
+γ ′′
+
+γ′
+
+For the third equality the extra twist is compensated by the ribbon element v inserted in xi .
+Note that γ ′ , γ ′′ are negatively oriented so jγ ′ , jγ ′′ are defined by (75) and the last term is
+xi (v·?)
+st
+st
+equal to jγ ′ (X ϕσxi )jγ ′′ (X ϕx
+) by definition of the product in SH
+(Σ◦,•
+g,n ). Applying hol to this
+equality and using (43) and (46) we get iγ (φ) = iγ ′ (φ(1) )iγ ′′ (φ(2) ◁ v) = φ(2) (v) iγ ′ (φ(1) )iγ ′′ (φ(3) )
+for all φ ∈ L0,1 (H). Since v is central it holds φ(2) (v)φ(1) = φ(1) (v)φ(2) by (44) and we are
+done.
+Proof of Proposition 5.14. Recall that π1 (Σ◦g,n ) is a free group on the generators ai , bi , mg+j
+with 1 ≤ i ≤ g and 1 ≤ j ≤ n. Assume that the word γ1 . . . γl in these generators and their
+inverses which represents γ is reduced, i.e. does not contain factors of the form ss−1 . We
+will prove the theorem by induction on the length l of the word γ1 . . . γl . For length 1 it is
+tautological. Assume that the formula is true for all simple loops which can be represented by
+a word of length < l for some l. Take a factorization γ = γ ′ γ ′′ where γ ′ , γ ′′ are non-intersecting
+simple loops. Then γ ′ = γ1 . . . γk and γ ′′ = γk+1 . . . γl for some 1 < k < l. Using Proposition
+B.5 and the induction hypothesis we get
+′ ′′ 
+iγ (φ) = φ(1) v P (γ ,γ ) iγ ′ (φ(2) ) iγ ′′ (φ(3) )
+′ ′′ 
+′ 
+′′ 
+= φ(1) v P (γ ,γ ) φ(2) v N (γ ) iγ1 (φ(3) ) . . . iγk (φ(k+2) ) φ(k+3) v N (γ ) iγk+1 (φ(k+4) ) . . . iγl (φ(l+3) ).
+Since v is central, (44) implies φ(2) (v)φ(1) = φ(1) (v)φ(2) . Hence
+′
+′′
+′ ′′ 
+iγ (φ) = φ(1) v N (γ )+N (γ )+P (γ ,γ ) iγ1 (φ(2) ) . . . iγk (φ(k+1) ) iγk+1 (φ(k+2) ) . . . iγl (φ(l+1) )
+and Lemma B.4 finishes the proof.
+
+C
+
+On the quantum moment map for Lg,n(H)
+
+Let H be a ribbon Hopf algebra over a field k. The main result of this appendix is Prop. C.1,
+which is a key ingredient in the proof of Theorem 5.10. We also record that when H is
+factorizable then Lg,n (H) has a quantum moment map µg,n and Prop. C.1 can be reformulated
+in terms of µg,n (Cor. C.2). The QMM µg,n is a “fusion” of many copies of µ1,0 and µ0,1 ; such
+a fusion operation for QMMs is discussed in general in Remark C.3.
+We will need the following “braided coproduct” on H
+∆: H → H ⊗H
+1
+2
+2
+1
+h 7→ adr (R[1] )(h(1) ) ⊗ S(R[2] )h(2) = R[1]
+h(1) R[1]
+⊗ S(R[2]
+)R[2]
+h(2)
+
+(131)
+
+where adr is the right adjoint action of H on itself (17) and the equality follows from (21) and
+(25). Note using (22) and (20) that it can also be written as
+∆(h) = h(2) R[1] ⊗ adr (R[2] )(h(1) ).
+
+(132)
+
+It is known [Maj92, Th. 7.4.2]17 that the linear map ∆ is a morphism of H-module-algebras
+e (H, adr ) and is coassociative: (∆ ⊗ idH ) ◦ ∆ = (idH ⊗ ∆) ◦ ∆. For
+(H, adr ) → (H, adr ) ⊗
+17
+
+The only difference with Majid’s book is that here we use the right adjoint action of H on itself instead of
+the left one, which explains the difference in the formulas.
+
+50
+
+completeness, we note that the antipode Se : (H, adr ) → (H, adr ) is given by
+
+
+e
+S(h)
+= S adr (R[1] )(h) R[2] = S R[2] u−1 hS(R[1] )
+where the second equality follows from the properties of R-matrices and u is the Drinfeld element
+(39). Then H = (H, ·, 1H , ∆, εH , S) is a Hopf algebra object in Mod-H, [Maj92, Ex. .9.4.9].
+Recall that L0,1 (H) is a Hopf algebra object in Mod-H with product (48), coproduct
+ 1 (43)
+2
+2
+1
+R[2] R[1]
+R[2]
+and antipode (50). Consider the map Φ0,1 : L0,1 (H) → H defined by φ 7→ φ R[1]
+and already used in §4.2. Then Φ0,1 is a morphism of Hopf algebras in Mod-H, meaning that
+Φ0,1 ◦ coadr (h) = adr (h) ◦ Φ0,1 ,
+(Φ0,1 ⊗ Φ0,1 ) ◦ ∆H ◦ = ∆ ◦ Φ0,1 ,
+
+Φ0,1 (φψ) = Φ0,1 (φ)Φ0,1 (ψ),
+Φ0,1 ◦ SL0,1 = S ◦ Φ0,1 .
+
+(133)
+
+All these equalities follow from the properties of R-matrices recalled in §3.
+Recall the boundary loop ∂g,n = ∂(Σ◦g,n ) defined in (70), which is positively oriented. We
+have seen in Prop. 5.6 and Cor. 5.8 that for any positively oriented simple loop γ ∈ π1 (Σ◦g,n )
+we have a H-module-algebra morphism iγ : L0,1 (H) → Lg,n (H). In particular, by Proposition
+5.14, the morphism i∂1,0 is given by
+
+
+i∂1,0 (φ) = φ(1) (v 2 )ib (φ(2) )ia SL0,1 (φ(3) ) ib SL0,1 (φ(4) ) ia (φ(5) )
+and the morphism i∂g,n is given by
+e ... ⊗
+e i∂1,0 (φ(g) ) ⊗
+e φ(g+1) ⊗
+e ... ⊗
+e φ(g+n) .
+i∂g,n (φ) = i∂1,0 (φ(1) ) ⊗
+
+(134)
+
+e L0,1 (H)⊗e n . From [BFR25, Lem. 7.13] we have the
+where we use that Lg,n (H) = L1,0 (H)⊗e g ⊗
+following exchange relation
+
+
+
+
+1
+2
+1
+2
+2
+1
+2
+1
+▷ φ ◁ R[1]
+.
+▷ φ ◁ R[1]
+is ψ ◁ R[2]
+R[1]
+= is R[2]
+R[1]
+▷ ψ i∂g,n R[2]
+∀ φ, ψ ∈ L0,1 (H), i∂g,n R[2]
+where s ∈ {b1 , a1 , . . . , bg , ag , mg+1 , . . . , mg+n } is any generator of π1 (Σ◦g,n ) and R1 , R2 are two
+copies of the R-matrix. The properties of the R-matrix (see §3) allow us to rewrite this as
+ 
+
+1
+2
+2
+1
+∀ φ, ψ ∈ L0,1 (H), i∂g,n (φ)is (ψ) = is coadr S −1 (R[2]
+R[1]
+) (ψ) i∂g,n R[2]
+▷ φ ◁ R[1]
+. (135)
+Proposition C.1. Recall the H-equivariant Lg,n (H)-module structure on (H ◦ )⊗g ⊗X1 ⊗. . .⊗Xn
+from Prop. 4.10 and in particular its right H-action . We have
+
+i∂g,n (φ) · w = w S −1 Φ0,1 (φ)
+■
+
+■
+
+for all φ ∈ L0,1 (H) and w ∈ (H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn , with Φ0,1 defined above (133).
+Proof. • Case (g, n) = (0, 1): We have i∂0,1 (φ) = φ and the result is just the definition of the
+representation of L0,1 (H) on a H-module in Lemma 4.8.
+• Case (g, n) = (1, 0): Here it is helpful to use stated skein algebras. We have L1,0 (H) ∼
+=
+◦,•
+st
+◦
+st
+∼
+SH
+(Σ◦,•
+)
+as
+algebras
+and
+H
+=
+L
+(H)
+S
+)
+as
+vector
+spaces.
+Under
+these
+identifica(Σ
+=
+0,1
+1,0
+0,1
+H
+tions, the representation of L1,0 (H) on H ◦ in Lemma 4.9 becomes
+s1
+sk τ y
+s1
+sk
+y
+τ
+Y
+G
+G
+· Y
+=
+
+(136)
+51
+
+where G is any ribbon graph and the two strands in the handles of Σ◦,•
+1,0 actually represent
+a bunch of parallel strands. Because of skein relations it is sufficient to prove this formula
+st
+for elements of the form jb (X1 ϕσx11 )ja (X2 ϕσx22 ) in SH
+(Σ◦,•
+1,0 ), i.e. when G is the identity graph (4
+parallel strands). For such elements it is easy to use the characterization of the isomorphism
+st
+L1,0 (H) ∼
+(Σ◦,•
+= SH
+1,0 ) from (83) in order to identify the diagrams above with the formulas in
+Lemma 4.9; details are left to the reader. In particular:
+x
+σ x
+σ
+x
+σ
+X
+=
+X
+
+·
+
+=
+
+X
+
+= σ(x)
+
+which means that i∂1,0 (φ)·ε = φ(1H )ε for all φ ∈ L0,1 (H), since the empty diagram corresponds
+to the counit ε = k ϕid
+1 . The result now easily follows from Lemma 4.9, (135) and the definition
+of Φ0,1 :
+
+ 
+1
+2
+2
+1
+▷ φ ◁ R[1]
+·ε
+) (ψ) i∂1,0 R[2]
+R[1]
+i∂1,0 (φ) · ψ = i∂g,n (φ)ib (ψ) · ε = ib coadr S −1 (R[2]
+ 
+
+r
+r
+−1
+−1
+= ib coad S (Φ0,1 (φ)) (ψ) · ε = coad S (Φ0,1 (φ)) (ψ)
+for all ψ ∈ H ◦ . We have = coadr in this case by (63), so we are done.
+• General case: It is divided in three steps: first prove the result for Lg,0 (H) by induction on
+e L1,0 (H), then do the same for L0,n (H)
+g thanks to the decomposition Lg+1,0 (H) = Lg,0 (H) ⊗
+by induction on n, and finally deduce the result in general from the decomposition Lg,n (H) =
+e L0,n (H). We give details only for the first step, the others are based on completely
+Lg,0 (H) ⊗
+similar computations. Assume that the Proposition is true for Lg,0 (H). We use the notation
+e ψ ∈ (H ◦ )⊠e g ⊠
+e H ◦,
+∆(h) = h(1) ⊗ h(2) for the coproduct (131). Then for all φ ∈ L0,1 (H) and w ⊠
+■
+
+(134)
+
+
+e ψ)
+e i∂ (φ(2) ) · (w ⊠
+i∂g,0 (φ(1) ) ⊗
+1,0
+
+ 
+(31)
+e i∂ coadr (R[2] )(φ(2) ) · ψ
+= i∂g,0 (φ(1) ) · (w R[1] ) ⊠
+1,0
+
+ 
+
+ 
+e coadr S −1 Φ0,1 coadr (R[2] )(φ(2) ) (ψ)
+= w R[1] S −1 Φ0,1 (φ(1) ) ⊠
+
+ 
+
+ 
+(133)
+e coadr S −1 adr (R[2] ) Φ0,1 (φ(2) ) (ψ)
+= w R[1] S −1 Φ0,1 (φ(1) ) ⊠
+
+ 
+ −1
+ 
+(133)
+r
+r
+−1
+e
+= w R[1] S Φ0,1 (φ)(1) ⊠ coad S ad (R[2] ) Φ0,1 (φ)(2) (ψ)
+
+ 
+
+ 
+(132)
+1
+2
+2
+1
+e coadr S −1 adr (R[2]
+= w R[1]
+S −1 Φ0,1 (φ)(2) R[1]
+⊠
+R[2]
+) Φ0,1 (φ)(1) (ψ)
+
+ 
+ −1
+  (63)
+
+(26)
+r
+−1
+e
+e ψ) S −1 Φ0,1 (φ)
+= w S Φ0,1 (φ)(2) ⊠ coad S Φ0,1 (φ)(1) (ψ) = (w ⊠
+
+e ψ) =
+i∂g+1,0 (φ) · (w ⊠
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+where the unnumbered equality uses the induction hypothesis and the case (g, n) = (1, 0)
+established previously.
+Now assume that H is factorizable, i.e. that Φ0,1 is an isomorphism, and define
+Φ−1
+0,1
+
+i∂g,n
+
+µg,n : H −−→ L0,1 (H) −−→ Lg,n (H).
+In particular µ0,1 = Φ−1
+0,1 . The morphism of algebras µg,n is a quantum moment map (QMM,
+see Def. 2.6). This property was obtained in [Jor14] for H = Uq (gln ) and generalized to any H
+52
+
+in [BFR25, §7.2]; the proof of the QMM axiom uses the equality (135). Due to (134) and the
+third equality in (133) we have the factorization
+∀ h ∈ H,
+
+e ... ⊗
+e µ1,0 (h(g) ) ⊗
+e µ0,1 (h(g+1) ) ⊗
+e ... ⊗
+e µ0,1 (h(g+n) )
+µg,n (h) = µ1,0 (h(1) ) ⊗
+
+(137)
+
+where the underlined subscripts are a Sweedler notation for the braided coproduct (131).
+The existence of the QMM µg,n implies that any Lg,n (H)-module
+(W, ·) has automatically
+
+a H-equivariant structure, defined by w µg,n h = µg,n S(h) · w (Lemma 2.7). This applies
+in particular to the modules (H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn constructed in §4.2, which are already
+endowed with the ad hoc H-equivariant structure defined in (63). These two H-equivariant
+structures agree:
+■
+
+■
+
+Corollary C.2. For all h ∈ H and w ∈ (H ◦ )⊗g ⊗ X1 ⊗ . . . ⊗ Xn , we have w µg,n h = w h.
+
+
+Proof. By Proposition C.1, w µg,n h = µg,n S(h) · w = i∂g,n Φ−1
+0,1 (S(h)) · w = w h.
+■
+
+■
+
+■
+
+■
+
+Remark C.3. The formula (137) shows that the QMM µg,n is a “fusion” of copies of the QMMs
+µ1,0 and µ0,1 . Such a fusion operation is general, as we now explain. Here we only assume that
+H is quasitriangular. Let A1 and A2 be right H-module-algebras and assume that Ai has a
+QMM µi . Then the algebra morphism
+∆
+⊗µ2
+e H −µ−1−
+e A2
+−→ A1 ⊗
+µ12 : H −−→ H ⊗
+
+e A2 , where we use the coproduct (131). Let us prove the QMM axiom (14).
+is a QMM for A1 ⊗
+e a2 and a1 ⊗
+e 1A2 . For
+It is more convenient to check it separately on elements of the form 1A1 ⊗
+e
+1A1 ⊗ a2 , note first from (131) and (16) that
+
+e µ2 S(R[2] )h(2)
+(138)
+µ12 (h) = µ1 (h(1) ) R[1] ⊗
+■
+
+for all h ∈ H. Hence we have
+
+1
+2 e
+2
+1
+e a2 )µ12 (h) = µ1 (h(1) ) R[1]
+R[1]
+)µ2 S(R[2]
+⊗ (a2 R[2]
+)h(2)
+(1A1 ⊗
+
+
+1
+2 e
+2
+1
+1
+R[1]
+S(R[2]
+)(2) h(3)
+⊗ µ2 S(R[2]
+= µ1 (h(1) ) R[1]
+)(1) h(2) a2 R[2]
+
+
+1
+2
+3
+3
+2 e
+1
+= µ1 (h(1) ) R[1]
+R[1]
+S(R[2]
+R[1]
+)h(3)
+⊗ µ2 S(R[2]
+)h(2) a2 R[2]
+
+1 e
+1
+by (26)
+⊗ µ2 S(R[2]
+= µ1 (h(1) ) R[1]
+)h(2) (a2 h(3) )
+
+e (a2 h(2) )
+= µ12 (h(1) ) 1A1 ⊗
+by (138), (29), (8), (27)
+
+e a2 ) h(2) )
+= µ12 (h(1) ) (1A1 ⊗
+by (30), (8).
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+by (138), (29)
+by (14)
+by (22)
+
+■
+
+■
+
+■
+
+e 1A2 is similar and left to the reader.
+The proof for a1 ⊗
+Recall that if Mi is an Ai -module for i = 1, 2 then it is automatically a H-equivariant
+e M2
+e A2 )-module M1 ⊠
+module with the right action µi (Lemma 2.7) and we can form the (A1 ⊗
+e M2 has two H-equivariant structures. The first is the diagonal
+as in Lemma 3.2. Now M1 ⊠
+
+
+e v2 ) h = v1 µ h(1) ⊠
+e v2 µ h(2) = µ1 (S(h(1) ) · v1 ⊠
+e µ2 (S(h(2) )) · v2 .
+action (32), given by (v1 ⊠
+1
+2
+
+e v2 ) µ12 h = µ12 S(h) ·
+The second comes directly from the QMM µ12 and is thus given by (v1 ⊠
+e v2 ). These two H-actions are equal:
+(v1 ⊠
+
+
+
+e v2 ) = µ1 S(h(1) )R[1] ⊗
+e v2 )
+e µ2 (S(h(2) )) R[2] · (v1 ⊠
+µ12 (S(h)) · (v1 ⊠
+by (132) and (16)
+
+
+
+1
+2
+1
+2
+e µ2 (S(h(2) )) R[2]
+· v1 µ1 R[1]
+⊠
+R[2]
+· v2
+by (31)
+= µ1 S(h(1) )R[1]
+
+
+1
+2
+1
+2
+e µ2 (S(h(2) )) R[2]
+R[2]
+· v2
+by (19)
+= µ1 S(h(1) )R[1]
+S(R[1]
+) · v1 ⊠
+e µ2 (S(h(2) )) · v2
+= µ1 (S(h(1) )) · v1 ⊠
+by (24).
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+■
+
+This can be seen as a generalization of Corollary C.2, which in Proposition C.1 is proven from
+the building blocks µ0,1 and µ1,0 .
+53
+
+Conflict of Interest Statement. The author has no conflicts of interest.
+Data Availability Statement. No datasets were generated or analysed during the current
+study.
+
+References
+[Ale94] A. Yu. Alekseev, Integrability in the Hamiltonian Chern-Simons theory, Alg. i Anal.
+6(2), 53–66 (1994).
+[AGS95] A. Y. Alekseev, H. Grosse, V. Schomerus, Combinatorial quantization of the Hamiltonian Chern-Simons theory I, Comm. Math. Phys. 172, 317–358 (1995).
+[AS96a] A. Yu. Alekseev, V. Schomerus, Representation theory of Chern-Simons observables,
+Duke Math. J. 85, 447–510 (1996).
+[BR19] S. Baseilhac, P. Roche, Unrestricted Quantum Moduli Algebras, I: The Case of Punctured Spheres, SIGMA 18, 025, 78 pages (2022).
+[BR24] S. Baseilhac, P. Roche, Unrestricted Quantum Moduli Algebras, II: Noetherianity and
+simple fraction rings at roots of 1, SIGMA 20, 047, 70 pages (2024).
+[BFR25] S. Baseilhac, M. Faitg, P. Roche, Noetherian and affine properties of quantum
+moduli and g-skein algebras, Quantum Topol., online first, 105 pages (2025). (DOI
+10.4171/QT/245)
+[BFR] S. Baseilhac, M. Faitg, P. Roche, On the structure and representations of quantum graph
+algebras at roots of unity, in preparation.
+[BZBJ18] D. Ben-Zvi, A. Brochier, D. Jordan, Integrating quantum groups over surfaces, J.
+Topology11(4), 874–917 (2018).
+[BW22] A. Brochier, L. Woike, A classification of modular functors via factorization homology,
+arXiv:2212.11259 (2022).
+[BH24] J. Brown, B. Haı̈oun, Skein categories in non-semisimple settings, arXiv:2406.08956
+(2024).
+[BR95] E. Buffenoir, P. Roche, Two dimensional lattice gauge theory based on a quantum group,
+Comm. Math. Phys. 170, 669–698 (1995).
+[BR96] E. Buffenoir, P. Roche, Link invariants and combinatorial quantization of hamiltonian
+Chern Simons theory, Comm. Math. Phys. 181 (1996), 331–365.
+[BP99] D. Bullock, J.H. Przytycki, Multiplicative structure of Kauffman bracket skein modules
+quantizations, Proc. Amer. Math. Soc 128(3), 923–931 (1999).
+[BFK98a] D. Bullock, C. Frohman, J. Kania-Bartoszynska, Topological Interpretations of Lattice Gauge Field Theory, Comm. Math. Phys. 198, 47–81 (1998).
+[CP94] V. Chari, A. Pressley, A Guide To Quantum Groups, Cambridge Univ. Press (1994).
+[CGP14] F. Costantino, N. Geer, B. Patureau–Mirand, Quantum invariants of 3-manifolds
+via link surgery presentations and non-semi-simple categories, J. Topology7(4), 1005–1053
+(2014).
+54
+
+[CL22] F. Costantino, T. T. Q. Lê, Stated skein algebras of surfaces, J. Eur. Math. Soc. 24,
+4063–4142 (2022).
+[DGGPR22] M. De Renzi, A.M. Gainutdinov, N. Geer, B. Patureau-Mirand, I. Runkel, 3Dimensional TQFTs from non-semisimple modular categories, Selecta Math. New Ser. 28,
+article no. 42 (2022).
+[Fai19a] M. Faitg, Modular group representations in combinatorial quantization with nonsemisimple Hopf algebras, SIGMA 15 (2019), 077, 39 pages.
+[Fai19b] M. Faitg, Mapping class groups, skein algebras and combinatorial quantization, PhD
+thesis, Université de Montpellier, arXiv:1910.04110.
+[Fai20] M. Faitg, Projective representations of mapping class groups in combinatorial quantization, Comm. Math. Phys. 377, 161–198 (2020).
+[Fai25] M. Faitg, Holonomy and (stated) skein algebras in combinatorial quantization, Quantum
+Topol. 16, 1–73 (2025).
+[FM12] B. Farb, D. Margalit, A primer on mapping class groups, Oxford University Press,
+2012.
+[FGST06a] B.L. Feigin, A.M. Gainutdinov, A.M. Semikhatov, I.Yu. Tipunin, Modular Group
+Representations and Fusion in Logarithmic Conformal Field Theories and in the Quantum
+Group Center, Comm. Math. Phys. 265, 47–93 (2006).
+[FGST06b] B.L. Feigin, A.M. Gainutdinov, A.M. Semikhatov, I.Yu. Tipunin, Kazhdan-Lusztig
+correspondence for the representation category of the triplet W-algebra in logarithmic CFT,
+Theor. Math. Phys. 148, 1210–1235 (2006).
+[GKP13] N. Geer, J. Kujawa, B. Patureau-Mirand, Ambidextrous objects and trace functions
+for nonsemisimple categories, Proc. Amer. Math. Soc. 141(9), 2963–2978 (2013).
+[Hai22] B. Haioun, Relating stated skein algebras and internal skein algebras, SIGMA 18, 042,
+39 pages (2022).
+[Jor14] D. Jordan, Quantized multiplicative quiver varieties, Adv. Math. 250 (2014), 420–466.
+[Kas95] C. Kassel, Quantum Groups, Graduate Texts in Mathematics 155, Springer, 1995.
+[Kor23] J. Korinman, Finite presentations for stated skein algebras and lattice gauge field theory, Algebr. Geom. Topol. 23(3), 1249–1302 (2023).
+[Lê18] T. T. Q. Lê, Triangular decomposition of skein algebras, Quantum Topol. 9, 591–632
+(2018).
+[LS24] T. T. Q. Lê, A. S. Sikora, Stated SL(n)-skein modules and algebras, J. Topology 17(3),
+e12350 (2024).
+[LMSS18] S. Lentner, S.N. Mierach, C. Schweigert, Y. Sommerh äuser, Hochschild cohomology
+and the modular group, J. Algebra 507, 400–420 (2018).
+[LMSS23] S. Lentner , S. N. Mierach , C. Schweigert , Y. Sommerhäuser, Hochschild Cohomology, Modular Tensor Categories, and Mapping Class Groups I, Springer Briefs in
+Mathematical Physics 44 (2023).
+
+55
+
+[Lu93] J.-H. Lu, Moment maps at the quantum level, Comm. Math. Phys. 157(2) (1993) 389–
+404.
+[Lyu95] V. Lyubashenko, Invariants of 3-manifolds and projective representations of mapping
+class groups via quantum groups at roots of unity, Commun. Math. Phys. 172, 467–516
+(1995).
+[ML75] S. Mac Lane, Homology, Classics in Mathematics, Springer, 1975.
+[Maj92] S. Majid, Foundations of Quantum Group Theory, Cambridge University Press (1995).
+[Mon93] S. Montgomery, Hopf algebras and their actions on rings, CBMS Regional Conference
+Series in Mathematics, Vol. 82, Amer. Math. Soc., Providence, RI, 1993.
+[MW24] L. Müller, L. Woike, Classification of consistent systems of handlebody group representations, Int. Math. Res. Not. 2024(6), 4767–4803 (2024).
+[Rad11] D.E. Radford, Hopf algebras, Series on Knots and Everything 49, World Scientific,
+2011.
+[RS88] N. Reshetikhin, M.A. Semenov-Tian-Shansky, Quantum R-matrices and factorization
+problems, J. Geom. Phys. 5(4), 533–550 (1988).
+[RT90] N. Yu. Reshetikhin, V. G. Turaev, Ribbon Graphs and Their Invariants Derived from
+Quantum Groups, Comm. Math. Phys 127, 1–26 (1990).
+[RT91] N. Reshetikhin, V. G. Turaev, Invariants of 3-manifolds via link polynomials and quantum groups, Invent. Math. 103, 547–597 (1991).
+[Sik05] A. S. Sikora, Skein theory for SU(n)-quantum invariants, Algebr. Geom. Topol. 5, 865–
+897 (2005).
+[SW21a] C. Schweigert, L. Woike, The Hochschild complex of a finite tensor category, Algebr.
+Geom. Topol. 21, 3689–3734 (2021).
+[SW21b] C. Schweigert, L. Woike, Homotopy coherent mapping class group actions and excision
+for Hochschild complexes of modular categories, Adv. Math. 386, 107814 (2021).
+[Tur94] V. G. Turaev, Quantum invariants of knots and 3-manifolds, De Gruyter Studies in
+Mathematics 18, 1994.
+[VV10] M. Varagnolo, E. Vasserot, Double affine Hecke algebras at roots of unity, Repr. Theory
+14, 510–600 (2010).
+[VY20] C. Voigt, R. Yuncken, Complex Semisimple Quantum Groups and Representation Theory, Lecture Notes in Mathematics 2264, Springer, 2020.
+[Waj83] B. Wajnryb, A simple presentation for the mapping class group of an orientable surface, Israel J. Math. 45, 157–174 (1983).
+
+56
+
+

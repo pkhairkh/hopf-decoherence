@@ -1,0 +1,2452 @@
+[ZMP-HH/22-8]
+Hamburger Beiträge zur Mathematik Nr. 920
+CPH-GEOTOP-DNRF151
+
+Homotopy Invariants of Braided Commutative Algebras
+and the Deligne Conjecture for Finite Tensor Categories
+Christoph Schweigert a and Lukas Woike b
+
+arXiv:2204.09018v3 [math.QA] 30 Jun 2023
+
+a
+
+Fachbereich Mathematik
+Universität Hamburg
+Bereich Algebra und Zahlentheorie
+Bundesstraße 55
+D-20146 Hamburg
+b
+
+Institut for Matematiske Fag
+Københavns Universitet
+Universitetsparken 5
+DK-2100 København Ø
+
+It is easy to find algebras T ∈ C in a finite tensor category C that naturally come with a lift
+to a braided commutative algebra T ∈ Z(C) in the Drinfeld center of C. In fact, any finite
+tensor
+R category has at least two such algebras, namely the monoidal unit I and the canonical
+end X∈C X ⊗ X ∨ . Using the theory of braided operads, we prove that for any such algebra
+T the homotopy invariants, i.e. the derived morphism space from I to T, naturally come
+with the structure of a differential graded E2 -algebra. This way, we obtain a rich source of
+differential graded E2 -algebras in the homological algebra of finite tensor categories. We use
+this result to prove that Deligne’s E2 -structure on the Hochschild cochain complex of a finite
+tensor category is induced by the canonical end, its multiplication and its non-crossing half
+braiding. With this new and more explicit description of Deligne’s E2 -structure, we can lift
+the Farinati-Solotar bracket on the Ext algebra of a finite tensor category to an E2 -structure
+at cochain level. Moreover, we prove that, for a unimodular pivotal finite tensor category,
+the inclusion of the Ext algebra into the Hochschild cochains is a monomorphism of framed
+E2 -algebras, thereby refining a result of Menichi.
+Contents
+1 Introduction and summary. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2 A reminder on the Drinfeld center and related structures . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3 The E2 -structure on homotopy invariants . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4 Resolving the canonical algebra . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5 Comparison Theorem. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6 The self-extension algebra of a finite tensor category and the Farinati-Solotar Gerstenhaber
+bracket. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7 Generalizing a result of Menichi. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+1
+5
+6
+10
+13
+24
+25
+
+1 Introduction and summary
+Over the last two decades, the notion of a finite tensor category developed in [EO04] and then later
+presented comprehensively in the monograph [EGNO15] has become one of the standard frameworks
+in quantum algebra: A finite tensor category over a field k (that we will assume to be algebraically
+closed throughout) is a k-linear abelian rigid monoidal category with simple unit, finite-dimensional
+morphism spaces, enough projective objects, finitely many simple objects up to isomorphism subject to
+the requirement that every object has finite length. The notion has proven to be sufficiently restrictive to
+prove a great number of very strong results. At the same time, it remains flexible enough to allow for an
+inexhaustible supply of examples coming from Hopf algebras or vertex operator algebras, see e.g. [Kas95,
+1
+
+Hua08, HLZ11]. Moreover, finite tensor categories are intimately related to low-dimensional topology,
+more precisely to topological field theories and modular functors [RT91, Tur94, KL01, BDSPV15] — both
+in the semisimple case and beyond semisimplicity.
+In the non-semisimple situation, the homological algebra of finite tensor categories is a rich and wellstudied subject [GK93, EO04, FS04, MPSW09, Men11, Bic13, Her16, LQ21, NP22]. The present article
+is concerned with the systematic construction and investigation of higher multiplicative structures in
+the homological algebra of finite tensor categories, more specifically differential graded E2 -algebras. The
+methods will be used to prove a number of results on the ‘standard’ homological algebra quantities of
+a finite tensor category (possibly with more structure), namely the Hochschild cochains and the Ext
+algebra, but will also be used for the construction of new multiplicative structures.
+Before giving the precise statements and our motivation, let us recall that the E2 -operad is the topological operad whose space E2 (n) of n-ary operations is the space of embeddings (D2 )⊔n −→ D2 built from
+translations and rescalings; we refer to [May72, Fre17] for a textbook treatment. A differential graded E2 algebra A is a (co)chain complex A over k together with maps C∗ (E2 (n); k) −→ [A⊗n , A], where C∗ (−; k)
+is the functor taking k-chains and [−, −] denotes the hom complex. These maps are subject to the usual
+requirements regarding equivariance and operadic composition. Since E2 (n) is a classifying space of the
+(pure) braid group on n strands, an E2 -algebra is an algebra whose commutativity behavior is controlled
+in a coherent way through the braid group. The (co)homology of an E2 -algebra is a Gerstenhaber algebra [Coh76]. If, in addition to translations and rescalings of disks, we allow rotations, we obtain the
+framed E2 -operad. The (co)homology of a differential graded framed E2 -algebra is a Batalin-Vilkovisky
+algebra [Get94]. It is impractical to construct differential graded E2 -algebras by exhibiting the needed
+action maps C∗ (E2 (n); k) −→ [A⊗n , A] by hand, and in fact, a large part of this article is devoted to
+developing efficient methods for the construction of E2 -algebras that are tailored towards applications in
+the homological algebra of finite tensor categories.
+The article is centered around the
+R following very natural problem: In any finite tensor category C, one
+can define the canonical end A = X∈C X ⊗ X ∨ (here X ∨ denotes the dual of X), and it is a standard
+observation that the maps X ⊗ X ∨ ⊗ X ⊗ X ∨ −→ X ⊗ X ∨ contracting the middle two tensor factors
+via an evaluation endow A with the structure of an algebra in C. As a consequence, the space C(I, A) of
+morphisms from the monoidal unit I to A becomes an algebra as well — this time in vector spaces — and
+it is well-known that this algebra is commutative. The
+vector space C(I, A) can be canonically identified
+R
+with the zeroth Hochschild cohomology HH 0 (C) = X∈C C(X, X) of C (seen here just as a linear category).
+The vector space HH 0 (C) inherits a commutative product from the composition of morphisms (both for
+the definition of A and HH 0 (C), we can restrict the ends to the subcategory Proj C ⊂ C of projective
+or, equivalently, injective objects without changing the value of the end). With these products, the
+isomorphism C(I, A) ∼
+= HH 0 (C) is an isomorphism of algebras. The isomorphism C(I, A) ∼
+= HH 0 (C) of
+vector spaces has a natural generalization: To this end, consider the homotopy invariants of A, i.e. the
+derived morphism space C(I, A• ), where A• is an injective resolution of A; its cohomology is Ext∗C (I, A).
+The cochain complex C(I, A• ) is canonically equivalent to the Hochschild cochains of C, i.e. the homotopy
+RR
+end X∈Proj C C(X, X) of the endomorphism spaces of projective objects;
+•
+
+Z R
+
+C(I, A ) ≃
+
+C(X, X) ,
+
+(1.1)
+
+X∈Proj C
+
+see e.g. [Bic13, Section 2.2] for this statement in Hopf-algebraic form which goes back to [CE56]. The
+RR
+Hochschild cochain complex X∈Proj C C(X, X), as the Hochschild cochain complex of any linear category,
+comes with more structure. By a result of Gerstenhaber [Ger63], its cohomology is a Gerstenhaber
+algebra. Deligne famously conjectured in 1993 that this Gerstenhaber structure comes in fact from an
+E2 -structure at cochain level. This conjecture was proven in a variety of different ways [Tam98, MCS02,
+BF04]. For symmetric Frobenius algebras, the E2 -structure even extends to the structure of an algebra
+over the framed E2 -operad [TZ06, Cos07, Kau08]. Given that in zeroth cohomology, (1.1) reduces to the
+isomorphism C(I, A) ∼
+= HH 0 (C) of commutative algebras, the following question is evident:
+(Q) Is there a structure on A or rather on an injective resolution A• that turns the homotopy invariants
+C(I, A• ) into an E2 -algebra that solves the Deligne Conjecture, thereby turning (1.1) into an equivalence of E2 -algebras? If so, what is the needed structure? Or in a more pointed, but less precise
+way: Can one use the canonical end A to give a solution to Deligne’s Conjecture?
+In order to answer this question, it will be beneficial to study multiplicative structures on homotopy
+invariants more generally: Let T be an algebra inside a finite tensor category C that lifts to a braided
+2
+
+commutative algebra T in the Drinfeld center Z(C), i.e. T = U T as algebras in C, where U : Z(C) −→ C
+is the forgetful functor, and µT ◦ cT,T = µT for the multiplication µT of T and the braiding cT,T in Z(C).
+Using the theory of braided operads, we prove the following very general result on the multiplicative
+structure on homotopy invariants C(I, T• ):
+Theorem 3.6. Let T ∈ C be an algebra in a finite tensor category C together with a lift to a braided
+commutative algebra T ∈ Z(C) in the Drinfeld center. Then the multiplication of T and the half braiding
+of T induce the structure of an E2 -algebra on the space C(I, T• ) of homotopy invariants of T.
+In particular, Ext∗C (I, T) becomes a Gerstenhaber algebra. Of course, Theorem 3.6 includes cases
+in which C(I, T• ) will be even ‘more commutative’ (obviously, we find vector space valued commutative
+algebras in the semisimple case), but the result includes examples with a non-trivial Gerstenhaber bracket.
+In this sense, the ‘2’ in E2 is sharp (Remark 5.9).
+The connection between Theorem 3.6 and question (Q) is as follows: The right adjoint R : C −→ Z(C)
+to the forgetful functor U : Z(C) −→ C sends the unit I of C to a braided commutative algebra A =
+R(I) ∈ Z(C) thanks toR a result of Davydov, Müger, Nikshych and Ostrik [DMNO13]. The underlying
+object A = U R(I) = X∈C X ⊗ X ∨ is the canonical end of the finite tensor category C; and in fact,
+U A = A as algebras. By Theorem 3.6 the homotopy invariants C(I, A• ) now inherit a multiplication from
+the multiplication of A and its half braiding (that is called the non-crossing half braiding). This specific
+E2 -structure is a solution to Deligne’s Conjecture and hence an answer to question (Q):
+Theorem 5.1 (Comparison
+Theorem). For any finite tensor category C, the algebra structure on the
+R
+canonical end A = X∈C X ⊗ X ∨ and its canonical lift to the Drinfeld center induces an E2 -algebra
+RR
+structure on the homotopy invariants C(I, A• ). Under the equivalence C(I, A• ) ≃ X∈Proj C C(X, X),
+this E2 -structure provides a solution to Deligne’s Conjecture in the sense that it induces the standard
+Gerstenhaber structure on the Hochschild cohomology of C.
+R
+Since the definition of A = X∈C X ⊗ X ∨ makes use of the monoidal structure of C while the standard
+Gerstenhaber structure on the Hochschild cohomology of C sees only the underlying linear structure,
+the comparison result of Theorem 5.1 is very non-obvious. As a result, the proof of Theorem 5.1 is
+unfortunately very involved and occupies a large portion of the article.
+Our motivation. Theorem 5.1 provides a new proof of Deligne’s Conjecture for finite tensor categories, but giving a new proof of the conjecture is not our main motivation. Instead, we are motivated by
+the fact that the new description of Deligne’s E2 -structure on the Hochschild cochains of a finite tensor
+category in terms of the canonical end is significantly simpler. This description is one of the cornerstones
+of the proof of the differential graded Verlinde formula in [SW21c] for the differential graded modular
+functor of a modular category [SW21b].
+Other applications. Moreover, Theorem 3.6 can be used to construct other E2 -algebras. We prove
+for example:
+¯
+Corollary 3.7. Let C be a braided finite tensor category. For any braided commutative algebra B ∈ C⊠C,
+denote by B⊗ the algebra in C obtained by applying the monoidal product functor to B. Then the
+•
+homotopy invariants C(I, B⊗
+) of B⊗ naturally form an E2 -algebra.
+As a special case, this contains the dolphin algebra needed as a critical auxiliary object in [SW21c],
+see Example 3.8.
+If we apply Theorem 3.6 to the monoidal unit, we obtain an E2 -structure on the algebra C(I, I • ) of
+self-extensions of the monoidal unit, also called the Ext algebra. It induces on cohomology a well-known
+graded commutative product [EO04]. Its Gerstenhaber bracket is a generalization of the Farinati-Solotar
+bracket [FS04] to arbitrary finite tensor categories.
+Corollary 6.1. Let C be a finite tensor category. The self-extension algebra C(I, I • ) carries the structure
+of an E2 -algebra that after taking cohomology induces the Farinati-Solotar Gerstenhaber bracket. With
+RR
+this E2 -structure, there is a canonical map C(I, I • ) −→ X∈Proj C C(X, X) to the Hochschild cochain
+complex of C equipped with the usual E2 -structure. This map is a map of E2 -algebras. After taking
+cohomology, it induces a monomorphism Ext∗C (I, I) −→ HH ∗ (C) of Gerstenhaber algebras (with suitable
+models, it is also a monomorphism at cochain level).
+
+3
+
+One of the key advantages of Theorem 3.6 is the possibility to find, with relatively little effort, extensions
+to framed E2 -algebras. For unimodular pivotal finite tensor categories, we can give the following framed
+extension of Corollary 6.1:
+Corollary 7.4. For any unimodular pivotal finite tensor category C, both the self-extension algebra
+RR
+C(I, I • ) and the Hochschild cochain complex X∈Proj C C(X, X) come equipped with a framed E2 -algebra
+RR
+structure such that the map C(I, I • ) −→ X∈Proj C C(X, X) is a map (and with suitable models even
+a monomorphism) of framed E2 -algebras. In cohomology, it induces a monomorphism Ext∗C (I, I) −→
+HH ∗ (C) of Batalin-Vilkovisky algebras.
+This generalizes a result of Menichi [Men11] who previously proved the result at cohomology level
+for unimodular pivotal Hopf algebras by giving a Batalin-Vilkovisky structure (i.e. the structure of an
+algebra over the homology of the framed E2 -operad) on the self-extension algebra.
+Conventions.
+(1) We fix for the entire article an algebraically closed field k.
+(2) We denote by Chk the symmetric monoidal category of chain complexes over k. Unless otherwise
+stated, it will be equipped with its projective model structure. In this model structure, the weak
+equivalences (for short: equivalences) are quasi-isomorphisms while the fibrations are degree-wise
+surjections. We call a (co)fibration which is also an equivalence a trivial (co)fibration. Equivalences
+will be denoted by ≃ (we reserve ∼
+= for isomorphisms). As a (canonical) equivalence between chain
+complexes, we understand a (canonical) zigzag of equivalences. We assume functors between linear
+and differential graded categories automatically to be enriched.
+(3) Concerning the convention for duality in monoidal categories, we follow [EGNO15, Section 2.10]:
+Let C be a rigid monoidal category and X ∈ C. We denote
+• the left dual by X ∨ and by dX : X ∨ ⊗ X −→ I and bX : I −→ X ⊗ X ∨ the evaluation and
+coevaluation, respectively,
+• the right dual by ∨X and by deX : X ⊗ ∨X −→ I and ebX : I −→ ∨X ⊗ X the evaluation and
+coevaluation, respectively.
+Left and right duality induce the following adjunction isomorphisms for X, Y, Z ∈ C:
+C(X ⊗ Y, Z) ∼
+= C(X, Z ⊗ Y ∨ ) ,
+C(Y ∨ ⊗ X, Z) ∼
+= C(X, Y ⊗ Z) ,
+C(X ⊗ ∨Y , Z) ∼
+= C(X, Z ⊗ Y ) ,
+C(Y ⊗ X, Z) ∼
+= C(X, ∨Y ⊗ Z)
+(4) If C is a finite (tensor) category, then it is a module category over the symmetric monoidal category
+of finite-dimensional vector spaces over k. As a result, we can form the tensoring V ⊗ X ∈ C of a
+finite-dimensional vector space V with an object X ∈ C and similarly a powering X V = V ∗ ⊗X ∈ C,
+where V ∗ is the dual of V .
+(5) In several places, we will use the graphical calculus for morphisms in (braided) monoidal categories,
+see e.g. [Kas95]. In this calculus, objects are vertical lines and the monoidal product corresponds
+to the juxtaposition of lines (the monoidal unit is the empty collection of lines) while composition
+is represented by vertical stacking. We denote the braiding and inverse braiding as an overcrossing
+and undercrossing, respectively, while evaluation and coevaluation are written as a cap and cup,
+respectively. Morphisms should be read from bottom to top.
+Acknowledgments. We would like to thank Adrien Brochier, Lukas Müller, Nathalie Wahl and
+Yang Yang for helpful discussions.
+CS is supported by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under
+Germany’s Excellence Strategy – EXC 2121 “Quantum Universe” – 390833306. LW gratefully acknowledges support by the Danish National Research Foundation through the Copenhagen Centre for Geometry
+and Topology (DNRF151) and by the European Research Council (ERC) under the European Union’s
+Horizon 2020 research and innovation programme (grant agreement No 772960).
+This project has received funding from the European Union’s Horizon 2020 research and
+innovation programme under the Marie Sklodowska-Curie grant agreement
+No 101022691.
+4
+
+2 A reminder on the Drinfeld center and related structures
+We assume that the reader is familiar with the notion of a braided finite tensor category, i.e. a finite
+tensor category B that comes with natural isomorphisms cX,Y : X ⊗ Y ∼
+= Y ⊗ X subject to the usual
+hexagon axioms. To any finite tensor category C, we can assign a braided finite tensor category, namely
+its Drinfeld center. The Drinfeld center Z(C) is the category whose objects are pairs of an object X ∈ C
+together with a half braiding which is a natural isomorphism natural isomorphism X ⊗ − ∼
+= −⊗X
+satisfying certain coherence conditions. Details on these notions can be found in [EGNO15, Chapters 68]. By [EO04, Theorem 3.34] Z(C) is a finite tensor category again, and it is (by construction) braided
+(see also [Shi17, Theorem 3.8]).
+The forgetful functor U : Z(C) −→ C is monoidal and exact and, for this reason, has both an oplax
+monoidal left adjoint L : C −→ Z(C) and also a lax monoidal right adjoint R : C −→ Z(C); we refer to
+[BV12, Shi17] for a detailed overview. This implies the following: Since I ∈ C is naturally an algebra,
+F := LI ,
+
+A := RI
+
+inherit the structure of a coalgebra and an algebra in Z(C), respectively. One can prove that the underlying
+R X∈C ∨
+objects of F and RA are given by the canonical coend and end, respectively, i.e. U F = F =
+X ⊗X
+and U A = A = X∈C X ⊗ X ∨ . In order to give the half braiding cF,Y : F ⊗ Y −→ Y ⊗ F and cA,Y :
+A ⊗ Y −→ Y ⊗ A with Y ∈ C (that is often referred to as non-crossing half braiding), it suffices by the
+universal property of the (co)end to give the restriction to X ∨ ⊗ X ⊗ Y and the component X ⊗ X ∨ ⊗ Y ,
+respectively, by
+(cF,Y )X
+X ∨ ⊗ X ⊗ Y −−−−−−−→ Y ⊗ Y ∨ ⊗ X ∨ ⊗ X ⊗ Y ∼
+= Y ⊗ ((X ⊗ Y )∨ ⊗ X ⊗ Y ) −→ Y ⊗ F (2.1)
+(cA,Y )X
+
+A ⊗ Y −→ (Y ⊗ X ⊗ (Y ⊗ X)∨ ) ⊗ Y ∼
+= Y ⊗ X ⊗ X ∨ ⊗ Y ∨ ⊗ Y −−−−−−−→ Y ⊗ X ⊗ X ∨ , (2.2)
+where the last map in (2.1) and the first map in (2.2) are the structure maps of the coend and the end
+and where
+Y
+(cF,Y )X
+
+Y∨
+
+=
+
+(cA,Y )X
+
+,
+X∨
+
+X
+
+Y
+
+.
+
+=
+Y
+
+X
+
+X∨ Y ∨
+
+(2.3)
+
+Y
+
+As stated in our conventions on the graphical calculus on page 4, the cup is the evaluation, and the cap
+is the coevaluation. Thanks to F = U F and A = U A, we see that F is coalgebra in C while A an algebra
+in C. The coproduct δ : F −→ F ⊗ F of F can be described as being induced by the coevaluation
+X ∨ ⊗b ⊗X
+
+X ∨ ⊗ X −−−−−−X
+−−−−→ X ∨ ⊗ X ⊗ X ∨ ⊗ X ;
+dually, the product γ : A ⊗ A −→ A can be described as being induced by the evaluation
+X⊗d ⊗X ∨
+
+X
+X ⊗ X ∨ ⊗ X ⊗ X ∨ −−−−−−
+−−−−→ X ⊗ X ∨ .
+
+(2.4)
+
+We have ∨ F ∼
+= A (and ∨ F ∼
+= A), and under this duality, the product on A (and A) and the coproduct on
+F (and F) translate into each other.
+We will denote by D the distinguished invertible object of C that controls by [ENO04] the quadruple
+dual of a finite tensor category through the Radford formula −∨∨∨∨ ∼
+= D ⊗ − ⊗ D−1 that generalizes the
+classical result on the quadruple of the antipode of a Hopf algebra [Rad76]. By [Shi17, Lemma 5.5] D is
+the socle of the projective cover of the monoidal unit. By [Shi17, Lemma 4.7 & Theorem 4.10] there are
+canonical natural isomorphisms
+L(D ⊗ −) ∼
+=R∼
+= L(− ⊗ D) ,
+
+R(D−1 ⊗ −) ∼
+=L∼
+= R(− ⊗ D−1 ) .
+
+(2.5)
+
+One calls a finite tensor category unimodular if D ∼
+= I. By [Shi17, Theorem 4.10] a finite tensor category
+is unimodular if and only if L ∼
+= R.
+
+5
+
+3 The E2 -structure on homotopy invariants
+In this section, we present our result for the systematic construction of an E2 -algebra structure on
+homotopy invariants of braided commutative algebras. This will rely heavily on the notions of a braided
+operad whose definition we briefly recall from [Fre17, Section 5.1]: Let M be a closed and bicomplete
+symmetric monoidal category. A braided operad O consists of objects O(n) ∈ M of n-ary operations,
+where n ≥ 0, that carry an action of the braid group Bn on n strands (as commonplace in the theory of
+operads, we will work with right actions throughout), a unit I −→ O(1) for 1-ary operations (here I is
+the unit of M) and composition maps
+O(n) ⊗ O(m1 ) ⊗ · · · ⊗ O(mn ) −→ O(m1 + · · · + mn )
+such that the composition is associative, unital and compatible with the braid group actions. Morphisms
+of braided operads are defined analogously to the symmetric case. There is an obvious restriction functor
+Res : SymOp(M) −→ BrOp(M) from symmetric operads in M to braided operads in M (it restricts
+arity-wise along the epimorphisms from braid groups to symmetric groups). This restriction functor has
+a left adjoint, the symmetrization
+/ SymOp(M) : Res ,
+(3.1)
+Sym : BrOp(M) o
+that takes arity-wise orbits of pure braid group actions, i.e. (SymO)(n) = O(n)/Pn for n ≥ 0, where Pn
+is the pure braid group on n strands.
+Let B be an M-enriched braided monoidal category. Then for any A ∈ B, the objects EndA (n) :=
+[A⊗n , A] for n ≥ 0 (we denote here by [−, −] the M-valued hom) form a braided operad in M, the
+braided endomorphism operad of A. If O is a braided operad in M, a braided O-algebra in B is an object
+A ∈ B and a map O −→ EndA of braided operads.
+A braided commutative algebra T ∈ B in a braided monoidal category B is an algebra whose multiplication µ : T ⊗ T −→ T satisfies µ ◦ cT,T = µ, where cT,T : T ⊗ T −→ T ⊗ T is the braiding. Although we
+will treat general braided commutative algebras (and braided commutative coalgebras which are defined
+dually), it is instructive to think of the example of the canonical algebra and the canonical coalgebra in
+the Drinfeld center that were defined in Section 4:
+Lemma 3.1 (Davydov, Müger, Nikshych, Ostrik [DMNO13, Lemma 3.5]). For any finite tensor category
+C, the canonical algebra A ∈ Z(C) is braided commutative and the canonical coalgebra F ∈ Z(C) is braided
+cocommutative.
+In [DMNO13] this Lemma is only given in the semisimple case, but the argument can be extended to
+the non-semisimple case as well, see [Shi20, Appendix A.3] for a formulation in terms of module categories
+that also covers the situation as given in Lemma 3.1.
+For a braided finite tensor category B and a braided commutative algebra T ∈ B, denote by ι : T −→ T•
+an injective resolution of T in B; the map ι will be referred to as coaugmentation. For n ≥ 0, we define
+the map
+k −→ B(T⊗n , T• )
+µ
+
+(3.2)
+
+ι
+
+that selects the map T⊗n −−−→ T −−−→ T• defined as the concatenation of the (n-fold) multiplication
+µ of T with the coaugmentation ι of the injective resolution. The map itself is not very interesting, but
+the non-trivial point is that it is actually a map of chain complexes with Bn -action, where the Bn -action
+on k is trivial and the one on B(T⊗n , T• ) comes by virtue of B being a braided category. The fact that
+(3.2) is really Bn -equivariant follows from the assumption that T is braided commutative.
+Using again that B is braided, the mapping complex B(T• ⊗n , T• ) comes with a Bn -action. The
+precomposition with the map ι⊗n : T⊗n −→ T• ⊗n yields a map
+∗
+ι⊗n : B(T• ⊗n , T• ) −→ B(T⊗n , T• ) .
+(3.3)
+This map is also Bn -equivariant. We may now define the chain complex JT (n) as a pullback
+B(T• ⊗n , T• )
+
+JT (n)
+
+∗
+
+(ι⊗n )
+k
+
+B(T⊗n , T• ) ,
+
+(3.2)
+
+6
+
+(3.4)
+
+of differential graded k-vector spaces with Bn -action (it will be explained in the proof of Proposition 3.2
+∗
+below that (ι⊗n ) is, in particular, a fibration, so that JT (n) is also a homotopy pullback).
+Proposition 3.2. Let B be a braided finite tensor category and T ∈ B a braided commutative algebra.
+The chain complexes JT (n) defined in (3.4) for n ≥ 0 naturally form a braided operad JT in differential
+graded k-vector spaces such that the following holds:
+(i) The operad JT is acyclic in the sense that it comes with a canonical trivial fibration JT −→ k, i.e.
+JT is a model for the braided commutative operad.
+(ii) The maps JT (n) −→ B(T• ⊗n , T• ) from (3.4) endow T• with the structure of a braided JT -algebra.
+Proof. We first establish the braided operad structure: The complexes JT (n) come with an Bn -action by
+definition. Moreover, the identity of T• seen as map k −→ B(T• , T• ) yields a map k −→ JT (1) that we
+define as a unit. In order to define the operadic composition, let m1 , . . . , mn ≥ 0 be given. By definition
+of JT we obtain the maps (∗) and (∗∗) in the following diagram:
+(∗∗)
+
+JT (n) ⊗
+
+Nn
+
+j=1 JT (mj )
+
+B(T•⊗n , T• ) ⊗
+
+∃!
+
+Nn
+
+•⊗mj
+, T• )
+j=1 B(T
+composition in B
+
+JT (m1 + · · · + mn )
+(∗)
+
+B(T•⊗(m1 +···+mn ) , T• )
+∗
+
+(ι⊗(m1 +···+mn ) )
+B(T⊗(m1 +···+mn ) , T• ) .
+
+k
+
+It is straightforward to see that the outer
+Nn pentagon commutes. Now by the universal property of the
+pullback there is unique map JT (n) ⊗ j=1 JT (mj ) −→ JT (m1 + · · · + mn ) making the entire diagram
+commute. We define this to be the needed operadic composition map. The composition can be seen to
+be equivariant. Since it is induced by composition in B, it is associative and unital with respect to the
+identity (which we defined as operadic unit). The operad structure on JT is defined in such a way that
+statement (ii) holds by construction.
+It remains to prove (i): First observe that the maps JT (n) −→ k are Bn -equivariant by construction and
+are also compatible with composition. Therefore, we only need to show that JT (n) −→ k for fixed n ≥ 0
+is a trivial fibration. Indeed, the exactness of the monoidal product in B ensures that ι⊗n : T⊗n −→ T• ⊗n
+is again an injective resolution, i.e. a trivial cofibration in the injective model structure on complexes in
+B. Since T• is fibrant in this model structure, the precomposition with ι⊗n in (3.3) is a trivial fibration.
+Now JT (n) −→ k, as the pullback of a trivial fibration according to its definition in (3.4), is a trivial
+fibration as well.
+The construction from Proposition 3.2 can be used for the construction of differential graded E2 algebras. In order to see this, let us record the following two straightforward Lemmas.
+It is well-known that a symmetric lax monoidal functor preserves operadic algebras. The following
+Lemma is a braided version of this fact:
+Lemma 3.3. Let F : B −→ B ′ be an enriched braided lax monoidal functor between braided monoidal
+categories enriched over M and let O be a braided operad in M. Then for any braided O-algebra A in
+B, the image F (A) naturally comes with the structure of a braided O-algebra.
+Proof. The structure maps that turn F (A) into a braided O-algebra are
+h
+i
+
+
+
+F
+⊗n
+O(n) −→ [A⊗n , A] −−−→ F A⊗n , F (A) −→ (F (A)) , F (A) ,
+
+n≥0.
+⊗n
+
+The first map is the structure map of A, the third map precomposes with the maps (F (A))
+−→
+F (A⊗n ) that are a part of the lax monoidal structure of F . These maps are Bn -equivariant because F
+is braided.
+7
+
+Lemma 3.4. Let O be a braided operad in M and A a braided O-algebra in a symmetric monoidal
+category B enriched over M. Then A induces in a canonical way an algebra over the symmetrization
+Sym O of O. More precisely, the structure map O −→ EndA canonically factors through the unit
+O −→ Res Sym O of the adjunction Sym ⊣ Res from (3.1).
+Proof. Pure braid group elements act trivially on [A⊗n , A] because B is symmetric. As a consequence,
+the structure maps of A factor as
+[A⊗n , A] .
+
+O(n)
+
+Sym O(n) = O(n)/Pn
+
+This implies the assertion.
+Proposition 3.5. Let B be a braided finite tensor category. Then for any braided commutative algebra
+T ∈ B and any braided cocommutative coalgebra K ∈ B the derived morphism space B(K, T• ) is naturally
+an E2 -algebra.
+Proof. We denote by JˇT a resolution of the braided operad JT that is arity-wise a projectively cofibrant
+k[Bn ]-module (a cofibrant object in the projective model structure on differential graded k[Bn ]-modules);
+this is the braided analogue of a Σ-cofibrant symmetric operad. In other words, we pick a braided operad
+JˇT with arity-wise projectively cofibrant braid group actions and a trivial fibration JˇT −→ JT .
+Since JT and thus JˇT is acyclic thanks to Proposition 3.2 (i) and since JˇT has a projectively cofibrant
+braid group action, we obtain
+
+(Sym JˇT )(n) = JˇT (n) /Pn = C∗ (BPn ; k) ≃ C∗ (E2 (n); k) ,
+where C∗ (−; k) is the functor taking k-chains. Consequently, we obtain an equivalence
+Sym JˇT ≃ C∗ (E2 ; k)
+
+(3.5)
+
+of operads. In other words, Sym JˇT is a model for E2 . This is an instance of the Recognition Principle
+for E2 [Fie96].
+If we pull back the JT -action on T• from Proposition 3.2 (ii) along JˇT −→ JT , we turn T• into a braided
+ˇ
+JT -algebra.
+The functor B(K, −) : Ch(B) −→ Chk is
+• lax monoidal since K is a coalgebra,
+• and also braided since K is braided cocommutative.
+This implies by Lemma 3.3 that B(K, T• ) becomes a braided JˇT -algebra, which by Lemma 3.4 induces a
+Sym JˇT -algebra structure on B(K, T• ) because Chk is symmetric. Now (3.5) yields the assertion.
+We apply Proposition 3.5 to the canonical coalgebra F ∈ Z(C) to obtain a source of E2 -algebras:
+Theorem 3.6. Let T ∈ C be an algebra in a finite tensor category C together with a lift to a braided
+commutative algebra T ∈ Z(C) in the Drinfeld center. Then the multiplication of T and the half braiding
+of T induce the structure of an E2 -algebra on the space C(I, T• ) of homotopy invariants of T.
+Proof. By assumption we have T = U T as algebras with the forgetful functor U : Z(C) −→ C, where T
+is braided commutative. Now let F be the canonical coalgebra in Z(C), namely the image LI of the unit
+I ∈ C under the oplax monoidal left adjoint L : C −→ Z(C) to U . Since F is braided cocommutative by
+Lemma 3.1, we may apply Proposition 3.5 and find that Z(C)(F, T• ) comes with an E2 -structure.
+Using the adjunction L ⊣ U , we observe
+Z(C)(F, T• ) = Z(C)(LI, T• ) ∼
+= C(I, U T• ) .
+Therefore, C(I, U T• ) inherits the E2 -structure.
+It remains to show that U T• is an injective resolution of T: Since U is exact, the map T = U T −→ U T•
+is a monomorphism and an equivalence. Finally, U T• is also degree-wise injective because U is a right
+adjoint whose left adjoint L is exact by [Shi17, Corollary 4.9] and hence preserves injective objects.
+8
+
+Let us demonstrate the use of Theorem 3.6: For any braided finite tensor category C, denote by C¯
+the same finite tensor category, but equipped with the inverse braiding. The Deligne product C¯ ⊠ C is a
+¯
+braided finite tensor category again. There is now a canonical braided monoidal functor G : C⊠C
+−→ Z(C)
+¯
+[ENO04] that sends X ⊠ Y ∈ C ⊠ C to X ⊗ Y together with the half braiding whose component indexed
+by some Z ∈ C is given by
+c−1
+X,Z ⊗Y
+
+X⊗cY,Z
+
+X ⊗ Y ⊗ Z −−−−−−−−→ X ⊗ Z ⊗ Y −−−−−−−−→ Z ⊗ X ⊗ Y .
+This half braiding is sometimes called the field goal transform or the dolphin half braiding. The structure
+maps that turn G into a braided monoidal functor use the braiding of Z(C). For any braided commutative
+algebra B ∈ C¯ ⊠ C, the object G(B) is naturally a braided commutative algebra in Z(C) that lifts
+the algebra B⊗ := U G(B) to the Drinfeld center (the notation B⊗ is explained by the fact that B⊗
+by definition is obtained by applying the monoidal product to B). As an immediate consequence of
+Theorem 3.6, we obtain:
+¯
+Corollary 3.7. Let C be a braided finite tensor category. For any braided commutative algebra B ∈ C⊠C,
+denote by B⊗ the algebra in C obtained by applying the monoidal product functor to B. Then the
+•
+homotopy invariants C(I, B⊗
+) of B⊗ naturally form an E2 -algebra.
+R X∈C ∨
+Example 3.8. If we consider the special case B =
+X ⊠ X with the structure of a braided
+R X∈C ∨
+commutative algebra from [FSS13, Proposition 2.3], then B⊗ is the canonical coend F =
+X ⊗X
+with the underlying algebra structure given by Lyubashenko [Lyu95, Section 2]. The resulting braided
+commutative algebra in Z(C) is described directly, without passing through an algebra in C¯ ⊠ C, by
+Neuchl and Schauenburg in [NS98, Definition 4 & Proposition 5]. A detailed description of how the
+R X∈C ∨
+braided commutative algebra structure on F is obtained by applying ⊗ to B =
+X ⊠ X is given in
+[FGSS18, Section 2]. If C is given by finite-dimensional modules over a finite-dimensional quasi-triangular
+Hopf algebra, then F is the dual of the Hopf algebra with coadjoint action (we discuss the dual version of
+this statement in Example 5.10). The resulting E2 -algebra C(I, F• ) is needed as an important technical
+ingredient for proof of the differential graded Verlinde algebra [SW21c]. It appears there under the name
+dolphin algebra (because the the E2 -algebra structure comes from the dolphin half braiding).
+The construction of Theorem 3.6 is natural with respect to the input datum in the following sense:
+Proposition 3.9 (Naturality in the braided algebra). Let C be a finite tensor category with algebras
+T and U in C with lifts T and U ∈ Z(C) to braided commutative algebras. Then any algebra map
+φ : T −→ U, which has the property to induce a map T −→ U in the Drinfeld center, gives rise to a map
+φ• : C(I, T• ) −→ C(I, U• )
+of E2 -algebras.
+Proof. The assumption says exactly that φ : T −→ U gives us a map of algebras in Z(C). We can extend
+φ to a map φ• : T• −→ U• between injective resolutions such that φ• ◦ιT = ιU ◦φ for the coaugmentations
+ιT : T −→ T• and ιU : U −→ U• . The idea is to see φ• : T• −→ U• as map of braided algebras over an
+acyclic braided operad and then to apply the functor Z(C)(F, −) as in the proof of Theorem 3.6. This
+will give us a map of E2 -algebras.
+The non-obvious point is how to see φ• : T• −→ U• as map of braided algebras over an acyclic braided
+operad because, according to Proposition 3.2, T• is a JT -algebra while U• is a JU -algebra. Both algebras
+are defined over different operads. Moreover, φ does not directly induce a map JT −→ JU .
+Instead, we use the following construction: First we define for n ≥ 0 the pullback of complexes with
+Bn -action
+Kφ (n)
+Z(C)(T• ⊗n , U• )
+∗
+(ι⊗n
+T )
+
+k
+⊗
+
+17−→ T
+
+µn
+T
+
+φ
+
+ιU
+
+!
+
+−−→T−
+→U−→U
+
+9
+
+•
+
+Z(C)(T⊗n , U• ) .
+
+(3.6)
+
+As in the proof of Proposition 3.2, this is also a homotopy pullback. Since the right vertical map is a
+trivial fibration, so is Kφ (n) −→ k. The map
+φ•
+
+JT (n) −→ Z(C)(T• ⊗n , T• ) −−−∗−→ Z(C)(T• ⊗n , U• )
+induces by construction a map JT (n) −→ Kφ (n) that by abuse of notation we just write as φ∗ . Similarly,
+the map
+(φ• ⊗n )∗
+
+JU (n) −→ Z(C)(U• ⊗n , U• ) −−−−−−−−→ Z(C)(T• ⊗n , U• )
+induces a map φ∗ : JU (n) −→ Kφ (n). This uses
+⊗n
+⊗n
+j ◦ φ• ⊗n ◦ ι⊗n
+= ιU ◦ µnU ◦ φ⊗n = ιU ◦ φ ◦ µnT
+T = j ◦ ιU ◦ φ
+
+for j ∈ JU (n) ,
+
+where φ being a map of algebras enters in the last step. The maps φ∗ : JT (n) −→ Kφ (n) and φ∗ :
+JU (n) −→ Kφ (n) are not zero because φ must preserve unit and hence is not zero (we assume that the
+algebras T and U are not zero). Since JT (n), JU (n) and Kφ (n) are acyclic, φ∗ and φ∗ are equivalences.
+As a consequence, the homotopy pullback
+(JT ×φ JU )(n)
+
+JT (n)
+φ∗
+
+JU (n)
+
+φ∗
+
+(3.7)
+
+Kφ (n)
+
+is also acyclic. The complexes (JT ×φ JU )(n) form an acyclic braided operad JT ×φ JU . By virtue of the
+projections, JT ×φ JU −→ JT and JT ×φ JU −→ JU , T• and U• become braided JT ×φ JU -algebras such
+that φ• : T• −→ U• becomes a JT ×φ JU -algebra map (up to coherent homotopy depending on the model
+for (3.7)).
+4 Resolving the canonical algebra
+We intend to eventually apply Theorem 3.6 to the canonical algebra A and to exploit the relation to
+Hochschild cochains. As a preparation for the very technical next section, we present in this section an
+injective resolution of A which conveniently allows us to do that.
+For any finite tensor category C, X ∈ C and a finite-dimensional vector space W , recall that we denote
+by X W = W ∗ ⊗ X the powering of X by W . We may now define the objects
+Y
+(X0 ⊗ Xn∨ )C(Xn ,Xn−1 )⊗···⊗C(X1 ,X0 )
+(4.1)
+X0 ,...,Xn ∈Proj C
+
+that we organize into a cosimplicial object
+Y
+X0 ∈Proj C
+
+X0 ⊗ X0∨
+
+Y
+
+(X0 ⊗ X1∨ )C(X1 ,X0 )
+
+X0 ,X1 ∈Proj C
+
+... .
+(4.2)
+
+R fR
+which a priori lives in a completion of C by infinite products. We denote by X∈Proj C X ⊗ X ∨ the
+differential graded object in C which is obtained as the totalization of the restriction to any finite collection
+of projective objects in C that contains a projective generator.
+R fR
+Lemma 4.1. Let C be a finite tensor category. The differential graded object X∈Proj C X ⊗ X ∨ in C is
+R
+well-defined up to equivalence and an injective resolution of the canonical end A = X X ⊗ X ∨ .
+R X∈Proj C ∨
+Proof. We apply the duality functor ∨ − to the projective resolution fL
+X ⊗ X of F given in
+[SW21a, Corollary 4.3] and observe that, after a substitution of dummy variables, we obtain (4.2).
+R fR
+Since ∨ F ∼
+= A, we now obtain the well-definedness of X∈Proj C X ⊗ X ∨ and the fact that it is an injective
+resolution of A (all of this crucially uses that in a finite tensor category the projective objects are precisely
+the injective ones).
+10
+
+Let X0 , . . . , Xp+q be a family of projective objects in C from the finite collection of projective objects
+R fR
+used to define X∈Proj C X ⊗ X ∨ . The evaluation dXp : Xp∨ ⊗ Xp −→ I of Xp induces a map
+C(X1 ,X0 )⊗···⊗C(Xp ,Xp−1 )
+X0 ⊗ Xp∨
+C(Xp ,Xp+1 )⊗···⊗C(Xp+q−1 ,Xp+q )
+∨
+⊗ Xp ⊗ Xp+q
+
+∨
+X0 ⊗ Xp+q
+
+−−−−→
+
+C(X1 ,X0 )⊗···⊗C(Xp+q ,Xp+q−1 )
+
+. (4.3)
+
+We may now define a map
+•
+γp+q
+:
+
+!p
+
+Z fR
+X ⊗X
+
+∨
+
+!q
+
+Z fR
+X ⊗X
+
+⊗
+
+∨
+
+X ⊗X
+
+−→
+
+∨
+
+(4.4)
+
+X∈Proj C
+
+X∈Proj C
+
+X∈Proj C
+
+!p+q
+
+Z fR
+
+as follows: By the universal property of the product it suffices to give the component for any family
+X0 , . . . , Xp+q of projective objects in C. We define this component to be the map that projects to the
+component of X0 , . . . , Xp for the first factor and to Xp , . . . , Xp+q for the second factor and applies the
+map (4.3). A direct computation shows that (4.4) yields a chain map and an associative and unital
+R fR
+multiplication γ • on X∈Proj C X ⊗ X ∨ . This is a model for a lift of the algebra structure γ : A ⊗ A −→ A
+from (2.4) to the injective resolution as one can directly verify:
+R fR
+Lemma 4.2. For any finite tensor category C, the coaugmentation A −→ X∈Proj C X ⊗ X ∨ is an equivalence
+!
+Z fR
+≃
+∨
+•
+X ⊗X , γ
+( A , γ ) −−−→
+X∈Proj C
+
+of differential graded algebras.
+Let us now discuss the relation to Hochschild cochains: For a linear category A over k (to be thought
+RR
+of as algebra with several objects), the Hochschild cochain complex a∈A A(a, a) is the homotopy end
+over the endomorphism spaces of objects in A. When spelled out, it is the cochain complex of vector
+spaces which in cohomological degree n ≥ 0 is given by
+!n 
+Q
+Z R
+for n = 0 ,
+a0 ∈A A(a0 , a0 )
+Q
+A(a, a)
+=
+a0 ,...,an ∈A Homk (A(a1 , a0 ) ⊗ · · · ⊗ A(an , an−1 ), A(an , a0 )) for n ≥ 1 .
+a∈A
+The composition in A gives us the differentials. One may define the cup product ⌣ on the Hochschild
+cochain complex as follows: Let a p-cochain φ and a q-cochain ψ be given, and let (a0 , . . . , ap+q ) be a
+p + q-tuple of objects in A. The (a0 , . . . , ap+q )-component (φ ⌣ ψ)a0 ,...,ap+q of the cochain φ ⌣ ψ with
+degree p + q is given by
+(φ ⌣ ψ)a0 ,...,ap+q := φa0 ,...,ap ◦ap ψap ,...,ap+q ,
+where ◦ap denotes the composition over ap in A. In cohomology, the cup product yields a graded
+commutative product. By work of Gerstenhaber [Ger63] the Hochschild cohomology comes also with a
+degree one bracket, a structure that today is called Gerstenhaber algebra (we will review the definition
+of the Gerstenhaber bracket once we need it).
+RR
+For a finite tensor category C, we apply this definition to Proj C and call X∈Proj C C(X, X) the Hochschild
+cochain complex of C. The fact that the end runs over the projective objects will always be implicit.
+Proposition 4.3. For any finite tensor category C, there is a canonical equivalence
+!
+!
+!
+Z R
+Z fR
+≃
+∨
+•
+C(X, X) , ⌣
+−−−→
+C I,
+X ⊗X
+, γ
+X∈Proj C
+
+X∈Proj C
+
+of differential graded algebras.
+If we ignore the algebra structure, Proposition 4.3 reduces (on cohomology) to an isomorphism
+HH ∗ (C) ∼
+= Ext∗C (I, A)
+which is well-known for Hopf algebras and goes back to Cartan and Eilenberg [CE56] as reviewed in
+[Bic13, Proposition 2.1] and formulated for arbitrary finite tensor categories in [Shi20, Corollary 7.5].
+The new aspect in Proposition 4.3 is the compatibility with the algebra structures (and, on a technical
+level, the fact that we exhibit a very convenient cochain level model that we can work with later).
+11
+
+R fR
+Proof of Proposition 4.3. The finite homotopy end X∈Proj C X ⊗ X ∨ runs by definition over a full subcategory of Proj C consisting of a family of finitely many objects that include a projective generator. For
+this proof, we denote this subcategory by F ⊂ Proj C. Now by definition
+Z fR
+
+X ⊗ X∨ =
+
+Z R
+
+X∈Proj C
+
+X ⊗ X∨ .
+
+X∈F
+
+Moreover, we set
+Z fR
+
+Z R
+
+Z R
+
+C(X, X) :=
+X∈Proj C
+
+(i) We define a map
+
+RR
+X∈Proj C
+
+RR
+X∈Proj C
+
+C(X, X) =
+X∈F
+
+F(X, X) .
+
+(4.5)
+
+X∈F
+
+ R
+
+fR
+C(X, X) −→ C I, X∈Proj C X ⊗ X ∨ by the commutativity of the triangle
+ R
+
+fR
+C I, X∈Proj C X ⊗ X ∨
+
+(∗)
+
+C(X, X)
+
+≃
+
+∼
+=
+
+R fR
+X∈Proj C
+
+C(X, X) ,
+
+where the maps appearing in the triangle are defined as follows:
+• The equivalence on the left comes from the restriction to F. (This is the dual version of the
+Agreement Principle of McCarthy [MCar94] and Keller [Kel99], see [SW21a, Section 2.2] for
+a review.)
+• The isomorphism on the right comes, in each degree, from the isomorphisms
+Y
+C(Xn , X0 )C(X1 ,X0 )⊗···⊗C(Xn ,Xn−1 )
+X0 ,...,Xn ∈F
+
+
+
+
+
+∼
+= C I,
+
+C(X1 ,X0 )⊗···⊗C(Xn ,Xn−1 ) 
+
+Y
+
+(X0 ⊗ Xn∨ )
+
+X0 ,...,Xn ∈F
+
+induced by duality.
+Now clearly (∗) is an equivalence.
+RR
+(ii) Since F ⊂ Proj C is a full subcategory, the cup product of X∈Proj C C(X, X) restricts to the cup
+RR
+product of X∈F F(X, X). With the notation from (4.5), this means that
+!
+
+Z R
+C(X, X) , ⌣
+
+≃
+
+−−−→
+
+X∈Proj C
+
+!
+
+Z fR
+C(X, X) , ⌣
+X∈Proj C
+
+is an equivalence of differential graded algebras. Hence, it remains to prove that
+!
+!
+!
+Z fR
+Z fR
+∨
+•
+C(X, X) , ⌣ ∼
+X ⊗X
+, γ
+= C I,
+X∈Proj C
+
+X∈Proj C
+
+is an isomorphism of algebras. After unpacking the definition of the multiplications on both sides,
+this means that for X0 , . . . , Xp+q ∈ F and the abbreviations
+V := C(X1 , . . . , X0 ) ⊗ · · · ⊗ C(Xp , Xp−1 ) ,
+W := C(Xp+1 , Xp ) ⊗ · · · ⊗ C(Xp+q , Xp+q−1 ) ,
+
+12
+
+the square
+⌣
+
+C(Xp , X0 )V ⊗ C(Xp+q , Xp )W
+
+C(Xp+q , X0 )V ⊗W
+
+∼
+=
+
+∼
+=
+
+
+
+
+
+V
+∨ W
+⊗ C I, Xp ⊗ Xp+q
+C I, X0 ⊗ Xp∨
+
+dXp
+
+
+
+∨ V ⊗W
+,
+C I, X0 ⊗ Xp+q
+
+in which the vertical isomorphisms come from duality, commutes. The exponentials are just tensored
+together in both clockwise and counterclockwise direction. Since the cup product composes over
+Xp , the commutativity of the square now boils down to the basic equality
+∨
+X0 Xp+q
+
+∨
+Xp+q
+
+X0
+
+f
+=
+
+Xp
+g
+
+f
+
+g
+
+Xp
+
+∨
+.
+of morphisms I −→ X0 ⊗ Xp+q
+
+5 Comparison Theorem
+In this section, we prove that Theorem 3.6 produces a solution to Deligne’s Conjecture:
+Theorem 5.1 (Comparison
+Theorem). For any finite tensor category C, the algebra structure on the
+R
+canonical end A = X∈C X ⊗ X ∨ and its canonical lift to the Drinfeld center induces an E2 -algebra
+RR
+structure on the homotopy invariants C(I, A• ). Under the equivalence C(I, A• ) ≃ X∈Proj C C(X, X),
+this E2 -structure provides a solution to Deligne’s Conjecture in the sense that it induces the standard
+Gerstenhaber structure on the Hochschild cohomology of C.
+Outline of the strategy of the proof of Theorem 5.1. In order to obtain the E2 -structure on C(I, A• ), we
+specialize Theorem 3.6 to the algebra T = A ∈ C. This is possible because A lifts to a braided commutative
+algebra in Z(C) by Lemma 3.1. One can conclude from Proposition 4.3 that the underlying multiplication
+of this E2 -structure on C(I, A• ) translates to the cup product on the Hochschild cochain complex under
+RR
+the equivalence C(I, A• ) ≃ X∈Proj C C(X, X). It remains to prove that the Gerstenhaber bracket that we
+extract from the E2 -structure on C(I, A• ) constructed
+via Theorem
+3.6 yields the standard Gerstenhaber
+R
+
+R
+∗
+bracket on the Hochschild cohomology H
+C(X, X) .
+X∈Proj C
+Unfortunately, this part is relatively involved and will occupy the rest of this section: We need to
+spell out a model for the homotopy h between the multiplication γ∗• on C(I, A• ) coming from the product
+γ • : A• ⊗A• −→ A• and the opposite multiplication γ∗• op . Of course, we cannot just exhibit any homotopy,
+but need to compute the specific homotopy that the E2 -structure provided by Theorem 3.6 gives us.
+Afterwards, we will extract the Gerstenhaber bracket from the homotopy h. Since the Gerstenhaber
+bracket is an operation on homology, it suffices to compute h up to a higher homotopy.
+More concretely, the homotopy h between γ∗• and γ∗• op that we need to compute is the evaluation of
+the map C∗ (E2 (2); k) ⊗ C(I, A• )⊗2 −→ C(I, A• ) (that the E2 -structure provides for us) on the 1-chain on
+E2 (2) given by the path in the configuration space of two disks shown in Figure 1.
+The steps of the proof are as follows:
+(i) Construct explicitly with algebraic tools some homotopy (that in hindsight we call h) between the
+multiplication and the opposite multiplication on C(I, A• ).
+(ii) Prove that h as constructed in step (i) agrees up to higher homotopy with the topologically extracted
+homotopy described above.
+13
+
+2
+
+1
+
+1
+
+2
+
+Figure 1: The path in E2 (2) which provides for us the homotopy between multiplication and opposite multiplication. The path parameter runs along the vertical axis.
+
+(iii) Extract the Gerstenhaber bracket from h and prove that it agrees with the standard Gerstenhaber
+bracket on Hochschild cohomology.
+
+Step (i). For step (i), we will choose as the injective resolution for A the one from Lemma 4.1, i.e.
+R fR
+the (finite) homotopy end X∈Proj C X ⊗ X ∨ . With this model, the product on C(I, A• ) is given by the
+product γ • of A• from (4.4). This has the advantage that γ • translates strictly to the cup product on
+Hochschild cochains (Proposition 4.3).
+Let us now begin with the construction of h: For p, q ≥ 0 and 0 ≤ i ≤ p − 1, we fix an arbitrary family
+of p + q projective objects
+Ci = (X0 , . . . , Xi−1 , Y0 , . . . , Yq , Xi+2 , . . . , Xp )
+(the labeling is chosen in hindsight and will become clear in a moment) and define the vector spaces
+V ′ := C(X1 , X0 ) ⊗ · · · ⊗ C(Xi−1 , Xi−2 ) ⊗ C(Y0 , Xi−1 ) ,
+W := C(Y1 , Y0 ) ⊗ · · · ⊗ C(Yq , Yq−1 ) ,
+V ′′ := C(Xi+2 , Yq ) ⊗ · · · ⊗ C(Xp , Xp−1 ) .
+Ci
+With this notation, the component Ap+q−1
+of the product Ap+q−1 (this is the p + q − 1-th term of
+•
+A , not the p + q − 1-fold monoidal product) indexed by Ci is given by
+Ci
+V ′ ⊗W ⊗V ′′
+Ap+q−1
+= X0 ⊗ Xp∨
+,
+(5.1)
+see (4.1). Similarly, for the families
+Di′ := (X0 , . . . , Xi−1 , Y0 , Yq , Xi+2 , . . . , Xp ) ,
+Di′′ := (Y0 , . . . , Yq ) ,
+we have
+V ′ ⊗C(Yq ,Y0 )⊗V ′′
+D′
+(Ap ) i = X0 ⊗ Xp∨
+,
+
+′′
+W
+D
+(Aq ) i = Y0 ⊗ Yq∨
+.
+Next observe
+
+
+
+
+D′
+D ′′
+C I, (Ap ) i ⊗ C I, (Aq ) i
+= Homk (V ′ ⊗ C(Yq , Y0 ) ⊗ V ′′ , C(I, X0 ⊗ Xp∨ )) ⊗ Homk (W, C(I, Y0 ⊗ Yq∨ ))
+∼
+= Homk (V ′ ⊗ C(Yq , Y0 ) ⊗ V ′′ , C(I, X0 ⊗ X ∨ )) ⊗ Homk (W, C(Yq , Y0 )) .
+p
+
+
+
+C
+Composition over C(Yq , Y0 ) provides a map to Homk (V ′ ⊗ W ⊗ V ′′ , C(I, X0 ⊗ Xp∨ )) which is C I, (Ap ) i
+by (5.1). Therefore, we obtain a map
+
+
+
+
+
+Ci 
+Ci
+D′
+D ′′
+(hp,q
+: C I, (Ap ) i ⊗ C I, (Aq ) i −→ C I, Ap+q−1
+i )
+14
+
+decreasing degree by one. By the universal property of the product, we may define the linear map
+hp,q
+: C(I, Ap ) ⊗ C(I, Aq ) −→ C(I, Ap+q−1 )
+i
+by the commutativity of the square
+hp,q
+i
+
+C(I, Ap ) ⊗ C(I, Aq )
+
+C(I, Ap+q−1 )
+
+projection to components Di′ and Di′′
+
+projection to component Ci
+
+
+
+
+
+D′
+D ′′
+C I, (Ap ) i ⊗ C I, (Aq ) i
+
+
+Ci 
+C I, Ap+q−1
+.
+
+C
+
+i
+(hp,q
+i )
+
+and define the components of h by
+hp,q :=
+
+p−1
+X
+
+(−1)i+(p−1−i)q hp,q
+: C (I, Ap ) ⊗ C (I, Aq ) −→ C I, Ap+q−1
+i
+
+
+
+.
+
+(5.2)
+
+i=0
+
+In order to establish a graphical representation for the definition of h, we symbolize a p-cochain in
+C(I, A• ), i.e. a vector in
+
+
+Y
+
+
+Homk C(Xp , Xp−1 ) ⊗ · · · ⊗ C(X1 , X0 ), C(I, X0 ⊗ Xp∨ )
+{z
+}
+|
+{z
+}
+|
+X0 ,...,Xp ∈Proj C
+(∗)
+
+(∗∗)
+
+as follows:
+
+φ
+...
+The box labeled with φ with attached legs represents the part (∗∗) of the cochain which is a morphism
+I −→ X0 ⊗ Xp∨ (we suppress the labels because the cochains have components running over arbitrary
+labels). The p blank boxes can be filled with composable morphisms and make the cochains multilinearly
+dependent on p types of morphisms; this is part (∗) of the cochain. With this diagrammatic presentation,
+we arrive at the following description of h:
+
+
+
+hp,q
+i 
+
+
+
+φ
+...
+
+⊗
+
+ψ
+...
+
+
+
+
+
+
+φ
+=
+
+i-th
+
+(5.3)
+ψ
+
+...
+
+...
+
+...
+
+On the left, we have p boxes for φ and q blank boxes for ψ (dotted); the insertion is made in the i-th
+one. The total number of boxes on the right is p + q.
+Step (i) is achieved with the following Lemma:
+Lemma 5.2. With the definition (5.2) of h,
+hd + dh = γ∗• op − γ∗• ,
+i.e. h is a homotopy from γ∗• to γ∗• op .
+
+15
+
+(5.4)
+
+Proof. Let φ and ψ be cochains of degree p and q, respectively. We will write hi instead of hp,q
+for better
+i
+readability because the degree can be read off from the cochains that h is being applied to. Thanks to
+
+
+
+
+
+
+h0 (d0 φ ⊗ ψ) = h0 
+
+
+
+⊗
+φ
+...
+
+ψ
+
+
+
+
+ =
+
+
+
+ψ
+...
+
+= γ∗• (ψ ⊗ φ) ,
+φ
+...
+
+
+
+...
+
+...
+
+
+
+
+
+
+hp (dp+1 φ ⊗ ψ) = hp 
+
+
+
+⊗
+φ
+...
+
+ψ
+
+
+
+
+ =
+
+
+
+ψ
+...
+
+= γ∗• (φ ⊗ ψ) ,
+φ
+...
+
+...
+
+...
+
+we obtain
+h(dφ ⊗ ψ) = (−1)pq h0 (d0 φ ⊗ ψ) +
+
+p
+X
+(−1)i+(p−i)q hi (d0 φ ⊗ ψ)
+i=1
+
++
+
+p X
+p
+X
+
+(−1)
+
+i+j+(p−i)q
+
+hi (dj φ ⊗ ψ) +
+
+i=0 j=1
+
+|
+
+p−1
+X
+
+(−1)i+p+1+(p−i)q hi (dp+1 φ ⊗ ψ)
+
+i=0
+
+{z
+
+}
+
+=:S(φ,ψ)
+
+− hp (dp+1 φ ⊗ ψ)
+= (−1)pq γ∗• (ψ ⊗ φ) − d0 h(φ ⊗ ψ) + S(φ, ψ)
+− (−1)p+q dp+q h(φ ⊗ ψ) − γ∗• (φ ⊗ ψ) .
+
+(5.5)
+
+Next we further compute S(φ, ψ): For 0 ≤ i ≤ p and 1 ≤ j ≤ p, we find
+
+dj−1+q hi (φ ⊗ ψ) , i < j − 1 ,
+
+
+
+hi (φ ⊗ dq+1 ψ) , i = j − 1 ,
+hi (dj φ ⊗ ψ) =
+h
+i=j ,
+
+i−1 (φ ⊗ d0 ψ) ,
+
+
+dj hi−1 (φ ⊗ ψ) ,
+i>j .
+With the dummy variables ℓ = j − 1 + q and m = i − 1, this leads to
+X
+
+S(φ, ψ) = −
+
+(−1)i+ℓ+(p−1−i)q dℓ hi (φ ⊗ ψ) −
+
+p−1
+X
+
+(−1)(p−1−i)q hi (φ ⊗ d0 ψ) −
+
+i=0
+
+(−1)(p−i)q hi (φ ⊗ dq+1 ψ)
+
+i=0
+
+0≤i≤p−1
+q≤ℓ≤p−1+q
+ℓ>i+q
+
++
+
+p−1
+X
+
+X
+
+(−1)m+j+(p−1−m)q dj hm (φ ⊗ ψ)
+
+0≤m≤p−1
+1≤j≤p
+m≥j
+
+= K(φ, ψ) − (−1)p h(φ ⊗ (−1)q+1 dq+1 ψ) + h(φ ⊗ d0 ψ)
+
+with
+
+K(φ, ψ) := −
+
+p−1
+X
+i=0
+
+
+
+
+
+X
+
+(−1)i+j+(p−1−i)q dj hi (φ ⊗ ψ) +
+
+
+
+X
+1≤j≤p
+i≥j
+
+q≤j≤p−1+q
+j>i+q
+
+16
+
+
+
+(−1)i+j+(p−1−i)q dj hi (φ ⊗ ψ)
+ .
+
+As a consequence, we obtain
+S(φ, ψ) + (−1)p h(φ ⊗ dψ) = K(φ, ψ) + (−1)p
+
+p−1 X
+q
+X
+
+(−1)i+j+(p−1−i)(q+1) hi (φ ⊗ dj ψ)
+
+i=0 j=1
+
+= K(φ, ψ) + (−1)p
+
+p−1 X
+q
+X
+
+(−1)i+j+(p−1−i)(q+1) di+j hi (φ ⊗ ψ)
+
+i=0 j=1
+
+(because hi (φ ⊗ dj ψ) = di+j hi (φ ⊗ ψ) for 0 ≤ i ≤ p − 1 , 1 ≤ j ≤ q)
+X
+= K(φ, ψ) + (−1)p
+(−1)j+(p−1−i)(q+1) dj hi (φ ⊗ ψ)
+0≤i≤p−1
+i+1≤j≤i+q
+
+X
+
+= K(φ, ψ) −
+
+(−1)i+j+(p−1−i)q dj hi (φ ⊗ ψ)
+
+0≤i≤p−1
+i+1≤j≤i+q
+
+=−
+
+p−1 p+q−1
+X
+X
+i=0
+
+(−1)i+j+(p−1−i)q dj hi (φ ⊗ ψ)
+
+j=1
+
+= −dh(φ ⊗ ψ) + d0 h(φ ⊗ ψ) + (−1)p+q dp+q h(φ ⊗ ψ) .
+
+(5.6)
+
+In summary,
+h(d(φ ⊗ ψ)) = h(dφ ⊗ ψ) + (−1)p h(φ ⊗ dψ)
+(5.5)
+
+= (−1)pq γ∗• (ψ ⊗ φ) − d0 h(φ ⊗ ψ) + S(φ, ψ)
+− (−1)p+q dp+q h(φ ⊗ ψ) − γ∗• (φ ⊗ ψ) + (−1)p h(φ ⊗ dψ)
+
+(5.6)
+
+= (−1)pq γ∗• (ψ ⊗ φ) − γ∗• (φ ⊗ ψ) − dh(φ ⊗ ψ) .
+
+This proves (5.4) and hence the Lemma.
+Step (ii). We now prepare ourselves to prove that the homotopy h constructed algebraically in step (i)
+agrees with the topologically extracted homotopy: The E2 -structure on C(I, A• ) comes by construction
+from the braided JA -algebra structure on an injective resolution A• of A ∈ Z(C). In this description, one
+needs A• = U A• . We will cover afterwards the situation for an injective resolution of A ∈ C which does
+not lift degree-wise to the Drinfeld center. The construction will now be spelled out:
+Lemma 5.3. For any finite tensor category C, let A• be an injective resolution of the canonical algebra
+A ∈ Z(C). Moreover, set A• := U A• .
+(i) Denote by Γ : A• ⊗ A• −→ A• the product of A• (any extension of the product A ⊗ A −→ A to
+the injective resolution) and by cA• ,A• : A• ⊗ A• −→ A• ⊗ A• the braiding of the differential graded
+object A• in Z(C). There is an essentially unique homotopy H : Γ ≃ Γ op := Γ ◦ cA• ,A• (essentially
+unique means here up to higher homotopy) with the additional property that the precomposition
+⊗2
+with the coaugmentation ι⊗2
+−→ A• ⊗2
+A :A
+
+
+
+≃
+Z(C) A• ⊗2 , A• −−−→ Z C)(A⊗2 , A•
+ι
+
+sends H to the zero self-homotopy of the map A⊗2 −→ A −−−A−→ A• that first applies the product
+of A (or the opposite product, which is equal) and then the coaugmentation.
+(ii) If we apply the forgetful functor U : Z(C) −→ C, H yields a homotopy U H from the multiplication
+γ • : A• ⊗ A• −→ A• (extending the product γ : A ⊗ A −→ A) to
+U (cA• ,A• )
+
+γ•
+
+γ̄ • := γ • ◦ U (cA• ,A• ) : A• ⊗ A• −−−−−−−−→ A• ⊗ A• −−−−→ A• .
+
+(5.7)
+
+The multiplications γ • and γ̄ • on A• induce the multiplications γ∗• and γ∗• op on C(I, A• ), respectively.
+The homotopy h from γ∗• to γ∗• op extracted from the E2 -structure on C(I, A• ) is the result of applying
+C(I, −) to U H, i.e. it is given by the composition
+lax monoidal structure of C(I, −)
+
+C(I,U H)
+
+h : C(I, A• ) ⊗ C(I, A• ) −−−−−−−−−−−−−−−−−−−−−−→ C(I, A• ⊗2 ) −−−−−−−→ C(I, A• ) . (5.8)
+17
+
+Proof. All of this is consequence of the definition of the braided operad JA (see (3.4)), a careful unpacking
+of the proofs of Proposition 3.5 and Theorem 3.6, and the fact H, as described in (i), is the result of the
+evaluation of the JA -action
+
+
+JA (2) −→ Z(C) A• ⊗2 , A•
+on a 1-chain that is mapped by the epimorphism JA (2) −→ C∗ (E2 (2); k) to the 1-chain in E2 (2) described
+in Figure 1.
+One should be a bit careful to see (5.7) as an ‘opposite’ multiplication because U (cA• ,A• ) is not a part of
+a braiding in C. Nonetheless, the images of the braiding in Z(C) under U turn (A• )⊗n into a Bn -module.
+If we want to use Lemma 5.3 to extract the topologically defined homotopy and compare it with the one
+R fR
+concretely given in (5.2), there is a problem: The resolution A• = X∈C X ⊗ X ∨ used to write down the
+homotopy in (5.2) does not lift degree-wise to Z(C), i.e. it does not come with a half braiding. However,
+it comes with a structure that one could call a homotopy coherent half braiding. This means that the half
+braiding for A (the non-crossing half braiding from (2.3)) can be extended to A• (but without being a half
+braiding degree-wise). With this homotopy coherent half braiding, Lemma 5.3 remains in principle true,
+but a little more care is required in some places. In order to provide the details, we will adapt the calculus
+R fR
+for monoidal categories such that we can effectively compute with the resolution A• = X∈Proj C X ⊗ X ∨ .
+Recall that its p-cochains live in the product
+Y
+C(Xp ,Xp−1 )⊗···⊗C(X1 ,X0 )
+X0 ⊗ Xp∨
+X0 ,...,Xp ∈Proj C
+
+We will write the component of an p-cochain indexed by (X0 , . . . , Xp ) in the graphical calculus by
+Xp∨
+
+X0
+
+X1
+
+..
+.
+
+.
+
+(5.9)
+
+Xp−1
+
+Xp
+
+Formally speaking, this picture is to be read as the projection
+Ap −→ X0 ⊗ Xp∨
+
+C(Xp ,Xp−1 )⊗···⊗C(X1 ,X0 )
+
+.
+
+(5.10)
+
+The boxes represent the vector spaces appearing in the exponent of the powering (5.10). More precisely,
+the box between Xj+1 and Xj for 0 ≤ j ≤ p − 1 represents a blank argument that can be filled with a
+morphism Xj+1 −→ Xj . The dotted line is purely mnemonic: It is not a coevaluation, but symbolizes
+the constraint that the object on the upper right (here: Xp∨ ) must be dual to the one in the left bottom
+(here: Xp ). With this notation, we can actually omit the labeling in (5.9) because all components in the
+picture run over all labels, with the single constraint implemented through the dotted line.
+
+18
+
+Now we can give the homotopy coherent half braiding of our resolution A• with X ∈ C by
+X
+
+..
+.
+
+cA• ,X :=
+
+: A• ⊗ X −→ X ⊗ A• .
+X
+
+(5.11)
+
+∨
+
+X
+The lines drawn through the boxes indicate that identities have been inserted. Note that cA• ,X is determined up to a contractible choice by the fact that the restriction along the coaugmentation ιA : A −→ A•
+gives us (X ⊗ ιA ) ◦ cA,X , where cA,X is the usual non-crossing half braiding on A. The following is a
+consequence of this characterization of cA• ,X :
+Lemma 5.4. (i) The homotopy coherent half braiding (5.11) endows A• ⊗n with a homotopy coherent
+action of Bn which is the essentially unique Bn -action making the n-fold coaugmentation
+≃
+
+A⊗n −−−→ (A• )
+
+⊗n
+
+Bn -equivariant up to coherent homotopy.
+(ii) There is a unique homotopy H : γ • ≃ γ • ◦ cA• ,A• that becomes trivial if we precompose with the
+coaugmentation in the first slot.
+(iii) The homotopy coherent half braiding cA• ,− is natural up to coherent homotopy: For objects X and
+Y in C (that can themselves be differential graded if cA• ,− is understood degree-wise)
+Y
+
+A•
+
+cA• ,Y
+
+A•
+
+Y
+
+N
+
+≃ (−1)ε
+
+A•
+
+?
+
+: A• ⊗ C(X, Y ) ⊗ X −→ Y ⊗ A• ,
+
+?
+
+cA• ,X
+
+X
+
+A•
+
+X
+
+holds up to a coherent homotopy that we denote by N (we suppress the dependence on X and Y
+in the notation). The box with the question mark can be filled with a morphism X −→ Y . The
+integer ε is the product of the degree of ? and the degree of A• . This homotopy is the essentially
+unique one that becomes trivial if we precompose with the coaugmentation A −→ A• .
+(iv) Through the homotopies N , the maps
+C(I, A• )⊗n −→ C(I, A• ⊗n )
+become Bn -equivariant up to coherent homotopy, where on the left hand side the action is the strict
+action factoring through the permutation group.
+Proof. The points (i), (ii) and (iii) follow from the construction because the homotopy coherent half
+braiding reduces to the usual non-crossing braiding if we precompose with the coaugmentation. One
+obtains (iv) by specializing (iii) to X = I and Y = A• .
+R fR
+We cannot only endow the homotopy end X∈Proj C X ⊗X ∨ with a homotopy coherent half braiding, but
+also an injective resolution U A• of A ∈ C that comes from an arbitrary injective resolution of A ∈ Z(C). In
+the latter case, we have of course an actual half braiding, so the statements of Lemma 5.4 hold in a much
+stricter sense (for all points except (iii), the coherence data are trivial). Now we make two observations:
+19
+
+R fR
+• The injective resolutions X∈Proj C X ⊗ X ∨ and U A• are homotopy equivalent, and their homotopy
+coherent half braidings agree, possibly up to higher homotopy. The first part is standard, the second
+part comes from the fact that the half braiding is by construction determined by its restriction to
+A. In fact, all injective resolutions of A with homotopy coherent half braiding are equivalent.
+• The homotopy h : γ∗• ≃ γ∗• op described in Lemma 5.3 depends only on U A• as object with half
+braiding. Indeed, we get the multiplication γ • from the multiplication on A, γ̄ • from the braid
+group action (5.3) which is a special case of the half braiding, and the needed homotopy from γ •
+to γ̄ • from Lemma 5.3 (ii) can once again be characterized by the fact that it becomes trivial when
+precomposed with the coaugmentation. With these ingredients, we can obtain h via (5.8).
+These two observations imply: We can compute h from any injective resolution of A equipped with
+homotopy coherent half braiding. This will possibly change h by a higher homotopy, but we are only
+interested in h up to higher homotopy anyway.
+R fR
+Lemma 5.5. For the resolution X∈Proj C X ⊗ X ∨ of A and the half braiding (5.11), the topologically
+extracted homotopy h : γ • ≃ γ∗• op is given by the homotopy
+A•
+
+A•
+
+H
+
+A•
+
+γ•
+
+Lemma 5.4 (ii)
+
+γ•
+
+h : γ∗• =
+
+= γ∗• op , (5.12)
+
+cA• ,A•
+?1
+
+γ•
+
+(−1)|?1 ||?2 |
+
+?2
+
+N
+Lemma 5.4 (iii)
+
+?2
+
+?2
+
+?1
+
+?1
+
+where the frames indicate the areas that H and N are applied to.
+Proof. For any injective resolution R = (A• , c) of A with homotopy coherent half braiding, one obtains
+the homotopies H and N that we can use to associate to R the homotopy hR via the formula (5.12).
+But all of such injective resolutions with homotopy coherent half braidings are equivalent as explained,
+and hence so are the hR . Now it remains to verify that hR with R = U A• reduces to the homotopy from
+(5.8) from Lemma 5.3 (ii). But this is true because the homotopy N , in this case, happens to be trivial
+since we have an actual half braiding.
+With the following Lemma, we complete step (ii):
+Lemma 5.6. The homotopy h : γ∗• ≃ γ∗• op from Lemma 5.2 given for the injective resolution A• =
+R fR
+X ⊗ X ∨ agrees up to higher homotopy with the topologically extracted homotopy γ∗• ≃ γ∗• op of
+X∈Proj C
+the E2 -algebra C(I, A• ).
+R fR
+Proof. For the entire proof, we fix the injective resolution A• = X∈Proj C X ⊗X ∨ . Rephrasing Lemma 5.5,
+the topologically extracted homotopy h is obtained by applying C(I, −) to the homotopy L of maps
+ξ, ξ¯ : A• ⊗ C(I, A• ) −→ A• defined by
+A•
+
+A•
+
+H
+
+γ•
+
+γ•
+
+(−1)ε
+
+Lemma 5.4 (ii)
+
+γ•
+
+L :
+
+A•
+
+ξ :=
+
+cA• ,A•
+?2
+
+?2
+
+=: ξ¯ .
+N
+Lemma 5.4 (iii)
+
+?2
+
+A•
+A•
+
+20
+
+A•
+
+In short,
+h = C(I, L) .
+
+(5.13)
+
+If we precompose with the coaugmentation, L becomes trivial (this follows for H from Lemma 5.4 (ii)
+and for N by from Lemma 5.4 (iii)). But
+(ιA ⊗idC(I,A• ) )∗
+
+C(A• ⊗ C(I, A• ), A• ) −−−−−−−−−−−−→ C(A ⊗ C(I, A• ), A• ) .
+is again a trivial fibration which implies that L is the essentially unique homotopy ξ ≃ ξ¯ that becomes
+trivial when precomposed with the coaugmentation. This allows us to give a model for L: First we define
+: Ap ⊗ C(I, Aq ) −→ Ap+q−1 through
+Lp,q
+i
+
+..
+.
+i-th
+
+ψ
+
+Lp,q
+i (− ⊗ ψ) =
+
+..
+.
+
+for ψ ∈ C(I, Aq ) .
+
+..
+.
+
+The operations Lp,q
+are binary, and the boxes and dotted boxes are associated to the first and second
+i
+argument, respectively. Next we set
+Lp,q :=
+
+p−1
+X
+(−1)i+(p−1−i)q Lp,q
+: Ap ⊗ C(I, Aq ) −→ Ap+q−1 .
+i
+
+(5.14)
+
+i=0
+
+Then
+Ld + dL = ξ¯ − ξ ,
+¯ This can be confirmed with essentially the same computation as for
+i.e. L is a homotopy from ξ to ξ.
+Lemma 5.2. In order to verify that this homotopy really models L, we need to verify that it vanishes
+when precomposed with the coaugmentation. But this follows from L0,q = 0.
+Now we can use the model (5.14) to compute h via (5.13). This gives us exactly the formula for h in
+Lemma 5.2.
+Step (iii). We can now finally compute algebraically the Gerstenhaber bracket of the E2 -algebra
+C(I, A• ). So far, we obtained for the E2 -algebra C(I, A• ) the homotopy between multiplication and
+opposite multiplication coming from the path in E2 (2) given in Figure 1. The key technical ingredient
+for this is Lemma 5.6 that tells us that the homotopy h concretely defined via (5.2) gives us a model for
+this homotopy.
+Finally, in this step, we want to compute the Gerstenhaber bracket for the E2 -algebra C(I, A• ). To this
+end, we compute the binary degree one operation b corresponding to the fundamental class of E2 (2) ≃ S1
+
+21
+
+(the orientation comes here from preferring the braiding over its inverse). From this operation b and an
+additional sign, we obtain the Gerstenhaber bracket as we will explain in a moment.
+We can obtain the loop in E2 (2) ≃ S1 corresponding to the fundamental class by composing two half
+circular paths. We have established that the homotopy h is the evaluation of the E2 -algebra C(I, A• ) on
+the first of these half circles, at least up to higher homotopy. As a consequence, the binary degree one
+operation b is the composition h + hτ of the homotopy h from γ∗• to γ∗• op and the homotopy hτ from γ∗• op
+to γ∗• , where τ is the symmetric braiding in Chk :
+b(φ, ψ) = h(φ, ψ) + (−1)pq h(ψ, φ)
+
+for φ ∈ C(I, Ap ) , ψ ∈ C(I, Aq ) .
+
+The connection to the Gerstenhaber bracket is [φ, ψ] = (−1)p b(φ, ψ) [SW03, page 220] (this additional
+sign ensures the anti-symmetry of the Gerstenhaber bracket), which leads us to
+[φ, ψ] = (−1)p h(φ, ψ) + (−1)pq+p h(ψ, φ) .
+
+(5.15)
+
+Under order to express compactly the Gerstenhaber bracket induced on Hochschild cohomology under
+RR
+the equivalence X∈Proj C C(X, X) ≃ C(I, A• ), recall the i-th partial composition operation
+!p
+
+Z R
+C(X, X)
+
+◦i :
+X∈Proj C
+
+!q
+
+Z R
+
+C(X, X)
+
+⊗
+
+!p+q−1
+
+Z R
+
+C(X, X)
+
+−→
+
+X∈Proj C
+
+,
+
+0≤i≤p−1
+
+X∈Proj C
+
+α ⊗ β 7−→ α ◦i β ,
+where
+(α ◦i β)X0 ,...,Xi−1 ,Y0 ,...,Yq ,Xi+1 ,...,Xp := αX0 ,...,Xi−1 ,Y0 ,Yq ,Xi+1 ,...,Xp (−, βY0 ,...,Yq , −) .
+The operations ◦i are used to define the circle product in the sense of [Wit19, Definition 1.4.1]
+α ◦ β :=
+
+p−1
+X
+(−1)(q−1)i α ◦i β ,
+
+|α| = p ,
+
+|β| = q .
+
+i=0
+
+Lemma 5.7. Under the equivalence,
+translates to the bracket
+
+RR
+X∈Proj C
+
+C(X, X) ≃ C(I, A• ) the Gerstenhaber bracket of C(I, A• )
+
+[α, β] = −(−1)(p−1)(q−1) α ◦ β + β ◦ α ,
+
+(5.16)
+
+where α and β are in degree p and q, respectively.
+With our sign conventions, (5.16) is the ‘standard’ Gerstenhaber bracket on Hochschild cohomology (we comment on other conventions in Remark 5.8). This finishes the proof that the E2 -algebra
+( C(I, A• ) , γ∗• ) is a (very explicit) solution to Deligne’s Conjecture.
+RR
+Proof of Lemma 5.7. Under the equivalence X∈Proj C C(X, X) ≃ C(I, A• ), the part hp,q
+of the homotopy
+i
+h from step (i), (5.3) (here p, q ≥ 0 and 0 ≤ i ≤ p − 1) translates to the partial composition operation ◦i .
+RR
+Hence, the homotopy h on C(I, A• ) from (5.2) translates to the degree one operation on X∈Proj C C(X, X)
+sending α in degree p and β in degree q to
+n−1
+X
+
+(−1)i+(p−1−i)q α ◦i β = (−1)pq+q α ◦ β .
+
+i=0
+
+But then the bracket (5.15) translates to the bracket
+[α, β] = (−1)p+pq+q α ◦ β + β ◦ α = −(−1)(p−1)(q−1) α ◦ β + β ◦ α .
+
+Remark 5.8. In many places in the literature, including the textbook [Wit19], a different convention
+for the cup product is used. This alternative cup product ⌣′ relates to ours by α ⌣′ β = (−1)pq α ⌣ β
+with p = |α| and q = |β|. For us, this convention would be a bad choice because it does not turn ⌣′
+into a chain map (only up to a sign), but it can be convenient for other purposes. If we want to obtain
+22
+
+the bracket associated to ⌣′ rather than ⌣, we need to multiply the homotopy h above also degree-wise
+with (−1)pq . This entails that b on C(I, A• ) must also be multiplied with (−1)pq , thereby giving us b′ .
+But
+b′ (φ, ψ) = (−1)pq b(φ, ψ) = b(ψ, φ)
+
+for φ ∈ C(I, Ap ) , ψ ∈ C(I, Aq )
+
+RR
+because b is graded commutative by definition. This changes the bracket that we obtain on X∈Proj C C(X, X)
+to
+[α, β]′ = (−1)p+pq+q β ◦ α + α ◦ β = α ◦ β − (−1)(p−1)(q−1) β ◦ α .
+This agrees now with [Wit19, Definition 1.4.1].
+Remark 5.9. By considering for C the modules over the group algebra of a finite group, we deduce
+from Theorem 5.1 and the computations in [LZ14] that the Gerstenhaber bracket of the E2 -algebras
+constructed from the homotopy invariants of a braided commutative algebra is generally non-trivial.
+Example 5.10 (Quantum groups). Let H be a finite-dimensional Hopf algebra with antipode S : H −→
+H. Then the category C of a finite-dimensional H-modules is a finite tensor category and its canonical
+end A is isomorphic to the adjoint representation Had [KL01, Theorem 7.4.13], i.e. H with action x.y =
+x′ yS(x′′ ) for x, y ∈ H, where ∆x = x′ ⊗ x′′ is the Sweedler notation for the coproduct. With (1.1), we can
+now write the Hochschild cohomology of H as Ext∗H (k, Had ), see [Bic13, Section 2.2]. The multiplication
+of H is ad-equivariant and therefore endows Had with structure of an algebra in H-modules. This gives
+us the multiplicative structure on Hochschild cohomology. If H is a small quantum group uq (sl2 ) at
+a primitive root of unity, the entire multiplicative structure on the Hochschild cohomology is known
+as graded ring [LQ21]. What Theorem 5.1 tells us in the case of categories of H-modules is how the
+Gerstenhaber structure on HH ∗ (H) is determined by the canonical structure of Had as an object in the
+Drinfeld center of the category of H-modules, i.e. its structure as a module over the quantum double
+D(H) and its structure as a braided commutative algebra in D(H)-modules. This is of course just the
+informal summary; the actual construction is the abstract one from Theorem 3.6 — and as we have
+seen, the actual proof that this produces the ‘usual’ Gerstenhaber bracket is quite involved (and the
+main point of this article). Let us emphasize again that the motivation behind writing the Gerstenhaber
+structure on Hochschild cohomology (or rather the E2 -structure on the Hochschild cochains) is (at least
+for now) not the computation of Gerstenhaber brackets in examples. It is rather about condensing all
+of the complicated differential graded information into one non-differential graded braided commutative
+algebra. This is exactly the description that we need for our study of the differential graded Verlinde
+algebra in [SW21c].
+Theorem 5.1 allows for a generalization to exact module categories: For a finite tensor category C,
+an exact (left) module category M [EO04] is a finite category together with structure of a left module
+⊗ : C ⊠ M −→ M over C such that P ⊗ M is projective for P ∈ Proj C and M ∈ M. If we denote
+by [−, −]R : M ⊠ M −→ C the internal hom of the module category M, one may define the object
+AM := M ∈M [M, M ] ∈ C. This object is an algebra in C and lifts in fact to a braided commutative
+algebra AM in Z(C) [Shi20, Theorem 4.9]. The object AM allows to express the Hochschild cochains of
+RR
+M as M ∈Proj M M(M, M ) ≃ C(I, A•M ); this is [Shi20, Corollary 7.5] in a slightly different language (this
+is the point where exactness of M is needed). After implementing the needed changes to Theorem 5.1
+and its proof, we arrive at the following generalization:
+Theorem 5.11. For any exact
+R module category M over a finite tensor category C, the algebra structure
+on the canonical end AM = M ∈M [M, M ] ∈ C induces an E2 -algebra structure on the derived morphism
+RR
+space C(I, A•M ). Under the equivalence C(I, A•M ) ≃ M ∈Proj M M(M, M ), this E2 -structure provides a
+solution to Deligne’s Conjecture in the sense that it induces the standard Gerstenhaber structure on the
+Hochschild cohomology of M.
+Considering C as an exact module category over itself, the above results specializes to Theorem 5.1.
+
+23
+
+6 The self-extension algebra of a finite tensor category and the Farinati-Solotar
+Gerstenhaber bracket
+Our results, in particular Theorem 3.6 and Theorem 5.1, allow us to generalize some results in the
+homological algebra of finite tensor categories (and to simplify the proofs of the existing results).
+One of the key homological algebra quantities of a finite tensor category C is the self-extension algebra
+Ext∗C (I, I) of the unit I which was studied, in the framework of finite tensor categories, by Etingof and
+Ostrik [EO04], see [NP22] for an overview. It is known that Ext∗C (I, I) is graded commutative. If C is the
+category of finite-dimensional representation of a finite group G, Ext∗C (I, I) is the group cohomology ring
+H ∗ (G; k). For certain small quantum groups, the Ext algebra was computed by Ginzburg and Kumar
+[GK93].
+If C is given by the category of finite-dimensional modules over a finite-dimensional Hopf algebra,
+Farinati and Solotar [FS04] have given a Gerstenhaber bracket on the self-extension algebra, see also
+[Her16] for a discussion of the inclusion Ext∗C (I, I) −→ HH ∗ (C) of algebras. The appearance of the
+Farinati-Solotar bracket comes, as we will show below, from the fact that under mild conditions the
+derived endomorphisms C(I, I • ) of the unit of a tensor category actually form an E2 -algebra. A similar
+argument is given, albeit in a non-linear setting, by Kock and Toën in [KT05] in terms of weak 2-monoids
+and discussed in terms of B∞ -algebras by Lowen and van den Bergh in [LvdB21]. Theorem 3.6 allows us
+to give a direct proof for the E2 -structure on C(I, I • ):
+Corollary 6.1. Let C be a finite tensor category. The self-extension algebra C(I, I • ) carries the structure
+of an E2 -algebra that after taking cohomology induces the Farinati-Solotar Gerstenhaber bracket. With
+this E2 -structure, there is a canonical map
+C(I, I • ) −→
+
+Z R
+C(X, X)
+
+(6.1)
+
+X∈Proj C
+
+to the Hochschild cochain complex of C equipped with the usual E2 -structure. This map is a map of
+E2 -algebras. After taking cohomology, it induces a monomorphism
+Ext∗C (I, I) −→ HH ∗ (C)
+
+(6.2)
+
+of Gerstenhaber algebras (with suitable models, it is also a monomorphism at cochain level).
+Proof. The unit I is trivially an algebra in C that also lifts to a braided commutative algebra in Z(C). This
+turns C(I, I • ) into an E2 -algebra by Theorem 3.6 which by construction is equivalent to the E2 -algebra
+RR
+Z(C)(F, I • ) from Proposition 3.5. By Theorem 5.1 the Hochschild cochain complex X∈Proj C C(X, X) is
+canonically equivalent as an E2 -algebra to C(I, A• ) and also to Z(C)(F, A• ). Therefore, up to equivalence,
+the map (6.1) is the map
+Z(C)(F, I • ) −→ Z(C)(F, A• )
+
+(6.3)
+
+induced by the unit map I −→ A of A ∈ Z(C). Since this unit map is a morphism of algebras, (6.3) is a
+map of E2 -algebras by Proposition 3.9. This gives us the morphism of E2 -algebras (6.1).
+Next we need to prove that (6.3) is a monomorphism in cohomology and, for suitable models, also at
+cochain level: By means of the adjunction L ⊣ U , we can identify (6.3) with the map
+C(I, I • ) −→ C(I, A• ) .
+
+(6.4)
+
+Consider the projection A −→ I ⊗ I ∨ ∼
+= I to the unit component. Then the composition I −→ A −→ I
+is the identity of I, i.e. I −→ A is a split monomorphism (although I −→ A in Z(C) is generally not
+split). Since we can model A• as I • ⊗ A, we see that I • −→ A• is a split monomorphism as well. Hence,
+the monomorphism I • −→ A• is absolute (i.e. preserved by any functor). As a consequence, (6.4) is a
+monomorphism and (6.2) is also a monomorphism.
+In order to complete the proof, we must compare the structure on cohomology with the one given
+by Farinati and Solotar [FS04]: By virtue of (6.2) being a monomorphism of Gerstenhaber algebras
+and Theorem 5.1, the Gerstenhaber structure that we construct on Ext∗C (I, I) is a restriction of the usual
+Gerstenhaber structure on Hochschild cohomology. The same is true for the Farinati-Solotar Gerstenhaber
+algebra structure by the construction in [FS04]. Hence, both structures must agree on cohomology.
+
+24
+
+Example 6.2 (Quantum groups). Let uq (sl2 ) be again the small quantum group at a primitive root
+of unity as discussed in [LQ21]. The Ext algebra of uq (sl2 ) is computed in [GK93]; it is supported in
+even degree. Its Gerstenhaber bracket is zero because uq (sl2 ) comes with an R-matrix (and hence its
+category of modules with a braiding). This uses that by [Her16, Corollary 6.3.17 & Remark 6.3.19] the
+Gerstenhaber bracket on Ext∗C (I, I) vanishes if C is braided. The monomorphism Ext∗uq (sl2 ) (k, k) −→
+HH ∗ (uq (sl2 )) is of course only non-trivial in even degree. For the description in even degree, one
+uses that HH 2∗ (uq (sl2 )) is given by Ext∗uq (sl2 ) (k, k) ⊗ Z(uq (sl2 )) modulo a certain ideal [LQ21, Proposiid⊗unit
+
+tion 5.6]. The map Ext∗uq (sl2 ) (k, k) −→ HH ∗ (uq (sl2 )) is the concatenation of Ext∗uq (sl2 ) (k, k) −−−−−−−→
+Ext∗uq (sl2 ) (k, k) ⊗ Z(uq (sl2 )) with the quotient map. The statement of Corollary 6.1 is that the chain level
+version of this map is a map of E2 -algebras.
+7 Generalizing a result of Menichi
+In this section, we ask the question when the E2 -algebras built from homotopy invariants of braided commutative algebras naturally extend to framed E2 -algebras, thereby making their cohomology a BatalinVilkovisky algebra. We will use this to generalize a result of Menichi [Men11].
+First of all, recall from [Shi17, Theorem 6.1 (4)] that for any finite tensor category C the algebra
+A = RI ∈ Z(C) has the structure a Frobenius algebra if and only if C is unimodular. We will focus in this
+section on the case that C is additionally pivotal, i.e. equipped with a monoidal isomorphism −∨∨ ∼
+= idC .
+The Frobenius structure on A comes from the fact in the case D ∼
+= I, we obtain via (2.5) an isomorphism
+Ψ : A −→ F which is in fact an isomorphism of left A-modules, and this is one of the many ways to
+describe a Frobenius structure, see [FS08]. A direct computation using [Shi17, Remark 6.2] shows
+F
+
+= Ψ ,
+Λ
+A
+
+where Λ : I −→ F is the so-called integral of F. In fact, this Frobenius structure is symmetric:
+Lemma 7.1. For a unimodular pivotal finite tensor category C, the Frobenius algebra A ∈ Z(C) is
+symmetric.
+Proof. We give the proof using the language of pivotal module categories from [Shi19]: For the canonical
+algebra A ∈ Z(C), denote by A−modZ(C) the category of left A-modules in Z(C). Then A can be
+recovered as the endomorphisms of the left regular A-module A in Z(C); in short A = EndA (A, A). By
+[Shi17, Theorem 6.1 (2)] A−modZ(C) ≃ C as Z(C)-module categories. Since C is pivotal, C is also pivotal
+as a module category over itself. Of course, C is also a module category over Z(C), and it is in fact a
+pivotal module category by [FS21, Corollary 38]. Therefore, A−modZ(C) is also a pivotal Z(C)-module
+category. By A = EndA (A, A) the object A ∈ Z(C) can be recovered as the endomorphism object of an
+object in a pivotal module category and hence inherits the structure of a symmetric Frobenius algebra
+in Z(C) by [Shi19, Theorem 3.15].
+Lemma 7.2. For any unimodular pivotal finite tensor category C, the canonical algebra A ∈ Z(C) is not
+only braided commutative, but framed braided commutative in the sense that additionally the balancing
+of A is trivial, θA = idA . The same is true for the canonical coalgebra F ∈ Z(C).
+Proof. The canonical algebra A ∈ Z(C) is a symmetric Frobenius algebra by Lemma 7.1 and braided
+commutative (Lemma 3.1) (note that the braided commutativity does not imply the symmetry because
+we are not working in a symmetric category). Thanks to [FFRS06, Proposition 2.25 (i)], this implies
+that the balancing of A is trivial, θA = idA . The same holds true for the canonical coalgebra F ∈ Z(C)
+because A ∼
+= F as objects in Z(C) thanks to unimodularity.
+The Drinfeld center Z(C) of a pivotal finite tensor category C comes with an induced pivotal structure.
+
+25
+
+As usual, a pivotal structure allow us to define a balancing on X ∈ Z(C) by
+X
+∨X
+
+,
+
+θX =
+
+(7.1)
+
+X∨
+X
+
+where the black dot is the natural isomorphism X ∨ ∼
+= ∨ X given by the pivotal structure.
+We are now ready to prove a statement on framed extensions of the E2 -algebras constructed from
+homotopy invariants of braided commutative algebras:
+Theorem 7.3. Let T ∈ C be an algebra in a unimodular pivotal finite tensor category C with a lift to
+a framed braided commutative algebra T ∈ Z(C). Then the multiplication and the half braiding of T
+induce the structure of a framed E2 -algebra on the space C(I, T• ) ≃ Z(C)(F, T• ) of homotopy invariants
+of T.
+Proof. If C is pivotal, then Z(C) is balanced via (7.1); operadically speaking, this is an extension to a
+framed E2 -algebra in categories [SW03]. Passing from E2 to framed E2 means passing from braid groups
+to framed braid groups. Therefore, it is straightforward to observe that Proposition 3.5 remains true if
+we replace the braided category by a balanced braided category and the braided commutative algebra by
+a framed braided commutative algebra. We can now proceed as in the proof of Theorem 3.6 because F
+is framed braided cocommutative by Lemma 7.2.
+Theorem 7.3 has the following application: Menichi proves in [Men11, Theorem 63] that for a finitedimensional pivotal and unimodular Hopf algebra A, the inclusion Ext∗A (k, k) −→ HH ∗ (A; A) is not only
+a monomorphism of Gerstenhaber algebras, but actually a monomorphism of Batalin-Vilkovisky algebras.
+We can use Theorem 3.6 to give a generalization of this result to a result at cochain level that holds for
+all unimodular pivotal finite tensor categories, not only those coming from pivotal and unimodular Hopf
+algebras.
+Corollary 7.4. For any unimodular pivotal finite tensor category C, both the self-extension algebra
+RR
+C(I, I • ) and the Hochschild cochain complex X∈Proj C C(X, X) come equipped with a framed E2 -algebra
+structure such that
+Z R
+C(I, I • ) −→
+C(X, X)
+X∈Proj C
+
+is a map (and with suitable models even a monomorphism) of framed E2 -algebras. After taking cohomology, it induces a monomorphism
+Ext∗C (I, I) −→ HH ∗ (C)
+of Batalin-Vilkovisky algebras.
+RR
+Proof. We obtain the framed E2 -algebras C(I, I • ) and X∈Proj C C(X, X) ≃ C(I, A• ) thanks to Theorem 7.3
+(we need to use Lemma 7.2 again). Then we can proceed as for Corollary 6.1.
+
+References
+[BDSPV15]
+[BF04]
+[Bic13]
+[BV12]
+[CE56]
+[Coh76]
+
+B. Bartlett, C. L. Douglas, C. J. Schommer-Pries, J. Vicary. Modular Categories as Representations of the 3-dimensional Bordism Category. arXiv:1509.06811 [math.AT]
+C. Berger and B. Fresse. Combinatorial operad actions on cochains. Math. Proc. Cambridge
+Philos. Soc. 137(1):135–174, 2004.
+J. Bichon. Hochschild homology of Hopf algebras and free Yetter-Drinfeld resolutions of the
+counit. Compos. Math. 149:658–678, 2013.
+A. Bruguières, A. Virelizier. Quantum double of Hopf monads and categorical centers. Trans.
+Amer. Math. Soc. 364(3):1225–1279, 2012.
+H. Cartan, S. Eilenberg. Homological algebra. Princeton University Press, 1956.
+F. R. Cohen. The homology of Cn+1 -spaces, n ≥ 0. In The homology of iterated loop spaces.
+Lecture Notes in Mathematics 533:207–351. Springer-Verlag, Berlin-New York, 1976.
+
+26
+
+[Cos07]
+[DMNO13]
+[EGNO15]
+[ENO04]
+[EO04]
+[FS04]
+[Fie96]
+[Fre17]
+
+[FFRS06]
+[FGSS18]
+[FSS13]
+[FS21]
+[FS08]
+[Ger63]
+[Get94]
+[GK93]
+[Her16]
+[Hua08]
+[HLZ11]
+
+[Kas95]
+[Kau08]
+[Kel99]
+[KL01]
+
+[KT05]
+[LQ21]
+[LZ14]
+[LvdB21]
+[Lyu95]
+[MPSW09]
+[May72]
+[MCar94]
+
+K. Costello. Topological conformal field theories and Calabi-Yau categories. Adv. Math.
+210:165–214, 2007.
+A. Davydov, M. Müger, D. Nikshych, V. Ostrik. The Witt group of non-degenerate braided
+fusion categories. J. Reine Angew. Math. 677:135–177, 2013.
+P. Etingof, S. Gelaki, D. Nikshych, V. Ostrik. Tensor categories. Math. Surveys Monogr. 205,
+Amer. Math. Soc., 2015.
+P. Etingof, D. Nikshych, V. Ostrik. An analogue of Radford’s S 4 formula for finite tensor
+categories. Int. Math. Res. Not. 54:2915–2933, 2004.
+P. Etingof, V. Ostrik. Finite tensor categories. Mosc. Math. J. 4(3):627–654, 2004.
+M. A. Farinati, A. L. Solotar. G-structure on the cohomology of Hopf algebras. Proc. Amer.
+Math. Soc. 132(10):2859–2865, 2004.
+Z. Fiedorowicz. The symmetric bar construction. Preprint, 1996.
+B. Fresse. Homotopy of operads and Grothendieck-Teichmüller groups. Part 1: The Algebraic
+Theory and its Topological Background. Math. Surveys Monogr. 217, Amer. Math. Soc., Providence, 2017.
+J. Fröhlich, J. Fuchs, I. Runkel, C. Schweigert. Correspondences of ribbon categories. Adv.
+Math. 199:192-329, 2006.
+J. Fuchs, T. Gannon, G. Schaumann, C. Schweigert. The logarithmic Cardy case: Boundary
+states and annuli. Nucl. Physics B. 930:287–327, 2018.
+J. Fuchs, C. Schweigert, and C. Stigner. From non-semisimple Hopf algebras to correlation
+functions for logarithmic CFT. J. Phys. A 46(494008):1–40, 2013.
+J. Fuchs, C. Schweigert. Internal natural transformations and Frobenius algebras in the Drinfeld
+center. Transf. Groups (online first) 2021.
+J. Fuchs, C. Stigner. On Frobenius algebras in rigid monoidal categories. Arabian Journal for
+Science and Engineering 33(2C):175–191, 2008.
+M. Gerstenhaber. The cohomology structure of an associative ring. Ann. Math. 78:59–103,
+1963.
+E. Getzler. Batalin-Vilkovisky algebras and two-dimensional topological field theories. Comm.
+Math. Phys. 159(2):265–285, 1994.
+V. Ginzburg, S. Kumar. Cohomology of quantum groups at roots of unity. Duke Math. J.
+69(1):179–198, 1993.
+R. Hermann. Monoidal categories and the Gerstenhaber bracket in Hochschild cohomology.
+Mem. Amer. Math. Soc. 243(1151), 2016.
+Y.-Z. Huang. Rigidity and modularity of vertex tensor categories. Commun. Contemp. Math.
+10(1):871–911, 2008.
+Y.-Z. Huang, J. Lepowsky, L. Zhang. Logarithmic tensor category theory, VIII: Braided tensor category structure on categories of generalized modules for a conformal vertex algebra.
+arXiv:1110.1931 [math.QA]
+C. Kassel. Quantum Groups. Springer-Verlag New York, 1995.
+R. M. Kaufmann. A proof of a cyclic version of Deligne’s conjecture via Cacti. Math. Res.
+Letters 15(5):901–921, 2008.
+B. Keller. On the cyclic homology of exact categories. J. Pure Appl. Alg. 136:1–56, 1999.
+T. Kerler, V. V. Lyubashenko. Non-Semisimple Topological Quantum Field Theories for 3Manifolds with Corners. Lecture Notes in Mathematics 1765, Springer-Verlag Berlin Heidelberg,
+2001.
+J. Kock, B. Toën. Simplicial localization of monoidal structures, and a non-linear version of
+Deligne’s conjecture. Compos. Math. 141:253–261, 2005.
+A. Lachowska, Y. Qi. Remarks on the derived center of small quantum groups. Selecta Math.
+27:68, 2021.
+J. Le, G. Zhou. On the Hochschild cohomology ring of tensor products of algebras. J. Pure
+Appl. Alg. 218(8):1463–1477, 2014.
+W. Lowen, M. Van den Bergh. The B∞ -structure on the derived endomorphism algebra of the
+unit in a monoidal category. Int. Math. Res. Not., 2021.
+V. V. Lyubashenko. Modular transformations for tensor categories. J. Pure Appl. Alg.
+98(3):279–327, 1995.
+M. Mastnak, J. Pevtsova, P. Schauenburg, S. Witherspoon. Cohomology of finite dimensional
+pointed Hopf algebras. Proc. London Math. Soc. 100(2):377–404, 2009.
+P. May. The Geometry of Iterated Loop Spaces. Springer, 1972.
+R. McCarthy. The cyclic homology of an exact category. J. Pure Appl. Alg. 93:251–296, 1994.
+
+27
+
+[MCS02]
+[Men11]
+[NP22]
+[NS98]
+[Rad76]
+[RT91]
+[SW03]
+[SW21a]
+[SW21b]
+[SW21c]
+[Shi17]
+[Shi19]
+[Shi20]
+[Tam98]
+[TZ06]
+[Tur94]
+[Wit19]
+
+J. E. McClure, J. H. Smith. A solution of Deligne’s Hochschild cohomology conjecture. In:
+Recent progress in homotopy theory. Contemp. Math. 293:153–193, 2002.
+L. Menichi. Connes-Moscovici characteristic map is a Lie algebra morphism. J. Alg. 331(1):311–
+337, 2011.
+C. Negron, J. Y. Plavnik. Cohomology of finite tensor categories: duality and Drinfeld centers.
+Trans. Amer. Math. Soc. 375:2069–2112, 2022.
+M. Neuchl, P. Schauenburg. Reconstruction in braided categories and a notion of commutative
+bialgebra. J. Pure Applied Alg. 124:241–259, 1998.
+D. Radford. The order of the antipode of a finite dimensional Hopf algebra is finite. Amer. J.
+Math. 98:333–355, 1976.
+N. Reshetikhin, V. Turaev. Invariants of 3-manifolds via link polynomials and quantum groups.
+Invent. Math. 103:547–598, 1991.
+P. Salvatore, N. Wahl. Framed discs operads and Batalin-Vilkovisky algebras. Quart. J. Math.
+54:213–231, 2003.
+C. Schweigert, L. Woike. The Hochschild Complex of a Finite Tensor Category. Alg. Geom.
+Top. 21(7):3689–3734, 2021.
+C. Schweigert, L. Woike. Homotopy Coherent Mapping Class Group Actions and Excision for
+Hochschild Complexes of Modular Categories. Adv. Math. 386, 107814, 2021.
+C. Schweigert, L. Woike. The differential graded Verlinde Formula and the Deligne Conjecture.
+Accepted for publication in Proc. London. Math. Soc. arXiv:2105.01596 [math.QA]
+K. Shimizu. On unimodular finite tensor categories. Int. Math. Res. Not. 2017(1):277–322,
+2017.
+K. Shimizu. Relative Serre functor for comodule algebras. arXiv:1904.00376 [math.CT]
+K. Shimizu. Further Results on the Structure of (Co)Ends in Finite Tensor Categories. App.
+Cat. Str. 28:237–286, 2020.
+D. E. Tamarkin. Another proof of M. Kontsevich formality theorem. arXiv:math/9803025
+[math.QA]
+T. Tradler, M. Zeinalian. On the cyclic Deligne conjecture. J. Pure App. Alg. 204(2):280–299,
+2006.
+V. G. Turaev. Quantum Invariants of Knots and 3-Manifolds. Studies in Mathematics 18, De
+Gruyter. First edition: 1994, second edition: 2010.
+S. J. Witherspoon. Hochschild Cohomology for Algebras. Graduate Studies in Mathematics
+204. Amer. Math. Soc. 2019.
+
+28
+
+

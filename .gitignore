@@ -43,3 +43,7 @@ paper/*.aux
 paper/*.log
 paper/*.out
 paper/*.toc
+
+# Literature corpus (large PDFs)
+literature/pdfs/
+

@@ -1,0 +1,2996 @@
+arXiv:2104.05113v1 [math.QA] 11 Apr 2021
+
+On certain Hochschild cohomology groups for the small quantum
+group
+Nicolas Hemelsoet∗
+
+Rik Voorhaar∗
+
+Abstract
+We apply the sheaf cohomology BGG method developed by the authors and Lachowska-Qi to the
+computation of Hochschild cohomology groups of various blocks of the small quantum group. All our
+computations of the center of the corresponding block agree with the conjectures of Lachowska-Qi. In
+the case of the nontrivial singular block for g = sl3 , we obtain the H• (u, C) = C[N ]-module structure of
+HH• (uλ ).
+
+Contents
+1 Introduction
+
+2
+
+2 The small quantum group and the BGG complex
+2.1 The center of the small quantum group . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.2 The BGG complex . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.3 The modules Vj,k . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.4 An improvement of the sheaf-cohomology BGG algorithm . . . . . . . . . . . . . . . . . . . .
+
+2
+2
+5
+6
+8
+
+3 Equivariant Hochschild cohomology of the non-trivial singular block of uq (sl3 )
+3.1 Description of HH•C∗ (T ∗ P2 ) as g-module . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 Relation to the nilpotent cone . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+9
+10
+14
+
+4 Computation of z0 (uq (g)) for type G2 , B3 , C3 and A4
+15
+4.1 Type G2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+4.2 Type B3 and C3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+4.3 Type A4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+5 Higher Hochschild cohomology groups
+20
+5.1 Limits of the algorithm . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+6 Remarks on projective spaces
+21
+1
+6.1 A subalgebra of HH . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+6.2 Higher Hochschild cohomology groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+∗ University of Geneva
+
+1
+
+1
+
+Introduction
+
+Given a semisimple complex Lie algebra g and a positive integer ℓ, Lustzig defined in [Lus90] a remarkable
+finite-dimensional algebra, the small quantum group. It is an open question to compute its center. The
+center of the small quantum group is an important object of study, and it turns out to be related to other
+areas of representation theory. Significant progress was made in [BL07], where the center was identified with
+certain sheaf cohomology groups over the Springer resolution. Its dimension has been computed for g = sl2
+in [Ker95] , for g = sl3 in [LQ16], for g = sl4 and g = b2 in [LQ17].
+In [LQ16], the sheaf-cohomology BGG algorithm was introduced, and used to compute the center for
+g = sl3 . However, the computations for higher ranks are too complicated to be done by hand, even for type
+g2 . Later in [HV21], we developed the method further and implemented it as a software package. In our
+previous work, we have provided several geometric applications of the method, but the original motivation
+was to study the center of the small quantum group. This is what we will do in this paper.
+In section 2, we recall some facts about the small quantum group. In section 3 we compute the full
+ring HH• (u1 ), where u1 is the non-trivial singular block for g = sl3 . We express this ring as g-module, and
+as module over the functions on the nilpotent cone C[N ], using the sheaf cohomology BGG method. The
+C[N ]-module of HH• (u0 ) was computed in [LQ19], for g = sl2 . In section 4, we compute the center of all
+blocks of G2 , B3 , C3 and A4 . We confirm the conjectures by Lachowska-Qi in each case. In section 5, we
+discuss the higher Hochschild cohomology groups and give several examples. In section 6, we consider the
+case when G/P ∼
+= Pn . In this case, HH0 was computed in [LQ17]. We present partial results for higher
+Hochschild cohomology.
+
+Acknowlegements
+We are grateful to Anna Lachowska who suggested the project and explained her work to us. The first
+author would like to thank Qi You for useful discussions. This publication was produced within the scope
+of the NCCR SwissMAP which was funded by the Swiss National Science Foundation. The authors would
+like to thank the Swiss National Science Foundation for their financial support.
+
+2
+
+The small quantum group and the BGG complex
+
+In this section, we recall the definition of the small quantum group and some of its properties. We also recall
+the algorithm of Lachowska-Qi to compute its center. Then, we will give explicit formulas of the BGG maps
+for higher cohomology sl3 , and give a simplified description of the module Vj,k which are used to compute
+the Hochschild cohomology of blocks of the small quantum group.
+
+2.1
+
+The center of the small quantum group
+
+As in the introduction, let g be a semisimple complex Lie algebra. Let ℓ be an odd integer number coprime
+to the index of connection of g, greater than the Coxeter number of g and coprime to 3 if g contains a factor
+of type G2 . Let Uv be the Drinfeld-Jimbo quantum group defined over Q(v), and let A = Z[v, v −1 ]. Lusztig
+(r)
+(r)
+introduced a A-form of Uv , denoted by UA . It is generated by the divided powers Ei , Fi and the elements
+
+Kµ ,m
+, see [Lus93] for more details. After localisation at a primitive ℓ-root of unity, this becomes the big
+n
+quantum group U.
+Lusztig introduced a finite-dimensional analogue of the first Frobenius kernel of an algebraic group in positive
+characteristic:
+2
+
+Definition 2.1 ([Lus90]). The small quantum group, written uq (g) is the subalgebra of U generated by Ei , Fi
+and Ki , Ki−1 .
+Proposition 2.2. [LQ19] There is a g-action on the center z(uq (g)).
+Hence, it is natural to try to understand the center not only as vector space but also as g-module. Let θ∨
+be the highest coroot, and C = {λ ∈ P + : 0 ≤ (λ + ρ, θ∨ ) ≤ ℓ}.
+Proposition 2.3. There is a decomposition (as two-sided ideals)
+uq (g) ∼
+=
+
+M
+
+uλ (g)
+
+λ∈S
+
+where S is the set of orbits in C under the action of the ℓ-extended affine Weyl group.
+L
+Hence, there is a corresponding decomposition of the center: z(uq (g)) ∼
+= λ z(uλ (g)). These summands are
+called blocks, and the block with λ = 0 is called the principal block. A block not equivalent to the principal
+block is called a singular block.
+Definition 2.4. Fix a parabolic subgroup P ⊂ G, where G is the connected semsimple Lie group of adjoint
+eP := T ∗ (G/P ). We write pr for the projection pr :
+type associated to g. The Springer resolution is N
+T ∗ (G/P ) → G/P .
+
+Let nP be the nilradical of p, where p = Lie(P). We can identify T ∗ (G/P ) ∼
+= G ×P nP , and if N ⊂ g is the
+∗
+nilpotent cone, there is a map µ : T (G/P ) → N . If P = B is a Borel subgroup, this map is a resolution of
+singularities.
+eP for the action given by (t, v) 7→ (t−2 v), where v is the fiber
+We will consider C∗ -equivariant sheaves on N
+coordinate.
+
+e) ∼
+Theorem 2.5 ([BL07]). There is an isomorphism HHsC× (N
+= HHs (u0 ) where the left-hand side is the
+e.
+C∗ -equivariant Hochschild cohomology of N
+
+This isomorphism is compatible with the g-module structure ([LQ19]). In [LQ16] and [LQ17], the left-hand
+side was explicitely computed in terms of the BGG resolution associated to a finite-dimensional irreducible
+representation of g. Let us recall briefly how to do it. There are certain G-equivariant vector bundles
+Vj,k = G ×B Vj,k (where j, k are integers) on G/B such that the Hochschild cohomology can be obtained
+from sheaf cohomology of the Vj,k . We will describe the B-modules Vj,k in section 2.3. The precise relation
+is
+e) ∼
+HHsC∗ (N
+=
+
+M
+
+Hi (G/B, Vj,k )
+
+(1)
+
+i+j+k=s
+
+It follows that the center has a natural bigrading. The authors of [LQ16] noticed that one can reduce the
+computation of the right-hand side of equation (1) to a Lie algebra cohomology computation. A convenient
+tool for it was the BGG resolution (we will recall its basic properties in the next subsection). These
+observations from [LQ16] lead to the following structure result:
+Theorem 2.6 ([LQ16], Theorem 4.3). For any s ≥ 0, there is an sl2 -action on the Hochschild cohomology
+HHs (u0 ), where the generator e ∈ sl2 acts as a homogeneous element of bidegree (i, j) = (0, 2).
+e , ∧2 T N
+e )−2 (which is dual of
+More precisely, this homogenous element is the Poisson bivector field τ ∈ H 0 (N
+3
+
+e , Ω2 )2 ). Hence the action of e is given by the map
+the canonical symplectic form ω ∈ H 2 (N
+e , ∧j T N
+e )k → Hi (N
+e , ∧j+2 T N
+e )k−2
+τ ∧ − : Hi (N
+
+In particular, there are canonical isomorphisms ([LQ16], Corollary 4.4)
+e , ∧n−j T N
+e )k → Hi (N
+e , ∧n+j T N
+e )k−2j
+τ j ∧ − : Hi (N
+
+We can represent the action of τ on the bigraded table as follows (we took g = sl3 and s = 0):
+i+j =0
+
+i+j =2
+
+i+j =4
+
+i+j =6
+hi,j
+
+e , ∧0 T N
+e )0
+H0 (N
+e , ∧1 T N
+e )−2
+H1 (N
+e , ∧2 T N
+e )−4
+H2 (N
+e , ∧3 T N
+e )−6
+H3 (N
+j−i=0
+
+τ ∧−
+
+τ ∧−
+
+e , ∧2 T N
+e )−2
+H0 (N
+
+τ ∧−
+
+e , ∧2 T N
+e )−4
+H1 (N
+e , ∧4 T N
+e )−6
+H2 (N
+j−i=2
+
+τ ∧−
+
+τ ∧−
+
+e , ∧4 T N
+e )−4
+H0 (N
+e , ∧5 T N
+e )−6
+H1 (N
+j−i=4
+
+τ ∧−
+
+e , ∧6 T N
+e )−6
+H0 (N
+j−i=6
+
+e ), we just need to compute the top-left half
+Hence, to compute the bigraded table corresponding to HHsC∗ (N
+of the table (including the diagonal starting at the bottom left), and use the sl2 -action to obtain the full table.
+In [LQ16], the center of u0 (sl3 ) was obtained as bigraded vector space , and the authors noticed that as a
+bigraded vector space, HH0 (sl3 ) was isomorphic to the double coinvariant algebra DC3 , where
+DCm = C[x1 , . . . , xm , y1 , . . . , ym ]/I,
+and I is the ideal generated by invariant polynomials (for the diagonal Sm -action). This motivated the
+following conjecture:
+Conjecture 2.7 ([LQ16]). As a bigraded vector space, there is an isomorphism z(u0 (slm )) ∼
+= DCm . In
+particular, dim z(u0 (slm )) = (m + 1)m−1 .
+It is also conjectured that z(u0 (slm )) only contains the trivial representation. In other types, the presence
+of non-trivial representations made the formulation of a general conjecture more difficult. Computations for
+b2 showed that the g-invariant part was also isomorphic as bigraded vector space to the double-coinvariant
+algebra (which is defined for any Weyl group W ). Hence one could still hope for the following:
+Conjecture 2.8. [LQ17] Let g be a semisimple Lie algebra with Weyl group W . Then, z(u0 (g))g ∼
+= DC(W ).
+For g = sln , it is expected that the whole center is g-invariant:
+Conjecture 2.9. [LQ16] Let g = sln . Then, z(uq (sln )) = z(uq (sln ))sln .
+Finally, outside the simply-laced case, non-trivial representations appear. Based on our computations, we
+make the following conjecture:
+Conjecture 2.10. Let L be an irreducible non-trivial representation appearing in z(uq (g)), and h be the
+Coxeter number of g. Then, h + 1 divides dim L.
+4
+
+2.2
+
+The BGG complex
+
+Fix a triangular decomposition g = u ⊕ h ⊕ n, and let b = h ⊕ n. For any µ ∈ h∗ , recall that the Verma
+U(g)
+module is defined as M (µ) = IndU(h ⊕ n) Cµ , where Cµ is a one dimensional b-module, where h acts by µ and
+n by zero. Let P + be the set of dominant weights, and λ ∈ P + .
+Theorem 2.11 (see [Hum08], chapter 6). There is an exact sequence
+M
+
+0 → M (w0 · λ) →
+
+M (w · λ) → · · ·
+
+M
+
+M (w · λ) · · · → M (λ) → L(λ) → 0
+
+ℓ(w)=k
+
+ℓ(w)=n−1
+
+Here, w · µ = w(µ + ρ) − ρ is the dot-action, where ρ is half the sum of positive roots. We call BGG• (λ)
+the resulting complex made of Verma modules. The maps are given by certain monomials in U (n). If E is a
+finite-dimensional b-module, there is an associated complex BGG• (E, λ) := (Homn (BGG• (λ), E))h . Using
+that Verma modules are free U (n)-modules, we can identify
+BGGk (E, λ) =
+
+M
+
+E[w · λ],
+
+ℓ(w)=k
+
+here for a weight µ, E[µ] is the corresponding weigh space. This complex can be used to compute certain
+sheaf cohomology groups:
+Proposition 2.12 ([LQ16]). Let E = G ×B E the associated vector bundle on G/B. Then,
+HomG (L(λ), H• (G/B, E)) ∼
+= H• (BGG(E, λ)).
+For example, if g = sl3 , and λ = n1 α1 + n2 α2 is a dominant root weight, i.e. n1 , n2 ≥ 0, 2n2 ≥ n1 and
+2n1 ≥ n2 , the corresponding BGG complex is
+
+#
+"
+−n1 + n2 − 1
+E
+n2
+"
+
+n1
+E
+n2
+
+#
+
+#
+−n2 − 2
+E
+n1 − n2 − 1
+"
+
+s1 s2 s1
+
+s2
+
+s1
+
+s1
+
+"
+
+#
+−n2 − 2
+E
+−n1 − 2
+
+s2
+
+s1
+E
+
+"
+
+n1
+n1 − n2 − 1
+
+#
+
+s2 s1 s2
+
+s2
+E
+
+"
+
+−n1 + n2 − 1
+−n1 − 2
+
+#
+
+" #
+a1
+denotes the weight space of weight a1 α1 + a2 α2 .
+Here E
+a2
+This for example implies that the map E[λ] → E[s1 · λ] is given by multiplication by f12n1 −n2 +1 , since it
+has to be h-equivariant. Up to symmetry, the only non-trivial map is the map E[s1 · λ] → E[s1 s2 · λ]. Let
+us compute this map, even though we will not need it explicitly. This map is given by multiplication of an
+
+5
+
+element f1→12 ∈ U (n) of weight (n2 + 1)α1 + (2n2 − n1 + 1)α2 , and satisfies the equation
+f1→12 f12n1 −n2 +1 = f1n1 +n2 +2 f2−n1 +2n2 +1
+Assume m ≥ n. Then, we have
+
+
+X n r−1
+Y
+r n−r m−r
+ (m − j) f12
+f1m f2n =
+f2 f1
+r
+j=0
+0≤r≤n
+
+It follows that f1m f2n is right divisible by f1a if and only if m ≥ a + n. This is the case for the operator f1→12
+in our BGG complex, hence we obtain:
+Corollary 2.13. The BGG operator introduced before is given by
+
+
+
+ r−1
+X
+−n1 + 2n2 + 1  Y
+r −n1 +2n2 +1−r −n1 +2n2 +1−r
+f1→12 =
+(n1 + n2 + 2 − j) f12
+f2
+f1
+r
+j=0
+0≤r≤−n1 +2n2 +1
+
+We will use the BGG complex in the next section to compute Hochschild cohomology of the block u1 (sl3 ). Let
+us mention that a parabolic version of the BGG resolution exists (cf. [Hum08, §9.16]), but implementing a
+parabolic version of the sheaf-cohomology BGG algorithm is not easy. However, since we are only interested
+in computing sheaf cohomology, we can simply consider a p-module E as a b-module by restriction and
+compute its cohomology as b-module. This gives the right answer because the spectral sequence associated
+to the projection G/B → G/P degenerates.
+
+2.3
+
+The modules Vj,k
+
+e ) using (1) we need a description of the modules Vj,k . Let us recall the construction of
+To compute HHsC∗ (N
+eP = T ∗ G/P →
+Vj,k from [LQ16] and [LQ17]. Let P be a standard parabolic subgroup, p = Lie(P ), pr : N
+G/P be the projection, np the nilradical of P , and up its dual seen as a subset of g using the Killing form.
+Recall that p acts on its nilradical by the adjoint action, and on up by the coadjoint action. Hence we have
+a map ad : p → End(np ) ∼
+= np ⊗ up . Let ∆ = (ι, ad) : p → g ⊕ np ⊗ up , where ι is the inclusion. We also write
+∆ for the induced map of Sym• (up )-modules
+∆ : Sym• (up ) ⊗ p → Sym• (up ) ⊗(g ⊕ np ⊗ up ).
+
+(2)
+
+Here, the p-action on Sym• (up ) is induced from the coadjoint action, and the action on g and np is the
+adjoint action.
+Proposition 2.14. [LQ17] Let pr∗ TNeP = G ×P V1 . Then, we have an isomorphism of p-modules
+
+V1 ∼
+=
+
+Sym• (up ) ⊗ g ⊕ Sym• (up ) ⊗ np
+Sym• (up ) ⊗ ∆(p)
+
+(3)
+
+6
+
+All exterior powers of pr∗ TNeP are described in [LQ17] as well. For example, if V2 := ∧2Sym• (up ) V1 then
+V2 ∼
+=
+
+Sym• (up ) ⊗(∧2 g ⊕ g ⊗ np ⊗ ∧2 np )
+∆(Sym• (up ) ⊗ p) ∧ (Sym• (up ) ⊗(g ⊕ np ))
+
+Now, we recall that for application to the small quantum group, we need a C∗ -grading that we will call the
+k-grading.
+Definition 2.15. The k-grading is the following grading on Sym• (up ) ⊗ g ⊕ Sym• (up ) ⊗ np : deg(np ) = −2,
+deg(Symm (up )) = 2m and deg(g) = 0. We write Vj,k for the k-th graded part of ∧jSym• (up ) (V1 ) (for the
+natural induced grading). Let us notice that k has to be even.
+We can give an alternative description of the p-modules ∧jSym• (up ) V1 and the graded pieces Vj,k , that is more
+convenient algorithmically. These results essentially follow from the short exact sequence of vector bundles
+introduced in [LQ16]: (recall that ΩX is the cotangent sheaf of X)
+eP ) → pr∗ O e ⊗ TG/P → 0
+0 → pr∗ ONeP ⊗ ΩG/P → pr∗ T (N
+NP
+
+Lemma 2.16. Let Sp := S • (up ). There is a vector space isomorphism ψ : Sp ⊗(up ⊕ np ) → V1 .
+Proof. Note that the map
+ψe = (ι, 0) ⊕(0, id) : Sp ⊗ up ⊕ Sp ⊗ np → Sp ⊗ g ⊕ Sp ⊗ np
+
+induces a map ψ : Sp ⊗(up ⊕ np ) → V1 . To show that ψ is surjective, let p ⊗ x + q ⊗ y ∈ V1 where p, q ∈ Sp
+and x ∈ g, y ∈ np . Let us write x = u + w where u ∈ up and w ∈ p. Using the relations in V1 we get
+P
+P
+P
+w = i pi ⊗ wi where wi ∈ np , giving p ⊗ w = ppi ⊗ wi . Hence p ⊗ x + q ⊗ y = p ⊗ u + i ppi ⊗ wi + q ⊗ y
+is in the image of ψ. To prove injectivity of ψ, suppose that ψ(p ⊗ u + q ⊗ y) = 0. This means that
+ψ̃(p ⊗ u + q ⊗ y) ∈ Sp ⊗ ∆(p), hence there are polynomials ri ∈ Sp and elements xi ∈ p (we can assume that
+P
+xi are linearly independent) such that p ⊗ u + q ⊗ y + ri ⊗(xi + ad(xi )) = 0. Now it is easy to see that we
+should have ri = 0, and it follows that p = q = 0 since u ∈ up and y ∈ np .
+Corollary 2.17. For any j ≥ 0, the map ∧j ψ : ∧jSp (Sp ⊗(up ⊕ np )) → ∧jSp V1 is an isomorphism of vector
+spaces.
+This isomorphism preserves the k-grading. Hence we obtain:
+Corollary 2.18. There is a h-equivariant, k-graded vector space isomorphism
+Vj,k ∼
+=
+
+M
+
+r2 +r3 =j,r1 −r3 =k/2
+
+S r1 (up ) ⊗
+
+r2
+^
+
+up ⊗
+
+r3
+^
+
+np
+
+The isomorphism is also compatible with the p-structure in the following sense:
+Lemma 2.19. There is a p-module structure on ∧jSp (Sp ⊗(up ⊕ np )) such that ∧j ψ is p-equivariant.
+Proof. It is sufficient to prove the case j = 1. For u ∈ up and x ∈ p, write [x, u] = u1 + x1 where u1 ∈ up
+and x1 ∈ p. Then, we define a p-module structure on Sp ⊗(up ⊕ np ) by
+x · (u, x′ ) = (u1 , − ad(x1 ) + [x, x′ ]).
+7
+
+This induces an obvious p-module structure on Sp ⊗(up ⊕ np ) and on ∧jSp (Sp ⊗(up ⊕ np )). By construction
+ψ (resp. ∧j ψ) is p-equivariant.
+Example We set g = sl3 with usual Chevalley generators ei , hi , fi . Pick the vector e22 ⊗ e1 ⊗ f1 ∧ f2 ∈
+S 2 (u) ⊗ u ⊗ ∧2 n. We have f1 · e2 = 0, f1 · f1 = 0 and f1 · f2 = f12 . We also have [f1 , e1 ] = −h1 and
+adn (h1 ) = −2e1 ⊗ f1 + e2 ⊗ f2 − e12 ⊗ f12 . Hence we get
+f1 · (e22 ⊗ e1 ⊗ f1 ∧ f2 ) = e22 e12 ⊗ f1 ∧ f2 ∧ f12 + e22 ⊗ e1 ⊗ f1 ∧ f12 .
+
+2.4
+
+An improvement of the sheaf-cohomology BGG algorithm
+
+The presentation of Vj,k of corollary 2.18 is very helpful for computing the cohomology of the BGG resolution.
+However, the resulting p-module structure on Vj,k is too complicated to work with directly. Instead, we will
+write Vjk as cokernel of the map ∆ : Tjk → Mjk , where
+Mj,k =
+
+j
+M
+
+S j−r+k/2 (up ) ⊗
+
+r=0
+
+Tj,k =
+
+j−1
+M
+
+S j−r+k/2 (up ) ⊗
+
+r=0
+
+r
+^
+
+r
+^
+
+g⊗
+
+g⊗
+
+j−r
+^
+
+np
+
+j−r−1
+^
+
+np
+
+The p-module structures on Mj,k and Tj,k are the obvious ones. We can then describe the cohomology of
+the BGG complex BGG• (Vjk , λ) in terms of BGG• (Mjk , λ) and the map ∆. This is computationally useful
+because the p-module structure on Mjk is much simpler, despite the fact that the dimension of Mjk is larger.
+The map ∆ induces a short exact sequence of p-modules
+0
+
+Tj,k
+
+∆
+
+Mj,k
+
+̟
+
+Vj,k
+
+0
+
+Note that the U (n) action on Vjk is defined in terms of that on Mjk . Suppose F ∈ U (n), and X ∈ Mjk . Then
+we have that F · ̟(X) = ̟(F · X). Now let us choose a linear section σ of ̟ (respecting the h-grading).
+Then if Y ∈ Vjk we have that F · Y = ̟(F · σ(Y )). Since the differential in the BGG complex is given by
+multiplication by elements of U (n) on weight components of Vjk and Mjk this implies that we have equality
+dV = ̟dM σ with dV and dM the respective differentials on BGG• (Vj,k , λ) and BGG• (Mj,k , λ).
+We will describe how one can find a section ̟ and the associated σ. We will always use a basis of Mjk
+and Tjk induced from a Chevalley basis on g. In practice we realize Vjk as coker ∆ = ker ∆⊤ , where the
+transposition is with respect to the Chevalley basis. For practical reasons we choose a basis of coker ∆ with
+integer coefficients to describe the map ̟. Furthermore instead of using a true differential we take,
+deV := ̟dM ̟⊤ .
+
+(4)
+
+Since ̟ is a priori just a basis, we have that ̟̟⊤ 6= Id, hence de2V 6= 0, and deV is not a differential. We
+could choose ̟ such that ̟̟⊤ = Id but this is in general impossible with integer entries, and by using
+integer entries we get a big computational benefit for exact linear algebraic operations. Nevertheless we do
+have that
+dim ker deV − dim im deV = dim ker dV − dim im dV
+8
+
+so that deV can be used to compute the cohomology of BGG• (Vjk , λ). This is because ̟⊤ can be transformed
+to a section by an isomorphism: σ := ̟⊤ (̟̟⊤ )−1 . Hence the images of deV and dV are identical while the
+kernels have the same dimension.
+The cokernel of ∆ can be efficiently computed using the isomorphism ψ of lemma 2.16. The fact that ψ is
+an isomorphism gives us a convenient subspace im ψ ⊂ Mjk such that ̟|im ψ is an isomorphism, but this is
+not yet a full description of ker ∆⊤ . The subspace im ψ has a basis {xi }i∈I , and we can define ̟(xi ) = ei
+with ei an elementary basis vector. Each element i ∈ I then corresponds to a row of ∆⊤ . To obtain a full
+description of ̟ we simply need to write the remaining rows of ∆⊤ as a linear combination of the columns
+corresponding to the indices in I, i.e. if j ∈
+/ I then we write
+∆⊤
+j =
+
+X
+
+ci ∆i ,
+
+i∈I
+
+̟(xj ) :=
+
+X
+
+ci ̟(xi )
+
+(5)
+
+i∈I
+
+Thus to compute ̟ we need to solve a linear system, which is much more efficient than directly computing
+the kernel of ∆⊤ . In Summary:
+Proposition 2.20. To compute the BGG cohomology of Vjk we use
+⊤
+⊤
+i ̟
+dim Hi (BGG• (Vjk )) = dim ker ̟dMjk
+− dim im ̟di−1
+Mjk ̟
+
+with ̟ as in (5).
+Remark 2.21. Since ∆ is also an equivariant map, we can also find a retract ρ such that dT = ρdM ∆. This
+also tells us that dM = ∆dT ρ + σdV ̟ such that the induced short exact sequence on the BGG complexes
+splits. Hence in particular,
+Hi (BGG• (Mjk )) ∼
+= Hi (BGG• (Tjk )) ⊕ Hi (BGG• (Vjk ))
+
+3
+
+Equivariant Hochschild cohomology of the non-trivial singular
+block of uq (sl3)
+
+In this section we will compute the equivariant Hochschild cohomology of the non-trivial singular block of
+u1 (sl3 ), corresponding geometrically to equivariant Hochschild cohomology of T ∗ P2 . A good understanding
+of these Hochschild cohomology groups is highly desirable, since it could lead to an explicit description of the
+geometric cup-product and Gerstenhaber bracket. The Hochschild cohomology HH•C∗ (P1 ) is already fully
+understood by [LQ19] (we will recall their results later), and P2 is the next non-trivial case.
+Let us fix the notation for this section: we set g = sl3 , p = b ⊕ C{e1 }, and P parabolic subgroup such
+that SL3 /P ∼
+= g/p ∼
+= Ce2 ⊕ Ce12 . We use the same convention
+= P2 . We obtain np = Cf2 ⊕ Cf12 and up ∼
+as [LQ16], that is e1 , e2 , f1 , f2 , h1 , h2 are the usual Chevalley generators, and we define f12 := [f1 , f2 ] and
+e12 := [e2 , e1 ]. Also for a root weight λ = n1 α1 + n2 α2 , let Ln1 ,n2 be the irreducible sl3 -representation with
+highest weight λ.
+We now state an elementary but useful lemma about root weights of sl3 :
+Lemma 3.1. Let λ = n1 α1 + n2 α2 be a root weight, and assume n2 ≥ n1 ≥ 0. Then exactly one of the three
+cases occur:
+• λ is dominant.
+9
+
+• s1 · λ = (n2 − n1 − 1)α1 + n2 α2 is dominant.
+• λ is dot-singular. (In this case, 2n1 = n2 − 1.)
+In particular, the cohomology of the corresponding line bundles is concentrated in degree 0 and 1.
+Proof. If λ is not dominant then n2 ≥ 2n1 + 1. We obtain s1 · λ = (n2 − n1 − 1)α1 + n2 α2 . This is dominant
+if 2(n2 − n1 − 1) ≥ n2 i.e n2 ≥ 2n1 + 2. Hence, if λ and s1 λ are not dominant, we should have n2 = 2n1 + 1
+which implies that s1 · λ = λ.
+
+Description of HH•C∗ (T ∗ P2 ) as g-module
+
+3.1
+
+The purpose of this subsection is to prove the following theorem:
+Theorem 3.2. Let uλp (sl3 ) be the block of the small quantum group corresponding to p. For s ≥ 2,
+HHs (uλp (sl3 )) is given by the following tables:
+For s = 2m + 1 odd:
+i+j=1
+i+j=3
+
+h
+
+i,j
+
+Lm,m ⊕ Lm+1,m ⊕ Lm,m+1 ⊕ Lm+1,m+1
+0
+
+Lm,m ⊕ Lm+1,m ⊕ Lm,m+1 ⊕ Lm+1,m+1
+
+j−i=1
+
+j−i=3
+
+For s = 2m even:
+
+i+j=4
+
+Lm,m
+0
+0
+
+Lm,m−1 ⊕ Lm−1,m ⊕ L2m,m ⊕ Lm,m+1 ⊕ Lm+1,m
+0
+
+Lm,m
+
+hi,j
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+i+j=0
+i+j=2
+
+For s = 1:
+i+j=1
+i+j=3
+
+hi,j
+
+L0,0 ⊕ L1,1
+L0,0
+
+L0,0 ⊕ L1,1
+
+j−i=1
+
+j−i=3
+
+For s = 0, this was computed more generally for all projective space in [LQ17]. For s = 1 this is an easy
+computation, hence we assume now that s ≥ 2 and divide the proof into a series of lemmas. Notice that
+using the sl2 -action, we only need to compute half of the table, as explained in section 2.
+Lemma 3.3. We have H0 (P2 , Symm (TP2 )) ∼
+= Lm,m .
+Proof. We need to compute the BGG complex associated to Symm (up ). A basis of Symm (up ) is given by
+m−a−1
+{em−i
+ei12 }0≤i≤m . If 0 ≤ a ≤ m, em−a
+ea12 and ea+1
+e12
+have weights in the same dot-orbit. By lemma 3.1,
+2
+1
+1
+one of the weights µ is dominant and the other weight µ′ is such that s1 · µ′ dominant (if they coincide,
+then by definition µ is dot-singular). It is easy to see that the corresponding map in the BGG complex is
+non-zero, hence the contributions cancel for a = 0, . . . , m − 1. For a = m the BGG complex is C → 0, giving
+the result.
+
+10
+
+L
+eP , O e ) ∼
+Corollary 3.4 (i = 0, j = 0). There is an isomorphism of G-modules H0 (N
+m≥0 Lm,m . If
+NP =
+k = 2m, the k-th graded part corresponds to Lm,m .
+Proof. For a vector bundle pr : E → X we have pr∗ OE ∼
+= Sym• (E ∨ ). Hence,
+H0 (E, OE ) ∼
+= H0 (X, Sym• (E ∨ )),
+and thus
+eP , O e ) = H0 (P2 , pr O e ) = H0 (P2 , Sym• (T P2 )).
+H0 (N
+∗ NP
+NP
+
+The result then follows from the previous lemma.
+
+Proposition 3.5 (i = 0, j = 1). Let 2m = k. If m ≥ 2, we have
+eP , T e )k ∼
+H0 (N
+= Lm,m ⊕ Lm,m+1 ⊕ Lm+1,m ⊕ Lm+1,m+1
+NP
+
+Proof. First, let us write the weight spaces of the corresponding module S m (up ) ⊗ up ⊕ S m+1 (up ) ⊗ np in a
+table:
+Weight
+aα1 + mα2
+(a − 1)α1 + mα2
+aα1 + (m + 1)α2
+(a + 1)α1 + (m + 1)α2
+
+Modules
+S m+1 (up ) ⊗ np
+S m+1 (up ) ⊗ np
+S m (up ) ⊗ up
+S m (up ) ⊗ up
+
+Vector
+em+1−a
+ea12 ⊗ f2
+2
+em+1−a
+ea12 ⊗ f12
+2
+m−a a
+e2 e12 ⊗ e2
+em−a
+ea12 ⊗ e12
+2
+
+Value of a
+0≤a≤m+1
+0≤a≤m+1
+0≤a≤m
+0≤a≤m
+
+Hence, the set of admissible dominant weights are of the form n1 α1 + mα2 and n1 α1 + (m + 1)α2 (for
+appropriate values of n1 ). First, we notice that we have s2 · (aα1 + mα2 ) = aα1 + (a − m − 1)α2 . It is
+obvious that there are no vectors with this weight (and similarly for the weight s2 · (aα1 + (m + 1)α2 )).
+Hence the differential E[λ] → E[s2 · λ] = 0 is zero. Therefore the BGG complex in our case is simply given
+by f1t : E[λ]→E[s1 · λ] for some integer t.
+We begin with the case λ = n1 α1 + mα2 , where 2n1 ≥ m meaning λ is dominant. We assume n1 ≤ m − 1
+first. Then, the BGG complex is d : C2 →C2 , where the differential is given by multiplication by f12n1 −m−1 .
+Let us write the formula on a basis, we have
+1 n1
+e12 ⊗ f2 ) =
+d(em+1−n
+2
+
+and
+
+
+n1 !
+1 −1
+1
+⊗ f12
+e2n1 +2 em−n
+⊗ f2 + (2n1 − m + 1)e2n1 +1 em−n
+12
+12
+(m − n1 − 1)!
+
+1 n1 +1
+d(em−n
+e12 ⊗ f12 ) =
+2
+
+(n1 + 1)!
+1
+en1 +1 em−n
+⊗ f12
+12
+(m − n1 − 1)! 2
+
+Indeed, f1 · f2 = f12 , f1 · f12 = f1 · e2 = 0, and the action of f1 is given by
+f1 · er21 er122 ⊗ f2 = r2 e2r1 +1 er122 −1 ⊗ f2 + er21 er122 ⊗ f12
+and by induction the formula for the differential follows. It also follows easily that d is an isomorphism, thus
+these weights do not contribute to the cohomology. We look at the remaining case: n1 ∈ {m, m + 1}. For
+m+1
+n1 = m the complex is given by C2 → C, where the basis of C2 is given by e2 em
+12 ⊗ f2 and e12 f12 , and the
+11
+
+basis of C by em+1
+⊗ f12 . Since f1m+1 · em+1
+⊗ f12 = em+1
+⊗ f12 , it follows that the differential is non-zero.
+2
+12
+2
+0 e
+Hence Lm,m appears in H (NP , TNeP )k with multiplicity 1. For the weight (m + 1)α1 + mα2 , the complex is
+eP , T e )k with multiplicity one.
+C → 0, therefore Lm+1,m appears in H0 (N
+NP
+
+Now we look at the case λ = n1 α1 + (m + 1)α2 . We take λ dominant and first look at n1 ≤ m − 1. Let us
+recall that by definition, the action of f1 on e12 , e2 ∈ ∧1 up is given by f1 · e12 = e2 and f1 · e2 = 0. The
+differentials are given by:
+1 n1
+d(em+1−n
+e12 ⊗ e12 ) =
+2
+
+and
+1 n1 +1
+d(em−n
+e12 ⊗ e2 ) =
+2
+
+
+n1 !
+1 −1
+1
+e2n1 +2 em−n
+⊗ e12 + (2n1 − m + 1)e2n1 +1 em−n
+⊗ e2
+12
+12
+(m − n1 − 1)!
+
+(n1 + 1)!
+1
+en1 +1 em−n
+⊗ e2
+12
+(m − n1 − 1)! 2
+
+It follows again that all these weights do not contribute to the cohomology. We are left with the weights
+mα1 + (m + 1)α2 and (m + 1)α1 + (m + 1)α2 . In the first case, the complex is C2 → C, where a basis of
+m−1
+C2 is given by em
+⊗ e12 , and where a basis of C is given by em
+12 ⊗ e2 and e2 e12
+2 ⊗ e2 . The differential is
+eP , T e )k . Finally, the BGG complex for
+again surjective, thus Lm,m+1 appears with multiplicity 1 in H0 (N
+NP
+(m + 1)α1 + (m + 1)α2 is given by C → 0, and the proposition follows.
+eP , T e ) = 0.
+Lemma 3.6 (i = 1, j = 1). We have H1 (N
+NP
+
+Proof. It follows from the previous proof that E[λ] → E[s1 ·λ] is surjective for each λ that possibly contribute
+to the cohomology.
+Proposition 3.7 (i = 0, j = 2). Write s = 2m. We have
+eP , ∧2 T e )k = Lm,m−1 ⊕ Lm−1,m ⊕ L2m,m ⊕ Lm,m+1 ⊕ Lm+1,m
+H0 (N
+NP
+
+Proof. We have i + j + k = s hence k = 2(m − 1). Again, let us first split the module into different weight
+spaces:
+
+Weight
+(a + 1)α1 + (m + 1)α2
+(a + 1)α1 + mα2
+aα1 + mα2
+aα1 + mα2
+(a − 1)α1 + mα2
+(a − 1)α1 + (m − 1)α2
+
+Modules
+S m−1 (up ) ⊗ ∧2 up
+S m (up ) ⊗ up ⊗ np
+S m (up ) ⊗ up ⊗ np
+S m (up ) ⊗ up ⊗ np
+S m (up ) ⊗ up ⊗ np
+S m+1 (up ) ⊗ ∧2 np
+
+Vector
+e2m−a−1 ea12 ⊗ e2 ∧ e12
+em−a
+ea12 ⊗ e12 ⊗ f2
+2
+em−a
+ea12 ⊗ e2 ⊗ f2
+2
+m−a a
+e2 e12 ⊗ e12 ⊗ f12
+em−a
+ea12 ⊗ e2 ⊗ f12
+2
+m+1−a a
+e2
+e12 ⊗ f2 ∧ f12
+
+Value of a
+0≤a≤m−1
+0≤a≤m
+0≤a≤m
+0≤a≤m
+0≤a≤m
+0≤a≤m+1
+
+As in the previous case, for all the weights λ appearing there is no element of weight s2 · λ. First, we
+compute cohomology with dominant weight of the form λ = n1 α1 + (m + 1)α2 . We have s1 · (n1 α1 +
+(m + 1)α2 ) = (m − n1 )α1 + (m + 1)α2 . If we assume n1 6= m, n1 ≥ 2(m + 1) the BGG complex is
+1 n1
+1
+C → C, em−n
+e12 ⊗ e2 ∧ e12 7→ en2 1 em−n
+⊗ e2 ∧ e12 and hence no cohomology comes from these weights.
+2
+12
+Finally, for n1 = m we get the BGG complex C → 0, therefore Lm,m+1 contributes with multiplicity one.
+
+12
+
+We now look at dominant weights on the form λ = n1 α1 + (m − 1)α1 . We know that −1 ≤ n1 ≤ m.
+Moreover, s1 · λ = (m − n1 − 2)α1 + (m − 1)α2 , and for these weights the BGG complex is 1 : C→C. Hence,
+for −1 ≤ n1 ≤ m − 1 the weights do not contribute to the cohomology. The only remaining weight is
+λ = mα1 + (m − 1)α2 , the BGG complex is C → 0. Hence Lm,m−1 appears with multiplicity one.
+We now look at the case where λ = n1 α1 + mα2 is dominant. If n1 ≤ m − 2 we claim that d is invertible,
+hence these weights do not contribute to the cohomology. Indeed, the matrix for d is given by
+
+
+
+
+
+
+S
+−T
+T
+1 −m)T
+− (2n
+m−n1 +2
+
+0
+S
+0
+−T
+
+0
+0
+S
+−T
+
+
+0
+0
+
+,
+0
+S
+
+where T = (2n1 − m + 1)(n1 − 1) . . . (m − n1 + 2) and S = (n1 − 1) . . . (m − n1 + 1). These coefficients are
+obtained by induction, for example the coefficients in the first column can be deduced from
+1 n1 −1
+f1 · (em−n
+e12 ⊗ e12 ⊗ f2 )
+2
+
+n1 −2
+1 n1 −1
+1 n1 −1
+= (n1 − 1)e2m−n1 +2 e12
+⊗ e12 ⊗ f2 − em−n
+e12 ⊗ e2 ⊗ f2 + em−n
+e12 ⊗ e12 ⊗ f12
+2
+2
+
+Since S 6= 0 it follows that d is an isomorphism.
+The remaining cases are n1 ∈ {m − 1, m, m + 1}. For the case of λ = (m + 1)α1 + mα2 the BGG complex
+is C → 0.
+If λ = (m−1)α1 +mα2 , s1 ·λ = mα2 and there is no vector of this weight of the form em−a
+ea12 ⊗ e12 ⊗ f2 .
+2
+Hence the BGG complex is d : C4 →C3 and we see easily using the previous formula that d is surjective.
+Finally, if λ = mα1 + mα2 , the BGG complex is C3 → C, with basis of C3
+e2 em−1
+⊗ e12 ⊗ f2 ,
+12
+
+em
+12 ⊗ e2 ⊗ f2 ,
+
+em
+12 ⊗ e12 ⊗ f12 ,
+
+and for C1 basis e2 ⊗ e2 ⊗ f12 . It follows again from the explicit formula that d is surjective, hence Lm,m
+appears with multiplicity 2.
+eP , ∧2 T N
+eP ) = 0.
+Lemma 3.8 (i = 1, j = 2). We have H1 (N
+
+Proof. It follows from the previous proof that H1 = 0, since for each dominant weight d was always surjective.
+
+eP , ∧2 T N
+eP ) = 0.
+Lemma 3.9 (i = 2, j = 2). We have H2 (N
+Proof. The module V2,m is given by
+
+(Symm (up ) ⊗ ∧2 up ) ⊕(Symm+1 (up ) ⊗ up ⊗ np ) ⊕(Symm+1 (up ) ⊗ ∧2 np ).
+By lemma 3.1, we only need to check weight λ = n1 α1 + n2 α2 with n1 < 0 or n2 < 0. There is a single
+weight µ with such coefficients, given by µ = −α1 + (m + 1)α2 . Since s1 · µ = (m + 1)ρ is dominant, H2 = 0
+as claimed. (If m = 0, there is also the exceptional case e2 ⊗ f2 ∧ f12 with weight −α1 − α2 = −ρ. But such
+a weight is dot-singular.)
+
+13
+
+3.2
+
+Relation to the nilpotent cone
+
+In this subsection, we describe HHC∗ (T ∗ P2 ) as a module over C[N ], where N ⊂ sl3 is the nilpotent cone.
+The following theorem by Ginzburg and Kumar relates uq (g) with N :
+Theorem 3.10 ([GK93]). There is an isomorphism of algebras H2• (uq (g), C) ∼
+= C[N ]. Moreover we have
+2•+1
+that H
+(uq (g), C) = 0.
+Since H• (uq (g), C) acts on HH• (uq (g)), for each block the G-representation HH• (uλp (g)) is actually a
+G × C∗ -equivariant coherent sheaf on the nilpotent cone. There is a H0 (G/P, pr∗ ONeP )-module structure
+on HH• (uλp (g)), hence a C[N ]-module structure. In [LQ19], Lachowska-Qi obtained the C[N ]-module of
+HH• (u0 (sl2 )):
+Theorem 3.11 ([LQ19]). As module over C[N ], the even Hochschild cohomology of u0 (sl2 ) is given by the
+following table:
+
+i+j=0
+i+j=2
+
+h
+
+i,j
+
+C[N ]
+C
+
+C[N ]
+
+j−i=0
+
+j−i=2
+
+The odd Hochschild cohomology is concentrated in bidegree (0, 1) and given by
+HH2•+1 (u0 (sl2 )) ∼
+= C[N ]+ [1] ⊕ C[N ][−1],
+where [1] is a shift in the s-grading and C[N ]+ is the augmentation ideal.
+We would like to obtain a similar result when g = sl3 and p = b ⊕ Ce1 , hence G/P ∼
+= P2 . Let u1 := uλp (g)
+and Y := Op . The corollary 3.4 and the previous discussion implies:
+L
+Proposition 3.12. There is a graded G-module isomorphism, C[Y ] ∼
+= m≥0 L(m, m).
+
+eP ] ∼
+We want to understand the C[Y ]-module structure on HH• (u). Using that C[N
+= C[Y ], we can reduce the
+•
+eP ). Using the equivalence
+problem to understanding the ONeP -module structure on the cohomology HHC∗ (N
+ONeP –mod ∼
+= pr∗ ONeP –mod, we can reduce the problem to understand the maps
+
+
+H0 (pr∗ ONeP ) ⊗ 
+
+M
+
+i+j+k=s
+
+
+
+Hi (P2 , Vjk ) →
+
+M
+
+Hi (P2 , Vjk ),
+
+i+j+k=s+2
+
+where Vjk is the vector bundle associated to the module Vjk introduced earlier. Since C[Y ] is generated by
+its degree one elements C[Y ]1 ∼
+= sl3 , it is enough to compute the maps
+= L1,1 ∼
+
+
+L1,1 ⊗ 
+
+M
+
+i+j+k=s
+
+
+
+Hi (P2 , Vjk ) →
+
+M
+
+Hi (P2 , Vjk ).
+
+i+j+k=s+2
+
+We notice that for m ≥ 2, the only non-zero contribution to HHm (u1 ) is when i = 0. By definition, if E
+is a p-module, and v ∈ E nP [µ] for some µ ∈ P + , then v is the BGG representative corresponding to an
+irreducible representation Lµ ⊂ H0 (G/P, E). This vector can be found from the representation as follows:
+Lµ has a highest weight vector w, corresponding to a section sw : G/P → E. Then, sw (eP ) = v is the
+14
+
+corresponding vector. This is by definition, because H0 (G/P, E) = IndG
+P E. In particular, it follows that
+for multiplying global sections we can multiply the corresponding BGG representative together (since the
+multiplication is an equivariant map, we only need to know what happens at a point, for example at eP ).
+Let Wm = Lm,m ⊕ Lm+1,m ⊕ Lm,m+1 ⊕ Lm+1,m+1 . This is the summand of bidegree (i, j) = (0, 1) in
+HH2m+1 (u1 ). Since the sl2 -action obtained from the Poisson bivector field commutes with the C[Y ]action, we just need to understand the C[Y ]-module structure on this summand, and the summand of
+1
+2
+3
+bidegree (i, j) = (0, 3) will be isomorphic to Wm . Let Wm
+= Lm,m , Wm
+= Lm+1,m , Wm
+= Lm,m+1 and
+4
+Wm = Lm+1,m+1 .
+l
+l
+Proposition 3.13. The maps L1,1 ⊗ Wm → Wm+1 is given by L1,1 ⊗ Wm
+→ Wm+1
+⊂ Wm+1 , where the
+first map is the projection onto the corresponding isotopic component.
+
+Proof. This directly follows from the representatives we computed in the proof of theorem 3.2 and the
+discussion before. Let us remark that the projection onto the isotopic component is only defined up to
+l
+multiplication by a non-zero scalar, but it can be fixed by choosing a highest weight vector vm in each Wm
+such that the projection sends vm to vm+1 .
+A similar proposition holds for s = 2m. Now we describe the corresponding C[Y ]-modules. We define a
+module M1 as (M1 )m = Lm+1,m if m ≥ 1 and (M1 )0 = 0. The C[Y ]-module structure is obtained from
+2
+2
+3
+the maps L1,1 ⊗ Wm
+→ Wm+1
+. Let M2 be the module such that (M2 )m = Wm
+if m ≥ 1 and 0 otherwise,
+with similar C[Y ]-module structure. We also define shifted modules N1 , N2 by (N1 )m = (M1 )m−1 and
+(N2 )m = (M2 )m−1 , with the same C[Y ]-module structure. Finally, let C[Y ]+ be the ideal sheaf of the
+origin 0 ∈ Y , and C0 be the skyscraper sheaf at 0. We obtain the following description of the Hochschild
+cohomology as C[Y ]-modules:
+Proposition 3.14. The following tables give the even (resp. odd) Hochschild cohomology groups of u1 (sl3 ),
+as C[Y ]-modules:
+i+j=0
+i+j=2
+i+j=4
+
+h
+
+i,j
+
+i+j=1
+i+j=3
+
+h
+
+4
+
+i,j
+
+C[Y ]
+C0
+C0
+
+C[Y ] ⊕ N1 ⊕ N2 ⊕ C[Y ]+ ⊕ M1 ⊕ M2
+C0
+
+C[Y ]
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+C[Y ] ⊕ M1 ⊕ M2 ⊕ C[Y ]+
+C0
+
+C[Y ] ⊕ M1 ⊕ M2 ⊕ C[Y ]+
+
+j−i=1
+
+j−i=3
+
+Computation of z0(uq (g)) for type G2 , B3, C3 and A4
+
+We now present our results obtained using the algorithm described in [HV21], using the description of Vjk
+introduced in section 2.4.
+
+4.1
+
+Type G2
+
+For type G2 , we let α1 be the short root and α2 be the long root.
+Theorem 4.1. The center of the principal block of the small quantum group for g of type G2 has dimension
+91. The bigraded dimensions are given by the following table:
+15
+
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+i+j=12
+
+h
+
+i,j
+
+C
+C2
+C2
+C2
+C2
+C2
+C
+
+C
+C2
+C2
+C2 ⊕ L22,1
+C3 ⊕ L2,1
+C2
+
+C
+C2
+C2 ⊕ L2,1
+C2 ⊕ L22,1
+C2
+
+C
+C2
+C2
+C2
+
+C
+C2
+C2
+
+C
+C2
+
+C
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+j−i=12
+
+The trivial representation has multiplicity 49 in total. The table confirms the conjecture 2.8 for g of type
+G2 , hence for all complex simple Lie algebras of rank 2 using previous work from [LQ16] and [LQ17]. We
+also computed the center of the singular blocks of type u1 (g2 ):
+
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+
+hi,j
+
+C
+C
+C
+C
+C
+C
+
+C
+C
+C ⊕ L2,1
+C ⊕ L2,1
+C3 ⊕ L2,1
+
+C
+C
+C ⊕ L2,1
+C ⊕ L2,1
+
+C
+C
+C
+
+C
+C
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+and similarly for u2 (g2 ):
+
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+
+hi,j
+
+4.2
+
+C
+C
+C
+C
+C
+C
+
+C
+C
+C ⊕ L2,1
+C
+C3 ⊕ L2,1
+
+C
+C ⊕ L2,1
+C ⊕ L2,1
+C ⊕ L2,1
+
+C
+C
+C
+
+C
+C
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+Type B3 and C3
+
+Definition 4.2. For a subset J ⊂ I, let uJ be the block corresponding to a singular weight λ with stabiliser
+generated by hsj : j ∈ Ji.
+Theorem 4.3. In type B3 , the center of the principal block is given by the following table:
+
+16
+
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+i+j=12
+i+j=14
+i+j=16
+i+j=18
+i,j
+
+h
+
+C
+C3
+C5
+C7
+C8
+C8
+C7
+C5
+C3
+C
+
+C
+C3
+C6
+C10
+C14 ⊕ L1,1,1
+C15 ⊕ L31,1,1
+C12 ⊕ L21,1,1
+C8
+C3
+
+C
+C3
+C6
+C10
+C14 ⊕ L41,1,1
+C15 ⊕ L61,1,1 ⊕ L1,2,2
+C12 ⊕ L21,1,1
+C5
+
+C
+C3
+C6
+C10 ⊕ L1,1,1
+C14 ⊕ L41,1,1
+C15 ⊕ L31,1,1
+C7
+
+C
+C3
+C6
+C10
+C14 ⊕ L1,1,1
+C8
+
+C
+C3
+C6
+C10
+C8
+
+C
+C3
+C6
+C7
+
+C
+C3
+C5
+
+C3
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+j−i=12
+
+j−i=14
+
+j−i=16
+
+The invariant part of the center coincide with the invariant part of the center of the principal block for type
+C3 .
+We also computed the corresponding diagonal coinvariants for type B3 , and confirmed conjecture 2.8 for B3
+and C3 . We notice that the vector space isomorphism z(u0 (so7 ))so7 ∼
+= z(u0 (sp6 ))sp6 was also predicted by
+the conjecture since they have isomorphic Weyl group. We now give the answer for other blocks, and for
+simplicity we only give the answer when g is of type B3 .
+Theorem 4.4. The center of u1 (so7 ) and u2 (so7 ) are isomorphic as bigraded vector spaces, and given by
+the following table:
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+i+j=12
+i+j=14
+i+j=16
+
+h
+
+i,j
+
+C
+C2
+C3
+C4
+C4
+C4
+C3
+C2
+C
+
+C
+C2
+C4
+C6
+C7 ⊕ L1,1,1
+C6 ⊕ L1,1,1
+C4
+C2
+
+C
+C2
+C4
+C6 ⊕ L1,1,1
+C7 ⊕ L31,1,1 ⊕ L1,2,2
+C6 ⊕ L1,1,1
+C3
+
+C
+C2
+C4
+C6 ⊕ L1,1,1
+C7 ⊕ L1,1,1
+C4
+
+C
+C2
+C4
+C6
+C4
+
+C
+C2
+C4
+C4
+
+C
+C2
+C3
+
+C
+C2
+
+C
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+j−i=12
+
+j−i=14
+
+j−i=16
+
+The center of u3 (so7 ) is given by the following table:
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+i+j=12
+i+j=14
+i+j=16
+
+h
+
+i,j
+
+C
+C2
+C3
+C4
+C4
+C4
+C3
+C2
+C
+
+C
+C2
+C4
+C6 ⊕ L1,1,1
+C7 ⊕ L21,1,1
+C6 ⊕ L21,1,1
+C4
+C2
+
+C
+C2
+C4
+C6 ⊕ L21,1,1
+C7 ⊕ L41,1,1
+C6 ⊕ L21,1,1
+C3
+
+C
+C2
+C4
+C6 ⊕ L21,1,1
+C7 ⊕ L21,1,1
+C4
+
+C
+C2
+C4
+C6 ⊕ L1,1,1
+C4
+
+C
+C2
+C4
+C4
+
+C
+C2
+C3
+
+C
+C2
+
+C
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+j−i=12
+
+j−i=14
+
+j−i=16
+
+The center of u12 (so7 ) is as follows:
+
+17
+
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+i+j=12
+
+h
+
+i,j
+
+C
+C
+C
+C2
+C
+C
+C
+
+C
+C
+C2
+C2
+C
+C
+
+C
+C
+C2 ⊕ L1,1,1 ⊕ L1,2,2
+C2
+C
+
+C
+C
+C2
+C2
+
+C
+C
+C
+
+C
+C
+
+C
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+j−i=12
+
+The center of u13 (so7 ) is as follows:
+
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+i+j=12
+i+j=14
+
+h
+
+i,j
+
+C
+C
+C2
+C2
+C2
+C2
+C
+C
+
+C
+C
+C3
+C3 ⊕ L1,1,1
+C3 ⊕ L1,1,1
+C2
+C
+
+C
+C
+C3
+C3 ⊕ L21,1,1
+C3 ⊕ L1,1,1
+C2
+
+C
+C
+C3
+C3 ⊕ L1,1,1
+C2
+
+C
+C
+C3
+C2
+
+C
+C
+C2
+
+C
+C
+
+C
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+j−i=12
+
+j−i=14
+
+The center of u23 (so7 ) is as follows:
+
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+
+h
+
+i,j
+
+C
+C
+C
+C
+C
+C
+
+C
+C
+C ⊕ L1,1,1
+C
+C
+
+C
+C ⊕ L1,1,1
+C ⊕ L1,1,1
+C
+
+C
+C
+C
+
+C
+C
+
+C
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+The isomorphism of bigraded vector spaces z(u1 ((so7 ))) ∼
+= z(u2 ((so7 ))) is reminiscent of a similar isomorphism found in [LQ17], where two non-conjugated blocks had isomorphic centers. This suggests that the
+corresponding categories might be Morita equivalent.
+
+4.3
+
+Type A4
+
+We check the conjectures 2.8 and 2.9 for g = sl5 :
+Theorem 4.5. There is an isomorphism of bigraded vector space z(u0 (sl5 )) ∼
+= DC5 . The table
+= z(u0 (sl5 )g ∼
+
+18
+
+is as follows:
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+i+j=12
+i+j=14
+i+j=16
+i+j=18
+i+j=20
+
+h
+
+i,j
+
+1
+4
+9
+15
+20
+22
+20
+15
+9
+4
+1
+
+1
+5
+14
+29
+44
+51
+46
+31
+15
+4
+
+1
+5
+15
+33
+54
+66
+56
+31
+9
+
+1
+5
+15
+34
+58
+66
+46
+15
+
+1
+5
+15
+34
+54
+51
+20
+
+1
+5
+15
+33
+44
+22
+
+1
+5
+15
+29
+20
+
+1
+5
+14
+15
+
+1
+5
+9
+
+1
+4
+
+1
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+j−i=12
+
+j−i=14
+
+j−i=16
+
+j−i=18
+
+j−i=20
+
+Let us present the other bigraded tables. We label the singular blocks as before, i.e as a subset J ⊂
+{1, 2, 3, 4}. However we consider them up to the involution i 7→ 5 − i (i.e up to conjugay in the extended
+affine Weyl group). There are also non-conjugated blocks giving isomorphic centers: z(u1 (sl5 )) ∼
+= z(u2 (sl5 )),
+∼
+∼
+z(u12 (sl5 )) = z(u23 (sl5 )) and z(u13 (sl5 )) = z(u14 (sl5 )). We also know that the block u123 (sl5 ) correspond to
+a projective space and was computed in [LQ17]. Hence we only need to present u1 (sl5 ), u12 (sl5 ), u13 (sl5 ) and
+u124 (sl5 ). We will only present their dimension table, since for all blocks, the center is g-invariant.
+Theorem 4.6. The center of u1 (sl5 ) is as follows:
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+i+j=12
+i+j=14
+i+j=16
+i+j=18
+
+hi,j
+
+1
+3
+6
+9
+11
+11
+9
+6
+3
+1
+
+1
+4
+10
+18
+23
+23
+17
+9
+3
+
+1
+4
+11
+21
+29
+28
+17
+6
+
+1
+4
+11
+22
+29
+23
+9
+
+1
+4
+11
+21
+23
+11
+
+1
+4
+11
+18
+11
+
+1
+4
+10
+9
+
+1
+4
+6
+
+1
+3
+
+1
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+j−i=12
+
+j−i=14
+
+j−i=16
+
+j−i=18
+
+The center of u12 (sl5 ) is as follows:
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+i+j=12
+i+j=14
+
+hi,j
+
+1
+2
+3
+4
+4
+3
+2
+1
+
+1
+3
+5
+7
+6
+4
+2
+
+1
+3
+6
+8
+6
+3
+
+1
+3
+6
+7
+4
+
+1
+3
+5
+4
+
+1
+3
+3
+
+1
+2
+
+1
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+j−i=12
+
+j−i=14
+
+19
+
+The center of u13 (sl5 ) is as follows:
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+i+j=12
+i+j=14
+i+j=16
+
+hi,j
+
+1
+2
+4
+5
+6
+5
+4
+2
+1
+
+1
+3
+7
+10
+11
+9
+5
+2
+
+1
+3
+8
+12
+14
+9
+4
+
+1
+3
+8
+12
+11
+5
+
+1
+3
+8
+10
+6
+
+1
+3
+7
+5
+
+1
+3
+4
+
+1
+2
+
+1
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+j−i=12
+
+j−i=14
+
+j−i=16
+
+The center of u124 (sl5 ) is as follows:
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+i+j=8
+i+j=10
+i+j=12
+
+hi,j
+
+5
+
+1
+1
+2
+2
+2
+1
+1
+
+1
+2
+3
+3
+2
+1
+
+1
+2
+4
+3
+2
+
+1
+2
+3
+2
+
+1
+2
+2
+
+1
+1
+
+1
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+j−i=6
+
+j−i=8
+
+j−i=10
+
+j−i=12
+
+Higher Hochschild cohomology groups
+
+We present some tables of higher Hochschild cohomology groups, obtained by our computer algorithm.
+These results are not complete, and there are additional results available on the repository of the algorithm:
+https://github.com/RikVoorhaar/bgg-cohomology.
+Recall that HH• (u) is a Gerstenhaber algebra, and that the bracket is of degree −1. In particular, HH1 (uq (g))
+acts on HH0 (uq (g)). This gives a large group of symmetries, and understanding it could lead to a better
+understanding of the center.
+Proposition 5.1. For type A2 , for 4 ≤ s ≤ 14 and s = 2k even we get the following bigraded table
+i+j=2
+i+j=4
+i+j=6
+
+h
+
+i,j
+
+2
+
+L (k, k)
+0
+0
+
+L(k, k − 1)2 ⊕ L(k − 1, k)2 ⊕ L(k, k)4 ⊕ L(k + 1, k)2 ⊕ L(k, k + 1)2
+0
+
+L(k, k)2
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+for 3 ≤ s ≤ 15 and s = 2k + 1 odd (the second column of the table can be deduced from the sl2 symmetry)
+
+i+j=3
+i+j=5
+
+hi,j
+
+L(k, k)2 ⊕ L(k + 1, k)2 ⊕ L(k, k + 1)2 ⊕ L(k + 1, k + 1)
+0
+j−i=1
+
+20
+
+In type G2 , HH1 (u0 ) is given by the following table:
+i+j=1
+i+j=3
+i+j=5
+i+j=7
+i+j=9
+i+j=11
+
+hi,j
+
+C ⊕ L3,2
+C2 ⊕ L2,1 ⊕ L23,2
+C2 ⊕ L22,1 ⊕ L23,2
+C2 ⊕ L22,1 ⊕ L3,2
+C3 ⊕ L2,1
+C2
+
+C ⊕ L3,2
+C2 ⊕ L2,1 ⊕ L23,2
+C3 ⊕ L62,1 ⊕ L23,2 ⊕ L4,2
+C4 ⊕ L62,1 ⊕ L3,2 ⊕ L24,2
+C3 ⊕ L2,1
+
+C ⊕ L3,2
+C2 ⊕ L2,1 ⊕ L23,2
+C3 ⊕ L62,1 ⊕ L23,2 ⊕ L4,2
+C2 ⊕ L22,1 ⊕ L3,2
+
+C ⊕ L3,2
+C2 ⊕ L2,1 ⊕ L23,2
+C2 ⊕ L22,1 ⊕ L23,2
+
+C ⊕ L3,2
+C2 ⊕ L2,1 ⊕ L23,2
+
+C ⊕ L3,2
+
+j−i=1
+
+j−i=3
+
+j−i=5
+
+j−i=7
+
+j−i=9
+
+j−i=11
+
+As noticed in [LQ19] already, we obtain that g is a subalgebra of HH1 , sitting in bidegree (1, 1). Their results
+imply that this copy of g is acting in a compatible way on the center with both the algebraic and geometric
+existing g-action. We hope to understand the full action of HH1 on HH0 , by understanding the geometric
+e ) on HH0 ∗ (N
+e ).
+action of HH1C∗ (N
+C
+We also computed HHs (uq (g)) for s ≤ 3 and g = sl4 . We present the tables for s = 1:
+
+Proposition 5.2. The group HH1 (uq (sl4 )) is given by the following table:
+i+j=1
+i+j=3
+i+j=5
+i+j=7
+i+j=9
+i+j=11
+
+hi,j
+
+5.1
+
+C ⊕ L1,1,1
+C4 ⊕ L31,1,1
+C9 ⊕ L51,1,1
+C11 ⊕ L31,1,1
+C8
+C3
+
+C ⊕ L1,1,1
+C5 ⊕ L41,1,1
+C13 ⊕ L81,1,1 ⊕ L31,2,1
+C17 ⊕ L51,1,1 ⊕ L31,2,1
+C8
+
+C ⊕ L1,1,1
+C5 ⊕ L41,1,1 ⊕ L1,2,1
+C13 ⊕ L81,1,1 ⊕ L31,2,1
+C11 ⊕ L31,1,1
+
+C ⊕ L1,1,1
+C5 ⊕ L41,1,1
+C9 ⊕ L51,1,1
+
+C ⊕ L1,1,1
+C4 ⊕ L31,1,1
+
+C ⊕ L1,1,1
+
+j−i=1
+
+j−i=3
+
+j−i=5
+
+j−i=7
+
+j−i=9
+
+j−i=11
+
+Limits of the algorithm
+
+With the computational resources available to the authors, it is not feasible to do the computation of the
+center of the principal block for type D4 and B4 with the current implementation of the algorithm. Hence,
+it seems that most of the computations are not accessible in rank ≥ 4. For higher Hochschild cohomology, in
+type A2 we could go up to s ≤ 13, but for type B2 only s ≤ 7. However, looking at singular blocks makes the
+computation much easier, and even for A4 we could compute the Hochschild cohomology of the projective
+spaces up to s ≤ 6 (this specific computation will be detailed in the next section).
+
+6
+
+Remarks on projective spaces
+
+We now look at X = Pn = G/P . For s = 0, the Hochschild cohomology was computed in [LQ17]. Let us
+call a bidegree (i, j) positive if i > 0, and let us call the positive part of HHsC∗ (T ∗ (G/P )) the direct sum
+of the corresponding bigraded summands. For s = 1, we show that the positive Hochschild cohomology
+is generated by the first column under the sl2 -action. For s ≥ 2, we prove a vanishing property, and we
+compute several Hochschild cohomology groups for T ∗ P3 and T ∗ P4 .
+
+6.1
+
+A subalgebra of HH1
+
+In this subsection we will compute the positive part of HH1C∗ (Pn ), and we present the full computation for
+3 ≤ n ≤ 6. We will need the following lemma:
+p
+⊗p
+p n
+Lemma 6.1 ([LQ17]). Let p′ 6= p ≤ n. Then Hp (Pn , Ω⊗
+Pn ) = 0. Moreover, H (P , ΩPn ) = C.
+′
+
+21
+
+Let us emphasize that the non-trivial cohomology comes from the split summand ∧p ΩPn ⊂ Ω⊗p . We now
+want to compute the first column of HH1C∗ (Pn ). For this, we introduce 1 ≤ p ≤ n such that j = i + 1 = p.
+It follows that k = −2p, so s = i + j + k = 1.
+Proposition 6.2. Let 1 ≤ p ≤ n. Then Hp−1 (Pn , ∧p pr∗ (TNeP )−2p ) = C if p 6= 1 and C ⊕ g if p = 1.
+Proof. First, we assume p > 1. By definition, there is a short exact sequence
+0
+
+∧p pr∗ (TNeP )−2p
+
+TPn ⊗ ∧p ΩPn
+
+TPn ⊗ ∧p+1 ΩPn
+
+0
+
+As usual, let ωPn = det(ΩPn ) be the canonical bundle on Pn . Using ∧p ΩPn ∼
+= ∧n−p TPn ⊗ ωPn , we obtain by
+Serre duality that
+Hp (Pn , TPn ⊗ ∧p ΩPn ) ∼
+= Hn−p (ΩPn ⊗ ∧n−p ΩPn )∗ .
+By lemma 6.1, we know that the cohomology group Hq (Pn , ΩPn ⊗∧m ΩPn ) is nonzero if and only if q = m + 1.
+Hence we have that
+Hp−1 (Pn , TPn ⊗ ∧p ΩPn ) = C,
+
+Hp−1 (Pn , TPn ⊗ ∧p+1 ΩPn ) = 0,
+
+and
+
+Hp−2 (Pn , TPn ⊗ ∧p+1 ΩPn ) = 0.
+
+It follows that the long exact sequence in cohomology gives the short exact sequence
+0
+
+Hp−1 (Pn , ∧p pr∗ (TNeP )−2p )
+
+C
+
+0
+
+proving the proposition if p > 1.
+If p = 1, then the composition factors of (pr∗ TNeP )0 are TPn ⊗ ΩPn and TPn . We have
+H0 (Pn , TPn ⊗ ΩPn ) = C,
+
+respectively
+
+H0 (Pn , TPn ) = g.
+
+By the Borel-Bott-Weil theorem, H1 (Pn , TPn ) = 0 so the result follows using the long exact sequence.
+Corollary 6.3. There is a subalgebra of HH1C∗ (T Pn ) of dimension (n + 1)n/2 + (n2 − 1)n.
+Proof. It follows easily from the existence of the sl2 -action on HH1C∗ (Pn ), and the fact that the Poisson
+bivector field has bidegree (i, j) = (0, 2).
+Proposition 6.4. The positive part of HH1C∗ (Pn ) coincides with the positive part of the subalgebra from the
+previous corollary, i.e for (i, j) with i ≥ 1 we have HH1C∗ (Pn )(i,j) = C.
+Proof. We fix 1 ≤ i ≤ n ≤ j ≤ 2n, where i+j = 1 mod 2 and let t = j−i, and r = (t+1)/2. The correspondeP , Vi+t T N
+eP )−2i−t+1 . The sheaf pr∗ (Vi+t T N
+eP )−2i−t+1 has
+ing cohomology group is HH1C∗ (Pn )(i,j) = H i (N
+a filtration by factors Fl (where 0 ≤ l ≤ r) given by
+Fl := S
+
+r−l
+
+T
+
+Pn
+
+⊗
+
+l
+^
+
+T
+
+Pn
+
+⊗
+
+i+t−l
+^
+
+ΩP n
+
+22
+
+We want to compute Hi (Fl ). Using Serre duality we obtain an isomorphism
+∗
+
+^n+l−i−t
+^l
+n−i
+r−l
+∼
+n
+n
+n
+ΩP
+ΩP ⊗
+S ΩP ⊗
+H (Fl ) = H
+i
+
+Denote the last factor in the tensor product above by Ql . Note that Ql is then a direct summand of
+Ω⊗(n+l+1−i−r) . Notice that l + 1 − r − i ≤ 0, because l ≤ r and i ≥ 1 by hypothesis, hence we can apply
+lemma 6.1. When l = r − 1, we have
+Q l = ΩP n ⊗
+
+^r−1
+
+ΩP n ⊗
+
+^n−i−r
+
+ΩP n ,
+
+hence Ql contains the direct summand ∧n−i ΩPn , so by the lemma 6.1 we obtain Hn−i (Fr−1 ) = C. For other
+values of l, Ql does not contribute. Therefore, again by lemma 6.1, we have Hn−i (Fl ) = 0. This shows that
+dim HH1C∗ (Pn )(i,j) ≤ 1, and using the sl2 -action and proposition 6.2 we conclude that dim HH1C∗ (Pn )(i,j) =
+1.
+One can visualize this result as follows (we let g′ := C ⊕ g, and ? denotes an unknown factor):
+i+j=1
+i+j=3
+i+j=5
+i+j=7
+
+..
+.
+i+j=2n−1
+
+h
+
+i,j
+
+g′
+C
+C
+C
+
+g′ ⊕ ?
+C
+g′ ⊕ ?
+C
+C
+g′ ⊕ ?
+
+C
+C
+
+C
+C
+
+C
+C
+
+C
+C
+
+j−i=1
+
+j−i=3
+
+j−i=5
+
+j−i=7
+
+...
+...
+...
+
+g′ ⊕ ?
+C
+
+g′
+
+j−i=2n−3
+
+j−i=2n−1
+
+We computed the bigraded summands of HH1C∗ (Pn ) for i > 0 in the previous proposition. We cannot compute
+these summands for i = 0 in general, but we present the missing bigraded summand for 3 ≤ n ≤ 6 (giving
+the complete HH1 using the sl2 -symmetry), obtained using our computer algorithm:
+Proposition 6.5. For 3 ≤ n ≤ 6, the bigraded summands HH1C∗ (Pn )(0,3) and HH1C∗ (Pn )(0,5) are given by
+the following table:
+
+n=6
+
+g′ ⊕ L1,2,1
+g′ ⊕ L1,2,2,1
+g′ ⊕ L1,2,2,2,1
+g′ ⊕ L1,2,2,2,1
+
+g′
+g′
+g′ ⊕ L1,2,2,2,1 ⊕ L1,2,3,2,1
+g′ ⊕ L1,2,2,2,1 ⊕ L1,2,3,2,1
+
+i=0
+
+j=3
+
+j=5
+
+n=3
+n=4
+n=5
+
+6.2
+
+Higher Hochschild cohomology groups
+
+We prove that HHsC∗ (Pn )(i,j) = 0 if s ≥ 5 and i ≥ s − 2. We also present some low-degree Hochschild
+cohomology groups for n = 3, 4. We begin by a lemma:
+Lemma 6.6. Let a, b, c be positive integers where a ≥ 3 and a + b + c = j. Then, if V is a finite-dimensional
+vector space, the SL(V )-module Syma (V ) ⊗ ∧b (V ) ⊗ ∧c (V ) does not contain a copy of ∧j (V ).
+P
+Proof. Let V = Cn+1 , and Γa1 ,...,an be the irreducible SL(V )-representation of highest weight i ai ̟i , where
+̟i are the fundamental weights. We have Γa,0,0,... ∼
+= ∧b (V ) (where the 1 is
+= Syma (V ) and Γ0,0,...,0,1,0,...,0 ∼
+23
+
+at the b-th position). We recall that as a special case of the Littlewood-Richardson rule we have,
+Γa1 ,...,an ⊗ ∧k V ∼
+=
+
+M
+
+Γb1 ,...,bn ,
+
+(b1 ,...,bn )∈B
+
+where B is a certain subset of Nn , such that if (b1 , . . . , bn ) ∈ B then |bi − ai | ≤ 1. We get
+Syma (V ) ⊗ ∧b (V ) ⊗ ∧c (V ) ∼
+=
+
+M
+
+Γc1 ,...,cn
+
+where (c1 , . . . , cn ) are certain integers such that c1 ≥ 1 so the lemma follows.
+Proposition 6.7. If s ≥ 4, and s − 2 ≤ i, we have HHsC∗ (Pn )(i,j) = 0.
+Proof. As before, we fix 1 ≤ i ≤ n ≤ j ≤ 2n, and 1 ≤ r 6= n is the column in the bigraded table. We want to
+eP , (∧s+i+2(r−1) T N
+eP )−2i−2r+2 . As usual pr∗ ∧s+i+2(r−1) T N
+eP )−2i−2r+2 has a filtration with
+compute Hi (N
+summands
+Fl := S r−l+s−2 TPn ⊗
+
+^l
+
+TPn ⊗
+
+^s+i+2(r−1)−l
+
+ΩP n
+
+Again, by Serre duality we have
+Hi (Pn , Fl ) ∼
+= Hn−i (Pn , S r−l+s−2 ΩPn ⊗
+
+^l
+
+ΩP n ⊗
+
+^n−s−i−2(r−1)+l
+
+ΩPn )∗
+
+Denote the last sheaf by Ql , it is a direct summand of Ω⊗(n−i+l−r) . We know l ≤ r + s − 2 and by hypothesis
+s − 2 ≤ i hence l ≤ i + r. So we can apply lemma 6.1 to p = n − i + l − r, and get Hi (Pn , Fl ) = 0 if l 6= r.
+If l = r, the only summand that can contribute to the cohomology is ∧p Ω. But Fr does not contains ∧r ΩPn
+by lemma 6.6, so we have Hi (Pn , Fl ) = 0 as well.
+We think that this vanishing holds more generally for all i > 0 and s ≥ 2, based on our computer computations. This should hold only for projective spaces: already for Grassmannians we found several counterexamples.
+We conclude this section by presenting table of HHsC∗ (P3 ) for 0 ≤ s ≤ 9 and HHsC∗ (P3 ) for 0 ≤ s ≤ 6.
+We present truncated tables for readability, but the remaining part can be deduced from the sl2 -action, as
+explained in section 2.
+Proposition 6.8. The group HH6C∗ (P3 ) is given by the following table:
+
+i+j=6
+
+L3,3,3
+0
+0
+0
+
+L3,3,2 L2,3,3 L4,3,2 L23,3,3 L2,3,4 L3,4,3 L4,4,3 L3,4,4
+0
+0
+
+hi,j
+
+j−i=0
+
+j−i=2
+
+i+j=0
+i+j=2
+i+j=4
+
+24
+
+The group HH7C∗ (P3 ) is given by the following table:
+i+j=1
+i+j=3
+i+j=5
+
+hi,j
+
+L3,3,3 L4,4,3 L3,4,4 L4,4,4
+0
+0
+
+L4,3,2 L3,3,3 L2,3,4 L3,4,3 L24,4,3 L23,4,4 L5,4,3 L4,4,4 L3,4,5 L4,5,4
+0
+
+j−i=1
+
+j−i=3
+
+The group HH2C∗ (P4 ) is given by the following table:
+
+i+j=8
+
+L1,1,1,1
+0
+0
+0
+0
+
+L21,1,1,1 L1,2,2,1 L2,2,2,1 L1,2,2,2
+0
+0
+0
+
+L21,1,1,1 L21,2,2,1 L2,2,2,1 L1,2,2,2 L2,3,2,1 L1,2,3,2
+0
+0
+
+hi,j
+
+j−i=0
+
+j−i=2
+
+j−i=4
+
+i+j=0
+i+j=2
+i+j=4
+i+j=6
+
+The group HH3C∗ (P4 ) is given by the following table:
+i+j=1
+i+j=3
+i+j=5
+i+j=7
+
+hi,j
+
+L1,1,1,1 L2,2,2,1 L1,2,2,2 L2,2,2,2
+0
+0
+0
+
+L1,1,1,1 L1,2,2,1 L22,2,2,1 L21,2,2,2 L2,3,2,1 L2,2,2,2 L1,2,3,2 L3,3,2,1 L1,2,3,3 L2,3,3,2
+0
+0
+
+j−i=1
+
+j−i=3
+
+References
+[BL07]
+
+R. Bezrukavnikov and A. Lachowska. “The small quantum group and the Springer resolution”.
+In: Contemporary Mathematics 433 (2007), pp. 89–101. arXiv: math/0609819.
+[GK93]
+Victor Ginzburg and Shrawan Kumar. “Cohomology of quantum groups at roots of unity”. In:
+Duke Math. J. 69.1 (Jan. 1993), pp. 179–198. doi: 10.1215/S0012-7094-93-06909-8.
+[Hum08] J. Humphreys. Representation of semisimple Lie algebras in the BGG category O. Vol. 94. Graduate Studies in Mathematics. AMS, 2008. isbn: 978-1-4704-2120-5.
+[HV21]
+N. Hemelsoet and W.H. Voorhaar. “A computer algorithm for the BGG resolution”. In: Journal
+of Algebra (2021). arXiv: 1911.00871.
+[Ker95]
+T. Kerler. “Mapping class group actions on quantum doubles”. In: Commun.Math. Phys (1995),
+pp. 353–388. arXiv: hep-th/9402017.
+[LQ16]
+Anna Lachowska and You Qi. “The Center of Small Quantum Groups I: The Principal Block in
+Type A”. In: International Mathematics Research Notices (Feb. 2016). arXiv: 1604.07380.
+[LQ17]
+Anna Lachowska and You Qi. “On the center of the small quantum group II: singular blocks”. In:
+Proceedings of the London Mathematical Society 118 (Mar. 2017). arXiv: 1703.02457.
+[LQ19]
+Anna Lachowska and You Qi. Remarks on the derived center of the small quantum group. Dec.
+2019. arXiv: 1912.08783.
+[Lus90]
+George Lusztig. “Finite-dimensional Hopf algebras arising from quantized universal enveloping algebra”. In: J. Amer. Math. Soc. 3 (1990), pp. 257–296. doi: 10.1090/S0894-0347-1990-1013053-9.
+[Lus93]
+George Lusztig. Introduction to quantum groups. Vol. 110. Progress in Mathematics. Birkhäuser
+Boston Inc., 1993. isbn: 978-0-8176-4717-9.
+
+25
+
+

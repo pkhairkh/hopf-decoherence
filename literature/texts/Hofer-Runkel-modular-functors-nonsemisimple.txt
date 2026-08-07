@@ -1,0 +1,3267 @@
+arXiv:2405.18038v1 [math.QA] 28 May 2024
+
+Modular functors from
+non-semisimple 3d TFTs
+Aaron Hofer∗
+
+Ingo Runkel†
+
+Fachbereich Mathematik, Universität Hamburg,
+Bundesstraße 55, 20146 Hamburg, Germany
+
+Given a not necessarily semisimple modular tensor category C, we use
+the corresponding 3d TFT defined in [DGGPR1] to explicitly describe a
+modular functor as a symmetric monoidal 2-functor from a 2-category of
+oriented bordisms to a 2-category of finite linear categories. This recovers
+a result by Lyubashenko [Lyu2] obtained via generators and relations.
+Pulling back the modular functor for C to a 2-category of bordisms with
+orientation reversing involution cancels the gluing anomaly, and further
+pulling back to the original bordism category along a doubling functor
+leads to the modular functor for the Drinfeld centre Z(C).
+
+∗
+†
+
+aaron.hofer@uni-hamburg.de
+ingo.runkel@uni-hamburg.de
+
+Contents
+1 Introduction
+
+3
+
+2 Algebraic preliminaries
+2.1 Finite ribbon categories . . . . . . . . . . . . . . . . . . . . . . . . .
+2.2 Tensor ideals and modified traces . . . . . . . . . . . . . . . . . . . .
+2.3 Coends in functor categories . . . . . . . . . . . . . . . . . . . . . . .
+
+7
+7
+10
+11
+
+3 Non-semisimple 3d TFT
+3.1 3-manifold invariants . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 Admissible bordism categories . . . . . . . . . . . . . . . . . . . . . .
+3.3 TFT construction . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.4 Algebraic state spaces . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.5 Orientation reversal and Deligne products . . . . . . . . . . . . . . .
+
+15
+15
+20
+22
+24
+25
+
+4 Chiral modular functors
+4.1 Chiral bordisms and profunctors . . . . . . . . . . . . . . . . . . . . .
+4.2 Block functors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.3 Mapping class group actions . . . . . . . . . . . . . . . . . . . . . . .
+4.4 Gluing of surfaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+28
+29
+32
+35
+36
+
+5 Modular functors on surfaces with involution
+5.1 The 2-category of surfaces with involution . . . . . . . . . . . . . . .
+5.2 Anomaly free modular functors and the Drinfeld centre . . . . . . . .
+5.3 Open-closed bordisms and full modular functors . . . . . . . . . . . .
+
+42
+42
+44
+45
+
+References
+
+50
+
+2
+
+1 Introduction
+A modular functor is, colloquially speaking, a systematic assignment of mapping
+class group representations to surfaces which is compatible with gluing along boundaries. Modular functors originate from the study of 2-dimensional conformal field
+theories as solution spaces to certain differential equations [Seg; MS; TUY; AU; FB].
+In this context, the surfaces are equipped with a complex structure, and such modular functors are also called complex-analytic. A second natural source of modular
+functors are 3-dimensional topological field theories (TFTs), where the vector spaces
+assigned to surfaces carry mapping class group actions. In this case, the surfaces
+are just smooth manifolds, and such modular functors are called topological. The
+relation between the two notions is discussed for example in [BK; Loo].
+In this paper, we study topological modular functors obtained from 3-dimensional
+surgery TFTs. The original class of examples are the surgery TFTs constructed
+by Reshetikhin and Turaev [RT; Tur]. Their construction takes a modular fusion
+category as an input. These categories are finitely semisimple, monoidal, have duals,
+and a non-degenerate braiding. A generalisation of the resulting modular functor to
+modular tensor categories, which are still finite but need no longer be semisimple,
+was given in [Lyu2] by an approach based on generators and relations. The surgery
+TFT construction itself was generalised to not necessarily semisimple modular tensor
+categories in [DGGPR1], building in particular on [CGP; DGP]. These TFTs are
+non-compact in the sense that they are no longer defined on all bordisms [Lur; Haı̈].
+However, they include all bordisms necessary to obtain a modular functor, and it
+was verified in [DGGPR2] that the resulting mapping class group actions agree with
+those given in [Lyu2]. The main goal of this paper is to explicitly construct the
+modular functor in terms of the non-semisimple 3d TFT of [DGGPR1], including in
+particular the gluing morphisms. Related results in a slightly different setting were
+obtained in [De2], see Remark 4.12.
+A construction of Lyubashenko’s modular functor for Drinfeld centres based on
+string-nets is given in [MSWY], see also [KST] for a framed version. There it is
+also shown how to naturally extend the modular functor to an open-closed bordism
+category.
+Our main motivation for a TFT-based construction comes from a possible future
+application to a correspondence between non-semisimple 2d CFT and 3d TFT in the
+spirit of [FFFS; FRS; FFRS].
+
+3
+
+Statement of the main results
+The variant of a modular functor that we will work with is defined to be a symmetric
+monoidal 2-functor. The source category is the bordism (2, 1)-category Bordχ2+ε,2,1
+consisting of closed oriented 1-dimensional manifolds, 2-dimensional oriented bordisms, and isotopy classes of orientation preserving diffeomorphisms, together with
+extra decorations necessary to compensate for a gluing anomaly indicated by the
+superscript χ. The target 2-category is Prof Lex
+k consisting of finite linear categories,
+left exact profunctors, and natural transformations, see Section 4 for details. This
+corresponds to the definition used in [FSY], related notions were studied in [Til] and
+[KL, Ch. 6].
+Our first main result is
+Theorem (Theorem 4.10). For every modular tensor category C, the 3d TFT
+z χ (C) → Vectk
+p C : Bord
+V
+3,2
+
+(1.1)
+
+of [DGGPR1] induces a symmetric monoidal 2-functor
+BlχC : Bordχ2+ε,2,1 → Prof Lex
+k .
+
+(1.2)
+
+z χ (C) is a subcategory of the bordism category Bordχ (C) with C labelled
+Here Bord
+3,2
+3,2
+ribbon graphs and extra decorations necessary to compensate a gluing anomaly, see
+Section 3.2. We note that in our setting actually Prof Lex
+k ≃ Lex (see Section 4.1), so
+we could have equally well defined modular functors with Lex as target. However,
+the present formulation is better adapted to the way the TFT is used to define BlχC
+on 1- and 2-morphisms.
+The main technical contribution in this paper is the realisation of the morphisms
+p C on certain 3-dimensional bordisms:
+needed for the gluing of surfaces by evaluating V
+Proposition (Proposition 4.8). Let Σ be a surface with at least one incoming and
+one outgoing boundary component, and let Σgl be the surface obtained from gluing
+these boundaries. Then there is a natural isomorphism
+I X∈C
+χ
+∼
+BlC (Σgl ) =
+BlχC (Σ)(X, X).
+(1.3)
+induced by a 3-dimensional bordism.
+To be more precise, the isomorphism (1.3) is induced by the dinatural family
+BlχC (Σ)(X, X) → BlχC (Σgl )
+
+4
+
+(1.4)
+
+p C on a family of bordisms MX from Σ
+which is obtained by evaluating the TFT V
+z χ (C), where Σ and Σgl are obtained from Σ and Σgl by replacing
+to Σgl in Bord
+3,2
+boundary components with marked disks, respectively, see Section 4.4 for details.
+Locally MX can be visualised as
+Σgl
+
+X
+
+X
+
+where the dashed line indicates where the gluing was performed.
+We refer to the modular functor defined on the 2-category Bordχ2+ε,2,1 which includes the anomaly compensating decorations as chiral. Another interesting source
+2-category is Bord⟲
+2+ε,2,1 , which consists of oriented bordisms equipped with an orientation reversing involution, but which does not carry the extra decorations for
+anomaly cancellation. It contains open-closed bordisms as a full subcategory, see
+Section 5.
+χ
+There is a symmetric monoidal 2-functor U : Bord⟲
+2+ε,2,1 → Bord2+ε,2,1 which assigns decorations coming from the involution in such a way that pullback along U
+produces an “anomaly-free” modular functor Section 5.1. In the converse direction,
+⟲
+y : Bordχ
+there is a symmetric monoidal 2-functor (−)
+2+ε,2,1 → Bord2+ε,2,1 obtained by
+x := M ⊔ −M with the
+sending any oriented manifold M to its orientation double M
+natural orientation reversing involution. Applying these constructions to the chiral modular functor BlχC obtained in the above theorem gives a geometric relation
+between C and its Drinfeld centre Z(C) ≃ C ⊠ C:
+Proposition (Proposition 5.5). Let C be a modular tensor category. There exists a
+symmetric monoidal 2-natural isomorphism filling the following diagram of symmetric monoidal 2-functors
+Bordχ2+ε,2,1
+
+y
+(−)
+
+Bord⟲
+2+ε,2,1
+
+U
+
+Bordχ2+ε,2,1
+
+∼
+=
+Blχ
+C
+
+Blχ
+Z(C)
+
+Prof Lex
+k
+
+5
+
+.
+
+(1.5)
+
+y over the 2-category of
+Finally, by factoring the orientation doubling 2-functor (−)
+χ
+open-closed oriented bordisms we realise BlZ(C) as the closed sector of a full modular
+pC
+functor. To prove the above Proposition we study the behaviour of the TFT V
+under orientation reversal as well as the Deligne tensor product, see Section 3.5 for
+detailed statements.
+The rest of this paper is organised as follows. In Section 2 we recall the algebraic
+ingredients used throughout this paper, including finite ribbon categories as well
+as some results on coends in functor categories. In Section 3 we briefly review the
+construction as well as some properties of the 3d TFTs of [DGGPR1]. In Section 4 we
+explicitly construct a chiral modular functor from these 3d TFTs and prove our main
+result Theorem 4.10. Finally, in Section 5 we extend the chiral modular functors to a
+bordism 2-category with orientation reversing involution and explain the relation to
+the Drinfeld centre and give a topological proof of its monadicity (Proposition 5.9).
+
+Acknowledgements
+We thank Marco De Renzi, Nils Carqueville, Hannes Knötzele, Lukas Woike, and
+Yang Yang for useful discussions as well as helpful comments on an earlier draft.
+AH and IR are partially supported by the Deutsche Forschungsgemeinschaft (DFG,
+German Research Foundation) under Germany‘s Excellence Strategy - EXC 2121
+“Quantum Universe” - 390833306, and by the Collaborative Research Centre CRC
+1624 “Higher structures, moduli spaces and integrability” - 506632645.
+
+Conventions
+Throughout this article, C will be a finite ribbon category. Moreover, we will appeal
+to the standard coherence results and assume C to be strictly monoidal and strictly
+pivotal. We will always work over an algebraically closed field k of characteristic
+zero. Unless otherwise noted, functors between abelian (and linear) categories will
+always be assumed to be additive (and linear).
+Every manifold we will consider will be oriented, and every diffeomorphism will
+be orientation preserving unless explicitly stated otherwise. For any manifold M we
+will denote the manifold with reversed orientation by −M . The interval [0, 1] will
+be denoted by I and the unit circle by S 1 . Finally, by a closed manifold we mean a
+compact manifold without boundary.
+
+6
+
+2 Algebraic preliminaries
+In this section, we collect definitions and results related to ribbon categories and
+coends that will be needed for the construction. For a detailed exposition, we refer
+to [BK; EGNO; TV; Lor; FS].
+
+2.1 Finite ribbon categories
+A linear category is called finite if it is equivalent, as a linear category, to the category A-mod of finite dimensional modules of some finite dimensional algebra A. In
+particular, a finite linear category is abelian, every object has a projective cover, and
+its Hom sets are finite dimensional vector spaces. The complete intrinsic definition of
+finite linear categories can be found in [EGNO, Sec. 1.8]. By a finite tensor category
+we mean a finite linear category which is in addition a rigid monoidal category such
+that the monoidal product ⊗ is bilinear and the monoidal unit 1 is simple. The
+monoidal product is exact in both arguments by rigidity [EGNO, Prop. 4.2.1].
+A finite ribbon category C is a finite tensor category which is also ribbon. We will
+denote a choice of a set of representatives of isomorphism classes of simple objects
+by Irr ⊂ C. We will employ the following conventions for structure morphisms in C.
+Every object X in C has a two-sided dual X ∗ , with duality morphisms denoted by:
+evX : X ∗ ⊗ X → 1,
+
+coevX : 1 → X ⊗ X ∗ ,
+
+eg
+vX : X ⊗ X ∗ → 1,
+
+∗
+coev
+^
+X : 1 → X ⊗ X.
+
+(2.1)
+
+The components of the braiding and twist isomorphisms will be denoted by
+βX,Y : X ⊗ Y → Y ⊗ X,
+
+ϑX : X → X.
+
+(2.2)
+
+and (ϑX )∗ = ϑX ∗
+
+(2.3)
+
+The twist ϑ satisfies
+ϑX⊗Y = βY,X ◦ βX,Y ◦ (ϑX ⊗ ϑY ),
+
+for all X, Y ∈ C. A direct computation shows that the twist ϑ endows C with a pivotal
+structure, which is even spherical [EGNO, Sec. 8.10]. In diagrammatic notation these
+structural morphisms will be represented as
+
+evX =
+
+X∗
+
+coevX = X
+
+X∗
+
+Y
+
+X
+
+X
+
+Y
+
+βX,Y =
+
+X
+
+7
+
+X
+
+ev
+eX =
+
+X
+
+X∗
+
+X∗
+
+coev
+gX =
+
+X
+
+ϑX =
+
+(2.4)
+X
+
+Note that we read such diagrams from the bottom to the top. We will use the
+same conventions as [TV] and denote with C the same underlying pivotal monoidal
+category, but equipped with the inverse braiding and twist, i.e.
+−1
+β X,Y := βY,X
+: X ⊗Y →Y ⊗X
+
+ϑX := ϑ−1
+X : X → X
+
+(2.5)
+
+see [TV, Sec. 1.2.2 & Ex. 3.1.7]. We will call C the mirrored category of C.
+We will now discuss a specific Hopf algebra in C which will be a fundamental
+ingredient throughout the rest of this article. First, recall that C admits an inner
+Hom functor C op × C → C which sends (X, Y ) ∈ C op × C to X ∗ ⊗ Y . Due to our
+finiteness assumptions the coend of this functor exists and can be explicitly described
+as a cokernel, see [KL, Ch. 5] for details. We will denote this coend as.
+Z X∈C
+L :=
+X∗ ⊗ X
+(2.6)
+with universal dinatural transformation
+ιX : X ∗ ⊗ X → L.
+
+(2.7)
+
+The object L naturally carries the structure of a Hopf algebra with Hopf pairing in
+the braided monoidal category C. For Hopf algebras in braided monoidal categories
+we will follow the convention of [TV, Ch. 6]. We will denote its structure morphisms
+as follows:
+(Product) µ : L ⊗ L → L,
+(Coproduct) ∆ : L → L ⊗ L,
+(Antipode) S : L → L,
+
+(Unit) η : 1 → L,
+(Counit) ε : L → 1,
+(Pairing) ω : L ⊗ L → 1.
+
+(2.8)
+
+These morphisms are induced from the universal property of the coend as shown in
+Figure 1. If we do not assume C to be strictly pivotal the canonical isomorphisms
+(X ⊗ Y )∗ ∼
+= Y ∗ ⊗ X ∗ for the product, 1∗ ⊗ 1 ∼
+= 1 for the unit, and X ∼
+= X ∗∗ for the
+antipode are needed, see [TV, Sec. 6.4 & 6.5] for details. Exchanging the over and
+under braidings in the definition of ω gives a pairing ω : L ⊗ L → 1 which satisfies
+ω ◦ (S ⊗ idL ) = ω = ω ◦ (idL ⊗ S)
+see [KL, Eq. 5.2.8].
+
+8
+
+(2.9)
+
+L
+
+L
+
+µ : ιX
+
+ιY
+
+L
+ιX⊗Y
+
+=
+
+η:
+
+L
+
+=
+ι1
+
+X∗
+
+Y∗
+
+X
+L
+
+X∗ X Y ∗ Y
+
+Y
+L
+
+L
+
+∆:
+
+ιX
+
+=
+
+ε:
+ι1
+
+X∗ X
+L
+
+X∗ X
+
+L
+
+ιX
+X∗ X
+
+=
+
+X∗ X
+
+ω
+
+ιX ∗
+
+S:
+
+ιX
+
+=
+
+ω : ιX
+X∗ X
+
+ιY
+X∗ X Y ∗ Y
+
+=
+X∗ X Y ∗ Y
+
+Figure 1: The dinatural transformations defining the Hopf algebra structure morphisms and the Hopf pairing on L.
+Definition 2.1. A finite ribbon category C is called modular if the canonical Hopf
+pairing ω of the coend L is non-degenerate.
+There are other equivalent definitions of modularity, see [Shi2, Thm. 1.1]. For the
+rest of this and the next subsection we will always assume C to be modular. It can
+be shown that C is unimodular and that the Hopf algebra L admits a unique-upto-scalar two-sided integral Λ and cointegral λ, see [DGGPR1, Sec. 2] and references
+therein for more details.
+We will normalise the integral and cointegral in terms of the modularity parameter
+ζ ∈ k× as
+λ ◦ Λ = id1
+
+,
+
+ω ◦ (idL ⊗ Λ) = ζλ .
+
+(2.10)
+
+That the second condition is possible is in fact equivalent to non-degeneracy of ω.
+The following statement is analogous to the case of classical Hopf algebras [KL,
+Cor. 4.2.13].
+Proposition 2.2. The cointegral λ induces a non-degenerate pairing κ := λ ◦ µ ◦
+(S ⊗ idL ) : L ⊗ L → 1 which equips L with the structure of a Frobenius algebra in
+C. The copairing is given by ∆ ◦ Λ.
+
+9
+
+The pairing κ is called the Radford pairing. Since the Hopf pairing is also nondegenerate, the composition
+S := (ω ⊗ idL ) ◦ (idL ⊗ (∆ ◦ Λ)) : L → L
+
+(2.11)
+
+is invertible. We can define another endomorphism of L by the universal property
+via T ◦ ιX = ιX ◦ (idX ∗ ⊗ ϑX ). This morphism is invertible with inverse T −1 ◦ ιX =
+±
+ιX ◦ (idX ∗ ⊗ ϑ−1
+X ). Moreover the constants ∆ defined via
+ε ◦ T ±1 ◦ Λ = ∆± id1
+
+(2.12)
+
+are non-zero and satisfy ζ = ∆+ ∆− , see [DGGPR1, Prop. 2.6 & Cor. 4.6]. Using this
+and the normalisation of Λ and λ a direct computation shows that
+S 2 = ζS −1
+
+(2.13)
+
+where S −1 is the inverse of the antipode of L.
+
+2.2 Tensor ideals and modified traces
+Let us denote with Proj(C) the full subcategory of projective objects of C. This
+forms a tensor ideal in C, i.e. it is closed under retracts, and absorbent with respect
+to monoidal products with arbitrary objects of C [EGNO, Prop. 4.2.12]. In fact,
+Proj(C) is the smallest non-zero tensor ideal of C [GKP1, Lem. 4.4.1].
+Recall that the (right) partial trace of an endomorphism f ∈ EndC (X ⊗ Y ) is
+defined as the endomorphism
+trR (f ) = (idX ⊗ ev
+e Y ) ◦ (f ⊗ idY ∗ ) ◦ (idX ⊗ coevY ) ∈ EndC (X),
+
+(2.14)
+
+or graphically
+X
+W
+
+trR (f ) =
+
+f
+
+(2.15)
+
+X
+
+A modified trace t on Proj(C) is a family of linear maps
+{tP : EndC (P ) → k}P ∈Proj(C)
+satisfying the following conditions:
+
+10
+
+(2.16)
+
+1) Cyclicity: For all P, Q ∈ Proj(C) and f : P → Q, g : Q → P we have
+tQ (f ◦ g) = tP (g ◦ f ).
+
+(2.17)
+
+2) Right partial trace: For all P ∈ Proj(C), X ∈ C and h ∈ EndC (P ⊗ X),
+tP ⊗X (h) = tP (trR (h));
+
+(2.18)
+
+In general, there is also a notion of left partial trace and a modified trace would need
+to satisfy a condition analogous to 2) above for the left partial trace. However, since
+C is ribbon in our setting, it suffices to only consider one of them [GKP1, Thm 3.3.1].
+It was shown in [GKP2, Thm 5.5 & Cor. 5.6] that there is unique-up-to-scalar nonzero modified trace on Proj(C), and this trace induces a non-degenerate pairing on
+the Hom spaces.
+
+2.3 Coends in functor categories
+As a final algebraic ingredient, we will now recall some general results on coends,
+in particular in functor categories. See [Lor; FS] for a more detailed exposition
+and proofs. In this section B, C, and D will denote finite ribbon categories, albeit
+these conditions can be drastically relaxed in general. Moreover, all functors we will
+consider will be assumed to be linear unless stated otherwise.
+First recall the “delta distribution” property of the Hom functor, which is a reformulation of the Yoneda lemma.
+Lemma 2.3 ([FS, Prop. 4]). Let F : B → Vectk be a linear functor. For any object
+Y ∈ B the coend of the functor
+HomB (−, Y ) ⊗k F (−) : B op × B → Vectk
+
+(2.19)
+
+can be realised as the vector space F (Y ) with the family of linear maps
+iX : HomB (X, Y ) ⊗k F (X) → F (Y )
+(f, x) 7→ F (f )(x)
+for X ∈ B. Moreover, the isomorphism F (Y ) ∼
+=
+natural in Y .
+
+R X∈B
+
+(2.20)
+
+HomB (X, Y ) ⊗k F (X) is
+
+In practice this allows one to explicitly compute many coends as can be seen from
+the following useful corollary.
+
+11
+
+Corollary 2.4. For any U, V, U ′ , V ′ ∈ B the coend of the functor
+HomB (U ⊗ (−), V ) ⊗k HomB (U ′ , (−) ⊗ V ′ ) : B op × B → Vectk
+
+(2.21)
+
+exists and can be realised by (HomB (U ⊗ U ′ , V ⊗ V ′ ), i) with the dinatural transformation
+iX : HomB (U ⊗ X, V ) ⊗k HomB (U ′ , X ⊗ V ′ ) → HomB (U ⊗ U ′ , V ⊗ V ′ )
+V
+
+⊗
+
+f
+U
+
+X
+
+V
+
+V′
+
+X
+
+V′
+
+f
+7→
+
+g
+
+(2.22)
+
+g
+
+U′
+
+U
+
+U′
+
+Moreover, the isomorphism between HomB (U ⊗ U ′ , V ⊗ V ′ ) and the coend over X of
+HomB (U ⊗ X, V ) ⊗k HomB (U ′ , X ⊗ V ′ ) is natural in U, V, U ′ , and V ′ .
+More generally let G : B × C op × C → D be a functor. We can fix an object Y ∈ B,
+often called a parameter in this context, to obtain a functor
+GY := G(Y, −, −) : C op × C → D.
+
+(2.23)
+
+Due to our finiteness assumptions the coend of GY exists and is an object
+Z X∈C
+GY (X, X) ∈ D.
+eY :=
+
+(2.24)
+
+The fact that G is functorial in Y as well implies that the assignment
+Y 7−→ eY
+defines a functor from B to D, which we will denote by
+other hand we can reinterpret G as a functor
+e : C op × C → Fun(B, D).
+G
+
+(2.25)
+R X∈C
+
+G(−, X, X). On the
+(2.26)
+
+If the coend of G̃ exists as an object in the functor category Fun(B, D), then we
+denote it by
+ Z X∈C
+
+e
+G(X,
+X) (−) : B → D.
+(2.27)
+The parameter theorem for coends explains how these two constructions are related:
+
+12
+
+Theorem 2.5 ([Mac, Sec. IX.7.]). The functor
+Z X∈C
+G(−, X, X) : B → D
+
+(2.28)
+
+has a natural structure of a coend for the functor
+G̃ : C op × C → Fun(B, D),
+provided that all coends
+
+R X∈C
+
+Z X∈C
+
+(2.29)
+
+G(Y, X, X) exist, i.e.
+
+G(−, X, X) ∼
+=
+
+ Z X∈C
+
+
+e
+G(X,
+X) (−)
+
+(2.30)
+
+as objects in Fun(B, D).
+We now turn to results that are specific to the setting of finite tensor categories,
+in particular instead of general functors we will from now on only consider left exact
+functors. We denote the category of left exact functors from C to D by Lex(C, D),
+and analogously with Rex(C, D) the category of right exact functors. The following
+idea is due to [Lyu2].
+Definition 2.6. Let B, C, and D be finite tensor categories and let
+G : B × C op × C → D
+
+(2.31)
+
+H X∈C
+be a functor left exact in each argument. The left exact coend
+G(−, X, X) is
+the coend of G over C which is universal with respect to functors in the category
+Lex(B, D).
+H
+The notation indicates that this is in general not the same thing as the standard
+coend in the full functor category Fun(B, D). Left exact coends work well with the
+Hom functor in the following sense.
+Proposition 2.7 ([FS, Prop. 9]). The coend (over the first and third argument) of
+the functor
+
+HomC (−) ⊗ (−), (−) ⊗ (−) : C op × C op × C × C → Vectk
+(2.32)
+
+13
+
+op
+exists in the
+ functor category Lex(C × C, Vectk ) and is given by HomC (L ⊗
+(−), (−)), i with the family, natural in U and V , of dinatural transformations
+
+iU,V
+X : HomC (X ⊗ U, X ⊗ V ) → HomC (L ⊗ U, V )
+κ
+X
+
+V
+
+7→
+
+f
+X
+
+V
+ιX
+
+U
+
+f
+L
+
+X
+
+U
+
+where κ is the Radford pairing on the coend L from above.
+Using the rigidity of C we can also express this as
+
+
+Z X∈C
+I X∈C
+∗
+∗
+X ⊗ X ⊗ −, − .
+HomC (X ⊗ X ⊗ −, −) ∼
+= HomC
+
+(2.33)
+
+Or in other words: the left exact coend “commutes” with the Hom functor. It should
+be noted here that from a formal point of view, there is no reason to consider left
+exact instead of right exact functors. Indeed, for finite tensor categories the resulting
+functor categories are actually equivalent [FSS, Thm. 3.2]. However, for our purposes
+it turns out that left exact functors are more natural (cf. Section 4). To understand
+the notion of left exact coends better we recall a result from homological algebra
+(which however will not be used in the following).
+Lemma 2.8. Let A be an abelian category with enough injectives and let A′ be
+an abelian category. The restriction functor Lex(A, A′ ) → Fun(Inj(A), A′ ) is an
+equivalence.
+Proof. We claim that F 7→ R0 F is an inverse to the restriction functor with R0 F : A →
+′
+A′ the zeroth right derived functor of F : Inj(A) →
+ A . Recall that this is defined on
+objects X ∈ A as R0 F (X) = ker F (I0 ) → F (I1 ) with 0 → X → I0 → I1 → · · · an
+injective resolution of X. Note that R0 F is well defined up to isomorphism since every choice of injective resolution leads to isomorphisms in homology. Using standard
+techniques in homological algebra it is straightforward to verify that R0 F is indeed
+left exact and that for a left exact functor G we have R0 G ∼
+= G.
+Analogously it can be shown that Rex(A, A′ ) ≃ Fun(Proj(A), A′ ). Combining
+the equivalences Lex(A, A′ ) ≃ Fun(Inj(A), A′ ) and Rex(A, A′ ) ≃ Fun(Proj(A), A′ )
+with the fact that in a finite tensor category, every projective object is also injective
+
+14
+
+and vice versa [EGNO, Prop. 6.1.3] we immediately get an equivalence Rex(C, D) ≃
+Lex(C, D). Moreover, we also have Lex(C, D) ≃ Fun(Proj(C), D). With this we
+can reinterpret the definition of the left exact coend as the requirement of having a
+projective object present.
+Remark 2.9. The equivalence Rex(C, D) ≃ Lex(C, D) constructed above is different from the one given in [FSS, Thm. 3.2] mentioned before. This can be seen by
+considering where for example the identity functor is sent under both equivalences.
+In the above equivalence the identity gets sent to itself while in the one by Fuchs et.
+al. it gets sent to the Nakayama functor [FSS, Sec. 3.5].
+
+3 Non-semisimple 3d TFT
+In this section we will briefly review the non-semisimple TFTs of [DGGPR1]. First we
+will recall bichrome graphs as well as the corresponding 3-manifold invariants. Then
+we will define a 3-dimensional bordism category and introduce two subcategories of
+so-called admissible bordisms and study their relation. We apply the universal TFT
+construction to obtain two non-compact TFTs and discuss an algebraic model for
+the state spaces of these TFTs, as well as their behaviour under orientation reversal
+and Deligne products. Our exposition mostly follows [DGGPR2, Sec. 2], except that
+we include results on the relation of the TFTs for the two dual sets of admissible
+bordisms, and on their behaviour under orientation reversal and Deligne products.
+
+3.1 3-manifold invariants
+Bichrome graphs are a generalisation of the ribbon graphs of [Tur, Sec. I.2] where two
+kinds of edges are present, red edges without labels, and blue edges labelled by objects
+of C. Coupons can be, according to the edges intersecting them, either bichrome and
+unlabelled, or blue and labelled as usual by morphisms of C. Furthermore, there are
+only two possible configurations of bichrome coupons allowed, from which we will
+only need the following one (which we just draw as a horizontal line):
+L
+
+15
+
+L
+
+L
+L
+X2∗ X2 X1∗ X1
+
+(a) Morphism in BC from ∅
+to (L, +)
+
+(b) Cut presentation of the
+morphism
+
+(c) C-coloured
+graph for
+phism
+
+ribbon
+the mor-
+
+Figure 2: Schematic algorithm for the evaluation of the functor FΛ : BC → C on a
+morphism.
+See [DGGPR1, Sec. 3.2] for the other one, which involves an end instead of the coend,
+and [DGGPR1, Rem. 3.6] on why it suffices to only consider one. Red coupons are
+generally forbidden.
+There is a category BC of C-coloured bichrome graphs. Objects (V , ε) are finite
+sequences ((V1 , ε1 ), . . . , (Vn , εn )) where every Vk is an object of C and εk ∈ {+, −}.
+From every object (V , ε) we get a set of C-labelled framed, oriented blue points located at the fixed points 0, 1, 2, 3, . . . on the real axis in R2 . A morphism T : (V , ε) →
+(W , ν) is an isotopy class of bichrome graphs in R2 × I between the corresponding
+standard sets of framed, oriented blue points such that the framings, orientations,
+and labels match. The subcategory RC consisting of all objects but only blue graphs
+is the familiar category of C-coloured ribbon graphs of [Tur]. In [DGGPR1, Sec. 3.1] it
+is shown how to extend the Reshetikhin-Turaev functor FC : RC → C to all bichrome
+graphs. For this construction a non-zero integral Λ of L needs to be chosen, and for
+this reason the corresponding functor will be denoted by FΛ : BC → C. We will not
+recall the construction in full detail, instead we will illustrate how to evaluate the
+functor FΛ : BC → C in an example in Figure 2.
+Starting from the bichrome graph in Figure 2(a), we form the cut presentation
+in Figure 2(b) where each red loop is cut once (bichrome coupons are considered
+part of the red graph). Now we choose objects X1 , . . . , Xn and label the red edges
+correspondingly by the Xk and Xk∗ , e.g. in Figure 2(b) we have n = 2. The bichrome
+coupons meeting these edges will be labelled by the universal dinatural morphism ιXk .
+At this point, all edges and coupons are labelled and thus blue, see Figure 2(c). We
+have now obtained a C-coloured ribbon graph, i.e. a morphism in RC . To this we can
+apply the Reshetikhin-Turaev functor FC to obtain a morphism in C. By construction,
+the resulting family of morphisms in C is dinatural in the labels X1 , . . . , Xn . Thus,
+by the universal property of L we get a morphism out of L⊗n , possibly tensored with
+
+16
+
+the objects coming from blue boundary vertices. As the final step we precompose
+our morphism with the n-fold tensor power of the integral Λ, again tensored with
+the identity on the objects coming from blue boundary vertices. In our example we
+obtain
+(3.1)
+FΛ (T ) = (ω ⊗ idL ) ◦ (Λ ⊗ (∆ ◦ Λ)) = S ◦ S ◦ Λ = S ◦ Λ
+where ω = ω ◦ (S ⊗ idL ) from (2.9) and S is the modular S-morphism from (2.11).
+It can be shown that this construction gives a functor FΛ called the LyubashenkoReshetikhin-Turaev functor, we refer to [DGGPR1, Sec. 3.1] for more details on the
+definition and well-definedness of FΛ . Moreover, by construction we have a commuting diagram of functors
+RC
+
+FC
+
+C
+
+FΛ
+
+(3.2)
+
+BC
+where the functor RC → BC acts as the identity on objects and as the inclusion of
+purely blue ribbon graphs into bichrome graphs at the level of morphisms.
+We can now use this functor to define invariants of closed bichrome graphs, i.e.
+endomorphisms of ∅ in BC , and of 3-manifolds. For this we need so-called admissible
+bichrome graphs, which are bichrome graphs with at least one blue edge labelled by
+a projective object of C. For an admissible closed bichrome graph T we define its
+cutting presentation as a bichrome graph TV featuring a single incoming boundary
+vertex and a single outgoing one, both positive and labelled by V ∈ Proj(C), and
+whose trace closure is T . For any T a closed admissible bichrome graph and TV a
+cutting presentation of T , the scalar
+FΛ′ (T ) := tV (FΛ (TV ))
+
+(3.3)
+
+is a topological invariant of T , so in particular it is independent of the choice of
+cutting presentation TV , see [DGGPR1, Thm. 3.3].
+We can now use FΛ′ to define invariants of decorated 3-manifolds, i.e. pairs (M, T ),
+where M is a connected closed 3-manifold, and where T ⊂ M is a closed bichrome
+graph. We call a pair (M, T ) admissible if T is.
+Let now (M, T ) be an admissible decorated 3-manifold, and let L be a surgery
+presentation of M given by a red framed oriented link in S 3 with ℓ components and
+signature σ. Assume further that the bichrome graph T is contained in the exterior
+of the surgery link L, so that we can think of them as simultaneously embedded in
+S 3 . Moreover let D be a choice of square root of the modularity parameter ζ, and
+∆−
+D
+=
+.
+(3.4)
+δ=
+∆+
+D
+
+17
+
+Modular tensor categories with δ = 1 are sometimes called anomaly free. The scalar
+L′C (M, T ) := D−1−ℓ δ −σ FΛ′ (L ∪ T )
+
+(3.5)
+
+is a topological invariant of the pair (M, T ), see [DGGPR1, Thm. 3.8], and called the
+renormalised Lyubashenko invariant of the admissible decorated 3-manifold (M, T ).
+Remark 3.1. The construction of [DGGPR1] also allows for other tensor ideals of C
+as long as they permit a modified trace, see [BGR] for examples of this. In particular
+by choosing C as tensor ideal with the categorical trace one recovers the original
+Lyubashenko invariants. The construction of renormalised 3-manifold invariants via
+modified traces was introduced in [CGP].
+Let us now discuss how L′C behaves under orientation reversal. To do so, we need
+to be more specific on the orientation data contained in bichrome graph. Namely,
+a bichrome graph T (in a 3-manifold M or in R2 × I) is a ribbon graph with blue
+and red components, and each of these consists of ribbons and coupons. A ribbon
+is an embedded annulus or rectangle with a one-dimensional core which carries a
+1-orientation and gives the direction of the ribbon, as well as a 2-orientation on the
+ribbon surface. In pictures like the one in Figure 2(a), we draw the core and its
+orientation, while the ribbon surface is not shown and is assumed to be parallel to
+the paper-plane R × {0} × I and carries its 2-orientation. A coupon is an embedded
+rectangle with a 2-orientation and a choice of bottom edge and top edge to which
+ribbons attach, and which determine the source and target object of the labelling
+morphism (for a blue coupon).
+For a bichrome graph T in R2 × I we define the mirrored bichrome graph T as
+the image of T under reflection along the plane R × {0} × I (the paper-plane in our
+drawings). In particular, if a ribbon lies in this plane (or is parallel to the plane), the
+reflection does not affect its 1- or 2-orientation. Note that we can obtain a diagram
+of T , i.e. a projection of the embedding T ⊂ R2 × I to the plane R × {0} × I, from
+a diagram of T by exchanging all overcrossings with undercrossings.
+For a decorated 3-manifold (M, T ) we denote by (−M, T ) the decorated 3-manifold
+obtained by reversing the orientation of M and keeping the 1- and 2-orientations of
+T as they are. For example, if M is the 3-sphere written as R3 ∪ {∞} and T a
+closed bichrome graph in R3 , then (−M, T ) is orientation-preserving diffeomorphic
+to (M, T ) via the above reflection.
+Lemma 3.2. For an admissible decorated 3-manifold (M, T ) we have
+L′C (−M, T ) = L′C (M, T ),
+with C the mirrored category of C.
+
+18
+
+(3.6)
+
+Proof. First recall that if L is a surgery presentation of M , then L is a surgery
+presentation of −M [Sav, Ch. 3.4]. Moreover, for an admissible pair (−M, T ) a
+surgery representation is given by (S 3 , L ∪ T ). In particular the signature of L
+is minus the signature of L. Let us denote with FΛ′ the Lyubashenko-ReshetikhinTuraev functor for C. On bichrome graphs T with no red components we immediately
+get
+FΛ′ (T ) = FΛ′ (T )
+(3.7)
+by the same argument as in the semisimple setting [Tur, Cor. II.2.8.4].
+Next note that since C and C are equal as pivotal categories, the coend L is given
+by the same object and dinatural transformation in either case. This remains true for
+the coalgebra structure and the unit morphism in (2.8) as their definition in Figure 1
+does not involve the ribbon structure. The product µ and antipode S are in general
+different when computed in C, and we denote by L the corresponding Hopf algebra
+in C. We stress that L is in general not a Hopf algebra in C as the braiding enters
+the Hopf algebra axioms. It can however be directly checked from the definition that
+−1
+µ = µ ◦ βL,L
+: L ⊗ L → L as morphisms in C. Using this it follows that Λ is also
+a two-sided integral for L, and we set Λ = Λ. Then in particular ∆C± = ∆C∓ . Using
+this the claim follows.
+Next we turn to 3-manifold invariants for Deligne products of modular tensor
+categories. Recall that the Deligne product of two finite linear categories A and B
+is a finite linear category A ⊠ B together with a functor ⊠ : A × B → A ⊠ B which
+is right exact in each argument and satisfies the following universal property: Let
+D be another finite linear category and let F : A × B → D be a functor right exact
+in each argument, then there is a unique (up to unique natural isomorphism) right
+exact functor Fp : A ⊠ B → D together with an equivalence F ∼
+= Fp ◦ ⊠. See [EGNO,
+Sec. 1.11] for the existence of the Deligne product as well as more properties. For C
+and D modular tensor categories, also C ⊠ D is a modular tensor category.
+Let (M, T ) be an admissible C ⊠ D decorated 3-manifold such that all labels of
+TC⊠D are of the form X ⊠ Y for some X ∈ C and Y ∈ D, and all coupons are pure
+tensors under the isomorphism
+HomC⊠D (− ⊠ −, − ⊠ −) ∼
+= HomC (−, −) ⊗k HomD (−, −)
+
+(3.8)
+
+coming from the universal property of the Deligne product [EGNO, Prop. 1.11.2].
+Now define TC (resp. TD ) to be the C (resp. D) admissible bichrome graph with same
+underlying topological graph as T , but with only the C (resp. D) labels.
+
+19
+
+Lemma 3.3. Let (M, T ), (M, TC ), and (M, TD ) be as above. Then
+L′C⊠D (M, T ) = L′C (M, TC ) · L′D (M, TD ).
+
+(3.9)
+
+Proof. First recall the isomorphism LC⊠D ∼
+= LC ⊠ LD from [FSS, Cor. 3.12]. This
+is actually an isomorphism of Hopf algebras because the Hopf algebra structures
+come from the universal property of the relevant coends, thus ΛC⊠D = ΛC ⊠ ΛD .
+Therefore the invariants of purely red graphs are the same. For blue graphs note
+that the unique-up-to-scalar modified trace on C ⊠D is canonically determined by the
+modified traces on C and D. To see this combine the relation between trivialisations
+of the Nakayama functor and modified traces on a finite tensor category [SW, Thm.
+3.6] with the behaviour of the Nakayama functor under the Deligne tensor product
+[FSS, Prop. 3.20].
+
+3.2 Admissible bordism categories
+Before coming to the definition of the relevant 3-dimensional bordism categories, we
+need to adapt a few definitions from above to a more general setting. A blue set P
+inside a closed surface Σ is a finite, discrete set of blue points of Σ, each endowed
+with a 0-orientation ±, a non-zero tangent vector, and a label given by an object of
+C. A bichrome graph T inside a 3-dimensional bordism M : Σ → Σ ′ is a bichrome
+graph embedded inside M such that its boundary vertices are given by blue sets
+inside the boundary ∂M . Moreover the boundary identification ∂M ∼
+= −Σ ⊔ Σ ′
+needs to be compatible with the blue sets. With this terminology in place, we can
+define the symmetric monoidal category Bordχ3,2 (C) of 3-dimensional bordisms with
+C-coloured bichrome graphs:
+• An object Σ of Bordχ3,2 (C) is a triple (Σ, P, λ) where:
+1. Σ is a closed surface;
+2. P ⊂ Σ is a blue set;
+3. λ ⊂ H1 (Σ; R) is a Lagrangian subspace with respect to the intersection
+pairing.1
+• A morphism M : Σ → Σ ′ is an equivalence class of triples (M, T, n) where:
+1. M is a 3-dimensional bordism from Σ to Σ ′ ;
+2. T ⊂ M is a bichrome graph from P to P ′ ;
+1
+
+This is needed to precisely formulate the gluing anomaly, see [Tur, Ch. IV]. See also [Haı̈, Sec. 4]
+for an interpretation of the origin of λ in the context of relative TFTs.
+
+20
+
+3. n ∈ Z is an integer called the signature defect of M .
+Two triples (M, T, n) and (M ′ , T ′ , n′ ) are equivalent if n = n′ and if there exists
+an isomorphism of bordisms f : M → M ′ satisfying f (T ) = T ′ .
+• The identity morphism idΣ : Σ → Σ associated with an object Σ = (Σ, P, λ) of
+Bordχ3,2 (C) is the equivalence class of the triple
+(Σ × I, P × I, 0).
+
+(3.10)
+
+• The composition M ′ ◦ M : Σ → Σ ′′ of morphisms M : Σ → Σ ′ and M ′ : Σ ′ → Σ ′′
+in Bordχ3,2 (C) is the equivalence class of the triple
+
+M ∪Σ ′ M ′ , T ∪P ′ T ′ , n + n′ − µ(M∗ (λ), λ′ , M ′∗ (λ′′ )) ,
+(3.11)
+where M∗ (λ) and M ′∗ (λ′′ ) are certain Lagrangian subspaces of H1 (Σ ′ ; R) and µ
+denotes the Maslov index, see [Tur, Sec. IV.3-4] for details.
+• The monoidal product Σ ⊔ Σ ′ of objects Σ, Σ ′ in Bordχ3,2 (C) is the triple
+(Σ ⊔ Σ ′ , P ⊔ P ′ , λ ⊕ λ′ ).
+
+(3.12)
+
+The unit of Bordχ3,2 (C) is the object whose surface is the empty set, and it will
+be denoted ∅. The monoidal product M ⊔ M ′ : Σ ⊔ Σ ′ → Σ ′′ ⊔ Σ ′′′ of morphisms
+M : Σ → Σ ′′ , M ′ : Σ ′ → Σ ′′′ in Bordχ3,2 (C) is the equivalence class of the triple
+(M ⊔ M ′ , T ⊔ T ′ , n + n′ ).
+
+(3.13)
+
+It is straightforward to see that Bordχ3,2 (C) can be equipped with a symmetric braiding, and moreover with a pivotal structure. For the latter, the dual object of Σ in
+Bordχ3,2 (C) is given by Σ ∗ = (−Σ, −P, λ) where −P is the same set of blue points
+with 0-orientation and tangent vector reversed. The 3-manifold underlying the dual
+of a morphism [(M, T, n)] is again M and not −M , but with in-going and out-going
+boundary component exchanged, see [TV, Sec. 10.1.4] for more details on the pivotal
+structure. As usual we will say a morphism [(M, T, n)] has a certain topological
+property if the 3-manifold underlying M has this property, e.g. we say [(M, T, n)] is
+connected if and only if M is connected. The superscript χ indicates that we are
+working with an extension of the standard bordism category Bord3,2 (C) (which does
+not include Lagrangian subspaces and signature defects).
+The TFTs of [DGGPR1] are defined on a strictly smaller subcategory which is no
+longer rigid. There are two choices for this subcategory:
+
+21
+
+~ χ (C)
+z χ (C) and Bord
+Definition 3.4. The admissible bordism (sub)categories Bord
+3,2
+3,2
+χ
+are the symmetric monoidal subcategories of Bord3,2 (C) with the same objects but
+featuring only morphisms [(M, T, n)] which satisfy one of the following admissibility
+conditions:
+z χ (C): Every connected component of M disjoint from the outgoing bound1. Bord
+3,2
+ary contains an admissible bichrome subgraph of T , i.e. at least one edge of T
+in that component is labelled with a projective object.
+~ χ (C): Every connected component of M disjoint from the incoming
+2. Bord
+3,2
+boundary contains an admissible bichrome subgraph of T .
+z χ (C) nor
+Note that there are morphisms in Bordχ3,2 (C) which are neither in Bord
+3,2
+χ
+~
+Bord3,2 (C), e.g. (M, ∅, 0) for any closed 3-manifold M . As mentioned above, neither
+z χ (C) nor Bord
+~ χ (C) are rigid, in fact the dualisable objects are exactly the
+Bord
+3,2
+3,2
+surfaces with at least one projectively labelled marked point. The following lemma
+is clear:
+Lemma 3.5. The duality functor (−)∗ : Bordχ3,2 (C) → Bordχ3,2 (C)op induces an equivz χ (C) ≃ Bord
+~ χ (C)op .
+alence of symmetric monoidal categories Bord
+3,2
+3,2
+
+3.3 TFT construction
+We extend the renormalised Lyubashenko invariant to closed morphisms M = [(M, T, n)],
+z χ (C) by setting
+i.e. endomorphisms of the monoidal unit, of Bord
+3,2
+L′C (M ) := δ n L′C (M, T )
+
+(3.14)
+
+for M connected and by setting
+L′C (M 1 ⊔ . . . ⊔ M k ) :=
+
+k
+Y
+
+L′C (M i )
+
+(3.15)
+
+i=1
+
+for M a finite disjoint union of closed connected morphisms M 1 , . . . , M k .
+The universal TFT construction of [BHMV] allows one to extend L′C to a functor
+z χ (C) define V(Σ)
+p
+from bordisms to vector spaces as follows. For Σ ∈ Bord
+to be
+3,2
+χ
+z (C),
+the free vector space generated by the set of morphisms M Σ : ∅ → Σ of Bord
+3,2
+
+22
+
+p ′ (Σ) the free vector space generated by the set of morphisms M ′ : Σ → ∅ of
+and V
+Σ
+χ
+z
+Bord3,2 (C). Next, consider the bilinear form
+p ′ (Σ) × V(Σ)
+p
+⟨·, ·⟩Σ : V
+→k
+′
+(M Σ , M Σ ) 7→ L′C (M ′Σ ◦ M Σ ).
+
+(3.16)
+
+p C (Σ) be the quotient vector space of V(Σ)
+p
+Let V
+with respect to the right radical
+′
+p
+of the bilinear form ⟨·, ·⟩Σ , and similarly let VC (Σ) be the quotient vector space
+p ′ (Σ) with respect to the left radical of the bilinear form ⟨·, ·⟩Σ . We will
+of the V
+p C (Σ) and
+abuse notation by denoting both projections as [ · ], i.e. [ · ] : V(Σ) → V
+p ′ (Σ), and by also denoting the pairing induced from (3.16) by
+[ · ] : V ′ (Σ) → V
+C
+p ′ (Σ) ⊗ V
+p C (Σ) → k.
+⟨·, ·⟩Σ : V
+C
+
+(3.17)
+
+This pairing is non-degenerate by construction.
+z χ (C) let V
+p C (M ) be the linear map defined
+For M : Σ → Σ ′ a morphism of Bord
+3,2
+by
+p C (M ) : V
+p C (Σ) → V
+p C (Σ ′ )
+V
+(3.18)
+[M Σ ] 7→ [M ◦ M Σ ],
+p ′ (M ) be the linear map defined by
+and similarly let V
+C
+p ′ (M ) : V
+p ′ (Σ ′ ) → V
+p ′ (Σ)
+V
+C
+C
+C
+[M ′Σ ′ ] 7→ [M ′Σ ′ ◦ M ].
+
+(3.19)
+
+The construction clearly defines functors
+z χ (C) → Vectk ,
+p C : Bord
+V
+3,2
+
+z χ (C)op → Vectk ,
+p ′ : Bord
+V
+3,2
+C
+
+(3.20)
+
+z χ (C)op ≃ Bord
+~ χ (C) we further get
+moreover from the equivalence Bord
+3,2
+3,2
+~ χ (C) → Vectk ,
+q C : Bord
+V
+3,2
+
+~ χ (C)op → Vectk ,
+q ′ : Bord
+V
+3,2
+C
+
+(3.21)
+
+qC = V
+p ′ ◦ (−)∗ and V
+q′ = V
+p C ◦ (−)∗ and (−)∗ is the duality functor. Note
+where V
+C
+C
+z χ (C) → Vectk
+p C : Bord
+that we can restrict our attention to the covariant functors V
+3,2
+χ
+~
+q
+and VC : Bord3,2 (C) → Vectk because the contravariant ones can be recovered from
+them by precomposition with (−)∗ .
+In fact, both functors define TFTs, with the non-trivial step being the proof of
+monoidality:
+
+23
+
+Theorem 3.6 ([DGGPR1, Thm. 4.12]). Let C be a modular tensor category. The
+functors
+z χ (C) → Vectk and V
+~ χ (C) → Vectk
+p C : Bord
+q C : Bord
+V
+(3.22)
+3,2
+3,2
+are symmetric monoidal.
+Remark 3.7. (1) By the universal construction for any Σ ∈ Bordχ3,2 (C) the state
+p C (Σ)∗ are spanned by the vectors obtained
+p C (Σ) and its linear dual V
+space V
+p C on all bordisms ∅ → Σ and Σ → ∅, respectively.
+from evaluating V
+(2) For any Σ ∈ Bordχ3,2 (C) we have
+q C (Σ)∗ ∼
+q ′ (Σ) = V
+p C (Σ ∗ )
+V
+=V
+C
+
+(3.23)
+
+where Σ ∗ is the dual object of Σ in Bordχ3,2 (C), and where the first isomorphism
+q C ). In this sense we
+is induced by the non-degenerate pairing (3.17) (but for V
+get a pair of TFTs dual to each other.
+
+3.4 Algebraic state spaces
+p C associated
+We will now very briefly recall an algebraic model for the state spaces of V
+χ
+with connected objects of Bord3,2 (C).
+For this let g, q, p ∈ Z⩾0 , we consider a standard closed connected surface Σg of
+genus g, a handlebody Hg with ∂Hg = Σg , and the Lagrangian subspace λg ⊂ H1 (Σg )
+given by the kernel of the inclusion of Σg into Hg . For a (p + q)-tuple of objects
+(X; Y ) ≡ (X1 , . . . , Xp , Y1 , . . . , Yq ) ∈ C ×(p+q) , we denote with
+)
+Σ (X;Y
+= (Σg , P(X;Y ) , λg )
+g
+
+(3.24)
+
+the object of Bordχ3,2 (C) with p negatively oriented marked points decorated using the Xi and q positively oriented marked points decorated using the Yj . For
+f ∈ HomC (L⊗g ⊗ X1 ⊗ . . . ⊗ Xp , Y1 ⊗ . . . ⊗ Yq ) we consider the admissible bordism
+)
+[(Hg , Tf , 0)] : ∅ → Σ (X;Y
+shown in Figure 3.
+g
+Theorem 3.8 ([DGGPR1, Prop. 4.17]). The map
+(X;Y )
+pC
+ΦΣ
+: HomC (L⊗g ⊗ X1 ⊗ . . . ⊗ Xp , Y1 ⊗ . . . ⊗ Yq ) → V
+
+
+
+)
+Σ (X;Y
+g
+
+
+
+p C ([(Hg , Tf , 0)]) (1k )
+f→
+7 V
+is a linear isomorphism.
+
+24
+
+(3.25)
+
+Y1 . . .
+
+Yq
+
+X1 . . .
+
+Xp
+
+f
+
+(Hg , Tf , 0) =
+L
+
+L
+
+...
+
+pC.
+Figure 3: The bordism used to identify Hom-spaces in C and state spaces of V
+Remark 3.9. (1) In [DGGPR1, Sec. 4] only positively orientated marked points are
+considered. Our setting is obtained from theirs by first declaring negatively oriented points to be labelled with the dual object and then using the isomorphism
+(3.23) together with the natural isomorphism
+HomC (L⊗g ⊗X1 ⊗· · ·⊗Xp , Y1 ⊗· · ·⊗Yq ) ∼
+= HomC (L⊗g ⊗X1 ⊗· · ·⊗Xp ⊗Yq∗ ⊗· · ·⊗Y1∗ , 1)
+induced by the rigidity and braiding of C.
+(2) A different, but related model of the state spaces can be given in terms skein
+modules [DGGPR2, Sec. 2.3.3].
+
+3.5 Orientation reversal and Deligne products
+Finally, we will study how the behaviour of the 3-manifold invariants under orientation reversal and the Deligne product – discussed at the end of Section 3.1 –
+gives corresponding statements about the TFTs. For this we will need the following
+technical lemma, based on [TV, Lem. 17.2].2
+Lemma 3.10. Let A be a category with a fixed object 1. Let F, G : A → Vectk be
+functors such that:
+(1) for H = F, G one has
+(a) there exists a linear isomorphism H 0 : k → H(1);
+2
+
+That lemma cannot be used in our setting directly because the admissible bordism categories are
+not rigid.
+
+25
+
+(b) for all A ∈ A one has
+
+H(A) = spank H(f )(H 0 (1k )) f ∈ HomA (1, A) ;
+
+(3.26)
+
+(c) for all A ∈ A one has
+
+H(A)∗ = spank (H 0 )−1 ◦ H(g) g ∈ HomA (A, 1) ;
+
+(3.27)
+
+(2) for all u ∈ HomA (1, 1) the following diagram commutes,
+F (u)
+
+F (1)
+
+F (1)
+(F 0 )−1
+
+F0
+
+k .
+
+k
+
+(3.28)
+
+(G0 )−1
+
+G0
+
+G(1)
+
+G(u)
+
+G(1)
+
+Then for all A ∈ A there exists a unique linear map φA : F (A) → G(A) such that
+for all f ∈ HomA (1, A) the following diagram commutes,
+F (1)
+
+F (f )
+
+F (A)
+
+F0
+φA .
+
+k
+
+(3.29)
+
+G0
+
+G(1)
+
+G(f )
+
+G(A)
+
+Furthermore, the collection (φA )A∈A is a natural isomorphism F ⇒ G.
+Proof. If φA exists, then it is an isomorphism by (1b). The proof of existence of φA
+will be very similar to the one in [TV, Lem. 17.2]. Namely, let k⟨HomA (1, A)⟩ be
+the vector space freely generated by HomA (1, A) and let
+πAH : k⟨HomA (1, A)⟩ → H(A)
+
+(3.30)
+
+be the linear extension of the map
+HomA (1, A) → H(A),
+
+26
+
+f 7→ H(f )(H 0 (1k )).
+
+(3.31)
+
+The maps πAF and πAG are surjective by (1b). We want to define φA such that
+φA ◦ πAF = πAG , which is well defined if πAG |ker(πAF ) = {0}. To check this, let v =
+Pn
+F
+i=1 vi fi ∈ ker(πA ) with vi ∈ k and fi ∈ HomA (1, A). By (1c) it is enough to check
+that for all g ∈ HomA (A, 1) we have that
+n
+X
+
+
+vi (G0 )−1 ◦ G(g) ◦ G(fi ) (G0 (1k )) = 0.
+
+(3.32)
+
+i=1
+
+By (2) and functoriality of F and G the left hand side is equal to
+n
+X
+
+
+vi (F 0 )−1 ◦ F (g) ◦ F (fi ) (F 0 (1k )),
+
+(3.33)
+
+i=1
+
+P
+but this is zero, as already ni=1 vi F (fi )(F 0 (1k )) = πAF (v) = 0. Hence φA is well
+defined and satisfies (3.29). The proof of naturality is now the same as in [TV, Lem.
+17.2].
+For the actual application to TFT functors we will use the following corollary,
+which includes a slightly stronger uniqueness statement as commutativity of (3.29)
+will be implied by monoidality.
+Corollary 3.11. If A is monoidal, 1 ∈ A is the monoidal unit, and F, G are monoidal
+functors satisfying the conditions in Lemma 3.10, then there exists a unique monoidal
+natural isomorphism F ⇒ G.
+Proof. The natural isomorphism is the one constructed in Lemma 3.10 with F 0 and
+G0 coming from the monoidal structure of F and G, respectively. The proof of
+monoidality is the same as in [TV, Lem. 17.2] as that part of the proof only uses
+(3.29). Uniqueness follows as in the proof of [CMRSS, Lem. 4.2].
+z χ (C) =
+Let us now consider the effect of orientation reversal. First note that Bord
+3,2
+z χ (C) as C and C have the same underlying pivotal monoidal category. Consider
+Bord
+3,2
+the following symmetric monoidal functor
+z χ (C) → Bord
+z χ (C)
+(−) : Bord
+3,2
+3,2
+(Σ, P, λ) 7→ (−Σ, P, λ) .
+[(M, T, n)] 7→ [(−M, T, n)]
+
+(3.34)
+
+Note that this functor is not the same as the duality functor (−)∗ , in particular
+it does not change the direction of composition. By combining Remark 3.7 with
+Lemma 3.2, we can use Corollary 3.11 to get:
+
+27
+
+Corollary 3.12. There is a unique natural monoidal isomorphism3
+p ∼
+p
+V
+C = VC ◦ (−).
+
+(3.35)
+
+Next we turn to the effect of taking Deligne products. Let C and D be modular
+z χ, fact (C ⊠ D) as the following symmetric monoidal
+tensor categories. We define Bord
+3,2
+z χ (C ⊠ D):
+subcategory of Bord
+3,2
+• objects: (Σ, P, λ) such that the labels of P are of the form X ⊠ Y for some
+X ∈ C and Y ∈ D;
+• morphisms: [(M, T, n)] such that all coupons of T are pure tensors under the
+isomorphism
+HomC⊠D (− ⊠ −, − ⊠ −) ∼
+= HomC (−, −) ⊗k HomD (−, −);
+
+(3.36)
+
+By forgetting either the label in C or in D, one obtains symmetric monoidal functors
+z χ, fact (C ⊠ D) → Bord
+z χ (C) and Bord
+z χ, fact (C ⊠ D) → Bord
+z χ (D). Pulling back
+Bord
+3,2
+3,2
+3,2
+3,2
+along these functors, it is straightforward to define
+z χ, fact (C ⊠ D) → Vectk .
+p C ⊗k V
+p D : Bord
+V
+3,2
+
+(3.37)
+
+Combining Corollary 3.11 with Lemma 3.3 we conclude:
+z χ, fact (C ⊠ D). Then
+p C⊠D to Bord
+p fact be the restriction of V
+Corollary 3.13. Let V
+3,2
+C⊠D
+there is a unique monoidal natural isomorphism
+p fact ∼
+p
+p
+V
+C⊠D = VC ⊗k VD .
+
+(3.38)
+
+4 Chiral modular functors
+In this section we will describe how to use the 3d TFTs from the previous section
+to construct a two dimensional chiral modular functor. We are first going to discuss
+the definition of chiral modular functors as symmetric monoidal 2-functors. Afterwards we will use the 3d TFTs reviewed in the previous section to construct such
+a chiral modular functor. To this end, we will first define assignments on objects,
+3
+
+Recall that there is no extra condition for a monoidal natural transformation to preserve the
+braiding as this is automatic.
+
+28
+
+1-morphisms, and 2-morphisms, and then show that these assignments can be consistently turned into a 2-functor by studying the image of certain 3-bordisms under
+the TFT.
+Before coming to the definition of chiral modular functors we note that several
+variants of modular functors are used in the literature. We will use a 2-categorical
+variant due to [FSY] which is well suited for our applications. In this article a
+2-category will always mean a weak 2-category otherwise known as a bicategory.
+Analogously a 2-functor will always mean a weak 2-functor with coherence isomorphisms often called pseudofunctor. See for example [JY]. For more background on
+symmetric monoidal 2-categories and 2-functors we refer to [Sch, Ch. 2], a concise
+review is given in [De1, App. D].
+
+4.1 Chiral bordisms and profunctors
+Let us first describe the source and target 2-categories. The symmetric monoidal
+2-category Bordχ2+ε,2,1 of two dimensional chiral bordisms consists of:
+• objects: closed one-dimensional manifolds, i.e. finite disjoint unions of the unit
+circle S 1 ;
+• 1-morphisms: for objects Γ and Γ ′ , a 1-morphism from Γ to Γ ′ , denoted as
+Γ → Γ ′ , is a tuple (Σ, λ) where Σ is two-dimensional bordism4 Σ : Γ → Γ ′
+and λ ⊂ H1 (Σ; R) is a Lagrangian subspace with respect to the intersection
+pairing for Σ the closed two-dimensional manifold obtained from Σ by gluing
+in all the disks bounding Γ and Γ ′ ;
+• 2-morphisms: for 1-morphisms (Σ, λ) : Γ → Γ ′ and (Σ ′ , λ′ ) : Γ → Γ ′ , a 2morphism (Σ, λ) ⇒ (Σ ′ , λ′ ) is a tuple ([f ], n) where n ∈ Z, and [f ] is the
+isotopy class of a diffeomorphism f : Σ → Σ ′ which is compatible with the
+boundary parametrisations;
+• horizontal composition: for 1-morphisms (Σ, λ) : Γ → Γ ′ and (Σ ′ , λ′ ) : Γ ′ →
+Γ ′′ the horizontal composition (Σ ′ , λ′ ) ⋄ (Σ, λ) : Γ → Γ ′′ is given by
+(Σ ′ ⊔Γ ′ Σ, λ′ + λ),
+
+(4.1)
+
+where we view λ and λ′ as subspaces of H1 (Σ ′ ⊔Γ ′ Σ; R) via the inclusions
+H1 (Σ; R) ,→ H1 (Σ ′ ⊔Γ ′ Σ; R) and H1 (Σ ′ ; R) ,→ H1 (Σ ′ ⊔Γ ′ Σ; R), respectively;
+4
+
+Note that we have an explicit bordism here, not its diffeomorphism class.
+
+29
+
+• identity 1-morphism: for an object Γ the identity 1-morphism idΓ : Γ → Γ is
+(Γ × I, {0})
+
+(4.2)
+
+as Γ × I is a disjoint union of 2-spheres and so H1 (Γ × I; R) = {0};
+• vertical composition: for 2-morphisms ([f ], n) : (Σ, λ) ⇒ (Σ ′ , λ′ ) and ([g], m) :
+(Σ ′ , λ′ ) ⇒ (Σ ′′ , λ′′ ), the vertical composition is given by the 2-morphism
+([g ◦ f ], n + m − µ((Cf )∗ λ, λ′ , (Cg )∗ λ′′ )); 5
+
+(4.3)
+
+• identity 2-morphism: for a 1-morphism (Σ, λ) : Γ → Γ ′ the identity 2-morphism
+id(Σ,λ) : (Σ, λ) ⇒ (Σ, λ) is the equivalence class of
+([id], 0);
+
+(4.4)
+
+• disjoint union as symmetric monoidal structure;
+There is more coherence data which needs to be specified such as the associativity
+2-morphisms for horizontal composition, however we will skip these details, see for
+example [De1, App. B & C] as well as [FSY, Rem. 2.2] for more details. Alternatively
+one could also define Bordχ2+ε,2,1 as the subcategory of the bordism category defined
+in [De1, Sec. 2.2] with trivial colourings and only mapping cylinders as 2-morphisms.
+The endomorphisms of a surface Σ form a central extension of the pure mapping
+class group of Σ by Z, where the extension corresponds to the signature defects,
+see also [DGGPR2, Sec. 3.1]. Note here that we could define the 2-morphisms as
+diffeomorphism classes of mapping cylinders for diffeomorphisms instead. This is
+because elements in the isotopy class of f are in one to one correspondence to elements
+in the diffeomorphism class of the mapping cylinder Cf of f .
+In the following we will often suppress the Lagrangian subspaces and signature
+defects when they are not directly relevant.
+Before coming to the target 2-category, recall that the Deligne tensor product A⊠B
+of two finite linear categories A and B, see Section 3.1, also satisfies an analogous
+universal property for left exact functors, by the equivalence of left exact and right
+exact functors [FSS, Thm. 3.2], see also the discussion in [BW, Sec. 2.4].
+The symmetric monoidal 2-category Prof Lex
+k of linear, left exact profunctors consists of
+5
+
+Here (Cf ) and (Cg ) denote the diffeomorphism class of the three dimensional mapping cylinder
+bordisms coming from [f ] and [g], and the new signature defect is computed as in (3.11).
+
+30
+
+• objects; finite linear categories;
+• 1-morphisms: for objects A and B a 1-morphism from A to B is a left exact
+linear profunctor from A →
+−7 B, i.e. a left exact linear functor Aop ⊠ B → Vectk ;
+• 2-morphisms: natural transformations;
+• horizontal composition: for 1-morphisms F : A →
+−7 B and G : B −
+→
+7 C the horizontal composition is the left exact coend
+I B∈B
+G ⋄ F (−, ∼) :=
+G(B, ∼) ⊗k F (−, B) : A →
+−7 C
+(4.5)
+where − stands for an argument from the source category (in this case A) and
+∼ for an argument from the target category (in this case C);
+• identity 1-morphism: for an object A the identity 1-morphism idA : A −
+→
+7 A
+is given by unique functor induced from the universal property of the Deligne
+product applied to the Hom functor HomA (−, ∼);
+• vertical composition: standard vertical composition of natural transformations;
+• identity 2-morphism: identity natural transformations;
+• Deligne’s tensor product of finite linear categories as the symmetric monoidal
+structure;
+For more details on profunctors see for example [Lor, Ch. 5].
+Note that there is a 2-functor from the 2-category Lexk of finite linear categories,
+left exact functors, and natural transformations to Prof Lex
+k which is the identity on
+objects, and sends a functor F : A → B to the profunctor HomB (F (−), ∼) : A →
+−7 B.
+It should be mentioned here that this is a contravariant 2-functor, i.e. it reverses
+the direction of 2-morphisms. Under our finiteness assumptions, this 2-functor is
+actually an equivalence by Eilenberg-Watts, see [Shi1, Lem. 3.2]. The reason we use
+Prof Lex
+k as a target rather than Lexk is that the former appears more naturally when
+we define the modular functor on 1- and 2-morphisms.
+In the following we will often use − for both the source and target argument as
+it will be clear from the context which one is which, e.g. we will write HomA (−, −)
+instead of HomA (−, ∼).
+
+31
+
+Definition 4.1. A chiral modular functor is a symmetric monoidal 2-functor
+Blχ : Bordχ2+ε,2,1 → Prof Lex
+k
+
+(4.6)
+
+from the symmetric monoidal 2-category of two-dimensional chiral bordisms to the
+symmetric monoidal 2-category of left exact profunctors.
+Throughout the rest of this section let C be a fixed modular tensor category and
+denote with
+z χ (C) → Vectk
+p C : Bord
+V
+3,2
+
+(4.7)
+
+the version of the TFT constructed from C with admissibility condition on bordism
+components disjoint from the outgoing boundary.
+p C , which we will
+We will now construct a chiral modular functor using the TFT V
+call the chiral block functor of C,
+BlχC : Bordχ2+ε,2,1 → Prof Lex
+k .
+
+(4.8)
+
+To do this we will first define the action of BlχC on objects, 1-morphisms, and 2morphisms, in Section 4.2 and Section 4.3. By studying the gluing of surfaces in
+Section 4.4 we will then show that these assignments assemble into a symmetric
+monoidal 2-functor in Theorem 4.10.
+We want to emphasise here that the definition of chiral modular functors and the
+following construction are 2-categorical versions of the ones given in [BK, Ch. 5] if
+we restrict to modular fusion categories. The main technical difference lies in the
+treatment of gluing of surfaces which is more subtle here due to the appearance of
+coends.
+
+4.2 Block functors
+Definition 4.2 (Chiral block functor on objects). For an object Γ ∈ Bordχ2+ε,2,1 we
+define BlχC (Γ ) to be the Deligne product over its connected components
+BlχC (Γ ) := C ⊠π0 (Γ ) ,
+
+(4.9)
+
+where we index the factors directly by the connected components π0 (Γ ) of Γ .
+In particular BlχC (S 1 ) = C, and by convention the empty product is Vectk , so that
+
+BlχC (∅) := Vectk .
+
+32
+
+(Y, +)
+
+(X1 , −)
+
+(X2 , −)
+
+Figure 4: Turning a genus two surface with two incoming and one outgoing boundary
+(X ,X ;Y )
+(2,1)
+circles Σ2
+into the object Σ 2 1 2 .
+Next we construct the profunctors describing the value on 1-morphisms, called
+conformal block functors in [FSY].
+Let (Σ, λ) : Γ → Γ ′ be a 1-morphism in Bordχ2+ε,2,1 . According to the above
+prescription on objects we want to construct a left exact functor
+
+′
+BlχC (Σ, λ) : (C op )⊠π0 (Γ ) ⊠ C ⊠π0 (Γ ) → Vectk .
+(4.10)
+′
+
+First let us fix lists of objects X ∈ C ×π0 (Γ ) and Y ∈ C ×π0 (Γ ) , where we again index
+the factors directly by the connected components. We turn (Σ, λ) into an object
+z χ (C) by gluing |π0 (Γ )| + |π0 (Γ ′ )| standard unit disks D2 ⊂ C with specific
+of Bord
+3,2
+marked points at the origin into the boundary of Σ. For any incoming boundary
+component γ ∈ π0 (Γ ), we mark the origin of the disk with a negatively oriented
+point labelled with the corresponding element Xγ in X. For any outgoing boundary
+component γ ′ ∈ π0 (Γ ′ ), we mark the origin of the disk with a positively oriented
+point labelled with Yγ ′ in Y . As tangent vectors at these points we use the unit
+vector along the positive real axis for positively oriented points, and the one along
+the negative real axis for negatively oriented points. From this procedure we obtain
+an object
+z χ (C) ,
+Σ (X;Y ) := (Σ, P(X,Y ) , λ) ∈ Bord
+3,2
+
+(4.11)
+
+see Figure 4 for an illustration.
+′
+Now for lists of objects X ′ ∈ C ×π0 (Γ ) and Y ′ ∈ C ×π0 (Γ ) and morphisms fγ : Xγ′ →
+Xγ and gγ ′ : Yγ ′ → Yγ′′ with γ ∈ π0 (Γ ) and γ ′ ∈ π0 (Γ ′ ) we define a bordism C (f ;g) in
+z 3,2 (C) as the class of (Σ ×[0, 1], T(f ;g) , 0) with embedded ribbon graph T(f ;g) given
+Bord
+by locally embedding fγ (respectively gγ ′ ) in a cylinder D2 × I over the boundary
+component γ (respectively γ ′ ), see Figure 5 for a local illustration. Note that C (f ;g)
+is indeed admissible.
+
+33
+
+′
+
+Σ X ;Y
+
+′
+
+′
+
+Xγ′
+
+Σ X ;Y
+
+′
+
+Yγ′′
+
+γ′
+
+γ
+
+gγ ′
+
+fγ
+
+Σ X;Y
+
+Σ X;Y
+
+Xγ
+
+Yγ ′
+
+γ
+
+γ′
+
+(a)
+
+(b)
+
+Figure 5: Local ribbon graphs for (a) incoming boundary γ and (b) outgoing boundary components γ ′ .
+Lemma 4.3. The assignment
+
+′
+blχC (Σ, λ) : (C op )×π0 (Γ ) × C ×π0 (Γ ) → Vectk
+p C (Σ (X;Y ) ),
+(X; Y ) 7→ V
+
+(4.12)
+
+p C (C (f ;g) ).
+(f ; g) 7→ V
+defines a functor left exact in each argument.
+p C , note that contravariance in
+Proof. Functoriality follows from the functoriality of V
+the incoming components comes from the orientation of the ribbons.
+For left exactness let us first consider the case where Σ is connected. Let p =
+|π0 (Γ )| and q = |π0 (Γ ′ )| and let us fix an explicit choice of ordering of boundary
+components. Next recall the family of isomorphisms
+
+
+(X;Y )
+p C Σ (X;Y ) ,
+: HomC (L⊗g ⊗ X1 ⊗ · · · ⊗ Xp , Y1 ⊗ · · · ⊗ Yq ) → V
+(4.13)
+ΦΣ
+g
+from Section 3.4. A straightforward computation shows that this family defines a
+natural isomorphism
+
+HomC (L⊗g ⊗ − ⊗ · · · ⊗ −, − ⊗ · · · ⊗ −) =⇒ blχC (Σ, λ) (−, . . . , −; −, . . . , −). (4.14)
+
+Thus blχC (Σ, λ) is representable and therefore in particular left exact in each argument. For the general case it suffices to consider two connected components, i.e.
+
+34
+
+p C we get
+Σ = Σ1 ⊔ Σ2 with Σ1 and Σ2 connected. From the monoidality of V
+χ
+χ
+blχC (Σ) = blχC (Σ1 ⊔ Σ2 ) ∼
+= blC (Σ1 ) ⊗k blC (Σ2 ).
+
+(4.15)
+
+As blχC (Σ1 ) and blχC (Σ2 ) are left exact by the above argument also blχC (Σ) is left
+exact.
+Definition 4.4 (Chiral block functor on 1-morphisms). For (Σ, λ) : Γ → Γ ′ we
+define
+
+′
+BlχC (Σ, λ) : (C op )⊠π0 (Γ ) ⊠ C ⊠π0 (Γ ) → Vectk
+(4.16)
+
+to be the functor induced by blχC (Σ, λ) in (4.12) on the Deligne product.
+Corollary 4.5. For any pair of 1-morphisms Σ and Σ ′ the chiral block functor
+satisfies
+χ
+χ
+BlχC (Σ ⊔ Σ ′ ) ∼
+(4.17)
+= BlC (Σ) ⊗k BlC (Σ ′ ).
+
+4.3 Mapping class group actions
+Let us now turn to the 2-morphism level. Let (Σ, λ) and (Σ ′ , λ′ ) be 1-morphisms
+from Γ to Γ ′ and let ([f ], n) be a 2-morphism from (Σ, λ) to (Σ ′ , λ′ ). We construct
+′
+decorated surfaces Σ (X;Y ) and Σ ′ (X;Y ) as above for X ∈ C ×π0 (Γ ) and Y ∈ C ×π0 (Γ ) .
+The diffeomorphism f underlying ([f ], n) gives rise to a 3-manifold with corners,
+its mapping cylinder Cf . This only depends on the isotopy class of [f ] if we are
+considering the diffeomorphism class of the 3-manifold Cf . Analogously to the construction of BlχC on surfaces we can glue in solid cylinders with embedded ribbon
+′
+graph labelled by the X ∈ C ×π0 (Γ ) and Y ∈ C ×π0 (Γ ) to obtain a family of morphisms
+(X;Y )
+z χ (C). Applying the TFT V
+p C gives us a family
+, n) : Σ (X;Y ) → Σ ′ (X;Y ) in Bord
+(C f
+3,2
+of linear maps
+p C ((C (X;Y ) ), n) : blχ (Σ)(X; Y ) → blχ (Σ ′ )(X; Y ),
+V
+C
+C
+f
+which is natural in the labels by construction. We now set
+
+
+
+p C ((C (X;Y ) ), n)
+blχC ([f ], n) := V
+f
+×π (Γ )
+X∈C
+
+0
+
+′
+
+,Y ∈C ×π0 (Γ )
+
+(4.18)
+
+.
+
+(4.19)
+
+Definition 4.6 (Chiral block functor on 2-morphisms). For a 2-morphism ([f ], n) : (Σ, λ) ⇒
+(Σ ′ , λ′ ),
+
+
+
+BlχC ([f ], n) : BlχC (Σ, λ) ⇒ BlχC (Σ ′ , λ′ )
+(4.20)
+
+χ
+is defined as the natural isomorphism induced by blC ([f ], n) on the Deligne product.
+
+35
+
+Remark 4.7. (1) Let us briefly discuss how this is related to [DGGPR2]. First note
+that any 2-endomorphism [f ] of Σ gives an element in (a central extension of)
+the mapping class group of the decorated surface Σ (X;Y ) discussed in [DGGPR2,
+Sec. 3.1] because the underlying diffeomorphism f needs to be compatible with
+the boundary parametrisation, see also [BK, Prop. 5.1.8]. Thus we can associate
+it to a mapping cylinder endomorphism of Σ (X;Y ) defined in [DGGPR2, Sec. 3.2],
+(X;Y )
+however this needs to be in the same diffeomorphism class as (C f
+, n) by [BK,
+Prop. 5.1.8]. Thus our construction and the one of [DGGPR2] are compatible
+with each other.
+(2) Recall from Section 3.3 that the signature defect n enters in the construction of
+p C via the coefficient δ, defined in equation 3.4. If δ = 1, i.e. if C is anomaly free,
+V
+p C , and thus Blχ , will give genuine linear representations of the unextended
+then V
+C
+mapping class group, see also [DGGPR2, Sec. 3.2].
+
+4.4 Gluing of surfaces
+We now turn to the compatibility of BlχC with horizontal composition, which means
+for Σ1 : Γ1 → Γ and Σ2 : Γ → Γ2 composable 1-morphisms we want to show that
+the profunctor BlχC (Σ1 ⊔Γ Σ2 ) is naturally isomorphic to the composition BlχC (Σ2 ) ⋄
+BlχC (Σ1 ). Note that to include situations where we do not want to glue along the
+whole outgoing boundary of Σ1 or the whole incoming boundary of Σ2 we can always
+modify the Σi by taking the disjoint union with sufficiently many copies of the
+cylinder S 1 × I.
+Let W ∈ C ×π0 (Γ1 ) , X ∈ C ×π0 (Γ ) , and Y ∈ C ×π0 (Γ2 ) . We will employ the shorthand
+notation Σ1 ≡ Σ1 (W ;X) , Σ2 ≡ Σ2 (X;Y ) , and Σ1 ⊔Γ Σ2 ≡ Σ1 ⊔Γ Σ2 (W ;Y ) .
+We define a family of bordisms
+MX : Σ1 ⊔ Σ2 → Σ1 ⊔Γ Σ2
+
+(4.21)
+
+z χ (C) with underlying 3-manifold
+in Bord
+3,2
+MX = (Σ1 ⊔ Σ2 × I)/ ∼
+
+(4.22)
+
+where ∼ identifies on Σ1 ⊔ Σ2 × {1} the disks glued into the components of Γ on Σ1
+and Σ2 .
+On handle bodies the action of the bordism MX is the same as attaching a handle
+with an embedded Xγ -labelled ribbon to the neighbourhood of the marked points
+labelled with Xγ for any γ ∈ π0 (Γ ). See Figure 6 for a local visualisation.
+
+36
+
+Bordχ2+ε,2,1
+Σ1
+
+Σ2
+Γ
+
+Σ1
+
+(X, +)
+
+glue along Γ
+
+Σ1 ⊔Γ Σ2
+
+Γ
+
+(X, −)
+
+Σ2
+
+X
+
+z χ (C)
+Bord
+3,2
+
+X
+
+MX
+
+Figure 6: Schematic visualisation of the gluing procedure to obtain a family of morz χ (C).
+phisms in Bord
+3,2
+This family of bordisms is by definition dinatural in the labels X as well as natural
+in the W and Y . In the rest of this section we will study the image of the so obtained
+family under the TFT VpC .
+Since gluing is a local procedure we can obtain Σ1 ⊔Γ Σ2 by consecutively gluing
+along each connected component of Γ one at a time. Moreover the order in which
+these gluings are performed is irrelevant. Formally this amounts to the functoriality
+and associativity of horizontal composition in Bordχ2+ε,2,1 . We can thus restrict our
+attention to one gluing. Let us fix an order of gluings and let Σ denote the surface
+obtained after gluing Σ1 and Σ2 along (|π0 (Γ )| − 1) components of Γ . We now need
+to distinguish the following two scenarios:
+1. We glue boundary components on two different components of Σ.
+2. We glue boundary components on a connected component of Σ.
+Both of these scenarios are different from a global perspective, as can be seen by the
+
+37
+
+example of gluing two disjoint cylinders to a torus:
+
+Gluing along the left pair of incoming and outgoing boundary circles results in a
+cylinder so that the other two boundary components now lie on the same connected
+component. The second gluing then identifies the two ends of the cylinder to arrive
+at the torus.
+We can now formulate the main result of this section.
+Proposition 4.8. Let Σ be a surface with at least one incoming and one outgoing
+boundary, and let Σgl be the surface obtained from gluing these boundaries. Then
+the dinatural family
+ηX : BlχC (Σ)(X, X) → BlχC (Σgl )
+
+(4.23)
+
+obtained from the gluing bordisms MX is universal in the category of left exact
+functors, in other words
+I X∈C
+χ
+∼
+BlχC (Σ)(X, X).
+(4.24)
+BlC (Σgl ) =
+Corollary 4.9. The chiral block functors are compatible with horizontal composition
+χ
+χ
+BlχC (Σ1 ⊔Γ Σ2 ) ∼
+= BlC (Σ2 ) ⋄ BlC (Σ1 ).
+
+(4.25)
+
+To prove Proposition 4.8 we will now study the two scenarios discussed above
+separately.
+Proof of Proposition 4.8: disconnected case
+For the first case we can assume without loss of generality that Σ has only two
+(p ,q )
+(p ,q )
+(p,q)
+connected components, i.e. Σ ∼
+denotes a connected
+= Σg1 1 1 ⊔ Σg2 2 2 where Σg
+surfaces of genus g with p incoming and q outgoing boundary components. After
+gluing along one boundary component we obtain a connected surface of the form
+(p1 +p2 −1,q1 +q2 −1)
+Σgl ∼
+. Using the identification of the state space with the mor= Σg1 +g
+2
+phism space in C from Section 3.4 it can easily be verified that the composition of
+
+38
+
+X
+X
+
+(a) Action of MX on handle bodies
+(1,2)
+(1,3)
+bounding Σ2
+and Σ1 , respectively.
+
+(b) Isotoped handle body with embedded ribbon graph as in
+Corollary 2.4.
+(1,2)
+
+Figure 7: Illustration of the handle body obtained after applying MX for gluing Σ2
+(1,3)
+(1,4)
+and Σ1
+to Σ3 .
+
+MX with the standard handle bodies is given by a handle body with embedded ribbon graph induced from composition and the braiding. This is illustrated in Figure
+(1,2)
+(1,3)
+(1,4)
+7 for the case of gluing Σ2
+and Σ1
+to Σ3 .
+Using the isomorphisms identifying state spaces of the TFT with Hom spaces of
+C it immediately follows that the dinatural family ηX corresponds to the universal
+family from Corollary 2.4.
+Proof of Proposition 4.8: connected case
+For the second case let us assume for simplicity that Σ is a genus zero surface with
+2,2
+two incoming and two outgoing boundary components, i.e. Σ ∼
+= Σ0 , the general
+case works completely analogous. After gluing two of the boundary components we
+(1,1)
+obtain a surface of the form Σgl ∼
+= Σ1 . Following the same line of arguments as
+above we obtain a handle body with embedded ribbon graph as depicted in Figure 8a.
+To translate the action of ηX to Hom-spaces we need to relate the graph in Figure 8a to a standard handle body with bichrome graph as in Figure 3. To this end,
+p C and then use the ”slide trick” employed in [DGGPR1,
+we first apply the TFT V
+Lem. 4.14] to modify the bichrome graph. The resulting handle body with bichrome
+
+39
+
+X
+
+X
+
+(a) Action of MX on handle body
+(2,2)
+bounding Σ0 .
+
+(b) Handle body after application of
+the “slide trick”.
+(2,2)
+
+Figure 8: Handle body obtained after applying MX to a handle body bounding Σ0
+
+.
+
+graph is depicted in Figure 8b. We have
+
+
+
+κ
+
+
+
+
+
+
+
+−1
+p C Fig. 8a = ζ V
+p C Fig. 8b = V
+pC 
+V
+
+
+
+
+
+
+
+
+
+.
+
+
+
+
+
+ιX
+X
+
+(4.26)
+
+The second equality follows from a computation in bichrome graphs:
+ω
+
+ω
+
+ιX
+(1)
+X
+
+(2)
+
+=
+
+=
+
+X
+
+ω
+
+Λ
+X
+
+ω
+
+(3)
+
+ω
+ιX
+
+=
+
+(4)
+
+=
+
+S
+
+ιX
+
+Λ
+X
+
+X
+
+κ
+(5)
+
+=ζ
+
+ιX
+
+X
+
+40
+
+(4.27)
+
+Step 1 is isotopy invariance; step 2 amounts to the defining identities for the
+structure morphisms of the coend L from Section 2.1 together with expressing the
+integral Λ as a red cup; step 3 is (2.9); in step 4 we insert the definition of the
+S-transformation S in (2.11); step 5 is (2.13).
+In this form it is evident that ηX is the universal dinatural transformation iX from
+Proposition 2.7, after identifying the state spaces of the TFT with the Hom spaces
+of C. This finishes the proof of Proposition 4.8.
+Altogether we now have:
+Theorem 4.10. For every modular tensor category C, the 3d TFT
+z χ (C) → Vectk
+p C : Bord
+V
+3,2
+
+(4.28)
+
+of [DGGPR1] induces a chiral modular functor
+BlχC : Bordχ2+ε,2,1 → Prof Lex
+k .
+
+(4.29)
+
+Moreover going through the construction carefully we immediately find:
+Corollary 4.11. Let C and D be modular tensor categories which are equivalent as
+finite ribbon categories. Then the ribbon equivalence C ≃ D induces an isomorphism
+χ
+BlχC ∼
+= BlD of symmetric monoidal 2-functors.6
+Remark 4.12. (1) Our construction is related to the one of [De2] as both use the
+3d TFTs of [DGGPR1] to construct symmetric monoidal 2-functors. However
+both the source and target 2-categories differ. Moreover, in [De2] functoriality
+is satisfied automatically and the non-trivial step in the construction is proving
+monoidality. In our case it is exactly the other way around with monoidality
+being built in and functoriality being non-trivial.
+(2) In [Lyu1] Lyubashenko constructed a modular functor, albeit in a different formulation, from a modular tensor category C directly using generators and relations.
+Nevertheless we can still compare his projective MCG representations and gluing maps to the ones constructed above. The projective MCG representations of
+p C are isomorphic by the main result of [DGLyubashenko and of the 3d TFT V
+GPR2]. Moreover the gluing morphisms ηX from Proposition 4.8 are precisely
+the gluing morphisms from [Lyu2, Sec. 9.2] under the above isomorphism.
+(3) An operadic formulation and classification of modular functors is given in [BW].
+There it is also shown that Lyubashenko’s modular functor, suitably interpreted
+in their framework, is the essentially unique chiral modular functor that can be
+constructed from a modular tensor category [BW, Cor. 8.3].
+6
+
+For the definition of a 2-natural transformation see [JY, Sec. 4.2].
+
+41
+
+5 Modular functors on surfaces with involution
+In this concluding section, we will extend the chiral modular functors from the previous section to a larger 2-category of bordisms with orientation-reversing involutions.
+To this end, we will discuss two functors, one in each direction, between the chiral bordism 2-category and the one with orientation reversing involutions. We will
+then show that pulling back the chiral modular functor associated with a modular
+tensor category C along their composite results in a chiral modular functor which
+is naturally isomorphic to the one coming from the Drinfeld centre Z(C). Finally,
+we will discuss the connection to the 2-category of open-closed bordisms and the
+corresponding modular functors of [FSY, Sec. 2.1].
+
+5.1 The 2-category of surfaces with involution
+The symmetric monoidal 2-category Bord⟲
+2+ε,2,1 of two-dimensional bordisms with
+involution consists of:
+• objects: are tuples (Γ, τ ), where Γ is a closed one-dimensional manifold, and
+τ is an orientation reversing involution of Γ ;
+• 1-morphisms: for objects (Γ, τ ) and (Γ ′ , τ ′ ), a 1-morphism from (Γ, τ ) to
+(Γ ′ , τ ′ ), denoted as (Γ, τ ) → (Γ ′ , τ ′ ), is a tuple (Σ, σ), where Σ is a twodimensional bordism Σ : Γ → Γ ′ , and σ is an orientation reversing involution
+of Σ which restricts to τ (τ ′ ) on Γ (resp. Γ ′ );
+• 2-morphisms: for 1-morphisms (Σ, σ) : (Γ, τ ) → (Γ ′ , τ ′ ) and (Σ, σ) : (Γ, τ ) →
+(Γ ′ , τ ′ ) a 2-morphism [f ] : (Σ, λ) ⇒ (Σ ′ , λ′ ) is the isotopy class [f ] of a diffeomorphism f : Σ → Σ ′ which is compatible with the boundary parametrisations
+and commutes with the involutions;
+• horizontal composition: for 1-morphisms (Σ, σ) : (Γ, τ ) → (Γ ′ , τ ′ ) and
+(Σ ′ , σ ′ ) : (Γ ′ , τ ′ ) → (Γ ′′ , τ ′′ ), the horizontal composition (Σ ′ , σ ′ )⋄(Σ, σ) : (Γ, τ ) →
+(Γ ′′ , τ ′′ ) is given by (Σ ′ ⊔Γ ′ Σ, σ ′ ⊔Γ ′ σ);
+• identity 1-morphism: for an object (Γ, τ ) the identity 1-morphism id(Γ,τ ) : (Γ, τ ) →
+(Γ, τ ) is (Γ × I, τ × idI );
+The rest of the structure is defined analogous to Bordχ2+ε,2,1 , see Section 4.1 for details.
+χ
+We will now discuss a functor from Bord⟲
+2+ε,2,1 to Bord2+ε,2,1 which forgets most
+of the data contained in the involutions. For this let (Σ, σ) be a 1-morphism in
+Bord⟲
+2+ε,2,1 and denote with λσ the eigenspace of the induced map σ∗ : H1 (Σ, R) →
+
+42
+
+H1 (Σ, R) for the eigenvalue −1. By [FFFS, Lem. 3.5] λσ is a Lagrangian subspace
+of H1 (Σ, R).
+Lemma 5.1. The assignment
+χ
+U : Bord⟲
+2+ε,2,1 → Bord2+ε,2,1
+
+(Γ, τ ) 7→ Γ
+(Σ, σ) 7→ (Σ, λσ )
+[f ] 7→ ([f ], 0)
+
+(5.1)
+
+defines a symmetric monoidal functor.
+Proof. Functoriality for horizontal compositions as well as symmetric monoidality
+are clear by definition. With this particular choice of Lagrangian subspaces the
+choice of 0 as signature defect is preserved under composition of 2-morphisms by
+[FFFS, Prop. 3.6], which in turn guarantees the functoriality with respect to vertical
+composition.
+There is also a symmetric monoidal 2-functor in the converse direction called the
+orientation double functor, or just double functor constructed as follows:
+• For an object Γ ∈ Bordχ2+ε,2,1 we define
+Γp = Γ ⊔ −Γ.
+
+(5.2)
+
+This is a closed oriented manifold which naturally carries an orientation reversing involution τΓ : Γp → Γp.
+• For a 1-morphism (Σ, λ) : Γ → Γ ′ we use the surface Σ to define
+p = Σ ⊔ −Σ.
+Σ
+
+(5.3)
+
+p = ∂(Σ) ⊔ ∂(−Σ). Thus
+This is a two dimensional manifold with boundary ∂ Σ
+p with the
+we can use the boundary parametrisation of Σ : Γ → Γ ′ to equip Σ
+′
+p again comes with an
+structure of a bordism from Γp from Γp . Moreover Σ
+p
+p
+orientation reversing involution σΣ : Σ → Σ. It is easy to check that σΣ is
+compatible with the boundary parametrisations.
+• For a 2-morphism F = ([f ], n) : (Σ, λ) → (Σ ′ , λ′ ) we set Fp = [f ⊔ −f ].
+The following lemma is now clear:
+
+43
+
+Lemma 5.2. The assignment
+⟲
+y : Bordχ
+(−)
+2+ε,2,1 → Bord2+ε,2,1
+p τΓ )
+Γ 7→ (Γ,
+
+(5.4)
+
+p σΣ )
+(Σ, λ) →
+7 (Σ,
+([f ], n) →
+7 [f ⊔ −f ]
+defines a symmetric monoidal 2-functor
+
+5.2 Anomaly free modular functors and the Drinfeld centre
+If we pullback a chiral modular functor along U , the corresponding mapping class
+group representations will no longer be projective, i.e. the modular functor will be
+y we obtain a new chiral
+anomaly free. Moreover if we further pullback along (−)
+modular functor. For the chiral modular functor BlχC from Theorem 4.10 this gives
+a geometric relation between C and its Drinfeld centre Z(C).
+First recall that the Drinfeld centre of a monoidal category A is the braided
+monoidal category Z(A) with objects pairs (X, γX ), where X ∈ A, and γX : X ⊗− ⇒
+− ⊗ X is a natural isomorphism, called a half braiding, satisfying a hexagon type
+axiom [EGNO, Def. 7.13.1]. A key property of the Drinfeld centre is that for suitable
+A it is modular:
+Proposition 5.3 ([Shi3, Thm. 5.11]). Let A be finite tensor category satisfying a
+sphericality condition.7 Then Z(A) is a modular tensor category.
+A generalisation of this result to pivotal tensor categories can be found in [MW,
+Cor. 2.14].
+There is a natural forgetful functor U : Z(A) → A which sends a pair (X, γX ) to
+X. Moreover, for any braided tensor category B with braiding β, there is a natural
+braided functor B → Z(B) sending an object X ∈ B to (X, βX,− ) ∈ Z(B), as well as
+a corresponding braided functor B → Z(B), where B is the same monoidal category
+as B but with reversed braiding. These functors extend to a braided functor
+B ⊠ B → Z(B).
+
+(5.5)
+
+If B is ribbon, Z(B) is ribbon as well and the functor discussed above is a ribbon
+functor.
+7
+
+The sphericality condition is the one given in [DSS, Def. 3.5.2], not the equality of left and right
+trace. If A is in addition ribbon and is itself modular, it automatically satisfies this sphericality
+condition. To see this, combine [SS, Thm. 1.3] and [GR, Cor. 4.7].
+
+44
+
+Proposition 5.4 ([Shi2, Thm. 1.1]). Let B be a finite ribbon tensor category. Then
+B is modular if and only if the canonical ribbon functor
+B ⊠ B → Z(B)
+
+(5.6)
+
+is an equivalence.
+Proposition 5.5. Let C be a modular tensor category. There exists a symmetric
+monoidal 2-natural isomorphism filling the following diagram of symmetric monoidal
+2-functors
+Bordχ2+ε,2,1
+
+y
+(−)
+
+Bord⟲
+2+ε,2,1
+
+U
+
+Bordχ2+ε,2,1
+
+∼
+=
+
+.
+
+(5.7)
+
+C
+χ
+Lexk
+Bordχ2+ε,2,1 → Bord⟲
+2+ε,2,1 → Bord2+ε,2,1 → Prof
+
+(5.8)
+
+Blχ
+C
+
+Blχ
+Z(C)
+
+Prof Lex
+k
+Proof. Let us denote the composition
+y
+(−)
+
+U
+
+Blχ
+
+p C . First note that the equivalence C ⊠ C ≃ Z(C) induces an isomorphism
+by Bl
+χ
+χ
+BlC⊠C ∼
+= BlZ(C) by Corollary 4.11. It thus suffices to show that
+χ
+pC ∼
+Bl
+= BlC⊠C .
+
+(5.9)
+
+p C (Γ ) =
+On the level of linear categories we have C = C, thus we immediately get Bl
+χ
+χ
+(C ⊠ C)π0 (Γ ) = (C ⊠ C)π0 (Γ ) = BlC⊠C (Γ ) for any object Γ ∈ Bord2+ε,2,1 . On the level of
+1- and 2-morphisms the result is a direct consequence of the behaviour of the TFT
+discussed in Section 3.5.
+Remark 5.6. Note that in a string-net construction the chiral modular functor of a
+Drinfeld centre is automatically anomaly free because the mapping class group acts
+geometrically on the string-nets [MSWY, Cor. 8.7].
+
+5.3 Open-closed bordisms and full modular functors
+Finally, let us discuss how the modular functors from above are related to the socalled full modular functors of [FSY, Sec. 2.1]. The symmetric monoidal 2-category
+
+45
+
+Bordoc
+2+ε,2,1 of two dimensional oriented open-closed bordisms is defined as a kind of
+categorification of the category of open-closed bordisms defined in [LP, Sec. 3], see
+[BCR] for a detailed account. The basic idea is to also allow compact one dimensional
+manifolds with boundaries as objects, consequentially bordisms between them need
+to have an underlying manifold with corners, more precisely a ⟨2⟩-manifold. Recall
+here that a two dimensional ⟨2⟩-manifold Σ is a 2-dimensional compact manifold
+with corners together with a decomposition ∂Σ = ∂ g Σ ⊔ ∂ f Σ of its boundary into a
+gluing boundary ∂ g Σ and a free boundary ∂ f Σ such that ∂ g Σ ∩ ∂ f Σ consists of the
+corner points of Σ.8 We define Bordoc
+2+ε,2,1 as follows:
+• objects: compact one-dimensional manifolds, i.e. finite disjoint unions of the
+standard interval I = [0, 1] and the unit circle S 1 ;
+• 1-morphisms: for objects Υ and Υ′ , a 1-morphism from Υ to Υ′ , denoted
+as Υ → Υ′ , is a two-dimensional open-closed bordism Σ : Υ → Υ′ , i.e. a
+⟨2⟩-manifold together with a parametrisation of its gluing boundary ∂ gl Σ ∼
+=
+′
+−Υ ⊔ Υ ;
+• 2-morphisms: for 1-morphisms Σ : Υ → Υ′ and Σ ′ : Υ → Υ′ a 2-morphism
+[f ] : Σ ⇒ Σ ′ is the isotopy class of a diffeomorphism f : Σ → Σ ′ of ⟨2⟩manifolds which is compatible with the boundary parametrisations.
+The rest of the structure is defined analogously to Bordχ2+ε,2,1 , see Section 4.1 for
+details.
+An example of a 1-morphism W from S 1 to I is given by the so-called whistle
+bordism
+
+where the red line indicates the free boundary, while the thick black ones correspond
+to the gluing boundary.
+oc
+Let us now discuss the connection between Bord⟲
+2+ε,2,1 and Bord2+ε,2,1 . For this we
+first extend the orientation double functor to Bordoc
+2+ε,2,1 as follows:
+8
+
+The gluing and free boundaries are called black and coloured boundaries, respectively, in [LP,
+Sec. 3].
+
+46
+
+• For an object Υ ∈ Bordoc
+2+ε,2,1 we define
+p = Υ ⊔ −Υ/ ∼
+Υ
+
+with (p, +) ∼ (p, −) for p ∈ ∂Υ.
+
+(5.10)
+
+This is a closed oriented manifold which naturally carries an orientation reversp →Υ
+p coming from the orientation reversing involution on
+ing involution τΥ : Υ
+Υ ⊔ −Υ.
+• For a 1-morphism Σ : Υ → Υ′ we define
+p = Σ ⊔ −Σ/ ∼
+Σ
+
+with (p, +) ∼ (p, −) for p ∈ ∂ f Σ.
+
+(5.11)
+
+p =
+This is a two dimensional manifold with boundary, moreover we have ∂ Σ
+g
+g
+∂ (Σ)⊔∂ (−Σ)/ ∼. Thus we can use the boundary parametrisation of Σ : Υ →
+p′ . Moreover Σ
+p with the structure of a bordism from Υ
+p to Υ
+p again
+Υ′ to equip Σ
+p → Σ.
+p It is easy to check
+comes with an orientation reversing involution σΣ : Σ
+that σΣ is compatible with the boundary parametrisations.
+• For a 2-morphism [f ] : Σ → Σ ′ we can extend the underlying diffeomorphism
+x′ by the universal property of the quotient.
+p→Σ
+f to a homeomorphism fp: Σ
+Moreover fp commutes with the induced involutions by definition. Since the
+smooth and the topological mapping class group are isomorphic [FM, Sec. 2.1]
+x] := [fp].
+we can set [f
+Lemma 5.7. The assignment
+⟲
+y : Bordoc
+(−)
+2+ε,2,1 → Bord2+ε,2,1
+p τΥ )
+Υ 7→ (Υ,
+
+p σΣ )
+Σ 7→ (Σ,
+[f ] 7→ [fp]
+
+(5.12)
+
+defines a symmetric monoidal 2-functor.
+We employ the same notation for the orientation double functor here as in the previous section since there is a commutative diagram
+Bordχ2+ε,2,1
+
+y
+(−)
+
+Bord⟲
+2+ε,2,1
+(5.13)
+
+Bordoc
+2+ε,2,1
+
+47
+
+y
+(−)
+
+where Bordχ2+ε,2,1 → Bordoc
+2+ε,2,1 forgets the Lagrangian subspace and signature defect.
+⟲
+y : Bordoc
+Remark 5.8. Note that (−)
+2+ε,2,1 → Bord2+ε,2,1 is not locally essentially surjective as it only gives surfaces whose quotient by the involution is again orientable,
+e.g. S 2 with antipodal involution is not in its essential image as the quotient space
+is the crosscap.
+
+Pulling back the anomaly free modular functor from the previous section we obtain
+a full modular functor in the sense of [FSY, Sec. 2.1]
+y
+(−)
+
+U
+
+Blχ
+
+C
+χ
+oc
+⟲
+Lex
+Blfull
+C : Bord2+ε,2,1 −→ Bord2+ε,2,1 −→ Bord2+ε,2,1 −→ Prof k .
+
+(5.14)
+
+As an illustrative application, we will now use Blfull
+C to give a topological proof for
+the following result of [BV, Sec. 5.6] on the monadicity of the Drinfeld centre, in the
+special case where one already starts from a modular tensor category (see also [TV,
+Ch. 9] for a textbook account):
+Proposition 5.9. [BV, Cor. 5.14] Let C be a modular tensor category, then the
+forgetful functor U : Z(C) → C has a two sided adjoint F : C → Z(C). Moreover the
+corresponding monad U ◦ F is naturally isomorphic to the central monad Z on C
+Z X∈C
+∼
+X ∗ ⊗ − ⊗ X.
+(5.15)
+(U ◦ F )(−) = Z(−) :=
+Proof. For the first part of the statement we will study the whistle bordism W from
+above. For the interval I we directly compute Blfull
+C (I) = C. While for the unit circle
+full
+1
+1
+S we get BlC (S ) ≃ Z(C) by the same argument as in the proof of Proposition 5.5.
+The double of the whistle bordism W : S 1 → I is given by a pair of pants bordism
+x : S 1 ⊔ −S 1 → S 1 . From this we get blχ (W
+x) ∼
+W
+= HomC (− ⊗ −, −). By carefully
+C
+tracking how the involved functors behave under the equivalence C ⊠ C ≃ Z(C) we
+find that
+∼
+Blfull
+−7 C,
+C (W ) = HomC (U (−), −) : Z(C) →
+
+(5.16)
+
+where U : Z(C) → C is the forgetful functor.
+f : I → S1
+Now note that there is also a whistle bordism in the opposite direction W
+oc
+in Bord2+ε,2,1 . For this an analogous computation gives
+f ∼
+Blfull
+→
+7 Z(C).
+C (W ) = HomC (−, U (−)) : C −
+
+48
+
+(5.17)
+
+full f
+In particular the profunctors Blfull
+C (W ) and BlC (W ) are adjoint 1-morphisms in
+Prof Lex
+k [Lor, Rem. 5.2.1].
+Moreover since all profunctors we consider are left exact, they are representable.
+f ∼
+From this we get a functor F : C → Z(C) such that Blfull
+C (W ) = HomZ(C) (F (−), −).
+In particular F : C → Z(C) is a left-adjoint of U : Z(C) → C by definition. By an
+analogous argument F is also a right-adjoint. This proves the first part of Proposition 5.9.
+f and the
+For the second part recall that there is a diffeomorphism between W ⊔S 1 W
+composition between two flat pairs of pants and the braiding, see e.g. [Car, Sec. 3.2]:
+
+∼
+=
+
+(5.18)
+
+Applying Blfull
+C to the left hand side we immediately get
+ 
+
+
+Blfull
+C 
+
+
+∼
+ = HomC ((U ◦ F )(−), −)
+
+(5.19)
+
+by functoriality. For the right hand side first note that the double of a flat pair of
+pants is a closed pair of pants, and the double of the braiding in the open sector is
+the braiding in the closed sector. Composing the resulting profunctors finally leads
+to
+
+
+
+
+
+
+
+
+full
+
+∼
+
+
+Blfull
+⋄ Blfull
+C
+C 
+ = BlC
+∼
+=
+∼
+=
+∼
+=
+
+I X⊠Y ∈C⊠C
+HomC (X ⊗ Y, −) ⊗k HomC (−, Y ⊗ X)
+I X∈C I Y ∈C
+HomC (X ⊗ Y, −) ⊗k HomC (−, Y ⊗ X)
+I Y ∈C I X∈C
+
+HomC (X ⊗ Y, −) ⊗k HomC (Y ∗ ⊗ −, X)
+
+49
+
+∼
+=
+
+I Y ∈C
+
+HomC (Y ∗ ⊗ − ⊗ Y, −)
+Z Y ∈C
+
+∗
+∼
+Y ⊗ − ⊗ Y, − .
+= HomC
+
+(5.20)
+
+Here, the first and second isomorphism come from functoriality and definition of
+Blfull
+C , respectively. The third step uses [FSS, Lem. 3.2] in the setting were all functors
+are left exact. The fourth isomorphism uses the Fubini theorem for left exact coends
+[Lyu2, Thm. B.2] as well as rigidity of C. The last two isomorphisms are the Yoneda
+lemma and Proposition 2.7, respectively. By functoriality of Blfull
+C we thus obtain an
+isomorphism of profunctors
+Z Y ∈C
+
+∗
+HomC ((U ◦ F )(−), −) ∼
+Y ⊗ − ⊗ Y, − ,
+(5.21)
+= HomC
+which by the Yoneda lemma implies the second part of Proposition 5.9.
+
+References
+[AU]
+
+Jørgen Ellegaard Andersen and Kenji Ueno. “Geometric construction of
+modular functors from conformal field theory”. In: Journal of Knot Theory
+and its Ramifications 16.2 (2007), 127–202. arXiv: math/0306235
+[math.DG].
+
+[BCR]
+
+Nils A. Baas, Ralph L. Cohen, and Antonio Ramı́rez. “The topology of the
+category of open and closed strings”. In: Contemporary Mathematics
+(2006), 11–26. arXiv: math/0411080 [math.AT].
+
+[BGR]
+
+Johannes Berger, Azat M. Gainutdinov, and Ingo Runkel. Non-semisimple
+link and manifold invariants for symplectic fermions. 2023. arXiv:
+2307.06069 [math.QA].
+
+[BHMV]
+
+Christian Blanchet, Nathan Habegger, Gregor Masbaum, and Pierre Vogel.
+“Topological Quantum Field Theories derived from the Kauffman bracket”.
+In: Topology 34.4 (1995), 883–927.
+
+[BK]
+
+Bojko Bakalov and Alexander Kirillov Jr. Lectures on tensor categories and
+modular functors. Vol. 21. University Lecture Series. American
+Mathematical Society, Providence, RI, 2001, x+221.
+
+[BV]
+
+Alain Bruguières and Alexis Virelizier. “Quantum Double of Hopf monads
+and Categorical Centers”. In: Transactions of the American Mathematical
+Society 364.3 (2012), 1225–1279.
+
+50
+
+[BW]
+
+Adrien Brochier and Lukas Woike. A Classification of Modular Functors
+via Factorization Homology. 2022. arXiv: 2212.11259 [math.QA].
+
+[Car]
+
+Nils Carqueville. “Lecture notes on two-dimensional defect TQFT”. In:
+Banach Center Publ. 114 (2018), 49–84. arXiv: 1607.05747 [math.QA].
+
+[CGP]
+
+Francesco Costantino, Nathan Geer, and Bertrand Patureau-Mirand.
+“Quantum invariants of 3-manifolds via link surgery presentations and
+non-semi-simple categories”. In: Journal of Topology 7.4 (2014), 1005–1053.
+arXiv: 1202.3553 [math.GT].
+
+[CMRSS]
+
+Nils Carqueville, Vincentas Mulevicius, Ingo Runkel, Gregor Schaumann,
+and Daniel Scherl. Reshetikhin-Turaev TQFTs close under generalised
+orbifolds. 2021. arXiv: 2109.04754 [math.QA].
+
+[De1]
+
+Marco De Renzi. “Non-semisimple extended topological quantum field
+theories”. In: Memoirs of the American Mathematical Society 277.1364
+(2022). arXiv: 1703.07573 [math.GT].
+
+[De2]
+
+Marco De Renzi. “Extended TQFTs from non-semisimple modular
+categories”. In: Indiana University Mathematics Journal 70.5 (2021),
+1769–1811. arXiv: 2103.04724 [math.GT].
+
+[DGGPR1]
+
+Marco De Renzi, Azat M. Gainutdinov, Nathan Geer,
+Bertrand Patureau-Mirand, and Ingo Runkel. “3-dimensional TQFTs from
+non-semisimple modular categories”. In: Selecta Mathematica 28.2 (2022),
+42. arXiv: 1912.02063 [math.GT].
+
+[DGGPR2]
+
+Marco De Renzi, Azat M. Gainutdinov, Nathan Geer,
+Bertrand Patureau-Mirand, and Ingo Runkel. “Mapping class group
+representations from non-semisimple TQFTs”. In: Communications in
+Contemporary Mathematics 25.01 (2023), 2150091. arXiv: 2010.14852
+[math.GT].
+
+[DGP]
+
+Marco De Renzi, Nathan Geer, and Bertrand Patureau-Mirand.
+“Renormalized Hennings invariants and 2 + 1-TQFTs”. In:
+Communications in Mathematical Physics 362.3 (2018), 855–907. arXiv:
+1707.08044 [math.GT].
+
+[DSS]
+
+Christopher L. Douglas, Christopher Schommer-Pries, and Noah Snyder.
+“Dualizable tensor categories”. In: Memoirs of the American Mathematical
+Society 268.1308 (2020), vii+88. arXiv: 1312.7188 [math.QA].
+
+[EGNO]
+
+Pavel Etingof, Shlomo Gelaki, Dmitri Nikshych, and Victor Ostrik. Tensor
+Categories. Mathematical Surveys and Monographs. American
+Mathematical Society, 2015, xvi+343.
+
+51
+
+[FB]
+
+Edward Frenkel and David Ben-Zvi. Vertex algebras and algebraic curves.
+Vol. 88. Mathematical Surveys and Monographs. American Mathematical
+Society, Providence, RI, 2001, xii+348.
+
+[FFFS]
+
+Giovanni Felder, Jürg Fröhlich, Jürgen Fuchs, and Christoph Schweigert.
+“Correlation Functions and Boundary Conditions in Rational Conformal
+Field Theory and Three-Dimensional Topology”. In: Compositio
+Mathematica 131.2 (2002), 189–238. arXiv: hep-th/9912239 [hep-th].
+
+[FFRS]
+
+Jürg Fröhlich, Jürgen Fuchs, Ingo Runkel, and Christoph Schweigert.
+“Duality and defects in rational conformal field theory”. In: Nuclear Phys.
+B 763.3 (2007), 354–430. arXiv: hep-th/0607247 [hep-th].
+
+[FM]
+
+Benson Farb and Dan Margalit. A primer on mapping class groups.
+Vol. 49. Princeton Mathematical Series. Princeton University Press,
+Princeton, NJ, 2012, xiv+472.
+
+[FRS]
+
+Jürgen Fuchs, Ingo Runkel, and Christoph Schweigert. “TFT construction
+of RCFT correlators I: partition functions”. In: Nuclear Physics B 646.3
+(2002), 353–497. arXiv: hep-th/0204148 [hep-th].
+
+[FS]
+
+Jürgen Fuchs and Christoph Schweigert. “Coends in conformal field
+theory”. In: Contemporary Mathematics 695 (2017), 65–81. arXiv:
+1604.01670 [math.QA].
+
+[FSS]
+
+Jürgen Fuchs, Gregor Schaumann, and Christoph Schweigert.
+“Eilenberg-Watts calculus for finite categories and a bimodule Radford S 4
+theorem”. In: Transactions of the American Mathematical Society 373.1
+(2019), 1–40. arXiv: 1612.04561 [math.RT].
+
+[FSY]
+
+Jürgen Fuchs, Christoph Schweigert, and Yang Yang. String-Net
+Construction of RCFT Correlators. Vol. 45. SpringerBriefs in Mathematical
+Physics. Springer Nature, 2023. arXiv: 2112.12708 [math.QA].
+
+[GKP1]
+
+Nathan Geer, Jonathan Kujawa, and Bertrand Patureau-Mirand.
+“Generalized trace and modified dimension functions on ribbon categories”.
+In: Selecta Mathematica. New Series 17.2 (2011), 453–504. arXiv:
+1001.0985 [math.RT].
+
+[GKP2]
+
+Nathan Geer, Jonathan Kujawa, and Bertrand Patureau-Mirand. “M-traces
+in (Non-Unimodular) Pivotal Categories”. In: Algebras and Representation
+Theory 25.3 (2021), 759–776. arXiv: 1809.00499 [math.RT].
+
+[GR]
+
+Azat M. Gainutdinov and Ingo Runkel. “Projective objects and the
+modified trace in factorisable finite tensor categories”. In: Compositio
+Mathematica 156.4 (2020), 770–821. arXiv: 1703.00150 [math.QA].
+
+52
+
+[Haı̈]
+
+Benjamin Haı̈oun. Unit inclusion in a (non-semisimple) braided tensor
+category and (non-compact) relative TQFTs. 2023. arXiv: 2304.12167
+[math.QA].
+
+[JY]
+
+Niles Johnson and Donald Yau. 2-Dimensional Categories. Oxford
+University Press, Oxford, 2021, xix+615. arXiv: 2002.06055 [math.CT].
+
+[KL]
+
+Thomas Kerler and Volodymyr V. Lyubashenko. Non-semisimple
+topological quantum field theories for 3-manifolds with corners. Vol. 1765.
+Lecture Notes in Mathematics. Berlin: Springer, 2001.
+
+[KST]
+
+Hannes Knötzele, Christoph Schweigert, and Matthias Traube. Twisted
+Drinfeld Centers and Framed String-Nets. 2023. arXiv: 2302.14779
+[math.QA].
+
+[Loo]
+
+Eduard Looijenga. “From WZW models to modular functors”. In:
+Handbook of moduli. Vol. II. Vol. 25. Adv. Lect. Math. (ALM). Int. Press,
+Somerville, MA, 2013, pp. 427–466. arXiv: 1009.2245 [math.AG].
+
+[Lor]
+
+Fosco Loregian. (Co)end Calculus. Vol. 468. London Mathematical Society
+Lecture Note Series. Cambridge University Press, 2021, xxi+308. arXiv:
+1501.02503 [math.CT].
+
+[LP]
+
+Aaron D. Lauda and Hendryk Pfeiffer. “Open–closed strings:
+Two-dimensional extended TQFTs and Frobenius algebras”. In: Topology
+and its Applications 155.7 (2008), 623–666. arXiv: 0510664 [math.AT].
+
+[Lur]
+
+Jacob Lurie. “On the classification of topological field theories”. In:
+Current developments in mathematics, 2008. International Press of Boston,
+2009, 129–280. arXiv: 0905.0465 [math.CT].
+
+[Lyu1]
+
+Volodymyr V. Lyubashenko. “Invariants of 3-manifolds and projective
+representations of mapping class groups via quantum groups at roots of
+unity”. In: Communications in Mathematical Physics 172 (1995), 467–516.
+arXiv: hep-th/9405167 [hep-th].
+
+[Lyu2]
+
+Volodymyr V. Lyubashenko. “Ribbon Abelian Categories as Modular
+Categories”. In: Journal of Knot Theory and Its Ramifications 05.03
+(1996), 311–403. arXiv: hep-th/9405168 [hep-th].
+
+[Mac]
+
+Saunders Mac Lane. Categories for the Working Mathematician. Graduate
+Texts in Mathematics, Vol. 5. Springer New York, 1978, ix+262.
+
+[MS]
+
+Gregory Moore and Nathan Seiberg. “Classical and quantum conformal
+field theory”. In: Communications in Mathematical Physics 123.2 (1989),
+177–254.
+
+53
+
+[MSWY]
+
+Lukas Müller, Christoph Schweigert, Lukas Woike, and Yang Yang. The
+Lyubashenko Modular Functor for Drinfeld Centers via Non-Semisimple
+String-Nets. 2023. arXiv: 2312.14010 [math.QA].
+
+[MW]
+
+Lukas Müller and Lukas Woike. The distinguished invertible object as
+ribbon dualizing object in the Drinfeld center. 2022. arXiv: 2212.07910
+[math.QA].
+
+[RT]
+
+Nicolai Reshetikhin and Vladimir G. Turaev. “Invariants of 3-manifolds via
+link polynomials and quantum groups”. In: Inventiones Mathematicae
+103.3 (1991), 547–597.
+
+[Sav]
+
+Nikolai Saveliev. Lectures on the topology of 3-manifolds. revised. De
+Gruyter Textbook. Walter de Gruyter & Co., Berlin, 2012, xii+207.
+
+[Sch]
+
+Christopher J. Schommer-Pries. The Classification of Two-Dimensional
+Extended Topological Field Theories. Thesis (Ph.D.)–University of
+California, Berkeley. 2009. arXiv: 1112.1000 [math.AT].
+
+[Seg]
+
+Graeme Segal. “Two-dimensional conformal field theories and modular
+functors”. In: IXth International Congress on Mathematical Physics
+(Swansea, 1988). Hilger, Bristol, 1989, pp. 22–37.
+
+[Shi1]
+
+Kenichi Shimizu. “On Unimodular Finite Tensor Categories”. In:
+International Mathematics Research Notices 1 (2017), 277–344. arXiv:
+1402.3482 [math.QA].
+
+[Shi2]
+
+Kenichi Shimizu. “Non-degeneracy conditions for braided finite tensor
+categories”. In: Advances in Mathematics 355 (2019), 106778, 36. arXiv:
+1602.06534 [math.QA].
+
+[Shi3]
+
+Kenichi Shimizu. “Ribbon structures of the Drinfeld center of a finite
+tensor category”. In: Kodai Math. J. 46.(1) (2023), 75–114. arXiv:
+1707.09691 [math.QA].
+
+[SS]
+
+Taiki Shibata and Kenichi Shimizu. “Modified Traces and the Nakayama
+Functor”. In: Algebras and Representation Theory 26.2 (2023), 513–551.
+arXiv: 2103.13702 [math.QA].
+
+[SW]
+
+Christoph Schweigert and Lukas Woike. “The trace field theory of a finite
+tensor category”. In: Algebras and Representation Theory 26.5 (2023),
+1931–1949. arXiv: 2103.15772 [math.QA].
+
+[Til]
+
+Ulrike Tillmann. “S-structures for k-linear categories and the definition of
+a modular functor”. In: Journal of the London Mathematical Society.
+Second Series 58.1 (1998), 208–228. arXiv: math/9802089 [math.GT].
+
+54
+
+[Tur]
+
+Vladimir G. Turaev. Quantum Invariants of Knots and 3-Manifolds.
+Vol. 18. De Gruyter Studies in Mathematics. De Gruyter, Berlin, 2016,
+xii+596.
+
+[TUY]
+
+Akihiro Tsuchiya, Kenji Ueno, and Yasuhiko Yamada. “Conformal field
+theory on universal family of stable curves with gauge symmetries”. In:
+Integrable systems in quantum field theory and statistical mechanics.
+Vol. 19. Adv. Stud. Pure Math. Academic Press, Boston, MA, 1989,
+459–566.
+
+[TV]
+
+Vladimir G. Turaev and Alexis Virelizier. Monoidal categories and
+topological field theory. Vol. 322. Birkhäuser/Springer, Cham, 2017,
+xii+523.
+
+55
+
+

@@ -1,0 +1,1997 @@
+arXiv:2201.13382v2 [math.QA] 15 Nov 2023
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS AND
+REIDEMEISTER TORSION VIA TWISTED DRINFELD DOUBLES
+DANIEL LÓPEZ NEUMANN
+
+Abstract. In this paper, we consider the Reshetikhin-Turaev invariants of knots in the
+three-sphere obtained from a twisted Drinfeld double of a Hopf algebra, or equivalently,
+the relative Drinfeld center of the crossed product Rep(H) ⋊ Aut(H). These are quantum
+invariants of knots endowed with a homomorphism of the knot group to Aut(H). We
+show that, at least for knots in the three-sphere, these invariants provide a non-involutory
+generalization of the Fox-calculus-twisted Kuperberg invariants of sutured manifolds introduced previously by the author, which are only defined for involutory Hopf algebras. In
+particular, we describe the SL(n, C)-twisted Reidemeister torsion of a knot complement
+as a Reshetikhin-Turaev invariant.
+
+1. Introduction
+The theory of braided and ribbon monoidal categories is a rich subject at the intersection
+of various fields, such as representation theory, physics and low dimensional topology. Their
+relevance in topology stems from the fact that a ribbon monoidal category produces an
+entire family of topological invariants of links and tangles in the three-sphere, known as
+Reshetikhin-Turaev invariants [25]. One of the best known invariants in this family is the
+Jones polynomial, which is obtained from the category of modules over the quantum group
+of sl2 . These link invariants can be extended to invariants of closed 3-manifolds as well
+and even to a powerful object called a topological quantum field theory (TQFT) [26]. Even
+thirty years after their introduction, many fundamental questions about these invariants
+remain open, such as their topological and geometrical content, categorification, etc.
+The Reshetikhin-Turaev invariants of links and 3-manifolds admit a refinement when
+the ribbon categories involved are graded by a group G. Here, the algebraic input is a
+G-crossed
+` ribbon category, that is, a category C which is a disjoint union of subcategories
+C = g∈G Cg admitting a monoidal structure, G-action and ribbon structure compatible
+with the grading. The output is a topological invariant of G-tangles, that is, tangles T ⊂
+R2 ×[0, 1] endowed with a flat G-connection on a principal G-bundle of the complement XT ,
+or equivalently, a homomorphism π1 (XT ) → G. This extension was introduced by Turaev in
+[27]. Special instances (and modifications) of this construction related to quantum groups
+have been studied in various works [1,3,5,12,19]. When the G-crossed ribbon categories are
+semisimple (or more precisely, G-modular), Turaev and Virelizier extended this construction
+to a “homotopy quantum field theory” (HQFT) [30]. It has to be noted that the theory
+of G-extensions of a given monoidal category D (i.e. G-graded C with C1 = D), including
+extensions of quantum groups at roots of unity, is by now well-understood [6–9].
+The study of quantum invariants of knots and 3-manifolds endowed with a representation
+of their fundamental groups seems very natural and (possibly) powerful from a topological
+1
+
+2
+
+DANIEL LÓPEZ NEUMANN
+
+point of view. On the one hand, certain classes of 3-manifolds come equipped with a canonical representation π1 (M ) → G, such as hyperbolic 3-manifolds (with G = P SL(2, C)) or
+knot complements in the three sphere (with G = Z = H1 (M )). On the other hand, classical
+invariants such as twisted Reidemeister torsion are by definition invariants of pairs (M, ρ)
+where M is a 3-manifold and ρ : π1 (M ) → GL(n, C) is an homomorphism [28]. The fact
+that this invariant is defined for any ρ leads to interesting applications in geometric topology (see the surveys [10] for topological applications and [23] for applications in hyperbolic
+geometry). These considerations lead to the question of whether quantum invariants from
+G-crossed ribbon categories may have applications to geometric topology generalizing those
+of Reidemeister torsion.
+A natural first step to study the above question is to realize twisted Reidemeister torsion
+as a special case of the Reshetikhin-Turaev invariant of G-tangles of [27]. Some of the aforementioned works do that in certain cases: [1] for multivariable Alexander, [2] for abelian
+Reidemeister torsion. However, to the knowledge of the author, the works that find (special
+cases of) non-abelian Reidemeister torsion as a quantum invariant do not rely directly on Gcrossed ribbon categories. For instance, in [19] McPhail-Snyder finds the SL(2, C)-twisted
+Reidemeister torsion of a link complement using the “holonomy braidings” of KashaevReshetikhin [12,13]. Another example is our previous work [21], where, for involutory Hopf
+ρ
+algebras H, we extended Kuperberg’s invariant [16] to an invariant IH
+(M, γ) of balanced
+sutured manifolds (M, γ) endowed with a homomorphism ρ : π1 (M ) → Aut(H), and we
+showed that the SL(n, C)-twisted Reidemeister torsion was the special case when H is an
+exterior algebra Λ(Cn ).
+The purpose of the present work is to find a general class of G-crossed ribbon categories
+for which the associated invariants contain SL(n, C)-twisted Reidemeister torsion, in particular twisted Alexander polynomials [15, 18, 34], as a special case. We achieve this by
+ρ
+finding the Reshetikhin-Turaev version of the twisted Kuperberg invariants IH
+of our previous work [21], in particular extending that work to non-involutory Hopf algebras (at least
+for knots in the three-sphere). To do this, we need to take an appropriate Drinfeld double
+of the graded Hopf object considered in [21]. This is motivated by various works that relate
+Kuperberg or Turaev-Viro invariants to Hennings or Reshetikhin-Turaev invariants of the
+corresponding Drinfeld double, see [4, 31]. Particularly relevant to us is the work of Turaev
+and Virelizier in the semisimple G-crossed setting [31], where it is shown that the TuraevViro HQFT and the Reshetikhin-Turaev HQFT are related via the relative Drinfeld center
+construction of Gelaki-Naidu-Nikshych [11]. Since our previous work depended (implicitly)
+on a crossed product category C = Rep(H) ⋊ Aut(H) (see Remark 4.1), we consider here
+its relative Drinfeld center ZRep(H) (C). This is a braided Aut(H)-crossed category and
+is equivalent to the category of modules over the “twisted Drinfeld double” introduced by
+Virelizier in [33] (see Proposition 2.4), here denoted D(H), which is a quasi-triangular Hopf
+group-coalgebra in the sense of [27, 32].
+In light of the above, we consider the Reshetikhin-Turaev invariant of a knot obtained
+from a twisted Drinfeld double. We will work in the setting of universal quantum invariants.
+Recall that in the untwisted setting, if H is a finite dimensional Hopf algebra for which
+D(H) is ribbon and if K is a framed knot presented as the closure of a long knot T , then the
+Reshetikhin-Turaev invariant of T colored by the regular D(H)-module is an invariant of
+K. This invariant is left multiplication by an element ZD(H) (K) of the center of D(H) and
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+3
+
+recovers all the Reshetikhin-Turaev invariants of K via the quantum trace (or a modified
+trace if the color is projective), hence called the universal invariant. In the twisted setting,
+if G ⊂ Aut(H) is a subgroup for which the twisted Drinfeld double is G-ribbon, a similar
+procedure leads to a “twisted” universal quantum invariant
+ρ
+(T ) ∈ D(H)
+ZD(H)
+
+where ρ : π1 (XT ) → G is an homomorphism. If H is Z-graded, one can use the abelianization h : π1 (XT ) → Z to extend ρ to a representation ρ ⊗ h with coefficients in K[t±1 ]. This
+leads to a polynomial invariant
+1
+
+ρ⊗h
+ZD(H)
+(T ) ∈ D(H)[t± 2 ].
+
+These are not necessarily invariants of the closure (K, ρ) (except for abelian ρ), but they are
+1
+ρ⊗h
+(T )) ∈ K[t± 2 ] is a polynomial
+after an appropriate evaluation. For instance, ǫD(H) (ZD(H)
+invariant of (K, ρ) and after a framing normalization, one obtains a polynomial invariant
+PHρ (K, t) ∈ K[t±1 ]
+of unframed G-knots. Our main theorem (Theorem 4.2) is that this evaluation recovers the
+“Fox-calculus twisted” Kuperberg invariant of our previous work [21] (which is defined for
+involutory H) as follows:
+ρ⊗h
+PHρ (K, t)=I
+˙ H
+(M, γ).
+
+Here =
+˙ is equality up to multiplication by ±rH (ρ(g))tk|Λ| for some g ∈ π1 (XK ), k ∈ Z (rH is
+defined in (1) below and |Λ| is the Z-degree of the cointegral of H) and (M, γ) is the sutured
+manifold associated to (S 3 , K). This theorem is stated for involutory H so that the right
+hand side is a well-defined invariant, but one should still think that, for non-involutory H,
+ρ is twisting via Fox calculus the tensors of the universal invariant ZD(H) (K).
+As a corollary of our main theorem and our previous work [21] we get that the twisted
+Reidemeister torsion τ ρ⊗h is a Reshetikhin-Turaev invariant of a twisted Drinfeld double
+of an exterior algebra Λ(Cn ) (Corollary 4.3):
+ρ
+PΛ(C
+˙ ρ⊗h (S 3 \ K, m)
+n ) (K, t)=τ
+
+where m ⊂ ∂(S 3 \ K) is a meridian and ρ : π1 (S 3 \ K) → SL(n, C). Thus, the twisted
+polynomial invariant PHρ (K, t) generalizes twisted Alexander polynomials to arbitrary finitedimensional Z-graded Hopf algebras (with ribbon double).
+The plan of the paper is the following. In Section 2 we recall the notions from Hopf
+algebra theory that we need and we study the twisted Drinfeld double of a Hopf algebra.
+In Section 3 we recall the construction of invariants of G-tangles of [27], though in the
+universal setting, so the tangles are not colored by modules. Here we define the invariants
+ρ
+ρ⊗h
+ZD(H)
+(T ), ZD(H)
+(T ) and the knot polynomial PHρ (K, t) mentioned above. In Section 4 we
+state and prove our main theorem.
+1.1. Acknowledgments. The author would like to thank Dylan Thurston and Roland
+van der Veen for various helpful conversations.
+
+4
+
+DANIEL LÓPEZ NEUMANN
+
+2. The twisted Drinfeld double of a Hopf algebra
+We begin by recalling some basic notions and notation from Hopf algebra theory and
+Hopf group-coalgebras, following mainly [24, 32]. The twisted Drinfeld double D(H) is
+defined in Subsection 2.5. In Subsection 2.6 we discuss under which conditions D(H) is
+ribbon. In Subsection 2.7 we relate D(H) to the relative Drinfeld center of [11].
+In what follows we denote by Vect the category of vector spaces over a field K and by
+SVect that of super-vector spaces and degree-preserving linear maps.
+2.1. Tensor network notation. We will use tensor network notation for tensors of the
+form T : V1 ⊗ . . . ⊗ Vn → W1 ⊗ . . . ⊗ Wm where the Vi ’s and Wj ’s are vector spaces. Such
+a tensor is denoted by a diagram with n incoming arrows, or inputs, and m outcoming
+arrows, or outputs. The diagram is read from left to right, and the arrows are ordered from
+top to bottom. Thus, a tensor T : V1 ⊗ V2 → W is denoted by
+T
+where the top leftmost arrow corresponds to V1 and the bottom one to V2 . In this paper
+we will only consider tensors where all the arrows correspond to the same vector space V ,
+so we do not include V in the notation. The tensor product T1 ⊗ T2 is obtained by stacking
+T1 on top of T2 and compositions are drawn by joining the outputs of a tensor with the
+corresponding inputs in another tensor. When an input/output is the dual of a vector
+space, we will denote it by reversing the orientation of that arrow. For instance, if V is a
+finite dimensional vector space, a tensor T : V ⊗ V ∗ → V ∗ , the pairing V ∗ ⊗ V → K, the
+copairing K → V ⊗ V ∗ and the trace of a map f : V → V are denoted by
+f
+
+T
+
+,
+
+,
+
+,
+
+.
+
+The above notation is also valid for super-vector spaces. Here we add the convention that
+a crossing pair of arrows stands for the symmetry τ (x ⊗ y) = (−1)|x||y| y ⊗ x of super-vector
+spaces:
+τ =
+If V is a super-vector space, the left pairing/copairing V ∗ ⊗ V → K and K → V ⊗ V ∗ are
+the usual ones of vector spaces. We will suppose that the category of super-vector spaces
+has the canonical pivotal structure, that is, the pairing V ⊗ V ∗ → K and the copairing
+K → V ∗ ⊗ V are defined by
+=
+
+,
+
+=
+
+Note that if V = V0 ⊕ V1 is a finite-dimensional super-vector space, the above trace of
+f : V → V is the supertrace tr (f |V0 ) − tr (f |V1 ).
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+5
+
+2.2. Hopf algebras. A Hopf algebra over K is a vector space H endowed with tensors
+,
+
+m
+
+,
+
+1
+
+∆
+
+,
+
+ǫ,
+
+S
+
+.
+
+such that (H, m, 1) is an algebra, (H, ∆, ǫ) is a coalgebra, ∆ and ǫ are algebra homomorphism and S satisfies the antipode axiom. Sometimes, we also use Sweedler’s notation for
+the coproduct, that is, we write ∆(h) = h(1) ⊗ h(2) for h ∈ H where it is understood that
+this is a sum of various elements h(1) ⊗ h(2) ∈ H ⊗2 . We will also consider Hopf algebras in
+SVect, the only difference is that the multiplicative axiom for the coproduct involves a sign
+coming from the symmetry of the category. We denote by Aut(H) the group of Hopf algebra automorphisms of H. In this paper, we assume Hopf algebras are finite dimensional.
+The dual H ∗ is a Hopf algebra if the product and the coproduct (which we simply denote
+by ∆ and m respectively in tensor network notation) are defined by
+∆
+
+m
+
+=
+
+=
+
+,
+
+∆
+
+m
+
+.
+
+2.3. Integrals and cointegrals. Let H be a finite dimensional Hopf algebra. Then there
+exists a unique element (up to scalar) λr ∈ H ∗ satisfying
+λr
+∆
+
+=
+
+λr 1
+
+This is called a right integral of H. Similarly, there exists a unique (up to scalar) left
+cointegral Λl ∈ H satisfying
+=
+
+m
+
+ǫ Λl
+
+Λl
+
+.
+
+From the uniqueness of the integrals and cointegrals, it follows that there exist group-likes
+g ∈ G(H) and ζ ∈ G(H ∗ ) characterized by the following equations:
+Λl
+=
+
+∆
+
+,
+
+λr g
+
+m
+
+=
+
+λr
+
+ζ Λl
+
+.
+
+If H is a Hopf algebra in Vect, the trace of a linear map f : H → H can be computed from
+a cointegral/integral pair Λl , λr as above satisfying λr (Λl ) = 1 by the following formula of
+Radford [24, Thm. 10.4.1]:
+f
+
+=
+
+Λl
+
+∆
+
+f
+S
+
+m
+
+λr
+
+6
+
+DANIEL LÓPEZ NEUMANN
+
+All of the above holds as well if H is a Hopf algebra in SVect [17], except that the right
+hand side in Radford’s trace formula has to be multiplied by (−1)|Λl | (this follows e.g. from
+[17, Lemma 3.4]).
+Now let α ∈ Aut(H). Then, if λr is a right integral of H, λr ◦ α is also a right integral
+so by uniqueness,
+(1)
+
+λr ◦ α = rH (α) · λr
+
+for some scalar rH (α) ∈ K× . This defines a group homomorphism rH : Aut(H) → K× .
+Note that if λl is a left integral, then also λl ◦ α = rH (α)λl (since any left integral is a
+multiple of λr ◦ S). Similarly, if Λ is any left or right cointegral we have α(Λ) = rH (α)Λ,
+since λ(Λ) 6= 0 for any nonzero integral (left or right) and any nonzero cointegral (left or
+right) [24, Thm. 10.2.2].
+2.4. Hopf G-coalgebras. We now recall some definitions from [32]. Let G be a group.
+A Hopf G-coalgebra over K is a family A = {Aα }α∈G where each Aα = (Aα , mα , 1α ) is a
+K-algebra with multiplication mα and unit 1α , endowed with algebra morphisms ∆α,β :
+Aαβ → Aα ⊗ Aβ for each α, β ∈ G, a counit ǫ : A1 → K and an antipode Sα : Aα → Aα−1
+for each α ∈ G satisfying graded versions of the usual Hopf algebra axioms (see [32] for
+more details). For instance, the antipode axiom for Hopf G-coalgebras is
+∆α−1 ,α
+
+Sα−1
+
+mα
+
+=
+
+ǫ 1α
+
+=
+
+∆α,α−1
+
+Sα−1
+
+mα
+
+.
+
+This definition is also valid in the category of super-vector spaces. When G = 1 we recover
+the usual notion of Hopf algebra and we denote the structure tensors simply by m, 1, ∆, ǫ, S.
+If A = {Aα }α∈G is a Hopf G-coalgebra, then A1 is a Hopf algebra in the usual sense. The
+notion of integral and distinguished group-like extend to this setting [32].
+A Hopf G-coalgebra A = {Aα }α∈G is said to be crossed if it is endowed with a family of
+algebra isomorphisms ϕ = {ϕβ,α : Aα → Aβαβ −1 }α,β∈G , called a crossing, satisfying:
+(1) (ϕβ,α ⊗ ϕβ,γ )∆α,γ = ∆βαβ −1 ,βγβ −1 ϕβ,αγ ,
+(2) ǫϕβ,1 = ǫ,
+(3) ϕα,βγβ −1 ϕβ,γ = ϕαβ,γ ,
+
+for each α, β, γ ∈ G. We will omit the second subscript of ϕβ,α and denote ϕβ = ϕβ,α . If
+(A, ϕ) is crossed, we will say that a family of elements x = {xα }α∈G , where each xα ∈ Aα ,
+is G-invariant if ϕβ (xα ) = xβαβ −1 for each α, β ∈ G.
+A crossed Hopf G-coalgebra (A, ϕ) is quasi-triangular if it is endowed with a family of
+elements R = {Rα,β }α,β∈G satisfying the following axioms for each α, β, γ ∈ G:
+(1) Rα,β is invertible in Aα ⊗ Aβ ,
+(2) (ϕγ ⊗ ϕγ )(Rα,β ) = Rγαγ −1 ,γβγ −1 ,
+(3) Rα,β · ∆α,β (x) = (τβ,α (ϕα−1 ⊗ idAα )∆αβα−1 ,α (x)) · Rα,β for each x ∈ Aαβ , where τα,β
+denotes permutation of two factors (with signs in the super-case),
+(4) (idAα ⊗ ∆β,γ )(Rα,βγ ) = (Rα,γ )1β3 · (Rα,β )12γ ,
+(5) (∆α,β ⊗ idAγ )(Rαβ,γ ) = ((idAα ⊗ ϕβ −1 )(Rα,βγβ −1 ))1β3 · (Rβ,γ )α23
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+7
+
+The last
+P two equalities hold in Aα ⊗ Aβ ⊗ Aγ , where we note X12γ = x ⊗ y ⊗ 1γ for any
+X = x ⊗ y ∈ Aα ⊗ Aβ and similarly for Yα23 , Z1β3 (Y ∈ Aβ ⊗ Aγ , Z ∈ Aα ⊗ Aγ ). In the
+super-case we will suppose that R-matrices have degree zero.
+The Drinfeld element of a quasi-triangular Hopf G-coalgebra (A, ϕ, R) is u = {uα }α∈G
+defined by
+(2)
+
+uα = mα (Sα−1 ϕα ⊗ idAα )τα,α−1 (Rα,α−1 ) ∈ Aα .
+
+This is invertible with inverse u−1
+α = mα (idAα ⊗ Sα−1 Sα )τα,α (Rα,α ) [32, Lemma 6.5].
+A quasi-triangular Hopf G-coalgebra (A, ϕ, R) is ribbon if it is endowed with a family
+v = {vα }α∈G , where each vα ∈ A×
+α , such that
+(1) ϕβ (vα ) = vβαβ −1 ,
+(2) ∆α,β (vαβ ) = (vα ⊗ vβ )(τβ,α (ϕα−1 ⊗ idAα )Rαβα−1 ,α ) · Rα,β ,
+(3) ϕα (x) = vα−1 xvα for all x ∈ Aα ,
+(4) Sα (vα ) = vα−1 .
+
+The following lemma is a generalization of [24, Theorem 12.3.6]. We say that g = {gα }α∈G
+is group-like if ∆α,β (gαβ ) = gα ⊗ gβ for each α, β ∈ G and each gα is invertible in Aα .
+Lemma 2.1. Let (A, ϕ, R) be a quasi-triangular Hopf G-coalgebra. The map {vα } 7→
+{gα := uα vα } is a bijection between ribbon structures and elements g = {gα } of A satisfying
+(1′ ) ϕβ (gα ) = gβαβ −1 ,
+(2′ ) g is group-like,
+(3′ ) Sα−1 Sα (x) = gα xgα−1 ,
+),
+(4′ ) gα2 = uα Sα−1 (u−1
+α−1
+
+for each α, β ∈ G and x ∈ Aα .
+Proof. We will show that each of the above properties is equivalent to the corresponding
+property in the definition of ribbon element. The equivalence of (1) and (1′ ) follows from
+ϕβ (uα ) = uβαβ −1 [32, Lemma 6.5, d)]. Similarly, the equivalence of (2) and (2′ ) follows
+immediately from [32, Lemma 6.5, f)]. For (3) we have
+−1
+ϕα (x) = vα−1 xvα ⇔ ϕα (x) = gα−1 uα xu−1
+α gα ⇔ ϕα (x) = gα Sα−1 Sα (ϕα (x))gα
+
+which is equivalent to (3′ ). In the last equality we used [32, Lemma 6.5, b)]. Finally,
+−1
+−1
+−1
+) = u−1
+Sα−1 (vα−1 ) = vα ⇔ Sα−1 (gα−1 )Sα−1 (u−1
+α gα ⇔ gα Sα−1 (uα−1 ) = uα gα
+α−1
+
+Since g is a G-invariant group-like and Sα−1 Sα (ϕα (x)) = uα xu−1
+α , gα and uα commute so
+that the last equality above is equivalent to (4′ ).
+
+If (A, ϕ, R, v) is ribbon, we call {gα = uα vα }α∈G the pivot of A.
+2.5. Twisted Drinfeld doubles. Let H = (H, m, 1, ∆, ǫ, S) be a finite dimensional Hopf
+algebra with automorphism group Aut(H). Following [33] we define a quasi-triangular
+Hopf Aut(H)-coalgebra D(H) = {D(H)α }α∈Aut(H) as follows: for each α ∈ Aut(H) set
+D(H)α := H ∗ ⊗ H as vector spaces. We define a product mα on D(H)α and a coproduct
+∆α,β : D(H)αβ → D(H)α ⊗ D(H)β by
+
+8
+
+DANIEL LÓPEZ NEUMANN
+
+∆
+S −1
+mα =
+
+∆
+m
+
+α−1
+
+,
+
+m
+
+∆α,β =
+
+.
+
+∆
+
+α−1
+
+m
+
+Note that if H is a Hopf algebra in SVect the above formulas involve various signs coming
+from the symmetry and the right pairings of SVect. The antipode is defined by the conditions Sα (h) = α−1 (S(h)), Sα (p) = p ◦ S −1 for h ∈ H, p ∈ H ∗ and the fact that it is an
+algebra antiautomorphism. This defines a Hopf Aut(H)-coalgebra. This is crossed with
+ϕα (p ⊗ h) = p ◦ α−1 ⊗ α(h)
+and quasi-triangular with R-matrix
+X
+X
+(3)
+Rα,β =
+(ǫ ⊗ α(hi )) ⊗ (hi ⊗ 1) =
+(ǫ ⊗ hi ) ⊗ (hi ◦ α ⊗ 1)
+where (hi ) is any vector space basis of H and (hi ) is the dual basis of H ∗ (for the left
+pairing). It is easy to see that Rα,β is invertible with inverse
+−1
+= (SD(H) ⊗ idD(H) )(Rα,β ).
+Rα,β
+
+(4)
+
+We call D(H) = {D(H)α }α∈Aut(H) the twisted Drinfeld double of H. If G is a subgroup of
+Aut(H), then the restriction {D(H)α }α∈G to G will be called the G-twisted Drinfeld double,
+denoted D(H)|G . When α = idH the quasi-triangular Hopf algebra D(H) = D(H)idH is
+the usual Drinfeld double of H.
+From (2) we see that the Drinfeld element of D(H) and its inverse are given by
+uα
+
+=
+S −1
+
+,
+
+u−1
+=
+α
+S2
+
+α
+
+It is easy to see that the right integral of D(H) is given by λα = Λl ⊗ λr for every α.
+The distinguished group-like of D(H) is
+(5)
+
+gα = rH (α)−1 ζ ⊗ g
+
+where rH (α) ∈ K× is defined by (1) and ζ, g are the distinguished group-likes of H. If
+H ∈ Vect, this follows from the following computation
+(idD(H)a ⊗ λβ ) ◦ ∆αβ (p ⊗ h) = p(2) ⊗ h(1) ⊗ p(1) (Λl )λr (α−1 (h(2) ))
+= rH (α)−1 p(2) p(1) (Λl ) ⊗ h(1) λr (h(2) )
+= rH (α)−1 p(Λl )ζ ⊗ λr (h)g
+
+= λαβ (p ⊗ h) · rH (α)−1 ζ ⊗ g
+where p ⊗ h ∈ D(H)αβ . A similar computation holds for H ∈ SVect.
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+9
+
+2.6. Ribbon elements in the twisted double. We now characterize the ribbon structures on D(H)|G , generalizing a theorem of Kauffman and Radford [24, Theorem 13.7.3].
+Lemma 2.2. The G-invariant group-likes of D(H)|G have the form {gα = p(α)−1 β ⊗b}α∈G
+for unique G-invariant group-likes β ∈ H ∗ , b ∈ H and a unique homomorphism p : G → K× .
+Proof. If {gα } is a G-invariant group-like of D(H)|G , then g1 is a group-like of D(H) so
+g1 = β ⊗ b for unique β ∈ G(H ∗ ), b ∈ G(H). Since g1 is G-invariant, β, b must be Ginvariant. Now, we have
+gα ⊗ gα−1 = ∆α,α−1 (g1 ) = (β ⊗ b) ⊗ (β ⊗ b)
+
+since α−1 (b) = b. It follows that gα = p−1
+α · β ⊗ b for some scalar pα (apply id ⊗ f where
+f : D(H)α−1 → K satisfies f (gα−1 ) 6= 0). It is clear that pα is unique, and the group-like
+condition implies that α 7→ pα defines an homomorphism p : G → K× .
+
+Proposition 2.3. The ribbon elements of the G-twisted Drinfeld double D(H)|G are in 1:1
+correspondence with triples (β, b, p) where
+2 = ad −1 ◦ ad and β 2 =
+(1) β ∈ H ∗ , b ∈ H are G-invariant group-likes such that SH
+b
+β
+ζ, b2 = g (where ζ, g are the distinguished group-likes of H).
+(2) p : G → K× is an homomorphism such that p2 = rH .
+The ribbon element and pivot of D(H)|G corresponding to such triple are given by
+1
+
+1
+
+−2
+vα = rH (α)− 2 (β ⊗ b) · u−1
+β ⊗ b.
+α , gα = rH (α)
+1
+
+for each α ∈ G, where we denote p(α) = rH (α) 2 and uα is the Drinfeld element.
+Proof. By [32, Theorem 6.9, b)] the distinguished group-like gα of D(H) satisfies gα =
+uα Sα−1 (u−1
+) (this also uses that D(H) is unimodular and that the character of [32, Lemma
+α−1
+6.2] is trivial). This holds in the super-case as well. Thus, by Lemma 2.1 and (5), ribbon
+elements of D(H)|G are in bijection with G-invariant group-likes {gα } satisfying (3′ ) and
+gα2 = gα = rH (α)−1 ζ ⊗ g.
+
+If (β, b, p) corresponds to {gα } by Lemma 2.2 then (4′ ) is equivalent to
+β 2 = ζ, b2 = g, p(α)2 = rH (α).
+
+2 = ad −1 ◦ ad . This proves the first part of
+It is easy to see that (3′ ) is equivalent to SH
+b
+β
+the proposition. The ribbon element associated to such {gα } is then given by
+
+as desired.
+
+−1
+−1
+vα = gα u−1
+α = p(α) (β ⊗ b)uα
+
+
+
+2.7. Representation theoretic interpretation. We now give a more familiar description of the representation categories of the above twisted Drinfeld doubles. Since this is
+not essential for this paper, we just briefly recall the objects involved. We refer to [27]
+for definitions of braided G-crossed categories and [11] for relative Drinfeld centers. In
+what follows, G denotes a group (not necessarily finite) with neutral element 1 and Rep(A)
+denotes the category of finite dimensional representations of a K-algebra A.
+Let H be a finite dimensional Hopf algebra (in Vect, for simplicity)
+` and G = Aut(H).
+Since D(H) is a quasi-triangular Hopf G-coalgebra, Rep D(H) := α∈G Rep(D(H)α ) is a
+
+10
+
+DANIEL LÓPEZ NEUMANN
+
+braided G-crossed category in a natural way [27]. This category can be defined entirely in
+terms of the monoidal category D = Rep(H) as follows. For each X ∈ D and morphism
+f of D, let Tα (X) be the vector space X with H-action given by h ·α x := α−1 (h)x and
+Tα (f ) = f . Then α 7→ Tα defines a monoidal action of G on D. Let C = D ⋊ G, that
+is, C is the category of pairs (X, α) where X ∈ D, α ∈ G and Hom C ((X, α), (Y, β)) equals
+Hom D (X, Y ) if α = β and zero otherwise. This is a G-graded monoidal category with
+tensor product on objects given by
+(X, α) ⊗ (Y, β) = (X ⊗ Tα (Y ), αβ)
+and on morphisms (f, α) ⊗ (g, β) = (f ⊗ Tα (g), αβ). The neutral component is D as
+a monoidal category. We consider the relative Drinfeld center ZD (C) of this category.
+An object of ZD (C) is an object (Y, α) of C endowed with a half-braiding c(X,1),(Y,α) :
+(X, 1) ⊗ (Y, α) → (Y, α) ⊗ (X, 1), which is the same as a D-morphism
+cX,Y : X ⊗ Y → Y ⊗ Tα (X)
+
+satisfying cX⊗X ′ ,Y = (cX,Y ⊗ idTα X ′ )(idX ⊗ cX ′ ,Y ) for each X, X ′ ∈ D. As shown in
+[11, Example 3.4], ZD (C) is a braided G-crossed category in the following way. First note
+that the group G acts on C by Tβ (Y, α) = (Tβ (Y ), βαβ −1 ). This action extends to ZD (C)
+if the half-braiding of Tβ (Y, α) is defined, for X ∈ D, by
+(6)
+
+c(X,1),Tβ (Y,α) = Tβ (c(Tβ −1 (X),1),(Y,α) ).
+
+This is the same as the D-morphism Tβ (cTβ −1 (X),Y ). The G-braiding is defined by the
+following isomorphisms
+cX,Tα (Y )
+
+(X, α) ⊗ (Y, β) = (X ⊗ Tα Y, αβ) −−−−−→ (Tα Y ⊗ Tαβα−1 X, αβ)
+= (Tα Y, αβα−1 ) ⊗ (X, α)
+
+= Tα (Y, β) ⊗ (X, α).
+
+Proposition 2.4. Let H be a finite dimensional Hopf algebra and G = Aut(H). Then,
+Rep D(H) is equivalent, as a braided G-crossed category, to the relative Drinfeld center of
+the crossed product C = Rep(H) ⋊ G.
+Proof. The proof is very similar to that of the G = 1 case (see e.g. [14]) so we only sketch it.
+Denote Dα = D(H)α for each α. The idea is that if (X, α) is an object of ZD (C) then, by
+naturality, the whole half-braiding is encoded in the half-braiding cH,X : H ⊗X → X ⊗Tα H.
+Again by naturality, this map is determined by cH,X (1 ⊗ −) which is a right H-comodule
+structure on X, or equivalently, a left H ∗ -module structure. Noting that the H-factor in
+the target of cH,X has a twisted H-action (twisted by α−1 ), the condition that cH,X is an
+H-module map translates into X being a module over Dα . This correspondence is clearly
+an equivalence and it is monoidal: since the tensor product (X, α) ⊗ (Y, β) = (X ⊗ Tα Y, αβ)
+twists by α−1 the H-module structure on Y , the comultiplication ∆αβ is twisted by α−1 in
+the second H-factor, which is exactly the formula we gave for ∆αβ . Since the G-action on
+ZD (C) is Tα (Y, β) = (Tα Y, αβα−1 ) the H-module structure of Tα (Y, β) is twisted by α−1 so
+ϕα : Dβ → Dαβα−1 acts by α on H ⊂ Dα . Now, the H-comodule structure of Tα (Y, β) is
+given by the half-braiding cTα−1 H,Y (see (6)). Since α : H → Tα−1 H is an H-module map,
+by naturality one finds
+(7)
+
+cTα−1 H,Y (1 ⊗ y) = (id ⊗ α)cH,Y (1 ⊗ y).
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+11
+
+Thus, the H-comodule structure of Tα Y is twisted by α, so that ϕα acts by ϕα (h∗ ) = h∗ ◦ α
+on H ∗ . Taken together, this shows the equivalence is a G-crossed equivalence. Finally,
+since Rep(D(H)) = ZD (C) as G-categories, the braiding of ZD (C) must be represented by
+′
+of D(H). By naturality and (7) above, this is given by
+an R-matrix Rα,β
+′
+) = cTα−1 Dα ,Dβ (1α ⊗ 1β )
+P (Rα,β
+
+= (id ⊗ α)cH,Dβ (1α ⊗ 1β )
+
+where P is the switch map P (x ⊗ y) = y ⊗ x and on the bottom we think of H as a
+subalgebra of Tα−1 Dα . But, cH,Dβ (1α ⊗ 1β ) = hi ⊗ hi as in the untwisted case, where hi is
+′
+= P ((id ⊗ α)(hi ⊗ hi )) = Rα,β where
+a basis of H and hi is its dual basis. Therefore, Rα,β
+Rα,β is as in (3).
+
+Remark 2.5. Suppose H is a Hopf algebra in SVect. Then, it is not true that RepS (D(H))
+is the Drinfeld center of RepS (H) (the S subscript indicates that modules are super-vector
+spaces). Indeed, RepS (H) is equivalent to Rep(Hbos ) where Hbos is the bosonization of
+H. As an algebra, Hbos = K[Z/2Z] ⋉ H and so D(Hbos ) has two additional group-likes.
+This double is itself the bosonization of a Hopf algebra D in SVect such that RepS (D) =
+Z(RepS (H)), and this is an extension of D(H) by a single group-like. The category
+RepS (D(H)) turns out to be equivalent to the full (braided) subcategory of Z(RepS (H))
+consisting of objects V ∈ RepS (H) with a half-braiding {σX,V : X ⊗ V → V ⊗ X}X∈RepS (H)
+for which σI,V coincides with the symmetry cI,V : I ⊗ V → V ⊗ I of SVect. Here I denotes
+the unique non-trivial invertible object of SVect, this is an H-module via ǫ.
+3. Universal Reshetikhin-Turaev invariants of G-tangles
+In this section we define the universal twisted invariant of a framed, oriented, G-tangle
+with no closed components out of a ribbon Hopf G-coalgebra. In Subsection 3.3 we explain
+how to get invariants of framed and unframed G-knots as closures of long G-knots. In
+Subsection 3.4 we specialize to twisted Drinfeld doubles and in Subsection 3.5 we explain
+how to lift our invariants to polynomials invariants whenever the Hopf algebras are Zgraded.
+3.1. G-tangles and (long) G-knots. Let X = R × [−1, ∞) × [0, 1] and let ∂− X = R ×
+[−1, ∞) × {0}, ∂+ X = R × [−1, ∞) × {1}, ∂v X = R × {−1} × [0, 1]. We think of the
+x-coordinate as an horizontal line in the plane of the page oriented from left to right, the ycoordinate as a line transversal to the page and oriented towards it (so (0, ∞) lies behind the
+page), and the z-coordinate as a vertical line in the plane of the page oriented upwards. By a
+(p, q)−tangle we mean a framed, oriented tangle T ⊂ X such that T ∩ ∂− X = {(i, 0, 0)}pi=1 ,
+T ∩ ∂+ X = {(i, 0, 1)}qi=1 , T ∩ ∂X = T ∩ (∂− X ∪ ∂+ X) = ∂T and the intersection is
+transversal. Moreover, the framing of T near a point (i, 0, 0) (resp. (i, 0, 1)) is (i − δ, 0, 0)
+(resp. (i − δ, 0, 1)) for some small δ > 0. Let XT = X \ T and z ∈ ∂v X a basepoint. A
+(p, q)-G-tangle is a (p, q)-tangle endowed with a group homomorphism ρ : π1 (XT , z) → G.
+Note that since ∂v X is contractible, the choice of basepoint z is irrelevant. Two G-tangles
+(T, ρ) and (T ′ , ρ′ ) are isotopic if there is an isotopy dt : X → X rel. ∂X from T to T ′ such
+that ρ′ ◦ (d1 )∗ = ρ. Isotopy classes of G-tangles form the morphisms of a G-crossed ribbon
+category, see [27] for details.
+
+12
+
+DANIEL LÓPEZ NEUMANN
+
+A (p, q)-G-tangle (T, ρ) with a single component will be called a G-knot if p = q = 0 and
+a long G-knot if p = q = 1.
+3.2. Invariants of G-tangles. Let (A = {Aα }α∈G , ϕ, R, v) be a ribbon Hopf G-coalgebra
+with pivot {gα }α∈G . Let (T = T1 ∪ · · · ∪ Tm , ρ) be an ordered, oriented, framed G-tangle
+with no closed components.
+Let D be a planar diagram of T . We draw D in the plane and assume it comes with the
+blackboard framing. We also suppose D is oriented upwards at each crossing, so it is built
+of the following local pieces:
+
+By an edge of D we mean a subarc of the diagram having no overpasses in its interior and
+ending at underpasses. For each edge e of D we let γe ∈ π1 (XT , z) be the homotopy class
+of the loop that goes from the basepoint z ∈ ∂v X to a point close to e along a linear path,
+then encircles e once with linking number −1 and finally comes back to z with a linear path
+in the opposite direction. Thus, the edges of D become labeled by elements of G, where
+the label of e is ρ(γe ):
+αβα−1
+e′
+z
+b
+
+e
+e′′
+
+γe
+
+α
+
+β
+
+Figure 1. A diagram of a crossing with three edges e, e′ , e′′ . The paths
+γe , γe′ , γe′′ satisfy γe′ = γe γe′′ γe−1 . On the right we draw the correponding
+G-colored diagram, where α = ρ(γe ), β = ρ(γe′′ ).
+To define an invariant of (T, ρ) out of (A, ϕ, R, v) we associate black and white beads to
+each of the local pieces of the G-colored diagram as follows:
+α
+ϕα
+sα b
+bc
+
+α
+
+b
+
+tβ
+
+sα
+ϕα−1
+
+β
+bc
+
+b
+
+b
+
+tβ
+
+α
+
+α
+1α
+
+b
+b
+
+α
+
+1α
+
+gα
+
+b
+b
+
+gα−1
+
+α
+
+β
+
+P
+For positive (resp. negative) crossings, the black beads represent Rα,β =
+sα ⊗ tβ (resp.
+P
+−1
+=
+Rα,β
+sα ⊗ tβ ) where α, β are the G-labels of the corresponding edges and the white
+bead represents ϕα (resp. ϕα−1 ). Now, for each cap or cup of the diagram labeled by
+α ∈ G, we put a black bead representing either 1α (left caps/cups) or the pivot gα±1 (right
+caps/cups). Note that this is where we use the ribbon element vα of Aα as gα = uα vα .
+With these conventions, all the black beads lying over an edge e of D labeled by β represent
+an element of Aβ . Now follow the orientation of e from its starting point and multiply the
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+13
+
+black beads encountered from right to left. This results in an element xe ∈ Aβ . If an edge
+e′ follows e in the orientation of D, then there is a white bead ϕα±1 in between e and e′ ,
+where α is the label of the overpass. We “multiply” xe′ with xe by taking xe′ ϕα±1 (xe ) and
+we think of this as the new bead of e′ . One can think that xe is being slided through the
+crossing and that when it passes through the white bead labeled with ϕα±1 then it must be
+evaluated on it. If we do this for all edges of all components of T , this results in an element
+zD ∈ Aγ1 ⊗ . . . ⊗ Aγm
+
+where γi is the label of the endpoint of Ti for each i = 1, . . . , m. This procedure also makes
+sense for Hopf G-coalgebras in SVect. Here one has to suppose the set of crossings is totally
+ordered (the order turns out to be irrelevant since the R-matrices have degree zero). Then,
+when following the orientation of T , the black beads are reordered and this introduces
+various signs into our formula.
+Example 3.1. Consider the diagram of an open right trefoil T as in Figure 2 and let
+ρ : π1 (XT ) → G be an homomorphism. Let e1 , e2 , e3 be the edges of this diagram, starting
+from the second edge from top to bottom. We denote by b1 , b2 , b3 ∈ G the associated labels
+via ρ, that is bi = ρ(γei ). From top to bottom, the pairs of black beads on theP
+crossings
+represent the R-matrices Rb2 ,b1 , Rb1 ,b3 , Rb3 ,b2 respectively. If we denote Rα,β =
+s α ⊗ tβ
+for each α, β ∈ G then we get
+X
+zD =
+ϕb2 (tb1 sb1 ϕb3 (tb2 gb2 sb2 ϕb1 (tb3 sb3 )))
+If A is a Hopf G-coalgebra in SVect, each term in the above sum has to be multiplied by
+the sign (−1)|sb3 ||tb2 |+|tb3 ||tb2 |+|sb2 ||tb2 |+|sb2 ||sb1 |+|sb2 ||tb2 | .
+b
+
+b2
+
+bc
+b
+b
+
+b
+b
+
+b
+b
+
+b1
+
+bc
+
+b3
+
+bc
+
+Figure 2. Beads on a diagram of a long G-knot whose closure is a right trefoil.
+Proposition 3.2. The element zD defined above is an isotopy invariant of the (framed,
+oriented) G-tangle (T, ρ).
+Proof. This is because the usual Reidemeister moves between tangle diagrams can be extended to colored Reidemeister moves between colored diagrams of G-tangles and then it
+holds that two G-tangles are isotopic if and only if their colored diagrams are related by
+colored Reidemeister moves. Since we used upward oriented diagrams, the Reidemeister
+moves can be taken as in [22, Section 3.2]. That zD is invariant under colored Reidemeister
+moves follows directly from the axioms of a ribbon Hopf G-coalgebra and therefore it is an
+
+isotopy invariant. For more details, see [29].
+
+14
+
+DANIEL LÓPEZ NEUMANN
+
+We will denote this invariant by
+ρ
+(T ).
+zD = ZA
+
+We could also have started from the endpoint of a component of T , follow its opposite
+orientation and multiply the black beads from left to right, applying ϕ−1
+α each time we
+encounter a ϕα . This would result in an element
+(8)
+
+′
+zD
+∈ Aδ1 ⊗ . . . ⊗ Aδm
+
+where δi is the label of the starting point of Ti for each i = 1, . . . , m. These two elements
+′
+are related by ⊗m
+i=1 ϕ[Ti ] (zD ) = zD , where [Ti ] ∈ π1 (XT ) is the homotopy class of a path
+that goes from the basepoint linearly to the endpoint of Ti , then follows the framing of Ti
+along the opposite orientation and finally goes back from the starting point of Ti linearly
+to the basepoint.
+3.3. Invariants of G-knots. It is well-known that the isotopy class of the closure of a
+long knot determines that of the long knot itself. Therefore, any invariant of long knots
+defines a knot invariant. We now generalize this to the case of G-knots.
+Let (T, ρ) be a long G-knot and K the closure of T . We suppose K ⊂ X = R ×
+[−1, ∞) × [0, 1]. It is clear that the G-label of the starting point of T coincides with that of
+the endpoint (indeed, the paths γe0 , γet are homotopic, where e0 (resp. et ) is the first (resp.
+final) edge of a diagram of T along its orientation). Thus, ρ extends to an homomorphism
+π1 (XK , z) → G that we still denote by ρ. We say that (K, ρ) is the G-closure of (T, ρ).
+
+In what follows, (K, ρ) is a (framed, oriented) G-knot and (T, ρ) is a long G-knot whose
+G-closure is isotopic to (K, ρ). We denote by γ the G-label of the endpoint of T .
+
+Lemma 3.3. Let (T ′ , ρ′ ) be another long G-knot whose closure is isotopic to (K, ρ). Then,
+there is an element β ∈ G in the image of ρ′ such that (T, ρ) is isotopic to (T ′ , ρ′β ) as a
+long G-knot, where ρ′β (δ) = βρ′ (δ)β −1 for all δ ∈ π1 (XT ′ ).
+Proof. Let (K ′ , ρ′ ) be the closure (T ′ , ρ′ ). For simplicity, let’s suppose that the origin lies
+in the closure-strand of both K and K ′ . Suppose there is an isotopy dt : X → X such that
+d1 (K) = K ′ and ρ′ ◦ (d1 )∗ = ρ over π1 (XK , z) where z ∈ ∂v X is the basepoint. After an
+isotopy of the identity of S 3 we can arrange for d1 (0) = 0 (note that (d1 )∗ is unchanged).
+Then we can take dt − dt (0) and modify it near ∂X so that it becomes an isotopy ft of
+G-knots such that ft (0) = 0 for all t. Thus, it is an isotopy from T0 = K \ K ∩ B to
+T0′ = K ′ \ K ′ ∩ B in S 3 \ B where B is a small open ball neighborhood of 0. However, if we
+identify S 3 \ B ∼
+= D2 × [0, 1], the basepoint z becomes a point in the interior of D2 × [0, 1].
+If z0 is point in the boundary of D2 × [0, 1], then we can identify π1 (XT , z) ∼
+= π1 (XT , z0 )
+only up to conjugation. Thus (T0 , ρ) is equivalent to a conjugate of (T, ρ), and similarly for
+(T0′ , ρ′ ), which proves the lemma.
+
+Therefore any invariant of (T, ρ) that depends on ρ only up to conjugation is an invariant
+of the closure (K, ρ). The following are particular instances of this.
+ρ
+(T ) ∈ Aγ is an invariant of (K, ρ).
+Corollary 3.4. If the image of ρ is abelian, then ZA
+
+Proof. If ρ is abelian, the above lemma implies that (T, ρ) is G-isotopic to (T ′ , ρ′ ) so any
+invariant of (T, ρ) is an invariant of (K, ρ).
+
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+15
+
+Corollary 3.5. Let A = {Aα }α∈G be a ribbon Hopf G-coalgebra and let {fα : Aα → K}α∈G
+be a family of linear functionals with the property that fβαβ −1 ◦ ϕβ = fα for all α, β ∈ G.
+Then the scalar
+ρ
+(T )) ∈ K
+fγ (ZA
+is an invariant of (K, ρ).
+Proof. By the above lemma, any other long G-knot whose closure is (K, ρ) is isotopic to
+ρ
+ρ
+(T, ρβ ) for some β ∈ G. The invariant of (T, ρβ ) is ZAβ (T ) = ϕβ (ZA
+(T )) ∈ Aβγβ −1 . It
+follows that
+ρ
+ρ
+fγ (ZA
+(T )) = fβγβ −1 (ZAβ (T ))
+so this is an invariant of (K, ρ).
+
+
+
+Now, suppose we want to get invariants of unframed G-knots. Let (T, ρ) be a framed
+long G-knot whose closure, after forgetting the framing, is an unframed G-knot (K, ρ). Let
+ρ
+(T ) ∈ Aγ be the invariant of (T, ρ), and let
+ZA
+ρ
+ρ
+′
+)
+ZA
+(T, ρ) = ZA
+(T ) · vγ−w(T ) = vγ−w(T ) · ϕ−w(T
+(ZA
+(T ))
+γ
+′ (T, ρ) is an invariant
+where the product is in Aγ and w(T ) is the writhe of T . Then ZA
+of the underlying unframed long G-knot. Since the ribbon element of A is G-invariant, it
+′ (T, ρ)) = Z ′ (T, ρ ). Thus, if {f }
+follows that ϕβ (ZA
+α α∈G is as in the above corollary, then
+β
+A
+
+(9)
+
+′
+(T, ρ))
+fγ (ZA
+
+is an invariant of the unframed G-knot (K, ρ).
+3.4. Invariants of G-knots from twisted Drinfeld doubles. Now let H be a finite
+dimensional Hopf algebra and G ⊂ Aut(H) be a subgroup such that D(H)|G is G-ribbon.
+Let {vα }α∈G be a ribbon structure determined by a triple (β, b, p) as in Proposition 2.3.
+1
+From now on, we denote p(α) = rH (α) 2 . Note that since D(H)α = H ∗ ⊗ H as vector
+spaces, the functional ǫD(H) (f ⊗ h) = f (1)ǫ(h) is defined over D(H)α for every α (though
+it is not an algebra morphism if α 6= idH ).
+Corollary 3.6. Let (K, ρ) be an (unframed) oriented G-knot. Then
+1
+
+ρ
+PHρ (K) := rH (ρ(m)) 2 w(T ) ǫD(H) (ZD(H)
+(T )) ∈ K
+
+is an invariant of (K, ρ). Here (T, ρ) is a framed, oriented long G-knot whose closure is
+(K, ρ), w(T ) is the writhe of T and m is an oriented meridian of K.
+Proof. Setting fα = ǫD(H) for every α, one easily sees that {fα } satisfies the hypothesis of
+Corollary 3.5. By (9),
+ρ
+)
+(T )))
+ǫD(H) (vγ−w(T ) · ϕ−w(T
+(ZD(H)
+γ
+
+is an invariant of (K, ρ), where γ is the label of the endpoint of T . We now show that
+1
+this coincides with PHρ (K). Since vγ = rH (γ)− 2 β ⊗ b · u−1
+γ , we only need to show that
+x)
+=
+ǫ
+(x)
+for
+all x ∈ D(H)γ . Recall that
+ǫD(H) (β ⊗ b · x) = ǫD(H) (x) and ǫD(H) (u−1
+D(H)
+γ
+−1
+i
+2
+−1
+uγ = h ⊗ S (γ(hi )). If x = f ⊗ h, we can compute ǫD(H) (uγ x) as follows:
+
+16
+
+DANIEL LÓPEZ NEUMANN
+
+S2
+
+γ
+
+S −1
+
+∆
+m
+
+γ −1
+f
+
+S2
+
+1
+
+∆
+1
+ǫ
+
+γ
+
+∆
+S −1
+
+=
+
+γ −1
+
+m
+
+h
+
+f
+
+m
+
+h
+
+ǫ
+
+Using that γ(S 2 (1)) = 1 it is easily seen the right hand side is ǫD(H) (x). The proof that
+ǫD(H) (β ⊗ b · x) = ǫD(H) (x) is similar (this requires that b is G-invariant).
+
+3.5. Lifting to polynomials. Suppose in addition to the above that H is Z-graded. We
+now show that the invariant PHρ of Corollary 3.6 lifts to a polynomial invariant of K. This
+follows the ideas of [21] (which itself mimics an idea from Reidemeister torsion theory), but
+now H is a possibly non-involutory Hopf algebra.
+1
+
+Let H ′ = H ⊗K K[t± 2 ] where t is a variable, then H ′ is a Z-graded Hopf algebra over
+1
+1
+K[t± 2 ] and H ⊂ H ′ as a K-linear Hopf subalgebra. We will identify D(H ′ ) with D(H)[t± 2 ].
+For any α ∈ Aut(H) and n ∈ Z we can define a K[t±1 ]-linear Hopf automorphism α ⊗ n ∈
+Aut(H ′ ) by
+(α ⊗ n)(x) := tn|x| α(x)
+
+for any homogeneous element x ∈ H. This defines an homomorphism
+θ : Aut(H) × Z → Aut(H ′ ), (α, n) 7→ α ⊗ n.
+
+If G ⊂ Aut(H) is a subgroup, we let G′ be the image of G × Z under this homomorphism.
+Note that, if Λl is a (nonzero) left cointegral of H (and also of H ′ ), then
+α ⊗ n(Λl ) = tn|Λl | rH (α)Λl
+
+so that rH ′ (α ⊗ n) = tn|Λl | rH (α). Thus, if rH has a square root over G, then rH ′ has a
+square root over G′ , namely,
+1
+
+1
+
+rH ′ (α ⊗ n) 2 = rH (α) 2 · t
+
+n|Λl |
+2
+
+so D(H ′ ) has an induced ribbon G′ -coalgebra structure by Proposition 2.3.
+Now let (K, ρ) be an oriented, unframed G-knot and let (T, ρ) be a framed long G-knot
+with closure (K, ρ) as unframed G-knots. Let h : π1 (XT ) → Z be the map sending an
+oriented meridian of T to 1. We will denote ρ ⊗ h = θ ◦ (ρ × h) : π1 (XT ) → G′ , that is,
+ρ ⊗ h(δ) = ρ(δ) ⊗ h(δ)
+
+for δ ∈ π1 (XT ). Since D(H ′ ) is G′ -ribbon, we get an invariant
+1
+
+ρ⊗h
+′
+±2
+]
+ZD(H
+′ ) (T ) ∈ D(H ) = D(H)[t
+ρ⊗h
+which we will denote simply as ZD(H)
+(T ). By Corollary 3.6
+
+(10)
+
+1
+
+PHρ (K, t) := rH (ρ(m)) 2 w(T ) t
+
+|Λl |w(T )
+2
+
+ρ⊗h
+(T )) ∈ K[t±1 ]
+ǫD(H ′ ) (ZD(H)
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+17
+
+is a polynomial invariant of (K, ρ), where m is an oriented meridian of K.
+1
+
+In principle, the above belongs to K[t± 2 ] but one can show that PHρ (K, t) ∈ K[t±1 ]
+ρ⊗h
+(T )
+as follows: first note that the fractional powers of t come from the beads of ZD(H)
+at the caps and cups (because of the formula for the pivot of Proposition 2.3) and the
+r|Λl |
+
+normalization factor above. The caps/cups contribute a t− 2
+
+where r is the rotation
+
+|Λl |(w(T )−r)
+2
+
+number of the diagram, so the total fractional power is t
+. But it is easy to see
+that for a long knot w(T ) − r is even: the parity of w(T ) − r is an invariant of framed
+tangles and it is unchanged under crossing changes, thus it coincides with the parity of the
+trivial tangle which is zero.
+h
+(T ) is an invariant of the knot K (Corollary 3.4). Thus,
+Note that for trivial ρ, ZD(H)
+the whole universal invariant of K can be “deformed” to a polynomial invariant, provided
+H is Z-graded.
+
+4. Twisted Kuperberg invariants via twisted Drinfeld doubles
+In this section we state and prove our main theorem (Theorem 4.2). We begin by recalling
+the construction of a (sutured) Heegaard diagram from a bridge presentation of a knot. In
+Subsection 4.3 we briefly recall the (dual of the) construction of [21]. Our main theorem is
+shown in Subsection 4.4, along with its corollary about twisted Reidemeister torsion.
+In all that follows, we let H be a finite dimensional involutory Hopf algebra over a field
+K (in Vect or SVect) with a two-sided integral λ and a two-sided cointegral Λ such that
+λ(Λ) = 1. We also let K ⊂ S 3 be a knot and T a long knot whose closure is K.
+4.1. From planar diagrams to Heegaard diagrams. Let D be an oriented planar
+diagram of the (framed, oriented) long knot T . In all that follows we suppose D is oriented
+from R2 × {0} to R2 × {1} and that at each crossing both strands are oriented upwards as
+in Subsection 3.2. For simplicity, we will suppose the last crossing of D (when following
+its orientation) is an underpass. Suppose D has g crossings. Then D determines a bridge
+presentation of the knot, where the underarcs correspond to the underpasses of the crossings
+and the overarcs correspond to the edges of the diagram. We will suppose the underarcs
+are in the plane R2 × {0} and the overarcs lie above it. We will denote by ai (resp. bi ) the
+underarcs (resp. overarcs), numbered so that when following the opposite orientation of D
+we encounter a0 , b1 , a1 , b2 , . . . , ag−1 , bg respectively, see Figure 3 (left). We denote by bπ(i)
+the overarc above ai .
+A bridge presentation determines a Heegaard diagram of the knot complement (as a
+sutured manifold with two sutures in its boundary). The diagram consists of the following:
+consider the sphere R2 × {0} ∪ {∞} over which the underarcs lie. For each overarc bi with
+1 ≤ i ≤ g − 1 attach a 2-dimensional one-handle to R2 × {0} along the feet of bi . To do all
+this inside R3 , we may think of this handle as “following bi ” above the plane R2 ×{0}. Now,
+delete two disks to the surface obtained, one at the endpoint of bg and one at the endpoint
+of a0 . Let Σ be the resulting oriented surface with boundary. For each 1 ≤ i ≤ g − 1 let
+αi ⊂ Σ be the boundary curve of a disk neighborhood of ai that contains the feet of the
+1-handles at the endpoints of ai . We will assume αi is oriented as the negative boundary of
+this disk. For each 1 ≤ i ≤ g − 1 let βi ⊂ Σ be a circle which is the union of two arcs: the
+arc bi and an arc b′i which is parallel to bi but runs through the corresponding 1-handle. We
+
+18
+
+DANIEL LÓPEZ NEUMANN
+
+will assume that βi is oriented by extending the orientation of the arc bi . Then (Σ, α, β)
+is a sutured Heegaard diagram of S 3 \ K, that is, the manifold obtained from Σ × [0, 1] by
+attaching 2-handles along αi × {0} and βj × {1} for each i, j is homeomorphic to S 3 \K, and
+the boundary ∂Σ×{ 21 } correspond to two meridians in the boundary of S 3 \K. We will also
+consider the arc βg in Σ \ β that joins the two punctures of Σ that is obtained by extending
+the (oriented) arc bg to the top puncture of the surface and we denote β e = β ∪ {βg }. We
+will also suppose that for each i = 1, . . . , g − 1, αi and βi have a basepoint lying right before
+(with respect to the orientation of αi , βi ) the “obvious” intersection point between αi and
+βi (which comes from the intersection ai ∩ bi at their endpoints). See Figure 3 (right).
+Thus, (Σ, α, β e ) is an oriented, based, extended Heegaard diagram as in [21].
+
+b2
+
+a0
+
+A
+b1
+
+β1
+
+b
+b
+
+β2
+
+β3
+
+B
+
+a2
+
+α2
+b
+
+A
+
+a1
+α1
+b3
+
+b
+
+B
+
+Figure 3. A diagram of a long knot T whose closure is a right trefoil,
+drawn as a bridge presentation. On the right, the sutured Heegaard diagram
+associated to this diagram. The A-labels and B-labels indicate where the
+one-handles have to be attached. The blue and green arcs indicate the
+portion of the circles β1 , β2 that lie over R2 × {0}. The orange arc is the
+arc b3 extended to the top puncture. The circles without letters are the
+boundary components of Σ, so Σ is a genus two surface with two holes.
+g−1
+3
+4.2. Fox calculus. A Heegaard diagram (Σ, {αi }g−1
+i=1 , {βi }i=1 ) of S \ K together with an
+3
+arc βg ⊂ Σ \ (∪g−1
+i=1 βi ) joining the two punctures of Σ induces a presentation of π1 (S \ K)
+∗
+that has generators βi for each 1 ≤ i ≤ g and relators αi for each i = 1, . . . , g − 1. This is
+because S 3 \ K is homeomorphic to a handlebody of genus g to which we attached g − 1
+2-cells along the α curves. The βi∗ ’s are the duals of the β1 , . . . , βg in Σ. Thus, the upper
+handlebody (corresponding to (Σ, β)) is a thickening of the wedge of circles ∨gi=1 βi∗ . The
+relator αi is obtained by following αi starting from a basepoint and multiplying, from right
+to left, the (βi∗ )ǫ ’s corresponding to the intersection points of αi . Here ǫ = +1 if βi · α = +1
+in Σ at the given intersection point and ǫ = −1 otherwise.
+
+Let F be the free group on β1∗ , . . . , βg∗ . Since each appearance of a generator βj∗ in the
+word αi corresponds to an intersection point between αi and βj , the Fox derivative ∂αi /∂βj∗
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+19
+
+is a sum of words in F indexed by the intersection points αi ∩ βj . Thus, we can write
+X
+∂αi
+(11)
+=
+mx wx
+∂βj∗
+x∈αi ∩βj
+
+for some wx ∈ F and mx = 1 if the intersection at x is positive (that is βj · αi = +1 at this
+point) and mx = −1 if negative.
+
+Now consider the Heegaard diagram coming from a planar projection as above. Then the
+βi∗ ’s can be identified with the loops γbi ’s encircling the arcs bi once with linking number
+−1. To avoid cumbersome notation, we will simply denote bi = βi∗ . With the above choice
+of orientations and basepoints on the curves, we have
+−1
+−1
+or αi = b−1
+αi = bπ(i) bi+1 b−1
+π(i) bi
+π(i) bi+1 bπ(i) bi
+
+depending on whether the crossing at ai is positive or negative. Thus, the presentation
+π1 (S 3 \ K) = hb1 , . . . , bg | α1 , . . . , αg−1 i is simply the Wirtinger presentation. From now
+on, we think of ∂w/∂bi as an element of Zhπ1 i for each w ∈ F and bi . If the crossing at ai
+is positive, the nonzero Fox derivatives of αi are:
+∂αi
+∂αi
+∂αi
+(12)
+= 1 − bπ(i) bi+1 b−1
+= bπ(i) ,
+= −1.
+π(i) , ∂b
+∂bπ(i)
+∂bi
+i+1
+Thus, if x1 , x2 , x3 , x4 are the points of αi ∩ β e as one follows the orientation of αi starting
+from its basepoint, then (12) shows that
+(13)
+
+w1 = 1, w2 = bπ(i) bi+1 b−1
+π(i) , w3 = bπ(i) , w4 = 1.
+
+If the crossing at ai is negative, then
+(14)
+
+−1
+−1
+w1 = 1, w2 = b−1
+π(i) bi+1 , w3 = bπ(i) , w4 = bπ(i) .
+
+4.3. Tensors from Heegaard diagrams. Let H be a Hopf algebra as above and let
+ρ : π1 (S 3 \ K) → Aut(H) be an homomorphism. Given a sutured Heegaard diagram
+g−1
+3
+(Σ, α = {αi }g−1
+i=1 , β = {βi }i=1 ) of S \K with an arc βg and with orientations and basepoints
+as above, the construction of [21] assigns the following tensors of H (this is actually the
+dual construction, see Remark 4.1 below). First, to each curve αi we associate the tensor
+
+Λ
+
+∆
+
+ρ(wk−1 )
+..
+.
+ρ(w2−1 )
+ρ(w1−1 )
+
+Here, from bottom to top, the outputs correspond to the intersection points, say x1 , . . . , xk ,
+of αi with β as one follows its orientation starting from its basepoint and we denote wi = wxi
+as in (11). Note that for the Heegaard diagram coming from a diagram projection, each
+αi intersects β e = β ∪ {βg } in exactly four points, but intersects β in either two, three or
+four points. Thus, the above tensor associated to αi may have two, three or four outputs
+depending on whether |αi ∩ β| = 2, 3 or 4. Now, to each closed curve β we associate the
+tensor
+
+20
+
+DANIEL LÓPEZ NEUMANN
+
+..
+.
+
+m
+
+λ
+
+As before, from bottom to top, the inputs of this tensor correspond to the intersection
+points on β as one follows its orientation. Finally, to each intersection point x we associate
+the tensor S ǫx where ǫx ∈ {0, 1} is defined by mx = (−1)ǫx and mx is the sign in (11). In
+this way, each intersection point of the Heegaard diagram corresponds to a unique output
+of an α-tensor and a unique input of a β-tensor. The contraction of all these tensors is a
+scalar
+ρ
+ZH
+(Σ, α, β e ) ∈ K.
+
+ρ
+Under our assumptions on H, it is shown in [21] that the scalar ZH
+(Σ, α, β e ) is an invariant
+of the underlying sutured 3-manifold up to multiplication by an indeterminacy of the form
+ρ
+(±1)|Λ| rH (ρ(δ)), where δ ∈ π1 (M ). We will denote by IH
+(M, γ) the invariant up to this
+indeterminacy. Note that if ρ : π1 (M ) → Ker (rH ) and |Λ| = 0 there is no indeterminacy at all. These indeterminacies can be removed using Spinc structures and homology
+orientations, but we won’t need this.
+
+Remark 4.1. The construction of [21] is a special case of [20] where we consider the semidirect product K[Aut(H)] ⋊ H as a graded algebra, where the grading group is Aut(H). As
+explained in [21], if one sets Hα = {α · h | h ∈ H} ⊂ K[Aut(H)] ⋊ H, then {Hα }α∈Aut(H) is
+a Hopf group-algebra. The dual of this object is a Hopf group-coalgebra whose represenρ
+differ
+tation category is equivalent to Rep(H ∗ ) ⋊ Aut(H ∗ ). The above conventions for IH
+∗
+from those of [21] in that we use this dual object with H in place of H . More precisely,
+the construction of [21] used the dual presentation having α∗i ’s as generators and βi ’s as
+relators. The present version is obtained by taking the diagram (−Σ, β, α) and using H ∗
+ρ
+ρ−t
+tensors. In other words, the present IH
+is the IH
+∗ of [21], where for each α ∈ Aut(H),
+αt ∈ Aut(H ∗ ) is the dual of α and ρ−t : π1 (M ) → Aut(H ∗ ) is defined by ρ−t (δ) = (ρ(δ)t )−1 .
+4.4. Main theorem. Let H be as in the beginning of this section. By the two-sided cointegral/integral condition, the double D(H) is ribbon with b = 1, β = ǫ. As in Proposition
+√
+2.3, we let G ⊂ Aut(H) be a subgroup over which rH exists, so that D(H)|G is ribbon
+and we can define the invariant PHρ (K) of Subsection 3.4. Then, the main theorem of the
+present paper is the following:
+Theorem 4.2. Let (K, ρ) be a G-knot in S 3 . Then the Reshetikhin-Turaev invariant of K
+from the twisted Drinfeld double of H recovers the twisted Kuperberg invariant as follows:
+ρ
+PHρ (K)=I
+˙ H
+(M, γ)
+
+where (M, γ) is the sutured manifold associated to the complement of the knot K (M =
+S 3 \ K and γ consists of two meridians in ∂(S 3 \ K)). Here =
+˙ denotes equality up to
+|Λ|
+3
+multiplication by (±1) rH (ρ(δ)) for some δ ∈ π1 (S \ K). Similarly, if H is Z-graded then
+ρ⊗h
+PHρ (K, t)=I
+˙ H
+(M, γ)
+
+where =
+˙ denotes equality up to multiplication by (±1)|Λ| rH (ρ(δ))tk|Λ| , k ∈ Z, δ ∈ π1 (S 3 \K).
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+21
+
+In the following proof we will use tensor network notation written from bottom to top
+instead of left to right. The reader may rotate the tensors below clockwise by 90 degrees to
+bring them into the form of Section 2. Recall that we are assuming that H is involutory,
+so that S −1 = S.
+
+Proof. Let D be a diagram of T and take the associated bridge presentation a0 , b1 , . . . , bg
+of K as in Subsection 4.1. Recall that we suppose that all the underarcs ai are oriented
+upwards. Place the black/white beads on the diagram as specified in Subsection 3.2. For
+simplicity, we will suppose first that all crossings are positive, so the black beads at the
+−1
+crossings come from Rα,β ’s (and not Rα,β
+’s). Then each ai has one black and one white bead:
+one is an element of H ∗ , which we will denote by Ai , and the other is ϕbπ(i) where bπ(i) is the
+overarc at that crossing. Note that by (3), Ai has a bπ(i) . On the other hand, an overarc bi
+may have multiple black beads (but no white bead), which are all elements of H ⊂ D(H)bi .
+p
+−1
+Since we suppose b = 1, β = ǫ, the right caps and cups have a rH (ρ(m)) · 1H or
+p
+rH (ρ(m)) · 1H bead respectively (Proposition 2.3), where m is an oriented meridian. For
+simplicity, we will suppose there is no bead at all at the caps and cups, and we multiply the
+r
+resulting tensor by rH (ρ(m))− 2 at the end of the proof, where r is the clockwise rotation
+number of the diagram. We begin by multiplying all the beads of a given overarc bi , this
+results in a bead Bi ∈ H ⊂ D(H)bi (which could be the unit of D(H)bi if bi has no crossing
+′ = ϕ−1 (Z ρ
+under it). We will actually compute zD
+D(H) (T )) as in (8). Thus, we start from
+[T ]
+the top of T and successively multiply the beads A0 , B1 , A1 , . . . , Ag−1 , Bg in this order,
+taking care of the evaluations on the crossings ϕbπ(i) : Dβ → Dbπ(i) β(bπ(i) )−1 of D(H). First
+we take the product A0 · B1 = A0 ⊗ B1 in D(H)b1 (this product is simply concatenation
+since A0 ∈ H ∗ and B1 ∈ H). Before multiplying with A1 , we need to slide A0 B1 through
+a1 , this has the effect of evaluating this product on the (inverse of the) crossing ϕbπ(1) so
+we get a new bead ϕ−1
+bπ(1) (A0 ⊗ B1 ). We now multiply this with A1 ⊗ B2 inside D(H)b2 .
+
+−1
+Using the multiplication rule for D(H)b2 and that ϕ−1
+b (p ⊗ h) = p ◦ b ⊗ b (h) for any
+−1
+∗
+p ∈ H , h ∈ H, b ∈ G the product ϕbπ (1) (A0 ⊗ B1 ) · (A1 ⊗ B2 ) can be written as:
+
+b−1
+π(1)
+∆
+∆
+
+b−1
+2
+
+bπ(1)
+
+S
+
+m
+
+m
+A0 B1
+
+A1
+
+B2
+
+As before, this is evaluated over ϕ−1
+bπ(2) and then multiplied with A2 ⊗ B3 inside D(H)b3 .
+′ can be written as
+We keep doing this until we reach Ag−1 ⊗ Bg . Thus zD
+
+22
+
+DANIEL LÓPEZ NEUMANN
+
+∆
+bπ(g−1)
+..
+.
+∆
+
+b−1
+π(1)
+
+bπ(2)
+
+∆
+
+∆
+
+b−1
+2
+
+bπ(1)
+
+S
+
+b−1
+π(2)
+∆
+
+m
+
+m
+
+∆
+...
+
+S
+
+A1
+
+S
+m
+
+m
+A2
+
+B2
+
+m
+
+b−1
+g
+
+b−1
+3
+
+m
+A0 B1
+
+b−1
+π(g−1)
+
+Ag−1 Bg
+
+B3
+
+This product is an element of D(H)bg = H ∗ ⊗ H. We now evaluate this product on
+ρ
+′ )=ǫ
+ǫD(H) = 1 ⊗ ǫ, note that ǫD(H) (zD
+D(H) (ZD(H) (T )). This has the effect of killing all the
+
+arrows coming from the leftmost H ∗ -tensor and also kills the rightmost arrow coming from
+Bg . Note that, since A0 is supposed to connect to Bπ(0) in the above picture (because the
+R-matrix is a twisted coevaluation) when A0 is killed, so does the input of Bπ(0) and the
+tensors immediately above it. Similarly, all the Ai beads connected to Bg disappear. The
+result is a tensor of the form:
+
+b−1
+π(1)
+∆
+
+b−1
+π(2)
+m
+
+∆
+...
+
+b−1
+2
+
+b−1
+3
+
+b−1
+g
+
+S
+
+S
+
+S
+
+m
+B1
+
+∆
+
+m
+
+b−1
+π(g−1)
+
+A1
+
+m
+
+m
+B2
+
+A2
+
+B3
+
+Ag−1
+
+To write this only using tensors in H (and traces) we flip all the arrows oriented downwards. We get the following tensor:
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+m
+
+m
+
+B1
+
+B2
+
+Bg−1
+
+A1
+
+A2
+
+Ag−1
+
+m
+
+...
+
+m
+
+23
+
+m
+
+S
+
+S
+
+S
+
+b−1
+2
+
+b−1
+3
+
+b−1
+g
+
+∆
+
+∆
+
+∆
+
+b−1
+π(1)
+
+b−1
+π(2)
+
+b−1
+π(g−1)
+
+Note that there are various traces in the above picture. Using that Ai has the form
+π(i) by (3), replacing each of the above traces by a cointegral-integral pair using
+Radford’s trace formula (see Subsection 2.3) and using that λ is a trace (which follows from
+S 2 = idH and Λ being 2-sided, see e.g. [17, Lemma 3.9]), we see that the above tensor is
+the same as
+h∗ ◦ b
+
+λ
+
+λ
+
+λ
+
+m
+
+m
+
+m
+
+B1
+
+B2
+
+Bg−1
+
+bπ(1)
+
+bπ(2)
+
+bπ(g−1)
+
+m
+
+m
+
+m
+
+S
+
+S
+S
+
+b−1
+2
+
+S
+S
+
+b−1
+3
+
+...
+
+S
+
+b−1
+g
+
+∆
+
+∆
+
+∆
+
+b−1
+π(1)
+
+b−1
+π(2)
+
+b−1
+π(g−1)
+
+∆
+
+∆
+
+∆
+
+Λ
+
+Λ
+
+Λ
+
+Note that if H is a Hopf algebra in SVect, then the above expression has to be multiplied
+by σ = (−1)|Λ|(g−1) .
+ρ
+We claim that the above tensor is σ · ZH
+(Σ, α, β e ) where (Σ, α, β e ) is the (extended)
+Heegaard diagram of Subsection 4.1, with the orientations and basepoints specified there.
+To see this, first note that each Ai -output is joined to some input of Bπ(i) and the product
+appearing right below Ai is simply adding a product to the corresponding input in Bπ(i) .
+Since Bπ(i) is itself a product, this implies that the above expression is in the form coproduct,
+
+24
+
+DANIEL LÓPEZ NEUMANN
+
+ρ
+followed by antipodes, followed by products. Thus, it has the same form as ZH
+(Σ, α, β e )
+and now we have to check that each coproduct/product has the same outputs/inputs as
+intersection points of the corresponding α or β curve and that the b’s twisting the tensors
+come from the Fox derivatives as in (12). Indeed, for i = 1, . . . , g − 2 the i-th tensor on the
+bottom of the above tensor is
+
+S
+−1
+
+(bπ(i) bi+1 bπ(i) )−1
+b−1
+π(i)
+S
+∆
+Λ
+which is exactly the tensor corresponding to αi as in Subsection 4.3 where the wi are as
+in (13). The two rightmost legs have an antipode, because the first two crossings of αi are
+negative (assuming that all crossings of the diagram are positive, as we did above). Note
+that we show four legs coming out of the above tensor, but there may be less if those legs
+correspond to intersection points of αi ∩ βg , this is because we applied ǫ to the output leg
+corresponding to βg . The (g − 1)-th coproduct above is only a triple coproduct (or less),
+this is because αg−1 intersects the arc βg . Similarly, it is easy to see that the i-th product
+on the top of the above tensor corresponds to the curve βi . Note that the tensor for β1 is
+slightly different, this is because there is not an α enclosing the top underarc of the diagram.
+This shows our claim under the assumption that all crossings of the diagram are positive.
+Whenever the crossing at ai is negative, ai has a black bead Ai = S(hi ) followed by a white
+bead ϕb−1 . This follows from formula (4) and by sliding the white bead through the white
+π(i)
+
+bead. Then, after proceeding as above and using that S is an algebra anti-automorphism,
+the i-th coproduct in the last tensor would instead be
+
+bπ(i)
+
+S
+
+−1
+(b−1
+π(i) bi+1 )
+
+bπ(i)
+
+S
+∆
+Λ
+
+which is again the tensor defined in Subsection 4.3 by (14). Therefore, we have shown that
+ρ
+ρ
+′
+ǫD(H) (ZD(H)
+(T )) = ǫD(H) (zD
+) = rH (ρ(m))−r/2 (−1)|Λ|(g−1) ZH
+(Σ, α, β e )
+
+so that
+
+w(T )−r
+
+ρ
+ρ
+(M, γ)
+(Σ, α, β e )=I
+˙ H
+PHρ (K) = rH (ρ(m)) 2 (−1)|Λ|(g−1) ZH
+where =
+˙ means equality up to the above indeterminacy (since w(T ) − r ∈ 2Z).
+
+TWISTED KUPERBERG INVARIANTS OF KNOTS VIA TWISTED DRINFELD DOUBLES
+
+25
+
+
+Note that if ρ : π1 (S 3 \ K) → Ker (rH ), then
+(15)
+
+ρ
+PHρ (K) = (±1)|Λ| IH
+(M, γ).
+
+If H is Z-graded and we consider ρ⊗h instead, then there is still a (±1)|Λ| tk|Λ| indeterminacy.
+Now let ρ : π1 (S 3 \ K) → SL(n, C) be a homomorphism. If H = Λ(Cn ) is an exterior
+algebra, then Aut(H) = GL(n, C), rH is the determinant and Ker (rH ) = SL(n, C).
+Corollary 4.3. The SL(n, C)-twisted Reidemeister torsion of the complement of K is
+recovered as a Reshetikhin-Turaev invariant from a twisted Drinfeld double of an exterior
+algebra Λ(Cn ) by
+ρ
+n ρ
+3
+PΛ(C
+n ) (K) = (±1) τ (S \ K, m).
+
+The twisted Alexander polynomial ∆ρK (t) of K is obtained as follows:
+ρ
+˙ ρ⊗h (S 3 \ K, m)=
+˙ det(tρ(m) − In )
+PΛ(C
+n ) (K, t)=τ
+
+∆ρK (t)
+∆ρK,0 (t)
+
+where =
+˙ is equality of to multiplication by (±1)n tkn , k ∈ Z and ∆ρK,0 (t) is the 0-th twisted
+Alexander polynomial of K.
+Proof. The first assertion follows from (15) together with [21, Theorem 2]. Note that, as
+ρ
+ρ−t
+ρ
+of [21] so with our conventions we get IΛ(C
+is the IH
+explain in Remark 4.1, our IH
+n) =
+ρ
+τ . The second assertion follows from our theorem at ρ ⊗ h and standard theorems of
+Reidemeister torsion, see [21].
+
+References
+1. Yasuhiro Akutsu, Tetsuo Deguchi, and Tomotada Ohtsuki, Invariants of colored links, J. Knot Theory
+Ramifications 1 (1992), no. 2, 161–184.
+2. C. Blanchet, F. Costantino, N. Geer, and B. Patureau-Mirand, Non-semi-simple TQFTs, Reidemeister
+torsion and Kashaev’s invariants, Adv. Math. 301 (2016), 1–78.
+3. Christian Blanchet, Nathan Geer, Bertrand Patureau-Mirand, and Nicolai Reshetikhin, Holonomy braidings, biquandles and quantum invariants of links with SL2 (C) flat connections, Selecta Math. (N.S.) 26
+(2020), no. 2, Paper No. 19.
+4. L. Chang and S. X. Cui, On two invariants of three manifolds from Hopf algebras, Adv. Math. 351
+(2019), 621–652.
+5. Francesco Costantino, Nathan Geer, and Bertrand Patureau-Mirand, Quantum invariants of 3-manifolds
+via link surgery presentations and non-semi-simple categories, J. Topol. 7 (2014), no. 4, 1005–1053.
+6. Alexei Davydov, Pavel Etingof, and Dmitri Nikshych, Autoequivalences of tensor categories attached to
+quantum groups at roots of 1, Lie groups, geometry, and representation theory, Progr. Math., vol. 326,
+Birkhäuser/Springer, Cham, 2018, pp. 109–136.
+7. Alexei Davydov and Dmitri Nikshych, The Picard crossed module of a braided tensor category, Algebra
+Number Theory 7 (2013), no. 6, 1365–1403.
+8. Alexei Davydov and Dmitri Nikshych, Braided picard groups and graded extensions of braided tensor
+categories, (2020).
+9. Pavel Etingof, Dmitri Nikshych, and Victor Ostrik, Fusion categories and homotopy theory, Quantum
+Topol. 1 (2010), no. 3, 209–273, With an appendix by Ehud Meir.
+10. S. Friedl and S. Vidussi, A survey of twisted Alexander polynomials, The mathematics of knots, Contrib.
+Math. Comput. Sci., vol. 1, Springer, Heidelberg, 2011, pp. 45–94.
+
+26
+
+DANIEL LÓPEZ NEUMANN
+
+11. Shlomo Gelaki, Deepak Naidu, and Dmitri Nikshych, Centers of graded fusion categories, Algebra
+Number Theory 3 (2009), no. 8, 959-990 (2009).
+12. R. Kashaev and N. Reshetikhin, Invariants of tangles with flat connections in their complements, Graphs
+and patterns in mathematics and theoretical physics, Proc. Sympos. Pure Math., vol. 73, Amer. Math.
+Soc., Providence, RI, 2005, pp. 151–172.
+13. Rinat Kashaev and Nicolai Reshetikhin, Braiding for quantum gl2 at roots of unity, Noncommutative
+geometry and representation theory in mathematical physics, Contemp. Math., vol. 391, Amer. Math.
+Soc., Providence, RI, 2005, pp. 183–197.
+14. Christian Kassel, Quantum groups, Graduate Texts in Mathematics, vol. 155, Springer-Verlag, New
+York, 1995.
+15. P. Kirk and C. Livingston, Twisted Alexander invariants, Reidemeister torsion, and Casson-Gordon
+invariants, Topology 38 (1999), no. 3, 635–661.
+16. G. Kuperberg, Involutory Hopf algebras and 3-manifold invariants, Internat. J. Math. 2 (1991), no. 1,
+41–66.
+17.
+, Non-involutory Hopf algebras and 3-manifold invariants, Duke Math. J. 84 (1996), no. 1, 83–
+129.
+18. X. S. Lin, Representations of knot groups and twisted Alexander polynomials, Acta Math. Sin. (Engl.
+Ser.) 17 (2001), no. 3, 361–380.
+19. C. McPhail-Snyder, Holonomy invariants of links and nonabelian Reidemeister torsion,
+arXiv:2005.01133 (2020).
+20. Daniel López Neumann, Kuperberg invariants for balanced sutured 3-manifolds, arXiv.1904.05786 (2019).
+21.
+, Twisting Kuperberg invariants via Fox calculus and Reidemeister torsion, Algebr. Geom. Topol.
+(2022).
+22. Tomotada Ohtsuki, Quantum invariants, Series on Knots and Everything, vol. 29, World Scientific
+Publishing Co., Inc., River Edge, NJ, 2002, A study of knots, 3-manifolds, and their sets. MR 1881401
+23. J. Porti, Reidemeister torsion, hyperbolic three-manifolds, and character varieties, Handbook of group
+actions. Vol. IV, Adv. Lect. Math. (ALM), vol. 41, Int. Press, Somerville, MA, 2018, pp. 447–507.
+24. D. E. Radford, Hopf algebras, Series on Knots and Everything, vol. 49, World Scientific Publishing Co.
+Pte. Ltd., Hackensack, NJ, 2012.
+25. N. Reshetikhin and V. G. Turaev, Ribbon graphs and their invariants derived from quantum groups,
+Comm. Math. Phys. 127 (1990), no. 1, 1–26.
+26. V. G. Turaev, Quantum invariants of knots and 3-manifolds, De Gruyter Studies in Mathematics,
+vol. 18, Walter de Gruyter & Co., Berlin, 1994.
+27.
+, Homotopy field theory in dimension 3 and crossed group-categories, arXiv:math/0005291 (2000).
+28.
+, Introduction to combinatorial torsions, Lectures in Mathematics ETH Zürich, Birkhäuser Verlag, Basel, 2001, Notes taken by Felix Schlenk.
+29.
+, Homotopy quantum field theory, EMS Tracts in Mathematics, vol. 10, European Mathematical
+Society (EMS), Zürich, 2010, Appendix 5 by Michael Müger and Appendices 6 and 7 by Alexis Virelizier.
+30. V. G. Turaev and A. Virelizier, On 3-dimensional homotopy quantum field theory II: The surgery approach, Internat. J. Math. 25 (2014), no. 4, 1450027, 66.
+31.
+, On 3-dimensional homotopy quantum field theory III: comparison of two approaches,
+arXiv:1911.10257 (2019).
+32. A. Virelizier, Hopf group-coalgebras, J. Pure Appl. Algebra 171 (2002), no. 1, 75–122.
+33.
+, Graded quantum groups and quasitriangular Hopf group-coalgebras, Comm. Algebra 33 (2005),
+no. 9, 3029–3050.
+34. M. Wada, Twisted Alexander polynomial for finitely presentable groups, Topology 33 (1994), no. 2,
+241–256.
+Email address: dlopezne@indiana.edu
+
+

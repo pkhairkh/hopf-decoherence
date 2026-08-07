@@ -1,0 +1,1736 @@
+arXiv:1511.07059v1 [math.QA] 22 Nov 2015
+
+BRAIDED HOCHSCHILD COHOMOLOGY AND HOPF
+ACTIONS
+CRIS NEGRON
+
+Abstract. We show that the braided Hochschild cohomology, of an algebra in a suitably algebraic braided monoidal category, admits a graded
+ring structure under which it is braided commutative. We then give a
+canonical identification between the usual Hochschild cohomology ring
+of a smash product and the (derived) invariants of its braided Hochschild
+cohomology ring. We apply our results to identify the associative formal deformation theory of a smash product with its formal deformation
+theory as a module algebra over the given Hopf algebra (when the Hopf
+algebra is sufficiently semisimple). As a second application we deduce
+some structural results for the usual Hochschild cohomology of a smash
+product, and discuss specific implications for finite group actions on
+smooth affine schemes.
+
+1. Introduction
+Let k be a field and Z be the category of modules over a quasitriangular
+Hopf algebra H (see 2.2). This gives Z the structure of a braided monoidal
+category with a monoidal embedding into the category of vector spaces. Our
+E of Yetter-Drinfeld modules over a
+motivating example is the category Y DE
+finite dimensional Hopf algebra E.
+An algebra in Z will be an object B in Z equipped with a compatible
+algebra structure. That is, we require all the structure maps
+unit : k → B and mult : B ⊗ B → B
+to be maps in Z . This is equivalent to B being a H-module algebra when
+we specify Z = Hmod. Our primary example of such an algebra is a smash
+product B = A ∗ E, where E is a finite dimensional Hopf algebra acting
+on A. The smash product is an algebra in the category of Yetter-Drinfeld
+modules over E under the right adjoint action (see 2.3).
+The work of the present paper is motivated, in part, by a desire to understand the nature of the Hochschild cohomology of A with coefficients in
+the smash product HH • (A, A ∗ E). This cohomology is, in a sense, more
+fundamental than the usual Hochschild cohomology HH • (A ∗ E). This
+can be seen in many works on Hochschild, cyclic, and orbifold cohomology
+(e.g. [2, 5, 29, 30, 14, 27, 3]). As is explained below, we find that the cohomology HH • (A, A ∗ G) is actually the braided Hochschild cohomology of
+This work was supported by NSF Postdoctoral fellowship DMS-1503147.
+1
+
+2
+
+CRIS NEGRON
+
+the smash product, with coefficients in itself. This phenomenon was first
+noticed by Schedler and Witherspoon in a more restrictive setting [28].
+In [1] Baez considered the braided Hochschild homology of such an algebra
+B. He defined this homology as the usual Tor group of the corresponding
+braided enveloping algebra B e ,
+e
+
+H•c (B) = TorB
+• (B, B).
+Here c denotes the braiding transformation on Z . (One can see Section
+3 for a precise definition of the braided enveloping algebra.) Baez related
+this homology to c-commutative differential forms on B, when B is braided
+commutative. Baez’s results are referential to the usual Hochschild homology of a commutative algebra, in which case one finds Khäler differentials
+in degree 1.
+In this work we consider the braided Hochschild cohomology, which can
+be defined succinctly as the group of self extensions of B over its braided
+enveloping algebra. We follow Baez’s notation and take
+Hc• (B) := Ext•B e (B, B).
+• (B), which is
+We also consider a relative version of the cohomology Hc,E
+defined for any subalgebra E ⊂ B in Z .
+This work is concerned primarily with a graded ring structure on braided
+Hochschild cohomology and its relation(s) to the non-braided Hochschild
+cohomology of smash products, although there are also interactions between
+the braided Hochschild cohomology and the Gerstenhaber bracket [24, Ch.
+3].
+
+Theorem 1.1 (=5.11). Let B be an algebra in a braided monoidal category
+Z as above.
+(1) Each cohomology group Hci (B) is itself an object in Z .
+(2) The cohomology Hc• (B) admits a graded ring structure under which
+it is braided commutative.
+• (B).
+The two above statements also hold for any relative cohomology Hc,E
+Theorem 1.1 is a quantum analog of the well known fact that the usual
+Hochschild cohomology of any algebra is a (graded) commutative ring [9].
+We also prove
+Theorem 1.2 (=4.6/5.5). Let E be a finite dimensional Hopf algebra and
+A be an E-module algebra. There is an algebra isomorphism between the
+Hochschild cohomology HH • (A, A∗E) and the E-relative braided Hochschild
+• (A ∗ E). When, further, E is semisimple and cosemisimple
+cohomology Hc,E
+the Hochschild cohomology HH • (A, A ∗ E) is isomorphic to the non-relative
+braided cohomology Hc• (A ∗ E).
+Theorem 1.2 was first proved by Schedler and Witherspoon in the case
+of a finite group acting on an algebra in characteristic 0 [28]. We also
+give a version of Theorem 1.2 for certain crossed products and twists of
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+3
+
+smash products (see 4.2). Theorem 1.2 implies that there is an algebra
+identification between HH • (A ∗ E) and the E-invariant classes in Hc• (A ∗ E)
+when E is semisimple and cosemisimple, among other things (see Corollary
+5.5). The theorem also implies that the cohomology HH • (A, A ∗ E) takes
+values in the category of Yetter-Drinfeld modules over E, and that it is
+braided commutative in that category.
+The fact that, when E is semisimple and cosemisimple, we have an isomorphism with the non-relative cohomology Hc• (A ∗ E) is of some significance.
+For example, we can use this fact to show that the formal deformation theory of A ∗ E as an associate algebra is equivalent to the formal deformation
+theory of A ∗ E as an E-module algebra (under the adjoint action). This is
+done in Section 4.1.
+We also apply the two above theorems to gain some general information
+about the Hochschild cohomology of smash products A ∗ G, where G is a
+finite group. As mentioned above, in characteristic 0 there is an algebra
+equality
+HH • (A ∗ G) = HH • (A, A ∗ G)G (and now HH • (A ∗ G) = Hc• (A ∗ G)G ),
+and more generally a spectral sequence relating the two cohomologies. Whence
+we study the cohomology HH • (A ∗ G) by studying HH • (A, A ∗ G).
+The cohomology HH • (A, A ∗ G) decomposes as a sum
+M
+HH • (A, A ∗ G) =
+HH • (A, Ag),
+g∈G
+
+and we get an action of the Hochschild cohomology HH • (A) = HH • (A, Ae)
+on each summand induced by the multiplication on HH • (A, A ∗ G). In certain examples, these HH • (A)-actions determine a great deal of the multiplicative structure on the entire cohomology [29, 27].
+In Proposition 6.1, we apply Theorems 1.1 and 1.2 to show that each
+summand HH • (A, Ag) is a symmetric bimodule over the Hochschild cohomology of A, and find explicit ideals in HH • (A) annihilating each given
+summand. In the case of a finite group acting on a smooth affine k-scheme
+X, for example, our results imply that each cohomology HH • (k[X], k[X]g)
+carries a canonical module structure over the algebra of polyvector fields
+∧• TX g on the fixed space X g (see 6.1). This result is expected from its C ∞ analog, which was studied in [27]. We expect that the ideals specified in
+Proposition 6.1 are in fact the entire annihilators of each HH • (k[X], k[X]g)
+for a general smooth affine G-scheme X (see again 6.1).
+Contents
+1.
+2.
+3.
+4.
+
+Introduction
+Background
+Braided Hochschild cohomology as a Z -valued invariant
+Identifications with standard Hochschild cohomology for smash
+products
+
+1
+4
+6
+13
+
+4
+
+CRIS NEGRON
+
+5.
+
+The cup product and braided commutativity of braided
+Hochschild cohomology
+6. Consequences for smash products with group algebras
+Acknowledgements
+References
+
+19
+26
+28
+28
+
+2. Background
+2.1. Conventions. Throughout this work Z will always denote a braided
+monoidal category which admits an equality Z = Hmod, for some quasitriangular Hopf algebra H. We also fix the Hopf algebra H throughout.
+The invariants (−)Z is defined abstractly as maps from the unit (−)Z =
+HomZ (1Z , −). This will agree with the usual invariants (−)Z = (−)H . We
+let c denote the braiding transformation on Z .
+A dot · generally denotes the action of H, while juxtaposition denotes
+multiplication in a ring. All Hopf algebras are assumed to have bijective
+antipode.
+By ⊗ we mean ⊗k . We use a simplified Sweedler’s notation ∆(x) = x1 ⊗x2
+to denote comultiplication in a coalgebra. So “x1 ⊗ x2 ” here is a symbol
+denoting a sum of pure tensors.
+Given an abelian category M , we let dgM denote the category of cochain
+complexes of objects in M . For any two complexes M and N in dgM we
+always let HomM (M, N ) denote the hom complex
+M  homogenous degree n maps 
+HomM (M, N ) =
+.
+M → N in M
+n∈Z
+
+The differential is the usual one
+dHomM (M,N ) (f ) = dN f − (−1)|f | f dM .
+We view a “graded object” in M as a complex in dgM with vanishing
+differential. In particular, the cohomology H • (M ) of a complex in dgM
+will be seen as an object in dgM with vanishing differential.
+2.2. Quasitriangular Hopf algebras. We follow, for the most part, the
+notation of [7]. For aPquasitriangular HopfPalgebra H, with R-matrix R ∈
+H ⊗ H, we take R = j rj ⊗ r j and R21 = j r j ⊗ rj . We adopt an Einstein
+sum notation and write rj ⊗ r j and r j ⊗ rj for these elements respectively.
+The braiding on the corresponding category Z = Hmod will be given by
+cM,N (m ⊗ n) = (r j · n) ⊗ (rj · m).
+
+(2.1)
+
+The R-matrix satisfies a number of relations, including the following:
+• ∆(h)R21 = R21 ∆op (h),
+• (id ⊗ S)(R21 ) = (S −1 ⊗ id)(R21 ) = (R21 )−1 ,
+• (ǫ ⊗ id)(R21 ) = (id ⊗ ǫ)(R21 ) = 1 ⊗ 1.
+
+(2.2)
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+5
+
+• r j ⊗ (rj )1 ⊗ (rj )2 = r l r j ⊗ rl ⊗ rj ,
+(2.3)
+• (r j )1 ⊗ (r j )2 ⊗ rj = r j ⊗ r l ⊗ rl rj .
+The latter two relations are the braid relations, and all of the relations can
+be equated with the fact that c, as defined at (2.1), is a braiding on the
+category Hmod.
+E . We recall that the category of (right)
+2.3. The algebra A ∗ E and Y DE
+Yetter-Drinfeld modules over a Hopf algebra E is the category whose objects
+are vector spaces M equipped with both a right E-action and right Ecoaction which satisfy the compatibility
+
+(m · w)0 ⊗ (m · w)1 = m0 · w2 ⊗ S(w1 )m1 w3 ,
+E are maps M → N which
+for each m ∈ M and w ∈ E. Morphisms in Y DE
+are simultaneously module and comodule maps. This category is braided
+monoidal, with braiding
+
+cM,N : M ⊗ N → N ⊗ M, m ⊗ n 7→ n0 ⊗ (m · n1 ).
+E is equal to the category of
+When E is finite dimensional, the category Y DE
+modules over a quasitriangular Hopf algebra called the Drinfeld, or quantum,
+double D of E. (Or rather, the double of the opposite algebra of E if we
+E can serve as one of our categories Z .
+follow [7]). So Y DE
+The Hopf algebra D will contain E op and E ∗ as Hopf subalgebras, and
+the restriction of the multiplication map E op ⊗ E ∗ → D will be a vector
+space isomorphism. Here E op means E with the opposite multiplication,
+−1
+. If we take a
+usual comultiplication, and inverted antipode SE op = SE
+j
+∗
+basis {rj }j ofPE, and dual basis {r }j of E , then the R-matrix in D will be
+the element j rj ⊗ r j .
+Let A be a E-module algebra. We denote the given action of E on A by
+a superscript, w a := w · a, and denote elements in the smash product A ∗ E
+by juxtaposition aw = a ∗ w. Any such smash product A ∗ E becomes an
+E under the right adjoint action
+algebra object in Y DE
+′
+
+(aw) · w′ := S(w1′ )aww2′ = (S(w2 ) a)S(w1′ )ww3′
+and obvious coaction ρ(aw) = aw1 ⊗ w2 . Or, if we think about E op in the
+Drinfeld double D, we have the left action given by
+w′ · (aw) = SE (w1′ )aww2′
+In the above expressions a ∈ A and w, w′ ∈ E.
+Throughout this work a smash product A ∗ E we be considered as an
+E.
+algebra object in the braided monoidal category Y DE
+2.4. Inner homs. Given any Hopf algebra H, the category Hmod admits
+inner homs, i.e. a functor Hom : Hmodop × Hmod → Hmod with an
+adjunction
+(2.4)
+HomHmod (L ⊗ M, N ) ∼
+= HomHmod (L, Hom(M, N )).
+
+6
+
+CRIS NEGRON
+
+As a vector space we will have Hom(M, N ) = Homk (M, N ), and the adjunction (2.4) is the usual ⊗-Hom adjunction. The action of H on
+ Hom(M, N ) =
+Homk (M, N ) will be given by h · f = m 7→ h1 · f (S(h2 ) · m , for any h ∈ H,
+f ∈ Homk (M, N ), m ∈ M . One can check easily the identity
+Hom(M, N )H = HomHmod (M, N ).
+Under the aforementioned action the canonical pairing
+Hom(M, N ) ⊗ M → N
+becomes H-linear. Indeed, this is the unique action so that the pairing is
+H-linear.
+3. Braided Hochschild cohomology as a Z -valued invariant
+Take a braided monoidal category Z = Hmod and algebra B in Z . In
+this section we cover all of the basics for the braided Hochschild cohomology
+Hc• (B). We show that the braided cohomology can be identified with the
+cohomology of a certain canonical complex, which is a braided analog of the
+standard Hochschild cochain complex. This complex will be a complex in
+Z , so that each cohomology group Hci (B) will be seen to be an object in
+Z.
+We then go on to consider a relative version of the braided Hochschild
+cohomology. The relative cohomology will provide an essential tool in establishing relations between the braided Hochschild cohomology and standard,
+non-braided, Hochschild cohomology.
+We first recall some facts from the original work [1]. Given an algebra B in
+Z we let B op denote the braided opposite algebra, which has multiplication
+b ·op b′ := (r j · b′ )(rj · b). Given algebras B and C in Z we let B⊗C
+denote the braided tensor algebra. This is the vector space B ⊗ C with the
+multiplication
+
+
+(b ⊗ c)(b′ ⊗ c′ ) = b(r j · b′ ) ⊗ (rj · c)c′ .
+
+We let B e denote the enveloping algebra B op ⊗B. The algebra B becomes a
+right module over B e under the action
+B ⊗ (B op ⊗B) → B, a ⊗ (b ⊗ b′ ) 7→ (r j · b)(rj · a)b′ .
+That is to say, we follow the obvious sequence
+cB,B ⊗id
+
+(B) ⊗ B ⊗ B
+
+/ B ⊗ (B) ⊗ B
+
+m(2) /
+
+B,
+
+where m(2) is the second iteration of the multiplication on B.
+Definition 3.1. The braided Hochschild cohomology is defined as the extension group Hc• (B) := Ext•modB e (B, B)
+It is shown in [1] that the standard bar resolution
+· · · → B ⊗ B ⊗2 ⊗ B → B ⊗ B ⊗ B → B ⊗ B → 0
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+7
+
+becomes a projective resolution of B over B e when we endow each B ⊗
+B ⊗n ⊗ B with the B e -action
+
+(a ⊗ x ⊗ a′ )(b ⊗ b′ ) := (r j · b) rj · (a ⊗ x ⊗ a′ ) b′ ,
+(3.1)
+where x ∈ B ⊗n and b(a⊗x⊗a′ )b′ = (ba)⊗x⊗(a′ b′ ). (Here H acts diagonally
+on the higher tensor powers of B.) We denote this complex by Bar c B.
+To see that Bar c B is projective in each degree we note that the B e -action
+map restricts to give an isomorphism B ⊗n ⊗ B e → B ⊗ B ⊗n ⊗ B, for each
+n. The inverse to this map is given by
+B ⊗ B ⊗n ⊗ B → B ⊗n ⊗ B e ,
+b ⊗ x ⊗ b′ 7→ (S(rj ) · x) ⊗ (r j · b) ⊗ b′ = (rj · x) ⊗ (S −1 (r j ) · b) ⊗ b′
+
+(3.2)
+
+Recall that the category Z = Hmod has inner homs. These objects are
+denoted Hom and are equal to the standard k-linear homs Homk along with
+the left H-action as described in Section 2.4.
+Lemma 3.2. For each n we have an isomorphism
+∼
+=
+
+HommodB e (B ⊗ B ⊗n ⊗ B, B) → Hom(B ⊗n , B)
+given by restriction. The inverse of the restriction map is given by
+⊗n
+Hom(B ⊗n
+ B)
+ , B) → HommodB e (B ⊗ B ⊗ B,
+′
+j
+′
+f 7→ b ⊗ x ⊗ b 7→ (r · b) rj · f (x)b .
+
+(3.3)
+
+Proof. First note that restriction does in fact provide an isomorphism between HommodB e (B⊗B ⊗n ⊗B, B) and Hom(B ⊗n , B), since each B⊗B ⊗n ⊗B
+is free over B e . Now, we have for any F ∈ HommodB e (B ⊗ B ⊗n ⊗ B, B)
+
+F (b ⊗ x ⊗ b′ ) = F (1 ⊗ S(rj ) · x ⊗ 1) (r j · b) ⊗ b′
+= r l r j · b) rl · F (1 ⊗ S(rj ) · x ⊗ 1))b′ .
+The braid relation
+(id ⊗ ∆)(R21 ) = r l r j ⊗ rl ⊗ rj ,
+then implies
+
+
+
+
+r l r j · b) rl · F (1 ⊗ S(rj ) · x ⊗ 1) b′ = (r j · b) (rj )1 · F (1 ⊗ S (rj )2 · x ⊗ 1) b′
+
+If we let f = F |B ⊗n the final expression is equal to (r j · b0 ) rj · f (x)b′ . This
+shows that the preimage of f along the restriction isomorphism, which in
+
+this case is F , is given by the proposed formula (3.3).
+As a result of the lemma we get an explicit isomorphism of graded spaces
+M
+∼
+=
+Hom(B ⊗n , B).
+(3.4)
+HommodB e (Bar c B, B) →
+n≥0
+
+This induces a differential on the right hand side under which the two complexes will be canonically isomorphic.
+
+8
+
+CRIS NEGRON
+
+In the following lemma dBB denotes the standard differential
+X
+dBB (b1 ⊗ . . . ⊗ bl ) =
+(−1)i b1 ⊗ . . . ⊗ bi bi+1 ⊗ . . . ⊗ bl .
+i
+
+on the bar construction
+0
+
+BB = · · · → B ⊗3 → B ⊗2 → B → k → 0.
+The bar construction and bar resolution are related by the formula Bar c B =
+B ⊗ BB ⊗ B. To be precise, one arrives at the bar resolution by taking a
+“twisted tensor product” between B and the bar construction so that
+dBarc B = idB ⊗ dBB ⊗ idB + extremal termal.
+L
+⊗n , B) inProposition 3.3. Let dc denote the differential on
+n Hom(B
+duced by the restriction isomorphism (3.4).
+(1) dc is given in degree 0 by the formula
+
+−dc (f )(b) = (r j · b) rj · f (1) − f (1)b
+and in higher degree by the formula
+
+(−1)|f |+1 dc (f )(b
+⊗ y ⊗ b′ )
+
+= (r j · b) rj · f (y ⊗ b′ ) + f (dBB (b ⊗ y ⊗ b′ )) + (−1)n+1 f (b ⊗ y)b′ ,
+
+(3.5)
+
+where f is a homogenous map, y ∈ B ⊗n−2 , and b, b′ ∈ B.
+(2) Each differential dc : Hom(B ⊗n , B) → Hom(B ⊗n+1 , B) is a map in
+Z.
+
+Proof. (1) Let F be the preimage of f along the restriction map. Suppose
+|f | = n > 0. According to the previous lemma we have
+(−1)|f |+1 dc (f )(b ⊗ y ⊗ b′ ) = d(F )(1 ⊗ b ⊗ y ⊗ b′ ⊗ 1)
+= F (b ⊗ y ⊗ b′ ⊗ 1) + (−1)n+1 F (1 ⊗ b ⊗ y ⊗ b′ ) + F (1 ⊗ dBB (b ⊗ y ⊗ b′ ) ⊗ 1)
+= (r j · b) rj · f (y ⊗ b′ ) + f (dBB (b ⊗ y ⊗ b′ )) + (−1)n+1 f (b ⊗ y)b′ .
+
+The formula in degree 0 is verified similarly.
+(2) We note first that, for f ∈ Hom(B ⊗n , B), b ∈ B, x ∈ B ⊗n , the element
+
+(r j · b) rj · f (x)
+is the image of the monomial f ⊗ b ⊗ x under the sequence of maps
+c⊗id
+
+id⊗pair
+
+mult
+
+Hom(B ⊗n , B) ⊗ B ⊗ B ⊗n −→ B ⊗ Hom(B ⊗n , B) ⊗ B ⊗n −→ B ⊗ B −→ B,
+all of which are morphisms in Z = Hmod. So for any h ∈ H we have
+
+h · (r j · b)(rj · f )(x) = (r j h2 · b)(rj h1 · f )(h3 · x).
+Replacing h ⊗ b ⊗ x with h1 ⊗ (S(h3 ) · b) ⊗ (S(h2 ) · x) then gives
+
+h1 · (r j S(h3 ) · b)(rj · f )(S(h2 ) · x)
+= (r j h2 S(h5 ) · b)(rj h1 · f )(h3 S(h4 ) · x)
+= (r j h2 ǫ(h3 )S(h4 ) · b)(rj h1 · f )(·x)
+= (r j · b)(rj h · f )(x).
+
+(3.6)
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+9
+
+One can also check the more obvious relations
+
+
+
+
+
+h1 · f dBB (S(h2 )·x) = h1 · f S(h2 )·dBB (x)) = (h·f ) dBB (x) (3.7)
+and
+
+
+
+
+
+h1 · f (S(h3 ) · x)(S(h2 ) · b ) = h1 · f (S(h2 ) · x) b′ = (h · f )(x)b′ .
+′
+
+(3.8)
+
+So we see that for x = b ⊗ y ⊗ b′ we have
+
+(−1)|f |+1 h· dc (f ) − dc (h · f ) (x)
+
+
+
+= (−1)|f |+1 h · dc (f ) (b ⊗ y ⊗ b′ ) − dc h · f (b ⊗ y ⊗ b′ )
+
+
+
+= h1 · (r j S(h3 ) · b)(rj · f ) S(h2 ) · (y ⊗ b′ ) − (r j · b) rl h · f (y ⊗ b′ )
+
+
+
++h1 · f dBB (S(h2 )x) − (h · f ) dBB (x)
+
+
++h1 · f (S(h3 ) · (b ⊗ y)) S(h2 ) · b′ − (h · f )(b ⊗ y)b′ .
+
+Checking the above expressions (3.6)-(3.8), we see that the final sum is 0.
+So h · dc (f ) = dc (h · f ) and therefore dc is H-linear .
+
+Definition 3.4. We let Cc• (B) denote the complex
+d0
+
+d1
+
+Cc• (B) = 0 → Hom(k, B) →c Hom(B, B) →c Hom(B ⊗2 , B) → · · · ,
+where dc is given by the formula (3.5). We call this complex the braided
+Hochschild cochain complex.
+Proposition 3.3 tells us that Cc• (B) is a chain complex in Z . So we get
+Theorem 3.5.
+(1) The braided Hochschild cohomology Hc• (B) is the cohomology of the braided Hochschild complex Cc• (B).
+(2) The cohomology Hc• (B) is an object in dgZ (with vanishing differential).
+Proof. Statement (1) follows from Lemma 3.2 and the construction of the
+
+differential dc . Statment (2) follows from (1) and Proposition 3.3.
+Remark 3.6. The complex Cc• (B) may be legitimate even when we replace
+Z with an arbitrary braided multi-tensor category, with possibly nontrivial
+associator. This is despite the fact that Definition 3.1 may make no sense
+in this setting.
+3.1. Relative braided cohomology. Given any subalgebra E ⊂ B in Z
+c B to be the complex
+we can define the relative bar resolution BarE
+· · · → B ⊗ E B ⊗E 2 ⊗ E B → B ⊗ E B ⊗ E B → B ⊗ E B → 0
+with the usual differential and right B e -action given by the same formula
+(3.1). We define the E-relative Hochschild cohomology as the cohomology
+
+c
+•
+B, B) .
+Hc,E
+(B) = H • HommodB e (BarE
+
+10
+
+CRIS NEGRON
+
+We similarly let BE B denote the relative bar construction
+0
+
+B E B = · · · → B ⊗E 3 → B ⊗ E B → B → E → 0
+with the usual differential, as above.
+We have an embedding
+c
+B, B) → HommodB e (Bar c B, B) = Cc• (B)
+HommodB e (BarE
+
+(3.9)
+
+c B.
+of cochain complexes dual to the projection Bar c B → BarE
+
+In order
+to think clearly about the image of this embedding we introduce a new
+category.
+Definition 3.7. Let E be an algebra in Z . We let E ZE denote the category
+of objects M in Z with an additional E-bimodule structure such that the
+action E ⊗ M ⊗ E → M is a map in Z . Morphisms in this category will be
+maps in Z which are also E-bimodule maps.
+Both B ⊗n and B ⊗E n will be objects in E ZE , for example. The projections
+B ⊗n → B ⊗E n will be maps in E ZE .
+The category E ZE is actually the category of modules over a certain
+smash-product-esque algebra [15, Lemma 3.2]. Whence E ZE will be abelian
+with enough projectives. There is a natural functor
+F orget : E ZE → modE e
+
+(3.10)
+
+which sends an object M to the vector space M with the right E e -action
+x · (w ⊗ w′ ) = (r j · w)(rj · x)w′ for each x ∈ M , w, w′ ∈ E.
+Given any M and N in E ZE the maps in HommodE e (M, N ) are exactly
+those k-linear maps f which satisfy the additional relations
+f (xw) = f (x)w
+
+(3.11)
+
+and
+f (wx) = (r j · w) rj · f )(x)
+(3.12)
+for each x ∈ M , w ∈ E. The relation (3.11) is obviously just right E-linearity
+while (3.12) should be familiar from Lemma 3.2.
+Recall that the set of inner homs Hom(M, N ) in Z is equal to the set of
+k-linear maps, after we forget the Z -structure.
+Lemma 3.8. In each degree n, the image of each embedding (3.9) is exactly
+the subset
+HommodE e (B ⊗E n , B) ⊂ Hom(B ⊗n , B).
+It may actually be more informative to think instead about the sequence
+of inclusions
+HommodE e (B ⊗E n , B) ⊂ Hom(B ⊗E n , B) ⊂ Hom(B ⊗n , B)
+Proof. This follows from the formula for the identification (3.3) of Lemma
+3.2, as well as the description of the maps in HommodE e given in equation
+(3.11) and (3.12).
+
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+11
+
+Lemma 3.9. For any M, N in E ZE , the embedding HommodE e (M, N ) →
+Hom(M, N ) realizes HommodE e (M, N ) as an object in Z .
+Proof. We need to show that each HommodE e (M, N ) is stable under the
+action of H, where Z = Hmod. A straightforward computation shows that
+the subspace of right E-linear maps in a H-submodule in Hom(M, N ), so
+we need only concern ourselves with the relation (3.12).
+Suppose f ∈ Hom(M, N ) satisfies the relation (3.12) and take any h ∈ H.
+Then
+
+
+
+(h · f )(wx) = h1 · (r j S(h3 ) · w) rj · f (S(h2 ) · x) .
+We find just as in the proof of Proposition 3.3 (2) the equality
+
+
+
+
+h1 · (r j S(h3 ) · w) rj · f (S(h2 ) · x) = (r j · w) rj h · f (x),
+
+which gives the desired relation
+
+
+(h · f )(wx) = (r j · w) rj h · f (x).
+
+So we see that HommodE e (M, N ) ⊂ Hom(M, N ) is an H-submodule.
+
+
+
+In order to emphasize the natural Z -structure on these hom sets we adopt
+Notation 3.10. For any M and N in E ZE we let HomE (M, N ) denote the
+set of maps HommodE e (M, N ) along with its Z -structure induced by the
+inclusion HommodE e (M, N ) → Hom(M, N ).
+We remark that this hom set may not truly be an inner hom set in a category, despite the fact that we have elected to adopt the underline notation.
+c B, B) in C • (B)
+Lemma 3.9 implies that the image of HommodB e (BarE
+c
+c B, B) becomes
+will be a subcomplex in Z . So the complex HommodB e (BarE
+naturally an object in dgZ , and the relative braided Hochschild cohomology
+will again be Z -valued.
+• (B) analogous to the braided
+We now write down an explicit complex Cc,E
+Hochschild cochain complex constructed in the non-relative instance: first,
+Lemma 3.8 tells us that the image of the embedding (3.9) is the graded
+subspace
+M
+HomE (B ⊗E n , B) ⊂ Cc• (B).
+n∈Z
+
+Second, since (3.9) is a chain map we see that this subspace is a subcomplex under the differential on Cc• (B). So restricting to the generators now
+provides a cochain complex isomorphism
+M
+
+∼
+=
+c
+HommodB e (BarE
+B, B) →
+HomE (B ⊗E n , B), dc ,
+n∈Z
+
+where the differential dc is given by the formula (3.5).
+• (B) denote the complex
+Definition 3.11. We let Cc,E
+d0
+
+d1
+
+d2
+
+•
+Cc,E
+(B) = 0 → HomE (E, B) →c HomE (B, B) →c HomE (B ⊗E 2 , B) →c · · · .
+
+12
+
+CRIS NEGRON
+
+The following proposition is now clear.
+
+• (B) = H • C • (B) , and the cohomology
+Proposition 3.12. We have Hc,E
+c,E
+• (B) is an object in dgZ .
+Hc,E
+Our main intent in introducing the relative cohomology is to provide
+a relationship between the braided Hochschild cohomology and standard
+Hochschild cohomology. With the above information we will be able to relate
+the standard Hochschild cohomology to the relative braided cohomology.
+(This is done in Section 4.) We would like to establish finally some conditions
+under which the relative and non-relative braided Hochschild cohomologies
+agree.
+Definition 3.13. We say E is separable in Z if the category E ZE is
+semisimple.
+Lemma 3.14.
+
+(1) For any M and N in E ZE there is an equality
+HomE ZE (M, N ) = HomE (M, N )Z .
+
+(2) If Z is semisimple, then E is separable in Z whenever E e is semisimple as an ordinary k-algebra.
+Note that both HomE ZE (M, N ) and HomE (M, N ) are subsets in Homk (M, N ).
+So it makes sense to propose that the two sets are equal.
+Proof. (1) Maps in both hom sets are right E-linear, as well as maps in Z .
+So we need only concern ourselves with left E-linearity. Any H-invariant
+(i.e. H-linear) function f in HomE (M, N ) will satisfy h · f = ǫ(h)f for each
+h ∈ H. Therefore, for any w ∈ E, m ∈ M , we have
+
+f (wm) = (r j · w) rj · f (m) = (r j ǫ(rj ) · w)f (m) = wf (m).
+
+Whence f is left E-linear. So HomE (M, N )Z ⊂ HomE ZE (M, N ).
+Recall now that maps in E ZE are H-linear, and hence H-invariant. Therefore, for any g ∈ HomE ZE (M, N ),
+
+g(wm) = wg(m) = (r j · w) rj · g (m).
+So we get the opposite inclusion as well, and hence an equality.
+(2) Note that Z is semisimple if and only if the invariants functor (−)Z
+is exact. So, if Z and E e are semisimple then for any M in E ZE the hom
+functor HomE ZE (M, −) is exact, since it will be the composite of the exact
+functors
+(−)Z ◦ HomE (M, −) = (−)Z ◦ HommodE e (M, −)
+by (1). So all objects in E ZE are projective, and E is separable in Z . 
+
+The following is a braided version of a result of Gerstenhaber and Schack [10].
+Proposition 3.15. If E is separable in Z then
+• (B) → C • (B) is a quasi-isomorphism,
+(1) the inclusion Cc,E
+c
+• (B) → H • (B) is an isomorphism in dgZ .
+(2) there induced map Hc,E
+c
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+13
+
+Proof. The second statement follows from the first. So we address (1). First,
+note that for any M in E ZE , B ⊗ M ⊗ B and B ⊗E M ⊗E B become objects
+in modB e under the obvious action(s)
+
+(a ⊗ m ⊗ a′ ) ∗ (b ⊗ b′ ) = (r j · b) rj · (a ⊗ m ⊗ a′ ) b′ .
+
+As was the case above, the braiding gives an isomorphism between each
+B ⊗ M ⊗ B and the free B e -module M ⊗ B e .
+Now, If E is separable in Z then for any M in E ZE the action map
+mM : E ⊗ M ⊗ E → M will admit a splitting σM : M → E ⊗ M ⊗ E in
+E ZE . The multiplication map m : E ⊗ E → E will also be split in E ZE by
+some σE : E → E ⊗ E. Whence the projections
+B ⊗ M ⊗ B = B ⊗E E ⊗ M ⊗ E ⊗E B
+and
+
+id⊗mM ⊗id
+
+→
+
+B ⊗E M ⊗E B
+
+id⊗m⊗id
+
+B ⊗ B = B ⊗E E ⊗ E ⊗E B → B ⊗E B
+will be split in modB e by 1 ⊗ σM ⊗ 1 and 1 ⊗ σE ⊗ 1 respectively. So
+B⊗E M ⊗E B and B⊗E B are summands of free modules and hence projective
+in modB e.
+By the above general argument we find that each B ⊗E B ⊗E n ⊗E B is
+c B → B is a projective resolution of B in modB e . Conprojective and BarE
+c B is a homotopy equivalence, and
+sequently the projection Bar c B → BarE
+applying the functor HommodB e (−, B) produces a quasi-isomorphism
+∼
+
+c
+HommodB e (BarE
+B, B) → HommodB e (Bar c B, B).
+
+(3.13)
+
+Under the identifications
+c
+•
+•
+HommodB e (BarE
+B, B) = Cc,E
+(B) and HommodB e (Bar c B, B) = Cc,E
+(B),
+
+which are both given by restriction, (3.13) becomes the canonical embedding
+• (B) → C • (B). We see now that the embedding is a quasi-isomorphism.
+Cc,E
+c
+
+4. Identifications with standard Hochschild cohomology for
+smash products
+We fix E to be a finite dimensional Hopf algebra, A an E-module algebra,
+E , and B = A ∗ E. We take A ∗ E to be an algebra in Y D E as
+Z = Y DE
+E
+described in Section 2.3. We can recover A in a functorial manner from B
+as the coinvariants A = B coE . The subalgebra E ⊂ B becomes a subalgebra
+E under the adjoint action of E on itself and regular right coaction.
+in Y DE
+• (B).
+So we may consider the relative cohomology Hc,E
+Recall from the relation (3.11) that any map in HomE (B ⊗E n , B) will be
+right E-linear.
+Lemma 4.1. When B = A ∗ E, then the inclusion
+HomE (B ⊗E n , B) ⊂ HommodE (B ⊗E n , B)
+is an equality.
+
+14
+
+CRIS NEGRON
+
+Proof. We let juxtaposition denote the multiplication in B, and the dot ·
+denote the action of E op according to the Yetter-Drinfeld structure. Take D
+E = Dmod. We verify that for any right
+to be the double of E so that Y DE
+E-linear f : B ⊗E n → B the equation (3.12) will already be satisfied.
+Note that, since each tensor product is over E, we will have for any
+w ∈ E op ⊂ D identities
+w · (b1 ⊗ . . . ⊗ bl ) = (SE (w1 )b1 w2 ) ⊗ (SE (w3 )b2 w4 ) ⊗ . . . ⊗ (SE (w2l−1 )bl w2l )
+= (SE (w1 )b1 ) ⊗ b2 ⊗ . . . ⊗ (bl w2 )
+and hence, for any w ∈ E op ⊂ D and x ∈ B ⊗E n ,
+−1
+(w2 ) · x)w1 .
+wx = (SE
+
+It follows that for any right E-linear f : B ⊗E n → B we have
+
+−1
+(w2 ) · x)w
+f (wx) = f (SE
+1
+
+−1
+(w2 )· x w1
+by right E-linearity
+= f SE
+ 
+−1
+= w1 SE (w2 ) f SE (w4 ) · x w3
+
+ 
+−1
+(w4 ) · x w3
+= w1 SE (w2 )f SE
+
+
+−1
+(w3 ) · x
+= w1 w2 · f SE
+
+= w1 w2 · f (x)
+
+Now if we view E as a subcomodule in B then w1 ⊗w2 = w0 ⊗w1 = r j ·w⊗rj
+and the final equation above becomes
+
+f (wx) = (r j · w) rj · f (x).
+
+Whence (3.12) is satisfied.
+
+
+
+• (B) now appears as
+By the lemma, when B = A ∗ E, the complex Cc,E
+• (B)
+Cc,E
+d0
+
+d1
+
+d2
+
+= 0 → HommodE (E, B) →c HommodE (B, B) →c HommodE (B ⊗E 2 , B) →c · · · .
+• (B) in this case is exactly the “intermediate complex”
+The complex Cc,E
+of [24, Ch. 3].1
+In the following proposition the notation C • (A, B) denotes the standard,
+i.e. non-braided, Hochschild cochain complex of A with coefficients in B.
+Note that restricting along the embeddings A⊗n → B ⊗E n produces vector
+space maps
+n
+Cc,E
+(B) = HomE (B ⊗E n , B) → Homk (A⊗n , B) = C n (A, B)
+
+in each degree n.
+Proposition 4.2. Restriction provides an isomorphism of chain complexes
+∼
+∼
+=
+=
+• (B) →
+• (B) →
+C • (A, B) and subsequent isomorphism of cohomologies Hc,E
+Cc,E
+HH • (A, B).
+1At the point of [24] the relation with braided cohomology was still obscured.
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+15
+
+Proof. The fact that the restriction maps are isomorphisms follows immediately from the fact that the inclusion A⊗n ⊗ E = A⊗(n−1) ⊗ B → B ⊗E n is
+an isomorphism of right E-modules. As for the differential we note that, by
+coinvariance of elements in A and the formula for the differential dc given
+at (3.5), we have
+(−1)n+1 dc (f )(a1 ⊗ . . . ⊗ an+1 )
+=P
+a1 f (a2 ⊗ . . . ⊗ an+1 ) + (−1)n+1 f (a1 ⊗ . . . an )an+1
++ ni=1 (−1)i f (a1 ⊗ . . . ai ai+1 ⊗ . . . ⊗ an+1 )
+
+for any degree n function f ∈ Ccn (B) and ai ∈ A ⊂ B. This is exactly the
+non-braided Hochschild differential.
+
+• (B)
+As a consequence of the above isomorphism, and the fact that Cc,E
+E , we see that the Hochschild complex C • (A, B) is a
+is a complex in Y DE
+E
+complex in Y DE . We see also that the cohomology is a graded object in
+E.
+Y DE
+One can check easily that the right E-action implicit in this YetterDrinfeld structure is exactly the right action considered in [32, 25]. The
+coaction is induced by the coaction on B = A ∗ E. Namely, by coinvariance of the elements in A, we will have for any f ∈ C • (A, B), ξ ∈ E ∗ , and
+x ∈ BA
+
+
+
+ξ · f (x) = ξ1 · f (S(ξ2 ) · x) = ξ · f (x) .
+Written another way, the coproduct f0 ⊗ f1 of f is the unique element so
+that
+
+
+f0 (x) ⊗ f1 = f (x) 0 ⊗ f (x) 1
+for each x ∈ BA. In the case of a finite group ring G, for example, the Gcoaction on C • (A, B) = C • (A, A ∗ G) corresponds to the obvious G-grading
+M
+M
+C • (A, A ∗ G) = C • (A,
+Ag) =
+C • (A, Ag).
+g∈G
+
+g∈G
+
+We now want to address the question of when H • (A, B) is equal to the
+non-relative braided Hochschild cohomology. In light of Proposition 3.15, it
+E . We will see that this
+suffices to understand when E is separable in Y DE
+occurs when E is both semisimple and cosemisimple.
+Lemma 4.3. The vector space equality E = E op is an equality of algebras
+E.
+in Y DE
+E , so we need only
+Proof. The equality is already an identification in Y DE
+deal with the multiplication. We denote the adjoint action of E op ⊂ D by a
+dot ·, and multiplication by juxtaposition. For any w, w′ ∈ E,
+
+w ·op w′ = (w1′ )(w2′ · w) = (w1′ )(S(w2′ )ww3′ ) = (w1′ S(w2′ ))ww3′ = ww′ ,
+and we are done.
+
+
+
+Lemma 4.4. If E is semisimple and cosemisimple then the algebra E e is
+E.
+separable in Y DE
+
+16
+
+CRIS NEGRON
+
+Proof. Since E is both semisimple and cosemisimple the double D is semisimE = Dmod is semisimple. It therefore suffices
+ple (see e.g. [21]). Hence Y DE
+to establish semisimplicity of the braided enveloping algebra E e , by Lemma
+3.14. By the previous lemma we have E e = E⊗E. Let E1 and E2 denote
+the left and right copies of E in the product E⊗E. Then, by checking the
+multiplication
+(a ⊗ b)(a′ ⊗ b′ ) = a(a′1 ) ⊗ (a′2 · b)b′ = a(a′1 ) ⊗ (S(a′2 )ba′3 )b′
+we see that E1 ⊗E2 is the smash product E1 ∗ E2 , where E2 is a right E1 module algebra under the adjoint action. Now we have the standard identification of maps over the smash product as the invariants
+HommodE e (−, −) = HommodE1 ∗E2 (−, −) = HommodE2 (−, −)E1 .
+Semisimplicity of E = E1 = E2 then implies exactness of the functor
+HommodE e (M, −) = HommodE2 (M, −)E1
+for arbitrary M in modE e . So all objects in modE e are projective, and E e
+is semisimple.
+
+Lemma 4.4 in conjunction with Proposition 3.15 then gives
+Theorem 4.5. Suppose that E is semisimple and cosemisimple, and B =
+A∗E. Then there is a canonical isomorphism between the E-relative braided
+• (B) ∼ H • (B) in dgY D E .
+cohomology and non-relative braided cohomology Hc,E
+= c
+E
+The following Corollary was proved in the unpublished work of Schedler
+and Witherspoon in the case of a finite group E = kG in characteristic
+0 [28]. The methods employed in [28] were quite different.
+Corollary 4.6. (Generalized Schedler-Witherspoon Isomorphism) When E
+is semisimple and cosemisimple, and B = A ∗ E, there is a canonical isomorphism HH • (A, B) ∼
+= Hc• (B).
+• (B) ∼
+Proof. By Proposition 4.2 and Theorem 4.5 we have HH • (A, B) ∼
+= Hc,E
+=
+•
+
+Hc (B).
+
+As noted above, the Yetter-Drinfeld structure on HH • (A, B) induced by
+this isomorphism is the expected one, with the action from [32, 25] and
+coaction induced from B = A ∗ E. As a consequence of the above results
+and Ştefan’s spectral sequence we also have
+Corollary 4.7. When E is semisimple and cosemisimple there is a vector
+space identification HH • (B) = Hc• (B)E and for general E there is a spectral
+sequence
+
+•
+(B) ⇒ HH • (B)
+ExtmodE k, Hc,E
+Proof. Ştefan’s spectral sequence [32] appears as
+
+ExtmodE k, HH • (A, B) ⇒ HH • (B).
+
+So the result follows from Proposition 4.2 and Theorem 4.5.
+
+
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+17
+
+4.1. An application to deformation theory. Take B = A ∗ E. For this
+• (B). This
+subsection we would like to employ the normalized complex C̄c,E
+• (B) which vanish on any monomial
+consists of all maps in the complex Cc,E
+• (B) → C • (B) will be
+b1 ⊗. . .⊗bn with bi = 1 for some i. The inclusion C̄c,E
+c,E
+a quasi-isomorphism, for the same reason as it is the case in the non-braided
+c B → Bar
+¯ c B, to
+setting [11, 10]. Namely, the kernel of the projection BarE
+E
+•
+•
+which the embedding C̄c,E (B) → Cc,E (B) is dual, will (still) be contractible.
+In the following we take L(B) to be the shifted, normalized, non-braided
+Hochschild complex ΣC̄ • (B), with its usual dg Lie algebra structure, and
+we let L(B; E) denote the E-invariants of the shifted, normalized, braided
+Hochschild complex ΣC̄c• (B)E . One can see easily that the differential on
+invariant (i.e. left E-linear) functions in C̄c• (B) reduces to the usual, nonbraided, Hochschild differential and that the inclusion
+C̄c• (B)E → C̄ • (B)
+induces a dg Lie structure on the shifted complex L(B; E). The inclusion
+identifies the invariant functions in C̄c• (B) with left E-linear functions in
+C̄ • (B).
+Theorem 4.8. Suppose E is both semisimple and cosemisimple and take
+B = A ∗ E. The inclusion L(B; E) → L(B) is a quasi-isomorphism of dg
+Lie algebras.
+Without getting completely sidetracked by the issue, the above corollary
+says that when E is semisimple and cosemisimple the formal deformation
+theory of B as an associative algebra, and B as an E-module algebra, will
+be equivalent. See [19, 16, 24, 33, 8, 18, 6].
+We note that our complex L(B; E) representes the formal deformation
+theory of B with fixed E-module structure. However, since E is semisimple
+B will not be deformable as an E-module, so the distinction should be
+immaterial (see also [33]).
+Proof of Theorem 4.8. In this proof we take C∗• to mean the normalized
+complex, to ease notation. We have the quasi-isomorphism of complexes
+• (B) → C • (B) and taking invariants gives another quasiC • (A, B) = Cc,E
+c
+isomorphism C • (A, B)E → Cc• (B)E (since E is semisimple and the invariants functor is therefore exact). So, to see that the shift of the map
+Cc• (B)E → C • (B) is a quasi-isomorphism it suffices to show that the composite map C • (A, B)E → Cc• (B)E → C • (B) is a quasi-isomorphism.
+But now C • (A, B)E is canonically identified with the relative Hochschild
+complex CE• (B). Since E is separable it then follows from [10] that the
+inclusion
+ΣC • (A, B)E = ΣCE• (B) → ΣC • (B)
+is in fact a quasi-isomorphism.
+
+
+
+18
+
+CRIS NEGRON
+
+4.2. Cohomology for crossed products and J-twists. Take E a finite
+dimensional Hopf algebra and B = A ∗ E. Let J ∈ E ∗ ⊗ E ∗ be an invertible
+dual cocycle (or, twist) [22]. We can consider this element also as an element
+in the second tensor power of the double D ⊗ D. For any such J, and (dg)
+E = Dmod we can form the (dg) algebra Ω by altering
+algebra Ω in Y DE
+J
+the multiplication
+ω ·J ω ′ = (Jl · ω)(J l · ω ′ ),
+P
+where J = Jl ⊗ J l . (There is an implicit sum here J = l Jl ⊗ J l .) This
+new object will be a (dg) algebra in the category of modules over the twists
+D J [22], and the Hopf algebra D J will be quasitriangular with new R-matrix
+−1
+R = J21
+RJ [7]. So, the algebra ΩJ is an algebra in the braided category
+J
+dgD mod.
+In the case that E is cocommutative (e.g. a group algebra) we arrive at
+all crossed products A ∗α E, with α taking values in k, as (A ∗ E)J where J
+is the element identified with α under the isomorphism E ∗ ⊗ E ∗ ∼
+= (E ⊗ E)∗ .
+So we see that many crossed products of interest live naturally in a braided
+monoidal categories as well. For example, we can consider the motivating
+examples of [4]. I make the following claim.
+Claim 4.9. Take B = (A∗E) and J an invertible dual cocycle in E ∗ ⊗E ∗ ⊂
+D ⊗ D. Then there is a natural identification
+•
+(BJ )
+HH • (A, BJ ) = Hc,E
+J
+
+and when E is both semisimple and cosemisimple we get a natural isomorphism with the non-relative braided cohomology
+HH • (A, BJ ) ∼
+= H • (BJ ).
+c
+
+Whence the Hochschild cohomology has the structure of an object in dgD J mod.
+With the claim one can provide an analog of Theorem 4.8 for certain
+crossed products. At this point the proof of the claim is quite arduous
+(although it can be presented clearly). So we forgo this path and opt instead
+for a happy in between with the following proposition.
+Proposition 4.10. Take B = A ∗ E and any J as above.
+(1) There is an equality of HH • (A)-bimodules HH • (A, BJ ) = HH • (A, B),
+which also holds at the cochain level.
+(2) There is an equality of dg algebras
+C • (A, B)J = C • (A, BJ )
+and also an equality of Hochschild cohomology rings
+HH • (A, B)J = HH • (A, BJ ).
+(3) The equality of (2) gives the Hochschild cohomology of BJ the natural
+structure of an object in the category dgD J mod.
+We adopt some of the notation (but none of the results) of Section 5 for
+the proof.
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+19
+
+Proof. We prove (1) last, and begin with (2). Note that A⊗n ⊂ B ⊗E n is
+exactly the coinvariants. So J = Jl ⊗ J l will act trivially on the tensor
+powers of A. This fact also implies that for any a ∈ A, and b ∈ B, we will
+have a ·J b = ab and b ·J a = ba, so that BJ = B as an A-bimodule. Thus
+we have an equality of cochain complexes C • (A, B) = C • (A, BJ ).
+Take now any functions f, g ∈ C • (A, B) = C • (A, BJ ), and any x ∈ A⊗n .
+Then, when we take the product in C • (A, B)J we get
+
+±f ∪J g(x) = Jl · f (x1 ) J l · g)(x
+
+2) l
+l
+)
+·
+x
+)
+= Jl1 · f (S(J
+ l2 l 1 J1 · g(S(J2 ) · x2 )
+= Jl · f (x1 ) J · g(x2 ) since xi is coinvariant
+= f (x1 ) ·J g(x2 ).
+This last expression is equal to the cup product in C • (A, BJ ), and we are
+done. Take cohomology to get the identification for HH • .
+For (3) we note that (−)J restricts to a functor from D-module algebras
+to D J -module algebras. For (1) we note that HH • (A) sits inside of the
+coinvariants in HH • (A, B). The same statement holds at the cochain level.
+So whenever f or g is in C • (A) ⊂ C • (A, B) = C • (A, BJ ) we have
+
+
+f (x1 ) ·J g(x2 ) = Jl · f (x1 ) J l · g(x2 ) = f (x1 )g(x2 ),
+since (ǫ ⊗ id)(J) = (id ⊗ ǫ)(J) = 1.
+
+
+
+The D J -module structure arrived at via twisting is the same D J -module
+structure we arrive at by the more robust means suggested in the claim.
+Namely, if we forget the coproduct on D J and the product on the Hochschild
+cohomology, we have HH • (A, BJ ) = HH • (A, B) as a D = D J -module. As
+a consequence we find that the E-action on Hochschild cohomology arrived
+at via the algebra (but not Hopf) embedding E op → D J does not agree
+with those considered in [32, 13, 12]. So it seems that we need to leave
+our setting, and consider [32] independently, in order to produce a spectral
+sequence relating the cohomology Hc• (BJ ) to the Hochschild cohomology
+HH • (BJ ). At the moment this point of confusion remains unresolved.
+5. The cup product and braided commutativity of braided
+Hochschild cohomology
+In this section we show that the complex Cc• (B) and cohomology Hc• (B)
+both admit canonical products, and that the cohomology is a braided commutative algebra under this product. The same will hold for the relative
+cohomology as well. Applications to smash products are given in Section 6,
+as well as Corollary 5.14.
+5.1. The braided category dgZ . For any braided tensor category Z =
+Hmod the category dgZ of complexes over Z carries its own braiding,
+tensor product, and inner homs. The tensor product of objects M and N
+in dgZ is the usual tensor product of complexes
+(M ⊗ N )i = ⊕i1 +i2 =i M i1 ⊗ N i2
+
+20
+
+CRIS NEGRON
+
+with differential
+dM ⊗N (m ⊗ n) = dM (m) ⊗ n + (−1)|m| m ⊗ dN (n),
+where m and n are assumed to be homogeneous in the above expression.
+The braiding will be given by the braiding from Z with the addition of the
+standard Koszul sign:
+|m||n| j
+cdgZ
+r · n ⊗ rj · n.
+M N : M ⊗ N → N ⊗ M, m ⊗ n 7→ (−1)
+
+The inner homs are the expected hom complexes
+Y
+i
+Hom(M j1 , N j2 )
+Hom(M, N ) =
+j2 −j1 =i
+
+with differential dHom (f ) = dN f − (−1)|f | f dM . The actionis the action
+implied by the Hom notation, h · f (m) = h1 · f (S(h2 ) · m) .
+The fact that both dM and dN commute with the H-action on M and N
+respectively implies that dHom commutes with the action of H as well. One
+can check easily that the pairing
+Hom(M, N ) ⊗ M → N
+will always be a map of complexes in dgZ . We adopt a similar notation for
+HomE .
+In general when doing computations with chain complexes we take all
+elements to be homogeneous.
+5.2. The cup product. Recall that the bar construction
+BB = · · · → B ⊗3 → B ⊗2 → B → k → 0
+is a dg coalgebra with comultiplication given by separation of tensors. For
+x = b1 ⊗ . . . ⊗ bn we have
+n−1
+X
+(b1 ⊗ . . . ⊗ bi ) ⊗ (bi+1 ⊗ . . . ⊗ bn ).
+∆BB (x) = (x) ⊗ (1) + (1) ⊗ (x) +
+i=1
+
+Indeed, with the addition of the diagonal H-action BB becomes a dg coalgebra in Z = Hmod.
+Lemma 5.1. For any coalgebra Γ in dgZ and dg algebra Ω in dgZ the inner hom complex Hom(Γ, Ω) becomes an algebra in dgZ under the (braided)
+convolution product
+
+f ∪ g(γ) = (−1)|γ1 ||g| f (r j · γ1 ) rj · g (γ2 ),
+(5.1)
+for f, g ∈ Hom(Γ, Ω), γ ∈ Γ.
+
+Proof. The verification that the product is compatible with the differential
+is straightforward and will be omitted. To see that the product is a map in
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+21
+
+
+Z = Hmod, note that we arrive at the element ±f (r j · γ1 ) rj · g (γ2 ) via
+the sequence of maps in Z
+id⊗∆
+
+id⊗c⊗id
+
+Hom⊗2 ⊗ Γ −→ Hom⊗2 ⊗ Γ ⊗ Γ −→ Hom ⊗ Γ ⊗ Hom ⊗ Γ
+pair⊗pair
+
+−→
+
+mult
+
+Ω ⊗ Ω −→ Ω,
+
+where Hom = Hom(Γ, Ω). So, H-linearity tells us that for any h ∈ H,
+f, g ∈ Hom(Γ, Ω), and γ ∈ Γ, we have
+
+
+
+±h · f (r j · γ1 ) rj · g (γ2 ) = ± h1 · f )(r j h3 · γ1 ) rj h2 · g (h4 · γ2 )
+
+Replace h ⊗ γ1 ⊗ γ2 with h1 ⊗ S(h3 )γ1 ⊗ S(h2 )γ2 = h1 ⊗ ∆(S(h2 )γ) to get
+then
+
+
+
+h · (f ∪ g) (γ) = ±h1 · f (r j S(h3 ) · γ1 ) rj ·g (S(h2 ) · γ2 )
+= ± h1 · f (r j · γ1 ) rj h2 · g (γ2 )
+= (h1 · f ) ∪ (h2 · g)) (γ).
+
+This verifies that Hom(Γ, Ω) with the proposed product is a, possibly nonassociative, algebra in dgZ .
+For associativity, take a, b, c ∈ Hom(Γ, Ω). We have
+
+
+
+(a ∪ b) ∪ c (γ) = a(r ν r1j · γ1 ) rν · b (r2j · γ2 ) rj · c (γ
+ 3)
+= a(r ν r j · γ1 ) rν · b)(r l · γ2 ) rl rj · c (γ3 ) (braid relation).
+On the other hand we have
+
+
+
+a ∪ (b ∪ c) (γ) = a(r ν · γ1 ) (rν )1 · b (r l · γ2 ) rl (rν )2 · c (γ3 )
+= a(r ν r j · γ1 ) rν · b (r l · γ2 ) rl rj · c (γ3 )
+(braid relation).
+These expressions are exactly the same, and associativity is verified.
+
+
+
+We have an identification of graded objects in Z
+Cc• (B) = Hom(BB, B)
+and so we get a natural product on Cc• (B) induced by the convolution product on Hom(BB, B). This gives the braided Hochschild complex the structure of an associative algebra in Z , although we’ve yet to establish compatibility with the differential. In keeping with tradition, we call this product
+on Cc• (B) the (braided) cup product.
+Proposition 5.2. The braided Hochschild cochain complex Cc• (B), along
+with the cup product, is an algebra in dgZ . Furthermore, for any subalgebra
+• (B) ⊂ C • (B) is a subalgebra in dgZ .
+E ⊂ B in Z the subcomplex Cc,E
+c
+By an algebra in dgZ we mean in particular that it is a dg algebra. In
+order to prove the proposition it will be helpful to have the following lemma.
+Lemma 5.3. The differential on the complex Cc• (B) = (Hom(BB, B), dc )
+is the sum
+dc = dHom(BB,B) − [π, −],
+
+22
+
+CRIS NEGRON
+
+where π is the degree 1 map BB → B which restricts to the identity on
+BB −1 = B, and [π, −] is the usual graded commutator [π, f ] = π ∪ f −
+(−1)|f | f ∪ π.
+Proof. Since π is a map in Z = Hmod we will have h · π = ǫ(h)π for each
+h ∈ H. Consider now a degree n function f and x = b1 ⊗ . . . ⊗ bn+1 . Then
+(−1)|f | [π, f ](x) 
+= π(r j · b1 ) rj · f (b2 ⊗ . . . bn+1 ) − (−1)n f (b1 ⊗ . . . ⊗ bn )π(bn+1 )
+= (r j · b1 ) rj · f (b2 ⊗ . . . bn+1 ) − (−1)n f (b1 ⊗ . . . ⊗ bn )bn+1
+= (−1)|f |+1 dc (f )(x) − f dBB(x)
+= (−1)|f |+1 dc (f ) − dHom (f ) (x).
+
+This implies
+
+−[π, f ] = dc (f ) − dHom (f ) ⇒ dc (f ) = dHom (f ) − [π, f ].
+
+Proof of Proposition 5.2. As noted above, π is H-invariant so that, by the
+relation (1 ⊗ ǫ)(R21 ) = 1 ⊗ 1 the cup product of π with itself will be given
+by the non-braided formula
+
+
+π ∪ π (x) = π(r j · x1 ) rj · π (x2 ) = π(x1 )π(x2 ).
+
+Whence we see that on degree −2 elements we have π ∪ π (b ⊗ b′ ) = bb′
+and find that π solves the Maurer-Cartan equation
+dHom (π) − π ∪ π = 0
+in the dg algebra Hom(BB, B). It is then standard that the new object
+(Hom(BB, B), dHom − [π, −]) = Cc• (B)
+is a dg algebra under the same product as Hom(BB, B) [17].
+• (B) is a subalgebra in C • (B), we already know
+As for the fact that Cc,E
+c
+that it is a subcomplex in dgZ . So we need only see that it is a subalgebra
+• (B),
+under the cup product. We have for w ∈ E, x ∈ BB, and f, g ∈ Cc,E
+
+(f ∪ g)(wx) = f (r j · (wx1 )) rj · g (x2 )
+
+= (r k r j · w) rk · f (r l · x1 ) rl rj · g (x2 )
+= (r j · w) (rj )1 · f (r l · x1 ) rl (rj)2 · g (x2 )
+= (r j · w) ((rj )1 · f ) ∪
+ ((rj )2 · g) (x)
+= (rj · w) rj · (f ∪ g) (x).
+
+One checks by a similar application of (2.2) that
+
+
+f (r j · x1 ) rj · g (wx2 ) = f r j · (x1 w) (rj · g)(x2 ),
+
+and right E-linearity f ∪ g(xw) = f ∪ g(x)w follows by right E-linearity of
+g. One can check easily from these three relations that f ∪ g satisfies all
+the relations necessary so that it lay in the subcomplex HomE (BE B, B) =
+• (B) ⊂ C • (B).
+
+Cc,E
+c
+Taking cohomology then implies, from Proposition 5.2,
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+23
+
+Corollary 5.4.
+(1) The braided Hochschild cohomology Hc• (B), as well
+• (B), are all algebras is dgZ (with vanas its relative versions Hc,E
+ishing differential).
+• (B) → H • (B) in dgZ .
+(2) There are canonical algebra maps Hc,E
+c
+E , and B = A∗E,
+(3) When E is semisimple and cosemisimple, Z = Y DE
+•
+•
+the algebra map Hc,E (B) → Hc (B) is an algebra isomorphism in
+dgZ .
+Proof. (1) and (2) are consequences of Proposition 5.2. For (3) we consider
+also Theorem 4.5.
+
+Since BA = (BB)coE when B = A ∗ E, we get that the braided cup
+product of functions f ∪ g restricted to BA recovers the standard cup prod• (B) =
+uct on the Hochschild cochain complex, under the identification Cc,E
+C • (A, B) of Proposition 4.2. Whence we also get
+Corollary 5.5. When B = A ∗ E
+• (B) of Proposition 4.2 is one
+(1) there identification HH • (A, B) = Hc,E
+of graded algebras.
+(2) The standard Hochschild cohomology HH • (A, B) is an algebra in
+E.
+dgY DE
+(3) There is a multiplicative spectral sequence
+•
+ExtmodE (k, Hc,E
+(B)) ⇒ HH • (B).
+
+When, additionally, E is semisimple and cosemisimple
+E.
+(4) there is an algebra identification HH • (A, B) = Hc• (B) in dgY DE
+E
+•
+•
+(5) There is an algebra identification HH (B) = Hc (B) .
+Proof. Statement (1) is clear from the discussion preceding this corollary.
+(2) follows from (1). (3) follows from the preexisting spectral sequence
+ExtmodE (k, HH • (A, B)) ⇒ HH • (B)
+from [25]. (4) follows from (1) and Corollary 5.4. (5) follows from (3), as
+the spectral sequence will collapse. (5) can also be deduced from [10].
+
+We can also twist by a dual cocycle to get
+Corollary 5.6. Take B = A ∗ E. In the presence of an invertible dual
+cocycle J ∈ E ∗ ⊗ E ∗ the algebra HH • (A, BJ ) is an algebra in the braided
+category dgD J mod.
+Proof. The result follows from Proposition 4.10 and the fact that the J-twist
+
+sends dg algebras in Dmod to dg algebras in D J mod [22].
+We presumably will not get an identification of algebras HH • (B) =
+• (B)E if we include a dual cocycle J, since E is not a Hopf subalgebra
+Hc,E
+•
+(BJ ) will not be a dg algebra
+of the twisted double in general, and so Cc,E
+J
+
+in Emod. So it makes no sense to think about the “E-invariant subalgebra”
+
+24
+
+CRIS NEGRON
+
+here. This brings us back to the concerns expressed at the conclusion of
+Section 4.2.
+Remark 5.7. Although we have ignored the issue, our production of a product on the cohomology Hc• (B) is somewhat curious, since the identification
+Hc• (B) = ExtmodB e (B, B)
+tells us that this object already has a natural product (the Yoneda product).
+This curiosity also appears in the non-braided setting with the production
+of the usual cup product. We expect that, as in the non-braided setting, the
+two products will agree. Namely, we should be able to produce a dg algebra
+quasi-isomorphism
+Cc• (B) → EndmodB e (Bar c B, Bar cB)
+just as in [23]. One should simply apply the braiding where appropriate.
+5.3. Braided commutativity.
+Definition 5.8. We define the circle operation
+◦ : Cc• (B) ⊗ Cc• (B) → Cc• (B)
+by
+
+
+f ◦ g(x) = (−1)|x1 |(|g|−1) f (r j · x1 ) ⊗ rj · g (x2 ) ⊗ x3
+and the naı̈ve bracket by
+[f, g]◦ = f ◦ g − (−1)(|f |−1)(|g|−1) (r j · g) ◦ (rj · f ).
+Here we’ve used the identifications B ⊗n1 ⊗ B ⊗n2 ⊗ B ⊗n3 = B ⊗n1+n2 +n3 ,
+and subsequent concatenation map BB ⊗ BB ⊗ BB → BB to view the
+elements r j · x1 ⊗ (rj · g)(x2 ) ⊗ x3 as laying in the bar construction of B.
+One subtlety of this point is that, when x1 is in B ⊗0 = k, for example, the
+element r j · x1 ⊗ (rj · g)(x2 ) ⊗ x3 is identified with g(x1 ) ⊗ x2 . Save for the
+presence of R21 , this formula looks exactly like the usual circle operation [9],
+and can be identified with composition of braided coderivations as in [31].
+The bracket [, ]◦ will not preserve cocycles or coboundaries in general.
+One needs to do a bit more work in order to produce a well behaved bracket
+operation which extends the Gerstenhaber bracket to the braided setting
+(see [24, Ch. 3]). This poorly behaved bracket will, however, still prove
+quite useful.
+By the usual computations one checks
+• (B) ⊂ C • (B)
+Lemma 5.9. For any subalgebra E ⊂ B the dg subalgebra Cc,E
+c
+is preserved by the circle operation and naı̈ve bracket.
+
+We can now prove an essential technical result.
+• (B) we have
+Proposition 5.10. For f, g in Cc• (B) or Cc,E
+
+(−1)|f |+1 dc (f ◦ g) + (−1)|f | dc (f ) ◦ g − f ◦ dc (g)
+= f ∪ g − (−1)|f ||g| (r j · g) ∪ (rj · f ).
+
+(5.2)
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+25
+
+In particular, if f and g are cocycles then
+(−1)|f |+1 d(f ◦ g) = f ∪ g − (−1)|f ||g| (r j · g) ∪ (rj · f ).
+
+(5.3)
+
+Proof. This is just as in [9]. Let µ : BE B → B be the degree 2 function
+given on B ⊗E 2 by the multiplication b ⊗ b′ 7→ bb′ , and 0 on all other tensor
+powers. Then the differential dc is exactly the naı̈ve bracket dc (f ) = [µ, f ]◦ .
+With this interpretation one checks the identity
+[µ, f ◦ g]◦
+= [µ, f ]◦ ◦ g − (−1)|f ||g|+|f |−1 (rj · g) ∪ (rj · f ) − (−1)|f | f ∪ g − (−1)|f | f ◦ [µ, g]◦ .
+Rearranging gives
+[µ, f ◦ g]◦ − [µ, f ]◦ ◦ g + (−1)|f | f ◦ [µ, g]◦
+= (−1)|f |+1 f ◦ [µ, g]◦ − (−1)|f ||g|+|f |−1 rj g ∪ rj f.
+Multiplying by (−1)|f |+1 and replacing [µ, −] with dc gives the formula (5.2).
+
+We call an algebra Ω in dgZ commutative in dgZ , or braided commutative, if for each homogeneous ω, ω ′ ∈ Ω we have
+′
+
+ωω ′ − (−1)|ω||ω | (r j · ω ′ )(rj · ω) = 0.
+
+(5.4)
+
+This notion is not new [1].
+Theorem 5.11. The braided cohomologies Hc• (B), as well as the relative
+• (B), are commutative algebras in dgZ .
+versions Hc,E
+Proof. Equation (5.3) of Proposition 5.10 implies that the braided commutator of any two cocycles is a coboundary.
+
+Remark 5.12. One can compare Theorem 5.11, and its proof, to [20, Corollary 3.13]. In our language, the “Hochschild cohomology” considered in [20]
+should be the braided Hochschild cohomology with coefficients in the unit
+1Z .
+The first portion of the next result was deduced independently in [28] in
+the case of a finite group acting in characteristic 0.
+Corollary 5.13. For B = A ∗ E the cohomology HH • (A, B) is braided
+E . For any invertible dual cocycle J, the cohomology
+commutative in dgY DE
+HH • (A, BJ ) is braided commutative in dgD J .
+Proof. The result for HH • (A, B) follows from the algebra identification
+• (B) of Corollary 5.5. In the presence of the twist J,
+HH • (A, B) = Hc,E
+the result follows from Proposition 4.10 and the fact that the twist functor
+(−)J sends commutative algebras in dgDmod to commutative algebras in
+dgD J mod.
+
+The following corollary seems to be new. We let Center(Ω) denote the
+usual graded center of a dg algebra Ω.
+
+26
+
+CRIS NEGRON
+
+Corollary 5.14. When E is semisimple and B = A ∗ E, there is an algebra
+inclusion
+
+HH • (B) ⊂ Center HH • (A, B) .
+
+Proof. Recall HH • (B) = HH • (A, B)E . Since HH • (A, B) is braided commutative, we have f¯∪ ḡ = ±(r j · ḡ)∪(rj · f¯) for any classes f¯, ḡ ∈ HH • (A, B).
+Thus, when f¯ is invariant we have
+f¯ ∪ ḡ = ±(r j · ḡ) ∪ (rj · f¯) = ±(r j · ḡ) ∪ (ǫ(rj )f¯) = ±ḡ ∪ f¯.
+
+So invariant functions are central and we get the proposed embedding, since
+
+HH • (B) is identified with the invariants in HH • (A, B) = HHc• (B).
+In general, we don’t expect HH • (B) to be the entire center. For example,
+in the case of a finite group G acting faithfully by linear automorphisms on
+the polynomials ring S(V ) generated by a vector space V , the cohomology
+HH • (S(V ), S(V ) ∗ G) in degree 0 is just S(V ). One can then check that
+all the elements in HH 0 (S(V ), S(V ) ∗ G) = S(V ) are already central in
+HH • (S(V ), S(V ) ∗ G), despite the fact that S(V )G is not equal to S(V ).
+One can also see this from Proposition 6.1 below.
+6. Consequences for smash products with group algebras
+Fix a finite group G acting on an algebra A. We consider only the smash
+product A ∗ G, although one could just as easily consider a crossed product
+A ∗α G, or J-twist, according to Proposition 4.10. As has been our general convention, we let Gop ⊂ D act on the left of Yetter-Drinfeld modules
+(opposed to G acting on the right) as described in 2.3.
+Recall that we have the A-bimodule decomposition A ∗ G = ⊕g∈G Ag.
+This gives a canonical decomposition
+M
+•
+(A ∗ G) = HH • (A, A ∗ G) =
+HH • (A, Ag),
+Hc,kG
+g∈G
+
+which, as we’ve mentioned before, expresses the canonical G-grading (G•
+coaction) on the dg Yetter-Drinfeld module Hc,kG
+(A ∗ G). Note that the
+•
+•
+usual Hochschild cohomology HH (A, A) = HH (A, Ae) sits inside the co•
+homology HH • (A, A∗G), and hence Hc,kG
+(A∗G), as the graded subalgebra
+•
+of coinvariants. The cohomology HH (A) then acts naturally on each component HH • (A, Ag) by the cup product.
+Proposition 6.1. Suppose G is a finite group and, for each g ∈ G, let
+Ig be the ideal in HH • (A) generated by all the classes (1 − g) · Y , with
+Y ∈ HH • (A). Each HH • (A)-module HH • (A, Ag) is annihilated by Ig ,
+both on the left and the right. Furthermore, each HH • (A, Ag) is a central
+bimodule over HH • (A)/Ig and HH • (A).
+Proof. For any Ye ∈ HH • (A) and Yg ∈ HH • (A, Ag) braided commutativity
+gives
+
+
+Ye Yg = Yg (Ye · g) = g · Ye Yg ⇒ (1 − g) · Ye Yg = 0.
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+27
+
+Hence the cohomology is annihilated by each (1 − g) · Ye and therefore also
+the ideal Ig . A similar computation holds on the right as well. The fact
+that HH • (A)/Ig acts centrally on HH • (A, Ag) follows from the fact that
+the induced g-action on the quotient HH • (A)/Ig is trivial. Now we see that
+HH • (A) also acts centrally, as the right and left actions factor through the
+quotient HH • (A)/Ig .
+
+The ideals Ig will be quite large in general. In Section 6.1 we explain
+what work these ideals do in a geometric setting.
+Although we leave our investigation here, we remark that braided commutativity will also produce certain generic relations for the Hochschild
+cohomology of other smash products A ∗ E, e.g. when E is a restricted enveloping algebra. These relations are not quite as straightforward to analyze
+as in the case of a group ring.
+6.1. Understanding the ideals Ig from a geometric perspective.
+Suppose char(k) = 0 and let X be a smooth affine scheme over k. Fix
+also a finite group G acting on X. We let k[X] denote the algebra of global
+functions on X. In this case the HKR theorem tells us that
+V
+HH • (k[X]) = •k[X] TX ,
+
+where TX is the module of global vector fields on X (or, derivations on
+k[X]). Take X g to be the fixed subscheme for a given g ∈ G.
+In this case each ideal Ig will be generated in degrees 0 and 1. We will
+have
+HH 0 (k[X])/Ig0 = k[X]/Ig0 = k[X]/(f − g f )f ∈k[X] = k[X g ],
+and for the whole cohomology there is a canonical algebra identification
+V
+HH • (k[X])/Ig = ∧•k[X g ] (TX )|X g /(Y − g · Y )|Y |=1 = •k[X g ] TX g .
+
+Proposition 6.1 then tells us that the algebra of polyvector fields for each
+fixed space X g will act naturally on the cohomology HH • (k[X], k[X]g).
+Each of these actions is defined canonically and globally.
+In the case in which X = Ank and G acts by linear automorphisms we
+understand that
+(a) the ideal Ig is the entire annihilator of each HH • (k[X], k[X]g) and
+g
+(b) each cohomology HH codimX (k[X]) is a free rank 1 k[X g ]-module,
+let’s call it Lg , and the restriction of the action map
+M V•
+•
+•
+k[X g ] TX g ⊗k[X g ] Lg → HH (k[X], k[X] ∗ G) = Hc (k[X] ∗ G)
+g∈G
+
+is a HH • (k[X])-bimodule isomorphism.
+This follows by the careful analysis of [29], for example. Both (a) and (b) are
+also known to hold when we replace k[X] with smooth functions on a manifold [26, 14]. In the case X = Ank the Lg form their own subalgebra in the
+cohomology k[X][Lg : g ∈ G] (basically the volume subalgebra in [29]).
+
+28
+
+CRIS NEGRON
+
+This subalgebra, along with the HH • (A)-action, which we’ve described
+in general, give the entire algebra structure on HH • (k[X], k[X] ∗ G) =
+Hc• (k[X] ∗ G). One then takes invariance to get the cup product on the
+usual Hochschild cohomology HH • (k[X] ∗ G).
+It seems that the above statements will hold for an arbitrary smooth affine
+G-scheme X, where we propose now that the Lg are locally free. However,
+the details have yet to emerge in the literature.
+Acknowledgements
+Thanks to Travis Schedler and Sarah Witherspoon for agreeing to share
+their unpublished notes [28], and for helpful conversations in general. Thanks
+also to Richard Ng, who has had an influence on my thinking about braided
+categories.
+References
+[1] J. C. Baez. Hochschild homology in a braided tensor category. Transactions of the
+American Mathematical Society, 344(2):885–906, 1994.
+[2] V. Baranovsky. Orbifold cohomology as periodic cyclic homology. International Journal of Mathematics, 14(08):791–812, 2003.
+[3] J. Brodzki, S. Dave, and V. Nistor. The periodic cyclic homology of crossed products
+of finite type algebras. preprint arXiv:1509.03662, 2015.
+[4] A. Căldăraru, A. Giaquinto, and S. Witherspoon. Algebraic deformations arising from
+orbifolds with discrete torsion. Journal of Pure and Applied Algebra, 187(1):51–70,
+2004.
+[5] V. Dolgushev and P. Etingof. Hochschild cohomology of quantized symplectic orbifolds and the Chen-Ruan cohomology. International Mathematics Research Notices,
+2005(27):1657–1688, 2005.
+[6] V. A. Dolgushev and C. L. Rogers. A version of the Goldman–Millson theorem for
+filtered l∞ -algebras. Journal of Algebra, 430:260–302, 2015.
+[7] P. Etingof, S. Gelaki, D. Nikshych, and V. Ostrik. Tensor Categories, volume 205.
+American Mathematical Society, 2015.
+[8] Y. Frégier, M. Markl, and D. Yau. The l-deformation complex of diagrams of algebras.
+New York Journal of Mathematics, 15:353–392, 2009.
+[9] M. Gerstenhaber. The cohomology structure of an associative ring. Annals of Mathematics, pages 267–288, 1963.
+[10] M. Gerstenhaber and S. D. Schack. Relative hochschild cohomology, rigid algebras,
+and the bockstein. Journal of Pure and Applied Algebra, 43(1):53–74, 1986.
+[11] V. Ginzburg. Lectures on noncommutative geometry. online arXiv:math/0506603,
+2005.
+[12] J. Guccione and J. Guccione. Hochschild (co) homology of Hopf crossed products.
+K-theory, 25(2):139–169, 2002.
+[13] A. Guichardet. Suites spectrales à la Hochschild–Serre pour les produits croisés
+d’algèbres et de groupes. Journal of Algebra, 235(2):744–765, 2001.
+[14] G. Halbout and X. Tang. Noncommutative poisson structures on orbifolds. Transactions of the American Mathematical Society, 362(5):2249–2277, 2010.
+[15] A. Kaygun. Hopf-Hochschild (co) homology of module algebras. Homology, Homotopy
+and Applications, 9(2):451–472, 2007.
+[16] M. Kontsevich and Y. Soibelman. Deformation theory. Livre en préparation.
+
+BRAIDED HOCHSCHILD COHOMOLOGY
+
+29
+
+[17] J.-L. Loday and B. Vallette. Algebraic operads, volume 346 of Grundlehren der
+Mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences].
+Springer, Heidelberg, 2012.
+[18] J. Lurie. Derived algebraic geometry x: Formal moduli problems. preprint
+math.harvard.edu/ lurie/papers/DAG-X.pdf.
+[19] M. Manetti. Deformation theory via differential graded lie algebras. online
+arXiv:math/0507284, 2005.
+[20] M. Mastnak, J. Pevtsova, P. Schauenburg, and S. Witherspoon. Cohomology of finitedimensional pointed Hopf algebras. Proceedings of the London Mathematical Society,
+100(3):377–404, 2010.
+[21] S. Montgomery. Hopf algebras and their actions on rings, volume 82 of CBMS Regional Conference Series in Mathematics. Published for the Conference Board of the
+Mathematical Sciences, Washington, DC, 1993.
+[22] S. Montgomery. Algebra properties invariant under twisting. Hopf Algebras in Noncommutative Geometry and Physics. Lecture Notes in Pure and Appl. Math, 239:229–
+243, 2004.
+[23] C. Negron. The cup product on Hochschild cohomology via twisting cochains and
+applications to Koszul rings. preprint arXiv:1304.0527.
+[24] C. Negron. Alternate Approaches to the Cup Product and Gerstenhaber Bracket on
+Hochschild Cohomology. PhD thesis, University of Washington, 2015.
+[25] C. Negron. Spectral sequences for the cohomology rings of a smash product. Journal
+of Algebra, 433:73–106, 2015.
+[26] N. Neumaier, M. J. Pflaum, H. Posthuma, and X. Tang. Homology of formal deformations of proper étale lie groupoids. Journal fur die reine und angewandte Mathematik
+(Crelles Journal), 2006(593):117–168, 2006.
+[27] M. Pflaum, H. Posthuma, X. Tang, and H.-H. Tseng. Orbifold cup products and ring
+structures on hochschild cohomologies. Communications in Contemporary Mathematics, 13(01):123–182, 2011.
+[28] T. Schedler and S. Witherspoon. unpublished notes.
+[29] A. V. Shepler and S. Witherspoon. Finite groups acting linearly: Hochschild cohomology and the cup product. Advances in Mathematics, 226(4):2884–2910, 2011.
+[30] A. V. Shepler and S. Witherspoon. Group actions on algebras and the graded Lie
+structure of Hochschild cohomology. Journal of Algebra, 351:350–381, 2012.
+[31] J. Stasheff. The intrinsic bracket on the deformation complex of an associative algebra.
+Journal of pure and applied Algebra, 89(1):231–235, 1993.
+[32] D. Stefan. Hochschild cohomology on Hopf Galois extensions. Journal of Pure and
+Applied Algebra, 103(2):221–233, 1995.
+[33] D. Yau. Deformation bicomplex of module algebras. Homology, Homotopy and Applications, 10(1):97–128, 2008.
+Department of Mathematics, Louisiana State University, Baton Rouge, LA
+70803, USA
+E-mail address: cnegron@lsu.edu
+
+

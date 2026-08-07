@@ -1,0 +1,6759 @@
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+FOR SYMPLECTIC FERMIONS
+
+arXiv:2307.06069v2 [math.QA] 14 Apr 2026
+
+Johannes Berger a , Azat M. Gainutdinov b and Ingo Runkel c 1
+a Département de Mathématique, Université Libre de Bruxelles,
+
+Campus de la Plaine, Boulevard du Triomphe, 1050 Bruxelles, Belgium
+b Institut Denis Poisson, CNRS, Université de Tours,
+
+Parc de Grandmont, 37200 Tours, France
+c Fachbereich Mathematik, Universität Hamburg
+
+Bundesstraße 55, 20146 Hamburg, Germany
+Abstract. We consider the link and three-manifold invariants in [DGGPR1],
+which are defined in terms of certain non-semisimple ribbon categories C (locallyfinite for link invariants, finite for manifold invariants) together with a choice of
+tensor ideal and modified trace. If the ideal is all of C, these invariants agree with
+those defined by Lyubashenko in the 90’s. We show that in that case the invariants depend on the objects labelling the link only through their simple composition
+factors. In order to detect non-trivial extensions one needs to pass to proper ideals.
+We compute examples of link and three-manifold invariants for C being the category of N pairs of symplectic fermions. Using a quasi-Hopf algebra realisation of C,
+we find that the Lyubashenko-invariant of a lens space is equal to the order of its
+first homology group to the power N , a relation we conjecture to hold for all threemanifolds with finite first homology group. For N ≥ 2, C allows for tensor ideals I
+with a modified trace which are different from all of C and from the projective ideal.
+Using the theory of pull-back traces and symmetrised cointegrals, we show that the
+link invariant obtained from I can distinguish a continuum of indecomposable but
+reducible objects which all have the same composition series.
+
+1Emails: johannes.berger@ulb.be, azat.gainutdinov@cnrs.fr,
+
+ingo.runkel@uni-hamburg.de
+
+2
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+Contents
+1. Introduction
+1.1. Invariants of ribbon graphs
+1.2. Invariants of three-manifolds
+1.3. Detailed computations
+2. Link invariants from tensor ideals and modified traces
+2.1. Tensor categories
+2.2. Tensor ideals
+2.3. Modified traces on tensor ideals
+2.4. Invariants of C-coloured ribbon graphs and links
+2.5. Examples of link invariants for symplectic fermions
+3. Invariants of closed 3-manifolds
+3.1. Twist non-degeneracy, unimodularity, and factorisability
+3.2. Bichrome graphs and their invariants
+3.3. Definition and properties of the manifold invariant
+3.4. Example: Lens spaces
+4. Quasi-Hopf algebras, tensor ideals and modified traces
+4.1. Quasi-Hopf algebras and their modules
+4.2. Modified traces on H M and Proj(H M)
+4.3. Lyubashenko coend and integral
+4.4. Pullback ideals from quasi-Hopf subalgebras
+5. The symplectic fermion quasi-Hopf algebras
+5.1. Quasi-Hopf algebra and ribbon structure
+5.2. The modular tensor category Q M
+5.3. Pullback ideals
+6. Explicit computations of link invariants
+6.1. Framed unknot
+6.2. Framed Hopf link
+6.3. Torus knot
+7. Lens space invariants for symplectic fermions
+7.1. Lens space invariants for quasi-Hopf algebras
+7.2. The central element fd
+(a) for symplectic fermions
+7.3. Categorical trace: Lyubashenko invariant
+7.4. Modified trace: Renormalised Lyubashenko invariant
+7.5. Pullback trace
+Appendix A. More on continued fractions
+References
+
+3
+3
+6
+8
+9
+9
+10
+12
+16
+18
+22
+23
+25
+28
+31
+36
+36
+40
+41
+42
+44
+44
+46
+49
+54
+54
+55
+56
+60
+60
+62
+65
+65
+71
+72
+74
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+3
+
+1. Introduction
+While a large body of research on semisimple Reshetikhin-Turaev type invariants
+of three-manifolds has been accumulated since their inception in the 90ies, much
+less is known about quantum invariants obtained from non-semisimple input data.
+After initial successes of obtaining three-manifold invariants from non-semisimple
+Hopf algebras by Hennings [He], and from modular tensor categories which need not
+be semisimple by Lyubashenko [Lyu], the next significant step forward came only
+with the introduction of modified traces on tensor ideals and using these to define
+link invariants by Geer, Kujawa, Patureau-Mirand, and Turaev [GPT, GKP1]. This
+led to the definition of three-manifold invariants by Costantino, Geer, and PatureauMirand [CGP1], and three-dimensional topological field theories via non-semisimple
+modular tensor categories and variants thereof [BCGP, DGP, DGGPR1]. The nonsemisimple topological field theories of [DGGPR1] recover the original ReshetikhinTuraev theory in the semisimple case, as well as the mapping class group actions
+found by Lyubashenko in the non-semisimple case [DGGPR2].
+Our focus here is on non-semisimple link and three-manifold invariants, and not
+on topological field theory. The purpose of the present paper is two-fold:
+(a) We exhibit a number of general properties of the non-semisimple invariants
+defined in [DGGPR1] which set them apart from the semisimple case, and
+from Lyubashenko’s invariant.
+(b) We take one example of a modular tensor category – that of symplectic
+fermions [Ru, FGR2] – as input datum and provide explicit computations of
+some basic invariants. We hope this example based exposition can be useful
+as a guide to the rather technical definition of the invariants in [DGGPR1].
+If we should single out one property as particularly interesting then it would be that
+non-semisimple invariants are able to distinguish a continuum of indecomposable but
+reducible objects which all have the same composition series. In other words, these
+invariants are able to detect extensions and not just the composition series, in contrast
+to the Lyubashenko invariant.
+This paper splits into two parts of roughly equal length. The first part consists of
+Sections 2 and 3 and contains the result for point (a) and summarises the findings
+of the explicit computations in (b). The second part, Sections 4–7, provides all the
+technical and lengthy details that went into the results in (b).
+We will now give a quick overview of the contents of the first part of the paper.
+Throughout this introduction we fix
+C : a locally finite ribbon tensor category over an alg. closed field k .
+In particular, C is rigid and abelian, each object has finite length, Hom-spaces are
+finite-dimensional, and the tensor unit is simple. The ribbon structure endows C with
+a pivotal structure and a braiding, which may be degenerate.
+1.1. Invariants of ribbon graphs. In Sections 2 we focus on invariants of ribbon
+graphs in R3 (or, equivalently, in S 3 ). These depend on the choice of a tensor ideal I
+
+4
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+in C and on a modified trace on I. Let us describe some properties of these ingredients
+and the resulting invariants in turn.
+Tensor ideals. A tensor ideal I ⊂ C is a full subcategory that is closed under tensoring
+with arbitrary objects in C and under taking direct summands in the sense that if
+X ⊕ Y ∈ I, then also X, Y ∈ I. The two canonical examples are I = C and
+I = Proj(C), the full subcategory of projective objects in C. In fact, any non-zero
+tensor ideal I satisfies
+Proj(C) ⊂ I ⊂ C .
+We note that Proj(C) can be zero for C non-semisimple (Example 2.2). But if
+Proj(C) ̸= 0, then C admits a non-zero proper ideal if and only if C is not semisimple (Proposition 2.4). Thus the freedom to choose a tensor ideal is present only
+for C non-semisimple.
+In this work, the main sources of tensor ideals I that are not C or Proj(C), and that
+we call intermediate, are given by subcategories of all objects in C with the property
+that their image under a monoidal functor C → D is in a tensor ideal of D, e.g. in
+Proj(D). We refer to such ideals as pullback ideals.
+Modified traces. A modified trace on a tensor ideal I is a family of linear maps
+t = {tX : EndC (X) → k}X∈I
+which induce symmetric pairings C(X, Y )×C(Y, X) → k for X, Y ∈ I, and which satisfy a partial trace compatibility condition with the categorical trace on C, see [GKP1].
+In fact, the categorical trace trCX (f ), f ∈ EndC (X) of C – defined in terms of the duality maps of C – is the unique-up-to-scalar modified trace on all of C. The usefulness
+of modified traces derives from the observation that while the categorical trace is
+identically zero on any proper tensor ideal (Lemma 2.6), it may be possible to find
+non-zero modified traces on a given tensor ideal I.
+An important way to obtain modified traces on intermediate tensor ideals in C
+is via pullback of the tensor ideal Proj(D) ⊂ D along a pivotal monoidal functor
+C → D, see [FOG] and Proposition 2.11. Indeed, suppose D has enough projective
+objects and is unimodular (i.e. the projective cover P1 → 1 of the tensor unit also
+has socle 1). Then there is a unique-up-to-scalar modified trace on Proj(D) and for
+each non-zero such trace the above symmetric pairing is non-degenerate, see [BBG,
+Thm. 1] for the case of Hopf algebras and [GKP3, Cor. 5.6] for the general case.
+Invariants of I-admissible ribbon graphs. Let I ⊂ C be a tensor ideal and tX a
+modified trace on I. A C-coloured ribbon graph T in R3 is called I-admissible
+if at least one edge is coloured by an object X ∈ I. For such a T one obtains an
+invariant FC,′ t (T ) of T by cutting an I-labelled edge and taking the modified trace (see
+[GPT, DGGPR1] and Theorem 2.13). In particular, this prescription is independent
+of which I-labelled edge is chosen in the cutting procedure. If T is a framed link, the
+invariant FC,′ t (T ) depends on objects colouring components not used in the cutting
+procedure only through their class in the Grothendieck ring of C (Corollary 2.15). If
+I = C, this also holds for the component used in the cutting procedure. Thus, in order
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+5
+
+to detect any structure of the objects colouring the link other than their composition
+series, one needs to work with a proper ideal I ⊊ C. This illustrates once more that
+tensor ideals and modified traces are crucial for non-semisimple invariants.
+Symplectic fermion example. To see how the non-semisimple invariants FC,′ t (T ) behave in a concrete example, we consider the category Q M of finite-dimensional left
+modules over Q = Q(N, β), the symplectic fermion quasi-Hopf algebra. As an algebra
+it is the semidirect product of Z2 with the direct sum of a Graßmann algebra and a
+Clifford algebra in 2N generators each. The parameter β ∈ C satisfies β 4 = (−1)N .
+Symplectic fermions were introduced in the context of two-dimensional conformal
+field theory [Ka, GK] and the vertex operator algebra was studied in [Ab]. A corresponding modular tensor category was proposed in [DR, Ru] and was expressed
+as representations of a factorisable ribbon quasi-Hopf algebra in [GR1, FGR2]. In
+[GN, CLR] it was shown that for N = 1, Q M is indeed ribbon-equivalent to the
+representation category of the symplectic fermion vertex operator algebra, see also
+[MR] for recent progress on general N .
+The categories Q M are comparatively easy to handle. For example, they always
+have four simple objects, but the maximal composition length of indecomposable
+projective modules increases with N and is given by 22N . The category Q M is a finite
+ribbon tensor category and is modular, i.e. the braiding satisfies a non-degeneracy
+condition.
+The symplectic fermion quasi-Hopf algebra Q can be understood as a version of
+the quantum group of type BN at q = i [FL]. Note that the parameter is the
+rank while the root of unity is kept fixed. In the other class of standard examples,
+namely small quantum groups for sl(2), as in [Lyu, FGST, CGR], the parameter is
+the order of the root of unity. These two classes of examples probe different aspects
+of non-semisimple invariants: For BN the number of simple objects is always 4 and
+the maximal composition length of their projective covers increases, while for sl(2)
+the maximal composition length of projective covers is 4, but the number of simple
+objects increases.
+For Q M we compute invariants of the unknot and the Hopf link with different
+framings, and of torus knots for the tensor ideals Q M, Proj(Q M) and, importantly,
+also for a choice of intermediate ideal I (in the case N = 2). The ideal I and
+a modified trace tI on it are obtained via the pullback construction specialised to
+quasi-Hopf algebras, see Section 4.4.
+The results are listed in Table 1 from Section 2.5. Most interestingly, the intermediate ideal we consider contains a continuum of mutually non-isomorphic indecomposable objects which all have the same composition series made out of 4 simple objects.
+The family we consider can be conveniently parameterised by a complex 2 × 2-matrix
+µ ∈ Mat2 (C), and we denote the corresponding representation of Q by Pµ ∈ I. For a
+ribbon graph T coloured by such Pµ , it turns out that the corresponding invariants
+FC,′ tI (T ) can depend continuously on µ. For example the invariant of O(n, Pµ ), the
+n-framed unknot coloured by Pµ , is
+
+
+
+
+FC,′ tI O(n, Pµ ) = 2n(1 + det(µ)) .
+
+6
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+Such a dependence on continuous parameters can never happen for the extremal
+choices I = C and I = Proj(C) for the tensor ideal in a finite tensor category, see
+Remark 2.17 for more details.
+Let us also mention that in some cases, the invariants based on the intermediate
+ideal I are topologically stronger (i.e. able to distinguish more knots) than those
+based on the ideal Proj(C), see a discussion in the last item (3) in Section 2.5.
+1.2. Invariants of three-manifolds. In Section 3 we work with stronger assumptions:
+C is in addition finite, unimodular, and twist-nondegenrate .
+Finiteness means that there are only finitely many isomorphism classes of simple objects and that C has enough projective objects. Unimodularity was already mentioned
+above, and twist-nondegeneracy will be explained below. All of these conditions hold
+for modular tensor categories, see [DGGPR1, Prop. 2.6], and in particular for Q M.
+Fix a tensor ideal I ⊂ C and a modified trace t on I. We consider invariants of
+(closed, oriented) three-manifolds with embedded I-admissible ribbon graphs. We
+equally consider Lyubashenko invariants of three-manifolds. For the latter there are
+no restrictions on the embedded ribbon graph, in particular it is allowed to be empty.
+Surgery invariants. The invariants we study are obtained as surgery invariants, and
+we need to extend our definition of the invariants FC,′ t of I-admissible ribbon graphs
+to so-called bichrome graphs. These consist of an ordinary ribbon graph, called
+“blue” and the surgery link called “red”. The red component does not carry further
+labels. The invariant of bichrome graphs needs another ingredient to evaluate the red
+part, namely the universal Hopf algebra L in C, defined as a coend, and the integral
+Λ : 1 → L, unique up to a scalar. We review the slightly intricate construction of the
+′
+corresponding invariant FΛ,
+t (T ) from [DGP, DGGPR1] in Section 3.2.
+Let M be an oriented closed three-manifold and T a (blue) I-admissible ribbon
+graph embedded in M . One can show that
+′
+L′Λ, t (M, T ) = D −1−ℓ(L) δ −σ(L) FΛ,
+t (L ∪ T )
+
+is a topological invariant of the pair (M, T ). Here, L is a surgery link representing M ,
+and ℓ(L) and σ(L) are the number of components and the signature of the surgery link
+L, respectively. At this point one needs C to be twist-nondegenerate, which means
+′
+that FΛ,
+t (O± ) ̸= 0 for O± the red ±1-framed unknot. This is necessary to achieve
+invariance under the Kirby 1-move (stabilisation). See [DGGPR1] and Theorem 3.6
+for details and for the definition of the constants D and δ.
+The original non-semisimple invariant defined by Lyubashenko [Lyu] is recovered
+by taking I = C and tX to be the categorical trace trCX :
+LyuΛ (M, T ) = L′Λ, trC (M, T ) .
+The strong point of Lyubashenko’s invariant is that it can be defined for just the
+three-manifold M without an embedded ribbon graph (since one can always insert a
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+7
+
+loop labelled by 1). On the downside, LyuΛ (M, T ) is often zero. For example, if C is
+modular, then
+LyuΛ (S 2 × S 1 , ∅) = 0
+if and only if C is non-semisimple (Proposition 3.13), and LyuΛ (M, T ) = 0 for all M
+if T contains an edge labelled by an object in a proper tensor ideal (Corollary 3.11).
+The price to pay to do better than LyuΛ (M, T ) is that one needs to include an
+I-admissible ribbon graph in M . Furthermore, the ribbon graph must wrap nontrivially around the surgery link of M , or else the invariant reduces to LyuΛ (M, ∅)
+times the link invariant FC,′ t (T ) discussed above (Proposition 3.10).
+Lens space invariants in the symplectic fermion example. Fix two positive coprime
+integers p, q. The lens spaces L(p, q) are by definition a quotient of S 3 = SU (2)
+by a q-dependent action of Z/pZ. A surgery presentation can be obtained from a
+continued fraction expansion of pq . We give a general expression for L′Λ, t (L(p, q), T ),
+where T is a loop bounding a disc (thus reducing to Lyubashenko’s invariant as given
+for L(p, q) already in [Lyu]), and where T wraps a non-trivial cycle, i.e. is linked
+non-trivially with L (Proposition 3.16). In the symplectic fermion example C = Q M,
+Q = Q(N, β) we find
+LyuΛ (L(p, q)) = pN .
+Since |H1 (L(p, q))| = p, this leads us to
+conjecture:
+
+LyuΛ (M ) =
+
+
+0
+|H1 (M )|
+
+N
+
+; H1 (M ) infinite
+; else
+
+for all closed 3-manifolds M . This conjecture for symplectic fermions fits into a series
+of observations relating non-semisimple and semisimple invariants which we briefly
+recall in Section 3.4, where we also discuss a possible generalisation to other modular
+tensor categories.
+Next we choose the projective ideal and T the loop wrapping a (specific) non-trivial
+cycle coloured by the projective cover P1 of the tensor unit. We get
+
+
+
+
+L′Λ, t L(p, q), T (P1 ) = 12 c + 21 β 2 q N ,
+where c ∈ {0} ∪ {β m |m ∈ Z} is determined recursively from the continued fraction expansion (Theorem 3.18). Note that this is no longer just an invariant of the
+lens space L(p, q), but it depends on our choice of cycle wrapped by T . Indeed,
+L(p, q) ∼
+= L(p, q + p) as manifolds, but the above expression is not invariant under
+this substitution.
+The most interesting case is again that of the intermediate ideal (again N = 2). In
+that case we find for T the non-trivial loop as above and labelled by Pµ , µ ∈ Mat2 (C)
+(Theorem 3.20):
+
+
+
+
+L′Λ, tI L(p, q), T (Pµ ) = −2pq(1 + det(µ)) .
+To the best of our knowledge, our results provide the first explicit computation
+of the behaviour of quantum invariants under variation of the choice of tensor ideal,
+including an intermediate tensor ideal. It would also be interesting to calculate
+
+8
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+invariants associated to ideals with modified traces in pivotal tensor categories as
+constructed in [GKP3], but this is outside the scope of our paper.
+1.3. Detailed computations. In Section 4, we review in detail our conventions
+for (pivotal, quasi-triangular, ribbon) quasi-Hopf algebras H. Then we recall the
+construction of modified traces on the projective ideal of the category H M of finitedimensional left H-modules. This uses the theory [BGR1] of symmetrised (co)integrals
+of H which is a quasi-Hopf generalisation of the construction in [BBG]. Using the
+right integral of H, in Section 4.3 we calculate the integral Λ : 1 → L of the universal Hopf algebra L ∈ C, following [BGR2], and characterise the twist-nondegeneracy
+condition in quasi-Hopf terms. We then describe in Section 4.4 how to get intermediate tensor ideals and modified traces from suitable quasi-Hopf subalgebras, see the
+precise statement in Corollary 4.6.
+In Section 5 we review the definition of the family of non-semisimple symplectic
+fermion quasi-Hopf algebras from [FGR2]. We show that Q M is prime in the sense
+of [LW]. Then we return to the pullback construction, and give an explicit example
+of a sub-quasi Hopf algebra A in H = Q(2, β). We introduce a family of H-modules
+Pµ , bijectively parameterised by complex (2 × 2)-matrices µ, which are lifts of the
+projective cover of the tensor unit in A M. After having established some properties
+of these modules, we compute the pullback modified trace on the pullback ideal of
+Proj(A M) in H M.
+Section 6 consists of the computations of the various (framed) link invariants first
+presented at the end of Section 2.
+Section 7 contains expressions for lens space invariants (both for empty manifolds
+and with I-admissible ribbon graphs) in terms of quasi-Hopf data, see Proposition 7.1,
+where all tensor ideals are treated on equal footing via certain (possibly degenerate)
+bilinear form on the centre of the quasi-Hopf algebra. Then, we finally give the
+explicit computation for Q M using the SL(2, Z) action on the centre of Q computed
+in [FGR2].
+Acknowledgements. The authors would like to thank Christian Blanchet, Marco
+de Renzi, Ehud Meir, Vincentas Mulevičius, Kenichi Shimizu, and Joost Vercruysse
+for answers, comments, remarks, and helpful discussions. We also thank the referees
+for many helpful suggestions and improvements to the paper. JB is supported by the
+Fédération Wallonie-Bruxelles through a postdoctoral fellowship in the framework of
+the actions de recherche concertées-grant “From algebra to combinatorics, and back”.
+The work of AMG was supported by the CNRS, and partially by the ANR grant JCJC
+ANR-18-CE40-0001 and the RSF Grant No. 20-61-46005. AMG is also grateful to
+Hamburg University for its kind hospitality in 2022. IR is partially supported by the
+Deutsche Forschungsgemeinschaft via the Cluster of Excellence EXC 2121 “Quantum
+Universe” - 390833306.
+Conventions. Throughout an algebraically closed field k of arbitrary characteristic
+is fixed, and all linear structures will be considered over it. All functors between
+linear categories are assumed to be linear.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+9
+
+2. Link invariants from tensor ideals and modified traces
+In this section we start by reviewing some parts of the theory of tensor ideals and
+modified traces and how to use these to define link invariants, as developed in [GPT,
+GKP1, GKP2, GPV]. We prove some general properties of the resulting invariants.
+The main result in this section is the observation that – in the example we consider
+– working with an intermediate tensor ideal allows one to detect internal structure
+of indecomposable (but reducible) objects not visible to invariants build from either
+of the two canonical ideals, i.e. the whole category or the subcategory of projective
+objects. Invariants for the intermediate ideal may also distinguish knots which the
+two canonical ideals cannot, in our example certain knots from their mirrors.
+2.1. Tensor categories. Following [EGNO] by a tensor category we mean a linear
+abelian category which
+• is locally finite (finite-dimensional Hom-spaces and every object has finite
+length)
+• is monoidal with bilinear tensor product ⊗ and simple tensor unit 1,2
+• is rigid, i.e. each object has a left and a right dual with corresponding evaluation and coevaluation morphisms, see below.
+Recall that an object P ∈ C is projective iff the associated Hom-functor C(P, −) is
+exact. A projective cover of an object X ∈ C is an epimorphism
+pX : P X → X
+with PX projective, such that every epimorphism P → X with P projective factors
+epimorphically through pX . We note that we do not require the existence of projective
+covers in C. However, if 1 does have a projective cover P1 , and if the socle (the largest
+semisimple subobject) of P1 is also 1, then C is called unimodular.
+A tensor category with finitely many isomorphism classes of simple objects and
+where every object has a projective cover is called a finite tensor category. A fusion
+category is a semisimple finite tensor category. Without loss of generality, we will
+assume monoidal categories to be strictly unital and associative.3
+For the rest of this section C is a tensor category in the above sense. We denote
+by Irr(C) a set of representatives of isomorphism classes of simple objects, and agree
+that 1 ∈ Irr(C). A choice of projective cover (if it exists) of a simple object U ∈ Irr(C)
+shall be denoted by pU : PU → U . Our notation for left and right duals of an object
+X is X ∨ and ∨X, and the evaluation and coevaluation morphisms are
+evX : X ∨ ⊗ X → 1,
+
+efvX : X ⊗ ∨X → 1
+
+and
+coevX : 1 → X ⊗ X ∨ ,
+
+g X : 1 → ∨X ⊗ X ,
+coev
+
+2In [EGNO, Def. 4.1.1] it is instead assumed that End(1) = k, however the tensor unit is neces-
+
+sarily simple due to [EGNO, Thm. 4.3.8].
+3The strictness assumption is made only in Sections 2 and 3 for simplicity of exposition. In
+the technical example computations in Sections 4–7 we work with quasi-Hopf algebras, and their
+representation categories are non-strict.
+
+10
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+respectively. We will employ graphical calculus in the form of string diagrams, which
+in our convention are read from bottom to top. Thus e.g. the left evaluation and
+coevaluation morphisms for X are drawn as
+X
+evX =
+
+and
+X∨
+
+coevX =
+
+X∨
+.
+
+X
+
+To C is associated its Grothendieck ring Gr(C). This is, as an abelian group,
+generated by objects of C modulo the relations X + Z = Y in Gr(C) iff there is a
+short exact sequence 0 → X → Y → Z → 0 in C; we denote the class of X ∈ C in
+Gr(C) by [X]. The multiplication determined by [X] · [Y ] = [X ⊗ Y ] is well-defined
+because ⊗ is exact by [EGNO, Prop. 4.2.1]. The Grothendieck ring is in fact freely
+generated over Z by Irr(C): every object X ∈ C possesses a finite composition series,
+in which the simple object U occurs [X : U ] times; if U has a projective cover then
+[X : U ] = dimk C(PU , X), see [EGNO, Sec. 1.8]. Thus the class of any X ∈ C can
+be written as a sum over classes of simple objects U with multiplicity [X : U ]. In
+particular, there are structure constants NUWV = [U ⊗ V : W ] ∈ N such that
+[X] · [Y ] =
+
+X
+
+[X : U ] [Y : V ] NUWV [W ]
+
+(2.1)
+
+U,V,W ∈Irr(C)
+
+for all X, Y ∈ C.
+2.2. Tensor ideals. A right tensor ideal I of C (or right ideal for short) is a full
+subcategory such that
+• for all X ∈ I and V ∈ C, also X ⊗ V ∈ I, and
+• it is closed under retracts, i.e. if Z ∈ I and Z ∼
+= X ⊕ Y , then also X, Y ∈ I.
+Note that by the second condition, ideals are replete, i.e. if X ∼
+= Y with X ∈ I, then
+Y ∈ I. The definition of left and two-sided ideals in C is analogous. We will refer to
+two-sided ideals just as ideals.
+Example 2.1. Two trivial examples of ideals are the subcategory consisting of only
+the zero object, as well as the category C itself. An important example of an ideal is
+the subcategory of projective objects, which we denote by Proj(C). Indeed, closure
+under tensor products from both sides follows from [EGNO, Prop. 4.2.12], and closure
+under retracts is the statement that direct summands of projective objects are again
+projective.
+Example 2.2. It can happen that C has no nonzero projective objects, i.e. that
+Proj(C) = 0, and in fact that there are no nonzero proper right tensor ideals at all.
+As a simple example consider the Hopf algebra H = C[X], the polynomial ring in
+one variable, with coproduct ∆(X) = X ⊗ 1 + 1 ⊗ X. Let C be the tensor category of
+finite-dimensional H-modules. The nonzero indecomposable objects are Jm (q), given
+by an m-dimensional vector space on which X acts via a single Jordan block with
+q ∈ C along the diagonal. The projective cover of each Jm (q) would be the infinite
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+11
+
+Jordan block C[X] ⊗ J1 (q), which is not contained in C. To see that there are no
+proper non-zero right ideals, note that the tensor product decomposes as4
+min(m,n)
+
+Jm (p) ⊗ Jn (q) =
+
+M
+
+Jm+n+1−2k (p + q) for all m, n ∈ Z>0 and p, q ∈ C .
+
+k=1
+
+Hence, if a right ideal I contains the indecomposable Jm (p), it also contains the
+tensor unit J1 (0) as it occurs as a direct summand in Jm (p) ⊗ Jm (−p), so that I = C.
+Remark 2.3. C is braided if it is equipped with a natural isomorphism with components
+Y
+X
+cX,Y =
+
+∼
+
+: X ⊗Y −
+→Y ⊗X
+
+X
+Y
+called the braiding, satisfying the hexagon axioms, see e.g. [EGNO, Ch. 8]. The
+inverse is drawn with the opposite crossing. Since ideals are replete, there is no
+distinction between left, right and two-sided ideals in a braided category.
+△
+Let I be a (two-sided) ideal in C. Then I is closed under taking duals, i.e. X ∈ I
+implies X ∨ , ∨X ∈ I, see [GKP1, Lem. 3.1.2]. For example, the zig-zag identities for
+the left duality maps exhibit X ∨ as a retract of X ∨ ⊗ X ⊗ X ∨ .
+The next proposition shows that the projective ideal Proj(C) is the smallest nonzero ideal. It is a slight adaptation of [GKP1, Lem. 4.4.1] as we do not assume C to
+be braided. To give the precise statement, we need some notation. We say that a
+right tensor ideal I is generated by P ∈ C, written I = (P ), if every object Q ∈ I
+can be obtained as a retract of P ⊗ X for some X ∈ C. For example, the ideal
+generated by 1 is the entire category. The ideals of C ordered by inclusion of full
+subcategories form a poset, which immediately yields the notion of a sub-ideal. Note
+that the intersection I ∩ J of two ideals (which is a well-defined operation on replete
+subcategories) is a sub-ideal in I and in J .
+Proposition 2.4. Let C be a tensor category. Then:
+(1) If I is a non-zero right or left ideal in C, then Proj(C) is a sub-ideal of I.
+In particular, Proj(C) contains no right or left sub-ideal other than zero and
+itself.
+Suppose now that Proj(C) ̸= 0. Then:
+(2) Proj(C) = (P ) for any non-zero projective object P .
+(3) C admits a non-zero proper ideal if and only if C is not semisimple.
+Proof. To see (1), assume first that I is a right ideal in C. Let X ∈ I and P ∈ Proj(C).
+Since I is a right ideal and Proj(C) is an ideal, we have X ⊗ ∨X ⊗ P ∈ I ∩ Proj(C).
+∼
+1
+m (0) = Jm (q), and then note that Jm (0) is just the
+m-dimensional representation of a nilpotent part of sl2 .
+4To see this, first check that J (q) ⊗ J
+
+12
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+To show that this intersection is Proj(C), consider the epimorphism:
+ev
+e
+
+⊗ id
+
+P
+X ⊗ ∨X ⊗ P −−X−−−→
+P ,
+
+where we used that the right evaluation morphism efvX is epi due to simplicity of the
+tensor unit and that the tensor product is exact, i.e. it preserves epimorphisms. This
+epimorphism has a section due to projectivity of P , and thus P is a retract of an
+object in I. The statement for left ideals in C is proven similarly using left duals and
+left evaluation maps.
+The show (2) observe that (P ) is a non-zero right subideal in Proj(C) because it
+contains P , and therefore by (1) this subideal consists of all projective objects.
+Lastly, for (3) note that
+(∗)
+
+C is semisimple ⇐⇒ 1 ∈ Proj(C)
+by (2)
+
+⇐⇒ Proj(C) = (1) = C
+
+by (1)
+
+⇐⇒ the smallest non-trivial ideal is C itself ,
+
+where the implication ⇐= of (∗) follows from X ∼
+= X ⊗ 1 for every X ∈ C together
+with the fact that the ideal of projectives is replete.
+□
+We note that the assumption Proj(C) ̸= 0 in Proposition 2.4 (3) is necessary as we
+saw in Example 2.2.
+Remark 2.5. Suppose that C is a tensor category which is graded as an abelian
+category by a set S, i.e. C = ⊕s∈S Cs such that there are no non-zero morphisms
+between objects in Cs and Cs′ for s ̸= s′ . While an ideal I is in general not an
+abelian subcategory, it is closed under retracts, and thus inherits the grading in the
+sense that every object X ∈ I can be written as ⊕s∈S Xs with Xs ∈ Is . Let now
+I ⊂ C be a non-zero right (or left, or two-sided) ideal. By Proposition 2.4 (1) we
+have Proj(C) ⊂ I ⊂ C and hence also Proj(C)s ⊂ Is ⊂ Cs for each s ∈ S. If Cs is
+semisimple for some s ∈ S, then Proj(C)s = Cs and hence also Is = Cs .
+△
+2.3. Modified traces on tensor ideals. Recall that a pivotal structure on a tensor
+category is a monoidal natural isomorphism δ : idC ⇒ (−)∨∨ . Equivalently, it is a
+monoidal natural isomorphism between the left and the right dual functor.
+Let from now on C be pivotal. For simplicity of exposition, we fix a left duality
+functor, and take as right dual of an object X the object X ∨ with (co)evaluations
+induced by the pivotal structure, meaning that e.g. efvX = evX ∨ ◦(δX ⊗ idX ∨ ). Then
+one can define the right (quantum or categorical) trace of an endomorphism f ∈
+EndC (X) as the number
+f
+trr,C
+vX ◦(f ⊗ idX ∨ ) ◦ coevX ∈ EndC (1) .
+X (f ) = e
+
+One can similarly define the left categorical trace trl,C using the other pair of duality
+morphisms. Later we will only deal with ribbon categories, see Remark 2.7, and
+both traces then agree. We will thus just write trCX (f ). The (quantum or categorical)
+dimension of X ∈ C is dimC (X) = trCX (idX ).
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+13
+
+Lemma 2.6. Let I be a proper right ideal in the pivotal tensor category C. Then the
+right categorical trace of C vanishes identically on I, that is trC |I ≡ 0.
+Proof. Let X ∈ I. The right trace of an endomorphism f of X is a morphism
+trCX (f ) = 1 → X ⊗ X ∨ → 1 .
+If this is non-zero, then 1 is a retract of X ⊗ X ∨ . Since X ∈ I and I is a right
+ideal, also X ⊗ X ∨ ∈ I. But ideals are closed under retracts, and so 1 ∈ I. Thus I
+contains the ideal generated by 1, which is C.
+□
+If the category is not semisimple, or equivalently if it admits a non-trivial proper
+ideal, then to obtain a version of trace and dimension which does not vanish on the
+ideal, the notion of a modified trace was introduced and studied in [GPT, GKP1,
+GKP2, GPV]. A right modified trace on a right ideal I of C is a family of linear maps
+{tX : EndC (X) → k}X∈I
+satisfying the following two axioms:
+(1) Cyclicity: For every pair of morphisms f, g between objects of I
+f
+
+g
+
+g
+
+f
+
+tX (X →
+− Y →
+− X) = tY (Y →
+− X→
+− Y) .
+(2) right partial trace property: for X ∈ I, V ∈ C, and f ∈ EndC (X ⊗ V )
+idX coevV
+
+tXV (f ) = tX X −−−−−→ XV V
+
+∨ f idV ∨
+
+−−−−→ XV V
+
+eV
+∨ idX ev
+
+−−−−→ X
+
+!
+
+.
+
+Above, and also in many places below, we have omitted the ⊗-symbol for better
+readability.
+The right partial trace property is simply the natural compatibility condition between the right modified and categorical traces, and it establishes the ‘multiplicative’
+property tXV (f ⊗ g) = trCV (g) tX (f ).
+Analogously one defines left modified traces on left ideals, where in (2) one uses
+the left partial trace. On two-sided ideals, one can have both left and right modified
+traces; a left modified trace on an ideal I does not have to be right, but if it is, we
+will simply speak of a two-sided modified trace, or modified trace for short.
+Remark 2.7. Adding to Remark 2.3, we call C ribbon, if it is braided and there is a
+natural family of isomorphism θX : X → X such that cY,X ◦ cX,Y ◦ (θX ⊗ θY ) = θX⊗Y
+and θX ∗ = (θX )∗ . For a ribbon category C, similarly to the left/right categorical
+traces, a left modified trace on a (necessarily two-sided) ideal is automatically right,
+and vice versa. The proof can easily be adapted from e.g. [GKP1, Thm. 3.3.1]. △
+A (left, or right, or two-sided) modified trace t on an ideal I induces canonical
+pairings
+C(X, V ) × C(V, X) → k,
+
+(f, g) 7→ tX (g ◦ f )
+
+for X ∈ I, V ∈ C ,
+
+and one calls t non-degenerate if all of these pairings are non-degenerate.
+Example 2.8.
+(1) The categorical trace trC of C serves as a modified trace on
+the ideal I = C.
+
+14
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+(2) Any modified trace t on C is a scalar multiple of the categorical trace trC :
+from 1 ⊗ X = X, together with cyclicity and the partial trace property, one
+finds tX (f ) = t1 (id1 ) trCX (f ).
+(3) If C is unimodular, i.e. C(1, P1 ) ∼
+= k, then Proj(C) admits a unique (up to
+scalar) non-degenerate modified trace [GKP3, Cor. 5.6]. Fix a non-zero ν1 ∈
+C(1, P1 ). By non-degeneracy, we must have tP1 (ν1 ◦ p1 ) ̸= 0, and we can
+normalise the modified trace so that tP1 (ν1 ◦ p1 ) = 1.
+Corollary 2.9. Suppose Proj(C) ̸= 0. Then the categorical trace trC is non-degenerate
+iff C is semisimple.
+Proof. By Lemma 2.6, trC vanishes on any proper ideal, so if trC is non-degenerate, the
+only possible proper ideal of C is (0), and we can conclude from Proposition 2.4 (3)
+that C is semisimple. Conversely, if C is semisimple, then it is unimodular and
+C = Proj(C). By points (2) and (3) in Example 2.8, there exists a non-degenerate
+modified trace on C which is a scalar multiple of trC .
+□
+Remark 2.10. In addition to Corollary 2.9, we observe that in the non-semisimple
+case trC is maximally degenerate in the following sense. Let I be a right ideal in C
+and t a right modified trace on I. Define
+Ann(I, t) := {X ∈ I | tX (f ) = 0 for all f ∈ EndC (X)} .
+Then Ann(I, t) is again a right ideal. Indeed, it is closed under retracts by cyclicity
+of t and the partial trace property shows that for X ∈ Ann(I, t) and V ∈ C also
+X ⊗ V ∈ Ann(I, t). Since the categorical trace is non-zero on the tensor unit,
+Ann(C, trC ) is a proper right ideal, and by Lemma 2.6 every other right ideal is
+contained in it. If C is semisimple, we have Ann(C, trC ) = (0) by Corollary 2.9. If C
+is not semisimple, we have the inclusions
+(0) ⊂ Proj(C) ⊂ I ⊂ Ann(C, trC ) ⊊ C
+of right ideals, for any proper and non-zero right ideal I.
+
+△
+
+In [FOG], the following ‘pullback construction’ of tensor ideals and modified traces
+is introduced. Recall that for a monoidal functor F : C → D between rigid categories,
+there is a canonical natural isomorphism ξX : F (X ∨ ) → (F X)∨ , for an explicit expression see (2.3). If C and D are pivotal, then we say that F is pivotal if we have
+commuting diagrams for all X ∈ C:
+FX
+
+C
+F δX
+
+D
+δF
+X
+
+F (X ∨∨ )
+ξX ∨
+
+(2.2)
+
+(F X)∨∨ (ξ )∨ (F (X ∨ ))∨
+X
+
+The next statement is a special case of the construction in [FOG, Prop. 2.6 & 2.7]
+for submodule categories and module traces.
+Proposition 2.11. Let F : C → D be a monoidal functor between two tensor categories, and let I be a right ideal of D.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+15
+
+(1) The pullback F ∗ I of I along F — i.e. the full subcategory consisting of X ∈ C
+such that F (X) ∈ I — is a right ideal of C.
+(2) Let the categories in addition be pivotal, and suppose that F is pivotal. If t
+is a right modified trace on I, then the pullback F ∗ t of t along F — i.e. the
+family of linear maps defined by
+
+
+F ∗t
+
+
+
+
+
+X
+
+(f ) = tF X F f
+
+
+
+∗
+
+for X ∈ F I — is a right modified trace on F ∗ I.
+Proof. Since F : C → D is a monoidal functor, A ⃝
+< X = A ⊗ F X for X ∈ C, A ∈ D,
+defines a right C-module structure on D, and F is a right C-module functor with
+respect to ⃝
+< . Note that the associators and unitors of ⃝
+< are induced by the
+multiplication and unit isomorphisms of F . A right ideal I ≤ D, being closed under
+tensor products from the right, is a right submodule category which is also closed
+under retracts, and so [FOG, Prop. 2.6] implies that F ∗ I is a right ideal.
+Now let t be a right modified trace on I ≤ D, and let F preserve pivotal structures.
+We claim that these conditions guarantee that t is a C-module trace on the C-module
+endocategory (I, id) in the sense of [FOG, Def. 2.4]. To see this, note first that the
+canonical natural isomorphism ξX : F (X ∨ ) → (F X)∨ is given by the composition
+F2 (X ∨ ,X)⊗id
+
+id ⊗ coev
+
+X
+F (X ∨ ) ⊗ F X ⊗ (F X)∨ −−−−−−−−→ F (X ∨ ⊗ X) ⊗ (F X)∨
+F (X ∨ ) −−−−−−F−→
+
+F (evX )⊗id
+
+F −1 ⊗id
+
+0
+−−−−−−→ F 1 ⊗ (F X)∨ −−
+−−→ (F X)∨ ,
+
+(2.3)
+
+where F2 and F0 are, respectively, the multiplication and the unit isomorphisms of the
+−1
+into the right partial trace condition
+monoidal functor F . Then one inserts ξX ◦ ξX
+satisfied by t for any endomorphism of A ⃝
+< X, and uses the commutativity of the
+diagram (2.2) to conclude that t is a module trace. Thus the claim about pullback
+modified traces follows from the more general construction in [FOG, Prop. 2.7]. □
+Similar statements hold of course for all variations, e.g. the pullback of a left
+modified trace on a left ideal. Note also that for C ribbon, the pullback of any modified
+trace is automatically two-sided. Proposition 2.11 will be our source of non-trivial
+intermediate ideals with modified trace. Namely, we consider F ∗ I ⊂ C for F : C → D
+pivotal, D an appropriate unimodular tensor category, and I the projective ideal in D,
+see Section 2.4 for the application to link invariants and Section 4.4 for details in the
+case of quasi-Hopf algebras.
+Remark 2.12. First paragraph of the proof of Proposition 2.11 suggests a more
+general source of tensor ideals in C. Consider a C-module functor F : C → M, for M
+< exact in the second variable,
+a right C-module category with the action functor ⃝
+and C is considered as the right regular C-module. Such C-module functors are
+< X.
+parametrised by objects M ∈ M, i.e. F can be written in the form FM : X 7→ M ⃝
+Assume furthermore, I is a C-submodule category of M closed under retracts. One
+example of such a C-submodule is Proj(M), due to rigidity of C and the assumption
+∗
+on ⃝
+< . Then, FM
+I is a right C-submodule of the regular module category C, by
+[FOG, Prop. 2.6], which is the same as right tensor ideal in C, and this is a two-sided
+
+16
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+∗
+ideal for braided C. By [FOG, Prop. 2.7], a modified trace on FM
+I can again be
+obtained by pulling back a module trace on I ⊂ M.
+△
+
+2.4. Invariants of C-coloured ribbon graphs and links. Let now C in addition
+be ribbon, and let us denote by RibC the rigid ribbon category of ribbon graphs
+embedded in R2 × [0, 1]. Recall that a ribbon graph consists of oriented framed
+strands coloured by objects of C and of rectangles called coupons where strands can
+end, coloured by morphisms in C. More precisely, RibC has (see [Tu, Ch. I.2] for full
+details)
+• objects: Finite tuples (V , ε) = ((V1 , ε1 ), . . . , (Vm , εm )) with Vk ∈ C and εk ∈
+{+, −}. We denote by |V | = m the length of the tuple.
+• morphisms: Each (V , ε) ∈ RibC determines in a natural way a set of Ccoloured framed oriented points in R2 , say, along the x-axis. A morphism
+T : (V , ε) → (V ′ , ε′ ) is then an isotopy class5 of C-coloured ribbon graphs in
+R2 × [0, 1] from (V , ε) × {0} to (V ′ , ε′ ) × {1} such that framings, orientations,
+and labels match — e.g. an incoming boundary vertex (V, +) means that the
+corresponding strand is coloured with V and oriented upward.
+The tensor product acts on objects by concatenation of lists, and the tensor unit of
+RibC is the empty tuple ∅.
+We will draw morphisms in RibC as blue C-coloured ribbon graphs so as not to
+confuse them with string diagrams in C, for which we use black.
+The Reshetikhin-Turaev functor FC : RibC → C is a ribbon functor which acts on
+objects as
+FC (V , ε) =
+
+|V |
+O
+
+Viεi
+
+where V + = V and V − = V ∨
+
+(2.4)
+
+i=1
+
+and on morphisms via evaluation of the corresponding string diagram, see [RT]
+and [Tu, Ch. I].
+Fix now an ideal I in C and a modified trace t on I. A morphism in RibC is closed
+if it is an endomorphism of the tensor unit ∅ of RibC , and a closed C-coloured ribbon
+graph T is I-admissible if it has at least one edge coloured by an object in I. If the
+ideal I is clear from the context, we will sometimes just say admissible. Given an
+I-admissible graph T with an edge coloured by X ∈ I, a cutting presentation of T
+is a C-coloured ribbon graph TX ∈ RibC ((X, +), (X, +)) such that
+C
+T = trRib
+(X,+) (TX ) .
+
+Note that cutting presentations are not necessarily unique. Nevertheless, the properties of modified traces allow for the following:
+Theorem 2.13. Let T be an I-admissible C-coloured ribbon graph. Then the number
+
+
+
+
+FC,′ t (T ) := tX FC (TX )
+
+for some cutting presentation TX of T
+
+5The isotopy can move the ribbon graph freely in the interior R2 × (0, 1), but keeps boundary
+
+points and framings fixed. E.g. coupons can be rotated and translated arbitrarily, dragging the
+attached ribbons along accordingly.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+17
+
+is well-defined, i.e. an invariant of the isotopy class of T .
+This is shown in [GPT, GPV], see also [DGGPR1, Thm. 3.3] for a proof in the
+present setting (in [DGGPR1] finiteness is assumed, but the proof does not use it).
+As in [DGGPR1] we call FC,′ t the renormalised invariant of I-admissible C-coloured
+ribbon graphs. If I = C and t = trC , then FC,′ trC = FC , i.e. the renormalised invariant
+based on the categorical trace is just the standard Reshetikhin-Turaev invariant of
+closed C-coloured ribbon graphs.
+Let LM
+X denote a closed C-coloured ribbon graph containing a component which is
+a knot with colour M ∈ C. By this we mean that this component is an embedded
+ribbon loop which does not touch any coupons, but which is allowed to link with the
+rest of the ribbon graph. Furthermore, LM
+X contains an edge (distinct from the knot)
+coloured by X ∈ I.
+Proposition 2.14. For any exact sequence 0 → A → B → C → 0 in C we have
+′
+A
+′
+C
+FC,′ t (LB
+X ) = FC, t (LX ) + FC, t (LX ) .
+
+Before proving this, let us state an obvious consequence: intuitively, it tells us
+that given an admissible graph, any component that ‘looks like a loop’ need only be
+coloured by simple objects, as long as we keep one edge coloured by something from
+the ideal on which our modified trace acts. More precisely, we have the following
+corollary.
+Corollary 2.15. The renormalised Reshetikhin-Turaev invariant of LB
+X depends only
+on the class of B in the Grothendieck ring Gr(C) of C, that is
+FC,′ t (LB
+X) =
+
+X
+
+[B : U ] · FC,′ t (LUX ) .
+
+U ∈Irr(C)
+
+Proof of Proposition 2.14. In RibC we can without loss of generality represent LB
+X as
+LB
+X =
+
+eB
+L
+X
+
+X,
+
+B
+and cutting off the top cap and the bottom left cup, we obtain a morphism
+
+
+
+η(X)B = FC 
+
+
+
+
+eB
+L
+
+X
+
+
+
+ ∈ C(B ∨ ⊗ B, X ⊗ X ∨ )
+
+
+
+after evaluating with the Reshetikhin-Turaev functor. By our requirement on the
+B-coloured edge to be part of a knot, this actually defines a dinatural transformation
+η(X) ∈ Dinat(−∨ ⊗ −, X ⊗ X ∨ ). If 0 → A → B → C → 0 is any short exact
+sequence, by [GR3, Lem. 2.1] we have
+g B = η(X)A ◦ coev
+g A +η(X)C ◦ coev
+g C .
+η(X)B ◦ coev
+
+18
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+ϑXn
+
+ϑbU
+
+cm
+X,X
+
+ϑaX
+
+X U
+(c) S(X, a; U, b)
+
+(b) T (m, X)
+
+(a) O(n, X)
+
+Figure 1. The three types of links used in the computation of example
+invariants. Here, X ∈ I, U ∈ C, n, a, b ∈ Z, m ∈ 2Z + 1.
+From monoidality of FC and linearity of the modified trace we therefore get
+!!
+
+t X FC
+
+eB
+L
+X
+
+!!
+
+= tX FC
+
+eA
+L
+X
+
+!!
+
++ t X FC
+
+as claimed.
+
+eC
+L
+X
+
+,
+□
+
+Remark 2.16.
+(1) Proposition 2.14 and its Corollary 2.15 also hold for more
+general types of C-coloured graphs. Indeed, looking at the proof, we see that
+it is enough to require the M -coloured edge of LM
+X to be part of a natural
+transformation, i.e. natural in M .
+(2) The invariant FC,′ t (T ) for an I-admissible ribbon graph T does not change if
+we add a 1-coloured loop O1 to T : FC,′ t (T ) = FC,′ t (T ⊔O1 ). For the ideal I = C
+every object is admissible, in particular the tensor unit 1. For a C-coloured
+link L we can write
+FC (L) = FC,′ trC (L) = FC,′ trC (L ⊔ O1 )
+and apply Corollary 2.15 with X = 1. This shows that the ReshetikhinTuraev invariant FC depends on the objects colouring L only up to their class
+in the Grothendieck ring.
+△
+2.5. Examples of link invariants for symplectic fermions. We will now give
+some examples of renormalised Reshetikhin-Turaev invariants.
+We consider the following families of C-coloured links, where X, U ∈ C (see Figure 1):
+• O(n, X), n ∈ Z: the unknot with framing number n.
+• T (m, X), m ∈ 2Z + 1: the (2, m)-torus knot. This is the braid closure, i.e.
+the categorical trace in RibC , of cm
+X,X .
+• S(X, a; U, b), a, b ∈ Z: the Hopf link of X with U with framing a and b,
+respectively, i.e. the braid closure of (ϑXa ⊗ ϑUb ) ◦ cU,X ◦ cX,U in RibC .
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+19
+
+Note that O(±1, X) is isotopic to T (±1, X), and that T (3, X) is the X-coloured
+trefoil. Replacing + with − in O(±n, X) or T (±m, X) turns each knot into its mirror
+image. By an appropriate rotation one sees that S(X, a; U, b) and S(U, b; X, a) are
+isotopic.
+For each link L in the list above, we compute the invariant FC,′ t (L), where we
+vary the input category C, the tensor ideal I with modified trace t, and the colours
+X, U of the link components. The object X will always be in I, while on U no such
+restriction is imposed. However, by Corollary 2.15 it is sufficient to restrict oneself
+to simple U . We have the relations
+FC,′ t (O(±1, X)) = FC,′ t (T (±1, X)) ,
+FC,′ t (S(X, a; U, b)) = FC,′ t (S(U, b; X, a)) ,
+FC,′ t (O(1, X ⊗ U )) = FC,′ t (S(X, 1; U, 1)) ,
+
+(2.5)
+
+where the last line follows from (ϑX ⊗ ϑU ) ◦ cU,X ◦ cX,U = ϑX⊗U .
+Let us consider the ingredients C, I, t and X in turn.
+The ribbon category C: We take C to be the category Q M of finite-dimensional left
+modules over Q = Q(N, β), the (finite-dimensional) symplectic fermion quasi-Hopf
+algebras from [FGR2]. In particular, Q M is a finite tensor category. The parameters
+N ∈ Z>0 and β ∈ C are subject to β 4 = (−1)N . We review the definition of Q(N, β)
+in detail in Section 5.
+The value of β affects the ribbon quasi-Hopf structure of Q, but not the algebra
+structure. Independently of N , the algebra Q(N, β) has precisely four simple modules,
+denoted X0± and X1± . The simple objects X1± are projective, but X0± are not. The
+length of the composition series of the projective covers P0± of X0± is 22N , so in
+particular it grows with N . The category Q M is unimodular, i.e. the tensor unit X0+
+is also the socle of P0+ .
+The tensor ideal I and the modified trace t: We consider three different choices of
+tensor ideal in C = Q M:
+(1) Q M with the categorical trace trC .
+(2) Proj(Q M) with the unique-up-to-scalar non-degenerate modified trace t from
+Example 2.8 (3).
+(3) A -Proj(H M) with pullback modified trace Res∗ (tA ), where we take
+H := Q(2, β)
+and A ⊂ H is a pivotal unimodular quasi-Hopf subalgebra.
+In point (3), the intermediate ideal I = A -Proj(H M) is the pullback ideal (as in
+Proposition 2.11) of Proj(A M) along the restriction functor Res and Res∗ (tA ) is the
+pullback of the unique-up-to-scalar modified trace on Proj(A M). The full details can
+be found in Section 5.3.
+For N = 2 the three ideals are properly contained in each other:
+Proj(H M) ⊊ A -Proj(H M) ⊊ H M .
+Corresponding examples exist for any N ≥ 2, see Section 5.3.1.
+
+(2.6)
+
+20
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+The colouring objects: Depending on the tensor ideal in question, the colouring objects are as follows:
+(1) Q M: By Remark 2.16 (2), colouring link components by Irr(Q M) is sufficient
+for knowing the invariants for arbitrary colours in Q M. Hence in this case we
+restrict ourselves to the four simple objects X0± , X1± of Q M.
+(2) Proj(Q M): We know the invariants for P ∈ Proj(Q M) once we know the
+invariants for all projective indecomposables, i.e. for the projective covers of
+simple objects.
+(3) A -Proj(H M): We will consider a family of objects Pµ ∈ A -Proj(H M) indexed
+by µ ∈ Mat2 (C). The modules Pµ and Pµ′ always have the same class in the
+Grothendieck ring of Q M, but are isomorphic only if µ = µ′ , see Section 5.3
+for their construction and structure.
+The link invariants obtained from these input data are listed in Table 1. The
+explicit computations of these invariants can be found in Section 6. Let us collect
+some observations about the results in that table. We order the discussion by column,
+i.e. by the choice of tensor ideal.
+(1) Q M: The simple objects X0± generate a copy of the category of super-vector
+spaces in Q M. Since that category is symmetric, the invariant can only detect
+the parity of X0± , but none of the topology of the link. By Lemma 2.6, any
+invariant involving a ribbon coloured by the simple objects X1± is zero, as
+these are projective.
+(2) Proj(Q M): Consider the results for a fixed choice of the ribbon category, i.e.
+for fixed N and β. If N is odd, we see that for fixed choice of colour P0± ,
+the invariant FC,′ t can distinguish all the framed unknots O(n, X) and all the
+torus knots T (m, X). By contrast, for a semisimple ribbon category, these
+invariants would always be periodic6 in n and m.
+For even N and β = ±1, FC,′ t can not distinguish the framed unknot from
+its mirror knot, and ditto for the torus knots.
+(3) A -Proj(H M): This is the most interesting case. First note that here N = 2
+and we just saw that for the choice β = ±1, the projective ideal could not tell
+apart a knot and its mirror for unknots and torus knots. For the intermediate
+ideal, these can now be distinguished even for β = ±1.
+More remarkably, for the intermediate ideal the modified trace can distinguish a continuum of representations in A -Proj(H M). For example, FC,′ Res∗ (tA )
+can detect the value λ ∈ C for the choice µ = ( λ0 10 ).
+On the other hand, this example is somewhat special in the sense that link
+invariants reduce to the knot invariant of the component labelled by Pµ times
+the quantum dimensions of the other labels due to a degeneracy explained in
+Remark 6.1.
+6This follows from the fact that in a (finitely) semisimple ribbon category, for each object X, the
+
+twist θX has finite order (and hence also the double braiding has finite order), see [BK, Thm. 3.1.19]
+– that theorem assumes modularity, but the part of the proof concerning the order of the twist does
+not use that assumption. Alternatively, one can specialise the statement for finite braided tensor
+categories in [Et] to the semisimple case.
+
+Table 1. Some link invariants based on the categories of modules over the symplectic fermion quasi-Hopf
+algebras. The blue expressions have been interpolated from Mathematica-output for several values
+of N and m. We require a, b, n ∈ Z and m ∈ 2Z + 1.
+ideal I in C ,
+modified trace t
+
+X : FC,′ t (T (m, X))
+
+Proj(Q M), t
+
+X0ε : ε
+
+P0ε : 2ε nN β −2
+
+X1ε : 0
+
+X1ε : 2−N −1 εn+1 β −n
+
+X0ε : ε
+
+P0ε : 2ε mN β −2
+
+X1ε : 0
+
+X1ε : 2−N −1 mN β m−2
+(P0ν , X0ρ ): 12 νρ aN β −2
+
+(X, U ) : FC,′ t (S(X, a; U, b))
+(Xiν , Xjρ ): δi,0 δj,0 νρ
+
+(X1ν , X0ρ ): ν2−N −1 (νβ −1 )a
+(P0ν , X1ρ ): ρ2N −1 (ρβ −1 )b
+(X1ν , X1ρ ): 12 (νβ −1 )a (ρβ −1 )b
+
+A -Proj(H M), Res∗ (tA )
+(for N = 2)
+Pµ : 2n(1 + det µ)
+Pµ : 2m(1 + det µ)
+(Pµ , X0± ): ±2a(1 + det µ)
+(Pµ , X1± ): 0
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+X: FC,′ t (O(n, X))
+
+C
+Q M, tr
+
+21
+
+22
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+The ideal A -Proj(H M) also contains modules which are H-projective, but
+it turns out that if we label any component of a link with such a module, the
+invariant is zero by Corollary 5.11, in contrast to when we start from the ideal
+Proj(Q M) as in point (2).
+There are a number of simple consistency checks for the expressions given in Table 1:
+• The identities listed in (2.5) are satisfied. For the last identity in (2.5) on needs
+νρ
+to know the tensor products. For example X1ν ⊗ X1ρ ∼
+= P0 , see Section 5.2.1.
+• In the middle column for the framed Hopf link, when both labels are projective, one can choose which one to cut and evaluate the modified trace on.
+Combining this with Corollary 2.15 and the identity [P0ν ] = 22N −1 ([X0+ ] +
+[X0− ]) in the Grothendieck ring (see Section 5.2.1) gives
+FC,′ t (S(P0ν , a; X1ρ , b))
+= 22N −1 FC,′ t (S(X1ρ , b; X0+ , a)) + 22N −1 FC,′ t (S(X1ρ , b; X0− , a)) ,
+which is indeed the case in Table 1.
+Remark 2.17. Assume that we have a family Xλ of mutually non-isomorphic objects
+in C parametrised by λ ∈ C, such that the Grothendieck classes [Xλ ] are independent
+of λ. Let Lλ be a link with one component coloured by Xλ and all other components
+(if there are any) coloured in an arbitrary but fixed way. Then:
+• I = C: By Remark 2.16 (2) the invariant FC,′ trC (Lλ ) depends on the colouring
+only through the class in the Grothendieck ring, and is therefore independent
+of λ.
+• I = Proj(C): We first note that the Xλ cannot all be projective. Indeed, there
+are only finitely many distinct indecomposable projective objects with composition factors determined by summands in the fixed Grothendieck class [Xλ ]
+(by local finiteness of C and Fitting’s Lemma, an indecomposable projective is
+uniquely determined by its head). Thus, for FC,′ t (Lλ ) to be I-admissible, Lλ
+must have at least two components, one of which is coloured by Xλ , and one by
+a projective object. But then by Corollary 2.15 again only the Grothendieck
+class of Xλ is relevant and so FC,′ t (Lλ ) is independent of λ.
+Thus in order to have a chance to see the parameter λ, we need the Xλ to all be in an
+ideal I with Proj(C) ⊊ I ⊊ C. Case (3) above illustrates that then it can indeed be
+possible to distinguish such a continuum of objects with fixed Grothendieck class. △
+3. Invariants of closed 3-manifolds
+In this section we review the construction of invariants of closed connected oriented
+3-manifolds with so-called bichrome graphs inside of them [DGP, DGGPR1], and
+provide the results of an example computation for lens spaces. In contrast to the
+previous section, here we need to work with finite tensor categories. More specifically,
+the construction takes as input datum a twist non-degenerate and unimodular finite
+ribbon category.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+23
+
+3.1. Twist non-degeneracy, unimodularity, and factorisability. Recall the
+definition of ends and coends from e.g. [ML, Ch. IX]. In a finite tensor category
+C, the coend
+L=
+
+Z X∈C
+
+X∨ ⊗ X
+
+with dinatural transformation jX : X ∨ ⊗ X → L
+
+exists (see [KL, Cor. 5.1.8]
+and [Sh1, Thm. 3.6]), and is a coalgebra in C [KL, Sec. 5.2].
+R
+Similarly, the end E = X∈C X ⊗ X ∨ exists and is an algebra; denote its universal
+dinatural transformation by j E : E → X ⊗ X ∨ . If C is braided, then both L and E
+can be given the structure of a Hopf algebra, but we will only use the structure maps
+of L:
+mult.:
+mL : L ⊗ L → L
+comult.: ∆L : L → L ⊗ L
+
+unit:
+ηL : 1 → L
+counit: εL : L → 1 .
+
+The dual L∨ carries the natural structure of the dual Hopf algebra, and is in fact
+isomorphic to E as a Hopf algebra. There is also a Hopf pairing
+ωL : L ⊗ L → 1 ,
+
+(3.1)
+
+which means that the morphism L → L∨ built using ωL is a morphism of Hopf
+algebras. See [FGR1, Sec. 3] for a detailed review using the present conventions.
+A finite tensor category is called unimodular if the projective cover P1 of the tensor
+unit is self-dual, or equivalently if the Hom-space 1 → P1 is one-dimensional (rather
+than zero-dimensional).
+Let C be a unimodular braided finite tensor category. Then L admits a twosided integral and a two-sided cointegral with trivial object of integrals, see e.g. [KL,
+Sec. 4.2.3] for Hopf algebra (co)integrals in general braided categories. This means
+there is a unique (up to scalar) non-zero morphism Λ ∈ C(1, L) satisfying
+mL ◦ (Λ ⊗ idL ) = Λ ◦ εL = mL ◦ (idL ⊗Λ) ,
+see [BGR2, Rem. 6.2] for a proof using monadic cointegrals. Dually, the cointegral
+Λco ∈ C(L, 1) is determined up to scalar by
+(Λco ⊗ idL ) ◦ ∆L = ηL ◦ Λco = (idL ⊗Λco ) ◦ ∆L ,
+
+(3.2)
+
+see [Sh4, Cor. 4.10].7 We can and will normalise Λco such that [BKLT, Thm. 3.3]
+Λco ◦ Λ = id1 .
+
+(3.3)
+
+Define the morphism Q : L ⊗ L → L ⊗ L via the dinatural transformation
+idX ∨ ⊗(cY ∨ ,X ◦cX,Y ∨ )⊗idY
+
+j ⊗j
+
+X
+Y
+X ∨ X Y ∨ Y −−−−−−−−−−−−−−−−→ X ∨ X Y ∨ Y −−
+−−→
+L⊗L .
+
+(3.4)
+
+In terms of Q, the Hopf pairing is given by ωL = (εL ⊗ εL ) ◦ Q. We define the
+morphism SL : L → L as
+SL = (εL ⊗ idL ) ◦ Q ◦ (idL ⊗Λ) .
+
+(3.5)
+
+7We note that this reference uses the notion dual to L, namely the end instead of the coend, and
+
+the defining equations on categorical integrals [Sh4, Eqs. (4.4) & (4.5)] in the unimodular case are
+equivalent to (3.2).
+
+24
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+Remark 3.1. If SL is invertible, the unimodular braided finite tensor category C is
+called factorisable. Equivalently, C is factorisable iff ωL in (3.1) is non-degenerate,
+i.e. if the induced morphism of Hopf algebras is an isomorphism L ∼
+= E. To see that
+these two conditions are indeed equivalent, one can use the identity SL = (ωL ⊗
+id) ◦ (id ⊗∆L ) ◦ (id ⊗Λ), which is immediate from the definitions, together with nondegeneracy of the copairing ∆L ◦ Λ (see e.g. [KL, Cor. 4.2.13] for the latter).
+△
+Now let C in addition be ribbon with ribbon twist ϑ. Let TL be the unique endomorphism of L such that
+TL ◦ jX = jX ◦ (idX ∨ ⊗ϑX )
+
+(3.6)
+
+for all X ∈ C. TL is invertible, and it determines the stabilisation coefficients ∆± ∈ k
+of C via
+εL ◦ TL±1 ◦ Λ = ∆± · id1 .
+
+(3.7)
+
+We call C twist non-degenerate if the numbers ∆± are non-zero.
+By postcomposition with SL , TL we obtain linear endomorphisms of C(1, L), which
+will be useful to express the lens space invariants in Section 3.4. For the explicit quasiHopf algebra computations it will be easier to have linear endomorphisms of End(idC )
+instead. To relate the two, recall from e.g. [GR3, Sec. 2] that for a unimodular finite
+tensor category C, the linear maps
+ψ
+
+ρ
+
+End(idC ) −
+→ C(L, 1) →
+− C(1, L) ,
+given by
+ψ(κ) ◦ jX = evX ◦(idX ∨ ⊗κX ) and ρ(g) = (g ⊗ idL ) ◦ ∆L ◦ Λ
+
+(3.8)
+
+are isomorphisms. By pullback of SL ◦ (−), TL ◦ (−) along ρ ◦ ψ we get linear
+endomorphisms of End(idC ), which we denote by SC , TC . Explicitly, for α ∈ End(idC ),
+ρ(ψ(SC (α))) = SL ◦ ρ(ψ(α)) ,
+
+(3.9)
+
+and similar for TC .
+A modular tensor category is a factorisable ribbon finite tensor category. According
+to [DGGPR1, Lem. 2.7], a unimodular ribbon finite tensor category C is modular if
+and only if there exists a non-zero number ζ ∈ k × such that the integral and cointegral
+of L are related via the Hopf pairing ωL as
+ωL ◦ (Λ ⊗ idL ) = ζ · Λco .
+
+(3.10)
+
+The number ζ is called the modularity parameter. It is further shown in [DGGPR1,
+Cor. 4.6] that ζ = ∆− ∆+ holds in a modular tensor category. Conversely, by [DGGPR1,
+Prop. 2.6] a modular tensor category is automatically unimodular and twist nondegenerate.
+Remark 3.2. Let C be a modular tensor category.
+(1) One can constrain the normalisation freedom for Λ by imposing
+ωL ◦ (Λ ⊗ Λ) = id1 .
+
+(3.11)
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+25
+
+This fixes Λ up to a sign, and together with Λco ◦ Λ = id1 implies ζ = 1. Note,
+however, that this is not the usual normalisation used for modular fusion
+categories as in [BK, Tu], c.f. [GR2, Rem. 3.10].
+(2) Recall from e.g. [Lyu, FGR1] that the modular group SL(2, Z) acts projectively on C(1, L), the S- and T -generators acting by composition with SL
+and TL as given in (3.5) and (3.6). Correspondingly, SC and TC provide a
+projective SL(2, Z)-action on End(idC ).
+g V in
+(3) For any V ∈ C, the internal character is the morphism χV = jV ◦ coev
+−1
+C(1, L) [FS, Sh2], and we denote by ϕV = (ρ ◦ ψ) (χV ) the natural transformation corresponding to χV under the isomorphism (3.8). For example,
+χ1 = ηL is by definition the unit of the Hopf algebra L, and using the normalisation (3.3) one finds ρ(Λco ) = ηL . Thus ϕ1 = ψ −1 (Λco ).
+As shown in e.g. [GR3, FGR1], the S-transformation SC acting on ϕV yields
+the natural transformation
+
+SC (ϕV )X =
+
+(3.12)
+
+V,
+
+X
+which is also called the open Hopf link operator [CG].
+(4) By [GR3, Thm. 6.1], the non-degenerate modified trace on Proj(C) can be
+chosen such that tP1 ((ϕ1 )P1 ) = 1. We remark that (ϕ1 )P1 factors through 1,
+see [GR3, Prop. 6.5].
+△
+3.2. Bichrome graphs and their invariants. We now recall the category of partially C-coloured bichrome ribbon graphs from [DGP, DGGPR1]. This is the category
+BiRibC whose objects are the same as those of RibC , see Section 2.4, but morphisms
+are now isotopy classes of bichrome graphs. These are ribbon graphs which have
+• two types of edges: blue edges labelled by objects in C; and red edges which
+carry no label
+• two types of coupons: blue coupons coloured by morphisms in C, such that all
+incident edges are blue and the labels of coupons and edges are compatible;
+bichrome coupons, which are unlabelled and only come in the two types
+L
+and
+
+.
+
+E
+It is clear that RibC is a subcategory of BiRibC : it has the same objects, and its
+morphisms are precisely the bichrome graphs which are purely blue. Moreover, there
+exists an extension FΛ : BiRibC → C of the Reshetikhin-Turaev functor FC , called
+
+26
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+the Lyubashenko-Reshetikhin-Turaev functor in [DGP, DGGPR1]. The subscript Λ
+signifies that the integral is used in the definition of FΛ : what the functor does is,
+essentially, to colour the red parts of the graph by Λ. We will now describe this
+functor algorithmically and in an example, more details and proofs of the properties
+stated can all be found in [DGGPR1, Sec. 3.1].
+On objects, FΛ agrees with FC as given in (2.4). For its action on morphisms,
+consider as an example the bichrome graph
+L
+T =
+
+E
+A cycle of T is a (maximal) subset of red edges in T that belong to the same component in the red graph obtained by replacing the bichrome coupons by cups and caps,
+as appropriate, and throwing away the blue parts. Let n be the number of cycles
+in T , and let s and t be the source and target object of FΛ (T ), respectively. In our
+running example: n = 2, s = E, t = L. The morphism FΛ (T ) ∈ C(s, t) is obtained
+using the following recipe.
+Step 1. For each cycle c of T , pick an edge, then ‘bend’ it down and ‘cut’ it open so
+that the result is a so-called n-bottom graph Te . In our example one obtains
+a 2-bottom graph:
+L
+
+T ⇝ Te =
+E
+
+The new graph Te has the property that when closing the cut red edges again
+with cups, one recovers the original graph T .
+Step 2. Change the colour of the red part of Te to blue, replacing a bichrome coupon
+by the appropriate universal dinatural transformation j or j E . The formerly
+red part then gives rise to a transformation ηTe which is dinatural in each of
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+27
+
+the n pairs of consecutive red strands. Namely (ηTe)X,Y = FC (TeX,Y ), where
+L
+jY
+TeX,Y =
+
+jYE
+
+for all X, Y ∈ C.
+
+X ∨ X Y ∨Y
+E
+Step 3. Use the universal property and the Fubini theorem for coends to obtain from
+ηTe a morphism fTe ∈ C(L⊗n ⊗ s, t):
+
+jX
+
+L
+
+L
+
+fTe
+
+jY
+
+jY
+
+:=
+
+jYE
+
+E
+E
+Step 4. Finally, define FΛ (T ) by inserting n copies of the integral,
+FΛ (T ) := fTe ◦ (Λ⊗n ⊗ ids ) : s → t .
+In [DGGPR1, Prop. 3.1] it is shown that this is a well-defined construction which
+yields a ribbon functor.
+Fix now an ideal I in C and a modified trace t on I. It is straightforward to
+generalise the notions of closed and admissible C-coloured ribbon graphs to bichrome
+graphs, and the concept of a (non-unique) cutting presentation of an admissible bichrome graph also easily translates. This leads to what is called the renormalised
+invariant of admissible closed bichrome graphs in [DGGPR1]:
+Theorem 3.3 ([DGGPR1, Thm. 3.3]). Let T be an I-admissible closed bichrome
+graph. Then the number
+
+
+
+
+′
+FΛ,
+t (T ) := tX FΛ (TX )
+
+for some cutting presentation TX of T
+
+is well-defined, and in particular an invariant of the isotopy class of T .
+Remark 3.4. The proofs of [DGGPR1, Prop 3.1, Thm 3.3] do not rely on Λ being
+an integral for L, and so one could have likewise defined invariants (of bichrome
+graphs) using any morphism in C(1, L). However, morphisms that lead to welldefined manifold invariants have to satisfy extra conditions arising from the Kirby
+moves. The integral Λ satisfies these conditions, and more general such morphisms
+were investigated in [Vi] under the name Kirby elements.
+△
+
+28
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+′
+The invariants FΛ and FΛ,
+t are both defined on purely blue closed admissible
+bichrome graphs, but they are in general different. To see this, let I = Proj(C) and
+let t be the unique non-degenerate modified trace on Proj(C) from Example 2.8 (3),
+′
+with normalisation tP1 (ν1 ◦p1 ) = 1.8 Then, unless C is semisimple, FΛ,
+t (T ) is different
+from FΛ (T ): the bichrome graph T given by the trace (in BiRibC ) of ν1 ◦ p1 satisfies
+′
+FΛ,
+t (T ) = tP1 (ν1 ◦ p1 ) = 1 and FΛ (T ) = p1 ◦ ν1 = 0.
+More generally, we record the following lemma for later use, which is a direct
+consequence of Lemma 2.6:
+
+Lemma 3.5. Let T be a closed bichrome graph containing an edge coloured by an
+object in a proper tensor ideal. Then FΛ (T ) = 0.
+3.3. Definition and properties of the manifold invariant. Throughout, all
+manifolds will be oriented. Let C be twist non-degenerate and unimodular. In order
+to define invariants of 3-manifolds with embedded C-coloured bichrome graphs, we
+first recall some notation following [DGGPR1]. For a framed link L in the 3-sphere
+S 3 we denote the manifold resulting from surgery on L by ML . The number of components of the link is ℓ(L), and its signature is σ(L). Let M be a closed connected
+3-manifold, containing a closed bichrome graph T . If M ∼
+= ML , then we say that L is
+a surgery link for M ; we denote by T ⊂ ML also the pullback of T along the homeomorphism, and by L ∪ T ⊂ S 3 the corresponding bichrome graph in S 3 , regarding L
+as red.
+Since C is twist non-degenerate, we can choose invertible numbers D, δ ∈ k with,
+recall the definition of ∆± in (3.7),
+D
+∆+
+D 2 = ∆− ∆+ and δ =
+=
+.
+∆−
+D
+Theorem 3.6 ([DGGPR1, Thm. 3.8]). Let C be a unimodular and twist non-degenerate
+finite ribbon tensor category, and let I be an ideal of C with modified trace t. If
+M ∼
+= ML is a closed connected 3-manifold containing an I-admissible bichrome ribbon graph T , then
+′
+L′Λ, t (M, T ) = D −1−ℓ(L) δ −σ(L) FΛ,
+t (L ∪ T )
+
+(3.13)
+
+is a topological invariant of the pair (M, T ).
+Following [DGGPR1] call L′Λ, t the renormalised Lyubashenko invariant of admissible closed 3-manifolds.
+Remark 3.7.
+(1) For H a ribbon Hopf algebra, C = H M the category of finitedimensional left H-modules, and I the projective ideal in H M, the invariant
+L′Λ, t (M, T ) was first considered in [DGP], see [DGGPR2, Sec. 2.4] for the
+equivalence between [DGGPR1] and [DGP] in the Hopf algebra case.
+(2) The notation L′Λ, t is chosen because of the dependence of the invariant on both
+Λ and t. In fact, it also implicitly depends on a choice of sign for D. For if
+we change Λ → Λ′ = xΛ for some x ∈ k × , then ∆′± = x∆± , and consequently
+8In case C is in addition modular, one can choose ν
+
+1 to satisfy (ϕ1 )P1 = ν1 ◦ p1 [GR3, Prop. 6.5],
+and the normalisation of the modified trace then agrees with the one given in Remark 3.2 (4).
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+29
+
+D ′ = ±xD. If we impose the condition D ′ = xD, i.e. Λ′ /D ′ = Λ/D, then
+δ ′ = δ and we have
+1
+L′xΛ,yt+zt′ = (y L′Λ,t + z L′Λ,t′ )
+x
+for all x, y, z ∈ C and modified traces t and t′ .
+△
+The statement of Corollary 2.15 generalises to the renormalised Lyubashenko invariant, and for later reference let us restate it here in full:
+Corollary 3.8. Suppose the bichrome graph TXB in M has an edge labelled by X ∈ I
+and a disjointly embedded knot coloured with B ∈ C (which may link non-trivially
+with the remaining part of the graph TXB ). Then
+L′Λ, t (M, TXB ) =
+
+X
+
+[B : U ] · L′Λ, t (M, TXU ) .
+
+U ∈Irr(C)
+
+Lyubashenko’s original invariant [Lyu]—or rather its extension allowing for Ccoloured ribbon graphs inside the 3-manifolds—is the following special case.
+Definition 3.9 (Lyubashenko invariant). Let everything be as in Theorem 3.6, but
+specialise to the ideal I = C. By Example 2.8 (2), without loss of generality the
+modified trace is the categorical trace trC . We call
+LyuΛ (M, T ) = L′Λ, trC (M, T )
+the Lyubashenko invariant of the pair (M, T ).
+In case C is semisimple, it is immediate from [DGGPR1, Sec. 2.9] that LyuΛ
+coincides with the Reshetikhin-Turaev invariant as presented for example in [BK,
+Thm. 4.1.12]. For C not semisimple, Lemma 3.5 implies that LyuΛ (M, T ) vanishes
+whenever T has an edge coloured by an object in a proper ideal. From Corollary 3.8
+we see that if T is a link (i.e. there are no coupons), LyuΛ (M, T ) factors through
+Gr(C) with respect to all components of T simultaneously.
+The invariants from Theorem 3.6 are related to the Lyubashenko invariant as in the
+following proposition, which is an immediate consequence of [DGGPR1, Prop. 3.11].9
+Proposition 3.10. Let M be a closed connected 3-manifold containing a bichrome
+graph T = Te ⊔ Tadm where Tadm is admissible and contained within an open ball in
+M not intersecting Te . Then
+L′Λ, t (M, T ) = D LyuΛ (M, Te ) L′Λ, t (S 3 , Tadm ) .
+′
+′
+3
+−1
+In particular, if FΛ,
+, we have
+t (Tadm ) = 1, and so by (3.13) LΛ, t (S , Tadm ) = D
+
+LyuΛ (M, Te ) = L′Λ, t (M, Te ⊔ Tadm ) .
+9There is a typo in [DGGPR1, Prop. 3.11]: the right hand side should have an extra factor of D,
+
+i.e. the identity should read, in the present notation, L′Λ, t (M #M ′ , T ′ ) = D LyuΛ (M ) L′Λ, t (M ′ , T ′ ).
+Also, [DGGPR1, Prop. 3.11] assumes that there is no ribbon graph in M , but the same proof works
+in the present situation where M contains T .
+
+30
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+Combining Proposition 3.10 with Lemma 3.5 gives:
+Corollary 3.11. Suppose the bichrome graph T inside the 3-manifold M can be
+written as T1 ⊔ T2 , where T1 contains an edge coloured by an object in any proper
+tensor ideal, and T2 is admissible and contained within an open ball in M that does
+not intersect T1 . Then L′Λ, t (M, T ) = 0.
+As another corollary to the above proposition, consider a situation where the ribbon
+graph T in M can be written as T = T ′ ∪ T ′′ , such that T ′ is disjoint from T ′′ but not
+necessarily contained in a 3-ball disjoint from T ′′ . Assume that T ′ is an embedded
+blue loop labelled by X ∈ I with one coupon f : X → X which factors through 1.
+Corollary 3.12. We have L′Λ, t (M, T ) = tX (f ) LyuΛ (M, T ′′ ).
+Proof. As f factors through 1, we can replace f by two coupons, one from X to 1
+and one from 1 to X. This makes T ′ contractible, and we can disentangle it from
+T ′′ . Replacing the two new coupons again by f , we end up with an unknot Uf with
+coupon f embedded in a 3-ball disjoint from T ′′ . One can now apply Proposition 3.10
+with Tadm = Uf and Te = T ′′ .
+□
+We finish this section by showing that for C modular, see above (3.10), Lyubashenko’s invariant detects semisimplicity of C in the sense that the invariant of S 2 ×S 1
+is non-zero if and only if C is semisimple.
+Proposition 3.13. Let C be a modular tensor category. Then LyuΛ (S 2 × S 1 , ∅) ̸= 0
+if and only if C is semisimple.
+Proof. The surgery presentation of S 2 × S 1 is a zero-framed unknot. From this one
+easily computes
+LyuΛ (S 2 × S 1 , ∅) = εL ◦ Λ ,
+see e.g. [Lyu, Sec. 5.3]. As C is modular, the Hopf pairing ωL is non-degenerate and
+hence by (3.10) transforms the integral Λ into a cointegral,
+εL ◦ Λ = ωL ◦ (Λ ⊗ ηL ) = ζ · Λco ◦ ηL .
+
+(3.14)
+
+It is shown in [Sh2, Prop. 5.6] that Λco ◦ ηL ̸= 0 if and only if C is semisimple. Note
+that [Sh2] uses the so-called adjoint algebra A to define the integral of C while our
+L∼
+= A∗ as coalgebras in C and our cointegral Λco corresponds to Shimizu’s categorical
+integral, by comparing (3.2) with [Sh2, Eq. (5.7)].
+□
+One source of modular tensor categories are Drinfeld centres Z(C) of pivotal finite
+tensor categories C satisfying a sphericality condition, see [Sh5, Thm. 5.11], and these
+centers allow for a non-degenerate two-sided modified trace on the ideal of projective
+objects [GR3, Cor. 4.7]. It is thus useful to know when exactly such centres are
+semisimple, or by Proposition 3.13, when the corresponding invariant of S 2 × S 1 is
+non-zero. For this, recall first that the global dimension of a ribbon fusion category C
+P
+is dim C = U ∈Irr(C) (dimC U )2 . For C ribbon, semisimplicity of Z(C) and of C are
+related as follows.
+Lemma 3.14. For a ribbon finite tensor category C, the following are equivalent:
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+31
+
+(1) The centre Z(C) is semisimple.
+(2) C is semisimple and dim C ̸= 0.10
+Proof. (2) ⇒ (1) is shown in [Mu, Thm. 1.2], see also [BV2, Cor. 2.4] which uses the
+theory of Hopf monads [BV1]. For (1) ⇒ (2), we first show that C is semisimple. Since
+C is braided, it embeds into Z(C) via a fully faithful monoidal functor. Explicitly,
+the embedding sends objects X ∈ C to (X, cX,− ) with c the braiding in C. If Z(C)
+is semisimple, therefore, C is equivalent to a full (replete) abelian subcategory of a
+semisimple abelian category and hence itself semisimple abelian. In particular, C is a
+ribbon fusion category. This, together with the assumption that Z(C) is semisimple,
+implies that dim C ̸= 0 by [BV2, Cor. 2.3].
+□
+Remark 3.15. Suppose that C is non-semisimple and modular. As a consequence of
+Proposition 3.13 we get that the Lyubashenko invariant LyuΛ of closed 3-manifolds
+can not be extended to a (rigid) TFT, see e.g. the introduction of [Ke]. The reason
+is that in a rigid TFT, the invariant of S 2 × S 1 gives the dimension of the state space
+of S 2 . If this is zero, the TFT functor is zero on all non-empty bordisms as one can
+always write such a bordism as a composition with a 3-ball, seen as a bordism ∅ → S 2 .
+In particular, it would be zero on S 3 , but by construction LyuΛ (S 3 , ∅) = D −1 ̸= 0.
+Nonetheless, one can construct a 3d TFT on a reduced set of so-called admissible
+bordisms, we refer to [DGGPR1] for details.
+△
+3.4. Example: Lens spaces. For this section let us fix two coprime
+n positive integers
+3
+p, q. The lens space L(p, q) is defined as the quotient of S = (z, w) ∈ C2 |z|2 +
+o
+
+|w|2 = 1 by the free Z/pZ action
+
+
+
+
+k.(z, w) = e2πik/p z, e2πikq/p w .
+
+(3.15)
+
+Since S 3 is simply connected, it follows that the fundamental group of L(p, q) is Z/pZ,
+and so the parameter p is an invariant of L(p, q). The parameter q on the other hand
+is not, as the presentation above shows L(p, q) = L(p, q + p). See e.g. [PS, Ch. IV
+§11] for more on lens spaces.
+A surgery presentation of L(p, q) can be given as follows, see e.g. [PS, Ch. VI §17]
+or [Lyu, Sec. 5.3].11 Fix a (generalised) continued fraction expression
+1
+
+an −
+p
+=
+q
+
+an−1 −
+
+1
+...
+
+−
+
+1
+1
+a2 −
+a1
+
+=: [an ; an−1 , . . . , a1 ],
+
+ai ∈ Z .
+
+(3.16)
+
+10Over an algebraically closed field of characteristic 0, the global dimension is automatically
+
+non-zero [EGNO, Thm. 7.21.12].
+11One obtains an isotopic surgery link if one exchanges over- and underbraidings, so the surgery
+descriptions of L(p, q) in [Lyu] and [PS] are the same. Similarly, one can reverse the order of
+a1 , . . . , an .
+
+32
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+Then we have the surgery presentation
+L(p, q) =
+
+(3.17)
+a1
+
+a2
+
+an−1 an
+
+in S . From now on, we will require the continued fraction expression to satisfy the
+following
+3
+
+Assumption:
+
+pi
+:= [ai ; ai−1 , . . . , a1 ] > 0
+qi
+
+for i = 1, . . . , n .
+
+(3.18)
+
+This assumption can always be satisfied. For example, choose an to be the ceiling of
+p
+(smallest integer ≥ pq ). Then in the next step one starts from (an − pq )−1 ≥ 0. If
+q
+this is zero, one is done, else take an−1 to be its ceiling, and so on.
+We will show in the appendix (Proposition A.1) that under the above assumption,
+the signature of the surgery link in (3.17) is
+σ = σ(L(p, q)) = n .
+
+(3.19)
+
+With these data fixed, we will consider two types of admissible bichrome graphs
+embedded in the lens space L(p, q), corresponding to whether or not the graph is
+contained within a ball. More precisely, let α ∈ End(idC ) and P ∈ I. Define the
+bichrome graphs
+L∗ (α, P ) =
+a1
+
+a2
+
+αP
+
+(3.20)
+
+αP
+
+(3.21)
+
+an−1 an
+
+and
+
+L◦ (α, P ) =
+a1
+
+a2
+
+an−1
+
+an
+
+in S 3 . Then we consider as manifold the lens space with embedded blue ribbon
+graph obtained by surgery on the red part of the respective link, and denote it by the
+same symbol as the link. Note that in L∗ (α, P ), the blue graph is embedded along
+a contractible cycle, and that L′Λ, t (L∗ (α, T )) = L′Λ, t (L◦ (α, T )) for any transparent
+object T .
+Let C be unimodular and twist-nondegenerate, and recall the definition of SL , TL :
+L → L from (3.5) and (3.6). To state the resulting invariants of L∗/◦ (α, P ), let us
+define the morphism
+f (a) =
+
+1
+Y
+i=n
+
+
+
+
+
+
+
+TLai ◦ SL (ηL ) = TLan ◦ SL ◦ . . . ◦ TLa1 ◦ SL (ηL ) ∈ C(1, L) ,
+
+(3.22)
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+33
+
+where we abbreviate a = (a1 , . . . , an ). We also need the natural transformation
+Q : L ⊗ idC ⇒ idC with components determined by the dinatural transformation
+id
+
+∨ ⊗(cV,X cX,V )
+
+ev
+
+⊗ id
+
+(3.23)
+
+V
+X ∨ XV −−X−−−−−−−−→ X ∨ XV −−X−−−→
+V
+
+for V ∈ C.
+Proposition 3.16. Let C be unimodular and twist-nondegenerate, I ⊂ C a tensor
+ideal with modified trace t, P ∈ I and α ∈ End(idC ). We have
+L′Λ, t (L∗ (α, P )) = δ −σ D −1−n · tP (αP ) · εL ◦ f (a) ,
+
+
+
+
+L′Λ, t (L◦ (α, P )) = δ −σ D −1−n · tP αP ◦ QP ◦ (f (a) ⊗ idP ) .
+′
+Proof. Let us start with L◦ (α, P ). To compute FΛ,
+t , by the procedure in Section 3.2
+we need to evaluate the n-dinatural transformation
+
+(3.24)
+a1
+
+a2
+
+an
+
+P
+and then compose with Λ ⊗ idP . Here we have disregarded the coupon αP , as
+we may just reinsert it on top once we are done. Now one finds that this dinatural
+transformation corresponds to the morphism
+⊗n
+
+Q
+
+QP
+
+Q
+
+: L⊗n ⊗ P → P ,
+T a1
+
+T an−1
+
+(3.25)
+
+T an
+
+where Q was defined in (3.4). From the explicit expression for SL in (3.5) it is easy to
+see that SL ◦ ηL = Λ. Thus, precomposing the above morphism with Λ⊗n ⊗ idP and
+replacing the first factor of Λ with SL ◦ ηL yields QP ◦ (f (a) ⊗ idP ). This establishes
+the expression for L′Λ, t (L◦ (α, P )).
+In order to obtain L′Λ, t (L∗ (α, P )) one simply repeats the above computation without the double braiding between L and P in (3.24). This amounts to replacing QP
+in (3.25) by εL ⊗ idP .
+□
+Remark 3.17. By Corollary 3.12 we have
+L′Λ, t (L∗ (α, P )) = tP (αP ) · LyuΛ (L(p, q)) .
+
+(3.26)
+
+Comparing to Proposition 3.16, we read off
+LyuΛ (L(p, q)) = δ −σ D −1−n · εL ◦ f (a) ,
+
+(3.27)
+
+34
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+in agreement with [Lyu, Sec. 5.3], where this invariant was first computed. Strictly
+speaking, we still need to show that tP (αP ) ̸= 0 for some choice of I, P and α. This
+is the case e.g. for I = C, P = 1 and any α with α1 = id1 , or for I = Proj(C), P = P1
+and the unique α ∈ End(idC ) which sends the top of P1 to its socle, and which is zero
+on the projective covers of the other simples.
+△
+We end this section by computing the invariants in Proposition 3.16 in the example C = Q M, the representations of the symplectic fermion quasi-Hopf algebra
+Q = Q(N, β) already mentioned in Section 2.5, and which will be described in detail in Section 4. In this example, C is modular (and hence twist-nondegenerate, see
+the sentence before Remark 3.2), and we use the Lyubashenko integral with normalisation (3.11); this also fixes a canonical normalisation for the modified trace, see
+Remark 3.2 (4).
+Categorical trace. Let us start with the case where the ideal is I = C and we use the
+categorical trace trC . By Definition 3.9, in this case we get the original Lyubashenko
+invariant. We show in Section 7.3 that
+LyuΛ (L(p, q)) = pN .
+
+(3.28)
+
+Including blue ribbons as in L∗/◦ (α, X) does not add anything new. Indeed, by
+Corollary 3.8 it is enough to consider X ∈ C simple. There are four simple objects in
+±
+±
+±
+Q M, namely X0 and X1 . Of these, X1 are projective and so the invariant is zero
+by Corollary 3.11 (where we choose T2 = ∅). The object X0+ is the tensor unit, and
+since the Grothendieck class of its projective cover is [P0+ ] = 22N −1 ([X0+ ] + [X0− ]) (see
+Section 5.2), the invariant of X0− must be minus that of X0+ . Altogether, for x = ∗, ◦,
+LyuΛ (Lx (id, X0± )) = ±pN
+
+,
+
+LyuΛ (Lx (id, X1± )) = 0 .
+
+In particular, LyuΛ cannot detect whether or not the blue ribbon wraps a nontrivial
+cycle in L(p, q).
+Relation to semisimplification. The result (3.28) suggests that for symplectic fermions,
+the Lyubashenko invariant of a 3-manifold is just a classical invariant, namely the
+order of the 1st homology group H1 (M ) of the manifold M , in power of the “rank”
+of the category, N in our case. We conjecture that for all closed 3-manifolds M ,
+LyuΛ (M ) =
+
+
+0
+|H1 (M )|N
+
+; H1 (M ) infinite
+; else
+
+This fits into a series of results and conjectures on the relation between non-semisimple
+and semisimple invariants. The first instance was proven in [CKS]: the Hennings invariant for small quantum sl(2) for an odd order root of unity is proportional to the
+SO(3) Chern-Simons invariant at the corresponding level. The proportionality coefficient is |H1 (M )| if it is finite, and zero else. Related results and conjectures have been
+given in [CYZ, CGP2, CDGS]. While similar, our case of C = Q M is not directly
+covered by those previous observations. Indeed, it is the first higher rank example for
+manifolds M which are not integer homology spheres (i.e. for which |H 1 (M )| > 1).
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+35
+
+When comparing semisimple and non-semisimple invariants, one cannot just take
+′
+be the semisimplification obtained by
+the semisimplification itself. Indeed, let Css
+dividing out negligible morphisms, see [BW, Thm. 2.9], [Br, Prop. 1.4.2], [Vi, Sec. 3.4]
+′
+′
+and [EO, Sec. 2]. The projection C → Css
+is a ribbon functor. In Css
+, indecomposable
+objects of non-zero dimension become simple objects [EO, Prop. 2.4]. This may lead
+to an uncountably infinite number of simples (this happens e.g. for Q M with N ≥ 2).
+′
+Instead, let use introduce the minimal semisimplification Css ⊂ Css
+to be the full
+subcategory tensor-generated by the images of the simple objects in C under the
+projection.
+The minimal semisimplification of C = Q M is Css = SVect. This category is not
+modular but still twist-nondegenerate. Hence it defines Reshetikhin-Turaev invariants RTCss (M ) of closed three-manifolds M . With appropriate overall normalisation,
+for Css = SVect these are all equal to one. Motivated by these examples, it would be
+very interesting to see if the following general statement holds or not:
+Let C be a modular tensor category. Then its semisimplification Css
+is twist-nondegenerate and the corresponding invariants are related as
+LyuΛ (M ) = |H1 (M )|n RTCss (M ) for some positive integer number n if
+|H1 (M )| is finite. Otherwise LyuΛ (M ) is zero.
+Modified trace on projective ideal. Next we turn to the projective ideal I = Proj(Q M).
+There is no need to consider L∗ (α, P ) as by (3.26) the corresponding invariant is given
+by LyuΛ (L(p, q)) times a topology-independent prefactor.
+Recall from Section 2.5 that P0± denotes the projective cover of X0± . In the next
+PN
+theorem, by |t| for t ∈ ZN
+2 we mean the sum
+j=0 tj .
+Theorem 3.18. We have
+
+
+
+
+L′Λ, t (L◦ (id, P0± )) = ± 21 c0 + β 2 q N ,
+where c0 ∈ {0} ∪ {β m |m ∈ Z}. Furthermore, for t ∈ ZN
+2 with |t| ≥ 1, there are
+αt ∈ End(idC ) (independent of p, q) such that
+L′Λ, t (L◦ (αt , P0± )) = ±(−1)|t| β 2 2−|t|−1 p|t| q N −|t| .
+The arduous proof will be presented in Theorem 7.9 below, which in fact contains
+some additional invariants to those presented here.
+Remark 3.19. We see that L′Λ, t (L◦ (id, P0± )) and L′Λ, t (L◦ (αt , P0± )) (for N ≥ 2 and
+1 ≤ |t| ≤ N ) are not invariant under q ⇝ q + p, and so are not invariants of the lens
+space L(p, q) but only of the lens space with the embedded ribbon loop.
+△
+Pullback trace on intermediate ideal. Finally, we also consider the intermediate ideal
+A -Proj(H M) with pullback modified trace Res∗ (tA ), as in the computation of link
+invariants in Section 2.5.
+Theorem 3.20. Let H = Q(2, β), and consider the Mat2 (C)-indexed H-modules Pµ
+already described in Section 2.5. Then
+L′Λ, Res∗ (tA ) (L◦ (id, Pµ )) = −2pq(1 + det µ) ,
+
+36
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+and there are αj,l ∈ End(idC ) (independent of p, q) with j, l = 1, 2 such that
+L′Λ, Res∗ (tA ) (L◦ (αj,l , Pµ )) = p2 µj,l .
+The above theorem is part of the more general statement in Theorem 7.12 where
+also explicit expressions for the αj,l are given. Note that it is possible to recover the
+matrix M uniquely by computing all four values of L′Λ, Res∗ (tA ) (L◦ (αj,l , Pµ )), thereby
+distinguishing all modules Pµ .
+This ends the first part of the paper, in which we set out general properties of the
+non-semisimple link- and three-manifold invariants, and where we presented some
+explicit results in the example of the symplectic fermion quasi-Hopf algebra.
+In the second part of the paper we review the necessary background on quasiHopf algebras and provide the technical computations of the various invariants in the
+symplectic fermion example.
+4. Quasi-Hopf algebras, tensor ideals and modified traces
+This section contains our conventions for quasi-Hopf algebras, as well as background material on pivotal structures, braidings, and ribbon structures. We discuss
+modified traces and explain in detail how to define modified traces on tensor ideals
+described by quasi-Hopf subalgebras.
+4.1. Quasi-Hopf algebras and their modules. Our conventions for ribbon quasiHopf algebras follow [FGR1, BGR2].
+4.1.1. Quasi-Hopf algebras. An algebra H is a quasi-Hopf algebra if it comes equipped
+with elements α, β ∈ H, Φ ∈ H ⊗3 , and linear maps ∆ : H → H ⊗ H, ε : H → k,
+and S : H → H satisfying the axioms described in this subsection. We denote the
+unit of H by 1, or also by 1H if it can be confused with the tensor unit. Throughout
+Section 4 we will assume that H is a finite-dimensional k-vector space.
+We employ the sumless Sweedler notation to write
+∆(h) = h(1) ⊗ h(2)
+
+and (∆ ⊗ id)(∆(h)) = h(1,1) ⊗ h(1,2) ⊗ h(2) ,
+
+etc., for h ∈ H. Similarly, for w ∈ H ⊗2 we write w = w1 ⊗ w2 , again with implicit
+summation, and w21 = τ (w), where τ is the flip map in vector spaces. This notation
+is extended to higher tensor powers in the obvious way.
+The coproduct ∆ and the counit ε are required to be algebra maps. Furthermore,
+the counit makes the coproduct counital. In Sweedler notation, these conditions read
+(hg)(1) ⊗(hg)(2) = h(1) g(1) ⊗h(2) g(2) , ε(hg) = ε(h)ε(g) and ε(h(1) )h(2) = h = h(1) ε(h(2) )
+for h, g ∈ H.
+The coassociator Φ is invertible and we write Ψ = Φ−1 . The components of the
+coassociator and its inverse will be written as
+Φ = Φ1 ⊗ Φ2 ⊗ Φ3
+
+and Ψ = Ψ1 ⊗ Ψ2 ⊗ Ψ3 ,
+
+(4.1)
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+37
+
+respectively. Further, it is normalised, i.e. (id ⊗ε ⊗ id)(Φ) = 1 ⊗ 1, it makes the
+coproduct coassociative in the sense that (∆ ⊗ id)(∆(h)) · Φ = Φ · (id ⊗∆)(∆(h)) for
+all h ∈ H, and it satisfies a cocycle condition
+(∆ ⊗ id ⊗ id)(Φ) · (id ⊗ id ⊗∆)(Φ) = (Φ ⊗ 1) · (id ⊗∆ ⊗ id)(Φ) · (1 ⊗ Φ) .
+Note that our conventions for Φ differ from those of e.g. [HN, BCPO] in that we use
+the inverse coassociator.
+Finally, the antipode S is an anti-algebra map, and together with the evaluation
+and coevaluation elements α and β it satisfies
+S(h(1) )αh(2) = ε(h)α,
+
+h(1) βS(h(2) ) = ε(h)β ,
+
+h ∈ H,
+
+(4.2)
+
+and
+S(Φ1 )αΦ2 βS(Φ3 ) = 1,
+
+Ψ1 βS(Ψ2 )αΨ3 = 1 .
+
+(4.3)
+
+From the last two axioms it is easy to see that one may always rescale α and β such
+that ε(α) = 1 = ε(β).
+We will also use the (co)opposite (co)multiplications µop = µ ◦ τ and ∆cop = τ ◦ ∆,
+where τ is again the flip map in Vect.
+4.1.2. Finite tensor category structure of H-modules. A left H-module is a left module V over the algebra H, and the action of h ∈ H on v ∈ V is denoted by h.v. We
+write H M for the category of finite-dimensional left H-modules. It is a (non-strict)
+finite tensor category: the monoidal product of two modules V, W is the vector space
+V ⊗ W with the diagonal action h.(v ⊗ w) = h(1) .v ⊗ h(2) .w, and the associator of
+this monoidal structure is
+U ⊗ (V ⊗ W ) → (U ⊗ V ) ⊗ W,
+
+u ⊗ v ⊗ w 7→ Φ1 .u ⊗ Φ2 .v ⊗ Φ3 .w .
+
+Next we describe a rigid structure on H M. To this end, denote by
+V ∗ × V → k,
+
+(f, v) 7→ ⟨f | v⟩ := f (v)
+
+the canonical pairing between a vector space V and its linear dual V ∗ . An H-module
+V has both a left and a right dual. They are given by the dual vector space V ∗ , and
+h ∈ H acts on the left dual V ∨ resp. the right dual ∨V by
+(h.f )(v) = ⟨f | S(h).v⟩ resp. (h.f )(v) = ⟨f | S −1 (h).v⟩ ,
+for v ∈ V , f ∈ V ∗ . The corresponding evaluation is given by12
+evLV (f ⊗ v) = ⟨f | α.v⟩ resp.
+
+−1
+(α).v⟩ ,
+evR
+V (v ⊗ f ) = ⟨f | S
+
+(4.4)
+
+and the coevaluation by
+coevLV (1) =
+
+dim
+XV
+i=1
+
+β.vi ⊗ v i
+
+resp.
+
+coevR
+V (1) =
+
+dim
+XV
+
+v i ⊗ S −1 (β).vi ,
+
+(4.5)
+
+i=1
+
+where {vi } is a basis of V with corresponding dual basis {v i }. That these four maps
+are indeed morphisms in the category is guaranteed by (4.2), and the zig-zag axioms
+for H M follow from the zig-zag axioms (4.3) for H.
+12The notation for the (co)evaluation morphisms given here differs from Section 2.1, as we will
+
+later fix a convention adapted to a given pivotal structure, see (4.8) and (4.9) below.
+
+38
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+4.1.3. Special elements and (co)integrals. A left integral for a quasi-Hopf algebra is
+an element c ∈ H satisfying hc = ε(h)c for all h ∈ H. In other words, c ∈ H M(1, H),
+regarding H as the left regular representation. One similarly defines right integrals.
+It is well-known that, in the finite-dimensional case, left (right) integrals exist and
+span a one-dimensional space. A priori, left and right integrals are different; by
+dimension considerations, if c is a left integral, then ch = γ(h)c for all h ∈ H, where
+γ ∈ H ∗ is an algebra morphism called the modulus of H. Then a left integral is a
+right integral if and only if γ = ε, in which case one says that H is unimodular.13
+The dual notion of left/right cointegrals for H is more involved [HN], since the
+(linear) dual of a quasi-Hopf algebra is not a quasi-Hopf algebra in general. Following
+[Dr], define the elements
+q R = Ψ1 ⊗ S −1 (αΨ3 )Ψ2 ,
+
+pR = Φ1 ⊗ Φ2 βS(Φ3 ),
+
+q L = S(Φ1 )αΦ2 ⊗ Φ3 ,
+
+pL = Ψ2 S −1 (Ψ1 β) ⊗ Ψ3 ,
+
+(4.6)
+
+which satisfy a number of useful identities, see e.g. [BGR2, Sec. 3.4] for a list in
+our conventions and [BGR1, Sec. 3] for a representation in graphical calculus. With
+these, one may describe the Drinfeld twist f of H, i.e. the invertible element in
+H ⊗ H implementing the natural isomorphism W ∨ ⊗ V ∨ ∼
+= (V ⊗ W )∨ in H M, see
+e.g. [BGR2, Sec. 3.4] for an explicit expression.
+With the application to link and three-manifold invariants in mind, we will in the
+following restrict ourselves to the case that H is unimodular. In that case, a linear
+form λr on H is a right cointegral, resp. λl a left cointegral, if and only if it satisfies
+
+
+
+
+
+
+
+
+(λr ⊗ id) V cop ∆(h)U cop = λr (h)1 resp. (id ⊗λl ) V ∆(h)U = λl (h)1
+
+(4.7)
+
+for all h ∈ H, see [HN, BC1, BC2] and [BGR1, Def. 3.2] for a definition in our
+conventions. The elements U (cop) , V (cop) ∈ H ⊗ H are defined as
+R
+U = f −1 (S ⊗ S)(q21
+),
+
+V = (S −1 ⊗ S −1 )(f 21 pR
+21 ),
+
+L −1
+U cop = (S −1 ⊗ S −1 )(q21
+f 21 ), V cop = (S ⊗ S)(pL21 )f 21 .
+
+4.1.4. Pivotal structure, braiding, and ribbon structure on H M. Here, we briefly review results on pivotal structures, braidings and ribbon twists. For more details we
+refer to [EGNO] for the categorical structures, and to [BCPO] for their quasi-Hopf
+algebra counterparts.
+Recall that a pivotal structure on a rigid monoidal category is a monoidal natural
+isomorphism idC ⇒ (−)∨∨ . A pivot for H is an invertible element g ∈ H satisfying
+S 2 (h) = ghg −1 and ∆(g) = f −1 · (S ⊗ S)(f 21 ) · (g ⊗ g). A pivotal quasi-Hopf algebra
+is a quasi-Hopf algebra together with chosen pivot.
+Proposition 4.1. There is a bijective correspondence
+
+
+pivotal structures ∼
+pivots
+−
+−
+→
+on H M
+for H ,
+
+
+
+
+
+
+Vect −1
+δ 7−→ (δH
+) (δH (1)),
+
+13The modulus may be identified with the one-dimensional socle of P
+
+1 [EGNO, Sec. 6.5].
+
+H is unimodular if and only if H M is unimodular.
+
+Thus
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+39
+
+where δVVect is the canonical isomorphism V ∼
+= V ∗∗ of vector spaces. The inverse
+maps g to the pivotal structure δV (v) = δVVect (g.v). A pivot satisfies ε(g) = 1 and
+S(g) = g −1 .
+In the pivotal case we will choose the (co)evaluation maps in H M such that they
+are related by the pivotal structure. Our convention is to define the two-sided dual
+to be V ∨ . Accordingly we take the left (co)evaluation map from (4.4), (4.5) and we
+write
+evV := evLV
+
+,
+
+coevV := coevLV .
+
+(4.8)
+
+g V.
+The right-duality on V ∨ is given by efvV := evLV ∨ ◦(δV ⊗ idV ∨ ) and similar for coev
+Explicitly,
+
+efvV (v ⊗ f ) = ⟨f | S(α)g.v⟩ ,
+
+g V (1) =
+coev
+
+dim
+XV
+
+v i ⊗ S −1 (gβ).vi .
+
+(4.9)
+
+i=1
+
+An R-matrix for H is an invertible element R ∈ H ⊗ H satisfying (∆ ⊗ id)(R) =
+Ψ231 R13 Φ132 R23 Ψ, (id ⊗∆)(R) = Φ312 R13 Ψ213 R12 Φ and R∆(h)R−1 = ∆cop (h). A
+quasi-triangular quasi-Hopf algebra is a quasi-Hopf algebra together with a chosen
+R-matrix.
+Proposition 4.2. There is a bijective correspondence
+
+
+
+
+braidings ∼ R-matrices
+−
+→
+, c 7−→ τ ◦ cH,H (1 ⊗ 1)
+on H M
+for H
+where τ is the flip map in Vect. The inverse maps R to the braiding cX,Y (x ⊗ y) =
+R2 .y ⊗ R1 .x.
+Associated to an R-matrix is also its monodromy M = R21 R, which encodes the
+double braiding in H M. Lastly, since H M is rigid, there is a canonical (but in
+general non-monoidal) natural isomorphism idC ⇒ (−)∨∨ built using left dualities
+and a braiding; it is completely determined by an element u ∈ H, called the Drinfeld element of H, see e.g. [FGR1, Sec. 6.3] for an explicit expression in the current
+conventions.
+Finally, recall that a ribbon twist on a braided rigid monoidal category is a natural
+automorphism of the identity functor, satisfying certain axioms. A ribbon element for
+H is a non-zero central element v ∈ H satisfying ∆(v) = M−1 · v ⊗ v and S(v) = v.
+A ribbon quasi-Hopf algebra is a quasi-Hopf algebra together with a chosen ribbon
+element.
+Proposition 4.3 ([So]). A ribbon element is automatically invertible and satisfies
+ε(v) = 1, and there is a bijective correspondence
+
+
+
+
+ribbon twists ∼ ribbon elements
+−
+→
+, ϑ 7→ (ϑH )−1 (1) .
+on H M
+for H
+The inverse maps v to the ribbon twist ϑV (v) = v −1 .v.
+Since a ribbon category is pivotal, a ribbon Hopf algebra admits a canonical pivot
+which is compatible with the ribbon structure. In terms of the ribbon and Drinfeld
+element, it is explicitly given by g = uv −1 .
+
+40
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+4.2. Modified traces on H M and Proj(H M). Let (H, g) be a pivotal quasi-Hopf
+algebra.
+4.2.1. The categorical trace. From (4.8) and (4.9) one finds that the right resp. left
+categorical trace of C = H M is given by
+trr,C
+V (f ) = trV (gβS(α) ◦ f )
+
+
+
+resp.
+
+−1
+trl,C
+(gβ) ◦ f
+V (f ) = trV αS
+
+
+
+(4.10)
+
+for f ∈ EndH (V ), where by h = gβS(α) we mean the linear endomorphism of V
+given by acting with h, and tr on the right hand sides is the usual trace of linear
+maps. If H is ribbon then both the categorical traces agree.
+4.2.2. The modified trace on the projective ideal. Next, consider I = Proj(H M), the
+subcategory of projective H-modules. Since non-degenerate modified traces do not
+exist in the non-unimodular setting [FOG, GKP3], we now restrict to the case that
+H is unimodular. Building on [BBG], in [BGR1] it was shown that non-degenerate
+b r ∈ H∗
+right (resp. left) modified traces on I are in bijection with linear forms λ
+b l ∈ H ∗ ) satisfying
+(resp. λ
+
+
+
+
+b r ⊗ id) q R ∆(h)pR = λ
+b r (h)g −1
+(λ
+
+
+
+
+
+b l ) q L ∆(h)pL = λ
+b l (h)g
+resp. (id ⊗λ
+
+(4.11)
+
+for all h ∈ H. Moreover, the unique (up to scalar) solutions to these equations are
+given by
+b r (h) = λr (gh) resp. λ
+b l (h) = λl (g −1 h),
+λ
+
+h∈H ,
+
+(4.12)
+
+where λr (resp. λl ) is a non-zero right (resp. left) cointegral of H defined via (4.7).
+Such a solution is then called a right (resp. left) symmetrised cointegral for H, the
+name reflecting the fact that it is a symmetric form associated to a cointegral.
+Let us describe explicitly the right modified trace associated to the right symb r . By linearity of the modified trace it is enough to consider
+metrised cointegral λ
+endomorphisms of indecomposable projective modules, or more generally, any direct
+summand of the regular H-module H. So let P ∈ H M be a direct summand in
+p
+i
+H via the split idempotent H →
+− P →
+− H. The associated right modified trace of
+f ∈ EndH (P ) is given by
+
+
+
+
+
+
+
+
+b r (i ◦ f ◦ p)(1) = λr g · (i ◦ f ◦ p)(1) ,
+trP (f ) = λ
+
+(4.13)
+
+and is independent of the choice of i and p with p ◦ i = idP , see [BGR1, Prop. 4.3 &
+b r by the left symmetrised cointegral λ
+b l yields the left modThm. 4.5]. Replacing λ
+ified trace. Note that if H is ribbon, then there is no difference between left and
+right modified traces, and so the left and right symmetrised cointegrals agree. The
+corresponding left and right cointegrals do not have to agree (but they do e.g. if g
+has order 2).
+A special case of (4.13), which will often appear later, is when f is a component of
+a natural transformation ξ ∈ End(idC ). It is well-known that End(idC ) is isomorphic
+to the centre Z(H) of H; in fact, ξ is given by the action with ξˆ = ξH (1) ∈ Z(H).
+ˆ where e = (i ◦ p)(1) is the idempotent of the direct
+Then we have trP (ξP ) = λr (g ξe)
+summand P in H.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+41
+
+4.3. Lyubashenko coend and integral. Let H be a quasi-triangular quasi-Hopf
+algebra, so that H M is braided. The Hopf algebra L (as recalled in Section 3.1)
+exists and is given by the coadjoint representation — i.e. L ∼
+= H ∗ as vector spaces,
+with action given by (h.f )(v) = f (S(h(1) )vh(2) ) for f ∈ H ∗ and h, v ∈ H — together
+with the universal dinatural transformation with components
+jX (x∗ ⊗ y)(h) = x∗ (hy)
+
+(4.14)
+
+for X ∈ H M, x∗ ∈ X ∨ , y ∈ X, and h ∈ H. See [FGR1, Sec. 7] for more details.
+Let now H be unimodular. This is equivalent to H M being unimodular, and so
+L admits a two-sided integral Λ : 1 → L, which in the present case translates into
+Λ ∈ H ∗ . It was shown in [BGR2, Cor. 6.4] that given a non-zero right cointegral λr
+for H, a non-zero integral Λ for L is obtained as Λ(h) = λr (S(β)h). This is in fact
+a bijection with inverse
+λr (h) = Λ(S(q1L )hq2L ) .
+
+(4.15)
+
+The condition (3.7) for twist-nongedeneracy of H M can be expressed in terms of
+quasi-Hopf data as follows. By [FGR1, Eqn. (8.3)], the endomorphism TL : L → L
+from (3.6) acts on f ∈ L = H ∗ as (TL (f ))(a) = f (v −1 a), where a ∈ H. The counit
+εL : L → 1 is given by εL (f ) = f (α) for f ∈ H ∗ , see [FGR1, Thm. 7.3]. Combining
+this with the above expression for the integral Λ, we obtain
+H M twist-nondegenerate
+
+∆± = λr (S(β)v ∓1 α) ̸= 0 .
+
+⇔
+
+(4.16)
+
+We call quasi-Hopf algebras satisfying the non-vanishing condition on the right hand
+side of (4.16) twist-nondegenerate.
+Recall from Remark 3.1 the condition for a unimodular braided finite tensor category to be factorisable. We call the unimodular quasi-triangular quasi-Hopf algebra
+H factorisable if H M is factorisable. A characterisation in terms of quasi-Hopf data
+was given in [FGR1, Sec. 7.3] and agrees with the original definition in [BT] as shown
+in [FGR1, Sec. 7.4].
+Next we explain that two a priori different looking ways of normalising the modified
+trace on the projective ideal in terms of the integral Λ actually agree. We start by
+fixing an arbitrary non-zero integral Λ : 1 → L. In case H is modular, one can
+further fix Λ up to a sign by demanding Remark 3.2 (1), but here we do not assume
+this.
+From (4.15) and (4.12), one obtains a (two-sided) symmetrised cointegral by setting
+r
+b
+λ (h) = Λ(S(q1L )ghq2L ). Via (4.13) this in turn fixes a modified trace tHopf on the
+projective ideal. Altogether, we have determined tHopf from the initial choice of Λ.
+This Hopf algebraic normalisation condition has a categorical counterpart:
+Remark 4.4. Assume for this remark that C is modular. Given Λ, there is a unique
+cointegral Λco for L such that Λco ◦ Λ = id1 , cf. (3.3). Fix a surjection (unique up to
+scalar) p1 : P1 → 1. By [GR3, Prop. 6.5], this yields a unique morphism ν1 : 1 → P1
+such that
+
+
+
+
+Λco ◦ jP1 = evP1 ◦ idP1∨ ⊗(ν1 ◦ p1 ) .
+
+(4.17)
+
+42
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+Note that the composition ν1 ◦ p1 is independent of the choice of p1 . From [GR3,
+Thm. 6.1 & Prop. 6.5] it follows that for a non-zero modified trace t on Proj(C) one
+has tP1 (ν1 ◦ p1 ) ̸= 0. We may thus normalise t such that
+tP1 (ν1 ◦ p1 ) = 1 .
+
+(4.18)
+
+This is the same condition as in Remark 3.2 (4), again by [GR3, Prop. 6.5]. Altogether, starting from Λ we obtained a unique choice of modified trace t on Proj(C).
+△
+Let us return to the unimodular quasi-triangular quasi-Hopf algebra H. We have:
+Lemma 4.5. tHopf satisfies (4.18).
+Note that this holds without assuming that H M is modular.
+Proof. Denote by i and π a choice of morphisms in H M which give the injection and
+projection of P1 in H. The map i is unique up to scalar as P1 is also an injective hull
+of 1 and the space of H-intertwiners from 1 to H H is the space of left integrals and
+hence one-dimensional. Fix the morphism p1 = ε◦i : P1 → 1 and let ν1 be determined
+by (4.17). To describe ν1 more explicitly, first note that by [FGR1, Prop. 7.8] there
+is a unique choice of integral c ∈ H of H such that the cointegral Λco ∈ H ∗∗ of L
+satisfies Λco = ⟨−|c⟩. A short calculation using the normalisation ε(α) = 1 shows
+that ν1 = π(c) (viewing π(c) ∈ P1 as a linear map k → P1 ) satisfies (4.17). Note
+b r (c) = Λ(c) = Λco ◦ Λ = 1. Altogether we have (here we write 1 ∈ H
+further that λ
+H
+for the unit of H to distinguish it from the tensor unit 1 of H M)
+br
+br
+tHopf
+P1 (ν1 ◦ p1 ) = λ ((i ◦ ν1 ◦ p1 ◦ π)(1H )) = ε(e1 )λ (c) = 1 ,
+
+where e1 = (i ◦ π)(1H ). The last equality follows from the fact that the counit
+is only non-zero on the idempotent corresponding to the tensor unit in an isotypic
+decomposition of the regular module, which implies 1 = ε(1H ) = ε(e1 ).
+□
+4.4. Pullback ideals from quasi-Hopf subalgebras. For any quasi-Hopf algebra
+H, a linear subspace A ⊂ H is a quasi-Hopf subalgebra if it is a (unital) subalgebra,
+such that ∆(A) ⊂ A⊗A and S(A) ⊂ A, and which moreover contains the coassociator
+in the sense that Φ ∈ A⊗3 . Denote by
+Res = ResH
+A : H M → AM
+the canonical (forgetful) restriction functor, and note that it is strict monoidal. We
+say that an A-module M lifts to the H-module N if Res N ∼
+= M as A-modules.
+Given a quasi-Hopf subalgebra A ⊂ H, we may now consider the category of Aprojective H-modules. This is the full subcategory A -Proj(H M) of H M consisting of
+H-modules which are projective as A-modules, i.e. its objects are precisely the lifts of
+projective A-modules. In other words, it is a pullback in the sense of Proposition 2.11,
+
+
+
+
+A -Proj(H M) = Res∗ Proj(A M) ,
+and so in particular, A -Proj(H M) is a tensor ideal in H M.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+43
+
+Since every ideal contains the projective ideal (cf. Proposition 2.4), we have the
+following chain of ideals14
+Proj(H M) ⊂ A -Proj(H M) ⊂ H M .
+
+(4.19)
+
+We also remark that the two extremes in (4.19) are precisely the H-projective and
+the k-projective H-modules.
+Let now A ⊂ H be a unimodular quasi-Hopf subalgebra of the pivotal quasi-Hopf
+algebra (H, g). If g ∈ A, then (A, g) is a unimodular pivotal quasi-Hopf algebra,
+and thus admits a non-degenerate right modified trace tA on Proj(A M), constructed
+via its right symmetrised cointegral. The same holds for the left version. As a
+further application of Proposition 2.11 we now get a modified trace on A -Proj(H M)
+by pulling back tA along the restriction functor. Together with (4.13), we obtain a
+quasi-Hopf generalisation of [FOG, Cor. 2.8]:
+b A ∈ A∗ be a right (left)
+Corollary 4.6. Abbreviate I(A) = A -Proj(H M), and let λ
+symmetrised cointegral for A, with corresponding right (left) modified trace tA on
+Proj(A M). For M ∈ I(A), the family of linear maps
+
+(Res∗ (tA ))M : EndI(A) (M ) → k,
+
+(Res∗ (tA ))M (f ) = tA
+Res M (f ) ,
+
+defines a right (left) modified trace on I(A). Explicitly, with 1A the unit of A,
+(Res∗ (tA ))M (f ) =
+
+n
+X
+
+b
+λ
+
+A
+
+
+
+(pi ◦ f ◦ ji )(1A ) ,
+
+i=1
+
+where n is a natural number and pi : Res M → A, ji : A → Res M are A-module
+P
+morphisms, for i = 1, ..., n, such that ni=1 ji ◦ pi = idM and pl ◦ jm = δl,m pl ◦ jl .
+Remark 4.7. Suppose H is ribbon. In light of Remark 2.7, the pullback modified
+trace from Corollary 4.6 is then always two-sided, even if Proj(A M) has distinct right
+and left modified traces tA,r and tA,l . In the example we consider below, tA,r and tA,l
+are not proportional, but the two pullback traces still turn out to agree up to a scalar
+(Proposition 5.8 and Corollary 5.10).
+△
+Remark 4.8. Every finite-dimensional right H-comodule algebra A gives a right Cmodule category A M for C = H M with the action functor ⃝
+< exact in both variables.
+In particular, this holds for a right coideal subalgebra I ⊂ H. By Remark 2.12,
+such an A and a left A-module M provide a C-linear functor FM : H M → A M,
+∗
+X 7→ M ⊗ X. The pullback FM
+Proj(A M) therefore is a right tensor ideal in H-mod.
+However, less is known about existence of traces on Proj(A M), as compared to pivotal
+Hopf subalgebras treated in Corollary 4.6. For example, we are not aware of analogues
+of symmetrised right cointegral expression, as in [BBG, FOG, BGR1].
+△
+14To see this without Proposition 2.4, recall that H is free as an A-module by the Nichols-Zoeller
+
+theorem for quasi-Hopf algebras [Sch]. In particular, every projective indecomposable H-module
+restricts to a direct summand of a free A-module; since Proj(H M) is generated by indecomposable
+projectives, we get the inclusion of ideals as in (4.19).
+
+44
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+5. The symplectic fermion quasi-Hopf algebras
+After presenting some general aspects of the theory of quasi-Hopf algebras, we now
+turn to the family of examples which we will use to evaluate link and three-manifold
+invariants. These are the symplectic fermion quasi-Hopf algebras, which in fact are
+ribbon and factorisable. They were constructed in [GR1, FGR2] to reproduce the
+ribbon finite tensor categories obtained in [DR, Ru] from the study of the chiral twodimensional logarithmic conformal field theory of symplectic fermions [Ka, GK, Ab].
+5.1. Quasi-Hopf algebra and ribbon structure. Here we define the family Q(N, β)
+of symplectic fermion quasi-Hopf algebras, give the ribbon structure on Q(N, β) and
+compute its (co)integrals. The two parameters are a natural number N ≥ 1 and
+a complex number β s.t. β 4 = (−1)N . We fix such an N and β and abbreviate
+Q = Q(N, β).
+5.1.1. Quasi-Hopf algebra structure. As an algebra, Q is the (unital associative) Calgebra generated by { K, fiϵ | 1 ≤ i ≤ N, ϵ = ± }. With the elements e0 = 12 (1 + K2 )
+and e1 = 12 (1 − K2 ), the relations of Q are
+{fi± , K} = 0 ,
+
+{fi+ , fj− } = δi,j e1 ,
+
+{fi± , fj± } = 0 ,
+
+K4 = 1 ,
+
+for all 1 ≤ i, j ≤ N , and where {−, −} is the anticommutator. Then e0 , e1 satisfy
+e0 + e1 = 1, and are central orthogonal idempotents. A basis is given by
+{b(m, s, t) = Km
+
+N
+Y
+
+(fj+ )sj (fj− )tj | m ∈ Z4 , s, t ∈ ZN
+2 } ,
+
+(5.1)
+
+j=1
+
+and the dimension of Q is 22N +2 . On generators, the coproduct and counit are
+∆(K) = K ⊗ K − (1 + (−1)N ) e1 K ⊗ e1 K ,
+
+ε(K) = 1 ,
+
+∆(fi± ) = fi± ⊗ 1 + ω± ⊗ fi± ,
+
+ε(fi± ) = 0 ,
+
+(5.2)
+
+where ω± = (e0 ± ie1 )K. With β ± = e0 + β 2 (±iK)N e1 , the coassociator and its
+inverse are
+n
+
+Φ±1 = 1 ⊗ 1 ⊗ 1 + e1 ⊗ e1 ⊗ e0 (KN − 1) + e1 (β ± − 1)
+
+o
+
+.
+
+(5.3)
+
+Finally, the antipode S and the evaluation and coevaluation elements α and β are
+given by
+N
+
+S(K) = K(−1) = (e0 + (−1)N e1 )K ,
+
+α=1,
+
+S(fi± ) = fi± (e0 ± (−1)N ie1 )K ,
+
+β = β+ .
+
+The inverse of the antipode is found to be
+N
+
+S −1 (K) = K(−1) ,
+
+S −1 (fi± ) = ω± fi± .
+
+Note that S(β ± ) = S −1 (β ± ) = β ∓ , and β + β − = 1.
+The algebra Q is the direct sum of two ideals Qi = ei Q, i = 0, 1. As algebras, Q0
+(resp. Q1 ) is the semidirect product of a Grassmann algebra (resp. Clifford algebra)
+in 2N generators with the group algebra of Z2 . In particular, Q1 is semisimple. This
+decomposition imparts a Z2 -grading on the category of Q-modules: Q M = (Q M)0 ⊕
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+45
+
+(Q M)1 . Since Q1 is semisimple, (Q M)1 is semisimple as an abelian (sub)category.
+The monoidal structure on Q M respects the grading, see [FGR2, Sec. 3] for details.
+5.1.2. Further elements and structure. In [BGR1, Sec. 5], the canonical elements from
+(4.6) were computed to be
+
+
+
+
+
+
+
+
+q R = 1 ⊗ 1 + e1 ⊗ e1 (β − 1) ,
+pR = 1 ⊗ 1 + e0 ⊗ e1 (β − 1) ,
+n
+
+o
+
+q L = 1 ⊗ 1 + e1 ⊗ e0 (KN − 1) + e1 (β − 1) ,
+n
+
+o
+
+pL = β − ⊗ 1 + e1 β − ⊗ e0 (KN − 1) + e1 (β − − 1) .
+
+(5.4)
+
+The Drinfeld twist and its inverse are given by
+f ±1 = e0 ⊗ 1 + e1 ⊗ e0 KN + e1 β ∓ ⊗ e1 .
+
+(5.5)
+
+Q is quasi-triangular. The R-matrix and its inverse are
+R=
+
+N
+ Y
+
+1
+ X
+
+β nm ρn,m en ⊗ em ·
+
+n,m=0
+
+(1 ⊗ 1 − 2fj− ω− ⊗ fj+ )
+
+j=1
+
+and
+R−1 =
+
+N
+Y
+
+(1 ⊗ 1 + 2fj− ω− ⊗ fj+ ) ·
+
+1
+ X
+
+
+
+β −nm ρn,m en ⊗ em ,
+
+n,m=0
+
+j=1
+
+where
+ρn,m =
+
+1
+1 X
+(−1)kl i−kn+lm Kk ⊗ Kl .
+2 k,l=0
+
+Its monodromy may be described as
+M = R21 R =
+
+X
+
+for I = (a, b, c, d)
+
+gI ⊗ fI ,
+
+(5.6)
+
+I
+
+with a, b ∈ Z2 and c, d ∈ ZN
+2 , and where
+fI = Ka eb
+
+N
+Y
+
+(fk− )dk (fk+ )ck .
+
+k=1
+
+gI = (−β 2 )ab 2|c|+|d| (−1)|c|+b|d| Kb ea
+
+N
+Y
+
+(fk+ ω− )dk (fk− ω− )ck ,
+
+(5.7)
+
+k=1
+
+see [FGR2, Lem. 4.2]. This is used there to further show that the Hopf pairing ωL in
+(3.1) is non-degenerate, i.e. that Q M is factorisable.
+Finally, Q is ribbon with (inverse) ribbon element
+v
+
+±1
+
+= (e0 − β
+
+±1
+
+iKe1 )
+
+N 
+Y
+
+1 ∓ 2(e0 ± e1 )fj+ fj−
+
+j=1
+
+
+
+(5.8)
+
+46
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+and so Q M is a modular tensor category. The pivot compatible with the ribbon
+structure is
+g = (e0 + (−i)N +1 e1 KN )K .
+
+(5.9)
+
+Note that g −1 = g.
+5.1.3. Integrals
+and cointegrals. In the basis (5.1), any left integral of Q is a scalar
+P
+multiple of 3m=0 b(m, 1, 1), where by 1 ∈ ZN
+2 we mean the vector with 1 everywhere.
+15
+Since Q is unimodular , all left integrals of Q are also right integrals. In [BGR1,
+Sec. 5] it was shown that the left (and, since H is ribbon, also right) symmetrised
+cointegral yielding the non-degenerate modified trace on Proj(H M) satisfies
+2
+m
+b r (b(m, 1, 1)) = λ
+b l (b(m, 1, 1)) = c δ
+λ
+t m,odd (β + i ) ,
+
+(5.10)
+
+and is zero on the other basis elements. The normalisation coefficient where ct ∈ C
+will be determined shortly. By δm,odd we mean the Kronecker delta modulo 2, i.e.
+δm,odd = 1 if m is odd and 0 otherwise. The corresponding left (and, since g has
+order 2, also right) cointegral for H is given by
+λr (b(m, 1, 1)) = λl (b(m, 1, 1))
+
+
+= ct δm,even (β 2 + δN,even im ) + δm,odd δN,odd im
+
+
+
+(5.11)
+
+and zero elsewhere.
+We now determine the coefficient ct . The integral Λ of L in the normalisation
+ωL ◦ (Λ ⊗ Λ) = id1 was computed in [FGR2] to be
+
+
+
+
+Λ b(m, 1, 1) = ν(−1)N β 2 2−(N −1) δm,0 ,
+
+(5.12)
+
+where ν ∈ {±1} is the remaining sign freedom. We will for simplicity from now on
+choose ν = 1. As in Section 4.3 we normalise the cointegral λr of Q by Λ(h) =
+λr (S(β)h). One computes λr (S(β)b(m, 1, 1)) = ct 2β 2 δm,0 , whence
+ct = (−1)N 2−N .
+
+(5.13)
+
+Evaluating (3.7) as in (4.16) gives
+
+
+ (5.8)
+
+∆± = εL ◦ T ±1 ◦ Λ = λr S(β)v ∓1 α
+
+= β ∓2 ,
+
+which implies D 2 = ∆− ∆+ = 1, and we choose D = 1. Then we have δ = β −2 for
+the anomaly of Q M.
+5.2. The modular tensor category Q M. Here we briefly discuss the simple and
+projective modules of Q M and give their internal characters. Then we show that
+Q M does not factorise into a product of modular tensor categories. While we will
+not use this fact later on, we still think it is a noteworthy observation.
+15This follows from the explicit form of P
+
+1 given in Section 5.2.1 below. Or one can use that Q
+is factorisable which implies unimodularity, see [BT, Sec. 6] for the quasi-Hopf algebra result, and
+[KL, Lem. 5.2.8] for the general categorical statement.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+47
+
+5.2.1. Simple and projective modules. The simple and projective modules of Q have
+been computed in [FGR2, Sec. 3.7]. One finds that Q has four simple modules which
+we denote by X0± ∈ (Q M)0 and X1± ∈ (Q M)1 .
+The simple modules X0± are one-dimensional. They are distinguished by the action
+of K, which acts as ±1 on X0± . The tensor unit of Q M is given by X0+ . As submodules
+of Q, the projective covers P0± of X0± are generated by the primitive (non-central)
+idempotents
+1
+e±
+0 = 2 (1 ± K)e0 .
+
+(5.14)
+
+They are both 22N -dimensional, and the spaces of intertwiners from P0ε to P0δ have
+dimension 22N −1 for ε, δ ∈ {+, −}.
+The simple modules X1± are 2N -dimensional and projective, and K acts on their
+highest weight state as ±i. As X1± is projective, it can be realised as a direct summand
+of Q. The corresponding central (non-primitive) idempotents give 2N copies of X1± .
+Namely, 2N X1± ⊂ Q is the image of
+1
+e±
+1 = e1
+2
+
+
+
+1 ∓ iK
+
+N
+Y
+
+
+
+(1 − 2fj+ fj− ) .
+
+(5.15)
+
+j=1
+
+Remark 5.1. Since Q M is factorisable, it has no transparent objects other than
+direct sums of the tensor unit (see [Sh3] for equivalent characterisations of factorisability). The grade-0 component (Q M)0 is also a braided finite tensor category, but
+it is not factorisable. The transparent objects in (Q M)0 are precisely all finite direct
+sums of X0+ and X0− , see [DR, Prop. 5.3]. That X0− is transparent in (Q M)0 can
+also be easily read off from the monodromy matrix M in (5.6). Namely, when acting
+on V ⊗ X0− for any V ∈ (Q M)0 , in the sum over I in M, only the summand with
+N
+I = 0 ∈ Z2 × Z 2 × Z N
+2 × Z2 contributes, and this summand acts as the identity on
+V ⊗ X0− .
+△
+The tensor product closes on the set of simples and projectives, explicitly we have
+(see [FGR2, Sec. 2.2])
+X1ε ⊗ X1δ ∼
+= P0εδ ,
+
+X0ε ⊗ Y δ ∼
+= Y εδ where Y ∈ {X0 , X1 , P0 } ,
+
+In the Grothendieck ring Gr(Q M) of Q M, we have [P0ε ] = 22N −1 ([X0+ ] + [X0− ]), so
+that the above tensor products result in the following product for the generators of
+Gr(Q M):
+[X0δ ] · [X0ε ] = [X0δε ] ,
+
+
+[X0δ ] · [X1ε ]= [X1δε ] ,
+
+
+[X1δ ] · [X1ε ] = 22N −1 [X0+ ] + [X0− ] .
+
+(5.16)
+
+5.2.2. Internal characters and their S-transformation. Recall from Remark 3.2 that
+End(idC ) is equipped with an action of SL(2, Z), and that there are special natural
+transformations ϕV and SC (ϕV ) for any V ∈ C. It is known from [FS, Sh2] (see [GR2,
+Sec. 3] for a summary) that the map
+Gr(C) → End(idC ) ,
+
+[V ] 7→ SC (ϕV )
+
+(5.17)
+
+48
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+is an injective ring homomorphism. This fact has been used in [GR2, Thm. 3.9] to
+give a non-semisimple variant of the Verlinde formula.
+For any algebra A, End(idA M ) is canonically isomorphic to Z(A), the centre of A.
+In the case of Q, the central elements χV and ϕV corresponding to SC (ϕV ) and ϕV ,
+respectively, have been worked out in [FGR2, Sec. 4.4]. Since χV , ϕV depend on V
+only through the class in Gr(Q M), knowing them on simple modules is enough:
+ϕX0± = 2N +1 β 2 e±
+0
+
+N
+Y
+
+fj+ fj− ,
+
+j=1
+
+ϕX1± = ±2N +1 e±
+1
+
+(5.18)
+
+−
+fj+ fj− + 2N (e+
+1 − e1 ) .
+
+(5.19)
+
+and
+χX0± = e1 ± e0 ,
+
+χX1± = ±β 4 e0 K
+2 N
+
+N
+Y
+j=1
+
+As an immediate consequence of (5.17), the map Gr(Q M) → Z(Q), [V ] 7→ χV is
+an injective ring homomorphism, and thus has to agree with the product given in
+(5.16). Indeed, we have, for example
+χX0− χX + = χX1− ,
+1
+
+−
+2N −1
+(χX + + χX0− ) .
+(χX + )2 = 22N (e+
+1 + e1 ) = 2
+1
+
+0
+
+5.2.3. Primality of Q M. Recall from e.g. [LW] that a topologising subcategory of an
+abelian category A is a full subcategory closed under finite direct sums and subquotients in A. Recall further that the Müger centralizer MA (X ) of a class of objects X
+in the braided monoidal category A is the full subcategory consisting of those objects
+in A which have trivial monodromy (i.e. double braiding) with every object in X .
+Note that for a braided tensor category C, we have MC (1) ∼
+= C, and if C is factorisable
+also MC (C) ∼
+Vect
+(see
+[Sh3]).
+=
+In [LW], the following remarkable theorem was shown, extending Müger’s result to
+the non-semisimple case. Before restating it, let us remark that a tensor subcategory
+of a tensor category C is a subcategory closed under tensor products and containing
+the tensor unit.
+Theorem 5.2 ([LW, Thm. 4.17]). Let C be a modular tensor category, and let D be a
+topologising tensor subcategory of C. If D is factorisable with respect to the braiding
+inherited from C, then C ∼
+= D ⊠ MC (D) as ribbon categories.
+This leads to the notion of prime modular tensor categories as those modular tensor
+categories C which do not admit a proper non-trivial (i.e. not equivalent to C or Vect)
+factorisable topologising tensor subcategory.
+We can now show that symplectic fermions provide a prime example of such a
+category.
+Proposition 5.3. The modular tensor category Q M is prime.
+Proof. Let D be a factorisable topologising tensor subcategory of Q M which is not
+Vect. We will show that then already D = Q M.
+We start by showing that D contains the four simple objects of Q M. It contains
+1 = X0+ by definition. Since we assume D ̸= Vect, and there are no self-extensions
+of the tensor unit [EGNO, Sec. 4.4], it must contain at least one more simple object.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+49
+
+Since D is factorisable, it cannot be wholly contained in (Q M)0 . Otherwise, it
+would necessarily contain X0− , the only simple object of (Q M)0 that is not the tensor
+unit. But we have seen in Remark 5.1 that X0− is transparent in (Q M)0 .
+Therefore, D must contain at least one of X1± . Suppose it contains X1+ . Since
+X1+ ⊗ X1+ ∼
+= P0+ contains X0+ and X0− as subquotients, we have by topologising
+property that X0− ∈ D. Since X1+ ⊗ X0− = X1− , D then also contains X1− . Finally,
+X1+ ⊗ X1− ∼
+= P0− , and so D contains all projectives and hence is equal to Q M. The
+argument starting from X1− instead of X1+ is the same.
+□
+One consequence of Proposition 5.3 is that Q M is not a product of more elementary
+modular tensor categories, and in particular one cannot directly reduce the study of
+general N to the N = 1 case, see however an interesting observation in [MR, Rem. 5.6].
+5.3. Pullback ideals. In this section we consider an example of a pull back ideal
+and compute the resulting modified trace. We start with some general comments on
+quasi-Hopf subalgebras of Q(N, β) and then specialise to a specific subalgebra A in
+H := Q(2, β).
+5.3.1. Quasi-Hopf subalgebras in Q. Write W + ⊂ Q = Q(N, β) for the N -dimensional vector space linearly spanned by the fi+ , and analogously for W − . The total
+space W + ⊕ W − carries a symplectic form given by (fi+ , fj− ) = δi,j .
+Before turning to the specific example we will study in more detail, let us look more
+generally at quasi-Hopf subalgebras A generated by some subspace of W + ⊕ W − and
+by powers of K. First note that for w = w+ + w− ∈ W + ⊕ W − , the coproduct (5.2)
+gives
+∆(w) = w ⊗ 1 + e0 ⊗ w + ie1 ⊗ (w+ − w− ) .
+(5.20)
++
+−
+By assumption, e0 , e1 ∈ A, and so if w + w ∈ A, closure under the coproduct
+requires that also w+ − w− ∈ A. We may therefore pick two subspaces V ± ⊂ W ±
+and define A = A(V + , V − ) ⊂ Q to be the unital subalgebra generated by elements in
+V + ⊕ V − and by K. A quick look at the explicit expressions in Section 5.1.1 confirms
+that the coproduct and antipode restrict to A, and that α, β ∈ A and Φ±1 ∈ A⊗3 .
+The pivot g from (5.9) is also contained in A. However, the R-matrix does not restrict
+to A (unless A = Q).
+If the restricted symplectic form on V + ⊕ V − is non-degenerate, A is isomorphic as
+an algebra to Q(N ′ , β ′ ) with N ′ = dim V ± and β ′ arbitrary. The isomorphism maps
+K 7→ K and takes a symplectic basis of V + ⊕ V − to the generators fi± of Q(N ′ , β ′ ).
+From the expressions in Section 5.1.1 one sees that this defines an isomorphism of
+quasi-Hopf algebras iff N ′ ≡ N (mod 2) and β 2 = β ′2 .
+The projective cover P0 (A) of the trivial A-module C (with K acting as 1) is given by
+dim V + +dim V −
+Ae+
+.
+0 , cf. (5.14). The socle of P0 (A) is one-dimensional and K acts as (−1)
++
+−
+Thus A is unimodular iff dim V + dim V is even.
+Remark 5.4. We note that by (5.20), any element w ∈ W+ ⊕ W− , together with K,
+generates a coideal subalgebra in Q = Q(N, β). More generally, K and any subspace
+V ⊂ W+ ⊕W− generate a coideal subalgebra IV ⊂ Q. Therefore, following Remark 4.8
+we have a family of two-sided tensor ideals in Q M parametrised by the subspaces V
+
+50
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+and a choice of module M ∈ IV M, possibly with a modified trace on them.16 It is
+a very interesting problem to classify such modified traces for a given subspace V of
+the symplectic space W+ ⊕ W− but this is out of the scope of the current paper. △
+Altogether we see that each such choice of a unimodular quasi-Hopf subalgebra A
+gives a tensor ideal with modified trace via pull-back, recall Corollary 4.6. We have
+thus a continuum of intermediate tensor ideals in Q M, but here we will study just
+one of them.
+Namely, the example we study in detail now is
+V ± = Cf1± ,
+
+A = A(V + , V − ) ⊂ Q(2, β) =: H
+
+where β is any choice of 4th root of unity.
+5.3.2. Lifts of projective modules of A. As an algebra (but not as a quasi-Hopf algebra), A agrees with one pair of symplectic fermions Q(1, β); in particular, we know
+its projective modules.
+Let P0+ (A) be the projective cover of the tensor unit of A M, and similarly let
+−
+P0 (A), X1+ (A), X1− (A) the remaining indecomposable projectives. If we refer to the
+projectives in H M, we will write P0± (H) and X1± (H) instead. The A-module P0+ (A)
+is four-dimensional and is generated by a vector v0 which has K-eigenvalue 1. We set
+v1± = f1± .v0 and v2= f1+ f1− .v0 . The K-eigenvalue of v2 is 1, while those of v1± are −1.
+− +
+Let µ = ab− ab+ ∈ Mat2 (C). On P0+ (A), we define the actions of f2± ∈ H as
+f2ε = aε f1− + bε f1+ ∈ Endk (P0+ (A)),
+
+ε=±.
+
+(5.21)
+
+It is not hard to verify that with this we indeed obtain an H-module structure on
+P0+ (A), and we shall denote it by Pµ ∈ H M. By construction, Pµ is a lift of P0+ (A)
+and we will now show that these are in fact all lifts:
+Proposition 5.5. Every lift of P0+ (A) to H M is of the form Pµ for some µ ∈
+Mat2 (C). Moreover, Pµ ∼
+= Pµ′ in H M iff µ = µ′ .
+Proof. To lift the A-module structure, we classify all possible f2± -actions on P0+ (A).
+This is a linear algebra problem: the algebra relations (in particular the anticommutators) of H have to be satisfied by the matrices representing the actions of generators.
+In the basis {v0 , v1− , v1+ , v2 } of P0+ (A), the action of the A-generators K, f1− , and f1+ is
+given by
+K=
+
+1 0 0 0
+0 −1 0 0
+0 0 −1 0
+0 0 0 1
+
+!
+
+,
+
+f1− =
+
+0 0 0 0
+1 0 0 0
+0 0 0 0
+0 0 1 0
+
+,
+
+and f1+ =
+
+0 0 0 0
+0 0 0 0
+1 0 0 0
+0 −1 0 0
+
+,
+
+respectively. The only matrices that anticommute with these are of the form
+Ea,b =
+
+0 0 0 0
+a 0 0 0
+b 0 0 0
+0 −b a 0
+
+!
+
+= a f1− + b f1+ ,
+
+a, b ∈ C .
+
+The matrices Ea,b anticommute with Ec,d for any four complex numbers a, b, c, d. In
+particular, given (a− , a+ , b− , b+ ) ∈ C4 , we get a H-module on which the action of f2±
+is represented by a± , b± as in (5.21). By construction these are all possible lifts.
+16We thank the anonymous referee for pointing out this more general construction.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+ −
+
+51
+
+
+
+Now we show that these are pairwise non-isomorphic. Let µ = ab− ab+ and µ′ =
+ − +
+c c
+∼
+− + , and suppose Pµ = Pµ′ . This isomorphism must come from an invertible
+d
+
++
+
+d
+
+endomorphism of P0+ (A) intertwining the A-action, so is necessarily given by the
+action with ξx,y = x1 + yf1− f1+ , where x, y ∈ C with x ̸= 0. Requiring ξx,y to
+intertwine the f2ε -actions on Pµ and Pµ′ forces aε = cε and bε = dε , for ε = +, −.
+Hence, µ = µ′ .
+□
+The following simple corollary to the proof of the above proposition will be useful
+later.
+Corollary 5.6. The element f2+ f2− ∈ H acts on Pµ as det µ · f1+ f1− , and consequently
++ −
++ −
+j=1 (1 − xfj fj ) acts as 1 − x(1 + det µ)f1 f1 for any x ∈ C.
+
+Q2
+
+Remark 5.7. By contrast, the simple projective modules of A do not admit lifts,
+because their dimensions are too small: the grade 1 part of A -Proj(H M) has to
+coincide with the grade 1 part of H M by Remark 2.5. Instead, a suitable direct sum
+of simple A-projectives lifts to each of the two simple projective of H, and so no
+continuum of parameters is involved.
+△
+5.3.3. Symmetrised cointegrals of A. Next, we describe the left and the right symmetrised cointegral of A, which by [BGR1, Thm. 1.1] correspond precisely to the left
+and the right modified trace on Proj(A M).
+Proposition 5.8. A symmetrised right resp. left cointegral for A is given by
+
+
+
+
+2
+b A,r f + f − Km = δ
+λ
+m,1 − iβ δm,3
+1 1
+
+
+
+
+
+2
+b A,l f + f − Km = δ
+resp. λ
+m,1 + iβ δm,3 , ,
+1 1
+
+and by 0 on all other basis vectors. The left and the right modified trace tA,l and tA,r
+on Proj(A M) corresponding to the cointegrals
+• are proportional on the grade 0 part and the grade 1 part of Proj(A M) separately, but
+• are not proportional on all of Proj(A M).
+The final statement implies that the pivotal quasi-Hopf algebra A cannot be made
+ribbon, or equivalently, that the pivotal structure on A M cannot be extended to a
+ribbon structure.
+Proof. We start by computing the right symmetrised cointegral. Since A is pivotal
+and unimodular, this can be done by solving (4.11). Using the explicit formulas for
+q R , pR from (5.4), (4.11) becomes
+b A,r (h)1 = λ
+b A,r (h )ge h + λ
+b A,r (e h )ge h β + λ
+b A,r (e h )ge βh
+λ
+0 (2)
+0 (1)
+1 (2)
+1 (1)
+1
+(1)
+(2) .
+
+Abbreviate hm = f1+ f1− Km , and note that
+∆(hm ) ≈ hm ⊗ e0 Km + hm K2δm,odd ⊗ e1 Km ,
+where ≈ means that we disregard terms that have fewer than all fs in the first tensor
+b A,r (f + f − Km ) = c ∈ C and zero otherwise. Clearly
+factor. We then make the ansatz λ
+m
+1 1
+
+52
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+this satisfies (4.11) for any h not of the form hm . Using the explicit expression (5.9)
+for g and the fact that [β, K] = 0, the cointegral equation (4.11) for h = hm becomes
+b A,r ((h ) ) · e (h ) K − iβ 2 λ
+b A,r ((h ) ) · e (h ) K
+cm · 1 = λ
+m (1)
+0 m (2)
+m (1)
+1 m (2)
+
+= cm e0 Km+1 − iβ 2 cm+2δm,odd e1 Km+1 .
+Immediately this implies c0 = c2 = 0, so we are only left with the two equations
+c1 · 1 = c1 e0 + iβ 2 c3 e1
+
+and c3 · 1 = c3 e0 − iβ 2 c1 e1 ,
+
+b A,r can be chosen as in the statement of this
+which imply c3 = −iβ 2 c1 , so that λ
+proposition.
+b A,r ◦ S −1 , see [BGR1, Sec. 3]. That is,
+A left symmetrised cointegral is given by λ
+A,l
+b
+up to a scalar λ is completely determined as
+2
+2
+2
+b A,r ◦ S −1 )(f + f − Km ) = δ
+(λ
+m,3 − iβ δm,1 = −iβ (δm,1 + iβ δm,3 ) ,
+1 1
+
+b A,l = λ
+b A,r ◦ S −1 , which yields λ
+b A,l as in the statement.
+and we choose −iβ 2 λ
+We will now show that the associated modified traces are proportional on the
+degree 0 and the degree 1 component separately, but not simultaneously. Let us
+2
+b A,− := λ
+b A,r and λ
+b A,+ := λ
+b A,l , so that λ
+b A,± (Km f + f − ) = δ
+write λ
+m,1 ± iβ δm,3 .
+1 1
+±
+The endomorphism space of P0 (A) has as basis the identity and the map given by
+b A,± on e± and e± f + f − . Clearly,
+acting with f1+ f1− , and hence we need to evaluate λ
+0
+0 1 1
+±
+the value on e0 is zero. One easily computes
+b A,± (eε f + f − ) = 1
+λ
+0 1 1
+4
+
+3
+X
+
+b ±,A (Km f + f − ) = ε
+εm λ
+1 1
+
+m=0
+
+1 ± iβ 2
+.
+4
+
+(5.22)
+
+In the degree 1 component, indecomposable projectives only have the identity endomorphism. Using additivity of the modified trace, it is enough to compute its value
+±
+±
+on the identity endomorphism (−) · e±
+1 of 2X1 (A) ⊂ A (the image of e1 is given
+above (5.15)). We have
+b ±,A (eε ) = εiλ
+b ±,A (e Kf + f − ) = εi
+λ
+1
+1
+1 1
+
+1 ∓ iβ 2
+.
+2
+
+Since β 4 = 1, (1 − iβ 2 )iβ 2 = 1 + iβ 2 . Thus for all P ∈ Proj(A M)
+2 A,l
+tA,r
+e0 P = −iβ te0 P
+
+2 A,l
+and tA,r
+e1 P = iβ te1 P ,
+
+and so the two traces are not proportional.
+
+□
+
+5.3.4. Pullback modified traces from A. The modified traces on A -Proj(H M) obtained via pullback (Proposition 2.11 and Corollary 4.6) from the modified traces in
+Proposition 5.8 are not non-degenerate. Namely, we have:
+Proposition 5.9. The pullback modified traces vanish on projective H-modules:
+Res∗ (tA,r )
+
+Proj(H M)
+
+≡0
+
+and
+
+Res∗ (tA,l )
+
+Proj(H M)
+
+≡0.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+53
+
+Proof. We use the suggestive notation C1|0 and C0|1 for the one-dimensional simple
+modules of both A and H, on which K acts as 1 and −1, respectively, and on which
+the actions of the fj± vanish. Similarly we write Cn|m = nC1|0 ⊕ mC0|1 . We have
+trA,r
+(f ⊗ id) = 0 for any V ∈ A M and f ∈ EndA (V ), where trA,r is the right
+V ⊗Cn|n
+partial trace of A M. Indeed, this follows from
+Vect
+trA
+(K) = 1 and
+C1|0 (id) = trC
+
+see (4.10). It is not hard to verify that
+Res(X ± (H)) ∼
+= X + (A) ⊗ C1|1 and
+1
+
+1
+
+trA
+C0|1 (id) = −1 ,
+
+Res(P0± (H)) ∼
+= P0+ (A) ⊗ C2|2
+
+(5.23)
+
+as A-modules. Thus for any projective indecomposable P ∈ Proj(H M) and any
+f ∈ EndH (P ) we have e.g.
+
+
+
+
+A,r
+′
+Res∗ (tA,r )P (f ) = tA
+P ′ trP ′ ⊗Cn|n (f ) ,
+
+where P ′ is X1+ (A) or P0+ (A), n is 1 or 2, and f ′ is f conjugated by one of the
+isomorphisms in (5.23). Our goal is therefore now to show that in all situations f ′
+will be a sum of terms of the form g ⊗ h, with h : Cn|n → Cn|n of trace zero.
+For the odd sector, i.e. P = X1± (H), this is obvious since EndH (X1± (H)) is onedimensional, and so h is a multiple of id.
+For P = P0± (H), we note first that an explicit basis of the 8-dimensional space
+EndH (P0± (H)) is given by acting with the elements
+1,
+
+f1+ f1− ,
+
+f1+ f2+ ,
+
+f1+ f2− ,
+
+f1− f2+ ,
+
+f1− f2− ,
+
+f2+ f2− ,
+
+f1+ f1− f2+ f2− ,
+
+which are central on the even sector. Let us denote the second isomorphism in (5.23)
+by ϕ. Explicitly, a basis of P0± (H) is given by
+n
+
+o
+
+(f1+ )a (f1− )b (f2+ )c (f2− )d e±
+0 a, b, c, d ∈ Z2 ,
+
+see [FGR2, Sec. 3.7]. A basis of P0± (A) is obtained by just using f1± . If we denote a
+basis of C2|2 by {(f2+ )c (f2− )d |c, d ∈ Z2 }, then ϕ is simply given by
++ a − b ±
++ c − d
+(f1+ )a (f1− )b (f2+ )c (f2− )d e±
+0 7−→ (f1 ) (f1 ) e0 ⊗ (f2 ) (f2 ) ,
+
+and it commutes with the action of f1± . One can now verify that the transported
+actions ϕ ◦ (f2± .(−)) ◦ ϕ−1 and ϕ ◦ (f2+ f2− .(−)) ◦ ϕ−1 are of the form g ⊗ h with nilpotent
+h (which hence has trace zero).
+□
+Corollary 5.10. The pullback traces Res∗ (tA,r ) and Res∗ (tA,l ) are proportional.
+Proof. By Remark 2.5, the degree 1 component of A -Proj(H M) equals the degree 1
+component of Proj(H M). Thus both pullback traces vanish on (A -Proj(H M))1 by
+Proposition 5.9. By Proposition 5.8, tA,r and tA,l are proportional on the degree 0
+component of Proj(A M).
+□
+To make things more readable we choose a specific normalisation and set
+4
+4
+Res∗ (tA ) :=
+Res∗ (tA,r ) =
+Res∗ (tA,l ) ,
+2
+2
+1 − iβ
+1 + iβ
+which is well-defined since β 2 = ±1.
+
+(5.24)
+
+54
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+Since by Theorem 2.13 we are free to choose which I-labelled edge of a closed ribbon
+graph T to cut when computing FC,′ t (T ), as another consequence from Proposition 5.9
+we get:
+Corollary 5.11. Let T be an I-admissible closed ribbon graph and t = Res∗ (tA ). If
+at least one edge of T is coloured by a projective H-module, then FC,′ t (T ) = 0.
+6. Explicit computations of link invariants
+In this section we provide the details on how to obtain the link invariants presented
+in Table 1. We consider the n-framed unknot, the a, b-framed Hopf link, and the
+(2, m)-torus knot, each for three choices of ideal in Q M.
+Throughout this section we will often write ε, δ, etc. for multiple disjoint occurrences of ±.
+6.1. Framed unknot. Recall the ribbon twist from (5.8). One shows via induction
+that
+v ±m = (e0 + (−β ±1 iK)m e1 )
+
+N 
+Y
+
+1 ∓ 2(me0 ± δm,odd e1 )fj+ fj−
+
+
+
+j=1
+
+holds for natural m ≥ 0. By convention, the ribbon twist is given by acting with v −1 ,
+and so the n-framed unknot corresponds to the trace of v −n , for n ∈ Z.
+Categorical trace. The categorical trace of the projective module X1± vanishes, and it
+is clear that v acts as the identity on X0± since the f’s act trivially. Thus, for n ∈ Z,
+M
+
+trQX ± (v n ) = trX ± (gβS(α)) = trX ± (K) = ±1 ,
+0
+
+0
+
+0
+
+as claimed in Table 1.
+The modified trace on the projective ideal. For the modified trace on the projective
+ideal, we find on the even sector that the invariant of the n-framed unknot (n ∈ Z)
+coloured with P0ε is given by
+
+
+b r (v −n eε ) = (2n)N λ
+b r eε
+tP0ε (v −n ) = λ
+0
+0
+
+N
+Y
+
+ (∗)
+
+fj+ fj− = nN 21 εβ −2 .
+
+j=1
+
+In step (∗) we used
+
+
+b r eε
+λ
+0
+
+N
+Y
+j=1
+
+fj+ fj−
+
+3
+ (5.14) 1 X
+
+=
+
+4 m=0
+
+b r (Km
+εm λ
+
+N
+Y
+j=1
+
+(5.13) 1
+
+fj+ fj− ) =
+
+(5.10) 2
+
+εβ 2 (−1)N 2−N
+
+= 2−N −1 εβ −2 .
+
+(6.1)
+
+On the odd sector, indecomposable projectives are simple and therefore have onedimensional endomorphism spaces. It was shown in [FGR2, Lem. 3.14] that v ±1 eε1 =
+εβ ±1 eε1 (where eε1 was given in (5.15)), so that for integer powers we have v −n eε1 =
+(εβ)−n eε1 . The invariant of the n-framed unknot coloured by X1± is then given by
+b r (eε ) .
+tX1ε (v −n ) = 2−N t2N X1ε (v −n ) = 2−N (εβ)−n t2N X1ε (id) = 2−N (εβ)−n λ
+1
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+55
+
+We find
+N
+
+
+Y
++ −
+b r (eε ) = −ε 1 i(−2)N λ
+br e K
+λ
+f
+f
+1
+1
+j j
+2
+j=1
+
+1
+1
+1
+= −ε i(−2)N ct (β 2 + i − β 2 − i3 ) = ε ,
+2
+2
+2
+where ct is the constant from (5.13).
+
+(6.2)
+
+Pullback trace. For the pullback trace, we restrict ourselves to the situation worked
+out in Section 5.3.4, i.e. to the pullback trace obtained from A ⊂ H = Q(2, β). We
+first use Corollary 5.6 to rewrite the action of v −n on Pµ as, for u ∈ Pµ ,
+v −n .u =
+
+2 
+Y
+
+
+
+
+
+
+
+1 + 2nfj+ fj− .u = 1 + 2n(1 + det µ)f1+ f1− .u .
+
+j=1
+
+Thus for n ∈ Z the invariant of the n-framed unknot coloured by Pµ is given by
+Res∗ (tA )Pµ (v −n ) = 2n(1 + det µ)
+
+4
+(f1+ f1− ) = 2n(1 + det µ) ,
+tA,r
++
+2
+(A)
+P
+0
+1 − iβ
+
+where we used (4.13) and (5.22) to see that in terms of the symmetrised cointegral
+for A,
+b A,r (e+ f + f − ) = (1 − iβ 2 )/4
+(f + f − ) = λ
+tA,r
+0 1 1
+P + (A) 1 1
+0
+
+(6.3)
+
+6.2. Framed Hopf link. We compute the Hopf link invariants S(X, n; U, m) coloured
+with X ∈ I and U ∈ Irr(C), and with n-fold twist on X and m-fold twist on U . Since
+we can take U to be irreducible, the twist amounts to an overall factor times the invariant of S(X, n; U, 0). For the latter we need to compute the trace tX (v −n SC (ϕU )X )
+of the (−n)’th power of the ribbon element (5.8) composed with the open Hopf link
+operator given in (3.12). We saw in Section 5.2.2 that SC (ϕU )X is given by multiplication with the central element χU from (5.19).
+Categorical trace. For I = C, the only thing to compute is the invariant of S(X0ε , n; X0δ , m).
+But with respect to the grade 0 part of Q M, X0± is transparent (see Remark 5.1) and
+has trivial twist, therefore we just obtain the product of the categorical dimensions
+of the simple objects.
+Modified trace on projective ideal. We first note that since X1δ is simple, the mfold twist is given by multiplying with an overall factor, which in this case is given
+by (δβ −1 )m as explained below (6.1). Alternatively, one can directly use the twist
+eigenvalue given in [FGR2, Sec. 2.6].
+We start by computing S(P, n; U, m) for U = X0± . If P is in the grade 0 part of
+±
+Q M, we use that X0 is transparent relative to P and has trivial twist, resulting in
+the quantum dimension ±1 of X0± times the invariant of the n-framed P -coloured
+unknot already computed in Section 6.1:
+S(P0ε , n; X0δ , m) :
+
+εδ N −2
+n β .
+2
+
+56
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+On the other hand, for P = 2N X1ε we first compute the zero-framed invariant,
+S(2N X1ε , 0; X0δ , 0) :
+
+(6.2) 1
+ε,
+2
+
+b r (eε ) =
+t2N X1ε (SC (ϕX0δ )2N X1ε ) = λ
+1
+
+and by linearity the invariant of S(X1ε , 0; X0δ , 0) is then equal to ε2−N −1 . Using the
+twist eigenvalue for X1ε and the fact that X0± has trivial twist, we get
+S(X1ε , n; X0δ , m) : ε2−N −1 (εβ −1 )n .
+Next we compute S(P, n; U, m) for U = X1δ . For the zero-framed Hopf link we have
+S(2N X1ε , 0; X1δ , 0) :
+
+b r ((e+ − e− )eε )
+t2N X1ε (SC (ϕX1δ )2N X1ε ) = 2N λ
+1
+1
+1
+b r (eε ) = 2N −1 ,
+= 2N ελ
+1
+
+whence the invariant of S(X1ε , n; X1δ , m) is 2−1 (εβ −1 )n (δβ −1 )m .
+Finally,
+S(P0ε , n; X1δ , 0) :
+
+(5.19)
+
+b r (v −n eε K
+tP0ε (v −n SC (ϕX1δ )P0ε ) = δβ 2 4N λ
+0
+
+N
+Y
+
+(∗)
+
+fj+ fj− ) = δ2N −1 ,
+
+j=1
+
+where the calculation for (∗) is as in (6.1), up to an overall factor of ε, together with
+the observation that from the ribbon element (5.8) only e0 contributes, which acts
+as one on eε0 . Thus we arrive at
+S(P0ε , n; X1δ , m) : δ2N −1 (δβ −1 )m .
+Pullback trace. The next remark shows that the invariant of S(Pµ , n; X0± , m) is ±1
+times that of the framed unknot O(n, Pµ ), while the invariant of S(Pµ , n; X1± , m) is
+zero.
+Remark 6.1. Consider any link L with (at least) one of its components coloured
+by Pµ . In this situation the symplectic fermion example is somewhat special in the
+following sense. By Corollary 3.8 it is enough to consider the case where the other
+components are labelled by simple objects. If any component is labelled by X1± , we
+can use that X1± is in the pullback ideal. So we may as well compute the invariant via
+the pullback trace on the appropriate endomorphism of X1± . But by Proposition 5.9,
+the pullback trace vanishes on projective modules of the larger algebra. Hence to get
+a non-zero invariant, all other link components have to be decorated by X0± . But
+these objects are transparent in the degree 0 (see Remark 5.1), and so just result in
+overall factors of ±1. Altogether, the invariant of L is given by the invariant of the
+Pµ -coloured component times the product of the quantum dimensions of the colours
+of the other components.
+△
+6.3. Torus knot. The torus knot T (m, X) for m ∈ 2Z + 1 is the braid closure of m
+braidings. Cutting open one strand results in the endomorphism (ξm )X of X, defined
+as (omitting all tensor products):
+∼
+
+h
+
+coev
+g
+
+α−1
+
+1
+
+X
+(ξm )X := X −
+→ 1X −−−X−−→
+(X ∨ X)X −−→ X ∨ (XX)
+
+|
+
+{z
+
+=:F
+
+}
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+1X ∨ cm
+X,X
+
+ev
+
+α
+
+1
+
+57
+
+∼
+
+i
+
+X
+−−−−−→ X ∨ (XX) −
+→ (X ∨ X)X −−X−−→
+1X −
+→X .
+
+{z
+
+|
+
+=:G
+
+(6.4)
+
+}
+
+Note that ξm defines a natural isomorphism of the identity functor and is therefore
+given by the action of a central element of the quasi-Hopf algebra, which by abuse
+of notation we also call ξm , i.e. (ξm )X = ξm .(−). To compute ξm in terms of the
+quasi-Hopf algebra data in (4.4), (4.6) and (4.9), first note that the maps F and G
+in (6.4) read
+F : u 7→
+
+dim
+XX
+
+v i ⊗ pL1 g −1 .vi ⊗ pL2 .u ,
+
+G : w∗ ⊗ u ⊗ v 7→ ⟨w∗ | q1L .u⟩ q2L .v ,
+
+i=1
+
+where {vi } is a basis of X and {v i } the dual basis of X ∨ . For the explicit computation
+it will be convenient to distinguish m > 0 and m < 0. Namely, write |m| = 2n + 1
+and for m > 0 set ξn+ := ξ2n+1 and for m < 0 set ξn− := ξ−(2n+1) . Then, explicitly,
+ξn+ = q2L R1 (Mn )1 pL1 g −1 q1L R2 (Mn )2 pL2 ,
+n
+
+(6.5)
+
+n
+
+ξn− = q2L (M )2 R2 pL1 g −1 q1L (M )1 R1 pL2 ,
+where R and M are the multiplicative inverses of R and M.
+Categorical trace. Let us start with I = C. Using the explicit formulas for the
+braiding and its inverse, one immediately sees that R and R act as ±1⊗1 on X0± ⊗X0± .
+M
+Since on X0± also g acts as ±1, we find that ξn± acts as 1, and so trQX ± (ξn± ) =
+QM
+X0±
+
+tr
+
+0
+
+(id) = ±1 as claimed in Table 1.
+
+Modified trace on projective ideal. On the projective ideal, we used Mathematica to
+compute ξn± for small values of n and N , and then interpolated a (conjectural) general
+formula from that. Explicitly, we did the following, splitting the problem into odd
+and even sector.
+Q
++ sj − tj
+On the even sector, the endomorphism spaces of P0± have basis N
+j=1 (fj ) (fj )
+with s, t ∈ ZN
+2 such that |s| + |t| is even. After multiplying with e0 (which acts as
+±
+id on P0 ), these elements are central [FGR2, Prop. 3.15] and the endomorphism is
+given by acting with them. The modified trace only sees the top component, i.e. the
+coefficient of the basis vector with all sj and tj equal to 1. Thus, to compute the
+link invariant of T (m, P0ε ), it is enough to extract the top component of the element
+ξm eε0 . Small values – more precisely, N = 1 for 0 ≤ n ≤ 10, N = 2 for 0 ≤ n ≤ 5,
+and N = 3 for n = 0, 1 – suggest the following general formula
+N
+Y
+±
+N
+ξn Top component, = (±2(2n + 1)) e0
+fj+ fj− ,
+ε
+acting on P0
+j=1
+
+and from this one computes
+t (ξm ) = (2m)
+P0ε
+
+λ (eε0
+
+N br
+
+N
+Y
+j=1
+
+(6.1)
+
+fj+ fj− ) = εmN 12 β −2 .
+
+58
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+On the odd sector, projective modules are simple and thus ξn± act as scalars. Small
+values (N = 1 for 0 ≤ n ≤ 10, and N = 2 for 0 ≤ n ≤ 5) suggest the following
+general formula
+ξn±
+
+acting on X1ε
+
+= ε(2n + 1)N β ±(2n−1) = εmN β m−2 ,
+
+where we used m = ±(2n + 1) and (±1)N = β ±2−2 . From this one computes
+(6.2)
+
+b r (eε ) = 2−N −1 mN β m−2 .
+tX1ε (ξm ) = 2−N εmN β m−2 λ
+1
+
+Pullback trace. Let Pµ be the lift of P0+ (A) defined in Section 5.3.2. We introduce a
+shorthand notation, which will allow for more compact statements and computations.
+For any X ∈ Q, u ∈ Pµ , consider the maps ρ1,2
+X,u : Q ⊗ Q → Pµ ,
+ρ1X,u (E ⊗ F ) = EXF.u ,
+
+ρ2X,u (E ⊗ F ) = F XE.u .
+
+For two elements A, B ∈ Q ⊗ Q we will write
+def.
+
+A ≈ B ⇐⇒ ρaX,u (A) = ρaX,u (B) for all X, µ, u and a = 1, 2 .
+A helpful lemma, which is not hard to verify, is the following.
+Lemma 6.2. We have
+2
+Y
+
+(x1 ⊗ 1 + yfj− ω± ⊗ fj+ ) ≈ x2 1 ⊗ 1 + xy(1 + a− b+ )f1− K ⊗ f1+
+
+j=1
+
++ xya+ b− f1+ K ⊗ f1−
+Let us first compute ξn+ from (6.5). Using the formula for the R-matrix from
+Section 5.1.2, one finds:
+Lemma 6.3. We have
+R≈
+
+X
+
+
+
+(−1)rs 12 Kr ⊗ Ks + (1 + a− b+ )Kr+1 f1− ⊗ Ks f1+ + a+ b− Kr+1 f1+ ⊗ Ks f1−
+
+
+
+r,s∈Z2
+
+and for n ∈ N
+Mn ≈ 1 ⊗ 1 + 2n(1 + det µ)Kf1− ⊗ f1+ − 2n(1 + det µ)Kf1+ ⊗ f1− .
+Proof. We have
+R = 12
+
+
+
+β 2nm (−1)rs i−rn+sm Kr en ⊗ Ks em
+
+X
+
+≈
+
+2
+
+(−1)rs Kr ⊗ Ks
+
+(1 ⊗ 1 − 2fj− ω− ⊗ fj+ )
+
+j=1
+
+n,m,r,s∈Z2
+Lem. 6.2 1  X
+
+2
+Y
+
+
+
+1 ⊗ 1 − 2(1 + a− b+ )f1− K ⊗ f1+ − 2a+ b− f1+ K ⊗ f1−
+
+r,s∈Z2
+
+=
+
+X
+
+
+
+(−1)rs 12 Kr ⊗ Ks + (1 + a− b+ )Kr+1 f1− ⊗ Ks f1+ + a+ b− Kr+1 f1+ ⊗ Ks f1−
+
+r,s∈Z2
+
+Thus
+M = R21 R
+
+
+
+
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+
+
+(−1)rs 12 Ks ⊗ Kr + (1 + a− b+ )Ks f1+ ⊗ Kr+1 f1− + a+ b− Ks f1− ⊗ Kr+1 f1+
+
+X
+
+≈
+
+59
+
+
+
+r,s∈Z2
+
+×
+
+
+
+(−1)mn 12 Km ⊗ Kn + (1 + a− b+ )Km+1 f1− ⊗ Kn f1+ + a+ b− Km+1 f1+ ⊗ Kn f1−
+
+X
+
+
+
+m,n∈Z2
+
+"
+
+= 21
+
+
+
+(−1)rs+mn Km+s ⊗ Kn+r 12 1 ⊗ 1 + (1 + a− b+ )Kf1− ⊗ f1+
+
+X
+r,s,m,n∈Z2
+
+
+
+
+
++ a+ b− Kf1+ ⊗ f1− + (−1)m+n Ks+m ⊗ Kn+r (1 + a− b+ )f1+ ⊗ Kf1−
++ a+ b− f1− ⊗ Kf1+
+
+
+
+#
+
+One can show that
+(−1)rs+mn Km+s ⊗ Kn+r = 4e0 ⊗ e0
+
+X
+
+e0 ⊗ e 0 ·
+
+r,s,m,n∈Z2
+
+and
+(−1)rs+mn+m+n Km+s ⊗ Kn+r = −4e0 K ⊗ e0 K ,
+
+X
+
+e0 ⊗ e0 ·
+
+r,s,m,n∈Z2
+
+whence
+"
+
+M≈2
+
+
+
+1
+1 ⊗ 1 + (1 + a− b+ )Kf1− ⊗ f1+ + a+ b− Kf1+ ⊗ f1−
+2
+
+
+
+− K ⊗ K (1 + a b
+
+− +
+
+)f1+ ⊗ Kf1− + a+ b− f1− ⊗ Kf1+
+
+
+
+
+
+#
+
+= 1 ⊗ 1 + 2(1 + det µ)Kf1− ⊗ f1+ − 2(1 + det µ)Kf1+ ⊗ f1−
+The expression for Mn from the statement now follows by induction.
+
+□
+
+Lemma 6.4. For n ∈ N we have
+
+
+Res∗ (tA )Pµ ξn+
+
+
+
+
+
+= 2(2n + 1)(1 + det µ) Res∗ (tA )Pµ f1+ f1−
+
+
+
+Proof. We first compute RMn using Lemma 6.3:
+RMn ≈
+
+X
+
+
+
+(−1)rs 12 Kr ⊗ Ks + (1 + a− b+ )Kr+1 f1− ⊗ Ks f1+
+
+r,s∈Z2
+
+
+
+
+
++ a+ b− Kr+1 f1+ ⊗ Ks f1− × 1 ⊗ 1 + 2n(1 + det µ)Kf1− ⊗ f1+
+− 2n(1 + det µ)Kf1+ ⊗ f1−
+≈
+
+X
+
+(−1)rs ×
+
+
+
+
+
+1 r
+K ⊗ Ks + (n(1 + det µ) + 1 + a− b+ )Kr+1 f1− ⊗ Ks f1+
+2
+
+r,s∈Z2
+
+
+
+− (n(1 + det µ) − a+ b− )Kr+1 f1+ ⊗ Ks f1− .
+By definition in (6.5), ξn+ = q2L R1 (Mn )1 pL1 g −1 q1L R2 (Mn )2 pL2 , and since we will evaluate
++
+the right symmetrised cointegral of the smaller algebra A on e+
+0 ξn , we see that we
+r
+s
+can also disregard the K ⊗ K terms in the above expression for RMn . Indeed, for
+
+60
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+these terms, no f’s will appear in ξn+ e+
+0 , and so these terms don’t contribute to the
+final result.
+Note now that on the tensor product of even sectors, pL and q L from (5.4) act as
+the identity, and also e0 g = e0 K. Thus, abbreviating T(X) = Res∗ (tA )Pµ (X), we get
+
+
+T(ξn+ ) = T R1 (Mn )1 KR2 (Mn )2
+=
+
+X
+
+
+
+
+
+(−1)rs T (n(1 + det µ) + 1 + a− b+ )Kr+1 f1− KKs f1+
+
+r,s∈Z2
+
+− (n(1 + det µ) − a+ b− )Kr+1 f1+ KKs f1−
+=
+
+X
+
+
+
+
+
+
+
+(−1)rs+s (2n + 1)(1 + det µ)T Kr+s f1+ f1− .
+
+r,s∈Z2
+
+Noticing e0
+
+rs+s r+s
+K
+= 2e0 , the claim follows.
+r,s∈Z2 (−1)
+
+P
+
+□
+
+As a result of all of the computations, we finally find that the A -Proj(Q M)-based
+invariant of the Pµ -coloured torus knot T (2n + 1, Pµ ) is
+4
+(5.24)
+Res∗ (tA )Pµ (ξn+ ) = 2(2n + 1)(1 + det µ)
+tA,r+ (f + f − )
+1 − iβ 2 P0 (A) 1 1
+(6.3)
+
+= 2(2n + 1)(1 + det µ) .
+
+Completely analogous computations for the inverse braiding and the associated
+monodromy show that Res∗ (tA )Pµ (ξn− ) = − Res∗ (tA )Pµ (ξn+ ).
+7. Lens space invariants for symplectic fermions
+In order to do the computation, we will first make some observations which simplify
+the problem and do not depend on the specific case of symplectic fermions, and then
+we proceed with the actual computation.
+7.1. Lens space invariants for quasi-Hopf algebras. Here we will rewrite the
+categorical expression in Proposition 3.16 in the case C = H M for a unimodular and
+twist-nondegenerate (recall (4.16)) ribbon quasi-Hopf algebra H.
+We start with the morphism f (a) : 1 → L from (3.22). Recall from (3.8) the
+isomorphism ρ ◦ ψ : End(idC ) → C(1, L). The natural endomorphisms of the identity
+functor are in bijection (as an algebra) with the centre of H. If we call this last
+bijection ξ, then altogether
+ξ
+
+ρ◦ψ
+
+Z(H) −→ End(idC ) −−−→ C(1, L) .
+
+(7.1)
+
+In (3.9) we transported the endomorphisms SL ◦ (−), TL ◦ (−) of C(1, L) to endomorphisms SC , TC of End(idC ). We denote their further transport to Z(H) by SZ and
+TZ . Explicit expressions for SZ , TZ : Z(H) → Z(H) in terms of quasi-Hopf data can
+be found in [FGR1, Thm. 8.1].17 For example, TZ (z) = v −1 .z, while the expression
+for SZ is more involved. As noted in Remark 3.2 (3), for an H-module V we set
+17The formulas in [FGR1] were computed in the factorisable case. However, the same computation
+
+also works without assuming factorisability, resulting in the same expressions for the endomorphisms
+SZ and TZ of Z(H). But they do not give a projective SL(2, Z)-action unless H is factorisable.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+61
+
+ϕV = (ρ ◦ ψ)−1 (χV ), and we have χ1 = ηL . We denote ϕV := ξ −1 (ϕV ) ∈ Z(H), so
+that (7.1) maps
+(7.2)
+
+ϕV 7−→ ϕV 7−→ χV .
+
+See [FGR1, Sec. 7.6] for an explicit quasi-Hopf algebra formula for ϕV .
+Let us write fd
+(a) := (ρ ◦ ψ ◦ ξ)−1 (f (a)) ∈ Z(H). Using the above notation, we
+obtain
+fd
+(a) =
+
+1
+Y
+
+
+
+TZai ◦ SZ (ϕ1 ) .
+
+(7.3)
+
+i=n
+
+Given a tensor ideal I ⊂ C, a modified trace t on I and an object P ∈ I, we obtain
+a (possibly degenerate) symmetric and invariant bilinear form on Z(H) via
+(z, z ′ )P = tP (zz ′ ) .
+
+(7.4)
+
+We can now reformulate the categorical expressions from Proposition 3.16 as follows:
+Proposition 7.1. In terms of quasi-Hopf data, the invariants of Lx (α, P ), x ∈ {∗, ◦}
+from Proposition 3.16 read
+b ζx )P
+L′Λ, t (Lx (α, P )) = δ −σ D −1−n (α,
+b ∈ Z(H) represents the natural transformation α of the identity functor and
+where α
+
+ζ∗ = ⟨Λ|αfd
+(a)⟩ · 1 ,
+ζ◦ = ⟨Λ|S(Φ1 Ψ1 )αfd
+(a)Φ2 M1 Ψ2 ⟩ · Φ3 M2 Ψ3 .
+Here, Λ ∈ H ∗ is the integral of L, see Section 4.3.
+Proof. Let z ∈ Z(H) and define E(z) : L → L by E(z) ◦ jX = jX ◦ (id ⊗ξ(z)X ). The
+dinatural transformation jX : X ∗ ⊗ X → L of L is explicitly given in (4.14). From
+this it is easy to check that for f ∈ L = H ∗ we have E(z)(f ) = f ((−) · z).
+Using the definition of the coproduct ∆L (see [FGR1, Sec. 3.3]), one can verify the
+identity (E(z) ⊗ id) ◦ ∆L = (id ⊗E(z)) ◦ ∆L .
+The morphism g := ψ(ξ(z)) ∈ C(L, 1) = H ∗∗ is defined by the dinatural transformation g ◦ jX = evX ◦(id ⊗ξ(z)X ). Comparing to the definition of the counit
+εL and to that of E(z) above, we get ψ(ξ(z)) = εL ◦ E(z). The isomorphism
+ρ : C(L, 1) → C(1, L) acts on g as [GR3, Sec. 2]
+h
+
+Λ
+
+∆
+
+g⊗id
+
+∼
+
+i
+
+L
+ρ(g) = 1 −−→ L −−−
+→ LL −−−−→ 1L −−→ L .
+
+But (g ⊗ id) ◦ ∆L = (εL ⊗ id) ◦ (E(z) ⊗ id) ◦ ∆L = (εL ⊗ E(z)) ◦ ∆L . Hence altogether
+ρ(ψ(ξ(z))) = E(z) ◦ Λ = ⟨Λ|(−) · z⟩ .
+
+(7.5)
+
+After these preparations, we can compute ζ∗ and ζ◦ :
+ζ∗ : We have
+(7.5)
+
+εL ◦ f (a) = εL ◦ E(fd
+(a)) ◦ Λ = ⟨Λ|αfd
+(a)⟩ ,
+
+(7.6)
+
+where the last equality follows from the explicit form of εL ∈ C(L, 1) = H ∗∗ ,
+which acts by evaluating an element of H ∗ on α (see [FGR1, Sec. 3.3]).
+
+62
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+ζ◦ : We need to compute tP (αP ◦ QP ◦ (f (a) ⊗ idP )), where Q : L ⊗ idC ⇒ idC is
+the natural transformation defined in (3.23). It is not hard to see that the
+action of QV : L ⊗ V → V on f ⊗ v ∈ L ⊗ V is given by
+QV (f ⊗ v) = ⟨f |S(Φ1 Ψ1 )αΦ2 M1 Ψ2 ⟩ · Φ3 M2 Ψ3 .v .
+
+(7.7)
+
+Substituting f = f (a) = E(fd
+(a)) ◦ Λ = ⟨Λ|(−) · fd
+(a)⟩ and using that fd
+(a) is
+central gives the expressions as in the statement of the proposition.
+□
+7.2. The central element fd
+(a) for symplectic fermions. After rewriting the
+lens space invariants for a general unimodular and twist-nondegenerate ribbon quasiHopf algebra in Proposition 7.1, in this section we specialise to the symplectic fermion
+quasi-Hopf algebra H = Q(N, β), and we will work out the elements fd
+(a) introduced
+in (7.3).
+Recall from (5.12) our normalisation of the integral Λ : 1 → L in C = H M,
+Λ = β 6 2−(N −1) TOP∗ ,
+where we abbreviated
+TOP =
+
+N
+Y
+
+(7.8)
+
+fj+ fj− .
+
+j=1
+
+(When projected to Q0 via e0 , this is the top element of the Grassmann algebra,
+hence the name.)
+We will need the internal characters ϕV from (7.2) for Q(N, β). For V = X0± , X1± ,
+they were given in (5.18). And since ϕV only depends on the class of V in the
+Grothendieck ring, for V = P0± we have
+ϕP0± = 22N −1 ϕX + + 22N −1 ϕX0− .
+
+(7.9)
+
+0
+
+Recall from [FGR2, Sec. 5] that the centre Z(H) of H can be decomposed as
+Z(H) = ZP ⊕ ZΛ
+
+(7.10)
+
+where the two summands have bases
+ZP :
+ZΛ :
+
+n
+
+ϕP + , ϕX + , ϕX1−
+0
+
+
+
+
+e
+
+ 0
+
+N
+Y
+
+o
+
+,
+
+1
+
+
+
+
+(fj+ )sj (fj− )tj | s, t ∈ ZN
+2 , |s| + |t| ∈ 2Z
+
+.
+
+(7.11)
+
+
+
+j=1
+
+The dimension of the centre is dim Z(H) = dim ZP + dim ZΛ = 3 + 22N −1 .
+We fix
+p
+= [an ; an−1 , . . . , a1 ]
+q
+
+subject to the positivity condition (3.18).
+Proposition 7.2. The central element fd
+(a) =
+fd
+(a) = fd
+(a)
+
+ZP
+
+Q
+
+ai
+1
+i=n TZ ◦ SZ
+
++ fd
+(a)
+
+ZΛ
+
+,
+
+
+
+(ϕ1 ) is given by
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+63
+
+where
+fd
+(a)
+fd
+(a)
+
+
+
+
+
+ZP
+
+ZΛ
+
+−
+= 2−2N c0n ϕP + + c+
+n ϕX + + cn ϕX1− ,
+
+= 2N β 6n+2
+
+0
+
+1
+
+X
+
+ N −|s|
+q
+
+p|s|
+
+2
+
+s∈ZN
+2
+
+e0
+
+N 
+Y
+
+fj+ fj−
+
+sj
+
+.
+
+j=1
+
+The coefficients c0,±
+are determined recursively by
+i
+−
+c0i = 2−N (c+
+i−1 − ci−1 ) ,
+1
+ai −ai +
+N 0
+(ci−1 + c−
+c±
+i−1 ± 2 ci−1 ) ,
+i = (±1) β
+2
+
+(7.12)
+
+for 1 ≤ i ≤ n, with initial values c00 = 1 and c±
+0 = 0.
+The proof of this proposition will be given in the remainder of this subsection.
+The decomposition (7.10) respects the SL(2, Z)-action on Z(H), i.e. ZP and ZΛ are
+subrepresentations. The central element ϕ1 = ϕX + from (5.18) splits according to
+0
+the direct sum decomposition (7.10) as
+ϕ1 = 2−2N ϕP + + 2N β 2 e0 TOP .
+
+(7.13)
+
+0
+
+Proof of Proposition 7.2 Part 1. In the ordered basis of ZP given above, the S- and
+T -generators act via the matrices (see [FGR2, Lem. 5.1])
+
+
+0
+
+
+
+N −1
+SZP = 
+ 2
+
+
+−2N −1
+
+
+
+
+
+2−N −2−N 
+1
+2
+
+1
+2
+
+1
+2
+
+1
+2
+
+
+
+
+
+
+1
+
+0
+
+
+
+0
+
+
+
+0 
+
+0 
+ ,
+
+−1
+and TZP = 
+0 β
+
+
+
+0
+
+−β −1
+
+
+
+and it is not too hard to see that the coefficients in
+1
+Y
+i=n
+
+
+
+−
+TZaPi ◦ SZP (ϕP + ) = c0n ϕP + + c+
+n ϕX + + cn ϕX1− ,
+0
+
+0
+
+1
+
+satisfy the recursive relation given in (7.12).
+
+□
+
+Remark 7.3. For later use we note that the recursion relation (7.12) implies that
+−
+c0i ∈ {0} ∪ {β j | j ∈ Z} for all i. To see this set gi = c0i and hi = 2−N (c+
+i + ci ). Then
+g0 = 1, g1 = 0, h0 = 0, and the recursion now reads:
+
+
+g
+c+ − c −
+i−2
+gi = i−1 N i−1 = β −ai−1
+hi−2
+2
+
+
+
+h
+; ai−1 even
+i−1
+, hi = β −ai
+
+; ai−1 odd
+gi−1
+
+; ai even
+; ai odd
+
+Thus the condition gi , hi ∈ {0} ∪ {β j | j ∈ Z} is satisfied by the initial conditions and
+preserved by the recursion.
+△
+Q1
+ai
+To compute the action of i=n TZ ◦ SZ on e0 TOP, let 1 ≤ j ≤ N and let Zev,j
+be the vector space with basis e0 fj+ fj− and e0 . We consider it as an algebra in the
+
+64
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+obvious way. Denote by Zev the subspace of ZΛ generated (as an algebra with unit
+e0 ) by e0 fj+ fj− , 1 ≤ j ≤ N . There is an algebra isomorphism
+κ:
+
+N
+O
+
+Zev,j → Zev ,
+
+x1 ⊗ . . . ⊗ xN 7→ x1 · . . . · xN .
+
+j=1
+
+Then by [FGR2, Lem. 5.2], the SL(2, Z)-action on ZΛ restricts to an action on Zev ,
+which can be described as
+SZΛ
+
+=κ◦ β ·
+2
+
+Zev
+
+N
+O
+
+!
+
+S ◦κ
+
+and TZΛ
+
+−1
+
+j=1
+
+Zev
+
+=κ◦
+
+N
+O
+
+!
+
+◦ κ−1 ,
+
+T
+
+j=1
+
+where S and T are the matrices
+
+
+S=
+
+
+0
+
+
+
+
+
+
+
+and T = 
+
+2
+
+1
+
+− 12 0
+
+
+
+2
+
+0 1
+
+
+
+in our chosen basis {e0 fj+ fj− , e0 } of Zev,j for each j.
+Lemma 7.4. Let b1 , . . . , bn be non-zero integers, n ≥ 1. Then
+1
+Y
+
+
+
+TZbΛi ◦ SZΛ (e0 TOP)
+
+i=n
+
+=β
+
+6n
+
+Y
+1 n−1
+[bj ; bj−1 , . . . , b1 ]
+2 j=1
+
+!N
+
+X 
+
+2[bn ; bn−1 , . . . , b1 ]
+
+|s|
+
+e0
+
+N 
+Y
+
+fj+ fj−
+
+sj
+
+(7.14)
+
+.
+
+j=1
+
+s∈ZN
+2
+
+Proof. We claim first that the left hand side of (7.14) equals
+(−1)N n β 2n 2−N
+
+n−1
+Y
+
+!N N
+Y
+
+j=1
+
+j=1
+
+[bj ; bj−1 , . . . , b1 ]
+
+
+
+e0 + 2[bn ; bn−1 , . . . , b1 ]e0 fj+ fj− ,
+
+and we will proceed now to prove this via induction. Clearly e0 TOP ∈ Zev . For any
+m ∈ N, we have
+
+
+
+
+−m 2
+T mS = 
+ .
+− 12 0
+
+This implies the base case for induction on n, i.e. we have
+
+
+
+
+TZbΛ1 ◦ SZΛ (e0 TOP) = (−1)N β 2 2−N
+
+N 
+Y
+
+
+
+e0 + 2b1 e0 fj+ fj− .
+
+j=1
+
+Assume now that it is true up to n. Then
+
+(−1)N n β 2n 2−N
+
+n−1
+Y
+
+[bj ; bj−1 , . . . , b1 ]
+
+j=1
+
+
+
+b
+
+= TZΛn+1 ◦ SZΛ
+
+N 
+Y
+j=1
+
+!N −1
+
+1
+ Y
+
+
+
+TZbΛi ◦ SZΛ (e0 TOP)
+
+
+i=n+1
+
+e0 + 2[bn ; bn−1 , . . . , b1 ]e0 fj+ fj−
+
+
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+=β
+(∗)
+
+2
+
+65
+
+
+1 
+2e0 fj+ fj− + 2[bn ; bn−1 , . . . , b1 ] − bn+1 e0 fj+ fj− − e0
+2
+j=1
+N 
+Y
+
+
+
+= (−1)N β 2 [bn ; bn−1 , . . . , b1 ]
+
+N 
+N Y
+
+
+
+e0 + 2[bn+1 ; bn , . . . , b1 ]e0 fj+ fj− ,
+
+j=1
+
+as claimed. In step (∗) we used that by definition of the continued fraction in (3.16)
+we have
+1
+.
+[bn+1 ; bn , . . . , b1 ] = bn+1 −
+[bn ; bi−1 , . . . , b1 ]
+Multiplying out the product and using β 4 = (−1)N yields (7.14).
+
+□
+
+Proof of Proposition 7.2 Part 2. Because of the assumptions on the continued fraction, Proposition A.1 gives
+n−1
+Y
+
+[aj ; aj−1 , . . . , a1 ] =
+
+j=1
+
+n
+qY
+[aj ; aj−1 , . . . , a1 ] = q .
+p j=1
+
+The formula then follows from Lemma 7.4.
+
+□
+
+7.3. Categorical trace: Lyubashenko invariant. By (3.27), it remains to compute εL ◦ f (a) which we know from (7.6) to be equal to ⟨Λ|fd
+(a)⟩ (recall that α = 1
+for Q(N, β)).
+Since by (7.8), Λ is proportional to TOP∗ , it can only see part of fd
+(a) which lives
+in ZΛ . Using Proposition 7.2 we can simply read off
+⟨Λ|fd
+(a)⟩ = 2β 6n
+
+X
+
+p
+
+|s|
+
+ N −|s|
+q
+
+s∈ZN
+2
+
+2
+
+∗
+
+⟨TOP |e0
+
+N 
+Y
+
+fj+ fj−
+
+sj
+
+⟩ = β 6n pN
+
+j=1
+
+Combining this with D = 1 and δ = β −2 from Section 5.1.3, altogether (3.27) gives
+LyuΛ (L(p, q)) = pN .
+
+(7.15)
+
+7.4. Modified trace: Renormalised Lyubashenko invariant. Here we compute
+the renormalised Lyubashenko invariant L′Λ, t (Lx (α, P )), x ∈ {∗, ◦} with t the modified trace on the projective ideal. To do so, according to Proposition 7.1 we need to
+compute the central elements ζx and the pairings (−, −)U .
+We start with the explicit expressions for ζx for which we will need two preliminary
+lemmas. For z ∈ Z(Q) write
+F (z) = ⟨Λ|S −1 (Φ1 Ψ1 )α z Φ2 M1 Ψ2 ⟩ · Φ3 M2 Ψ3 .
+Note that F (fd
+(a)) = ζ◦ .
+Lemma 7.5. F (z) = ⟨Λ|zM1 ⟩ · M2
+Proof. From the expression (5.3) for the coassociator of Q, we immediately see that
+the claim is true if z is in the even sector, and therefore we must only show it for
+
+66
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+z = e1 z. The first and second tensor factor of Φ±1 in F (z) are then multiplied by e1 ,
+and we have
+
+
+
+
+(e1 ⊗ e1 ⊗ 1) · Φ±1 = e1 ⊗ e1 ⊗ e0 KN + e1 β ± .
+Inserting this simplified expression in F (z) gives
+
+
+
+
+
+
+F (z) = ⟨Λ|zM1 ⟩ e0 KN + e1 β + M2 e0 KN + e1 β −
+
+
+
+
+
+
+= ⟨Λ|zM1 ⟩ e0 KN M2 KN + e1 β + M2 β − ,
+
+(7.16)
+
+where in the second step we used that e0 , e1 are central. Since z is central, it in
+particular commutes with K and hence contains an even number of fs. By (7.8), Λ is
+a multiple of TOP∗ and so the amount of fs in the monodromy factors that contribute
+to the above expression is even as well. It follows that the non-zero summands
+M2 commute with K and therefore also with KN and β ± . Since K2N e0 = e0 and
+β + β − = 1, the claim follows.
+□
+Next we compute F (z) for some special values of z:
+Lemma 7.6. We have
+
+
+
+
+
+
+
+
+F ϕX1± = ±2−N ϕP + + 12 (ϕX + + ϕX1− ) ,
+0
+
+F ϕP + = 2
+0
+
+
+
+F e0
+
+N
+Y
+
+N −1
+
+1
+
+(ϕX + − ϕX1− ) ,
+1
+
+
+
+(fj+ fj− )sj = β 2 2N −2|s| (−1)|s| e0
+
+j=1
+
+N
+Y
+
+(fk+ fk− )1−sk
+
+for s ∈ ZN
+2 .
+
+k=1
+
+Proof. Recall
+from Section 5.1.2 that the monodromy matrix of Q can be written
+P
+N
+as M = I∈X gI ⊗ fI , where the index set X is Z2 × Z2 × ZN
+2 × Z2 , and for I =
+(a, b, c, d) ∈ X, fI and gI are as in (5.7). Substituting (7.8) and (5.18), one computes
+F (ϕX1± ) = ±β 6 22
+(a)
+
+= ±β 6 22
+
+(b)
+
+= ±β 6 2
+
+X
+
+fI × ⟨TOP∗ |e±
+1 gI ⟩
+
+I∈X
+
+X
+
+N
+Y
+
+b,c
+
+k=1
+
+(−β 2 )b 22|c| (−1)b|c| · Keb
+
+X
+
+N
+Y
+
+b,c
+
+k=1
+
+(−β 2 )b 22|c| (−1)b|c| · Keb
+∗
+
+b
+(fk− fk+ )ck × ⟨TOP∗ |e±
+1K
+
+= ±β
+
+6
+
+2
+
+2N
+
+Ke0
+
+N
+Y
+
+(fk− fk+ )ck
+
+∗
+
+N 
+Y
+k=1
+N
+Y
+
+fk− fk+ ∓ i(−1)N β 2 · Ke1
+
+= ±β 6 (−1)N 22N Ke0 TOP − i2N Ke1
+
+δck ,0 1 − (2δck ,0 + δck ,1 )fk+ fk−
+1
+X
+
+(−4)
+
+ck
+
+
+
+
+
+
+
+!
+
+⟩
+!
+
+2δck ,0 + δck ,1 (fk− fk+ )ck
+
+k=1 ck =0
+
+k=1
+(d)
+
+(fk+ fk− )ck ⟩
+
+k=1
+
+× δb,0 δc,1 ⟨TOP |e1 TOP⟩ ± iδb,1 ⟨TOP |e1
+(c)
+
+N
+Y
+
+N 
+Y
+
+
+
+1 − 2fk+ fk− .
+
+k=1
+±
+∗
+In step (a) we used that e1 ea = δa,1 e±
+1 , that the evaluation against TOP can be
+−
++
++
+non-zero only if each fk is paired with fk , resulting in d = c, and that e1 fk ω− fk− ω− =
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+67
+
+−e1 fk+ fk− , giving an additional factor (−1)|c| . In step (b) we substituted the explicit
+
++ −
++ −
++ − ck
+=
+e
+δ
+1−(2δ
++δ
+)f
+f
+form of e±
+in
+(5.15)
+and
+used
+e
+(1−2f
+f
+)(f
+f
+)
+1 ck ,0
+ck ,0
+ck ,1 k k .
+1
+1
+k k
+k k
++ −
+For step (c) note that only the product with
+all fk fk can be non-zero against TOP∗ ,
+
+P QN
+Q
+resulting in a factor N
+c k=1 ⇝
+k=1 2δck ,0 + δck ,1 . In addition, we replaced
+QN P1
+N
+in both summands in step (d) arises from
+ck =0 . The extra factor of (−1)
+k=1
+reordering the fs.
+To write this in our preferred basis of the centre, note from (5.15) and (7.9) that
+ϕP + = 23N β 2 Ke0 TOP ,
+0
+
+
+
+
+
+
+
+
+
+−
+ϕX + + ϕX − = 2N +1 e+
+= −2N +1 ie1 K
+1 − e1
+1
+
+1
+
+N
+Y
+
+(1 − 2fj+ fj− ) ,
+
+j=1
+
+−
+= 2N +1 e1 .
+ϕX + − ϕX1− = 2N +1 e+
+1 + e1
+1
+
+From this we read off
+F (ϕX1± ) = ±2−N ϕP + + 21 (ϕX + + ϕX1− ) ,
+1
+
+0
+
+as claimed. For the remaining two equalities, first note that for z ∈ Z(Q) in the even
+sector, i.e. z = e0 z, we have
+F (z) = β 6 2−N +1
+
+fI ⟨TOP∗ |z gI ⟩
+
+X
+I∈X
+
+= β 6 2−N +1
+
+X
+
+N
+Y
+
+22|c| (−1)b|c| ⟨TOP∗ |zKb
+
+(fk+ fk− )ck ⟩eb
+
+k=1
+
+b,c
+
+N
+Y
+
+(fk− fk+ )ck .
+
+k=1
+
+This immediately yields
+F (ϕP + ) = 22N e1 = 2N −1 (ϕX + − ϕX1− )
+1
+
+0
+
+and
+
+
+F e0
+
+N
+Y
+
+
+
+(fj+ fj− )sj = β 6 2−N
+
+j=1
+
+X
+
+22|c| ⟨TOP∗ |
+
+N
+Y
+
+(fj+ fj− )sj +cj ⟩e0
+
+j=1
+
+b,c
+
+= β 6 2N −2|s| (−1)N −|s| e0
+
+N
+Y
+
+N
+Y
+
+(fk− fk+ )ck
+
+k=1
+
+(fk+ fk− )1−sk .
+
+k=1
+
+□
+With these preparations, we can compute ζ∗ , ζ◦ from Proposition 7.1:
+Lemma 7.7. We have
+ζ∗ = ⟨Λ|fd
+(a)⟩ · 1 = β 6n pN · 1
+
+
+−
+ζ◦ = F (fd
+(a)) = 2−2N c0n+1 ϕP + + c+
+n+1 ϕX + + cn+1 ϕX −
+0
+
++ β 6n pN
+
+X 
+s∈ZN
+2
+
+1
+
+1
+
+− 2q
+p
+
+|s|
+
+e0
+
+N
+Y
+
+(fj+ fj− )sj .
+
+j=1
+
+
+
+68
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+In the expression for ζ◦ we have extended the recursive definition of c0,±
+in (7.12) to
+i
+n + 1 by setting an+1 = 0.
+Proof. The expression for ζ∗ was already computed in Section 7.3. To get the result for
+ζ◦ , recall from Proposition 7.2 the decomposition of fd
+(a) into summands in Z(Q) =
+ZP ⊕ ZΛ . Using the formulas from the preceding lemma, we get
+ Prop. 7.2
+
+
+
+F fd
+(a)
+
+ZΛ
+
+Lem. 7.6
+
+=
+
+=
+
+2N β 6n+2
+
+X
+
+p|s|
+
+s∈ZN
+2
+
+2 β
+N
+
+6n+4
+
+e0
+
+N X
+1
+Y
+
+p
+
+sj
+
+N 
+Y
+
+q
+2
+
+ 1−sj
+q
+
+j=1 sj =0
+
+= 2N β 6n+4 e0
+
+ N −|s|
+
+2
+
+qfj+ fj− − p2−1 1
+
+
+
+F e0
+
+N 
+Y
+
+fj+ fj−
+
+sj 
+
+j=1
+
+
+
+21−2sj (−1)sj fj+ fj−
+
+1−sj
+
+
+
+j=1
+
+= β p
+
+6n N
+
+!|s|
+
+2q
+−
+p
+
+X
+s∈ZN
+2
+
+e0
+
+N
+Y
+
+(fj+ fj− )sj .
+
+j=1
+
+On the projective centre ZP , we find
+ Prop. 7.2
+
+
+
+F fd
+(a)
+
+ZP
+
+=
+
+Lem. 7.6
+
+=
+
+
+
+
+
+−
+2−2N c0n F (ϕP + ) + c+
+n F (ϕX + ) + cn F (ϕX1− )
+1
+
+0
+
+
+
+
+
+
+
+
+
+−
+0 N −1
+−
+2−2N 2−N c+
++ 12 (c+
+n + cn ) ϕX +
+n − cn ϕP + + cn 2
+0
+
+1
+
+!
+
+
+
+
+
+−
++ − c0n 2N −1 + 12 (c+
+n + cn ) ϕX −
+1
+
+.
+
+The coefficients match the recursive definition of c0n+1 , c±
+n+1 from (7.12) under the
+convention that an+1 = 0. Adding the two expressions gives the claimed result for
+ζ◦ .
+□
+This completes the computation of ζ∗ and ζ◦ and we now turn to the pairings
+(−, −)P from (7.4). Let t be the modified trace associated with the symmetrised
+cointegral in (5.10), which was explicitly given by
+2
+m
+N −N
+b r (Km TOP) = c δ
+λ
+.
+t m,odd (β + i ) where ct = (−1) 2
+
+Fix an isotypic decomposition Q = U nU PU with idempotents eU and where the sum
+runs over distinct irreducibles U . We abbreviate {z, z ′ }U := (z, z ′ )nU PU . In terms of
+the symmetrised cointegral, the pairing is given by
+L
+
+b r |e zz ′ ⟩ .
+{z, z ′ }U = ⟨λ
+U
+
+(7.17)
+
+Explicitly, nX ± = 1 and nX ± = 2N , so that
+0
+
+1
+
+{z, z }X0± = (z, z ′ )P0± ,
+′
+
+{z, z ′ }X1± = 2N (z, z ′ )X1± .
+
+The next lemma gives the value of the pairing on the basis (7.11) of Z(Q).
+
+(7.18)
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+(1) For U = X0± we have
+
+Lemma 7.8.
+
+n
+
+e0 , ϕP +
+
+o
+
+0
+
+and
+
+
+
+e
+
+N
+Y
+
+ 0
+
+69
+
+(fj+ )rj (fj− )sj , e0
+
+j=1
+
+N
+Y
+
+= 22N −1
+
+X0±
+
+(fj+ )tj (fj− )uj
+
+
+
+
+
+j=1
+
+= ±εδr+t,1 δs+u,1 2−N −1 β −2 ,
+X0±
+
+where ε = ε(r, s, t, u) is a sign, which is +1 if r = s or t = u. For all other
+combinations of basis elements in (7.11), the pairing is zero.
+(2) For U = X1± , the only non-zero values of the pairing are
+n
+
+ϕX ± , ϕX ±
+1
+
+1
+
+o
+X1±
+
+= ±22N +1
+
+Proof. Note first of all that the map z 7→ {z, −}U is zero on the odd part of z if PU
+is from the even sector. The same is true when swapping even and odd.
+(1) For U = X0± we have eU = e±
+0 as in (5.14). From (7.9) we see that ϕP0+ =
+3N 2
+2 β Ke0 TOP already contains TOP as a factor and so the only non-zero pairing can
+be with the basis element e0 . We compute
+n
+
+e0 , ϕP +
+
+o
+X0±
+
+0
+
+b r |e± K · TOP⟩ = 22N −1 .
+= 23N β 2 ⟨λ
+0
+
+Let now r, s, t, u ∈ ZN
+2 with |r| + |s| and |t| + |u| even. We have
+N
+Y
+
+N
+Y
+
+!
+
+e0 (fj+ )rj (fj− )sj
+j=1
+
+!
+
+e0 (fj+ )tj (fj− )uj
+j=1
+
+·
+
+= εe0
+
+N
+Y
+
+(fj+ )rj +tj (fj− )sj +uj ,
+
+j=1
+
+where ε is a sign depending on r, s, t, u, which we do not compute explicitly. If r = s
+or t = u, this sign is +1 as a pair fj+ fj− commutes with everything in the even sector.
+This shows
+that
+
+
+N
+
+Y
++ rj − sj
+b r |e± TOP⟩
+= εδr+t,1 δs+u,1 ⟨λ
+e0 (fj ) (fj ) , e0 (fj+ )tj (fj− )uj
+0
+
+
+j=1
+j=1
+X±
+
+
+
+N
+Y
+
+0
+
+(6.1)
+
+= ±εδr+t,1 δs+u,1 2−N −1 β −2 .
+
+±
+(2) For the odd sector, recall from (5.18) that ϕX1± = ±2N +1 e±
+1 , and since e1 are
+orthogonal, we only need to compute:
+
+n
+
+ϕX ± , ϕX ±
+1
+
+1
+
+o
+X1±
+
+(6.2)
+
+b r |e± ⟩ = ±22N +1
+= 22N +2 ⟨λ
+1
+
+(7.19)
+
+as claimed.
+
+□
+
+Now we are ready to provide the invariants for all natural endomorphisms of the
+identity functor, acting on the non-contractible loop in L(p, q) as given in (3.21).
+Theorem 7.9. We have, for the basis elements in (7.11) and t ∈ ZN
+2 ,
+L′Λ, t (L◦ (e0
+
+N
+Y
+
+
+ 1 c0
+
+2n
+± 21 β 2 q N ,
+n+1 β
++ − tj
+±
+2
+(fj fj ) , P0 )) = 
+±(−1)|t| β 2 2−|t|−1 q N −|t| p|t| ,
+j=1
+
+t = 0,
+|t| > 0
+
+70
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+L′Λ, t (L◦ (ϕP + , P0± )) = 22N −1 pN
+0
+
+L′Λ, t (L◦ (ϕX1± , X1± )) = ±21−N β 2n c±
+n+1 .
+Note that combining the first formula in the theorem above for t = 0 with Remark 7.3 results in the invariant L′Λ, t (L◦ (id, P0± )) as stated in Theorem 3.18.
+b ζ◦ )P , with
+Proof. Recall from Proposition 7.1 that L′Λ, t (L◦ (α, P )) = δ −σ D −1−n (α,
+σ = n by (3.19) and ζ◦ is given in Lemma 7.7. From Section 5.1.3 we have D = 1
+and δ = β −2 so the surgery coefficient of L◦ is β 2σ . Let t ∈ ZN
+2 with |t| ≥ 1. Using
+Lemma 7.8, we compute
+n
+
+e0
+
+N
+Y
+
+(fj+ fj− )tj , ζ◦
+
+o
+
+j=1
+
+X 
+
+= β 6n pN
+
+X0±
+
+− 2q
+p
+
+|s| n
+
+e0
+
+N
+Y
+
+(fj+ fj− )tj , e0
+
+j=1
+
+s∈ZN
+2
+
+= ±β 6n+6 pN 2−N −1
+
+X 
+
+− 2q
+p
+
+N
+Y
+
+(fj+ fj− )sj
+
+j=1
+
+|s|
+
+o
+X0±
+
+δs,1−t
+
+s∈ZN
+2
+
+
+
+= ±β 6n+6 pN 2−N −1 − 2q
+p
+
+N −|t|
+
+= ±(−1)|t| β 6n+2 2−|t|−1 q N −|t| p|t| .
+
+If |t| = 0, then
+n
+
+e0 , ζ◦
+
+o
+
+n
+
+−2N 0
+cn+1 e0 , ϕP +
+± = 2
+
+X0
+
+0
+
+o
+X0±
+
++ β 6n (−2q)N {e0 , e0 TOP}X ±
+0
+
+= 2−2N c0n+1 22N −1 ± β 6n (−2q)N 2−N −1 β 2 (−1)N
+= 12 c0n+1 ± 12 β 6n+2 q N .
+Finally, we have
+n
+
+ϕP0± , ζ◦
+
+o
+X0±
+
+=β p
+
+6n N
+
+X 
+s∈ZN
+2
+
+n
+
+N
+ 
+o
+Y
+2q |s|
+−p
+ϕP0± , e0 (fj+ fj− )sj ±
+X0
+j=1
+
+= β 6n pN ϕP0± , e0
+n
+
+ϕX ± , ζ◦
+1
+
+o
+X1±
+
+o
+X0±
+
+= 22N −1 β 6n pN , and
+
+= ±2c±
+n+1 .
+
+Combining with (7.18) to translate {−, −}U into (−, −)PU results in the statement
+of the theorem.
+□
+Remark 7.10. Let us discuss a quick sanity check of the formulas above. In the
+category of modules over a factorisable (or, more generally, unimodular) ribbon
+quasi-Hopf algebra H, there is a natural transformation α : idC ⇒ idC such that
+αP1 is non-zero and factors through 1, cf. Remark 3.17. Indeed, if c is an integral in H, then it is central by unimodularity, and thus acting by it yields a natural transformation. In the notation of Section 3.4, we must then necessarily have
+L′Λ, t (L∗ (c, P1 )) = L′Λ, t (L◦ (c, P1 )). Indeed, this can be checked directly. Let c be the
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+71
+
+integral of Q corresponding to Λco with normalisation such that Λco ◦ Λ = id1 . By
+[FGR2, Sec. 3.5], it is explicitly given by
+(5.18)
+
+(7.13)
+
+−2N
+c = 2N +1 β 2 e+
+ϕP + + 2N β 2 e0 TOP .
+0 TOP = ϕ1 = 2
+0
+
+We saw in the proof of Lemma 4.5 that tP + (c) = 1. On the one hand, combining
+0
+(3.26) and (7.15) gives
+L′Λ, t (L∗ (c, P0+ )) = pN .
+On the other hand, using Theorem 7.9 and the expansion of c in the basis of the
+centre we get
+L′Λ, t (L◦ (c, P0+ )) = 2−2N L′Λ, t (L◦ (ϕP + , P0+ )) + 2N β 2 L′Λ, t (L◦ (e0 TOP, P0+ ))
+0
+
+= 12 pN + 21 β 2 (−1)N β 2 pN = pN ,
+as expected.
+
+△
+
+7.5. Pullback trace. Finally, we consider H = Q(2, β) and A as in Section 5.3, and
+treat the invariants for lens spaces with one loop coloured by the object Pµ from the
+pullback ideal (cf. Proposition 5.5).
+We start by computing the values of Res∗ (tA )Pµ(z) for z from the 11-dimensional
+− +
+centre of H (recall (7.10)), and where µ = ab− ab+ .
+Lemma 7.11. The only non-zero values of Res∗ (tA )Pµ (z) for z an element from the
+canonical basis (7.11) of Z(H) are
+z ∈ Z(H)
+Res∗ (tA )Pµ (z)
+
+e0 f1+ f1− e0 f2+ f2−
+1
+
+det µ
+
+e0 f1γ f2ε
+δγ,+ aε − δγ,− bε
+
+,
+
+where γ, ε ∈ {+, −}.
+Proof. Using Proposition 5.8, we compute
+b A,r (e+ f − f + ) =
+λ
+0 1 1
+
+3
+1 X
+b A,r (Km f − f + ) = 1 (1 − iβ 2 ) ,
+λ
+1 1
+4 m=0
+4
+
+so that in our chosen normalisation (5.24), the pullback trace at Pµ equals 1 on
++ −
++ −
++ −
+e+
+0 f1 f1 . From Corollary 5.6, we know that f2 f2 acts on Pµ as det µ · f1 f1 . Similarly,
+γ ε
+from (5.21) one finds for γ, ε ∈ {+, −} and p ∈ Pµ that f1 f2 p = (δγ,+ aε − δγ,− bε ) ·
+f1+ f1− p.
+Likewise, f1+ f1− f2+ f2− is seen to act as 0, whence the trace vanishes for ϕP + . Finally,
+0
+since Pµ is purely even, ϕX1± act as zero as well.
+□
+As above, we have a symmetric bilinear pairing (z, z ′ )Pµ := Res∗ (tA )Pµ (zz ′ ) for
+z, z ′ ∈ Z(H). Then Lemma 7.11 shows that the only non-zero values are
+(e0 , e0 f1+ f1− )Pµ = 1,
+
+(e0 , e0 f2+ f2− )Pµ = det µ,
+
+and
+(e0 , e0 f1γ f2ε )Pµ = δγ,+ aε − δγ,− bε .
+
+72
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+Theorem 7.12. The invariants L′Λ, Res∗ (tA ) (L◦ (z, Pµ )) for basis elements z of Z(H)
+as in (7.11) are:
+z
+
+L′Λ, Res∗ (tA ) (L◦ (z, Pµ ))
+
+ϕP + , ϕX1±
+
+0
+
+e0
+
+−2pq(1 + det µ)
+
+e0 fj+ fj−
+
+p2 (δj,1 + δj,2 det µ)
+
+e0 f1γ f2ε
+
+p2 (δγ,+ aε − δγ,− bε )
+
+e0 TOP
+
+0
+
+0
+
+Proof. The surgery coefficient is β 2σ as in the proof of Theorem 7.9. By Proposition 7.1 we need to compute (z, ζ◦ )Pµ . The zero entries in the table are immediate
+from Lemma 7.11. Using Lemma 7.7, we first compute
+
+
+e0 , ζ◦
+
+
+Pµ
+
+= β 6n p2
+
+X
+s∈Z22
+
+2q
+−
+p
+
+!|s|
+
+
+
+e0 , e0
+
+2
+Y
+
+(fj+ fj− )sj
+
+j=1
+
+
+
+= −β 6n 2pq e0 , e0 f1+ f1− + e0 f2+ f2−
+
+
+Pµ
+
+
+Pµ
+
+= −2β pq(1 + det µ) .
+6n
+
+Since σ = n, β 2σ+6n = 1. Similarly, we have
+
+
+
+
+e0 fj+ fj− , ζ◦
+= β 6n p2
+Pµ
+
+X
+s∈Z22
+
+2q
+−
+p
+
+!|s|
+
+
+
+= β 6n p2 e0 fj+ fj− , e0
+
+
+
+e0 fj+ fj− , e0
+
+2
+Y
+
+(fj+ fj− )sj
+
+j=1
+
+
+Pµ
+
+
+Pµ
+
+= β p (δj,1 + δj,2 det µ) .
+6n 2
+
+A completely analogous computation shows
+
+
+e0 f1γ f2ε , ζ◦
+
+
+
+
+
+Pµ
+
+= β 6n p2 e0 f1γ f2ε , e0
+
+
+Pµ
+
+= β 6n p2 (δγ,+ aε − δγ,− bε ) .
+□
+
+Theorem 7.12 shows the result stated in Theorem 3.20. In particular, the invariants in the above theorem manage to distinguish all Pµ , by evaluating on all e0 f1γ f2ε .
+Explicitly, the choices for αj,l in Theorem 3.20 are
+α1,1 = e0 f1+ f2− , α1,2 = e0 f1+ f2+ , α2,1 = −e0 f1− f2− , α2,2 = −e0 f1− f2+ .
+Appendix A. More on continued fractions
+Consider the (n × n)-matrix Ma with entries
+(Ma )ij =
+
+
+a
+1
+
+i
+
+i=j ,
+(i < n ∧ j = i + 1) ∨ (i > 1 ∧ j = i − 1) .
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+73
+
+This is precisely the linking matrix of the surgery link of L(p, q) as given in (3.17),
+see e.g. [Lyu, Sec. 5.3]. By definition, the signature σ(L(p, q)) of the surgery link
+is the signature of the linking matrix, i.e. the number of positive minus negative
+eigenvalues.
+Proposition A.1. Let a1 , . . . , an ∈ Z be non-zero such that there are coprime positive
+integers pi , qi with pqii = [ai ; ai+1 , . . . , an ] for i = 1, . . . , n. Then we have:
+(1) det Ma = nj=1 [aj ; aj+1 , . . . , an ] .
+(2) Ma is positive definite, and so its signature is n.
+Q
+Q
+(3) p1 = nj=1 [aj ; aj+1 , . . . , an ] = nj=1 [an−j+1 ; an−j , . . . , a1 ] .
+Q
+
+Proof. Part 1: We proceed by induction on n. For n = 1 this is obvious, and to see
+what is happening note that for n = 2 we have
+
+
+[a1 ; a2 ] · a2 = (a1 − a12 )a2 = a1 a2 − 1 = det a11 a12
+
+
+
+.
+
+Assume now that
+the statement holds up to n − 1 for a given n ≥ 2. Setting
+Qn
+d(a1 , . . . , an ) = j=1 [aj ; aj+1 , . . . , an ], we note that d(ai , . . . , an ) = [ai ; ai+1 , . . . , an ]
+d(ai+1 , . . . , an ). Using the Laplace expansion for the first row, we obtain
+1 1
+
+0
+
+0
+
+det Ma = a1 · det Ma\(a1 ) − 1 · det ..
+.
+
+···0 
+
+Ma\(a1 ,a2 )
+
+
+
+0
+
+= a1 · det Ma\(a1 ) − det Ma\(a1 ,a2 ) ,
+where by Ma\b we mean the matrix associated to the list obtained by removing entries
+of b from a. By hypothesis, we know the values of the two determinants on the right
+hand side, and so we obtain
+det Ma = a1 · d(a2 , . . . , an ) − d(a3 , . . . , an )
+1
+= d(a2 , . . . , an ) · a1 −
+[a2 ; . . . , an ]
+
+!
+
+= d(a2 , . . . , an ) · [a1 ; a2 , . . . , an ] ,
+
+which equals d(a1 , . . . , an ), as claimed.
+Part 2: Positive definiteness now follows from the Sylvester criterion. Namely,
+consider the lower right submatrices Nd , d = 1, . . . , n of M . That is, (Nd )st =
+(Ma )s+n−d,t+n−d and s, t = 1, . . . , d.
+Using the above notation, we see that Nd = M(an−d+1 ,an−d+2 ,...,an ) . Thus by part 1
+Q
+Q
+we get det Nd = nj=n−d+1 [aj ; aj+1 , . . . , an ] = nj=n−d+1 pqjj , and all factors are positive
+by assumption.
+Part 3: By part 1, the second equality is simply the statement that the similar
+matrices M(a1 ,...,an ) and M(an ,...,a1 ) have the same determinant.
+To see the first equality, note first that
+n
+Y
+
+n
+Y
+pj
+
+Y pj+1
+p1 n−1
+[aj ; aj+1 , . . . , an ] =
+=
+.
+qn j=1 qj
+j=1
+j=1 qj
+
+74
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+Since clearly qn = 1, this equals p1 if qj = pj+1 for all 1 ≤ j < n. Let us show that
+this holds. For j < n, we have
+pj
+qj+1
+aj pj+1 − qj+1
+= aj −
+=
+.
+qj
+pj+1
+pj+1
+Now, for any c, d, n ∈ Z with d|n, we have gcd(n ± c, d) ≤ gcd(c, d).18 Applying
+this to our situation, we find gcd(aj pj+1 − qj+1 , pj+1 ) ≤ gcd(qj+1 , pj+1 ) = 1, and so
+the above is in fact an equality of reduced fractions. Thus we even obtain equality
+of numerators and denominators up to sign. But the sign vanishes in light of our
+positivity assumption; in particular, we obtain qj = pj+1 .
+□
+The proposition above in particular implies (3.19) for the signature of the surgery
+link. The same expression (with the stronger assumption that all ai are at least 2)
+was obtained e.g. in [BCGP, Prop. 6.24].
+References
+[Ab]
+[BBG]
+[BC1]
+[BC2]
+[BCGP]
+
+[BCPO]
+[BGR1]
+[BGR2]
+[BK]
+[BKLT]
+[Br]
+[BT]
+[BV1]
+[BV2]
+[BW]
+
+T. Abe, A Z2 -orbifold model of the symplectic fermionic vertex operator superalgebra,
+Mathematische Zeitschrift 255 (2007) 755–792 [math/0503472 [math.QA]].
+A. Beliakova, C. Blanchet, A.M. Gainutdinov, Modified trace is a symmetrised integral,
+Select. Math. New Ser. 27 (2021), [1801.00321 [math.QA]].
+D. Bulacu, S. Caenepeel, Integrals for (dual) quasi-Hopf algebras. Applications, J. Algebra
+266 (2003), 552–583, [math/0110063 [math.QA]].
+D. Bulacu, S. Caenepeel, On integrals and cointegrals for quasi-Hopf algebras, J. Algebra
+351 (2012), 390–425, [1103.2263 [math.QA]].
+C. Blanchet, F. Costantino, N. Geer, B. Patureau-Mirand, Non semi-simple TQFTs,
+Reidemeister torsion and Kashaev’s invariants, Adv. Math. 301 (2016) 1–78, [1404.7289
+[math.GT]].
+D. Bulacu, S. Caenepeel, F. Panaite, F. v.Ostaeyen, Quasi-Hopf algebras: a categorical
+approach, Encyclopedia Math. Appl. (2019).
+J. Berger, A.M. Gainutdinov, I. Runkel, Modified traces for quasi-Hopf algebras, J. Algebra 548 (2020) 96–119, [1812.10445 [math.QA]].
+, Monadic cointegrals and applications to quasi-Hopf algebras, J. Pure Appl.
+Algebra 225 (2021) 106678, [2003.13307 [math.QA]]
+B. Bakalov, A. Kirilov Jr., Lectures on tensor categories and modular functors, Univ.
+Lect. Ser. 21 (2001).
+Y. Bespalov, T. Kerler, V. Lyubashenko, V. Turaev, Integrals for braided Hopf algebras,
+J. Pure Appl. Algebra 148 (2000) 113–164, [q-alg/9709020 [math.QA]]
+A. Bruguières, Tresses et structure entière sur la catégorie des représentations de slN
+quantique, Commun. in Algebra 28 (2000) 1989–2028.
+D. Bulacu, B. Torrecillas, Factorizable quasi-Hopf algebras – applications, J. Pure Appl.
+Alg. 194 (2004) 39–84 [math/0312076 [[math.QA/0312076]]].
+A. Bruguières, A. Virelizier, Hopf monads, Adv. in Math. 215 (2007) 679–733,
+[math/0604180 [math.QA]].
+, On the center of fusion categories, Pacific J. Math. 264 (2013), [1203.4180
+[math.QA]]
+J.W. Barrett, B.W. Westbury, Spherical categories, Adv. in Math. 143 (1999) 357–375,
+[hep-th/9310164 [hep-th]].
+
+18If x divides gcd(d, n ± c), then since d divides n also x divides n, and hence x divides c.
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+[CDGS]
+
+75
+
+W. Cheong, A. Doser, M. Gray, S.F. Sawin, Relationship of the Hennings and ChernSimons Invariants For Higher Rank Quantum Groups, [1701.01423 [math.GT]]
+[CG]
+T. Creutzig, T. Gannon, Logarithmic conformal field theory, log-modular tensor categories and modular forms, J. Phys. A: Math. Theor. 50 (2017) 404004, [1605.04630
+[math.QA]].
+[CGP1]
+F. Costantino, N. Geer, B. Patureau-Mirand, Quantum invariants of 3-manifolds via
+link surgery presentations and non-semi-simple categories, Journal of Topology 7 (2014)
+1005–1053, [1202.3553 [math.GT]].
+[CGP2]
+F. Costantino, N. Geer, B. Patureau-Mirand, Relations between Witten-reshetikhinturaev and non semi-simple sl(2) 3-manifold invariants, Algebr. Geom. Topol. 15 (2015)
+1363–1386, [1310.2735 [math.GT]].
+[CGR]
+T. Creutzig, A. M. Gainutdinov and I. Runkel, A quasi-Hopf algebra for the triplet vertex
+operator algebra, Commun. Contemp. Math. 22 (2020) 1950024, [1712.07260 [math.QA]].
+[CKS]
+Q. Chen, S. Kuppum, P. Srinivasan, On the relation between the WRT invariant and
+the Hennings invariant, Math. Proc. of the Cambridge Phil. Soc. 146 (2009) 151–163,
+[0709.2318 [math.QA]]
+[CLR]
+T. Creutzig, S. Lentner and M. Rupert, Characterizing braided tensor categories associated to logarithmic vertex operator algebras, [2104.13262 [math.QA]].
+[CYZ]
+Q. Chen, C-C. Yu, Y. Zhang, Three-manifold invariants associated with restricted quantum groups, Math. Z. 272 (2012) 987–999.
+[DGGPR1] M. De Renzi, A.M. Gainutdinov, N. Geer, B. Patureau-Mirand, I. Runkel, 3-dimensional
+TQFTs from non-semisimple modular categories, Selecta Math. 28 (2022) 42, [1912.02063
+[math.GT]].
+, Mapping Class Group Representations From Non-Semisimple TQFTs,
+[DGGPR2]
+Commun. Contemp. Math. 25 (2023) 2150091, [2010.14852 [math.GT]].
+[DGP]
+M. De Renzi, N. Geer, B. Patureau-Mirand, Renormalized Hennings invariants and 2+1TQFTs, Commun. Math. Phys. 362 (2018), 855–907, [1707.08044 [math.GT]].
+[Dr]
+V. Drinfeld, Quasi-Hopf algebras, Leningrad Math. J. 1 (1990), 1419–1457.
+[DR]
+A. Davydov, I. Runkel, Z/2Z-extensions of Hopf algebra module categories by their base
+categories, Adv. Math. 247 (2013) 192–265, [1207.3611 [math.QA]].
+[EGNO] P. Etingof, S. Gelaki, D. Nikshych, V. Ostrik, Tensor categories, Math. Surveys Monogr.
+205 (2015).
+[EO]
+P. Etingof, V. Ostrik, On Semisimplification of Tensor Categories, in: V. Baranovsky et
+al. (eds) Representation Theory and Algebraic Geometry, Trends in Mathematics (2022),
+Birkhäuser (2022) 3–35, [1801.04409 [math.RT]].
+[Et]
+P. Etingof, On Vafa’s theorem for tensor categories, Math. Res. Let. 9 (2002) 651–657,
+[math/0207007 [math.QA]].
+[FGR1]
+V. Farsad, A.M. Gainutdinov, I. Runkel, SL(2, Z)-action for ribbon quasi-Hopf algebras,
+J. Algebra 522 (2019), 243–308, [1702.01086 [math.QA]].
+[FGR2]
+, The symplectic fermion ribbon quasi-Hopf algebra and the SL(2, Z)-action
+on its centre, Adv. Math. 400 (2022) 108247, [1706.08164 [math.QA]].
+[FGST]
+B.L. Feigin, A.M. Gainutdinov, A.M. Semikhatov, I.Y. Tipunin, Modular group representations and fusion in logarithmic conformal field theories and in the quantum group
+center, Commun. Math. Phys. 265 (2006) 47–93, [hep-th/0504093 [hep-th]].
+[FL]
+I. Flandoli, S. Lentner, Logarithmic conformal field theories of type Bn , ℓ = 4 and symplectic fermions, J. Math. Phys. 59 (2018) 071701, [1706.07994 [math.RT]].
+[FOG]
+A. Fontalvo Orozco, A.M. Gainutdinov, Module traces and Hopf group-coalgebras,
+[1809.01122 [math.QA]].
+[FS]
+J. Fuchs, C. Schweigert, Hopf algebras and finite tensor categories in conformal field
+theory, Rev. Union Mat. Argentina 51 (2010) 43–90, [1004.3405 [hep-th]]].
+[GK]
+M.R. Gaberdiel, H.G. Kausch, A rational logarithmic conformal field theory, Phys. Lett.
+B 386 (1996) 131–137 [hep-th/9606050 [hep-th]].
+
+76
+
+[GKP1]
+
+[GKP2]
+[GKP3]
+[GN]
+[GPT]
+
+[GPV]
+[GR1]
+[GR2]
+[GR3]
+[He]
+[HN]
+[LW]
+[Lyu]
+
+[Ka]
+[Ke]
+[KL]
+[ML]
+[MR]
+[Mu]
+
+[PS]
+[RT]
+[Ru]
+[Sch]
+[Sh1]
+[Sh2]
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+N. Geer, J. Kujawa, B. Patureau-Mirand, Generalized trace and modified dimension
+functions on ribbon categories, B. Sel. Math. New Ser. 17 (2011), 453–404, [1001.0985
+[math.RT]].
+, Ambidextrous objects and trace functions for nonsemisimple categories,
+Proc. Amer. Math. Soc. 141 (2013), 2963–2978, [1106.4477 [math.RT]].
+, M-traces in (non-unimodular) pivotal categories, Algebr. Represent. Theory (2021), [1809.00499 [math.RT]].
+T. Gannon, C. Negron Quantum SL(2) and logarithmic vertex operator algebras at (p, 1)central charge, [2104.12821 [math.QA]].
+N. Geer, B. Patureau-Mirand, V.G. Turaev, Modified quantum dimensions and
+re-normalized link invariants, Compositio Math. 145 (2009), 196–212, [0711.4229
+[math.QA]].
+N. Geer, B. Patureau-Mirand, A. Virelizier Traces on ideals in pivotal categories, Quantum Topol. 4 (2013), 91–124, [1103.1660 [math.QA]].
+A.M. Gainutdinov, I. Runkel, Symplectic fermions and a quasi-Hopf algebra structure on
+U i sℓ(2), J. Algebra 476 (2017) 415–458, [1503.07695 [math.QA]].
+, The non-semisimple Verlinde formula and pseudo-trace functions, J. Pure
+Appl. Algebra 223 (2019), 660–690, [1605.04448 [math.QA]].
+, Projective objects and the modified trace in factorisable finite tensor categories, Compositio Math. 156 (2020) 770–821, [1703.00150 [math.QA]].
+M. Hennings, Invariants of Links and 3-Manifolds Obtained from Hopf Algebras, J. London Math. Soc. (2) 54 (1996), No. 3, 594–624.
+F. Hausser, F. Nill, Integral theory for quasi-Hopf algebras,
+[math/9904164 [math.QA]].
+R. Laugwitz, C. Walton, Constructing non-semisimple modular categories with relative
+monoidal centers, Int. Math. Res. Not. IMRN (2021), [2010.11872 [math.QA]].
+V.V. Lyubashenko, Invariants of 3-manifolds and projective representations of mapping
+class groups via quantum groups at roots of unity Commun. Math. Phys. 172 (1995),
+467–516, [hep-th/9405167 [hep-th]].
+H.G. Kausch, Curiosities at c = -2, [hep-th/9510149 [hep-th]].
+T. Kerler, On the connectivity of cobordisms and half-projective TQFTs, Commun. Math.
+Phys. 198 (1998) 535–590, [q-alg/9603017 [math.QA]].
+T. Kerler, V. V. Lyubashenko, Non-semisimple topological quantum field theories for
+3-manifolds with corners, Lecture Notes in Math. 1765 (2001).
+S. Mac Lane, Categories for the working mathematician, Grad. Texts in Math. 5 (1998).
+R. McRae, Deligne tensor products of categories of modules for vertex operator algebras,
+[2304.14023 [math.QA]].
+M. Müger, From subfactors to categories and topology II: The quantum double of tensor
+categories and subfactors, J. Pure Appl. Algebra 180 (2003) 159–219, [math/0111205
+[math.CT]].
+V.V. Prasolov, A.B. Sossinsky, Knots, links, braids and 3-manifolds, Transl. Math.
+Monogr. 154 (1997).
+N. Reshetikhin, V. Turaev, Ribbon Graphs and Their Invariants Derived From Quantum
+Groups, Commun. Math. Phys. 127 (1990) 1–26.
+I. Runkel, A braided monoidal category for free super-bosons, J. Math. Phys. 55 041702
+(2014) [1209.5554 [math.QA]].
+P. Schauenburg, A quasi-Hopf algebra freeness theorem, Proc. Amer. Math. Soc. 132
+(2004) 965–972, [math/0204141 [math.QA]].
+K. Shimizu, On unimodular finite tensor categories, Int. Math. Res. Notices 2017 (2017)
+277–322, [1402.3482 [math.QA]].
+K. Shimizu, The monoidal center and the character algebra, J. Pure and Appl. Algebra
+221 (2017) 2338–2371, [1504.01178 [math.QA]].
+
+NON-SEMISIMPLE LINK AND MANIFOLD INVARIANTS
+
+[Sh3]
+[Sh4]
+[Sh5]
+[So]
+[Tu]
+[Vi]
+
+77
+
+K. Shimizu, Non-degeneracy conditions for braided finite tensor categories, Adv. Math.
+355 (2019) 106778 [1602.06534 [math.QA]].
+K. Shimizu, Integrals for finite tensor categories, Algebr. Represent. Theory 22 (2019)
+459–493, [1702.02425 [math.CT]].
+K. Shimizu, Ribbon structures of the Drinfeld center of a finite tensor category, Kodai
+Math. J. 46 (2023) 75–114, [1707.09691 [math.QA]].
+Y. Sommerhäuser, On the notion of a ribbon quasi-Hopf algebra, Rev. Unión Mat. Argent.
+51 (2010), 177–192, [0910.1638 [math.RA]].
+V.G. Turaev, Quantum Invariants of Knots and 3-Manifolds, de Gruyter Stud. Math.
+18 (2016).
+A. Virelizier, Kirby elements and quantum invariants, Proc. Lond. Math. Soc. 93 (2006)
+474–514, [math/0312337 [math.GT]]
+
+

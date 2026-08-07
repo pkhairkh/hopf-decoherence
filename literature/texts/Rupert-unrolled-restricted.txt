@@ -1,0 +1,2484 @@
+arXiv:2402.03668v1 [math.QA] 6 Feb 2024
+
+BGG Reciprocity for Generalized Weight Modules of
+Unrolled Restricted Quantum Groups at Roots of Unity
+Matthew Rupert
+Abstract
+We consider the category of generalized weight modules over the unrolled restricted
+H
+quantum group U q (g) of a finite-dimensional simple complex Lie algebra g at root
+of unity q. Although this category does not admit projective modules, it is filtered
+by subcategories with enough projectives. We show that the projective covers of irreducible modules in these subcategories satisfy a variant of BGG reciprocity and give a
+generators and relations description when g = sl2 .
+
+Contents
+1 Introduction
+1.1 Results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+1
+3
+
+2 Preliminaries
+
+4
+
+3 Generalized Weight Modules
+3.1 Projective Modules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+6
+9
+
+H
+
+4 Projective Covers for Irreducible U q (sl2 )-modules.
+
+1
+
+16
+
+Introduction
+
+The unrolled quantum group UqH (g) associated to a finite-dimensional semisimple complex
+Lie algebra g is an extension of the non-restricted specialization Uq (g) of De Concini and
+Kac [DCK]. It can be obtained by taking a smash product with the universal enveloping
+algebra of the Cartan subalgebra h of g, UqH (g) := Uq (g) ⋊ U(h). Inspired by previous
+work of Ohtsuki [O], a quotient of this algebra called the unrolled restricted quantum group
+H
+U q (g) was introduced in [GPT1] for g = sl2 and studied at even roots of unity as an
+example for constructing link invariants from its representation theory (see also [GPT2]).
+1
+
+Unrolled restricted quantum groups have since found substantial applications to quantum
+H
+topology as their category of weight modules Repwt U q (g) can be used to construct decorated
+topological quantum field theories [BCGP, D, DGP]. A second application of these algebras,
+and the application of primary concern for this article, is the logarithmic Kazhdan-Lusztig
+correspondence for vertex operator algebras.
+The study of equivalences between categories of modules over quantum groups and vertex
+operator algebras began with the pioneering work of Kazhdan and Lusztig [KL1, KL2, KL3,
+KL4]. Proved therein was a braided equivalence between categories of modules over simple
+affine vertex operator algebras Lk (g) with k +h∨ ∈ Q≥0 where h∨ is the dual Coxeter number
+and a corresponding quantum group. It is generally expected that many vertex operator
+algebras (in particular, those which admit free field realisations) should admit categories of
+modules which are equivalent to some category of modules over a corresponding quantum
+group. This expectation is broadly referred to as the Kazhdan-Lusztig correspondence,
+and logarithmic when the categories involved are non-semisimple. The study of logarithmic
+Kazhdan-Lusztig equivalences was first explored for the Triplet vertex operator algebra W(p)
+(p ≥ 2) in the work of Feigin et al [FGST1, FGST2] where a ribbon equivalence with a
+certain category of modules of the restricted quantum group U q (sl2 ) was conjectured. This
+conjecture was studied [NT, KS] and refined [CGR] to an equivalence between modules
+over W(p) and a quasi-Hopf modification Ũq (sl2 ) of Uq (sl2 ). This refined conjecture was
+eventually proven for p = 2 in [CLR] and for all p ≥ 2 in [GN].
+The Triplet W(p) contains a sub-VOA called the Singlet M(p) which was expected to admit a category of modules which is braided equivalent to the category of weight modules
+H
+Repwt U q (g) over the unrolled restricted quantum group at 2p-th root of unity q. This
+conjecture was motivated in [CMR, CGR] and connections to unrolled restricted quantum
+groups were established for simple current extensions of vertex algebras related to the SinT
+glet in [ACKR, CRR]. The conjecture was further refined to a particular category OM(p)
+H
+of Singlet modules in [CMY] and the braided equivalence Rep U (g) ∼
+has now
+= OT
+wt
+
+q
+
+M(p)
+
+been proved in [CLR2]. Both of these categories consist of modules which decompose as a
+direct sum of weight spaces over some operators. We can consider instead the categories
+H
+T,Gen
+OM(p)
+, RepGen U q (g) of modules which decompose as direct sums of generalized weight
+spaces. It is expected that the braided equivalence of weight module categories proved
+in [CLR2] should extend to a braided equivalence
+H
+T,Gen
+RepGen U q (sl2 ) ∼
+= OM(p)
+
+of categories of generalized weight modules. The focus of this article is to investigate the
+H
+abelian structure of RepGen U q (g). We show that this category is filtered by subcategories
+which have enough projectives and that projective covers satisfy a variant of BGG reciprocity.
+We further show that projective and tilting modules coincide and use this result to give a
+generators and relations description of projective covers of irreducible modules when g = sl2 .
+2
+
+Acknowledgements. The author is supported by the Pacific Institute for the Mathematical
+Sciences (PIMS) postdoctoral fellowship program.
+
+1.1
+
+Results
+H
+
+Let g be a finite-dimensional simple complex Lie algebra and U q (g) the associated unrolled
+H
+
+restricted quantum group (Definitions 2.1 & 2.2). Let C := RepGen U q (g) denote the category
+H
+
+of finite-dimensional generalized U q (g)-weight modules and Cm̄ the subcategory consisting
+of modules whose generalized weights have maximal degree m̄ ∈ Nn where n = rank(g) (see
+Section 3 for details). Each subcategory Cm̄ contains all irreducible modules in C and these
+irreducible modules admit projective covers in Cm̄ (Theorem 3.13):
+Theorem 1.1. Cm̄ has enough projectives.
+Although C does not itself admit projective modules (Theorem 3.13), every module M ∈ C
+satisfies M ∈ Cm̄ for some m̄ ∈ Nn . The abelian structure of C can therefore be understood
+through the structure of projective modules in Cm̄ for each choice of m̄ ∈ Nn . For any weight
+λ ∈ h∗ where h denotes the Cartan subalgebra of g, we introduce the generalized Verma
+module Mλm̄ of weight λ and degree m̄ in Definition 3.5. The irreducible modules in C are
+the irreducible quotients Lλ of the generalized Verma modules (of any degree) with the same
+highest weight. We show (Lemma 3.15) that every projective module in Cm̄ admits a degree
+m̄ standard filtration (Definition 3.8). That is, a filtration whose successive quotients consist
+of generalized Verma modules Mλm̄ with degree m̄. If we denote by (P, Mλm̄ ) the multiplicity
+of Mλm̄ in the degree m̄ standard filtration of a projective module P ∈ Cm̄ , then we prove
+the following variant of BGG reciprocity (Theorem 3.16):
+Theorem 1.2. The projective cover Pλm̄ of Lλ in Cm̄ satisfies
+(Pλm̄ , Mµm̄ ) = [Mµ0̄ , Lλ ].
+Here, [Mµ0̄ , Lλ ] denotes the multiplicity of Lλ in the Jordan-Holder filtration of the (weight)
+Verma module Mµ0̄ . We call a module M ∈ Cm̄ tilting if it admits both standard and
+costandard filtrations of degree m̄ where a costandard filtration is a filtration whose successive
+quotients are the images of generalized Verma modules under the duality functor introduced
+in Definition 3.6. We have the following characterization of projective modules (Proposition
+3.19):
+Proposition 1.3. A module M ∈ Cm̄ is projective iff it is tilting.
+In Section 4 we restrict our attention to the case g = sl2 and apply Proposition 1.3 to
+determine a generators and relations description of projective covers. Let ℓ = ord(q) and let
+3
+
+H
+
+r = ℓ if ℓ is odd and r = ℓ/2 if ℓ is even. The irreducible modules of U q (sl2 ) fall into two
+families [CGP, Sections 5 & 10]:
+• Li ⊗ C kℓ for i = 0, ..., r − 2, k ∈ Z.
+2
+
+• Mα for α + 1 ∈ C̈.
+(
+(C \ Z) ∪ rZ
+where C̈ :=
+(C \ 21 Z) ∪ r2 Z
+
+if ℓ is even
+if ℓ is odd.
+
+, Li is an (i + 1)-dimensional irreducible
+CHkℓ is a one-dimensional module with weight kℓ
+2
+2
+module and Mα is an irreducible Verma module of highest weight α. The projective cover
+of Mα in Cm (recall now that n = rank(sl2 ) = 1) is the generalized Verma module Mαm of
+degree m with the same highest weight. Let i ∈ {0, 1, ..., r − 2}, m ∈ N and let Pim denote
+H
+the U q (sl2 )-module with basis given by the 2(m + 1)r vectors
+T
+wi−2k,s
+,
+
+S
+wi−2k,s
+,
+
+L
+wj−r−2k
+′ ,s ,
+
+R
+wr−j+2k
+′ ,s
+
+with k ∈ {0, ..., i}, k ′ ∈ {0, ..., j}, and s ∈ {0, ..., m} satisfying Equations (4.3) - (4.16).
+H
+Note that in Equations (4.3) - (4.16) we have adopted the presentation for U q (sl2 ) given in
+Equations (4.1)-(4.2). The module Pi0 was shown to be projective in C0 in [CGP, Proposition
+6.2] by showing that any surjection onto Pi0 splits. This argument relies on the fact that
+weight spaces are degree zero. We show that Pim is projective in Cm by showing that it is
+tilting and obtain the following result (Theorem 4.2):
+Theorem 1.4. Pim ⊗ C kℓ is the projective cover of Li ⊗ C kℓ in Cm .
+2
+
+2
+
+2
+
+Preliminaries
+
+Let g be a simple finite-dimensional complex Lie algebra with Cartan matrix A = (aij )1≤i,j,≤n
+and Cartan subalgebra h. Denote the rank of g by n and let ∆ = {α1 , ..., αn } ⊂ h∗ be the
+set of simple roots of g, ∆+ (∆− ) the set of positive (negative) roots, and LR = ⊕nk=1 Zαk
+the integer root lattice. Let {H1 , ..., Hn } denote the basis of h such that αj (Hi ) = aij and
+let h−, −i be the form defined by hαi , αj i = di aij where di = hαi , αi i/2 normalized such that
+short roots have length 2. Finally, let LW = ⊕nk=1 Zwk be the weight lattice generated by the
+fundamental weights i.e. the dual basis {ω1 , ..., ωn } ⊂ h∗ of {d1 H1 , ..., dn Hn } ⊂ h.
+Definition 2.1. The unrolled quantum group associated to L and q ∈ C× such that
+ord(q 2 ) > di for all i ∈ {1, ..., n} is the C-algebra with generators Kγ , X±i , Hi such that
+4
+
+γ ∈ L and i ∈ {1, ., ., n} with relations
+Kγ X±j K−γ = q ±hγ,αj i X±j ,
+[Hi , X±j ] = ±aij X±j ,
+Kαj − Kα−1
+j
+[Xi , X−j ] = δi,j
+,
+qj − qj−1
+
+
+1−aij
+X
+1−a −k
+k
+k 1 − aij
+X±i
+X±j X±i ij = 0
+if i 6= j.
+(−1)
+k
+q
+i
+k=0
+
+K0 = 1, Kγ1 Kγ2 = Kγ1 +γ2 ,
+[Hi , Hj ] = 0, [Hi , Kγ ] = 0,
+
+(2.1)
+(2.2)
+(2.3)
+(2.4)
+
+There is a Hopf-algebra structure on UqH (g) with coproduct ∆, counit ǫ, and antipode S
+defined by
+∆(Kγ ) = Kγ ⊗ Kγ ,
+∆(Xi ) = 1 ⊗ Xi + Xi ⊗ Kαi
+∆(X−i ) = K−αi ⊗ X−i + X−i ⊗ 1,
+∆(Hi ) = 1 ⊗ Hi + Hi ⊗ 1,
+
+ǫ(Kγ ) = 1,
+ǫ(Xi ) = 0,
+ǫ(X−i ) = 0,
+ǫ(Hi ) = 0,
+
+S(Kγ ) = K−γ
+S(Xi ) = −Xi K−αi ,
+S(X−i ) = −Kαi X−i .,
+S(Hi ) = −Hi .
+
+(2.5)
+(2.6)
+(2.7)
+(2.8)
+
+The subalgebra generated by X±k , Kγ is the De Concini - Kac quantum group Uq (g). It can
+be shown by induction on s that [DCK, Equation 1.3.3]
+s
+s−1
+[Xi , X−j
+] = δij [s]i X−i
+[Ki ; di (1 − s)]
+
+where [Ki ; n] = (Ki q n − Ki−q q −n )/(qi − qi−1 ). Let dα = 21 hα, αi and rα := r/gcd(dα , r), then
+rα
+[rαi ]i = 0 so [Xi , X−ji ] = 0 for all i, j. Let β1 , ..., βN be a total ordering on the set of positive
+roots ∆+ of g and X±βk ∈ Uq (g) the associated root vectors constructed through the action
+of the braid group as in [CP, Subsection 8.1 and 9.1]. Applying the braid group action then
+rα
+gives [Xβ , X−α
+] = 0 for all α, β ∈ ∆+ . It can be shown as in [R, Subsection 3.1] that the
+rα
+ideal generated by {X±ii }ni=1 is a Hopf ideal. We quotient by this ideal to obtain the unrolled
+restricted quantum group:
+H
+
+Definition 2.2. The unrolled restricted quantum group U q (g) is defined as the quotient of
+rα
+UqH (g) by the Hopf ideal generated by {X±ii }αi ∈∆ .
+H
+
+H
+
+We will denote by U q (g)0 , U q (g)± the subalgebras generated by {Kγ , Hi | γ ∈ L, i = 1, ..., n}
+rα
+and {X±i | i = 1, ..., n} respectively. It follows from the braid relations that X±α
+= 0 for all
++
+positive roots α ∈ ∆ and it now follows from the PBW theorem for Uq (g) [CP] that
+tN
+t1
+t2
+| 0 ≤ ti ≤ rβi }
+{X±β
+X±β
+· · · X±β
+1
+2
+N
+H
+
+is a vector space basis of U q (g)± .
+5
+
+(2.9)
+
+It is well known that U q (g) admits an automorphism which swaps Xj with X−j and inverts Kj
+(see [Ja, Lemma 4.6], for example). This automorphism can be extended to an automorphism
+H
+H
+ω : U q (g) → U q (g) by defining
+ω(X±j ) = X∓j ,
+
+ω(Kγ ) = K−γ ,
+
+ω(Hj ) = −Hj .
+
+(2.10)
+
+We will require this automorphism to construct a duality functor analogous to that which is
+used to study Category O for Lie algebras.
+
+3
+
+Generalized Weight Modules
+πi
+
+For the remainder of the article, we fix q = e ℓ with ℓ ∈ N such that ord(q 2 ) > dj for all
+H
+j ∈ {1, ..., n}. Given a U q (g)-module V , a weight λ ∈ h∗ and m̄ = (m1 , ..., mn ) ∈ Nn , we
+define the subspace V (λ)m̄ by
+V (λ)m̄ := {v ∈ V | (Hj − λ(Hj ))mj +1 v = 0 and (Hj − λ(Hj ))mj v 6= 0 for j = 1, ..., n}.
+If V (λ)m̄ 6= 0 for some m̄, we will call λ a weight of V , V (λ)m̄ its (generalized) weight space,
+and any v ∈ V (λ)m̄ a generalized weight vector of degree m̄.
+H
+
+Definition 3.1. A U q (g)-module V is called a generalized weight module if it splits as a
+H
+direct sum of generalized weight spaces and Kj = qj j as operators on V . We denote by C
+the category of finite dimensional generalized weight modules.
+Note that if γ =
+
+Pn
+
+j=1 cj αj ∈ L, then Kγ =
+
+c j Hj
+. Notice that for any c ∈ C, we have
+j=1 qj
+
+Qn
+
+(Hi − c)X±j = (Hi X±j − cX±j ) = (±aij X±j + X±j Hi − cX±j ) = X±j (Hi − c ± aij ).
+Applying this formula successively shows that
+(Hi − c)n X±j = X±j (Hi − c ± aij )n ,
+
+(3.1)
+
+which has the following lemma as an immediate consequence:
+Lemma 3.2. Let V ∈ C and λ ∈ h∗ a weight of V . Then,
+X±j V (λ)m̄ ⊂ V (λ ± αj )m̄ ,
+
+(Hj − λ(Hj ))V (λ)(m1 ,...,mn) ⊂ V (λ)(m1 ,...,mj −1,...,mn) .
+
+We place a partial order on Nn by setting k̄ ≤ m̄ if kj ≤ mj for j = 1, ..., n. Let Cm̄ denote
+the subcategory of generalized weight modules with weight spaces of degree at most m̄ with
+respect to this partial order. It is clear that Ck̄ ⊂ Cm̄ if k̄ ≤ m̄ and if K ⊂ Nn is totally
+6
+
+S
+ordered and unbounded with respect to the partial order on Nn , then k̄∈K Ck̄ = C. Such a
+family of subcategories is called a filtration of C if it respects the monoidal structure in the
+sense that for any V1 ∈ Ck¯1 , V2 ∈ Ck¯2 , we have V1 ⊗ V2 ∈ Ck¯1 +k¯2 .
+Let V1 , V2 ∈ C and v1 ∈ V1 (λ1 )k̄ , v2 ∈ V2 (λ2 )k̄′ . Then for any n ∈ N we have
+(Hi − (λ1 + λ2 )(Hi ))n · v1 ⊗ v2 = (∆(H) − (λ1 + λ2 )(Hi ))n v1 ⊗ v2
+= (Hi ⊗ 1 − λ1 (Hi ) + 1 ⊗ Hi − λ2 (Hi ))n v1 ⊗ v2
+n  
+X
+n
+(Hi v1 − λ1 (Hi ))m v1 ⊗ (Hi v2 − λ2 (Hi ))n−m v2 .
+=
+m
+m=0
+
+The terms of this sum vanish if m ≥ ki + 1 or n − m ≥ ki′ + 1. If n = ki + ki′ + 1, then for
+m ≤ ki we have n − m = ki + ki′ − m + 1 ≥ ki′ + 1 so the sum vanishes. We therefore have
+the following proposition:
+Proposition 3.3. Let V1 , V2 ∈ C and v1 ∈ V1 (λ1 )k¯1 , v2 ∈ V2 (λ2 )k¯2 . Then,
+v1 ⊗ v2 ∈ (V1 ⊗ V2 )(λ1 + λ2 )k¯1 +k¯2
+In particular, if V1 ∈ Ck¯1 , V2 ∈ Ck¯2 , then V1 ⊗ V2 ∈ Ck¯1 +k¯2 so (Ck̄ )k̄∈K is a filtration on C.
+Notice that the usual category of weight modules on which H, K act semisimply is precisely
+C0 . It is easy to see that the irreducible modules in C lie in C0 . Indeed, let V ∈ C be
+irreducible and let Vmax := {v ∈ V | Xk v = 0 ∀i = 1, ..., N} denote the subset of maximal
+vectors in V . Since V is finite-dimensional, Vmax must be non-empty, otherwise we could
+construct via the action of X1 , ..., Xn an infinite chain of independent vectors in V . Further,
+Vmax is invariant under the action of Hk with k = 1, ..., n since if v ∈ Vmax , we have
+Xj Hi v = Hi Xj v − aij Xj v = 0.
+Therefore, H1 , ..., Hn have a simultaneous eigenvector ṽ ∈ Vmax as they are commuting
+operators acting on a complex finite-dimenisonal vector space. That is, ṽ ∈ V is a highest
+weight vector. Since V is irreducible, it is generated by ṽ and therefore lies in C0 by Lemma
+3.2:
+Proposition 3.4. If V ∈ C is irreducible, then V ∈ C0 .
+The irreducible modules in C0 are the simple quotients of Verma modules in C0 as described
+in [R, Proposition 4.3].
+H
+
+0
+Given a weight λ ∈ h∗ and m̄ ∈ Nn , denote by Cm̄
+λ the U q (g) -module with vector-space
+basis {vλk̄ | k̄ = (k1 , ..., kn ) ∈ Nn , 0 ≤ kj ≤ mj } satisfying (Hj − λ(Hj ))vλk̄ = 0 if kj = 0 and
+k ,...,k −1,...,kn
+,
+(Hj − λ(Hj ))vλk̄ = vλ1 j
+
+λ(H )
+Kj vλk̄ = qj j
+
+s
+kj 
+X
+2dj πi
+s=0
+
+7
+
+ℓ
+
+k ,...,kj −s,...,kn
+
+vλ1
+
+(3.2)
+
+H
+
+H
+
+for j = 1, ..., n. Since U q (g)0 is commutative, it is clear that this is a well-defined U q (g)0 H
+module. Further, we have Kj = qj j as operators on Cm̄
+λ since
+H
+
+H −λ(Hj )+λ(Hj ) k̄
+vλ
+
+∞
+X 2dj πi s
+λ(Hj )
+= qj
+(Hj − λ(Hj ))s vλk̄
+ℓ
+s=0
+kj −1 
+X 2dj πi s
+λ(Hj )
+(Hj − λ(Hj ))s vλk̄
+= qj
+ℓ
+s=0
+
+qj j vλk̄ = qj j
+
+λ(H )
+= qj j
+
+kj −1 
+
+X
+s=0
+
+= Kj vλk̄ .
+
+2dj πi
+ℓ
+
+s
+
+k ,...,kj −s,...,kn
+
+vλ1
+
+H
+
++
+We can now extend Cm̄
+λ to a U q (g) -module by letting Xj , j = 1, ..., n act as zero.
+
+Definition 3.5. We define the generalized Verma module of highest weight λ ∈ h∗ and
+degree m̄ ∈ Nn by
+H
+Mλm̄ := U q (g) ⊗U H (g)+ Cm̄
+λ.
+q
+
+Mλm̄ is generated by the vector vλm̄ satisfying Equation (3.2) and Xj vλm̄ = 0 for j = 1, ..., n.
+It is clear that Mλm̄ ∈ Cm̄ and it is universal with respect to generalized highest weight
+H
+modules of degree m̄ as it is a free U q (g)− -module. That is, for any module M generated by
+a highest weight vector of degree m̄ and weight λ ∈ h∗ , there is a surjection Mλm̄ ։ M. In
+particular, every irreducible module in C is realized as a quotient of Mλ0̄ and we will denote
+the irreducible quotient of Mλ0̄ by Lλ . It follows from the definition of Mλm̄ and Equation
+(2.9) that
+{Xβt11 Xβt22 · · · XβtNN vλk̄ | 0 ≤ ti ≤ rβi − 1, 0 ≤ kj ≤ mj }
+(3.3)
+is a C-basis for Mλm̄ . We now introduce a few definitions necessary for the following subsection. First, we introduce the duality functor M 7→ M̌ . We refer the reader to [R, Subsection
+4.2] for a more detailed treatment of this functor and its properties.
+Definition 3.6. Let M ∈ C and let M ∗ ∈ C denote the usual module structure on
+H
+HomC (M, C) defined by the antipode S of U q (g). We define M̌ to be the module obH
+
+tained by twisting the action of U q (g) on the M ∗ of M by the automorphism ω defined in
+Equation (2.10).
+H
+
+That is, we let x ∈ U q (g) act on M ∗ by ω(x). M̌ can also be understood as the dual defined
+by S ◦ ω. It is easy to see that generalized weight modules are preserved under duality so
+8
+
+M 7→ M̌ defines an endofunctor on C. Some useful properties of this functor are summarized
+in the following lemma:
+Lemma 3.7. For all M ∈ C and λ ∈ h∗ , we have the following:
+ˇ ∼
+• The duality functor M 7→ M̌ is contravariant, exact, and involutive M̌
+= M.
+• dim M(λ) = dim M̌ (λ).
+• Lˇλ ∼
+= Lλ .
+We now introduce the notion of standard and costandard filtrations of fixed degree which
+will be fundamental for the proof of BGG reciprocity in Theorem 3.16. In what follows a
+dual generalized Verma module will always refer to the image M̌λk̄ of a generalized Verma
+module Mλk̄ under the duality functor.
+Definition 3.8. We call a filtration of M ∈ C standard of degree k̄ if its successive quotients
+are generalized Verma modules of degree k̄ and costandard if its successive quotients are
+dual Verma modules of degree k̄.
+To be precise, a filtration 0 = M0 ⊂ M1 ⊂ . . . Mk = M of some M ∈ C is standard of degree
+k̄ ∈ Nn if Mj /Mj−1 ∼
+= Mλk̄j for some λj ∈ h∗ . Similarly, we call such a filtration costandard
+of degree M if Mj /Mj−1 ∼
+= M̌λk̄j for some λj ∈ h∗ .
+
+3.1
+
+Projective Modules
+
+For any α ∈ ∆+ and λ ∈ h∗ , we associate the scalar λα ∈ C defined by
+λα := hλ + ρ, αi
+where ρ denotes the Weyl vector. We call λα typical iff λα ∈ C̈α where
+(
+(C \ gα Z) ∪ rZ if ℓ is even
+C̈α :=
+(C \ g2α Z) ∪ 2r Z if ℓ is odd.
+where gα = gcd(dα , r).
+Definition 3.9. We call λ ∈ h∗ typical if λα is typical for all α ∈ ∆+ and atypical otherwise.
+The Verma modules Mλ0̄ ∈ C0̄ are both irreducible and projective iff λ is typical ([R, Section
+4] & [CGP2, Lemma 7.1]. Although the generalized Verma modules are never irreducible
+(they clearly always have Mλ0̄ as a proper submodule), their projectivity is still determined
+by the typicality of λ.
+9
+
+Lemma 3.10. The generalized Verma module Mλm̄ is projective in Cm̄ if λ is typical.
+Proof. Let
+X+ :=
+
+N
+Y
+
+rβ −1
+Xβ k k ,
+
+and
+
+X− :=
+
+N
+Y
+
+rβ −1
+
+Xβ k k
+
+k=1
+
+k=1
+
+H
+denote the highest and lowest weight vectors in U q (g) respectively and N ⊂ Mλm̄ the unique
+maximal submodule such that Mλm̄ /N ∼
+= Lλ (N consists of the vectors of degree less than m̄).
+0̄
+∼
+If λ is typical then Lλ = Mλ so X+ X− vλm̄ 6= 0 as its image is non-zero in Mλm̄ /N ∼
+= Mλ0̄ .
+= Lλ ∼
+For any k̄ ∈ N we have X+ X− vλk̄ ∈ Mλm̄ (λ)k̄ by Lemma 3.2 so it follows from the basis for
+Mλm̄ given in Equation (3.3) and the module structure of Cm̄
+λ that
+
+X+ X− vλk̄ =
+
+X
+
+νk̄k̄′ vλk̄
+
+′
+
+(3.4)
+
+k̄ ′ ≤k̄
+
+for some νk̄k̄′ ∈ C. Notice that νk̄k̄ 6= 0 since νk̄k̄ vλk̄ + N k̄ = X+ X− vλk̄ + N k̄ 6= 0 in Mλk̄ /N k̄ ∼
+= Lλ
+k̄
+k̄
+k̄
+m̄
+where we now identify Mλ with the subalgebra of Mλ generated by vλ and N is the unique
+maximal submodule of Mλk̄ . Define the scalars γk̄ for k̄ < m̄ inductively by the relation
+
+
+m̄
+X
+X
+ν m̄
+1 ν
+′
+′
+γk̄′ νk̄k̄ 
+⇔
+γk̄′ νk̄k̄ = k̄m̄
+γk̄ := k̄  k̄m̄ −
+νm̄
+νk̄ νm̄
+′
+′
+k̄<k̄ <m̄
+
+k̄≤k̄ <m̄
+
+which is well defined since νk̄k̄ 6= 0 for all k̄ ≤ m̄. If f : M → Mλm̄ is a surjection, then
+there exist vectors um̄ ∈ f −1 ( ν1m̄ vλm̄ ) and uk̄ ∈ f −1 (γk̄ vλk̄ ) for k̄ < m̄. Let w = X+ X− (um̄ −
+m̄
+P
+we have
+),
+then
+by
+Equation
+(3.4)
+u
+k̄
+k̄<m̄
+
+
+X
+1
+f (w) = X+ X−  m̄ vλm̄ −
+γk̄ vλk̄ 
+νm̄
+k̄<m̄
+
+
+m̄
+X
+X
+Xν
+′
+k̄ m̄
+
+v
+−
+γ
+νk̄k̄′ vλk̄ 
+=
+k̄
+λ
+m̄
+νm̄
+k̄<m̄
+k̄ ′ ≤k̄
+k̄≤m̄
+
+
+X ν m̄
+X
+X
+′
+k̄ m̄
+
+γk̄′ νk̄k̄  vλk̄
+=
+v −
+m̄ λ
+νm̄
+′
+k̄≤m̄
+
+k̄≤k̄ <m̄
+k̄<m̄
+m̄
+m̄
+Xν
+Xν
+k̄ m̄
+k̄ k̄
+=
+v −
+v = vλm̄ .
+m̄ λ
+m̄ λ
+νm̄
+νm̄
+k̄≤m̄
+k̄<m̄
+
+H
+
+Notice that Xj X+ = 0 in U q (g) and (Hj − λ(Hj ))mj w 6= 0 for j = 1, ..., n since
+f ((Hj − λ(Hj ))mj w) = (Hj − λ(Hj ))mj vλm̄ 6= 0
+10
+
+so w is a generalized highest weight vector of weight λ and degree m̄. Therefore, by the
+universal property of generalized Verma modules, there exists a map g : Mλm̄ → M defined
+by g(vλm̄ ) = w and f ◦ g = IdMλm̄ so f : M → Mλm̄ splits and Mλm̄ is projective.
+The statement of Lemma 3.10 can be strengthened to an if and only if statement, that is,
+Mλm̄ is projective in Cm̄ if and only if λ is typical. This is a trivial consequence of BGG
+reciprocity proved in Theorem 3.16.
+Given a Hopf algebra H with Hopf subalgebra S and M, N modules over H and S respectively, then
+(H ⊗S N) ⊗ M ∼
+= H ⊗S (N ⊗ M|S )
+where M|S is M viewed as an S-module (see [ST, Remark 2.6]). Indeed, the isomorphism is
+given by
+X
+(h ⊗S n) ⊗ m 7→
+h(1) ⊗S (n ⊗ S(h(2) )m)
+with inverse
+
+h ⊗S (n ⊗ m) 7→
+H
+
+X
+(h(1) ⊗S n) ⊗ h(2) m.
+H
+
+Applying this equivalence to H = U q (g), S = U q (g)+ with N = Cm̄
+λ , we see that
+H
+m̄
+∼ H
+Mλm̄ ⊗ M ∼
+= (U q (g) ⊗U H (g)+ Cm̄
+λ ) ⊗ M = U q (g) ⊗U H (g)+ (Cλ ⊗ M|U H (g)+ )
+q
+
+q
+
+q
+
+(3.5)
+
+for any M ∈ C. Equation 3.5 is fundamental in establishing the following adaptation of [H,
+Theorem 3.6]
+Lemma 3.11. For any λ ∈ h∗ , m̄ ∈ Nn , and M ∈ C0 , the tensor product Mλm̄ ⊗ M admits
+a degree m̄ standard filtration
+0 ⊂ Mk ⊂ . . . M1 = Mλm̄ ⊗ M
+m̄
+where Mj /Mj+1 ∼
+with µj taking values in the weights of M appearing dim M(µj )
+= Mλ+µ
+j
+times and µj ≤ µj+1 .
+
+Proof. Let v1 , ..., vk denote an ordered weight basis for M|U H (g)+ with weights µ1 , ..., µk and
+q
+degrees d1 , ..., dk respectively (allowing for repetition) where i ≤ j when µi ≤ µj . For
+H
+each 1 ≤ j ≤ k let Nj denote the U q (g)+ -submodule of N := Cm̄
+spanned by
+λ ⊗ M|U H
+q (b)
+{Cm̄
+λ ⊗ vs | j ≤ s ≤ k}. Then it is clear that we have a filtration
+0 ⊂ Nk ⊂ Nk−1 ⊂ · · · N1 = N.
+H
+
++
+∼ m̄
+Since Xs vj = 0 for all s = 1, ..., n, it is easy to see that Cm̄
+λ ⊗ vj = Cλ+µj as U q (g) -modules
+by the proof of Proposition 3.3 (here we require M ∈ C0 ) so we have Nj /Nj+1 ∼
+= Cm̄
+λ+µj .
+Since the functor
+H
+U q (g) ⊗U H (b) (Cm̄
+λ ⊗ (−))
+q
+
+11
+
+H
+
+is exact as it is a composition of exact functors (notice that U q (g) is pointed, hence flat over
+its Hopf subalgebras), it follows that this filtration induces to a filtration
+H
+
+Mj := U q (g) ⊗U H (b) (Cm̄
+λ ⊗ Nj )
+q
+
+H
+m̄
+.
+of U q (g) ⊗U H (b) N ∼
+= Mλ+µ
+= Mλm̄ ⊗ M (by Equation (3.5)) satisfying Mj /Mj+1 ∼
+j
+q
+
+We require one additional lemma before we can establish results on projective covers.
+Lemma 3.12. Let P ∈ Cm̄ be projective. Then for any M ∈ C0̄ , P ⊗ M and M ⊗ P are
+projective in Cm̄ .
+The lemma follows in the usual way from the fact that
+HomCm̄ (P ⊗ M, −) ∼
+= HomCm̄ (P, −) ◦ (− ⊗ M ∗ )
+= HomCm̄ (P, (− ⊗ M ∗ )) ∼
+is a composition of exact functors, where we need only observe that P ⊗ M ∈ Cm̄ by Lemma
+3.2.
+We now have the tools required to prove the existence of projective covers.
+Theorem 3.13.
+
+• Projective modules do not exist in C.
+
+• For any m̄ ∈ Nn and λ ∈ h∗ , Lλ admits a projective cover in Cm̄ .
+Proof. Suppose P ∈ C is projective, let Rad(P ) denote the union of its maximal submodules,
+and Lλ any irreducible factor of P/Rad(P ). Then P admits a surjection onto Lλ . Since P is
+finite-dimensional, its weight spaces have finite degree so there exists some m̄ ∈ Nn such that
+′
+P ∈ Cm̄ . Let m̄′ > m̄, then there exists a surjection f : Mλm̄ → Lλ . Since P is projective,
+′
+there is a map h : P → Mλm̄ such that the following diagram commutes:
+′
+
+Mλm̄
+
+f
+
+h
+
+P
+
+p
+
+Lλ
+′
+
+′
+
+It follows from the definition of f : Mλm̄ → Lλ that h : P → Mλm̄ must be surjective, else
+′
+′
+′
+f ◦h = 0, so there exists some u ∈ P such that h(u) = vλm̄ where vλm̄ ∈ Mλm̄ (λ)m̄′ is non-zero.
+Notice now that
+′
+
+′
+
+′
+
+′
+
+h((Hj − λ(Hj ))m̄ u) = (Hj − λ(Hj ))m̄ h(u) = (Hj − λ(Hj ))m̄ vλm̄ 6= 0
+12
+
+′
+
+so (Hj − λ(Hj ))m̄ u 6= 0 for j = 1, ..., n, contradicting P ∈ Cm̄ . Therefore, a projective
+module cannot exist in C.
+By Lemma 3.10, Mµm̄ ∈ Cm̄ is projective for typical µ. Hence, for any λ ∈ h∗ , choose µ ∈ h∗
+such that λ − µ is typical. Then the module
+m̄
+Mλ−µ
+⊗ L∗−µ
+
+is projective by Lemmas 3.10 & 3.12. The lowest weight of L∗−µ is µ so Mλm̄ is quotient of
+m̄
+m̄
+m̄
+Mλ−µ
+⊗ L∗−µ by Lemma 3.11. Hence, Lλ is a quotient of Mλ−µ
+⊗ L∗−µ and since Mλ−µ
+⊗ L∗−µ is
+finite-dimensional, it follows from [Kr, Lemma 3.6] that its indecomposable summand which
+surjects onto Lλ is the projective cover of Lλ .
+We will now denote by Pλm̄ the projective cover of Lλ in Cm̄ . Notice that if k̄ < m̄, then
+Pλk̄ ∈ Cm̄ , although it is not projective in Cm̄ . We have the following:
+Proposition 3.14. Let λ ∈ h∗ and k̄ < m̄ both in Nn . Then Pλm̄ is the projective cover of
+Pλk̄ viewed as objects in Cm̄ .
+Proof. Both Pλm̄ and Pλk̄ admit essential surjections
+ϕ : Pλm̄ → Lλ ,
+
+φ : Pλk̄ → Lλ .
+
+Since Pλm̄ is projective in Cm̄ , and Lλ , Pλk̄ ∈ Cm̄ , there exists a morphism f : Pλm̄ → Pλk̄
+satisfying φ ◦ f = ϕ. Notice that if f is not surjective, Im(f ) would be a proper submodule
+such that ϕ(Pλk̄ ) = Lλ = φ(Im(f )) contradicting the fact that φ : Pλk̄ → Lλ is essential.
+Therefore, f : Pλm̄ → Pλk̄ is surjective and we need only show it is essential. Suppose that
+Pλm̄ admits a proper submodule N such that f (N) = Pλk̄ . It then follows that
+ϕ(N) = φ(f (N)) = φ(Pλk̄ ) = Lλ ,
+which contradicts the fact that ϕ is essential. Hence no such submodule exists, so f : Pλm̄ →
+Pλk̄ is essential.
+In the proof of Theorem 3.13, Pλm̄ is realized as an indecomposable summand of a projective
+m̄
+module of the form Mλ−µ
+⊗ L∗−µ . An argument identical to [H, Proposition 3.7] shows that
+summands of modules with degree m̄ standard filtrations admit degree m̄ standard filtrations
+themselves so we have the following consequence of Lemma 3.11 since all projectives are direct
+sums of projective covers.
+Lemma 3.15. Any projective object P ∈ Cm̄ admits a degree m̄ standard filtration.
+
+13
+
+We have seen that for each m̄ ∈ Nn , Cm̄ has enough projectives. We now demonstrate that
+a variant of BGG reciprocity holds in these categories as well. Recall that for any M ∈ C,
+[M : Lλ ] denotes the multiplicity of Lλ in the Jordan-Holder series of M. Similarly, if M
+admits a degree m̄ standard filtration, we denote the multiplicity of Mλm̄ in M by (M, Mλm̄ ).
+Then we have the following variant of BGG reciprocity:
+Theorem 3.16 (BGG Reciprocity). For all λ, µ ∈ h∗ and m̄ ∈ Nn we have
+(Pλm̄ , Mµm̄ ) = [Mµ0̄ , Lλ ].
+Proof. The projective cover Pλm̄ ∈ Cm̄ of Lλ has a degree m̄ standard filtration by Proposition
+3.15. Therefore, if for any M ∈ C we have
+(1) dim Hom(Pλm̄ , M) = [M, Lλ ], and
+(2) if M admits a degree m̄ standard filtration, (M, Mλm̄ ) = dim Hom(M, M̌λ0̄ ).
+Then,
+(Pλm̄ , Mµm̄ ) = dim Hom(Pλm̄ , M̌µ0̄ ) = [M̌µ0̄ , Lλ ] = [Mµ0̄ , Lλ ]
+where we have used the fact that if Lλ is a factor of M̌µ0̄ , then Lλ ∼
+= Lˇλ is a factor of Mµ0̄ .
+The argument for (1) is precisely the argument of [H, Theorem 3.9 (c)], so we prove only
+the second claim. First, notice that γ ≤ µ for all weights γ of M̌µ0̄ since dim M̌µ0̄ (γ) = Mµ0̄ (γ)
+(recall Lemma 3.7) so if there exists a morphism φ : Mµm̄ → M̌λ0̄ we must have µ ≤ λ.
+Further, Lλ is the unique irreducible submodule of M̌λ0̄ so it must appear as a factor in
+Im(φ), hence λ ≤ µ. It is also easy to see that dim Hom(Mλm̄ , M̌λ0̄ ) = 1 so
+dim Hom(Mµm̄ , M̌λ0̄ ) = δλ,µ .
+We now prove the second claim by induction on the filtration length of M with the length
+1 case following from the above equation and (Mµm̄ , Mλm̄ ) = δλ,µ . Suppose now that the
+filtration length of M is k and that the statement holds for modules whose filtration length
+is k − 1. Then there exists a submodule N of M whose degree k̄ standard filtration has
+length k − 1 and satisfies a short exact sequence
+0 → N → M → Mµm̄ → 0.
+We have an induced long exact sequence
+0 → Hom(Mµm̄ , M̌λ0̄ ) → Hom(M, M̌λ0̄ ) → Hom(N, M̌λ0̄ ) →
+→ Ext(Mµm̄ , M̌λ0̄ ) → . . .
+
+14
+
+Mµm̄ clearly admits a degree 0̄ standard filtration, so Ext(Mµm̄ , M̌λ0̄ ) = 0 by Lemma 3.18.
+Hence, we have
+dim Hom(M, M̌λ0̄ ) = dim Hom(N, M̌λ0̄ ) + dim Hom(Mµm̄ , Mλ0̄ )
+= (N, Mλm̄ ) + (Mµm̄ , Mλ0̄ )
+= (M, Mλm̄ ).
+
+We finish this subsection with an observation that the projective modules in Cm̄ can be
+characterized as tilting modules. This result will be necessary in Section 4 to give a generators
+and relations description for projective covers when g = sl2 .
+Definition 3.17. We call M ∈ Cm̄ a tilting module if it admits both a standard and costandard filtration of degree m̄ (recall Definition 3.8).
+The argument for [R, Theorem 4.15] can be applied verbatim to show that projective modules
+are self-dual under the duality functor M 7→ M̌, hence they are tilting since they have degree
+m̄ standard filtrations which induce to degree m̄ costandard filtrations under duality. It is
+known that for finite-dimensional algebras with triangular decomposition, tilting modules
+are precisely the projective-injective objects in the category of graded finite-dimensional
+modules [BT, Theorem 5.1]. The unrolled quantum group is not finite-dimensional, but we
+can none the less adapt the proof to our setting. If M ∈ Cm̄ is tilting, then in particular it
+admits a degree m̄ costandard filtration
+0 = M0 ⊂ M1 ⊂ . . . Mk = M
+with Mj /Mj−1 ∼
+= M̌λm̄j for some λj ∈ h∗ . We therefore have a surjection q : M ։ M̌λm̄k . Dual
+generalized Verma modules are uniquely characterized by their degree and unique simple
+quotient (as generalized Verma modules are also characterized by their degree and unique
+simple submodule). Therefore, if Lλ is the unique simple quotient of M̌λm̄k , M̌λm̄k appears as
+the quotient of the costandard filtration of Pλm̄ . We therefore have a surjection p : Pλm̄ ։ M̌λm̄k
+and a map h : Pλm̄ → M such that p = q ◦ h since Pλm̄ is projective in Cm̄ . Consider now the
+short exact sequence
+p
+0 → Ker(p) → Pλm̄ → M̌λm̄k → 0.
+Since M̌λm̄k is the top of the degree m̄ costandard filtration of Pλm̄ , Ker(p) also admits a degree
+m̄ costandard filtration. As M is tilting, it admits a degree m̄ standard filtration as well
+so Ext(M, Ker(p)) = 0 by the following useful lemma, which can be shown by a standard
+argument (see [H, Section 6.12]).
+Lemma 3.18. If M, N have standard filtrations of the same degree, then Extn (M, Ň) = 0
+for all n > 0.
+15
+
+We therefore obtain an exact sequence
+p∗
+
+0 → Hom(M, Ker(p)) → Hom(M, Pλm̄ ) → Hom(M, M̌λm̄k ) → 0
+where p∗ denotes composition by p. In particular,
+p∗ : Hom(M, Pλm̄ ) → Hom(M, M̌λm̄k )
+is a surjection, so there exists some g ∈ Hom(M, Pλm̄ ) such that p ◦ g = q. It follows now
+that
+p◦g◦h=q◦h=p
+so g ◦ h : Pλm̄ → Pλm̄ is an isomorphism since p is essential and therefore g : M → Pλm̄
+is surjective. By projectivity, Pλm̄ is a summand of M so it follows by a trivial induction
+argument on filtration length that M is in fact projective. We therefore have the following
+lemma.
+Proposition 3.19. For any m̄ ∈ Nn , M ∈ Cm̄ is tilting if and only if it is projective.
+
+4
+
+H
+
+Projective Covers for Irreducible U q (sl2)-modules.
+H
+
+We now restrict ourselves to the rank one case U q (sl2 ). To maintain consistency with existing literature on unrolled quantum groups, we will adopt the following change of notation:
+H
+U q (sl2 ) is the C-algebra generated by K, K −1, E, F, H subject to
+KK −1 = K −1 K = 1,
+HK = KH,
+
+KE = q 2 EK,
+[H, E] = 2E,
+
+KF = q −2 F K,
+
+[E, F ] =
+
+K − K −1
+,
+q − q −1
+
+[H, F ] = −2F.
+
+(4.1)
+(4.2)
+
+In what follows, recall that r = ℓ if ℓ is odd and r = ℓ/2 if ℓ is even. By Proposition
+3.4, the irreducible modules in C are the finite-dimensional highest weight modules. These
+H
+were classified for U q (sl2 ) in [CGP]. For any α ∈ C, let Mα be the r-dimensional module
+generated by a highest weight vector of weight α (i.e. the Verma module of highest weight
+α). For each i ∈ {0, ..., r − 2} let Li denote the (i + 1)-dimensional irreducible module with
+vector space basis {s0 , s1 , ..., si } satisfying
+F sk = sk+1 ,
+
+Hsk = (i − 2k)sk ,
+
+Es0 = F si = 0,
+
+Esk = [k][i + 1 − k]sk−1 .
+
+Further, let CHkℓ be the one dimensional module on which E, F act as zero and H acts by kℓ
+2
+2
+and let
+(
+(C \ Z) ∪ rZ
+if ℓ is even
+C̈ :=
+r
+1
+(C \ 2 Z) ∪ 2 Z if ℓ is odd.
+Every irreducible module in C is isomorphic to exactly one of the following [CGP, Sections
+5 & 10]:
+16
+
+• Li ⊗ CHkℓ , for i = 0, ..., r − 2, k ∈ Z.
+2
+
+• Mα for α + 1 ∈ C̈.
+The Mα for α + 1 ∈ C̈ are the irreducible Verma modules of typical highest weight. Their
+projective cover in Cm for m ∈ N (recall now that n = rank(sl2 ) = 1) is the generalized
+Verma module Mαm of degree m. The projective covers of the modules Li ⊗ CHkℓ , for i =
+2
+
+0, ..., r − 2, k ∈ Z in C0 were explicitly determined for even roots of unity in [CGP, Section
+6] where they were shown to take the form Pi ⊗ CHkℓ where Pi is generated by a “dominant”
+2
+
+weight vector of weight i. That is, a vector v satisfying (F E)2 v = 0 and Hv = iv. In
+what follows, we consider the structure of modules generated by dominant vectors with nonsemisimple H-action. We refer to a vector v in a module V ∈ C as dominant of weight i and
+degree m ∈ N if
+(F E)2 v = 0,
+
+(H − i)m+1 v = 0,
+
+(H − i)m v 6= 0.
+
+We consider now the structure of submodules generated by such vectors.
+Proposition 4.1. Let v ∈ V be dominant of weight i ∈ {0, 1, ..., r − 2} and degree m and
+let j = r − 2 − i. Then the submodule of V generated by v has a basis given by the 2(m + 1)r
+vectors
+T
+S
+L
+R
+wi−2k,s
+, wi−2k,s
+, wj−r−2k
+wr−j+2k
+′ ,s ,
+′ ,s
+with k ∈ {0, ..., i}, k ′ ∈ {0, ..., j}, and s ∈ {0, ..., m} defined by
+T
+wi,m
+:= v,
+
+R
+T
+wr−j,m
+:= Ewi,m
+,
+
+S
+R
+wi,m
+:= F wr−j,m
+,
+
+L
+T
+wj−r,m
+:= F i+1 wi,m
+,
+
+(4.3)
+
+T
+T
+wi−2k,m
+:= F k wi,m
+
+and
+
+S
+S
+wi−2k,m
+:= F k wi,m
+
+for k ∈ {0, ..., i},
+
+(4.4)
+
+L
+L
+,
+:= F k wj−r,m
+wj−r−2k,m
+
+and
+
+R
+R
+,
+:= E k wr−j,m
+wr−j+2k,m
+
+for k ∈ {0, ..., j},
+
+(4.5)
+
+X
+X
+wt,s
+:= (H − t)m−s wt,m
+
+(4.6)
+
+where X ∈ {T, S, L, R} and t takes values as in Equations (4.4)-(4.5). These vectors satisfy
+the following relations whenever the vectors involved are defined:
+X
+(H − t)s+1 wt,s
+= 0,
+
+R
+R
+Ewt,s
+= wt+2,s
+,
+T
+(F E)2 wi,s
+= 0,
+
+X
+X
+X
+Hwt,s
+= wt,s−1
++ twt,s
+,
+
+
+s
+k
+X
+2πi
+X
+X
+wt,s−k
+Kwt,s
+= qt
+ℓ
+k=0
+X
+X
+F wt,s
+= wt−2,s
+
+T
+L
+F w−i,s
+= wj−r,s
+
+17
+
+T
+R
+Ewi,s
+= wr−j,s
+,
+
+for X ∈ {T, S, L, R}
+
+(4.7)
+
+for X ∈ {T, S, L, R}
+
+(4.8)
+
+for X ∈ {T, S, L}
+
+(4.9)
+
+R
+S
+F wr−j,s
+= wi,s
+
+(4.10)
+
+L
+S
+Ewj−r,s
+= w−i,s
++
+
+⌋
+⌊ s−1
+2
+
+X
+t=0
+
+2πi
+ℓ
+
+2t+1
+
+2[i + 1] T
+w
+,
+q − q −1 −i,s−2t−1
+
+R
+S
+S
+L
+Ewj+r,s
+= Ewi,s
+= F w−i,s
+= F w−j−r,s
+= 0,
+
+T
+S
+Ewi−2k,s
+= wi−2k+2,s
++
+
+⌋
+⌊ s−1
+2
+
+X
+t=0
+
+2πi
+ℓ
+
+2t+1
+
+q i−k+1 + q −i+k−1
+T
+[k]wi−2k+2,s−2t−1
+q − q −1
+
+(4.11)
+(4.12)
+(4.13)
+
+s
+
++
+
+⌊2⌋ 
+2t
+X
+2πi
+
+ℓ
+
+t=0
+
+S
+Ewi−2k,s
+=
+
+⌋
+⌊ s−1
+2
+
+2πi
+ℓ
+
+X
+t=0
+
+2t+1
+
+T
+[k][i − k + 1]wi−2k+2,s−2t
+,
+
+q i−k+1 + q −i+k−1
+S
+[k]wi−2k+2,s−2t−1
+q − q −1
+
+(4.14)
+
+s
+
++
+
+⌊2⌋ 
+2t
+X
+2πi
+
+ℓ
+
+t=0
+
+L
+Ewj−r−2k,s
+=
+
+⌋
+⌊ s−1
+2
+
+X
+t=0
+
+2πi
+ℓ
+
+S
+[k][i − k + 1]wi−2k+2,s−2t
+,
+
+2t+1
+
+q k + q −k
+L
+[j − k + 1]wj−r−2k+2,s−2t−1
+q − q −1
+
+(4.15)
+
+s
+
+−
+
+⌊2⌋ 
+2t
+X
+2πi
+
+ℓ
+
+t=0
+
+R
+F wr−j+2k,s
+=
+
+⌊ s−1
+⌋
+2
+
+X
+t=0
+
+2πi
+ℓ
+
+L
+[j − k + 1][k]wj−r−2k+2,s−2t
+,
+
+2t+1
+
+q j−k+1 + q −j+k−1
+R
+[k]wr−j+2k+2,s−2t−1
+q − q −1
+
+(4.16)
+
+2
+
+−
+
+⌊2⌋ 
+2t
+X
+2πi
+t=0
+
+ℓ
+
+R
+[j − k + 1][k]wr−j−2k+2,s−2t
+.
+
+Proof. We first prove that Equations (4.7)-(4.10) hold. It follows immediately from Equation
+(4.6) that
+X
+X
+X
+wt,s−1
+= (H − t)m−s+1 wt,m
+= (H − t)wt,s
+X
+X
+X
+so Hwt,s
+= wt,s−1
++ twt,s
+, as desired. By definition, we have
+T
+(H − t)m+1 wt,m
+= 0,
+
+and
+
+T
+(H − t)m wt,m
+6= 0,
+
+T
+T
+so (H − t)s+1 wt,s
+= (H − t)s+1 (H − t)m−s wt,m
+= 0 and Equation (4.7) holds. Recall that
+H
+K = q as operations on V so
+k
+∞ 
+X
+2πi
+H
+t+H−t
+t H−t
+t
+K=q =q
+=qq
+=q
+(H − t)k
+ℓ
+k=0
+
+18
+
+as an operator on V . In particular,
+X
+Kwt,s
+= qt
+
+k
+s 
+X
+2πi
+ℓ
+
+k=0
+
+k
+
+(H − t) wt,s = q
+
+t
+
+k
+s 
+X
+2πi
+k=0
+
+ℓ
+
+wt,s−k
+
+where we have used Equation (4.6) in the last equality, proving that Equation (4.8) holds.
+Observe now that the following relations hold by Equation (3.1):
+X
+X
+X
+Ewt,s
+= E(H − t)m−s wt,m
+= (H − (t + 2))m−s Ewt,m
+,
+
+(4.17)
+
+X
+X
+X
+F wt,s
+= F (H − t)m−s wt,m
+= (H − (t − 2))m−s F wt,m
+.
+
+(4.18)
+
+Hence, for any k ∈ {0, ..., j} we have
+R
+R
+Ewr−j+2k,s
+= (H − (r − j + 2k + 2))m−s Ewr−j+2k,m
+R
+R
+= (H − (r − j + 2(k + 1)))m−s wr−j+2(k+1),m
+= wr−j+2k+2,s
+R
+R
+X
+where we have used Equations (4.3) and (4.5) so Ewt,s
+= wt+2,s
+. The proof that F wt,s
+=
+X
+wt−2,s for X ∈ {T, S, L} is similar, so Equation (4.9) holds. We now show that Equation
+(4.10) holds. Notice first that by Equations (4.3), (4.18), and (4.17), we have
+T
+T
+F w−i,s
+= (H + i + 2)m−s F w−i,m
+
+T
+T
+Ewi,s
+= (H − i − 2)m−s Ewi,m
+
+T
+= (H + i + 2)m−s F i+1 wi,m
+
+R
+= (H − i − 2)m−s wr−j,m
+
+L
+= (H − (j − r))m−s wj−r,m
+
+R
+= (H − (r − j))m−s wr−j,m
+
+L
+= wj−r,s
+
+R
+= wr−j,s
+
+S
+R
+= wi,s
+also follows by Equation (4.3) and (4.18) by an identical arguThe relation F wr−j,s
+ment. Finally, by Equations (4.17) and (4.18) we have
+T
+T
+(EF )2 wi,s
+= (H − t)m−s (EF )2 wt,m
+=0
+
+so Equation (4.10) holds. Consider now the relation
+k
+
+k
+
+EF = F E +
+
+k−1
+X
+
+F k−1−t
+
+t=0
+
+K − K −1 t
+F
+q − q −1
+
+(4.19)
+
+which can be easily shown by induction, and observe that
+(K − K
+
+−1
+
+X
+)wt,s
+= qt
+
+k
+s 
+X
+2πi
+k=0
+
+=
+
+s 
+X
+2πi
+k=0
+
+ℓ
+
+ℓ
+k
+
+X
+wt,s−k
+− q −t
+
+k
+s 
+X
+−2πi
+k=0
+
+X
+(q t − (−1)k q −t )wt,s−k
+.
+
+19
+
+ℓ
+
+wt,s−k
+
+Applying these two equations gives us the following for X = T, S, L:
+k−1
+X
+
+K − K −1 u X
+F wi,s
+−1
+q
+−
+q
+u=0
+m i−2u
+s 
+k−1
+X
+X
+(q
+− (−1)m q −i+2u ) u X
+2πi
+k
+X
+k−1−u
+F wi,s−t
+= F Ewi,s +
+F
+ℓ
+q − q −1
+t=0
+u=0
+m X
+k−1
+s 
+X
+(q i−2u − (−1)m q −i+2u ) k−1 X
+2πi
+k
+X
+F wi,s−t (4.20)
+= F Ewi,s +
+ℓ
+q − q −1
+u=0
+t=0
+
+X
+X
+X
+Ewi−2k,s
+= EF k wi,s
+= F k Ewi,s
++
+
+=F
+
+k
+
+X
+Ewi,s
++
+
+F k−1−u
+
+⌊ s−1
+⌋
+2
+
+X
+
+2πi
+ℓ
+
+X
+
+2πi
+ℓ
+
+t=0
+
++
+
+⌊ s2 ⌋ 
+
+t=0
+
+2t+1
+
+2t
+
+q i−k+1 + q −i+k−1
+X
+[k]F k−1wi,s−2t−1
+q − q −1
+
+X
+[k][i − k + 1]F k−1wi,s−2t
+.
+
+Here we have broken our sum over t into odd and even values and applied the easily verified
+identities
+k−1 i−2u
+k−1 i−2u
+X
+X
+q
++ q −i+2u
+q i−k+1 + q −i+k−1
+q
+− q −i+2u
+=
+[k]
+and
+= [k][i − k + 1].
+−1
+−1
+−1
+q
+−
+q
+q
+−
+q
+q
+−
+q
+u=0
+u=0
+
+T
+R
+S
+Taking X = T and recalling that F k Ewi,s
+= F k wr−j,s
+= wi−2k+2,s
+gives us Equation (4.13).
+Notice that we can also choose k = i+1 in the above computation to obtain Equation (4.11):
+
+L
+T
+S
+Ewj−r,s
+= EF i+1 wi,s
+= w−i,s
++
+
+⌋
+⌊ s−1
+2
+
+X
+t=0
+
+Further, X = S in Equation (4.20) provides
+S
+S
+Ewi−2k,s
+= F k Ewi,s
++
+
+⌋
+⌊ s−1
+2
+
+X
+
+2πi
+ℓ
+
+X
+
+2πi
+ℓ
+
+t=0
+
++
+
+⌊ 2s ⌋ 
+
+t=0
+
+2t+1
+
+2t
+
+2πi
+ℓ
+
+2t+1
+
+2[i + 1] T
+w
+.
+q − q −1 −i,s−2t−1
+
+q i−k+1 + q −i+k−1
+S
+[k]wi−2k+2,s−2t−1
+−1
+q−q
+
+S
+[k][i − k + 1]wi−2k+2,s−2t
+.
+
+T
+T
+where F
+= F EF Ewi,s
+= 0 as (F E)2 wi,s
+= 0 so Equation (4.14) holds. To prove
+S
+S
+= 0 starting with F r−2 wi,s
+= 0 for all s = 0, ..., m.
+Equation (4.15), we first show that F w−i,s
+k
+
+S
+Ewi,S
+
+k
+
+Indeed, we have
+K − K −1 R
+R
+R
+R
+F w−j+r+2,s
+= F Ew−j+r,s
+= EF w−j+r,s
+−
+w
+q − q −1 −j+r,s
+k −j+r
+s 
+X
+2πi
+(q
+− (−1)k q r−j ) R
+S
+= Ewi,s −
+w−j+r,s−k .
+−1
+ℓ
+q
+−
+q
+k=0
+20
+
+S
+T
+Recall that (F E)wi,s
+= (F E)2 wi,s
+= 0 so acting on both sides by F r−1 gives
+k −j+r
+s 
+X
+2πi
+(q
+− (−1)k q r−j ) r−2 S
+r R
+0 = −F w−j+r+2,s =
+F wi,s−k .
+ℓ
+q − q −1
+k=0
+S
+If the terms F r−2 wi,s−k
+, k = 0, ..., s are non-zero, they lie in different generalized weight spaces
+S
+so they are linearly independent, contradicting the above equation. Hence, F r−2 wi,s
+= 0 for
+all s = 0, ..., m which will form the base step of an induction argument. Suppose now that
+S
+S
+F k wi,s
+= 0 for r − 2 ≤ k ≤ i + 2 and in particular, EF k wi,s
+= 0 for all s = 0, ..., m. We
+S
+}st=0
+can now use Equation (4.20) to show that a particular linear combination of {F k−1wi,s−t
+with non-zero coefficients vanishes. If these terms are non-zero they are linearly independent
+S
+as they lie in different generalized weight spaces which gives a contradiction, so F k−1wi,s
+=0
+S
+i+1 S
+for all s = 0, ..., m . Hence, the induction step holds and F w−i,s = F wi,s = 0. Equation
+(4.15) now follows from a routine application of Equation (4.20). It is not difficult to see
+L
+from Equations (4.11), (4.14), and (4.15) that E r−1 F r−1 w−j−r,s
+is given by
+
+E
+
+r−1
+
+F
+
+r−1
+
+L
+S
+w−j−r,s
+= (−1)j [j]!2 [i]!2 wi,s
++
+
+s
+X
+
+S
+λt wi,s−t
+
+t=1
+
+S
+S
+for some scalars λ1 , ..., λs so we will have Ewi,s
+= 0 if Ewi,k
+= 0 for all 0 ≤ k < s. We therefore
+S
+S
+only need to prove the base case Ewi,0 = 0 and we will have Ewi,s
+= 0 for s = 0, ..., m by
+T
+induction. Notice however that wi,0 is a dominant weight vector of weight i, so the submodule
+it generates satisfies the relations given in [CGP, Proposition 6.2]. In particular, we have
+S
+Ewi,0
+= 0, as desired. We will neglect the proof of Equation (4.16) as it is similar to the
+proof for Equation (4.15). One simply obtains an equation analogous to Equation (4.20)
+derived from the relation
+k
+
+k
+
+FE = E F −
+
+k−1
+X
+
+E k−1−t
+
+t=0
+
+K − K −1 t
+E
+q − q −1
+
+S
+and uses Ewi,s
+= 0 which was just shown. The only equation which remains to prove is
+S
+S
+Equation (4.12) of which we have already shown Ewi,s
+= F w−i,s
+= 0. The argument for
+R
+S
+L
+r T
+Ewj+r,s = 0 is similar to that for F w−i,s = 0 and F w−j−r,s = F wi,s = 0.
+
+It only remains to show that
+T
+wi−2k,s
+,
+
+S
+wi−2k,s
+,
+
+L
+wj−r−2k
+′ ,s ,
+
+R
+wr−j+2k
+′ ,s
+
+with k ∈ {0, ..., i}, k ′ ∈ {0, ..., j}, and s ∈ {0, 1, ..., m} form a basis of the submodule
+generated by V . It is clear from Equations (4.3) - (4.16) that the submodule is spanned by
+the vectors so we need only establish their linear independence. Suppose
+X
+X
+X
+X
+S
+T
+T
+R
+L
+cSk,s wi−2k,s
+= 0.
+c
+w
++
+cR
+w
++
+cLk,s wj−r−2k,s
++
+k,s i−2k,s
+k,s r−j+2k,s
+k∈{0,...,j}
+
+k∈{0,...,j}
+
+k∈{0,...,i}
+
+k∈{0,...,i}
+
+s∈{0,...,m}
+
+s∈{0,...,m}
+
+s∈{0,...,m}
+
+s∈{0,...,m}
+
+21
+
+It can be seen by a standard argument that cLk,s = cSk,s = 0 for all k, s since they have distinct
+weights, so we can isolate the coeffecients through a suitable action of H. Consider now the
+remaining terms and act on both sides by F i+1 :
+X
+X
+X
+T
+S
+L
+0=
+cTk,s F i+1 wi−2k,s
++
+cSk,s F i+1 wi−2k,s
+=
+cTk,s wj−r−2k,s
+k∈{0,...,i}
+
+k∈{0,...,i}
+
+k∈{0,...,i}
+
+s∈{0,...,m}
+
+s∈{0,...,m}
+
+s∈{0,...,m}
+
+S
+T
+L
+where we have used the fact that F i+1 wi−2k,s
+= 0 and F i+1 wi−2k,s
+= wj−r−2k,s
+for all k, s.
+T
+We can again use a suitable action of H to obtain ck,s = 0 for all k, s and we obtain
+
+X
+
+S
+cSk,s wi−2k,s
+=0
+
+k∈{0,...,i}
+
+s∈{0,...,m}
+
+so cSk,s = 0 follows by the same argument.
+T
+We will denote by Pim the module generated by a single dominant vector v = wi,m
+of
+generalized weight i ∈ {0, 1, ...., r − 2} and degree m. By Proposition 4.1, this module is
+indecomposable with dimension 2(m + 1)r and has a vector space basis given by
+T
+wi−2k,s
+,
+
+S
+wi−2k,s
+,
+
+L
+wj−r−2k
+′ ,s ,
+
+R
+wr−j+2k
+′ ,s
+
+with k ∈ {0, ..., i}, k ′ ∈ {0, ..., j}, and s ∈ {0, 1, ..., m}, subject to Equations (4.3) - (4.16).
+Verifying that Equations (4.1) & (4.2) are satisfied is an easy but tedious computation. It was
+shown in [CGP, Proposition 6.2] that Pi0 is projective. Their proof relied on the semisimple
+action of K and H, so we will instead use Proposition 3.19 to generalize this statement.
+Theorem 4.2. The module Pim ⊗ CHkℓ is the projective cover of Li ⊗ CHkℓ in Cm .
+2
+
+2
+
+Proof. We begin by showing that Pim is projective. First, observe from Equation (4.12) that
+R
+the vector wj+r,m
+is highest weight with weight j + r and degree m. Therefore, there exists
+m
+R
+R
+R
+a surjection ϕ : Mj+r
+։ hwj+r,m
+i onto the submodule hwj+r,m
+i of Pim generated by wj+r,m
+.
+It follows from Proposition 4.1 that this submodule has a basis given by
+S
+wi−2k,s
+,
+
+R
+wr−j+2k
+′ ,s
+
+m
+R
+with k ∈ {0, ..., i}, k ′ ∈ {0, ..., j}, and s ∈ {0, 1, ..., m}. Hence, dim Mj+r
+= dimhwj+r,m
+i=
+m
+R
+(m + 1)r so ϕ is in fact an isomorphism. Now Pi /hwj+r,mi is a highest weight module
+T
+generated by the image of wi,m
+and it is clear again from Proposition 4.1 that this module
+has a basis given by the images of
+T
+wi−2k,s
+,
+
+L
+wj−r−2k
+′ ,s
+
+22
+
+R
+R
+so dim Pim /hwj+r,m
+i = dim Mim = (m + 1)r. That is, Pim /hwj+r,m
+i∼
+= Mim so Pim admits a
+degree m standard filtration of length 2.
+L
+Consider now the submodule hw−j−r,m
+i of Pim . This is a lowest weight module generated by
+L
+S
+the lowest weight vector w−k−r,m
+of degree m and contains the highest weight vector wi,m
+of
+Lˇ
+weight i and degree m. We claim now that the dual hw−j−r,mi is a highest weight module.
+Indeed, this module has vector space basis given by the dual basis {δi−2k,s , δj−r−2k′,s }, where
+k ∈ {0, ..., i}, k ′ ∈ {0, ..., j} and s ∈ {0, ..., m}. Here we are using the notation δi−2k,s :=
+H
+S
+L
+(wi−2k,s
+)∗ for k ∈ {0, ..., i} and δj−r−2k,s := (wj−r−2k,s
+)∗ for k ∈ {0, ..., j}. The U q (g)-action
+satisfies (recall Definition 3.6):
+
+(H · δt,s )(x) = δt,s (H · x),
+(E · δt,s )(x) = δt,s (−KF · x),
+
+(K · δt,s )(x) = δt,s (K · x),
+(F · δt,s )(x) = δt,s (−EK −1 · x).
+
+It follows easily from these relations that
+E · δi,s = 0,
+
+(H − t) · δt,s = δt,s+1 ,
+
+F · δt,s = δt−2,s
+
+In particular, δi,0 is a generalized highest weight vector with weight i and degree m. Further,
+L
+L
+it follows from the structure of hw−j−r,m
+i that for all basis vectors wt,s ∈ hw−j−r,m
+i, there
+H
+
+H
+
+S
+. Let X ′ ∈ U q (g) be such that X = S(ω(X ′)).
+exists some X ∈ U q (g) such that Xwt,s = wi,0
+Then,
+(X ′ · δi,0 )(x) = δi,0 (X · x)
+i so it is a generalized highest weight
+so (X ′ · δ ) = δ . That is, δ generates hwL ˇ
+i,0
+
+t,s
+
+i,0
+
+j−r−2k,m
+
+module with highest weight i and degree m. We therefore have
+hwL ˇ i ∼
+= Mm
+−j−r,m
+
+i
+
+L
+as they have the same dimension, so hwj−r−2k,m
+i ∼
+= M̌im . One can similarly show that
+m
+L
+, that is, Pim admits a degree m costandard filtration so it is in fact
+Pim /hw−j−r,m
+i∼
+= M̌j+r
+a tilting module in Cm and therefore projective by Proposition 3.19. It is easy to see that
+Li is the unique simple quotient of Pi so Li ⊗ C kℓ is the unique simple quotient of Pi ⊗ C kℓ
+2
+2
+as C kℓ is invertible and tensoring by an invertible object gives an exact functor. Therefore,
+2
+Pim ⊗ C kℓ is the projective cover of Li ⊗ C kℓ in Cm by [Kr, Lemma 3.6].
+2
+
+2
+
+References
+[ACKR] J. Auger, T. Creutzig, S. Kanade, and M. Rupert, Braided Tensor Categories
+Related to Bp Vertex Algebras, Commun. Math. Phys. 378, 219–260 (2020).
+23
+
+[BCGP] C. Blanchet, F. Costantino, N. Geer, and B. Patureau-Mirand, Non SemiSimple TQFTs from Unrolled Quantum sl(2), Proceedings of the Gokova GeometryTopology Conference 2015, International Press of Boston, 2016.
+[BT]
+
+G. Bellamy and U. Thiel, Highest weight theory for finite-dimensional graded algebras with triangular decomposition, Advances in Mathematics, Volume 330, 25
+May 2018, Pages 361-419
+
+[CGP]
+
+F. Costantino, N. Geer, and B. Patureau-Mirand, Some remarks on the unrolled
+quantum group of sl(2), Journal of Pure and Applied Algebra, Volume 219, Issue
+8, August 2015, Pages 3238-3262
+
+[CGP2] F. Costantino, N. Geer, B. Patureau-Mirand, Quantum invariants of 3-manifolds
+via link surgery presentations and non-semi-simple categories, Journal of Topology,
+Volume 7, Issue 4, December 2014, Pages 10051053.
+[CGR]
+
+T. Creutzig, A. Gainutdinov, and I. Runkel, A quasi-Hopf algebra for the triplet
+vertex operator algebra, Communications in Contemporary Mathematics 1950024,
+2019.
+
+[CLR]
+
+T. Creutzig, S. Lentner, and M. Rupert, Characterizing Braided Tensor Categories
+Associated to Logarithmic Vertex Operator Algebras, [arXiv:2104.13262].
+
+[CLR2]
+
+T. Creutzig, S. Lentner, and M. Rupert, An algebraic theory for logarithmic
+Kazhdan-Lusztig correspondences, [arXiv:2104.13262].
+
+[CMR]
+
+T. Creutzig, A. Milas, and M. Rupert, Logarithmic Link invariants of U q (sl2 )
+and asymptotic dimensions of singlet vertex algebras, Journal of Pure and Applied
+Algebra, Volume 222, Issue 10, October 2018, Pages 3224-3247.
+
+[CMY]
+
+T. Creutig, R. Mcrae, and J. Yang, Ribbon Tensor Structure on the Full Representation Categories of the Singlet Vertex Algebras, Advances in Mathematics,
+Volume 413, 15 January 2023, 108828.
+
+[CRR]
+
+T. Creutzig, D. Ridout, and M. Rupert, A Kazhdan–Lusztig Correspondence for
+L− 3 (sl2 ), Commun. Math. Phys. 400, 639–682 (2023).
+
+H
+
+2
+
+[CP]
+
+V. Chari, A. Pressley, A Guide to Quantum Groups, pp. 667. ISBN 0521558840,
+Cambridge, UK: Cambridge University Press, October 1995.
+
+[D]
+
+M. De Renzi, Non-Semisimple Extended Topological Quantum Field Theories,
+Memoirs of the American Mathematical Society, Vol. 277, No. 1364, 2022
+
+[DCK]
+
+C. De Concini, V. Kac, Representations of Quantum Groups at Roots of 1, In Operator algebras, unitary representations, enveloping algebras, and invariant theory.
+(Paris, 1989), 471-506, Progr. Math., 92, Birkhauser Boston, 1990.
+24
+
+[DGP]
+
+M. De Renzi, N. Geer, B. Patureau-Mirand, Non-Semisimple Quantum Invariants
+and TQFTS from Small and Unrolled Quantum Groups, Algebraic & Geometric
+Topology 20 (2020) 3377–3422.
+
+[FGST1] B. I. Feigin, A. M. Gainutdinov, A.M. Semikhatov and I. Yu. Tipunin, Modular
+group representations and fusion in logarithmic conformal field theories and in the
+quantum group center, Commun. Math. Phys. (2006) 265: 47.
+[FGST2] B. I. Feigin, A. M. Gainutdinov, A.M. Semikhatov and I. Yu. Tipunin, KazhdanLusztig correspondence for the representation category of the triplet W-algebra in
+logarithmic CFT, Theor Math Phys 148, 1210–1235 (2006).
+[GN]
+
+T. Gannon and C. Negron, Quantum SL(2) and logarithmic vertex operator algebras at (p,1)-central charge, [arXiv:2104.12821]
+
+[GPT1] N. Geer B. Patureau-Mirand, V. Turaev, Modified quantum dimensions and renormalized link invariants, Compositio Mathematica, Volume 145, Issue 1, January
+2009 , pp. 196-212.
+[GPT2] N. Geer, B. Patureau-Mirand, V. Turaev, Modified 6j-Symbols and 3-manifold
+invariants, Advances in Mathematics Volume 228, Issue 2, (2011), 1163-1202.
+[H]
+
+J. Humphreys, Representations of Semisimple Lie Algebras in the BGG Category
+O, Graduate Studies in Mathematics, Volume: 94; 2008; 289 pp, AMS.
+
+[J]
+
+M. Jimbo, A q-difference analogue of U(g) and the Yang-Baxter equation, Lett
+Math Phys (1985) 10: 63.
+
+[Ja]
+
+J. Jantzen, Lectures on Quantum Groups, Graduate Studies in Mathematics, Volume: 6; 1996; 266 pp, AMS.
+
+[K]
+
+C. Kassel, Quantum Groups, Graduate Texts in Mathematics 155, Berlin: Springer
+Verlag, 1995.
+
+[KL1]
+
+D. Kazhdan and G. Lusztig, Tensor structures arising from affine Lie algebras I,
+Journal of the American Mathematical Society, Vol. 6, No. 4, 1993, pp. 905-947.
+
+[KL2]
+
+D. Kazhdan and G. Lusztig, Tensor structures arising from affine Lie algebras II,
+Journal of the American Mathematical Society, Vol. 6, No. 4, 1993, pp. 949-1011.
+
+[KL3]
+
+D. Kazhdan and G. Lusztig, Tensor structures arising from affine Lie algebras III,
+Journal of the American Mathematical Society, Vol. 7, No. 2, 1994, pp. 335-381.
+
+[KL4]
+
+D. Kazhdan and G. Lusztig, Tensor structures arising from affine Lie algebras IV,
+Journal of the American Mathematical Society, Vol. 7, No. 2, 1994, pp. 383-453.
+
+[Kr]
+
+H. Krause, Krull-Schmidt categories and projective covers, Expositiones Mathematicae, Volume 33, Issue 4, 2015, Pages 535-549.
+25
+
+[KS]
+
+H. Kondo, Y. Saito, Indecomposable decomposition of tensor products of modules
+over the restricted quantum universal enveloping algebra associated to sl2 , Journal
+of Algebra, Volume 330, Issue 1, 15 March 2011, Pages 103-129.
+
+[NT]
+
+K. Nagatomo and A. Tsuchiya, The triplet vertex operator algebra W(p) and the
+restricted quantum group at root of unity, Adv. Studies in Pure Math. 61 (2011),
+“Exploring new structures and natural constructions in mathematical physics”, K.
+Hasegawa et al. (eds.) [arXiv:0902.4606].
+
+[O]
+
+T. Ohtsuki - Quantum invariants. A study of knots, 3-manifolds, and their sets.
+Series on Knots and Everything, 29. World Scientific Publishing Co., Inc., River
+Edge, NJ, 2002.
+
+[R]
+
+M. Rupert, Categories of Weight Modules for Unrolled Restricted Quantum Groups
+at Roots of Unity, Izv. RAN. Ser. Mat., 2022, Volume 86, Issue 6, Pages 187–206.
+
+[ST]
+
+S. Scherotzke and M. Towers, Rank varieties for Hopf algebras, Journal of Pure
+and Applied Algebra Volume 215, Issue 5, May 2011, Pages 829-838.
+
+26
+
+

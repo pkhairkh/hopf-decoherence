@@ -1,0 +1,7672 @@
+Integrability of rank-two web models
+Augustin Lafay1,2 , Azat M. Gainutdinov3 , and Jesper Lykke Jacobsen2,4,5
+
+1
+
+arXiv:2311.14805v1 [hep-th] 24 Nov 2023
+
+2
+
+Department of Mathematics and Systems Analysis, Aalto University, Finland
+Laboratoire de Physique de l’École Normale Supérieure, ENS, Université PSL,
+CNRS, Sorbonne Université, Université de Paris, F-75005 Paris, France
+3
+Institut Denis Poisson, CNRS, Université de Tours,
+Parc de Grandmont, F-37200 Tours, France
+4
+Sorbonne Université, École Normale Supérieure, CNRS,
+Laboratoire de Physique (LPENS), F-75005 Paris, France
+5
+Université Paris Saclay, CNRS, CEA, Institut de Physique Théorique,
+F-91191 Gif-sur-Yvette, France
+Abstract
+
+We continue our work on lattice models of webs, which generalise the well-known loop models
+to allow for various kinds of bifurcations [1,2]. Here we define new web models corresponding to
+each of the rank-two spiders considered by Kuperberg [3]. These models are based on the A2 , G2
+and B2 Lie algebras, and their local vertex configurations are intertwiners of the corresponding qdeformed quantum algebras. In all three cases we define a corresponding model on the hexagonal
+lattice, and in the case of B2 also on the square lattice. For specific root-of-unity choices of q,
+we show the equivalence to a number of three- and four-state spin models on the dual lattice.
+The main result of this paper is to exhibit integrable manifolds in the parameter spaces of
+each web model. For q on the unit circle, these models are critical and we characterise the
+corresponding conformal field theories via numerical diagonalisation of the transfer matrix.
+In the A2 case we find two integrable regimes. The first one contains a dense and a dilute
+phase, for which we have analytic control via a Coulomb gas construction, while the second one
+is more elusive and likely conceals non-compact physics. Three particular points correspond to a
+three-state spin model with plaquette interactions, of which the one in the second regime appears
+to present a new universality class. In the G2 case we identify four regimes numerically. The B2
+case is too unwieldy to be studied numerically in the general case, but it found analytically to
+contain a simpler sub-model based on generators of the dilute Birman-Murakami-Wenzl algebra.
+
+Contents
+1 Introduction
+
+3
+
+2 Lattices
+
+6
+
+3 The A2 web models
+3.1 The A2 spider . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 Definition of the models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.3 Relation with Z3 spin interfaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+7
+7
+8
+9
+
+4 The G2 web models
+4.1 The G2 spider . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2 Definition of the models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.3 Relation with an S3 spin model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.4 Relation with spanning trees . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+11
+11
+12
+13
+16
+
+5 The B2 web models
+5.1 The B2 spider relations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5.2 Definition of the models on the hexagonal lattice H . . . . . . . . . . . . . . . . . . .
+5.3 Definition of the models on the square lattice S . . . . . . . . . . . . . . . . . . . . .
+5.4 Relation with S3 and D4 spin models . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5.4.1 B2 webs in H and the D4 spin model . . . . . . . . . . . . . . . . . . . . . . .
+5.4.2 B2 webs in S, a D3 and a D4 spin model . . . . . . . . . . . . . . . . . . . . .
+
+18
+18
+18
+19
+20
+20
+23
+
+6 Transfer matrices
+6.1 A reminder on the dilute loop model . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6.2 The A2 case . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6.3 The G2 case . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6.4 The B2 case . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+25
+26
+27
+30
+31
+
+7 Integrability
+7.1 A reminder on the dilute loop model . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7.2 The A2 web model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7.2.1 Central charge and phase diagram . . . . . . . . . . . . . . . . . . . . . . . .
+7.2.2 Special points . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7.3 The G2 web model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7.3.1 Central charge and phase diagram . . . . . . . . . . . . . . . . . . . . . . . .
+7.3.2 Special points . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7.4 The B2 web model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7.4.1 Integrable B2 web model on the hexagonal lattice . . . . . . . . . . . . . . .
+7.4.2 Integrable B2 web model on the square lattice . . . . . . . . . . . . . . . . .
+7.4.3 An integrable dilute BMW model . . . . . . . . . . . . . . . . . . . . . . . . .
+
+33
+34
+36
+40
+41
+43
+45
+47
+48
+51
+51
+52
+
+8 Discussion
+
+54
+
+A Some symmetries of the A2 web models
+
+56
+
+2
+
+B Data and conventions for root systems
+B.1 A2 web models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+B.1.1 A2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+(1)
+B.1.2 G2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+B.2 G2 web models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+B.2.1 G2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+(3)
+B.2.2 D4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+B.3 B2 web models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+B.3.1 B2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+(2)
+B.3.2 A4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+57
+57
+57
+57
+58
+58
+58
+58
+58
+59
+
+C Conventions for quantum groups
+
+59
+
+D Explicit matrix elements of representations
+D.1 The A2 web models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+D.1.1 U−q (A2 ) representations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+(1)
+D.1.2 Ut (G2 ) evaluation representation . . . . . . . . . . . . . . . . . . . . . . . .
+D.2 The G2 web models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+D.2.1 Uq (G2 ) representations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+(3)
+D.2.2 Uq (D4 ) evaluation representation . . . . . . . . . . . . . . . . . . . . . . . .
+D.3 The B2 web models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+D.3.1 Uq (B2 ) representations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+(2)
+D.3.2 First Ut (A4 ) evaluation representation . . . . . . . . . . . . . . . . . . . . .
+(2)
+D.3.3 Second Ut (A4 ) evaluation representation . . . . . . . . . . . . . . . . . . . .
+
+60
+60
+60
+61
+62
+62
+62
+63
+63
+64
+66
+
+1
+
+Introduction
+
+One of the most striking applications of conformal invariance in two dimension is the study of
+random geometrical objects. The specific case of random curves has been the object of much
+interest in the theoretical physics literature since the 1980s, where the so-called loop models have
+been investigated both in their lattice discretisation, notably using quantum integrability and lattice
+algebras of the Temperley-Lieb type, and in the continuum limit, via Conformal Field Theories
+(CFT); see [4–6] for reviews. Interestingly, these CFT are in general not only non-unitary, but also
+logarithmic [7], and in certain cases of physical interest they may even possess a non-compact target
+space [8, 9]. In parallel with these developments, random curves have been extensively studied in
+probability theory since the 2000s, where they have spearheaded the development of frameworks
+such as Schramm-Loewner Evolution (SLE) [10,11] and the Conformal Loop Ensemble (CLE) [12].
+More recent work on loop models aims at the rigorous construction of the field theory [13–15] and
+the computation of correlation functions [16–20].
+Notwithstanding all these interesting developments, it is known that many applications of random geometry need to go beyond the concept of curves, and focus instead on more general random
+graphs that allow for branchings and bifurcations. In two recent papers [1, 2] we have initiated
+a study of so-called web models, which are generalisations of lattice models of loops, in which
+algebraic spiders play a prominent role. These spiders have their root in the study of invariants
+for quantum deformations of the classical Lie algebras, and our first objective has been to show
+that they lead naturally to lattice models for random geometries with the required properties. The
+spiders provide a convenient geometrical or graph-like description of quantum group invariants in
+3
+
+tensor product representations, and they are known for a number of root systems, following the
+seminal work by Kuperberg [3] on the rank-two cases A2 , G2 and B2 .
+Our first paper introduced the An web models which gives rise to a lattice model on the hexagonal lattice much like the well-known Nienhuis loop model, but now allowing for bifurcations at
+nodes that are incident on three links. The web configurations are identical to domain walls in an
+n-state spin model, but they carry a non-local weight parameterised by q. At a specific parameter
+value, q = eiπ/(n+2) , the non-local weights become trivial so that the partition functions of the web
+and spin models agree. In general the web model provides a continuous, non-local deformation of
+the spin model, just like the well-known O(N ) loop model is a non-local deformation of the Ising
+model (the case n = 1).
+Our second paper focussed on the physics of the simplest member of this family, the A2 model.
+In particular, we reformulated the geometrical model as a local vertex model with complex weights.
+This was used to interpret geometrically some of its critical exponents, as well as numerically
+determining its phase diagram. In this case, the resulting geometrical structures take the form of
+a collection of mutually avoiding bipartite cubic graphs embedded in the lattice. Each graph has a
+statistical weight that is a product of local Boltzmann weights for links and nodes, and a non-local
+weight for each graph component that generalises the usual Boltzmann weight of a loop. The nonlocal weight depends on the deformation parameter q in the quantum algebra Uq (A2 ), and it can
+be unambiguously evaluated by the “reduction” relations that define the A2 spider. Meanwhile,
+the usual loop model is recovered in the rank-one A1 case.
+The purpose of the present paper is to show that an innocuous modification of the A2 web
+models makes it quantum integrable. Similarly we obtain, in fact, quantum integrability of web
+models based on all rank-two spiders. To this end, we first provide corresponding definitions of
+statistical models for the other rank-two spiders, G2 and B2 , and we reformulate them as local
+vertex models. We also modify our previous definition of the A2 web model, by assigning an extra
+weight conjugate to the angle by which a piece of web bends in-between two successive bifurcations.
+The resulting models are defined on the hexagonal lattice for all three spiders, while for the B2
+case we also define a variant model on the square lattice.
+In our first paper [1] we showed how the A2 web model possesses a special point, when q = eiπ/4 ,
+for which the partition function becomes proportional to that of a three-state chiral spin model
+on the dual (triangular) lattice. With the bending parameter included, this construction carries
+through, but the spin model now has an extra three-spin plaquette interaction. We show here that
+the two other web models also have special points, with q a root of unity, for which they are dual
+to three- or four-state spin models with various symmetries.
+To study the continuum limit of web models, either analytically or via numerical diagonalisation
+of the transfer matrix, it turns out that we need an equivalent formulation as a vertex model with
+purely local weights. In our second paper [2] we provided this construction for the (unmodified)
+A2 model, based on a representation-theoretical analysis of its underlying quantum group Uq sl(3).
+We extend here this local reformulation to the modified-by-bending-weight A2 model, as well as to
+the G2 and B2 models. In all cases the local Hilbert space of the vertex models consist of trivial
+and fundamental representations.
+The main result of this piece of work is then that the corresponding vertex models are quantum
+integrable, for any value of q, provided that the various local weights are carefully adjusted. A
+general idea behind this discovery was to find a ‘big’ affine quantum group that contains the
+quantum symmetry of our models: it corresponds in each case to a certain (possibly twisted) affine
+Dynkin diagram that reduces, after erasing one of its nodes, to the (finite) Dynkin diagram of the
+web model. This affine quantum group then generates solutions of the spectral-parameter dependent
+Yang-Baxter equation through analysis of intertwining conditions on the tensor product of its
+4
+
+evaluation representations. We found these solutions in all three cases explicitly and decomposed
+them in terms of spider diagrams. After a fine tuning, we found a complete agreement with the local
+transfer matrices from the vertex-model formulation (see Section 7 for more details). Achieving this
+connection with integrable models was in fact the principal motivation for the proposed modification
+of the A2 model by the bending weight.
+In the A2 and G2 cases, the solutions to Yang-Baxter equations already appeared in another
+context [21, 22], but the solution in the B2 case is new to the best of our knowledge. However,
+in all three cases, the geometrical interpretation was not discussed before. As usual we expect
+the continuum limit of these integrable models to be critical, and in fact conformally invariant,
+when q belongs to the unit circle. The question thus arises, what are the characteristics of the
+corresponding CFT?
+In [2] we already provided some first numerical results on the central charge of the A2 model,
+based on the scan of a two-dimensional parameter space of local weights for each choice of q. It was
+found that the model possesses both a dilute and a dense critical phase, just like the Nienhuis loop
+model (the A1 model). Based on experience with the loop model, we can hope that each of these
+universality classes can be retrieved within the integrable sub-manifold of the (modified) model,
+hence making the numerical work much easier. This turns out to be the case indeed. Varying
+q along the unit circle for the integrable model, the diagonalisation of the transfer matrices for
+cylinders of circumference up to size L = 9 leads, in fact, to the identification of two distinct
+critical regimes (see Figure 6), with distinct analytical behaviour of the central charge.
+The first of these regimes encompasses the dilute and dense critical points, confirming our
+expectations that the A2 models with and without modification belong to the same universality
+class. The numerically determined central charge in this regime is in excellent agreement with [2]
+and with an analytical Coulomb gas computation, that will be exposed in a separate publication [23].
+The ground state of the second regime exists only when L is a multiple of 3, and its central
+charge takes larger values (c ' 3) than expected for a rank-two model, with a conspicuously slow
+convergence. All of these observations hint at a larger symmetry, and possibly a non-compact
+continuum limit, like the one found for the Nienhuis loop model in regime III [8, 9]. We did not
+find this regime in [2], presumably because we only focussed on real, positive fugacities there.
+Along the integrable line, three particular points correspond to a three-state spin model. Within
+the first regime, one finds two such points, with c = 54 and c = 0, which are the expected results for
+a three-state Potts model in the dilute (critical for the spin model) and dense (infinite-temperature)
+phases, respectively. The third point is in the second regime, and has a value c ≈ 1.5 that has not
+previously been reported for a three-state Potts model, to our best knowledge.
+We present a similar numerical investigation of the G2 model along its integrable sub-manifold
+(see Figure 7), this time up to size L = 8. We identify here four different regimes for which the
+numerical results are well-behaved, leaving one or two further regimes for subsequent analytical
+investigations. In addition we find two handfuls of special points for which mappings to other
+well-understood models can be made. These include dense and dilute O(N = −1) loop models,
+three-state spin models, spanning trees and loop-erased random walks.
+Finally, for the B2 model, the dimension of the transfer matrix is too large in order for us
+to obtain exploitable results. However, by adjusting certain local Boltzmann weights, we obtain a
+reduction of the size of the Hilbert space, leading to a more amenable model. In fact, we demonstrate
+that in this case the local transfer matrices can be written in terms of the dilute Birman-MurakamiWenzl (BMW) algebra. Mathematically, the appearance of this algebra is not surprising because
+the BMW algebra is known to be Schur-Weyl dual to Uq (B2 ) in the tensor product of its natural
+representations, and here we have the diluted version of this well-known B2 type Schur-Weyl duality.
+The corresponding integrable solution is in agreement with the baxterisation of the dilute BMW
+5
+
+Figure 1: The primal square lattice (undashed) and its dual (dashed). The path C is drawn in blue
+and the set Eb of edges crossed by C is drawn in red.
+algebra [24].
+The paper is structured as follows. In section 2 we specify the lattices and boundary conditions
+needed to define the models of this paper. The next three sections (3, 4 and 5) deal with respectively
+the A2 , G2 and B2 models. In each of them we first discuss the corresponding spider, define
+the lattice model, and establish the equivalence with spin models on the dual lattice. Section
+6 provides the analysis of the quantum groups necessary to define the local vertex models and
+the corresponding transfer matrices. The integrable models are then constructed in section 7, as
+sketched above. Finally we gather some discussion and concluding remarks in section 8. A few
+technical ingredients are dispatched in four appendices.
+
+2
+
+Lattices
+
+We will consider lattice models defined on the hexagonal lattice H, the square lattice S and their
+duals, H∗ = T and S∗ respectively. To fix notations, we will say that these lattices are comprised
+of nodes and links connecting them. To be more precise, the primal lattices H and S will be finite
+subgraphs of the infinite hexagonal and square lattices respectively, embedded either in the plane
+or the infinite cylinder as defined in the following way.
+In the plane, consider a self avoiding closed path C on the dual infinite lattice, either the
+triangular lattice, or a shifted square lattice. The path C seperates the plane in two open sets, one
+of which is bounded and denoted by C̊. The primal lattice is then comprised of all nodes and links
+that are inside C̊, in particular its intersection with Eb —the set of links crossed by C—is empty. By
+dual lattices H∗ and S∗ , we mean the subgraphs of the dual infinite lattices that are inside C̊ ∪ C.
+The nodes of the dual lattices that are inside C are called boundary nodes. Informally, the dual
+lattices contain an external layer comprised of boundary nodes, surrounding the primal lattices.
+An example for the plane case is given in Figure 1.
+On the cylinder, we pick two self avoiding and mutually avoiding non contractible paths C and
+6
+
+C ′ on the dual infinite lattices, C ′ being on top of C when we orient the cylinder vertically. There
+˚ ′ between C and C ′ . The primal lattices are defined to be the subgraphs
+is a bounded open set CC
+′
+˚
+contained in CC . Denote by Eb the set of links crossed by C or C ′ . The dual lattices are defined to
+˚ ′ ∪ C ∪ C ′ . We will call boundary nodes, the nodes inside C ∪ C ′ .
+be the subgraphs contained in CC
+Note that, in this case, the boundary nodes split in two connected components, C and C ′ .
+We will consider two types of lattice models. The first of them is the well-known setting of
+spin models where we assign on each node of the dual lattices a variable, the “spin”, which takes a
+finite number of values, identified with elements of Zn for some integer n. We will always consider
+monochromatic boundary conditions, i.e. the spins at the boundary nodes of a given connected
+component of the boundary are forced to take the same value. One may equivalently imagine the
+boundary nodes to be contracted into a single node, one for each connected component of the
+boundary.
+The second type of lattice model is the web model outlined in the Introduction, for which
+we now recall a few definitions (see also [1]). Its configurations are called webs. A configuration
+can be represented abstractly as a graph with vertices and edges, or—for the purpose of defining
+the lattice model—as embedded in a lattice of nodes and links, in which case we shall call a link
+covered by the web a bond, while a link not covered is said to be empty. Given an embedded web,
+its abstract representation is obtained by deleting all the empty links, and contracting any path of
+consecutive bonds in between two vertices into a single edge. Obviously there will in general be
+many embedded webs that correspond to a given abstract one. The properties of the abstract web
+are described by the corresponding spider, an algebraic object which will be defined precisely in
+the next section. The first step in the definition of a web model is therefore to “lift” the spider to
+the lattice embedding. This must be done in a suitable way, so that the algebraic properties are
+preserved, while keeping the lattice model as simple and elegant as possible.
+We here embed the webs in the primal lattice. The Boltzmann weights of a configuration G in
+the web models will be expressed as the product of two factors. The first of these is the product
+of local weights, such as the fugacity of a bond or of a specific arrangement around a given vertex.
+The other factor, called the Kuperberg weight wK (G), is a priori non-local and depends only on G
+seen as an abstract web, regardless of its embedding.
+
+3
+
+The A2 web models
+
+We previously defined and studied the A2 web models on the hexagonal lattice in [1]. Here, we give
+a more general definition that will prove exhibiting integrable points. We begin by recalling the
+definition of the A2 spider as well as the mapping of webs to spin interfaces of the 3 states Potts
+models.
+
+3.1
+
+The A2 spider
+
+A2 webs are planar oriented graphs embedded in a simply connected domain whose connected
+components are either closed loops or graphs with trivalent vertices inside the domain or univalent
+vertices connected to the boundary of the domain. Webs that do not have univalent vertices
+connected to the boundary of the domain will be called closed webs, otherwise, we will call them
+open webs. There are two types of trivalent vertices, called sinks and sources:
+
+7
+
+A number can be assigned unambiguously to any closed A2 web from the following relations [3]:
+=
+
+[3]q
+
+(1a)
+
+=
+
+[2]q
+
+(1b)
+
+=
+
++
+
+(1c)
+
+Indeed, it is a result of [3] that any closed web is proportional to the empty one. For an A2 web
+G, we call the proportionality factor the Kuperberg weight of G and denote it by wK (G).
+The q-numbers [k]q appearing in (1) and passim are defined in Appendix C. They depend on a
+deformation parameter q ∈ C. We can consider q as parameterising a family of web models having
+the symmetry of a given spider.
+
+3.2
+
+Definition of the models
+
+Similarly as in [1], we define the A2 web models on the hexagonal lattice H. Configurations are
+given by closed A2 webs embedded in H. We will denote the configuration space by K. Let G be
+one such configuration. We assign fugacities x to bonds and fugacities y and z to vertices that
+are sinks and sources respectively. In addition to the previous local fugacities that were present in
+the original definition of [1], we give a fugacity to each node of H that is adjacent to precisely two
+bonds. The two bonds inherit orientations from the web G, so that one of them is directed into
+the common node and the other goes out of the node. An observer that follows the bonds along
+that orientation, turns through an angle π/3 (anticlockwise) or −π/3 (clockwise) at the node: we
+call this the bending at the node. To this we assign a fugacity eiφ for an anticlockwise bending, or
+e−iφ for a clockwise bending. Here, φ is a new parameter at our disposal: the work [1] corresponds
+to φ = 0.
+The product of the local fugacities and the non local weight given by the Kuperberg weight
+defines the Boltzmann weight of a configuration. The partition function then reads:
+X
+ZA2 =
+xN (yz)NV eiθ wK (c) ,
+(2)
+c∈K
+
+where N is the
+P number of bonds, and NV is the number of sink/source pairs of vertices. We have
+defined θ = i φi , where the sum is over all nodes and φi = ±φ is the bending at node i, so that
+eiθ is the total weight given by the bending of edges.
+Remark that the Boltzmann weights are invariant under discrete rotations of the lattice but not
+reflections when eiφ ∈
+/ R. It is also clear that ZA2 is invariant under the transformation φ → −φ.
+Assuming, x, y, z and φ to be real, the Boltzmann weight of a configuration is sent to its complex
+conjugate under a spatial reflection, or the reversal of all orientations within a given web. Since
+the partition function ZA2 comprises a sum over orientations, it follows that it is real. It is also
+8
+
+Figure 2: Left panel: A configuration on H of weight x35 yze6iφ [2]q [3]2q . The arrow is parallel to the
+axis of the cylinder. The left and right sides of the drawing are identified by periodic boundary
+conditions. Right panel: The same configuration drawn as a web.
+clear that ZA2 is invariant under
+q → q −1 ,
+
+(3)
+
+since this transformation keeps the q-numbers unchanged. Furthermore, we show in Appendix A
+that the Boltzmann weights are of the form xN (yz)NV eiM φ wK (c) with
+N + NV + M = 0 mod 2
+M = 0 mod 3.
+This implies the invariance of ZA2 under the following transformations
+eiφ → τ eiφ
+
+(4)
+
+x → −x
+
+(5a)
+
+where τ is a third root of unity, or
+
+y → iy
+
+(5b)
+
+eiφ → −e−iφ
+
+(5d)
+
+z → iz
+
+(5c)
+
+We finally note that the partition function is invariant under the following transformation
+q → −q
+
+y → iy
+z → iz
+
+(6a)
+(6b)
+(6c)
+
+because the factors of i can be absorbed in the Kuperberg rules (1). This will be explained in more
+detail in the next section.
+
+3.3
+
+Relation with Z3 spin interfaces
+
+In [1], we defined a mapping from the A2 web model to the 3 states Potts model on the triangular
+lattice dual to H with nearest neighbour interactions. Here, we slightly generalise this mapping to
+9
+
+account for three site plaquette interactions. Given two spins σi and σj in Z3 ≡ {0, 1, 2} at sites i
+and j respectively, the nearest neighbour interaction is given by a local Boltzmann weight x|σi −σj | .
+It follows that x1 = x2 =: x, and we set x0 = 1. Given three sites i, j, k situated in a clockwise
+manner around a plaquette, the three site plaquette interaction is given by
+1
+
+1
+
+pσi ,σj ,σk =δσi ,σj δσj ,σk + 2 4 yδσi ,σj +1 δσj ,σk +1 + 2 4 zδσi ,σj −1 δσj ,σk −1
+
++ e−iφ δσi ,σj +1 δσj ,σk + δσj ,σk +1 δσk ,σi + δσk ,σi +1 δσi ,σj
+
++ eiφ δσi ,σj −1 δσj ,σk + δσj ,σk −1 δσk ,σi + δσk ,σi −1 δσi ,σj .
+
+(7)
+
+Notice that the plaquette interactions reduce the S3 symmetry to Z3 ; in our previous work [1, 2]
+we did not include plaquette interactions, so in that case the symmetry was actually S3 . In the
+present model, φ, y and z are adjustable parameters. Setting φ = 0 and y = z = 2−1/4 the plaquette
+interaction becomes the identity operator and we recover the previous model [1, 2].
+The partition function then reads
+
+
+
+X Y
+Y
+ x|σ −σ |  
+ZZ3 =
+pσi ,σj ,σk 
+(8)
+i
+j
+σ
+
+hijki
+
+hiji
+
+where hiji denotes nearest neighbours pairs of sites and hijki denotes plaquettes of three sites.
+We have used the subscript Z3 to emphasise that the interaction (7) is invariant under cyclic
+permutations of the colours. The integrable solutions for the A2 web models that will be described
+in Section 7.2 contain points that can be mapped to Z3 spin models only for a non-trivial plaquette
+interaction.
+We now reformulate the partition function in terms of its domain walls. For two neighbouring
+spins σi and σj , if |σi − σj | = 1, we draw a bond on the link of H separating the two spins and we
+orient the bond such that the when going from the node i to the node j, the spin value increases
+(respectively decreases by) 1 when traversing a right-pointing (respectively left-pointing) bond. If
+|σi − σj | = 0 we let the link empty. We obtain this way a closed simple A2 web G embedded in
+H. The mapping is many to one and onto. The number of spin configurations having G as their
+domain wall is exactly 3 corresponding to the choice for the spin of an arbitrary face. We thus have
+that
+X
+√
+(9)
+ZZ3 = 3
+xN ( 2yz)NV eiθ
+G∈K
+
+π
+
+Set q = ei 4 . In order to relate ZZ3 to ZA2 , we follow the idea of [1]. Remark that the product
+of the vertex fugacities and the Kuperberg weight do not depend on the embedding of the web into
+H. Given a closed simple web G, rewriting the product of vertex fugacities as
+
+
+√
+1 NV
+(yz)NV = ( 2yz)NV √
+2
+ NV
+wK (G), the topological weight of the web, wtop (G). Similarly as
+we call the product √12
+in [1] for the A2 case, it can be computed thanks to modifications of the relations (1) in order to
+incorporate the vertex fugacity in the reduction process. This can be seen as a rescaling of the
+vertices of webs:
+1
+
+1
+
+7→ 2− 4
+
+7→ 2− 4
+10
+
+(10)
+
+The rules computing the topological weight are then
+=
+
+1
+
+(11a)
+
+=
+
+=
+
+(11b)
+
+1
+2
+
++
+
+1
+2
+
+(11c)
+
+The stochastic nature of these rules, i.e., the fact that the sum of prefactors appearing on each side
+of any of a given rule is the same implies that [1]
+wtop (G) = 1
+We conclude that
+ZZ3 = 3ZA2
+
+(12)
+
+where the spin interfaces are mapped to A2 webs.
+
+The G2 web models
+
+4
+
+We now turn to web models based on the G2 spider. In contrast to the A2 case there are no orientations involved, and hence no bending. This will also lead to some other physical consequences,
+as we shall soon see.
+
+4.1
+
+The G2 spider
+
+G2 webs are planar graphs embedded in a simply connected domain whose connected components
+are either closed loops or graphs with trivalent vertices inside the domain or univalent vertices
+connected to the boundary of the domain. Webs that do not have univalent vertices connected to
+the boundary of the domain will be called closed webs, otherwise, we will call them open webs.
+Edges come in two types and are called simple and double edges, depicted respectively as
+
+There are two types of trivalent vertices:
+
+We will call the first vertex, vertex of type 1 and the second, vertex of type 2.
+The free vector space spanned by closed G2 webs will be denoted by FSp(G2 ). We then denote
+by Sp(G2 ), the quotient of FSp(G2 ) by the following local relations1 [3]:
+=
+1
+
+q 10 + q 8 + q 2 + 1 + q −2 + q −8 + q −10
+1
+
+Note that our conventions differ from [3] by q ↔ q 2 .
+
+11
+
+(13a)
+
+=
+
+0
+
+(13b)
+
+=
+
+− (q 6 + q 4 + q 2 + q −2 + q −4 + q −6 )
+
+(13c)
+
+=
+
+(q 4 + 1 + q −4 )
+
+(13d)
+
+=
+
+=
+
+2
+
+− (q + q
+
+
+=
+
+)
+
+
+
+
+
++
+
++
+
++
+
+−
+
++
+
+
+
+=
+
+−2
+
+2
+
++ (q + 1 + q
+
++
+
++
+
++
+
+−2
+
+)
+
+
++
+
++
+
++
+
+
+
++
+
+(13e)
+
+
+
+
+
+
+(13f)
+
+q 18 + q 12 + q 10 + q 8 + q 6 + q 2 + 2 + q −2 + q −6 + q −8 + q −10 + q −12 + q −18
+(13g)
+−
+
+−
+
+1
+q 4 − 1 + q −4
+
++
+
+1
+q 2 + 1 + q −2
+
+(13h)
+
+A number can be assigned unambiguously to any closed G2 web thanks to these relations. Indeed,
+it is a result of [3] that any closed web is proportional to the empty one. For a G2 web G, we call the
+proportionality factor the Kuperberg weight of G and denote it by wK (G). Moreover, it is a result
+of [25] that relations (13a)-(13f) are sufficient to reduce unambiguously a closed G2 web made of
+simple edges only to the empty one. We call such a web a simple G2 web. An easy argument to see
+why any simple web can be reduced is the following. If a web contains a loop or a face surrounded
+by n ≤ 5 edges, then it can be reduced in terms of smaller webs. If this always happens, the result
+follows by induction. Suppose it is not the case for a given web. Denote by F , E and V the number
+of faces, edges and vertices of a this web. By the hand-shake lemma and Euler relation, we have
+that 2E = 3V and F − E + V = 2. Thus F − 21 V = 2. The assumption that all faces are of degree
+at least six means that 6F ≤ 2E, using the hand-shake lemma on the dual graph, so inserting we
+get 12 + 3V ≤ 2E = 3V , a contradiction.
+We denote by FSp′ (G2 ), the free vector space generated by closed simple webs. The quotient
+of this space by relations (13a)-(13f) will be called Sp′ (G2 ).
+
+4.2
+
+Definition of the models
+
+We now define the G2 web models on the hexagonal lattice H. Configurations are given by closed
+simple G2 webs embedded in H. We will denote the configuration space by K. We assign fugacities
+x to bonds and fugacities y to vertices. The product of the local fugacities and the non local weight
+given by the Kuperberg weight defines the Boltzmann weight of a configuration. The partition
+function then reads:
+X
+ZG2 =
+xN y M wK (G)
+(14)
+G∈K
+
+12
+
+Figure 3: Left panel: A configuration on H of weight −x35 y 2 (q 6 + q 4 + q 2 + q −2 + q −4 + q −6 )(q 10 +
+q 8 + q 2 + 1 + q −2 + q −8 + q −10 )2 . Right panel: The same configuration drawn as a web.
+where N is the number of bonds and M is the number of of vertices appearing in a given configuration. Remark that a trivalent graph has an even number of vertices, thus the partition function
+is independent of the sign of y.
+One could also define a G2 web model using both simple and double edge webs and two types
+of vertices. In this paper, we chose to focus on the simple case only.
+
+4.3
+
+Relation with an S3 spin model
+
+We can formulate an S3 spin model defined on T in terms of its domain walls2 . Consider spins
+{σi , i ∈ T} taking values in Z3 = {0, 1, 2}. We define nearest neighbours interactions x|σi −σj | for
+a pair hiji of neighbourings nodes. Here |σi − σj | is to be understood modulo 3 and we normalise
+interactions such that x0 = 1. Hence, this interaction depends only on one parameter x1 that we
+rename x in the following. We also define a 3-site interaction for each plaquette hijki as
+√
+(15)
+pσi ,σj ,σk =δσi =σj =σk + 2yδσi 6=σj 6=σk 6=σi + δσi 6=σj =σk + δσj 6=σk =σi + δσk 6=σi =σj .
+Notice that this interaction is now invariant under any permutation of the three colours, so the
+corresponding model has an S3 colour symmetry. The partition function of the model reads
+
+
+
+X Y
+Y
+ x|σ −σ |  
+ZS3 =
+pσi ,σj ,σk  .
+(16)
+i
+j
+σ
+
+hiji
+
+hijki
+
+We now reformulate the partition functions in terms of its domain walls. For two neighbouring
+spins σi and σj , if |σi − σj | = 1, we draw a simple bond on the link of H separating the two spins
+whereas if |σi − σj | = 0 we let the link empty. We obtain in this way a closed simple G2 web G
+embedded in H. The mapping is many to one and onto. The number of spin configurations having
+G as their domain wall is given by the number of proper 3-colourings of the dual graph Ĝ. Denoting
+the chromatic polynomial with Q colours of Ĝ by χĜ (Q), we have that
+X
+√
+(17)
+ZS 3 =
+xN ( 2y)M χĜ (3) ,
+G∈K
+
+where N denotes the number of bonds, while M is the number of vertices of G. As an example,
+figure 3 corresponds to χĜ (Q) = Q(Q − 1)2 (Q − 2).
+2
+
+Remark that this model is in general different than the one defined in Section 3.3.
+
+13
+
+We will now show that ZS3 is equal to the partition function of the G2 web model, up to an
+overall multiplicative constant, when
+π
+
+q =ei 6
+
+5π
+
+q = ei 6 .
+
+or
+
+(18)
+
+Remark that the product of the vertex fugacities and the Kuperberg weight do not depend on
+the embedding of the web into H. Given a closed simple web G, rewriting the product of vertex
+fugacities as
+y
+
+M
+
+√
+= ( 2y)M
+
+
+
+1
+√
+2
+
+M
+
+,
+
+ M
+we call the product √12
+wK (G), the topological weight of the web, wtop (G). Similarly as in the
+A2 case, it can be computed thanks to modifications of the relations (13) in order to incorporate
+the vertex fugacity in the reduction process. This can be seen as a rescaling of the vertices of webs:
+1
+7→ √
+2
+
+(19)
+
+The relations to compute the topological weight of a simple web at either of the points (18) are
+thus
+=
+
+2
+
+(20a)
+
+=
+
+0
+
+(20b)
+
+=
+=
+2
+
+4
+
+=
+
+=
+
+(20c)
+0
+−
+
+(20d)
+
+
+
+
+
++
+
++ 2
+
++
+
+−
+
++
+
+
+
++
+
+
+
+
+
++
+
++
+
++
+
++
+
++
+
+(20e)
+
++
+
++
+
+
+
+
+
+
+
+(20f)
+
+We will now show that, for any closed simple web G, χĜ (3) = 3wtop (G). We begin by sketching
+a simple intuitive argument and below present a more formal variant using the chromatic algebra.
+We want to show that relations (20) hold true for domain walls in a 3-colouring problem. To
+this end we assign colours to the external faces of each relation and check the agreement between
+weights on the left- and right-hand sides of each relation. Consider, as an example, relation (20e).
+Encircling the whole diagram we encounter four domain walls, so the colours on one or both pairs of
+opposite external faces have to coincide. In the first case, there is no available colour for the central
+face on the left-hand side, so this side vanishes. On the right-hand side, one of the diagrams in
+14
+
+Figure 4: A spin configuration, with the colours {red, blue, green} representing the spin values
+Z3 := {0, 1, 2}.
+the first parenthesis equals 1 and is compensated by one of the diagrams in the second parenthesis,
+while the other two diagrams vanish. In the second case, the left-hand side equals 2, while one the
+right-hand side both diagrams in the first parenthesis vanish, while each of the diagrams in the
+second parenthesis equals 1. The other relations are derived similarly.
+Now, we move to the more formal argument using the chromatic algebra [26]. It will be sufficient
+to consider the chromatic algebra of degree 0, denoted C0 , which is defined as follows. Consider
+the free vector space F0 , spanned by planar graphs possibly containing closed loops, embedded in
+some simply connected domain. No edges are adjacent to the boundary of the domain, which is
+the meaning of “degree 0”. C0 is defined to be the quotient of F0 by the following local relations:
+(1) If e is an edge of a graph G which is not a loop, then G = G/e − G \ e, where G/e denotes
+the graph obtained from G by the contraction of e.
+(2) If G contains a loop-edge e (i.e., an edge that connects a vertex to itself3 ), then G = (Q −
+1)G \ e.
+(3) If G contains a 1-valent vertex then G = 0.
+Contrarily to webs, we do not consider graphs containing loops without vertices in C0 . The chromatic algebra C0 depends on a parameter Q which has to be thought as a number of colours. Indeed,
+it was shown in [26] (Proposition 3.4) that a graph G in C0 is proportional to the empty graph:
+G = Q−1 χĜ (Q)∅
+
+(21)
+
+For completeness, we recall here the elements of the proof of Proposition 3.4 of [26]. Let e be
+d = Ĝ \ ê
+an edge of G. Consider ê, the edge crossing e in the dual graph Ĝ. Then, one has G/e
+[
+and G
+\ e = Ĝ/ê. Relation (1) is then translated to Ĝ = Ĝ \ ê − Ĝ/ê for the dual graph. This the
+deletion-contraction relation for the chromatic polynomial—a special case of a similar relation for
+the Q-state Potts model. Relation (3) follows as a 1-valent vertex in G corresponds to a loop in
+Ĝ and there are no proper Q-colourings of a graph containing loops. Finally, relation (2) follows
+because a loop whose interior trivially intersects G corresponds to a 1-valent vertex v in Ĝ and the
+number of Q-colourings of Ĝ is Q − 1 times the number of Q-colourings of Ĝ \ {v}. For a loop
+3
+The standard name for “loop-edge” in graph theory is simply loop, but we already use “loop” for what graph
+theorists would call a cycle.
+
+15
+
+whose interior does not intersect G trivially, one can use relation (1) and (3) to reduce the interior
+of the loop to obtain a collection of nested loops. The interior of innermost of these loops then
+intersect G trivially. The overall factor of Q−1 in (21) corresponds to the fact that the dual graph
+of a mere vertex, which has Q ways to be coloured, is the empty graph.
+Let us define a map g that sends a web in FSp′ (G2 ) to the chromatic algebra of degree 0, C0 .
+This map simply identifies any web with its graph in C0 , possibly adding a vertex to a loop if it is
+one of the components of a web. It is then extended by linearity. We will now show that this map
+factors through the quotient defined by relations (20a)-(20f), i.e. all these relations are satisfied
+in C0 . The first 3 relations follow straightforwardly from the relations of C0 . The fourth one is
+satisfied as there is clearly no 3 colouring of the dual graph of a graph containing the subgraph of
+the left hand side. The fifth one follows from repeated application of the relations of C0 . To show
+that the last one is satisfied, we first remark that the left hand side is zero in C0 as there is no 3
+colouring of the dual graph of a graph containing the left hand side as a subgraph. On the other
+hand, by repeated application of the relations of C0 , one has that
+
+
+=
+
+
++
+
+−2
+
+
++ cycl. perm. 
+
+(22)
+
+where by cycl(ic) perm(utations) we mean the 4 graphs obtained by discrete rotations, as in (20f).
+This linear combination is thus zero in C0 . Applying the relations to the right hand side of (20f),
+we obtain
+
+
+10
+
+−5
+
+
+
+
+
++ cycl. perm. 
+
+(23)
+
+which is then vanishing as well in C0 . Hence (20f) holds in C0 .
+We have thus shown that g defines a well defined linear map g̃ from Sp′ (G2 ) to C0 . We have
+then
+g̃(G) = wtop (G) ∅
+
+= 3−1 χĜ (3) ∅
+
+(24)
+(25)
+
+leading to χĜ (3) = 3wtop (G) as claimed.
+We thus conclude that:
+ZS3 = 3ZG2
+
+(26)
+
+where domain walls of spin configurations are mapped to webs.
+
+4.4
+
+Relation with spanning trees
+
+In the previous subsection, we define a S3 symmetric spin model on the triangular lattice with
+nearest-neighbour and plaquette interactions. Let us focus for a moment on the SQ symmetric spin
+model, or Q-state Potts models, with nearest-neighbour interactions only. The partition function
+reads
+XY
+ZPotts =
+(x + (1 − x)δσi σj )
+(27)
+σ hiji
+
+16
+
+where σ : T → {1, . . . , Q}. This model is known to be critical when [27]
+Q = v 3 + 3v 2
+v=x
+
+−1
+
+(28)
+
+−1
+
+We can again express the partition function in terms of the domain walls between spin clusters.
+These subgraphs of H are again understood as simple G2 webs. We thus obtain
+X
+ZPotts =
+xN χĜ (Q)
+G∈K
+
+where N denotes the number of bonds. The naive limit Q = 0 is not interesting, as χĜ (0) = 0 for
+any non-empty graph. Instead, we can focus on the polynomial
+κĜ (Q) = Q−1 χĜ (Q)
+Then the limit
+Ztree = lim Q−1 ZPotts =
+Q→0
+
+X
+
+(29)
+
+xN κĜ (0)
+
+(30)
+
+G∈K
+
+defines a model of spanning trees on T [28]. The uniform probability measure on the set of spanning
+trees is obtained at x = 1 and is critical by (28). We will now show that Ztree is a special case of
+the G2 web models for
+q = i,
+
+y = i.
+
+The proof is entirely analogous to the one for the S3 spin model. First, we incorporate the vertex
+fugacity y into the Kuperberg relations to obtain a topological weight given by the modified relations
+=
+
+−1
+
+(31a)
+
+= 0
+
+(31b)
+
+=
+
+−2
+
+(31c)
+
+=
+
+−3
+
+(31d)
+
+=
+
+=
+
+−2
+
+
+
+
+
+
+
++
+
+−
+
++
+
+−
+
++
+
+
+
+−
+
+
++
+
++
+
+
+
++
+
++
+
++
+
+(31e)
+
++
+
++
+
+
+
+
+
+
+(31f)
+
+Straightforward computations show that all the above relations hold in C0 for Q = 0. Hence
+the topological weight of G is nothing but κĜ (0) and we obtain
+Ztree = ZG2
+17
+
+(32)
+
+The B2 web models
+
+5
+
+For the last spider, the B2 one, we can define two kinds of web models and establish relations with
+two kinds of spin models.
+
+5.1
+
+The B2 spider relations
+
+B2 webs are planar graphs embedded in a simply connected domain whose connected components
+are either closed loops or graphs with trivalent vertices inside the domain or univalent vertices
+connected to the boundary of the domain. We again denote by open webs, the ones that possess
+univalent vertices connected to the boundary of the domain and closed webs, otherwise. Edges
+come again in two types and are called simple and double edges, depicted respectively as
+
+Any trivalent vertex is required to be of the form
+(33)
+The free vector space spanned by closed B2 webs will be called FSp(B2 ). Then, Sp(B2 ) is the
+quotient of FSp(B2 ) by the following local relations4 [3]:
+=
+
+−(q 4 + q 2 + q −2 + q −4 )
+
+(34a)
+
+=
+
+q 6 + q 2 + 1 + q −2 + q −6
+
+(34b)
+
+=
+
+0
+
+(34c)
+
+=
+
+(q 2 + 2 + q −2 )
+
+(34d)
+
+=
+
+0
+
+(34e)
+
+−
+
+=
+
+−
+
+(34f)
+
+A number can be assigned unambiguously to any closed B2 web thanks to these relations. Indeed,
+it is a result of [3] that any closed web is proportional to the empty one. For a B2 web G, we call
+the proportionality factor, the Kuperberg weight of G and denote it by wK (G).
+
+5.2
+
+Definition of the models on the hexagonal lattice H
+
+The configuration space K is given by B2 webs embedded in H. We say a bond is simple (respectively
+double) when it is covered by a simple edge (respectively double). To a configuration G, we give
+4
+
+1
+
+Note that our conventions differ from [3] by q ↔ q 2 and a rescaling of vertices by i.
+
+18
+
+a weight (or fugacity) xt;1 (respectively xv;1 ) to any tilted (respectively vertical) simple bond and
+a weight xt;2 (respectively xv;2 ) to any tilted (respectively vertical) double bond. We also give a
+fugacity y to any vertex. This determines the local part of the weight of G. The non local part is
+given by the Kuperberg weight wK (G).
+The partition function then reads:
+X Nt;1 Nv;1 Nt;2 Nv;2
+ZB2 =
+xt;1 xv;1 xt;2 xv;2 y NV wK (G)
+(35)
+G∈K
+
+where Nt;1 (resp. Nv;1 ) is the number of tilted (resp. vertical) simple bonds, Nt;2 (resp. Nv;2 ) is the
+number of tilted (resp. vertical) double bonds and NV is the number of of vertices.
+
+5.3
+
+Definition of the models on the square lattice S
+
+Here we define B2 web models on the square lattice. Their definition is motivated by connections
+with spin models that will be exposed in section 5.4.2.
+First, let us augment FSp(B2 ) by allowing 4-valent vertices whose adjacent edges are all simple.
+Let us denote the vector space spanned by such graphs by FSp′ (B2 ). We then quotient this space
+by the original B2 relations (34) as well as:
+
+=
+
++
+
+=
+
++
+
+(36)
+
+where the second equality is just a repetition of the defining relation (34f). This four-valent vertex
+was originally defined by Kuperberg [3]; notice that (34f) guarantees that it is indeed invariant
+under rotations through ± π2 . The quotient space will be denoted by Sp′ (B2 ).
+First define a configuration on S ∪ Eb to be the replacement of each of its nodes by any of the
+following local states with the corresponding Boltzmann weights b1 , . . . , b14
+
+b1
+
+b2
+
+b3
+
+b4
+
+b5
+
+b6
+
+b7
+
+b8
+
+b9
+
+b10
+
+b11
+
+b12
+
+b13
+
+b14
+19
+
+where we show only states up to rotations and reflections (the Boltzmann weights are taken to be
+invariant under these transformations). Moreover, each configuration is subject to the constraints
+that any link in Eb is empty and that any link has the same occupancy (empty, simple or double)
+with respect to each of the two nodes of S on which it is incident. Then delete from a given
+configuration the set of empty links. The result is a graph having only trivalent vertices of the type
+(33) and four-valent vertices surrounded by simple edges. In other words, it is a graph in FSp′ (B2 ).
+The weight of a configuration G is again the product of a local and a non-local part. The local
+part is a product of the local Boltzmann weights bi . The non-local part is again wK (G). It is
+computed by using the relations (34) once all 4-valent vertices, i.e. the ones with local weight b1 ,
+have been resolved thanks to (36).
+The partition function then reads:
+!
+14
+X Y
+Ni
+wK (G)
+(37)
+bi
+ZB2 =
+G∈K
+
+i=1
+
+where Ni is the number of local patterns of weight bi .
+Remark that we could have introduced models on the square lattice for the A2 and G2 cases as
+well. Here we consider only the hexagonal lattice for the latter as the integrable solutions described
+below contain the hexagonal lattice models with isotropic local weights. In contrast, this is not the
+case in the B2 case which is why we defined the model on the hexagonal lattice with bond fugacities
+depending on the bond orientation. We can however define the above square lattice model with
+isotropic local weights for which there are integrable points. Finally, note that the local weights in
+the square lattice model are less constrained than in the hexagonal lattice case where they factorise
+in terms of bond and vertex fugacities. We could have defined the bi s as products of bond and
+vertex fugacities but, again, the more general non-factorised local weights bi are needed in order
+for the model to contain integrable points.
+
+5.4
+
+Relation with S3 and D4 spin models
+
+In this section, we show how the B2 web models for some specific values of q are equivalent, at the
+level of partition functions, to three- and four-state spin models with global symmetries S3 and D4 ,
+respectively. In both cases the webs are identified with the corresponding spin clusters.
+5.4.1
+
+B2 webs in H and the D4 spin model
+
+Consider the lattice dual to H embedded in the strip (respectively the cylinder), that is, a triangular
+lattice T with one (respectively two) point at infinity.
+We begin by formulating the D4 spin model in terms of its domain walls. Consider spins
+{σi , i ∈ T} taking values in Z4 ∼
+= {0, 1, 2, 3}. We define nearest neighbours interactions xv,|σi −σj |
+(respectively xt,|σi −σj | ) for two neighbouring sites i and j horizontally separated (respectively diagonally separated). Here |σi − σj | is to be understood modulo 4 and we normalise interactions such
+that x0 = 1. Hence, the nearest neighbour interaction term contains four parameters xt;1 , xv;1 , xt;2
+and xv;2 . We also add a plaquette interaction term
+
+pσi ,σj ,σk =1 + y δσi ,σj ±1 δσj ,σk ±1 δσk ,σi ±2 + δσi ,σj ±1 δσj ,σk ±2 δσk ,σi ±1 + δσi ,σj ±2 δσj ,σk ±1 δσk ,σi ±1 − 1
+which preserves D4 symmetry. The partition function of the model reads
+
+
+
+
+X Y
+Y
+Y
+
+ZD4 =
+xt,|σi −σj |  
+xv,|σi −σj |  
+pσi ,σj ,σk 
+σ
+
+hijit
+
+hijiv
+
+20
+
+hijki
+
+(38)
+
+where hijit (respectively hijiv ) denotes nearest neighbour pairs of sites diagonally separated (respectively horizontally separated).
+Now we will rewrite the partition function in terms of its domain walls. Consider a spin
+configuration {σi , i ∈ T}. For two neighbouring spins σi and σj , if |σi − σj | = 1, we draw a simple
+bond on the link of H separating the two spins. If |σi − σj | = 2, we draw a double bond, whereas
+if |σi − σj | = 0 we let the link empty. We obtain this way a Kuperberg B2 web G embedded in H,
+i.e. G ∈ K. Clearly, the mapping is onto and many to one. That is, any G ∈ K is reached as a
+domain wall but different spin configurations may have the same set of domain walls G. Note that
+G contains, not only the information about domain walls between different spins but also what
+type of difference there is between spins, i.e a difference of ±1 or ±2.
+All configuration having the same domain wall G have the same weight. Hence, in order to write
+the partition function, it suffices to count how many spin configurations have the same domain walls.
+For later convenience we define this number in the following way. For a graph G whose connected
+components can be closed loops, such that all of its edges (or loops) are simple or double edges,
+consider the graph dual to G having its edges labelled by 1 (respectively 2) if they cross simple
+edges (respectively double edges). We say that its edges are of type 1 or type 2. We call such graphs
+decorated. Remark that G could be a B2 web here, but it can be a more general graph with 4-valent
+vertices for instance. We will denote the dual graph of G by Ĝ and we stress that we consider Ĝ as
+a decorated graph. We call a proper colouring of a decorated graph H, a colouring of its vertices
+with colours in Z4 such that two colours connected by an edge of type 1 (respectively type 2) differ
+by ±1 modulo 4 (respectively ±2 modulo 4). We denote the number of proper colourings of H by
+ψH .
+It is clear that, given a domain wall configuration G ∈ K, the number of spin configurations
+that have G as its domain wall configuration is equal to ψĜ . Hence the partition function of the
+spin model can be written as:
+X Nt;1 Nv;1 Nt;2 Nv;2
+xt;1 xv;1 xt;2 xv;2 y NV ψĜ
+ZD4 =
+(39)
+G∈K
+
+π
+
+We will now show that ψĜ = 4wK (G) when q = ei 4 , establishing the claimed equivalence.
+First, observe that we can extend by linearity the map ψ to FSp(B2 ) obtaining a linear form. We
+now claim that this map factors through the relations (34) to a well defined map on Sp(B2 ). For
+π
+q = ei 4 , the B2 relations read:
+
+−2
+
+21
+
+−2
+
+=
+
+0
+
+(40a)
+
+−1
+
+=
+
+0
+
+(40b)
+
+=
+
+0
+
+(40c)
+
+=
+
+0
+
+(40d)
+
+=
+
+0
+
+(40e)
+
+−
+
+−
+
++
+
+=
+
+0
+
+(40f)
+
+We must verify that, for all relations, the left hand side is in the kernel of ψ. It is clear that this
+holds for the first 5 relations. To show that it holds for the last one, we can extend the definition
+of ψ to FSp′ (B2 ) and show that it factors to a well defined map on Sp′ (B2 ). We thus have to show
+that the linear combinations
+−
+
+−
+
+−
+
+−
+
+(41a)
+
+(41b)
+
+are in the kernel of ψ. The proof being similar for the two expressions, let us detail it for the first
+one. Consider three webs G1 , G2 , G3 that are the same except inside a disk where they look like:
+
+G1 =
+
+(42a)
+
+G2 =
+
+(42b)
+
+G3 =
+
+(42c)
+
+where we have drawn in blue the parts of the dual graphs Ĝ1 , Ĝ2 and Ĝ3 that are totally contained
+inside the disk. It is understood that there could be blue edges connecting vertices inside the disk
+to vertices outside the disk. It is clear that the number of proper colourings of Ĝ3 is the sum of
+the number of proper colourings where the top and bottom vertices are the same and the number
+of proper colourings where the the vertices are different. Here, different implies differing by ±2,
+hence we have ψĜ3 = ψĜ1 + ψĜ2 . This shows that (41) is inside the kernel of ψ.
+22
+
+Since ψ is a well defined linear form on Sp′ (B2 ) and every web G is proportional to the empty
+web by a factor wK (G), we have that
+ψĜ = wK (G)ψˆ∅ = 4wK (G)
+
+(43)
+
+ZD4 = 4ZB2
+
+(44)
+
+We thus have that
+
+where domain walls and webs are identified in the mapping.
+5.4.2
+
+B2 webs in S, a D3 and a D4 spin model
+
+Let us define a Dn spin model, with n = 3 or 4, on the lattice S∗ dual to the square lattice S.
+The local Boltzmann weights pσi ,σj ,σk ,σl of the model depend of the values of the spins σi , σj , σk ,
+σl ∈ Zn (clockwise) cyclically ordered around a plaquette hijkli, in the following way
+pσi ,σj ,σk ,σl =b1 δσi ,σj ±1 δσj ,σk ±1 δσk ,σl ±1 δσl ,σi ±1
+
++ b2 δσi ,σj ±1 δσj ,σk ±1 δσk ,σl ±1 δσl ,σi ±1 (δσi ,σk + δσj ,σl )
+
++ b3 (δσi ,σj δσj ,σk δσk ,σl ±1 δσl ,σi ±1 + δσi ,σj ±1 δσj ,σk δσk ,σl δσl ,σi ±1
+
++ δσi ,σj ±1 δσj ,σk ±1 δσk ,σl δσl ,σi + δσi ,σj δσj ,σk ±1 δσk ,σl ±1 δσl ,σi )
+
++ b4 (δσi ,σj ±1 δσj ,σk δσk ,σl ±1 δσl ,σi + δσi ,σj δσj ,σk ±1 δσk ,σl δσl ,σi ±1 )
+
++ 2b5 δσi ,σj ±2 δσj ,σk ±2 δσk ,σl ±2 δσl ,σi ±2
+
++ b6 δσi ,σj ±2 δσj ,σk ±2 δσk ,σl ±2 δσl ,σi ±2 (δσi ,σk + δσj ,σl )
+
++ b7 (δσi ,σj δσj ,σk δσk ,σl ±2 δσl ,σi ±2 + δσi ,σj ±2 δσj ,σk δσk ,σl δσl ,σi ±2
+
++ δσi ,σj ±2 δσj ,σk ±2 δσk ,σl δσl ,σi + δσi ,σj δσj ,σk ±2 δσk ,σl ±2 δσl ,σi )
+
++ b8 (δσi ,σj ±2 δσj ,σk δσk ,σl ±2 δσl ,σi + δσi ,σj δσj ,σk ±2 δσk ,σl δσl ,σi ±2 )
+
++ b9 (δσi ,σj ±1 δσj ,σk ±1 δσk ,σl ±2 δσl ,σi ±2 δσi ,σk + δσi ,σj ±2 δσj ,σk ±1 δσk ,σl ±1 δσl ,σi ±2 δσj ,σl
++ δσi ,σj ±2 δσj ,σk ±2 δσk ,σl ±1 δσl ,σi ±1 δσi ,σk + δσi ,σj ±1 δσj ,σk ±2 δσk ,σl ±2 δσl ,σi ±1 δσj ,σl )
+
++ b10 (δσi ,σj ±1 δσj ,σk ±2 δσk ,σl ±1 δσl ,σi ±2 δσi ,σk ±1 + δσi ,σj ±1 δσj ,σk ±2 δσk ,σl ±1 δσl ,σi ±2 δσj ,σl ±1
++ δσi ,σj ±2 δσj ,σk ±1 δσk ,σl ±2 δσl ,σi ±1 δσi ,σk ±1 + δσi ,σj ±2 δσj ,σk ±1 δσk ,σl ±2 δσl ,σi ±1 δσj ,σl ±1 )
+
++ b11 (δσi ,σj ±1 δσj ,σk ±1 δσk ,σl ±2 δσl ,σi ±2 δσj ,σl ±1 + δσi ,σj ±2 δσj ,σk ±1 δσk ,σl ±1 δσl ,σi ±2 δσi ,σk ±1
++ δσi ,σj ±2 δσj ,σk ±2 δσk ,σl ±1 δσl ,σi ±1 δσj ,σl ±1 + δσi ,σj ±1 δσj ,σk ±2 δσk ,σl ±2 δσl ,σi ±1 δσi ,σk ±1 )
++ b12 (δσi ,σj ±1 δσj ,σk δσk ,σl ±1 δσl ,σi ±2 + δσi ,σj ±2 δσj ,σk ±1 δσk ,σl δσl ,σi ±1
+
++ δσi ,σj ±1 δσj ,σk ±2 δσk ,σl ±1 δσl ,σi + δσi ,σj δσj ,σk ±1 δσk ,σl ±2 δσl ,σi ±1 )
+
++ b13 (δσi ,σj ±1 δσj ,σk ±1 δσk ,σl δσl ,σi ±2 + δσi ,σj ±2 δσj ,σk ±1 δσk ,σl ±1 δσl ,σi
++ δσi ,σj δσj ,σk ±2 δσk ,σl ±1 δσl ,σi ±1 + δσi ,σj ±1 δσj ,σk δσk ,σl ±2 δσl ,σi ±1
+
++ δσi ,σj δσj ,σk ±1 δσk ,σl ±1 δσl ,σi ±2 + δσi ,σj ±2 δσj ,σk δσk ,σl ±1 δσl ,σi ±1
+
++ δσi ,σj ±1 δσj ,σk ±2 δσk ,σl δσl ,σi ±1 + δσi ,σj ±1 δσj ,σk ±1 δσk ,σl ±2 δσl ,σi
+
++ b14 δσi ,σj δσj ,σk δσk ,σl δσl ,σi
+
+One may check that pσi ,σj ,σk ,σl respects D4 symmetry. Note that the factor 2 in front of b5 is due
+to the two ways of colouring the inside of the square in the corresponding plaquette.
+The partition function then reads
+X Y
+ZD4 =
+pσi ,σj ,σk ,σl
+(45)
+{σ} <ijkl>
+
+23
+
+where the usual nearest-neighbour interactions have now been absorbed into the bi . When n = 4,
+each summand in pσi ,σj ,σk ,σl can be graphically expressed thanks to the corresponding web in
+Section 5.3 where simple (respectively double) bonds separate spins differing byQ±1 (respectively
+±2). Thus, the only non vanishing summands in the product over all plaquettes <ijkl> pσi ,σj ,σk ,σl
+are given by webs embedded in S as in Section 5.3 . Given such a web G, the corresponding
+summand will be equal to, after summing over spin configurations,
+!
+14
+Y
+i
+ψĜ
+bN
+i
+i=1
+
+π
+
+When q = ei 4 , we have seen in (43) that ψĜ = 4wK (G), hence
+ZD4 = 4ZB2
+
+(46)
+
+When n = 3, summands in pσi ,σj ,σk ,σl do not determine uniquely a web as σ ± 1 = σ ± 2. Yet,
+if we forbid double-edge configurations by setting
+bi = 0 , for i ∈ J5, 13K ,
+
+(47)
+
+there is again a one-to-one correspondence. The corresponding webs involve only simple edges.
+Denote by K′ the corresponding set of webs embedded in S. We have that
+!
+4
+Y
+X
+N
+14
+bi i χĜ (3)
+ZD3 =
+bN
+(48)
+14
+i=1
+
+G∈K′
+
+π
+
+We will now show that χĜ (3) = 3wK (G) when q = ei 3 .
+π
+We define a morphism from Sp′ (B2 ) at q = ei 3 to the chromatic algebra C0 whose definition
+was given in Section 4.3. Consider first the map f that sends a web G in FSp′ (B2 ) to the graph in
+C0 obtained by forgetting the information of edges being simple or double, possibly adding a vertex
+to a loop if present. Extend f by linearity to FSp′ (B2 ). We want to show that f factors through
+the quotient of B2 relations (34) and (36) to a map f˜ from Sp′ (B2 ) to C0 . We then need to show
+that the following linear combinations are in the kernel of f :
+−2
+
+(49a)
+
+−2
+
+(49b)
+(49c)
+
+−
+
+(49d)
+
+(49e)
+
+−
+
+−
+
+24
+
++
+
+(49f)
+
+Figure 5: The row to row transfer matrix in the case of periodic boundary conditions with 2L = 10.
+
+−
+
+−
+
+−
+
+−
+
+(49g)
+
+(49h)
+
+This follows from a straightforward application of the relations of C0 . Hence, for a given web G we
+have that
+f˜(G) = wK (G) ∅ = 3−1 χĜ (3) ∅
+
+(50)
+
+ZD3 = 3ZB2
+
+(51)
+
+leading to χĜ (3) = 3wK (G).
+Thus, we have
+
+6
+
+Transfer matrices
+
+From now on, we add to the discussion the A1 case, as it will serve as a simpler and well-known
+example, the dilute loop model, which will guide the discussion of the rank 2 web models. Let X
+denote one of our algebras of interest, A1 , A2 , G2 or B2 . As in [2], we define local transfer matrices
+thanks to the identification given by the spiders between diagrams and intertwiners of quantum
+group representations [3]. To each link of the lattice is associated a local space of state HX that
+carries a particular representation of the quantum group, a direct sum of trivial and fundamental
+representations. The trivial representation C corresponds to the link not being covered by a web.
+We denote the vacuum vector 1 ∈ C by | i. Let us build the row to row transfer matrices by
+composing smaller, local transfer matrices.
+In the the hexagonal lattice H case, we shall call node of type 1 (respectively type 2) a node
+situated at the bottom (respectively top) of a vertical link. Denote by tX
+(k) the local transfer matrices
+propagating through a node of type k ∈ {1, 2}. They are linear maps:
+tX
+(1) : HX ⊗ HX → HX ,
+
+tX
+(2) : HX → HX ⊗ HX ,
+
+(52a)
+(52b)
+
+and
+, respectively, in Figure 5. We will show how to
+and we use their pictorial notation
+X
+obtain these linear maps in the next sections. Their composition tX = tX
+(2) t(1) is a linear map from
+25
+
+HX ⊗ HX to itself (i.e., an endomorphism of HX ⊗ HX ).5 We index the copies tX
+i of these operators
+by their position i in a row as in Figure 5. The square lattice case is analogous but local transfer
+matrices are now defined as operators from HX ⊗ HX to itself from the beginning.
+In case of open boundary conditions the row-to-row6 transfer matrix then reads
+! L−1 !
+L−1
+Y
+Y
+TX =
+tX
+.
+(53)
+tX
+2k+1
+2k
+k=0
+
+k=1
+
+⊗2L
+. On appropriate lattices, the partition functions are then recovered
+It is an endomorphism of HX
+
+as the vacuum expectation values of powers of the transfer matrix:
+ZX = TXM .
+
+(54)
+
+By the vacuum expectation value, we mean the matrix element from | i⊗2L to itself. To be precise,
+the right-hand-side of (54) expresses the partition function ZX on a hexagonal lattice with 2M − 2
+rows, because while TXM builds configurations on a lattice with 2M rows, the vertices in the first
+and last row and their adjacent edges are all constrained to be empty due to our choice of vacuum
+state.
+However, when the web model is embedded in the cylinder we need twisted periodic boundary
+conditions to give the correct weights to webs that wrap the periodic direction [2]. In the A1 and
+A2 cases this is obtained by the action of a twist operator
+SX = q 2Hρ
+
+(55)
+
+leading to the following modified transfer matrix [2]
+! L−1 !
+L−1
+Y
+Y
+X
+X −1
+TX =
+t2k+1
+tX
+2k SX t2L SX ,
+k=0
+
+(56)
+
+k=1
+
+where SX acts non-trivially on site 1 only.
+In the G2 and B2 cases, the transfer matrix is still given by (56), but the twist operator is now
+SX = (−1)2Hρ∨ q 2Hρ
+
+(57)
+
+where ρ and ρ∨ denote the Weyl vector and the dual Weyl vector respectively (see Appendix B).
+Remark that the twist operator could also be chosen differently from (55) and (57); see [1].
+This is useful in order to define modified partition functions that are lattice analogs of two-point
+functions of electric operators in Coulomb Gas conformal field theories.
+
+6.1
+
+A reminder on the dilute loop model
+
+Before going on the discussion of web models, let us remind the well known and similar case of the
+dilute loop model on the hexagonal lattice. The local transfer matrices of the model can be written
+graphically as
+tloop =x2
+
++ x2
+
++ x2
+
+5
+
++ x2
+
+Remark that tX corresponds to summing over the state of a vertical link, so that a pair of vertices on H is
+effectively transformed into a single vertex on a (tilted) square lattice.
+6
+Note that with our definition, the row-to-row transfer matrix propagates states through two rows of the lattice.
+
+26
+
++ x2
+
++x
+
++x
+
++
+
+(58)
+
+where the dashed line represent an empty link and x is the bond fugacity, i.e, the local weight
+assigned to a link covered by a loop.
+Each diagram can be understood as an intertwiner of U−q (A1 ) representations if we set the
+loop weight to [2]q . These diagrams are called (dilute) Temperley-Lieb (TL) diagrams. The local
+space of states of the loop model is given by HA1 = C ⊕ V1 where V1 denotes the fundamental
+representation. Any diagram can be expressed by concatenating vertically and horizontally juxtaposing the following elementary diagrams (and possibly identity strands joining the top and bottom
+boundaries)
+cap =
+
+cup =
+
+where cup and cap are embedded in the lattice as, respectively, the second- and third-last diagram
+of (58).
+We use a general convention that these ‘string’ diagrams are read from bottom to top, the
+strings are labeled by the fundamental representation V1 and the empty source/target of a diagram
+corresponds to the trivial representation C. For example, the above cap diagram is an intertwiner
+V1 ⊗ V1 → C that can be the best described in a basis. Let {e1 , e2 } denote the standard basis of
+V1 , and {f1 , f2 } be its dual. Then, the corresponding intertwiners are
+cup : C → V1 ⊗ V1
+
+1 7→ e1 ⊗ e2 + q −1 e2 ⊗ e1
+
+cap = qf1 ⊗ f2 + f2 ⊗ f1
+
+where in the last equality we used the obvious identification of V1∗ ⊗ V1∗ with the space of linear
+maps V1 ⊗ V1 → C. The maps cup and cap were obtained by calculation of U−q (A1 ) invariant
+vectors in V1 ⊗ V1 and in its dual space. That is, we find a vector annihilated by the action of E
+and F given by the coproduct (118).
+We furthermore remark that the invariant vectors, and thus the corresponding maps, are defined
+up to a multiplicative constant that can be fixed in the following way. The maps cup and cap are
+assumed to satisfy the zigzag rules
+=
+
+=
+
+(59)
+
+which reflect the fact that our diagrams are considered up to an isotopy, or equivalently, this is
+an implication of the Temperley-Lieb relations. These rules reduce the choices of constants to one
+“gauge” degree of freedom: one may multiply the cup intertwiner by some factor η and the cap
+intertwiner by η −1 . In the expressions above we have chosen a definite value of the gauge factor η.
+
+6.2
+
+The A2 case
+
+Let V1 be the fundamental representation of U−q (A2 ) of highest weight w1 . In V1 , pick a highest
+weight vector, u1 . Then we obtain a basis {ui , i ∈ J1, 3K} by applying lowering operators:
+u2 =F1 u1
+27
+
+(60a)
+
+u3 =F2 F1 u1
+
+(60b)
+
+The action of the quantum group generators in our bases are given in appendix D.
+Let V2 be the fundamental representation of U−q (A2 ) of highest weight w2 . In V2 , pick a highest
+weight vector, v1 . Then we obtain a basis {vi , i ∈ J1, 3K} by applying lowering operators:
+v2 =F2 v1
+
+(61a)
+
+v3 =F1 F2 v1
+
+(61b)
+
+Let {ei , i ∈ J1, 7K} = {u1 , u2 , u3 , v1 , v2 , v3 , 1} be a basis of HA2 = V1 ⊕ V2 ⊕ C.
+Any A2 web can be expressed as the vertical concatenation and horizontal juxtaposition of the
+following elementary webs (and possibly identity strands connecting the bottom and top boundaries)
+
+coev
+g =
+
+coev =
+
+ev =
+
+ev
+e
+
+=
+
+Y1 =
+
+Y2
+
+=
+
+(62)
+
+Here is an illustration on how one can obtain any open web from the above set
+
+=
+
+(63)
+
+In the left hand side, the top diagram is a juxtaposition of ev and an identity strand whereas the
+bottom one is a juxtaposition of an identity strand and Y1 . By concatenating them vertically, we
+get the web on the right hand side.
+These webs represent the following intertwiners:
+coev : C → V1 ⊗ V2
+
+e7 7→ qe1 ⊗ e6 + e2 ⊗ e5 + q −1 e3 ⊗ e4
+
+coev
+g : C → V2 ⊗ V1
+
+e7 7→ q −1 e6 ⊗ e1 + e5 ⊗ e2 + qe4 ⊗ e3
+
+ev = q −1 e∗6 ⊗ e∗1 + e∗5 ⊗ e∗2 + qe∗4 ⊗ e∗3
+ev
+e = qe∗1 ⊗ e∗6 + e∗2 ⊗ e∗5 + q −1 e∗3 ⊗ e∗4
+Y 1 : V2 → V1 ⊗ V1
+
+28
+
+e4 7→ e1 ⊗ e2 + q −1 e2 ⊗ e1
+
+e5 7→ e1 ⊗ e3 + q −1 e3 ⊗ e1
+
+e6 7→ e2 ⊗ e3 + q −1 e3 ⊗ e2
+Y 2 : V1 → V2 ⊗ V2
+
+e1 7→ qe4 ⊗ e5 + e5 ⊗ e4
+
+e2 7→ qe4 ⊗ e6 + e6 ⊗ e4
+
+e3 7→ qe5 ⊗ e6 + e6 ⊗ e5
+
+Horizontal juxtaposition of webs corresponds to taking the tensor product of intertwiners and
+vertical concatenation corresponds to composition. For instance the web in (63) represents the
+following intertwiner:
+(ev ⊗ IdV1 ) ◦ (IdV2 ⊗ Y1 )
+Similarly to the U−q (A1 ) case, the maps ev and coev are defined up to multiplicative scalars
+from an invariant vector in V1 ⊗ V2 , i.e. a vector in V1 ⊗ V2 that is annihilated by the action
+of E1 , E2 , F1 and F2 using the coproduct defined in (118) from Appendix C. Similarly, ev
+e and
+coev
+g are defined up to multiplicative scalars from an invariant vector in V2 ⊗ V1 . The freedom on
+multiplicative scalars is reduced to one degree of freedom once we impose that the maps satisfy the
+loop rule as well as the zigzag rules
+=
+
+=
+
+(64)
+
+To construct Y1 , one looks for a highest weight vector v of weight w2 inside V1 ⊗V1 using the actions
+of E1 , E2 determined by the coproduct (118). Note that this specify v only up to a multiplicative
+scalar. The map Y1 is then defined as mapping e4 to v, e5 to F2 v and e6 to F1 F2 v where the actions
+of F1 , F2 on V1 ⊗ V1 are again determined by the coproduct. This defines Y1 up to a multiplicative
+scalar. Similarly, one defines Y2 up to a multiplicative scalar. Asking that the maps satisfy the
+digon and square rules reduce the freedom to one degree of freedom. So, in total we have two free
+parameters that we have chosen to fix to some values.
+The local transfer matrices of the A2 web model are then given by
+3
+
+2
+2
+tA
+(1) =zx
+
++ xe−iφ
+
+3
+
+2
+2
+tA
+(2) =zx
+
+3
+
++ yx 2
+
++ xeiφ
+
+3
+
++ yx 2
+
++ xe−iφ
+
++ xe−iφ
+
++ xe−iφ
+
+29
+
++ xeiφ
+
++ xeiφ
+
++
+
++ xeiφ
+
+(65a)
+
++ xeiφ
+
++ xe−iφ
+
++ xe−iφ
+
++ xeiφ
+
++
+
+(65b)
+
+Above, diagrams must be understood as webs when dashed lines are forgotten. For instance in the
+2
+expression of tA
+(1) , the first term is defined by (63), while the third to the sixth therms are given
+by identity lines. The seventh and eighth terms are given by ev and ev
+e respectively, and the ninth
+one is the empty web, i.e., the identity on the trivial representation C.
+
+6.3
+
+The G2 case
+
+Let V be the fundamental representation of Uq (G2 ) of highest weight w1 . In V , pick a highest
+weight vector, e1 . Then we obtain a basis {ei , i ∈ J1, 7K} by applying lowering operators:
+e2 =F1 e1
+
+e3 = F2 F1 e1
+
+e4 =F1 F2 F1 e1
+
+e5 = F12 F2 F1 e1
+
+e6 =F2 F12 F2 F1 e1
+
+e7 = F1 F2 F12 F2 F1 e1
+
+Denote by {fi , i ∈ J1, 7K}, the dual basis in V ∗ . Any G2 web can be expressed as the vertical
+concatenation and horizontal juxtaposition of the following elementary webs (and possibly identity
+strands)
+
+cup =
+
+cap =
+
+Y =
+
+(66)
+
+These webs represent the following intertwiners:
+cup : C → V ⊗ V
+
+1 7→ e7 ⊗ e1 + q 10 e1 ⊗ e7 − qe6 ⊗ e2 − q 9 e2 ⊗ e6 + q 4 e5 ⊗ e3 + q 6 e3 ⊗ e5 − q 6 e4 ⊗ e4
+
+cap = q −10 f7 ⊗ f1 + f1 ⊗ f7 − q −9 f6 ⊗ f2 − q −1 f2 ⊗ f6 + q −6 f5 ⊗ f3 + q −4 f3 ⊗ f5 − q −6 f4 ⊗ f4
+Y: V →V ⊗V
+
+e1 7→ q 6 e1 ⊗ e4 − e4 ⊗ e1 − [2]q q 4 e2 ⊗ e3 + [2]q qe3 ⊗ e2
+
+e2 7→ −q 4 e2 ⊗ e4 + q 2 e4 ⊗ e2 + q 5 e1 ⊗ e5 − e5 ⊗ e1
+
+e3 7→ −q 4 e3 ⊗ e4 + q 2 e4 ⊗ e3 + q 5 e1 ⊗ e6 − e6 ⊗ e1
+
+e4 7→ (q 2 − q 4 )e4 ⊗ e4 − q 2 e3 ⊗ e5 + q 2 e5 ⊗ e3
+
++ q 5 e2 ⊗ e6 − q −1 e6 ⊗ e2 + q 4 e1 ⊗ e7 − e7 ⊗ e1
+
+e5 7→ q 2 e5 ⊗ e4 − q 4 e4 ⊗ e5 + [2]q q 5 e2 ⊗ e7 − [2]q e7 ⊗ e2
+
+e6 7→ q 2 e6 ⊗ e4 − q 4 e4 ⊗ e6 + [2]q q 5 e3 ⊗ e7 − [2]q e7 ⊗ e3
+
+e7 7→ −e7 ⊗ e4 + q 6 e4 ⊗ e7 + qe6 ⊗ e5 − q 4 e5 ⊗ e6
+
+Horizontal juxtaposition of webs corresponds to taking the tensor product of intertwiners and
+vertical concatenation corresponds to composition. The above maps were obtained similarly as in
+the A2 case.
+30
+
+The local transfer matrices of the G2 web model are then given by
+
+6.4
+
+3/2
+2
+tG
+y
+(1) = x
+
++x
+
++x
+
++x
+
++
+
+(67a)
+
+3/2
+2
+tG
+y
+(2) = x
+
++x
+
++x
+
++x
+
++
+
+(67b)
+
+The B2 case
+
+Let V1 and V2 be the fundamental representations of Uq (B2 ) of highest weights w1 and w2 respectively. In V1 , pick a highest weight vector, e1 . Then we obtain a basis {ei , i ∈ J1, 4K} by applying
+lowering operators:
+e2 =F1 e1
+
+(68a)
+
+e3 =F2 F1 e1
+
+(68b)
+
+e4 =F1 F2 F1 e1
+
+(68c)
+
+Denote by {fi , i ∈ J1, 4K}, the dual basis in V1∗ .
+In V2 , pick a highest weight vector, v1 . Then we obtain a basis {vi , i ∈ J1, 5K} by applying
+lowering operators:
+v2 =F2 v1
+
+(69a)
+
+v3 =F1 F2 v1
+
+(69b)
+
+v4 =F12 F2 v1
+
+(69c)
+
+v5 =F2 F12 F2 v1
+
+(69d)
+
+Denote by {gi , i ∈ J1, 5K}, the dual basis in V2∗ .
+Any B2 web can be expressed as the vertical concatenation and horizontal juxtaposition of the
+following elementary webs (and possibly identity strands)
+cup1 =
+
+cap1 =
+
+cup2 =
+
+cap2 =
+
+Y =
+These webs represent the following intertwiners:
+cup1 :C → V ⊗ V
+
+1 7→ e4 ⊗ e1 − q 4 e1 ⊗ e4 − qe3 ⊗ e2 + q 3 e2 ⊗ e3
+31
+
+(70)
+
+cap1 =f1 ⊗ f4 − q −4 f4 ⊗ f1 − q −1 f2 ⊗ f3 + q −3 f3 ⊗ f2
+cup2 :C → V ⊗ V
+
+1 7→ v5 ⊗ v1 + q 6 v1 ⊗ v5 − q 2 v4 ⊗ v2 − q 4 v2 ⊗ v4 + q 4 v3 ⊗ v3
+
+cap2 =g1 ⊗ g5 + q −6 g5 ⊗ g1 − q −2 g2 ⊗ g4 − q −4 g4 ⊗ g2 + q −4 g3 ⊗ g3
+Y :V2 → V1 ⊗ V1
+
+v1 7→ iqe1 ⊗ e2 − ie2 ⊗ e1
+
+v2 7→ iqe1 ⊗ e3 − ie3 ⊗ e1
+
+v3 7→ iqe2 ⊗ e3 − iq −1 e3 ⊗ e2 + ie1 ⊗ e4 − ie4 ⊗ e1
+
+v4 7→ i[2]q qe2 ⊗ e4 − i[2]q e4 ⊗ e2
+
+v5 7→ i[2]q qe3 ⊗ e4 − i[2]q e4 ⊗ e3
+
+Horizontal juxtaposition of webs corresponds to taking the tensor product of intertwiners and
+vertical concatenation corresponds to composition. The above maps were obtained similarly as in
+the A2 case.
+The local transfer matrices of the B2 web model are then given by
+1/2
+
+2
+tB
+(1) =xt;1 xv;2 y
+
+1/2 1/2
+
++ +xt;2 xv;2
+1/2 1/2
+
+1/2 1/2 1/2
+
++ xt;1 xv;1 xt;2 y
+1/2 1/2
+
++ xt;2 xv;2
+1/2 1/2
+
++ xt;1 xv;1
+
++ xt;1 xv;1
+
+1/2
+
++ xt;1 xv;1 xt;2 y
+
+2
+tB
+(2) =xt;1 xv;2 y
+
+1/2 1/2 1/2
+
+1/2 1/2 1/2
+
++ xt;1 xv;1 xt;2 y
+
++ xt;2
+
++ xt;1
+
++
+
+1/2 1/2 1/2
+
++ xt;1 xv;1 xt;2 y
+
++ xt;2 xv;2
+
+1/2 1/2
+
++ xt;2 xv;2
+
+1/2 1/2
+
++ xt;2
+
+1/2 1/2
+
++ xt;1 xv;1
+
+1/2 1/2
+
++ xt;1
+
++ xt;1 xv;1
+
+(71a)
+
+(71b)
+
++
+
+The local transfer matrices for the square lattice case can be defined analogously. That is,
+they are linear operators in End(HX ⊗ HX ) given by the linear combination of diagrams (and their
+reflections and rotations) from below (36) weighted by the corresponding factors bi ’s. Each diagram
+is again understood as a linear operator.
+
+32
+
+7
+
+Integrability
+
+In this section, we exhibit integrable manifolds in the parameter spaces of web models. Let us first
+give the steps of the general strategy we follow.
+• First, we look for an affine Dynkin diagram X̃ that reduces to the finite type Dynkin diagram
+X when we erase one of its nodes n0 . This implies that the Hopf subalgebra Ut (X̃) generated
+by the Chevalley generators Ei , Fi , Hi , i 6= n0 is isomorphic to Uq (X) for some q(t). We will
+call Ut (X̃) and Uq (X) the “big” and “small” quantum groups respectively.7
+Here we list the big and small quantum groups we will consider:8
+Case
+
+Ut (X̃)
+
+Uq (X)
+
+1
+
+Ut (A2 )
+
+(2)
+
+Ut4 (A1 )
+
+2
+
+Ut (G2 )
+
+(1)
+
+Ut3 (A2 )
+
+3
+
+Ut (D4 )
+
+(3)
+
+Ut (G2 )
+
+4
+
+Ut (A4 )
+
+(2)
+
+Ut2 (B2 )
+
+X̃, X
+
+Table 1: Big and small quantum groups.
+The definitions of these quantum groups are recalled in Appendix C, with the corresponding
+Cartan matrices given in Appendix B.
+• We then look for an irreducible “evaluation”9 representation Vu , u ∈ C∗ of Ut (X̃) that decomposes under the subalgebra Uq (X) as the local space of states HX , independently of the evaluation, or spectral, parameter u. We will denote the representation map ρu : Ut (X̃) → End(Vu ).
+• We then follow Jimbo’s strategy [29] to find a solution of the spectral parameter dependant
+Yang Baxter equation. Let us recall it. Suppose that the tensor product ρu ⊗ ρv , u, v ∈ C∗ is
+irreducible. We are looking for an operator Ř(u, v) intertwining ρu ⊗ ρv and ρv ⊗ ρu , i.e.
+Ř(u, v)(ρu ⊗ ρv )(a) = (ρv ⊗ ρu )(a)Ř(u, v),
+
+a ∈ Ut (X̃)
+
+(72)
+
+Because ρu ⊗ ρv is irreducible, if (72) admits a non-zero solution, it is unique up to a multiplicative constant. Moreover, since Ut (X̃) has a universal R matrix [30, 31], it follows that
+Ř(u, v) is non-zero and satisfies the spectral parameter dependent Yang-Baxter equation:
+Ř23 (u, v)Ř12 (u, w)Ř23 (v, w) = Ř12 (v, w)Ř23 (u, w)Ř12 (u, v)
+7
+
+on Vu ⊗ Vv ⊗ Vw
+
+(73)
+
+It should not be confused with Lusztig’s small quantum group, defined at roots of unity.
+(2)
+Given X, there might be several choices for X̃ and n0 . For instance, if X = B2 , X̃ = A4 , then n0 = 0 and
+n0 = 2 are both valid. The second step actually fixes such choices.
+9
+Strictly speaking, evaluation representations might not exist because the evaluation morphism on the quantum
+group level exists for An types only.
+8
+
+33
+
+where the subscript in Řij indicates that it acts as Ř on the ith and jth tensorands and as
+identity elsewhere.
+In order to find Ř(u, v), we first notice that, under the small quantum group
+Vu ⊗ Vv ∼
+= Vv ⊗ Vu ∼
+= HX ⊗ HX
+Thus, we can expand Ř(u, v) as a sum of intertwiners of Uq (X) from HX ⊗ HX to itself
+X
+Ř(u, v) =
+ai (u, v)Wi
+(74)
+i
+
+where the sum is taken over an index set of the web basis {Wi } of EndUq (X) (HX ⊗ HX )
+and ai (u, v) are unknown functions. The system (72) is then reduced to a system of linear
+equations on the unknowns ai (u, v)
+Ř(u, v)(ρu ⊗ ρv )(a) = (ρv ⊗ ρu )(a)Ř(u, v),
+
+a = En0 , Fn0
+
+(75)
+
+which is much simpler to solve than the cubic Yang-Baxter equations (73).
+In the case the representation HX of the small quantum group Uq (X) is irreducible and
+HX ⊗ HX is a direct sum of irreducible representations of multiplicity 1, techniques have
+been developed to solve (72) [32–34]. However, this is not our case because HX is reducible
+and multiplicities are sometimes higher than 1. Instead, we solve the linear system (75)
+directly by using software.
+• Finally, we identify values (u0 , v0 ) of the spectral parameters (u, v) such that
+ai (u0 , v0 ) = 0
+for all i corresponding to webs Wi that do not appear in the local transfer matrix of the given
+web model. We then reach the local transfer matrix by making a gauge transformation
+
+−1
+−1
+X
+Ř(u0 , v0 ) (D1 ⊗ D2 )
+tX
+(2) t(1) = D2 ⊗ D1
+for some diagonal matrices D1 and D2 commuting with Uq (X) on HX .
+
+In the case of A2 and G2 , the evaluation representations we consider were previously studied in
+a different context [21,22]. They are given respectively in appendices D.1.2 and D.2.2. However, in
+(2)
+the case of B2 , the two evaluation representations of Ut (A4 ) defined in D.3.2 and D.3.3 are new
+to the best of our knowledge.
+
+7.1
+
+A reminder on the dilute loop model
+(2)
+
+Consider the quantum affine algebra Ut (A2 ) (see Appendix C for definitions) with Cartan matrix
+
+
+2 −4
+−1 2
+There is a 3-dimensional evaluation representation Vu given by the following matrices in the basis
+{1, e1 , e2 }, where {1} (respectively {e1 , e2 }) denotes the basis of the trivial (respectively fundamental) representation of U−q (A1 )
+p
+
+
+
+
+[2]t 0
+0 0 0
+0
+0
+0
+E1 = 0 0 1
+E0 = u p0
+0 0 0
+0
+0
+[2]t
+34
+
+
+
+(2)
+
+0
+0
+1 p
+F0 =  [2]t 0
+u
+0
+0
+
+
+0 0 0
+H0 = 0 −2 0
+0 0 2
+
+p
+
+
+[2]t
+0 
+0
+
+
+0
+F1 = 0
+0
+
+0
+
+H1 = 0
+0
+
+
+0 0
+0 0
+1 0
+
+
+0 0
+1 0
+0 −1
+
+Ut (A2 ) contains a Ut4 (A1 ) Hopf subalgebra generated by E1 , F1 and H1 . Setting q = −t4 ,
+we have that Vu = C ⊕V1 as representations of this Ut4 (A1 ) subalgebra. We can write a basis
+of EndUt4 (A1 ) (C ⊕ V1 )2 in terms of the TL diagrams defined above. The R-matrix can then be
+decomposed as
+Ř(u, v) = a1 (u, v)
+
++ a2 (u, v)
+
++ a3 (u, v)
+
++a4 (u, v)
+
++ a5 (u, v)
+
++ a6 (u, v)
+
++a7 (u, v)
+
++ a8 (u, v)
+
++ a9 (u, v)
+
+(76)
+
+Asking that the R-matrix commute with the 0th labeled generators gives a system of linear
+equations for the coefficients ai (u, v). From the spectral parameter dependence of the representatives of the 0th labeled generators, we see that the coefficients depend only on the ratio s = uv and
+we write ai (u, v) = ai (s). The unique solution, up to a multiplicative constant, is given by
+
+a1 (s) =t8 − t2 s4 + (t − 1)(t + 1) t8 − t4 + 1 s2
+(77a)
+
+
+a2 (s) = t4 − 1 s t6 + s2
+(77b)
+
+
+4
+6
+2
+a3 (s) = t − 1 s t + s
+(77c)
+
+
+a4 (s) =t2 t4 − 1 s s2 − 1
+(77d)
+
+
+4 4
+2
+a5 (s) = − t t − 1 s s − 1
+(77e)
+ 6
+
+2
+2
+2
+a6 (s) = − t s − 1 t + s
+(77f)
+ 6
+
+2
+2
+2
+a7 (s) = − t s − 1 t + s
+(77g)
+ 6
+
+4
+2
+2
+a8 (s) = t − s
+t +s
+(77h)
+
+
+a9 (s) = − t4 s2 − 1 t2 + s2
+(77i)
+
+It was originally found in [35].
+We see that, if we want to recover (58), we need to tune the spectral parameter such that
+a8 (s) = 0 and ai (s) 6= 0 for i 6= 8. This happens for s = −t2 . Then, by renormalizing the R matrix
+and taking the following gauge transformation
+D = Diag(1, α, α)
+
+
+Ř(s) 7→ D −1 ⊗ D −1 Ř(s) (D ⊗ D)
+35
+
+(78)
+
+for well chosen α, we recover (58) with
+q = − e4iψ
+1
+x=
+2 sin(ψ)
+
+(79a)
+(79b)
+
+Remark that, after a gauge transformation, the R-matrix still satisfies the Yang-Baxter equation.
+The gauge transformation is equivalent to the choice of multiplicative constant in defining the cup
+and cap maps.
+In the next sections, we will employ the same strategy for the rank 2 web models.
+
+7.2
+
+The A2 web model
+(1)
+
+We now consider the second line of the table 1. Let Vu , u ∈ C∗ , be the representation of Ut (G2 )
+given in Appendix D.1.2 which is actually isomorphic to the one considered in [21]. We are looking
+(1)
+for an operator Ř(u, v) intertwining Vu ⊗ Vv and Vv ⊗ Vu . Remark that, in Ut (G2 ), Ei , Fi and Hi
+for i = 0, 1 generate a Hopf subalgebra isomorphic to Ut3 (A2 ). Under the action of this subalgebra,
+Vu decomposes as:
+Vu = V1 ⊕ V2 ⊕ C
+
+(80)
+
+which can be seen from the explicit matrix expressions given in section D.1.1 after some relabelling
+of the nodes in the Dynkin diagram.
+Hence Ř(u, v) will decompose as a sum of Ut3 (A2 ) intertwiners:
+Ř(u, v) = a1 (u, v)
+
++ a2 (u, v)
+
++ a3 (u, v)
+
++ a4 (u, v)
+
++ a5 (u, v)
+
++ a6 (u, v)
+
++ a7 (u, v)
+
++ a9 (u, v)
+
++ a10 (u, v)
+
++ a11 (u, v)
+
++ a12 (u, v)
+
++ a13 (u, v)
+
++ a14 (u, v)
+
++ a15 (u, v)
+
++ a16 (u, v)
+
++ a17 (u, v)
+
++ a18 (u, v)
+
++ a19 (u, v)
+
++ a20 (u, v)
+
++ a21 (u, v)
+
++ a22 (u, v)
+
++ a23 (u, v)
+
++ a24 (u, v)
+
++ a25 (u, v)
+
++ a26 (u, v)
+
++ a27 (u, v)
+
++ a28 (u, v)
+
+36
+
++ a8 (u, v)
+
++ a29 (u, v)
+
++ a30 (u, v)
+
++ a31 (u, v)
+
++ a32 (u, v)
+
++ a33 (u, v)
+
+(81)
+
+where ai (u, v) are some coefficients
+and the corressponding webs span the space of intertwiners
+
+2
+EndUt3 (A2 ) (V1 ⊕ V2 ⊕ C) . Indeed, elements of the latter are in bijection with invariants of (V1 ⊕
+V2 ⊕ C)4 , so upon expanding we get products of V1 and V2 of length 0 up to 4. Invariants on these
+spaces were classified by Kuperbergs [3], our webs are basis elements of them.
+(1)
+Asking for Ř(u, v) to commute with the remaining generators of Ut (G2 ), we see that it may
+depend only on the ratio s = uv . We find
+
+
+
+
+t2 − s 3 t8 − s 3
+t2 − s 3 t8 − s 3
+a2 (s) = − q
+a1 (s) = − q
+t2 1t + t (−1 + t2 ) s2 (−1 + s3 )
+t2 1t + t (−1 + t2 ) s2 (−1 + s3 )
+−t8 + s3
+a3 (s) = q
+t2 1t + t (−1 + s3 )
+q
+
+1
+6
+2 3
+t +t t −t s
+a5 (s) =
+(−1 + t4 ) s2
+q
+
+1
+8
+3
+t +t t −s
+a7 (s) =
+(−1 + t4 ) s2
+
+
+t2 t4 − s3 t10 − s3
+a9 (s) = q
+1
+2 2 12
+3
+t + t (−1 + t ) s (t − s )
+
+t8 −t4 + s3
+a11 (s) = q
+1
+12
+3
+t + t (t − s )
+
+a4 (s) =
+
+a6 (s) =
+a8 (s) =
+
+t2
+q
+
+q
+
+−t8 + s3
+
+1
+3
+t + t (−1 + s )
+
+1
+t +t
+
+t6 − t2 s 3
+
+(−1 + t4 ) s2
+1
+t +t
+
+t8 − s 3
+
+
+
+
+
+(−1 + t4 ) s2
+
+
+t2 t4 − s3 t10 − s3
+a10 (s) = q
+1
+2 2 12
+3
+t + t (−1 + t ) s (t − s )
+
+t4 −t4 + s3
+a12 (s) = q
+1
+12
+3
+t + t (t − s )
+−t2
+s
+1
+a16 (s) =
+t
+
+a13 (s) =1
+
+a14 (s) =
+
+−t
+s
+t5
+a17 (s) =
+s
+
+a15 (s) =
+
+a18 (s) = −t3
+
+a19 (s) = − t2
+q
+
+1
+2
+4
+6
+3
+t + t −t + t − t + s
+a21 (s) =
+t (−1 + s3 )
+−t8 + s3 + t6 −1 + s3
+q
+a23 (s) =
+1
+3
+2
+t
+t + ts (−1 + s )
+
+q
+
+a20 (s) =
+
+t4
+s
+
+
+−t8 + s3 + t6 −1 + s3
+q
+a22 (s) =
+t2 1t + ts (−1 + s3 )
+q
+
+1
+2
+4
+6
+3
+t + t −t + t − t + s
+a24 (s) =
+t (−1 + s3 )
+
+
+
+37
+
+a25 (s) =
+
+a27 (s) =
+
+−t11 (1 + t2 ) + t(1 + t6 )s3
+t4
+
+q
+
+q
+
+a29 (s) = q
+
+a31 (s) = q
+a33 (s) = −
+
+a26 (s) =
+
+1
+12
+3
+t + ts(t − s )
+
+1
+6
+8
+10
+3
+t + t(−t + t − t + s )
+t12 − s3
+
+a28 (s) =
+
+t6 − s 3
+
+1
+6
+8
+10
+3
+t + t(−t + t − t + s )
+t12 − s3
+
+−t13 (1 + t2 ) + t3 (1 + t6 )s3
+q
+1
+12
+3
+t + ts(t − s )
+
+a32 (s) = q
+
+1
+2 2
+t + t(−1 + t )s
+
+
+
+q
+
+a30 (s) = q
+
+1
+2 2
+t + t(−1 + t )s
+t6 − s 3
+
+t2 − s
+
+t2
+
+t6 − s 3
+
+1
+2 2
+t + t(−1 + t )s
+t6 − s 3
+1
+2 2
+t + t(−1 + t )s
+
+
+
+
+t2 t12 + t14 − 2t12 + t8 − 2t6 + t4 − 2 s3 + s6 + s3
+q
+t2 t + 1t (t2 − 1) s2 (s3 − 1) (t12 − s3 )
+
+t4 + t2 s + s 2
+
+
+
+by plugging the linear system for the functions ai (s) into Mathematica (or some other formal
+calculus software). One can then show, again using Mathematica, that the correponding operator
+Ř(s) satisfies the multiplicative spectral-parameter dependant Yang-Baxter equation.
+We can obtain a manifestly PT-invariant R-matrix10 by using the following gauge transformation
+D = Diag(α, α, α, β, β, β, 1)
+
+Ř(s) → D −1 ⊗ D −1 Ř(s) (D ⊗ D)
+
+(82)
+
+The form of D corresponds to rescaling subrepresentations of V in (80) independently. Renormalizing the R-matrix, we obtain
+
+
+t2 − s 3 t8 − s 3
+a1 (s) = a2 (s) = − 2
+t (t − 1) s2 (s3 − 1)
+8
+3
+t −s
+a3 (s) =
+ts − ts4
+t8 − s 3
+a4 (s) = s
+ts − ts4
+t6 − t2 s 3
+a5 (s) = a6 (s) = 2
+(t − 1) s2
+t8 − s 3
+a7 (s) = a8 (s) = 2
+(t − 1) s2
+
+
+t3 t4 − s3 t10 − s3
+a9 (s) = a10 (s) = 2
+(t − 1) s2 (t12 − s3 )
+t4 − s 3
+a11 (s) = t9 4
+s − t12 s
+t4 − s 3
+a12 (s) = t5 s 4
+s − t12 s
+10
+
+We here understand PT-symmetry as the invariance under the rotation of the diagrams through an angle π.
+
+38
+
+r
+
+1
+a13 (s) = a16 (s) = a18 (s) = a19 (s) = −it t +
+t
+q
+1
+it4 t + t
+a14 (s) = a15 (s) = a17 (s) = a20 (s) =
+s
+
+−t8 + t2 s3 − 1 + s3
+a21 (s) = a24 (s) =
+t (s3 − 1)
+
+8
+t − t6 + 1 s 3 + t6
+a22 (s) = a23 (s) =
+t (s − s4 )
+ 
+t3 t12 + t10 − t6 + 1 s3
+a25 (s) = a28 (s) =
+s4− t12 s
+
+t3 t2 + 1 s 3 − t6 t6 + 1
+a26 (s) = a27 (s) =
+t12 − s3
+
+t t6 − s 3
+a29 (s) = a30 (s) = a31 (s) = a32 (s) = 2
+(t − 1) s2
+
+
+
+
+
+t2 − s t4 + t2 s + s2 t2 t12 + t14 − 2t12 + t8 − 2t6 + t4 − 2 s3 + s6 + s3
+a33 (s) = −
+t (t2 − 1) s2 (s3 − 1) (t12 − s3 )
+2
+
+8
+
+It is apparent that by setting the spectral parameter s = t 3 , Ř(s) will be decomposed only in
+terms of webs appearing in the local transfer matrix of the A2 web model. In order to put it in the
+form of (65), we renormalise the PT-invariant R-matrix so as to recover the local transfer matrix
+(65) with the following parametrisation, setting t = eiψ :
+q = − e3iψ
+1
+x=
+2 sin(ψ)
+p
+y =z = 2 sin(2ψ)
+ψ
+
+eiφ =iei 3
+
+(83a)
+(83b)
+(83c)
+(83d)
+
+Remark that points related by ψ → π − ψ satisfy
+
+q → −q −1
+
+(84a)
+
+x→x
+
+(84b)
+
+z → iz
+
+(84d)
+
+y → iy
+
+eiφ → e−iφ τ
+
+(84c)
+(84e)
+
+with τ 3 = 1. Moreover the points related by ψ → −ψ satisfy
+q → q −1
+
+(85a)
+
+x → −x
+
+(85b)
+
+z → iz
+
+(85d)
+
+y → iy
+
+eiφ → −e−iφ τ
+
+(85c)
+(85e)
+
+These transformations are combinations of the symmetries mentioned in section 3.2. They imply
+that it suffices to focus on the interval ψ ∈ [0, π2 ].
+39
+
+4
+2
+2
+0
+0.20
+0
+0.05
+
+0.10
+
+0.25
+
+0.30
+
+0.35
+
+0.40
+
+0.45
+
+0.50
+
+-2
+
+0.15
+
+-2
+
+-4
+
+-4
+
+-6
+
+-6
+
+-8
+
+-8
+
+- 10
+
+Figure 6: Two-point fits cL (ψ) for the central charge in the A2 web model, plotted against ψπ .
+Regime 2 (left panel) is for ψ ∈ [0, π6 [, using sizes {L, L − 3} with L = 6 (dark blue) and L = 9
+(orange). Regime 1 (right panel) is for ψ ∈] π6 , π2 ], using sizes {L, L − 1} with L = 4, 5, . . . , 9. The
+smallest size corresponds to the lowest curve (dark blue). The topmost curve (light blue) is the
+exact analytical result.
+7.2.1
+
+Central charge and phase diagram
+
+We have numerically diagonalised the transfer matrix for cylinders of circumference of sizes L =
+3, 4, . . . , 9. Estimates cL for the central charge can then be extracted from the finite-size scaling of
+the largest eigenvalue for two different sizes. The computations were made for 100 equally-spaced
+values of ψ ∈ [0, π2 ], and we show here the curves cL (ψ) obtained by applying Mathematica’s
+interpolation function to these values.
+As shown in Figure 6 we find two different regimes, defined as follows:
+Regime 1: ψ ∈] π6 , π2 ] ,
+
+Regime 2: ψ ∈ [0, π6 ] .
+
+(86)
+
+The central charge throughout Regime 1 is shown in the right panel of the figure. A Coulomb gas
+computation, which will be published elsewhere [23], gives the exact result
+c(ψ) = 2 − 24
+
+(1 − g)2
+,
+g
+
+g=
+
+3ψ
+,
+π
+
+(87)
+
+where g is the Coulomb gas coupling constant. The agreement between the numerical values cL (ψ)
+and the analytical result c(ψ) is seen to be excellent.
+We define two distinct phases inside Regime 1:
+Dense phase: ψ ∈] π6 , π3 ] ,
+
+Dilute phase: ψ ∈ [ π3 , π2 ] ,
+
+1
+2 < g ≤ 1,
+1 ≤ g ≤ 32 .
+
+(88)
+
+The physical motivation for the names dense and dilute comes from properties of the full phase
+diagram in the two-dimensional space of bond and vertex fugacities (x and y = z respectively),
+for a fixed value of ψ (or q). This is discussed in more detail in [2], but we recall here the salient
+features. Starting from the trivial empty phase, upon increasing the density of bonds and vertices
+one first hits a critical line—a one-dimensional critical sub-manifold of the parameter space—on
+which the model is in the dilute universality class. The fraction of links which are covered by
+a bond is zero. The whole dilute critical line is governed by an attractive renormalisation-group
+40
+
+fixed point. We believe that the integrable point in the dilute phase—which, we recall, is for the
+A2 model modified by the inclusion of bending weights, but we think that bending is unlikely to
+change the critical behaviour—is in the same universality class as this dilute fixed point. Increasing
+further the density of bonds and vertices one enters a critical region—a two-dimensional critical
+sub-manifold of the parameter space—throughout which the model is in the dense universality
+class. The fraction of links which are covered by a bond is now finite, and the whole critical region
+is governed by a certain fixed point. We believe that the integrable point in the dense phase is in
+the same universality class as this dense fixed point.
+The central charge is given by the same analytic function of g throughout Regime 1, and the
+same holds true for each critical exponent [23]. This is why the two phases are grouped within
+the same regime. The dense and dilute phases intersect in the point ψ = π3 , for which the central
+charge is c = 2, the rank of the A2 algebra. At this point the field theory is a CFT of two free
+bosons.
+We do not yet have an analytic understanding of Regime 2. Our numerical results for cL (ψ)
+are shown in the left panel of Figure 6. It is clear that c(ψ) cannot be given by the same analytic
+expression as (87), so we are indeed in a different regime. The numerical results clearly show that
+the ground state sector—then one determining c—is only present for L a multiple of 3. This is a
+hint of a higher symmetry, as is the fact, that c takes larger values than in Regime 1. We have
+indeed c ' 3 for small ψ, and possibly even c(ψ) → 4 for ψ → 0. It seems possible that the limit
+c(ψ → π6 − ) is equal to c(ψ → π6 + ) = −10, obtained from (87). In any case, it is obvious that the
+finite-size effects are much larger in Regime 2 than in Regime 1. Such slow convergence is usually
+the hallmark of a non-compact continuum limit. Notice that in the A1 loop model there is indeed
+a regime III for which the continuum limit has one compact and on non-compact boson. This leads
+us to conjecture that Regime 2 of the A2 web model has one or two non-compact bosons.
+Further investigations of Regime 2 would require the access to larger sizes. This could be
+achieved, e.g., by setting up the Bethe Ansatz equations and studying them numerically or even
+analytically. We leave such developments for future work.
+7.2.2
+
+Special points
+
+We now discuss a number of points of particular interest.
+π
+
+Case of q = e±i 4 . These are the values of q for which one has a mapping to a 3-state Potts
+models (see Section 3.3). The corresponding integrable points are given by
+ψ
+
+π
+4
+
+x
+
+√1
+2
+
+5π
+12
+
+p
+
+2−
+
+11π
+12
+
+√
+3
+
+p√
+
+3+2
+
+y=z
+
+√
+2
+
+eiφ
+
+ei 12
+
+7π
+
+ei 36
+
+23π
+
+ei 36
+
+c
+
+0
+
+4
+5
+
+≈ 1.5
+
+1
+
+i
+
+29π
+
+The point ψ = 5π
+12 in the dilute phase of Regime 1 is likely to be in the same universality class as
+the analogous point in the dilute phase of the A2 web models considered in [2]. It was argued there
+that this point is in the ferromagnetic 3-state Potts model class. Recall that the work in [2] did
+
+41
+
+not include the bending weight φ, but we do not think this changes the universality class. Indeed
+4
+c(ψ = 5π
+12 ) = 5 from (87) as expected.
+It seems worth pointing out that the integrable 3-state Potts model described in this paper is
+not the same as the one considered in [36], although both include plaquette interactions.
+Similarly, we believe that the point ψ = π4 in the dense phase of Regime 1 is in the universality
+class of the analogous point of [2], which can in turn be identified with the infinite-temperature
+3-state Potts model. The latter has obviously ceff = 0, in agreement with c(ψ = π4 ) = 0 from (87).
+π
+Finally we identify the point ψ = 11π
+12 of the above table with the point ψ = 12 , due to the
+symmetry (84). For the latter, our numerical results are c6 ≃ 1.367 from sizes L = 3, 6, and
+c9 ≃ 1.516 from sizes L = 6, 9. To our best knowledge, no previous study has found such a high
+value of c for a 3-state spin model.
+For completeness we mention that yet other universality classes of a 3-state Potts model on the
+triangular lattice have been reported in [37].
+Case of q = ±i. When q = ±i, [2]q = 0, so that any web containing a digon has weight 0.
+Actually any web that is not a collection of loops has vanishing weight. This can be shown by
+induction on the number of vertices. It is clearly true for webs with 2 vertices. Without loss
+of generality, consider a web that does not contain loops with V vertices, E edges and F faces.
+Suppose the statement is true for webs with strictly less than V vertices. By the Euler relation
+and the hand shake lemma we have
+F −E +V = 2
+2E = 3V
+
+If the web contains a digon, its weight is 0. If not, any face is surrounded by at least 4 edges and
+2E ≥ 4F
+This implies a lower bound on the number of vertices
+V ≥8
+If we now reduce the web by the square rule, i.e the only rule applicable, we get a linear combination
+of webs with a number of vertices V ′ = V − 4 > 0. By the induction hypothesis their weights are
+0 hence also is the weight of the original web.
+We thus obtained a model of oriented loops of topological weight [3]q = −1. If we sum over
+orientation taking into account the fugacities corresponding to the bendings of web edges we obtain
+the familiar O(N ) model of unoriented loops with contractible loop weight
+N = −e6iφ − e−6iφ = e2iψ + e−2iψ ,
+non contractible loop weight −2 and bond fugacity
+x=
+
+1
+.
+2 sin(ψ)
+
+q = ±i is attained for the following values of ψ
+ψ=
+
+π π
+,
+6 2
+42
+
+The first point gives N = 1 and x = 1. These values correspond to site percolation on the triangular
+lattice, a point in the dense phase of the loop model. Since the non contractible loop weight is equal
+to −2, the effective central charge is given by −∞, which is certainly different from the analytical
+result c(ψ → π6 + ) = −10, and possibly also incompatible with the numerical result c(ψ → π6 − ) for
+Regime 2. In any case, there is a discontinuity at the junction between Regimes 1 and 2.
+The second point, ψ = π2 , gives N = −2 and x = 21 . This value corresponds to the loop-erased
+random walk, in agreement with the value c = −2 from (87).
+Case of ψ = 0. From Figure 6 this is the most remarkable point in Regime 2, so we investigate
+here its lattice realisation in some more detail. For ψ = 0, one obtains y = z = 0 and x → ∞. To
+make sense of the model, one needs to first renormalise the local transfer matrices (65) by x1 and
+then send ψ to zero. One then obtains
+√
+2
+tA
+(1) = 2
+
++
+
++ e−iφ
+
+√
+2
+tA
+=
+2
+(2)
+
+√
+
+2
+
++ eiφ
+
++
+
++ e−iφ
+
+√
+
+2
+
++ eiφ
+
++ e−iφ
+
++ eiφ
+
++ e−iφ
+
++ eiφ
+
+(89a)
+
++ e−iφ
+
++ eiφ
+
++ e−iφ
+
++ eiφ
+
+(89b)
+
+with q = −1 and eiφ = i. It is not clear to us at present why this lattice model has the special
+properties (slow convergence and the largest central charge) that we observe numerically.
+
+7.3
+
+The G2 web model
+(3)
+
+We now consider the third line of table 1. Let Vu , u ∈ C∗ , be the representation of Uq (D4 ) given
+in Appendix D which is actually isomorphic to the one considered in [22]11 . We are looking for an
+(3)
+operator Ř(u, v) intertwining Vu ⊗ Vv and Vv ⊗ Vu . Remark that, in Uq (D4 ), Ei , Fi and Hi for
+i = 0, 1 generate a Hopf subalgebra isomorphic to Uq (G2 ). Under the action of this subalgebra, Vu
+decomposes as:
+Vu = C ⊕ V
+
+(90)
+
+Hence Ř(u, v) will decompose as a sum of Uq (G2 ) intertwiners:
+Ř(u, v) = a1 (u, v)
+11
+
++ a2 (u, v)
+
++ a3 (u, v)
+
+Beware of a typo in the representation matrices of [22].
+
+43
+
++ a4 (u, v)
+
++ a5 (u, v)
+
++ a6 (u, v)
+
++ a7 (u, v)
+
++ a9 (u, v)
+
++ a10 (u, v)
+
++ a11 (u, v)
+
++ a13 (u, v)
+
++ a14 (u, v)
+
++ a15 (u, v)
+
++ a8 (u, v)
+
++ a12 (u, v)
+
+(91)
+
+
+where ai (u, v) are some coefficients and the webs span the space of intertwiners EndUq (G2 ) (C ⊕ V )2 .
+Asking for Ř(u, v) to commute with the remaining generators, we see that it depends only on
+the ratio s = uv . Plugging this linear system for the functions ai (s) into Mathematica, we find
+s3 − q 12
+a1 (s) = 4
+q (s − 1)
+q 8 − q 2 s3
+a2 (s) = 6
+q −s
+4
+a3 (s) =q + q 2 s + s2
+q 8 + q 4 s + s2
+q2
+q
+
+a5 (s) =q 4 [3]q q 2 − 1 s
+q
+
+a6 (s) =q 4 [3]q q 2 − 1 s
+p
+
+[3]q q 2 − 1 s
+a7 (s) = −
+q2
+p
+
+[3]q q 2 − 1 s
+a8 (s) = −
+q2
+
+q 8 q 6 − 1 s(s + 1)
+a9 (s) =
+q6 − s
+
+6
+q − 1 s(s + 1)
+a10 (s) =
+q 4 (q 6 − s)
+
+
+q6 − 1 s q6 + s
+a11 (s) = −
+q 4 (s − 1)
+
+
+q6 − 1 s q6 + s
+a12 (s) = −
+q 4 (s − 1)
+s2
+a13 (s) =q 6 + q 4 (s + 1) + 2 + s2 + s
+q
+s2
+a14 (s) =q 6 + q 4 (s + 1) + 2 + s2 + s
+q
+
+
+1
+1 − q 12
+q 8 − q 20
+1
+2
+2
+14
+8
+6
+4
+4
++
+1
+s
+−
+q
++
++
++s
+a15 (s) =q − q + q + q s + q + 4 +
+q
+q2
+q 4 (s − 1)
+q6 − s
+a4 (s) =
+
+44
+
+One can then show, using for instance Mathematica, that the corresponding operator Ř(s)
+satisfy the multiplicative spectral parameter dependant Yang-Baxter equation. Using the following
+gauge transformation (which is just an elementary rescaling of the irreducible components in the
+decomposition (90))
+
+for well chosen α, we obtain
+
+D = Diag(1, α, α, α, α, α, α, α)
+
+Ř(s) → D −1 ⊗ D −1 Ř(s) (D ⊗ D)
+
+(92)
+
+s3 − q 12
+a1 (s) = 4
+q (s − 1)
+q 8 − q 2 s3
+a2 (s) = 6
+q −s
+4
+a3 (s) =q + q 2 s + s2
+a4 (s) =
+
+q 8 + q 4 s + s2
+q2
+
+q
+
+a5 (s) =a6 (s) = a7 (s) = a8 (s) = −iq [3]q q 2 − 1 s
+
+q 2 q 6 − 1 s(s + 1)
+a9 (s) =a10 (s) = −
+q6 − s
+
+
+q6 − 1 s q6 + s
+a11 (s) =a12 (s) = −
+q 4 (s − 1)
+s2
+a13 (s) =a14 (s) = q 6 + q 4 (s + 1) + 2 + s2 + s
+q
+
+
+1
+1
+q 8 − q 20
+1 − q 12
+14
+8
+6
+4
+4
+2
+2
+a15 (s) =q − q + q + q s + q + 4 +
++
++s
++
+1
+s
+−
+q
++
+q
+q2
+q 4 (s − 1)
+q6 − s
+2iπ
+
+It is apparent that by setting the spectral parameter s = e− 3 q 4 , Ř(s) will be decomposed only
+in terms of webs appearing in the local transfer matrix of the G2 web model. By renormalizing
+the R-matrix, we recover the local transfer matrix (67) with the following parametrisation, setting
+q = eiγ :
+1
+
+2 cos 2γ + 2π
+3
+s
+
+
+π  2 cos 2γ + 2π
+3
+y =2 cos γ −
+6
+[3]q
+
+x=
+
+(93a)
+(93b)
+
+Note that points related by γ → γ + π have the same bond fugacity but a vertex fugacity related
+by y → −y. They are equivalent as the partition function only depend on y 2 and q 2 . We could
+focus for instance on the interval γ ∈ [0, π]. The Kuperberg weight only depend on ±2γ and for
+each value of the former, there are exactly two integrable points. Hence, the model describes two
+phases.
+7.3.1
+
+Central charge and phase diagram
+
+Also for the G2 web model have we numerically diagonalised the transfer matrix on cylinders
+of circumference L. Recall that for the A2 case we found L mod 3 parity effects in one of the
+45
+
+1
+
+0
+0.35
+
+0.40
+
+0.45
+
+0.50
+
+0
+0.20
+
+0.25
+
+0.30
+
+-1
+
+-1
+-2
+-2
+-3
+-3
+-4
+
+-4
+
+-5
+
+-5
+
+-6
+
+-6
+
+0.0
+0.55
+
+0.60
+
+0.65
+1
+
+- 0.5
+0
+0.70
+
+0.75
+
+0.80
+
+0.85
+
+- 1.0
+-1
+- 1.5
+-2
+- 2.0
+
+Figure 7: Fits cL (γ) for the central charge in the G2 web model, plotted against πγ . We show
+two-point fits using sizes {L, L − 2} with L = 4 (blue), L = 6 (orange) and L = 8 (green), as well
+as a three-point fit using sizes {L, L − 2, L − 4} with L = 8 (red). Regime 1 (upper left panel) is
+for γ ∈ [ π6 , π3 ], Regime 2 (upper right panel) is for γ ∈ [ π3 , π2 ], Regime 3 (lower left panel) is for
+2π 7π
+γ ∈ [ π2 , 2π
+3 ], and finally Regime 4 (lower right panel) is for γ ∈ [ 3 , 8 ].
+regimes. For the G2 model such effects are found to depend on L mod 2, so in this case we perform
+the diagonalisation for sizes L = 2, 4, 6, 8, from which estimates for the central charge cL can be
+extracted. The computations were made for 50 equally-spaced values of γ ∈ [0, π] and we show
+again curves cL (γ) obtained from extrapolation of these values.
+The number of regimes is now larger. The numerical results, shown in Figure 7, combined with
+analytical considerations on the weights (see below) lead us to define four regimes:
+Regime 1:
+Regime 2:
+Regime 3:
+Regime 4:
+
+γ ∈ [ π6 , π3 ] ,
+γ ∈ [ π3 , π2 ] ,
+
+γ ∈ [ π2 , 2π
+3 ],
+
+7π
+γ ∈ [ 2π
+3 , 8 ].
+
+(94)
+
+The numerical results alone suggest that Regime 1 might have a larger extent, γ =] π8 , π3 ], but in
+any case the point γ = π8 is special (see below) and should be excluded. The remaining two pieces
+of the interval [0, π] do not allow for convincing numerical results for cL (γ), and since γ is defined
+modulo π it is not clear whether these pieces should be considered one or two extra regimes. In
+the following we shall focus only on Regimes 1–4.
+
+46
+
+7.3.2
+
+Special points
+
+We discuss again a number of points of special interest.
+Case of γ = π6 , 5π
+6 . For these values of γ, we have described in Section 4.3 a mapping to the
+3-state Potts model on the dual triangular lattice. We obtain the following integrable points:
+γ
+
+π
+6
+
+5π
+6
+
+x
+
+− 12
+
+1
+
+y
+
+2i
+
+− √12
+
+The point γ = 5π
+6 corresponds to the infinite-temperature limit of the 3-state Potts model, with
+bond fugacity x = 1. This identification is consistent with the observed value c( 5π
+6 ) = 0 in Regime
+4. On the other hand, the numerical results for γ = π6 in Regime 1 lead us to conjecture that
+c( π6 ) = −2, which is an unusual and presently unexplained result for a 3-state model. Notice that
+the weight of each web configuration depends on y via the combination y 2 . The fact that both x
+and y 2 are negative in this case is presumably at the root of the observed unusual behaviour.
+Case of γ = π2 . For this value of γ, one has x = 1 and y = i. As shown in Section 4.4, this
+web model describes the uniform probability measure on spanning trees of the dual lattice. This is
+known to have c = −2, in perfect agreement with the numerical results at the boundary between
+Regimes 2 and 3.
+Case of γ = 2π
+3 . For this values of γ, we have y = 0 and the model becomes simply the O(N )
+loop model. For this value, we have N = −2 and x = 12 , which corresponds to the dilute phase of
+the loop model, hence to loop-erased random walks. Also this point is known to have c = −2, a
+value that agrees perfectly with the numerical results at the boundary between Regimes 3 and 4.
+11π
+Case of γ = 5π
+12 , 12 . For these values of γ, the bond fugacity is infinite. By renormalising the
+weights, we obtain the following local transfer matrices
+
+2
+tG
+(1) = (−1 ±
+
+√
+3)
+
+2
+and similarly for tG
+(2) . The + sign in (−1 ±
+
++
+√
+
++
+
++
+
+11π
+3) corresponds to γ = 5π
+12 , and the − sign to γ = 12 .
+
+For the first case, γ = 5π
+12 , the numerical results in Regime 2 lend strong credence to the conjecture
+5π
+4
+c( 12 ) = − 5 , but we have no theoretical understanding of this value. The second case, γ = 11π
+12 , is
+outside the four regimes defined above, and we refrain from giving any numerical estimate for c.
+Case of vanishing digon weight. We now look at values of γ such that the digon factor
+π 3π 5π 7π
+−(q 6 + q 4 + q 2 + q −2 + q −4 + q −6 ) vanishes. This happens for γ = π3 , 2π
+3 , 8, 8 , 8 , 8 .
+π
+For γ = 3 , the vertex fugacity is infinite, whereas the bond fugacity stays finite—and is in fact
+trivial up to a sign (x = −1). Hence the model contains only one configuration, the hexagonal lattice
+being completely covered by the web. The numerical results in Regime 2 give strong support for
+the conjecture c( π3 ) = −6. This is again an unusual value for which we have presently no analytical
+explanation.
+47
+
+The case γ = 2π
+3 was treated above.
+For the other four values of γ, we have a loop weight of N = −1 and a bond fugacity
+ q
+
+√ −1
+x = ǫ1 2 + ǫ2 3
+
+for some signs ǫ1 , ǫ2 . Moreover, when the digon factor is 0, all webs that are not a collection
+of loops have vanishing Kuperberg weight. This can be shown along the lines of the analogous
+situation for A2 webs, by induction on the number of vertices. It is clearly true for a web having
+2 vertices. Let V be the number of vertices of a given web G and suppose that the statement is
+true for webs having less than V vertices. Without loss of generality, we may assume that G does
+not contain any loop. Suppose that G does not contain digons either. We then have, thanks to the
+Euler relation and the hand-shake lemma,
+V ≥ 4.
+Suppose there is a trigon, then G is proportional to a web with V − 2 vertices. If there is no trigon,
+we have the better bound
+V ≥ 8.
+Then we can use the square or pentagon rule and obtain a linear combination of webs. In all
+cases, we have that G can be written as a linear combination of webs with a strictly smaller, yet
+non-vanishing number of vertices and the induction hypothesis applies.
+The resulting models are in fact O(−1) loops in their dense (ǫ2 = −1) or dilute (ǫ2 = 1) phase.
+The case γ = π8 is outside of the four regimes for which we have good numerical results. In fact,
+the numerical evidence alone is in favour of Regime 1 having extent ] π8 , π3 ], but assuming this, the
+numerical results indicate that c(γ) → −∞ as γ → π8 + . This is not compatible with the analytical
+result c = − 53 for the dilute O(−1) model, so at least the point π8 cannot be contained in the
+definition of Regime 1. For the case γ = 5π
+8 , on the other hand, the numerical results in Regime 3
+3
+are in perfect agreement with c = − 5 .
+7π
+It remains to discuss the two cases γ = 3π
+8 and 8 for which we should find a dense O(−1)
+model with c = −7 by the above analytical reasoning. The first of these points, γ = 3π
+8 , is inside
+Regime 2, while the other, γ = 7π
+is
+at
+the
+boundary
+of
+Regime
+4.
+The
+numerical
+results are
+8
+well-behaved in both cases, finding c ≃ −2.33 for the former and c ≃ −2.50 for the latter. We do
+not presently know how to reconcile this diagreement with the analytical result and suspect that
+some non-commutativity of limits might be at play. In any case, we stress that because of the very
+high dimension of the transfer matrix, the numerical results are obtained by interpolation from a
+set of 50 values of γ, and we did not examine the diagonalisation problem directly at the points
+7π
+γ = 3π
+8 and 8 .
+Case of γ = π4 . This point is situated inside Regime 1, and based on the numerical results we
+conjecture that c( π4 ) = 0. We have, however, no analytical argument in support of this value.
+
+7.4
+
+The B2 web model
+(2)
+
+We now consider the fourth line of table 1. Let Vu , u ∈ C∗ , be the first representation of Ut (A4 )
+given in Appendix D.3.2. We are looking for an operator Ř(u, v) intertwining Vu ⊗ Vv and Vv ⊗ Vu .
+
+48
+
+Remark that Ei , Fi and Hi for i = 1, 2 generate a Hopf subalgebra isomorphic to Ut2 (B2 ). Under
+the action of this subalgebra, Vu decomposes as:
+Vu = C ⊕ V1 ⊕ V2
+
+(95)
+
+Hence Ř(u, v) will decompose as a sum of Ut2 (B2 ) intertwiners:
+Ř(u, v) = a1 (u, v)
+
++ a2 (u, v)
+
++ a3 (u, v)
+
++ a4 (u, v)
+
++ a5 (u, v)
+
++ a6 (u, v)
+
++ a7 (u, v)
+
++ a8 (u, v)
+
++ a9 (u, v)
+
++ a10 (u, v)
+
++ a11 (u, v)
+
++ a12 (u, v)
+
++ a13 (u, v)
+
++ a14 (u, v)
+
++ a15 (u, v)
+
++ a16 (u, v)
+
++ a17 (u, v)
+
++ a18 (u, v)
+
++ a19 (u, v)
+
++ a20 (u, v)
+
++ a21 (u, v)
+
++ a22 (u, v)
+
++ a23 (u, v)
+
++ a24 (u, v)
+
++ a25 (u, v)
+
++ a26 (u, v)
+
++ a27 (u, v)
+
++ a28 (u, v)
+
++ a29 (u, v)
+
++ a30 (u, v)
+
++ a31 (u, v)
+
++ a32 (u, v)
+
++ a33 (u, v)
+
++ a34 (u, v)
+
++ a35 (u, v)
+
++ a36 (u, v)
+
++ a37 (u, v)
+
++ a38 (u, v)
+
++ a39 (u, v)
+
++ a40 (u, v)
+
++ a41 (u, v)
+
++ a42 (u, v)
+
++ a43 (u, v)
+
+
+where ai (u, v) are some coefficients and the webs span the space of intertwiners EndUt2 (B2 ) (C ⊕ V1 ⊕ V2 )2 .
+49
+
+Asking for Ř(u, v) to commute with the remaining generators, we see that it depends only on
+the ratio s = uv . Plugging this linear system for the functions ai (s) into Mathematica, we find
+2 8
+
+
+ 
+a1 (s) = t4 + 1
+t − s2 t10 + s2 −t8 + t2 s4 − (t − 1)(t + 1) t8 − t4 + 1 s2
+2 2
+
+
+
+
+
+a2 (s) = − t4 + 1
+t − s t2 + s t8 − s2 t6 + s2 t10 + s2
+
+
+
+
+a3 (s) =t8 s2 − 1 t8 − s2 t2 + s2 t10 + s2
+2
+ 16
+
+
+a4 (s) = t4 + 1 [−t24 − t4 s8 − t4 − t2 + 1
+t − 4t8 − t6 + 6t4 − t2 − 4 t8 + 1 s4
+
++ t14 − 3t12 + t10 + 3t8 − 3t6 − t4 + 3t2 − 1 t2 s6
+
+− t14 − 3t12 + t10 + 3t8 − 3t6 − t4 + 3t2 − 1 t12 s2 ]
+
+
+ 
+a5 (s) = − t12 − t10 + t8 − t4 + t2 − 1 s t10 + s2 t12 − t2 s4 + t14 + t10 + t8 − t6 − t4 − 1 s2
+
+
+ 
+a6 (s) = − t12 − t10 + t8 − t4 + t2 − 1 s t10 + s2 t12 − t2 s4 + t14 + t10 + t8 − t6 − t4 − 1 s2
+
+
+2
+
+
+a7 (s) = − t6 − 2t4 + 2t2 − 1 t6 + t4 + t2 + 1 s2 t8 − s2 t10 + s2
+
+
+2
+
+
+a8 (s) = − t6 − 2t4 + 2t2 − 1 t6 + t4 + t2 + 1 s2 t8 − s2 t10 + s2
+
+
+2
+
+
+
+a9 (s) = − t4 − 1 t4 + 1 s t8 − s2 t6 + s2 t10 + s2
+
+
+
+
+
+2
+a10 (s) = − t4 − 1 t4 + 1 s t8 − s2 t6 + s2 t10 + s2
+
+
+
+
+
+a11 (s) = − t4 t4 + 1 s2 − 1 t8 − s2 t6 + s2 t10 + s2
+
+
+
+
+
+a12 (s) = − t4 t4 + 1 s2 − 1 t8 − s2 t6 + s2 t10 + s2
+
+
+
+ 
+a13 (s) =t8 t4 + 1 s2 − 1 t2 + s2 t12 − t2 s4 + t14 − t12 + t8 − t6 + t2 − 1 s2
+2 2
+
+
+
+
+
+a14 (s) =t8 t4 + 1
+s − 1 t2 − s t2 + s t2 + s 2 t6 + s 2
+
+2
+
+ 
+a15 (s) =t8 t4 − 1 t5 − t3 + t s s2 − 1 t12 − t2 s4 + t14 + t10 + t8 − t6 − t4 − 1 s2
+
+
+ 
+
+2
+a16 (s) = − t4 − 1 t4 + 1 s s2 − 1 t12 − t2 s4 + t14 + t10 + t8 − t6 − t4 − 1 s2
+
+
+
+2
+a17 (s) =t14 t2 − 1 t10 + t6 + t4 + 1 s2 s2 − 1 t2 + s2
+
+
+
+2
+a18 (s) =t2 t2 − 1 t6 + t4 + t2 + 1 s2 s2 − 1 t2 + s2
+
+
+
+
+2
+a19 (s) = − t6 t4 − 1 t4 + 1 s s2 − 1 t8 − s2 t10 + s2
+
+
+
+
+a20 (s) =t4 t4 − 1 s s2 − 1 t8 − s2 t10 + s2
+
+
+
+
+a21 (s) =t8 t8 − 1 s s2 − 1 t4 − s2 t2 + s2
+
+
+
+
+3
+a22 (s) = − t10 t4 − 1 t4 + 1 s s2 − 1 t4 − s2 t2 + s2
+
+
+
+
+
+a23 (s) = − t6 t4 + 1 s2 − 1 t8 − s2 t2 + s2 t10 + s2
+
+
+
+
+a24 (s) = − it6 t8 − t6 + t2 − 1 s s2 − 1 t8 − s2 t10 + s2
+
+
+
+
+a25 (s) = − it6 t8 − t6 + t2 − 1 s s2 − 1 t8 − s2 t10 + s2
+
+2
+
+
+
+a26 (s) =i t4 − 1 t5 + t s s2 − 1 t8 − s2 t10 + s2
+
+2
+
+
+
+a27 (s) =i t4 − 1 t5 + t s s2 − 1 t8 − s2 t10 + s2
+2 2
+
+
+
+
+a28 (s) =t4 t4 + 1
+s − 1 t8 − s2 t2 + s2 t10 + s2
+2 2
+
+
+
+
+a29 (s) =t4 t4 + 1
+s − 1 t8 − s2 t2 + s2 t10 + s2
+
+
+
+
+a30 (s) =t8 t8 − 1 s s2 − 1 t2 + s2 t10 + s2
+50
+
+
+
+
+
+
+a31 (s) = − t8 t4 + 1 s2 − 1 t4 − s2 t2 + s2 t10 + s2
+
+
+
+
+a32 (s) =t8 t8 − 1 s s2 − 1 t2 + s2 t10 + s2
+
+
+
+
+
+a33 (s) = − t8 t4 + 1 s2 − 1 t4 − s2 t2 + s2 t10 + s2
+
+
+
+
+a34 (s) = − it10 t12 − t10 + t8 − t4 + t2 − 1 s s2 − 1 t2 + s2 t10 + s2
+
+
+2
+
+
+a35 (s) = − it8 t2 − 1 t4 + 1 t6 + 1 s2 s2 − 1 t10 + s2
+
+
+2
+
+
+a36 (s) = − it8 t2 − 1 t4 + 1 t6 + 1 s2 s2 − 1 t10 + s2
+
+
+
+
+a37 (s) = − it10 t12 − t10 + t8 − t4 + t2 − 1 s s2 − 1 t2 + s2 t10 + s2
+
+
+
+
+a38 (s) = − it4 t8 − 1 s s2 − 1 t2 + s2 t10 + s2
+
+
+
+a39 (s) = − it2 t14 + t8 − t6 − 1 s2 s2 − 1 t10 + s2
+
+
+
+a40 (s) = − it2 t14 + t8 − t6 − 1 s2 s2 − 1 t10 + s2
+
+
+
+
+a41 (s) = − it4 t8 − 1 s s2 − 1 t2 + s2 t10 + s2
+
+
+ 4
+
+
+ 
+a42 (s) = − t4 t4 + 1 s2 − 1 t10 + s2
+t + 1 s4 − t10 t4 + 1 + t14 − 2t12 + t8 − t6 + 2t2 − 1 s2
+
+
+ 4
+
+
+ 
+a43 (s) = − t4 t4 + 1 s2 − 1 t10 + s2
+t + 1 s4 − t10 t4 + 1 + t14 − 2t12 + t8 − t6 + 2t2 − 1 s2
+
+One can then show, using for instance Mathematica, that the corresponding operator Ř(s) satisfy
+the multiplicative spectral parameter dependant Yang-Baxter equation.
+7.4.1
+
+Integrable B2 web model on the hexagonal lattice
+
+It is apparent that by setting the spectral parameter s = t4 , Ř(s) will be decomposed only in terms
+of webs appearing in the local transfer matrix of the B2 web model on the hexagonal lattice. In order
+to put it in the form of (71), we renormalise the R matrix and take the following transformation
+D = Diag(1, α, α, α, α, β, β, β, β, β)
+
+Ř(s) → D −1 ⊗ D −1 Ř(s) (D ⊗ D)
+
+(96)
+
+which is just an elementary rescaling of the irreducible components in the decomposition (95). For
+a well-chosen normalisation constant and parameters α, β, we recover the local transfer matrix (71)
+with the following parametrisation, setting t = eiψ :
+q =e2iψ
+2 sin(ψ)
+xt;1 =
+4 sin2 (ψ) − 1
+1
+xt;2 =
+2
+4 sin (ψ) − 1
+1
+xv;1 = −
+4 sin(ψ) cos(2ψ)
+xv;2 =0
+y =1
+7.4.2
+
+(97a)
+(97b)
+(97c)
+(97d)
+(97e)
+(97f)
+
+Integrable B2 web model on the square lattice
+
+Let us now turn to the model on the square lattice. When one tunes the spectral parameter as
+π 5
+s = ei 4 t 2 and uses the gauge freedom (96), one obtains the B2 web model on the square lattice
+51
+
+defined in Section 5.3 with the following Boltzmann weights:
+i(−1 + t(t − i))(1 + (t − 1)t(t + 1)(t − i))
+t5 + t
+
+
+1 + t(t − i) −2 + t t3 − t + i (−2 + t(t − i))
+b2 = −
+t4
+ 
+ 
+3π
+ei 4 (−1 + t(t − i)) 1 + i t3 − t + i t2 −1 + t(t − i) 1 + (t − 1)(t + 1) t4 + it + 2 t2
+b3 =
+t13/2 (t4 + 1)
+ 
+i(−1 + t(t − i))(1 + (t − 1)t(t + 1)(t − i)) 1 + t6 − 2t4 + 2it3 − 2it − 2 t2
+b4 = −
+t9 + t5
+
+2
+t it + t − i (1 + (t − 1)t(t + 1)(t − i))
+b5 =
+(t4 + 1)2
+b6 =1
+
+(t − i)2 t6 − 2t4 + 2t2 − 1
+b7 = −
+t4
+
+2
+it + t − i (1 + (t − 1)t(t + 1)(t − i))
+b8 =
+t3
+3π
+ei 4 (t − 1)(t − i)(t + 1)
+b9 =
+t3/2
+1 + (t − 1)t(t + 1)(t − i)
+b10 = −
+t4 + 1
+i π4
+e (1 + it)(t − 1)(t + 1)(1 + (t − 1)t(t + 1)(t − i))
+b11 =
+t3/2 (t4 + 1)
+
+
+2
+t2 − 1 t3 + i (−1 + t(t − i))(1 + (t − 1)t(t + 1)(t − i))
+√
+b12 =
+(t5 + t) t10 − t8 + t6
+√
+π
+ei 4 (t − 1)(t − i)(t + 1) t10 − t8 + t6 (1 + (t − 1)t(t + 1)(t − i))
+b13 =
+t11/2 (t4 + 1)
+b14 = − it−9 (−1 + t(t − i))[1
+b1 = −
+
++ t(t − i)(−1 + t((t − 1)t(t + 1)(−3 + t(t(3 + t(t − i)(−3 + t((−2 + t(t + i))t3 + 2t − i))) − 2i)) − i))]
+
+7.4.3
+
+An integrable dilute BMW model
+
+Another integrable solution for the B2 web model on the square lattice can be obtained. This
+model is much simpler than the preceeding one, since it uses only single lines. Let Vu′ , u ∈ C∗ ,
+(2)
+be the second representation of Ut (A4 ) given in Appendix D.3.3. We are looking for an operator
+Ř(u, v) intertwining Vu′ ⊗ Vv′ and Vv′ ⊗ Vu′ . Remark that Ei , Fi and Hi for i = 1, 2 generate a Hopf
+subalgebra isomorphic to Ut2 (B2 ). Under the action of this subalgebra, Vu′ decomposes as:
+Vu′ = C ⊕ V1
+
+(98)
+
+Hence Ř(u, v) will decompose as a sum of Ut2 (B2 ) intertwiners:
+Ř(u, v) = a1 (u, v)
+
++ a2 (u, v)
+
++ a3 (u, v)
+
+52
+
++ a4 (u, v)
+
++ a5 (u, v)
+
++ a6 (u, v)
+
++ a9 (u, v)
+
++ a10 (u, v)
+
++ a7 (u, v)
+
++ a8 (u, v)
+
+(99)
+
+
+where ai (u, v) are some coefficients and the webs span the space of intertwiners EndUt2 (B2 ) (C ⊕ V1 )2 ,
+with the first web defined in (36).12
+Asking for Ř(u, v) to commute with the remaining generators, we see that it depends only on
+the ratio s = uv . Plugging this linear system for the functions ai (s) into Mathematica, we find
+(t5 s−1 + t−5 s)(s − s−1 )
+t2 + t−2
+2 −1
+a2 (s) =(t s − t−2 s)(t5 s−1 + t−5 s)
+a1 (s) =
+
+a3 (s) = − (t3 s−1 + t−3 s)(s − s−1 )
+
+a4 (s) =(t2 − t−2 )(t5 s−1 + t−5 s)
+
+a5 (s) =(t2 − t−2 )(t5 s−1 + t−5 s)
+
+a6 (s) =t5 (t2 − t−2 )(s − s−1 )
+1
+a7 (s) = − 5 (t2 − t−2 )(s − s−1 )
+t
+a8 (s) = − (t5 s−1 + t−5 s)(s − s−1 )
+
+a9 (s) = − (t5 s−1 + t−5 s)(s − s−1 )
+
+a10 (s) =(t5 + t−5 )(t2 − t−2 ) − (t5 s−1 + t−5 s)(s − s−1 )
+One can then show, using for instance Mathematica, that the corresponding operator Ř(s) satisfies
+the multiplicative spectral parameter dependant Yang-Baxter equation.
+Remark that the diagrams appearing in the decomposition of Ř(u, v) are generators of the dilute
+BMW algebra once one considers the braiding operator [3]:
+− t−2
+
+= −t2
+
++
+
+1
+[2]t2
+
+The dilute BMW algebra has been baxterised [24] and the above integrable Ř-matrix (99) can then
+be recovered from [24, eq. (3.9)] (with the sign σ = −1 in the notations of that reference).
+π 5
+We now tune the spectral parameter as s = −ei 4 t 2 and use the gauge freedom
+D = Diag(1, α, α, α, α)
+
+Ř(s) → D −1 ⊗ D −1 Ř(s) (D ⊗ D)
+
+which is just an elementary rescaling, thanks to the decomposition (98). One then obtains the B2
+web model on the square lattice defined in Section 5.3 with the following Boltzmann weights:
+b1 =
+12
+
+cos2 ( 52 ψ − π4 )
+2 cos(2ψ)
+
+Remark that this map is not the flip map.
+
+53
+
+
+
+5
+π
+cos ψ −
+2
+4
+
+
+5
+π
+b3 = − sin(2ψ) cos ψ −
+2
+4
+π
+5
+b4 = − cos2 ( ψ − )
+2
+4
+5
+π
+b14 = cos(5ψ) sin(2ψ) − cos2 ( ψ − )
+2
+4
+bi =0
+for i ∈ J5, 13K
+b2 = sin
+
+
+
+π
+1
+ψ+
+2
+4
+
+
+
+where we have parametrised as t = eiψ . Notice that the last condition on vanishing weights is the
+same as (47) that forbids double edges in the corresponding spin model.
+
+8
+
+Discussion
+
+In this paper, we have defined web models as lattice models based on all the rank-two spiders introduced by Kuperberg in [3, 25]. We have exhibited specific root-of-unity values of the deformation
+parameter q for which the weight of closed webs can be used to count the number of colourings
+of their dual graphs, possibly with some constraints. These combinatorial properties allowed us to
+relate the web models at these special values of q to three- and four-state spins model with certain
+plaquette interactions and specific global symmetries.
+We have then used the central results of [3] which connect open webs with invariants of quantum
+group representations in order to write explicit local transfer matrices of the web models. Finally, we
+derived integrable R-matrices, which for a well-chosen value of their spectral parameter reproduce
+these transfer matrices. In particular, we have exhibited new integrable points for the spin models.
+Although this paper begins with the definition of certain web models and then demonstrates
+how they are obtained from affine R-matrices of well-chosen integrable models, another point of
+view would be that the definitions of those particular models are motivated by their integrability.
+Once the integrable R-matrix has been expressed in terms of webs, we may then define a related
+web model on the lattice.
+As in the well known case of loop models, the most convenient models are obtained on the
+square lattice or the hexagonal lattice. We have chosen to prioritise the simplest choice, which
+is the hexagonal lattice H. The configurations are easily described as embeddings of webs in H.
+Moreover, the local patterns around a vertex of H are so few that it is always possible to write
+rotationally invariant local Boltzmann weights in terms of local fugacities. The fugacities account
+for links or nodes to be covered by specific types of edges of a given web.
+By contrast, the models on the square lattice S are a bit more involved, and the local patterns
+at each vertex are more complicated, decorated graph embeddings. In particular, we have chosen to
+define the B2 web models on S, because the integrable solutions on H are not rotational invariant.
+We might of course also have defined integrable A2 and G2 web models on S. In the A2 case, for
+instance, this would have led to interactions of the form
+
+It is worth mentionning that the web models on S could potentially have a richer phase diagram
+than their counterparts on H. For instance, the loop model on S presents three different integrable
+54
+
+regimes [35], one of which has a non-compact continuum limit [9], but only one of those regimes
+survives the restriction of the model to the simpler lattice H. Remarkably, our numerical work shows
+that the A2 and G2 web models defined on H have two and (at least) four regimes, respectively. The
+corresponding models defined on S might conceivably possess an even greater number of regimes.
+We now discuss some possible directions for future work. First and foremost, one might solve the
+integrable web models by the Bethe ansatz. The fact that R-matrices are obtained from quantum
+group symmetries suggests the use of the algebraic Bethe ansatz. But even the more modest goal
+of setting up the Bethe ansatz equations might be worthwhile, since this would give access to larger
+system sizes than can be attained by exact diagonalisation of the transfer matrix.
+Another direction is to study the geometrical nature of the excitations present in the spectra of
+the transfer matrices. This has been discussed in [2] for the A2 case, where it was suggested that
+such excitations correspond to lattice precursors of electromagnetic operators in a Coulomb Gas
+description of the continuum limit. This A2 Coulomb Gas will be defined in a future paper [23].
+One might also hope to find analogous Coulomb Gas descriptions for the other G2 and B2 web
+models, although it seems more challenging when the relevant Dynkin diagram is not simply laced
+(see the discussion in [38]).
+Some of the special points that we have identified in the phase diagrams of the web models are
+5π
+of particular interest. For instance, the dense G2 web model at q = ei 6 describes a three-colour
+analogue of percolation which has not been studied before, to our best knowledge (see Section 7.3.2).
+It is also interesting that some instances of the loop models, such as percolation or LERW, appear
+at specific points of the rank-2 web models (see Sections 7.2.2 and 7.3.2). These give access to
+operators which are not present in the rank-1 realisations of these models, and may hence provide
+new details about their critical behaviour. The challenge would then be to describe the geometrical
+interpretation of such operators.
+Other special points indicate that the three-state Potts model with plaquette interactions can
+give rise to universality classes which are unusual for this model. For instance we have found cases
+of central charge c = −2 and c ≈ 1.5. It would be interesting to study further the possible RG
+flows between these models, and in particular whether some of the flows are integrable.
+We did not present here the numerical analysis of the B2 models, due to the large dimension
+of its transfer matrix. We also did not study the special points of this model. However, by the
+structure of its symmetries at q = i, the B2 web model is a good candidate for realising symplectic
+fermions at c = −4.
+Finally, one can define discrete holomorphic observables from the intertwining relations (75)
+and give them a combinatorial formulation thanks to webs, as was already done in the loop model
+case [39–42]. One might hope that some of these observables would enable us to rigorously derive
+conformal invariance of the corresponding lattice models, analogously to what was already done
+for the Ising model in its dilute loop representation [43], or for percolation [44, 45].
+Acknowledgments
+Part of this work was done when Augustin Lafay was affiliated with the LPENS. His research is
+now supported by the Academy of Finland grant number 340461, entitled “Conformal invariance
+in planar random geometry”. The work of Azat M. Gainutdinov was supported by the CNRS, and
+partially by the ANR grant JCJC ANR-18-CE40-0001. AMG is also grateful to LPENS, Paris for
+its kind hospitality in 2022 and 2023. This work of Jesper L. Jacobsen was supported by the French
+Agence Nationale de la Recherche (ANR) under grant ANR-21-CE40-0003 (project CONFICA).
+
+55
+
+A
+
+Some symmetries of the A2 web models
+
+The Boltzmann weight of the A2 web models is of the form xN (yz)NV eiM φ wK (G) for a given
+configuration G. Denote by wloc (G) = xN (yz)NV eiM φ the product of its local fugacities. We will
+show by induction on the number of edges that N + NV + M ≡ 0 mod 2, M ≡ 0 mod 3.
+Consider a web G embedded in the hexagonal lattice H. If G is a collection of loops, the result
+is clear. Supose it is not the case. Let F be a face of G other than the exterior one that is not
+surrounded by a loop. Remove the edges surrounding F going clockwise around it and reverse the
+orientation of the others. It is clear that the resulting graph G′ embedded in H is again a web.
+Moreover G′ has strictly less edges and the induction hypothesis applies.
+Around each node of H surrounding F , there are, up to rotations, 6 possibilities. We draw them
+below as well as their transformed counterparts, dotted lines meaning empty links.
+→
+
+:
+
+x3/2 y → xeiφ
+
+(100a)
+
+→
+
+:
+
+x3/2 z → xeiφ
+
+(100b)
+
+→
+
+:
+
+xe−iφ → xeiφ
+
+(100c)
+
+→
+
+:
+
+xeiφ → xe−iφ
+
+(100d)
+
+→
+
+:
+
+xe−iφ → 1
+
+(100e)
+
+→
+
+:
+
+xeiφ → 1
+
+(100f)
+
+We also wrote the corresponding change in the contribution to the Boltzmann weight from local
+fugacities, understanding that the fugacity of a half bond is x1/2 . Denote by l the number of
+source/sink pairs surrounding F , by m1 the number of nodes as in (100c), by m2 the number of
+nodes as in (100d), by n1 the number of nodes as in (100e) and by n2 the number of nodes as in
+(100f).
+We have that
+wloc (G) =(xyzei2φ )l (eiφ )m1 (e−iφ )m2 (xeiφ )n1 (xe−iφ )n2 wloc (G′ )
+= xl+n1 +n2 (yz)l (eiφ )2l+2m1 −2m2 +n1 −n2 wloc (G′ )
+As F is surrounded by an even number of edges,
+2l + m1 + m2 + n1 + n2 ≡ 0 mod 2
+from which it follows, using the induction hypothesis, that
+N + NV + M ≡ 0 mod 2
+
+56
+
+Moreover, one has that the number of nodes where F is locally convex minus the number of
+nodes where F is not is equal to 6. Thus
+2l + m2 + n1 − m1 − n2 = 6 ≡ 0 mod 3
+which implies that
+2l + 2m1 − 2m2 + n1 − n2 ≡ 0 mod 3
+and then, using the induction hypothesis, that
+M ≡ 0 mod 3
+
+B
+
+Data and conventions for root systems
+
+Here, we give Cartan matrix conventions for the quantum groups used in the main text, in the
+(1)
+order that the big quantum group follows the small one, for instance, G2 follows A2 . We describe
+also the symmetrisation of the Cartan matrix Aij in terms of the relatively prime positive integers
+di such that di Aij is symmetric. We also give the fundamental weights in the non-affine cases.
+
+B.1
+
+A2 web models
+
+B.1.1
+
+A2
+
+Let α1 and α2 be the two simple roots of A2 . We normalise them such that (α1 α1 ) = 2. The
+Cartan matrix is given by:
+
+
+(αi , αj )
+2 −1
+=
+(101)
+Aij = 2
+−1 2
+(αi , αi )
+The simple coroots are given by
+
+α∨
+1 = α1
+
+(102a)
+
+α∨
+2 = α2
+
+(102b)
+
+The fundamental weights are given by
+1
+2
+α1 + α2
+3
+3
+1
+2
+w2 = α1 + α2
+3
+3
+The Weyl vector and dual Weyl vector are
+
+(103a)
+
+w1 =
+
+(103b)
+
+ρ = w1 + w2 = α1 + α2
+
+(104a)
+
+∨
+
+(104b)
+
+ρ =ρ
+B.1.2
+
+(1)
+
+G2
+
+The Cartan matrix is given by:
+
+
+
+2 −1 0
+Aij = −1 2 −1
+0 −3 2
+
+d1 = 3,
+
+d2 = 3,
+57
+
+d3 = 1
+
+(105)
+
+B.2
+
+G2 web models
+
+B.2.1
+
+G2
+
+Let α1 and α2 be the two simple roots of G2 with α1 the smallest one. We normalise them such
+that (α1 α1 ) = 2. The Cartan matrix is given by:
+
+
+(αi , αj )
+2 −3
+Aij = 2
+=
+(106)
+−1 2
+(αi , αi )
+d1 = 1,
+
+d2 = 3
+
+The simple coroots are given by
+α∨
+1 = α1
+1
+α∨
+2 = α2
+3
+
+(107a)
+(107b)
+
+The fundamental weights are given by
+w1 = 2α1 + α2
+
+(108a)
+
+w2 = 3α1 + 2α2
+
+(108b)
+
+The Weyl vector and dual Weyl vector are
+ρ = w1 + w2 = 5α1 + 3α2
+5
+ρ∨ = 3α1 + α2
+3
+B.2.2
+
+(109a)
+(109b)
+
+(3)
+
+D4
+
+The Cartan matrix is given by:
+
+
+
+2 −1 0
+Aij = −3 2 −1
+0 −1 2
+
+d1 = 3,
+
+B.3
+
+B2 web models
+
+B.3.1
+
+B2
+
+d2 = 1,
+
+(110)
+
+d3 = 1
+
+Let α1 and α2 be the two simple roots of B2 with α1 the smallest one. We normalise them such
+that (α1 α1 ) = 2. The Cartan matrix is given by:
+
+
+(αi , αj )
+2 −2
+Aij = 2
+(111)
+=
+−1 2
+(αi , αi )
+d1 = 1,
+
+d2 = 2
+
+The simple coroots are given by
+α∨
+1 = α1
+58
+
+(112a)
+
+α∨
+2 =
+
+1
+α2
+2
+
+(112b)
+
+The fundamental weights are given by
+1
+w1 = α1 + α2
+2
+w2 = α1 + α2
+
+(113a)
+(113b)
+
+The Weyl vector and dual Weyl vector are
+3
+ρ = w1 + w2 = 2α1 + α2
+2
+3
+ρ∨ = α1 + α2
+2
+B.3.2
+
+(114a)
+(114b)
+
+(2)
+
+A4
+
+The Cartan matrix is given by:
+
+
+
+2 −2 0
+Aij = −1 2 −2
+0 −1 2
+d1 = 1,
+
+C
+
+d2 = 2,
+
+(115)
+
+d3 = 4
+
+Conventions for quantum groups
+
+Let q ∈ C be an arbitrary non-zero complex number (but q 6= ±1). The statistical weights of the
+web models will be defined in terms of so-called q-numbers [k]q , with k ∈ N, defined by
+[k]q =
+
+q k − q −k
+.
+q − q −1
+
+(116)
+
+Note that the q-numbers reduce to the ordinary integers, [k]q → k, in the limit q → 1. We shall
+also need the corresponding q-factorial and q-binomial coefficients:
+ 
+Y
+[n]q !
+n
+,
+[k]q ! =
+[i]q ,
+=
+k q
+[k]q ![n − k]q !
+1≤i≤k
+
+ 
+n
+with the convention [0]q ! = 1 and 0 = 1.
+q
+
+We recall here a definition of the Hopf algebra Uq (X) and its pivotal structure. Let di be the
+relatively prime positive integers such that di Aij is symmetric. Then, the C(q)-algebra Uq (X) is
+generated by Ei , Fi , q Hi for i ∈ J1, 2K satisfying the following relations:
+q Hi q Hj = q Hj q Hi ,
+q
+
+Hi
+
+Ej q
+
+−Hi
+
+=q
+
+Aij
+
+Ej ,
+
+q
+
+[Ei , Fj ] = δij
+59
+
+Hi
+
+Fj q
+
+(117a)
+−Hi
+
+=q
+
+−Aij
+
+q di Hi − q −di Hi
+,
+q di − q −di
+
+Fj ,
+
+(117b)
+(117c)
+
+1−Aij
+
+X
+
+m
+
+(−1)
+
+m=0
+1−Aij
+
+X
+
+m
+
+(−1)
+
+m=0
+
+
+
+
+
+
+1 − Aij
+1−A −m
+Ei ij Ej Eim = 0 ,
+m
+q di
+
+
+1 − Aij
+1−A −m
+Fi ij Fj Fim = 0 ,
+m
+q di
+
+if i 6= j ,
+
+(117d)
+
+if i 6= j , .
+
+(117e)
+
+It is a Hopf algebra with the coproduct
+∆(Ei ) = Ei ⊗ q di Hi + 1 ⊗ Ei ,
+
+∆(Fi ) = Fi ⊗ 1 + q −di Hi ⊗ Fi ,
+
+∆(q Hi ) = q Hi ⊗ q Hi , (118)
+
+the antipode
+S(Ei ) = −Ei q −di Hi ,
+
+S(Fi ) = −q di Hi Fi ,
+
+S(q Hi ) = q −Hi ,
+
+(119)
+
+and the counit
+
+D
+
+ǫ(Ei ) = 0 ,
+ǫ(Fi ) = 0 ,
+P
+We use the notation HPi ci αi := i ci di Hi .
+
+ǫ(q Hi ) = 1 .
+
+(120)
+
+Explicit matrix elements of representations
+
+We give in this section the matrices of our representations of interest of the generators of quantum
+groups in our chosen bases.
+
+D.1
+
+The A2 web models
+
+D.1.1
+
+U−q (A2 ) representations
+
+In the basis {ui , i ∈ J1, 3K} of V1 introduced in Section 6.2, we have the following representation of
+generators of U−q (A2 ):
+
+
+
+
+0 0 0
+0 1 0
+E2 = 0 0 1
+E1 = 0 0 0
+0 0 0
+0 0 0
+
+
+
+
+0 0 0
+0 0 0
+F2 = 0 0 0
+F1 = 1 0 0
+0 1 0
+0 0 0
+
+
+
+
+1 0 0
+0 0 0
+H1 = 0 −1 0
+H2 = 0 1 0 
+0 0 0
+0 0 −1
+
+In the basis {vi , i ∈ J1, 3K} of V2 introduced in Section 6.2, we have the following representation
+of generators of U−q (A2 ):
+
+
+
+
+0 1 0
+0 0 0
+E1 = 0 0 1
+E2 = 0 0 0
+0 0 0
+0 0 0
+
+
+
+
+0 0 0
+0 0 0
+F1 = 0 0 0
+F2 = 1 0 0
+0 1 0
+0 0 0
+60
+
+
+
+
+
+0 0 0
+H1 = 0 1 0 
+0 0 −1
+D.1.2
+
+
+1 0 0
+H2 = 0 −1 0
+0 0 0
+
+(1)
+
+Ut (G2 ) evaluation representation
+(1)
+
+Let u ∈ C∗ . Consider the following representation Vu of Ut (G2 ) given in the basis {u1 , u2 , u3 , v1 , v2 , v3 , 1}
+where 1 denotes the basis vector of the trivial representation of U−q (A2 ),
+
+
+0 1 0 0 0 0 0
+0 0 0 0 0 0 0
+
+
+0 0 0 0 0 0 0
+
+
+
+E0 = 
+0 0 0 0 0 0 0
+0 0 0 0 0 1 0
+
+
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+
+
+0 0 0 0 0 0 0
+0 0 1 0 0 0 0
+
+
+0 0 0 0 0 0 0
+
+
+
+0
+0
+0
+0
+1
+0
+0
+E1 = 
+
+
+0 0 0 0 0 0 0
+
+
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+
+
+0 0 0
+0
+0 0
+0
+0 0 0
+0
+0 0 p0 
+
+
+0 0 0
+0
+0 0
+[2]t 
+
+
+
+E2 = u 
+0
+0
+0
+0
+0
+0
+0
+
+
+1 0 0
+0
+0 0
+0 
+
+
+0 1 0
+
+0
+0
+0
+0
+p
+0 0 0
+[2]t 0 0
+0
+
+
+1 0 0 0 0 0 0
+0 −1 0 0 0 0 0
+
+
+0 0 0 0 0 0 0
+
+
+
+H0 = 
+0
+0
+0
+0
+0
+0
+0
+
+
+0 0 0 0 1 0 0
+
+
+0 0 0 0 0 −1 0
+
+
+0
+
+0
+
+0 0 0
+
+0
+
+
+
+
+0 0 0 0 0 0 0
+1 0 0 0 0 0 0
+
+
+0 0 0 0 0 0 0
+
+
+
+F0 = 
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+
+
+0 0 0 0 1 0 0
+0 0 0 0 0 0 0
+
+
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+
+
+0 1 0 0 0 0 0
+
+
+
+0
+0
+0
+0
+0
+0
+0
+F1 = 
+
+
+0 0 0 1 0 0 0
+
+
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+
+
+0 0
+0
+0 1 0
+0
+0 0
+0
+0 0 1
+0 
+
+
+0 0
+0
+0 0 0 p0 
+
+
+1
+
+0
+0
+0
+0
+0
+0
+[2]
+F2 = 
+t
+
+u
+0 0
+0
+0 0 0
+0 
+
+
+0 0
+
+0
+0
+0
+0
+0
+p
+0 0
+[2]t 0 0 0
+0
+
+
+0 0 0 0 0 0 0
+0 1 0 0 0 0 0
+
+
+0 0 −1 0 0 0 0
+
+
+
+H1 = 
+0
+0
+0
+1
+0
+0
+0
+
+
+0 0 0 0 −1 0 0
+
+
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+
+0
+
+
+−1 0 0 0 0 0 0
+ 0 −1 0 0 0 0 0
+
+
+0
+0 2 0 0 0 0
+
+
+H2 = 
+0 0 −2 0 0 0
+0
+
+0
+
+0
+0
+0
+1
+0
+0
+
+
+0
+0 0 0 0 1 0
+0
+0 0 0 0 0 0
+
+61
+
+D.2
+
+The G2 web models
+
+D.2.1
+
+Uq (G2 ) representations
+
+In the basis {ei , i ∈ J1, 7K} of V introduced in Section 6.3, we have the following representation of
+generators of Uq (G2 ):
+
+
+0
+0
+
+0
+
+E1 = 
+0
+0
+
+0
+0
+
+0
+1
+
+0
+
+F1 = 
+0
+0
+
+0
+0
+
+1
+0
+
+0
+
+H1 = 
+0
+0
+
+0
+0
+D.2.2
+
+1
+0
+0
+0
+0
+0
+0
+
+0 0
+0
+0 0
+0
+0 [2]q 0
+0 0 [2]q
+0 0
+0
+0 0
+0
+0 0
+0
+
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+1
+0
+0
+0
+
+0
+0
+0
+0
+1
+0
+0
+
+0
+−1
+0
+0
+0
+0
+0
+
+0
+0
+2
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+1
+
+0
+0
+0
+0
+0
+0
+0
+
+
+0
+0
+
+0
+
+0
+
+0
+
+0
+
+
+0
+0
+
+0
+
+0
+
+0
+
+1
+0
+
+
+
+0
+0
+
+0
+
+E2 = 
+0
+0
+
+0
+0
+
+0
+0
+
+0
+
+F2 = 
+0
+0
+
+0
+0
+
+0
+0
+
+0
+
+H2 = 
+0
+0
+
+0
+0
+
+0
+
+
+0 0 0 0
+0 0 0 0
+
+0 0 0 0
+
+0 0 0 0
+
+0 −2 0 0 
+
+0 0 1 0
+0 0 0 −1
+
+
+0
+0
+
+0
+
+0
+
+0
+
+0
+0
+
+0
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+0
+0
+0
+0
+0
+0
+
+0
+1
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+1
+0
+0
+
+0
+0
+1
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+1
+0
+
+0
+0
+0
+0
+0
+0
+0 0
+
+
+0 0 0 0 0 0
+1 0 0 0 0 0
+
+0 −1 0 0 0 0
+
+0 0 0 0 0 0
+
+0 0 0 1 0 0
+
+0 0 0 0 −1 0
+0 0 0 0 0 0
+
+(3)
+
+Uq (D4 ) evaluation representation
+(3)
+
+Let u ∈ C∗ . Consider the following representation Vu of Uq (D4 ) given in the basis {1, e1 , e2 , e3 , e4 , e5 , e6 , e7 }
+where 1 denotes the basis vector of the trivial representation of Uq (G2 ),
+
+0
+0
+
+0
+
+0
+E0 = 
+0
+
+0
+
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+1
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+1
+0
+0
+
+
+0
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+
+0
+0
+
+0
+
+0
+F0 = 
+0
+
+0
+
+0
+0
+
+0
+
+62
+
+0
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+1
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+1
+0
+
+0
+0
+0
+0
+0
+0
+0
+0
+
+
+0
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+0
+
+
+0 0
+0 0
+
+0 0
+
+0 0
+E1 = 
+0 0
+
+0 0
+
+0 0
+0 0
+
+
+0
+1
+0
+0
+0
+0
+0
+0
+
+
+
+
+0 0
+0 0 0
+0 0
+0 0 0
+
+0 0
+0 0 0
+
+0 [2]q 0 0 0
+
+0 0 [2]q 0 0
+
+0 0
+0 0 0
+
+0 0
+0 0 1
+0 0
+0 0 0
+√
+[3]q
+− [2]q
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+[2]q
+1
+0
+0
+[2]q
+0
+0 [2]1 q
+
+0
+
+ 0
+
+ 0
+
+ 0
+
+E2 = u  0
+
+
+ 0
+
+ 0
+ √
+[3]q
+− [2]q
+0
+
+0 0 0 0 0
+0 0 0 0 0
+
+0 0 1 0 0
+
+0 0 0 −1 0
+H0 = 
+0 0 0 0 0
+
+0 0 0 0 0
+
+0 0 0 0 0
+0 0 0 0 0
+
+0 0
+0
+0
+0 −2 0
+0
+
+0 0 −1 0
+
+0 0
+0 −1
+H2 = 
+0 0
+0
+0
+
+0 0
+0
+0
+
+0 0
+0
+0
+0 0
+0
+0
+
+0
+
+0
+
+
+0 0 0
+0 0 0
+
+0 0 0
+
+0 0 0
+
+0 0 0
+
+1 0 0
+
+0 −1 0
+0 0 0
+0
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+1
+0
+0
+
+0
+0
+0
+0
+0
+0
+1
+0
+
+D.3
+
+The B2 web models
+
+D.3.1
+
+Uq (B2 ) representations
+
+0
+0
+0
+0
+0
+0
+0
+1
+[2]q
+
+0
+0
+0
+0
+0
+0
+0
+
+
+
+0
+0
+0
+0
+0
+0
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+0
+
+0 0 0
+
+
+0
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+2
+
+0
+0
+
+0
+
+0
+F1 = 
+0
+
+0
+
+0
+0
+
+0
+0
+1
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+0
+
+
+
+p0
+− [3]q
+
+ 0
+
+1
+0
+F2 = 
+0
+u
+
+ 0
+
+ 0
+0
+
+0
+0
+
+0
+
+0
+H1 = 
+0
+
+0
+
+0
+0
+
+0
+0
+0
+0
+1
+0
+0
+0
+
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+
+
+0
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+0
+
+p 
+0 0
+0 − [3]q
+1 0
+0
+0 
+
+0 [2]q 0
+0 
+
+0 0 [2]q
+0 
+
+0 0
+0
+1 
+
+0 0
+0
+0 
+
+0 0
+0
+0 
+0 0
+0
+0
+
+
+0 0 0 0 0 0 0
+1 0 0 0 0 0 0
+
+0 −1 0 0 0 0 0 
+
+0 0 2 0 0 0 0
+
+0 0 0 0 0 0 0
+
+0 0 0 0 −2 0 0 
+
+0 0 0 0 0 1 0
+0 0 0 0 0 0 −1
+
+In the basis {ei , i ∈ J1, 4K} of V1 introduced in Section 6.4, we have the following representation of
+generators of Uq (B2 ):
+
+
+0
+0
+E1 = 
+0
+0
+
+1
+0
+0
+0
+
+0
+0
+0
+0
+
+
+0
+0
+
+1
+0
+
+
+
+0
+0
+E2 = 
+0
+0
+
+63
+
+0
+0
+0
+0
+
+0
+1
+0
+0
+
+
+0
+0
+
+0
+0
+
+
+0
+1
+F1 = 
+0
+0
+
+1
+0
+H1 = 
+0
+0
+
+0
+0
+0
+0
+
+0
+0
+0
+1
+
+0
+−1
+0
+0
+
+
+
+
+0
+0
+
+0
+0
+
+0
+0
+F2 = 
+0
+0
+
+0
+0
+H2 = 
+0
+0
+
+
+0 0
+0 0
+
+1 0
+0 −1
+
+0
+0
+1
+0
+
+
+0
+0
+
+0
+0
+
+0
+0
+0
+0
+
+
+0 0 0
+1 0 0
+
+0 −1 0
+0 0 0
+
+In the basis {vi , i ∈ J1, 5K} of V2 introduced in Section 6.4, we have the following representation
+of generators of Uq (B2 ):
+
+
+0
+0
+
+E1 = 
+0
+0
+0
+
+0
+0
+
+F1 = 
+0
+0
+0
+
+0
+0
+
+H1 = 
+0
+0
+0
+D.3.2
+
+0 0
+0
+0 [2]q 0
+0 0 [2]q
+0 0
+0
+0 0
+0
+
+0 0 0 0
+0 0 0 0
+
+1 0 0 0
+
+0 1 0 0
+0 0 0 0
+0
+2
+0
+0
+0
+
+
+0
+0
+
+0
+
+0
+0
+
+
+
+0
+0
+
+E2 = 
+0
+0
+0
+
+0
+1
+
+F2 = 
+0
+0
+0
+
+1
+0
+
+H2 = 
+0
+0
+0
+
+
+0 0 0
+0 0 0
+
+0 0 0
+
+0 −2 0
+0 0 0
+
+1
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+1
+
+0
+−1
+0
+0
+0
+
+0
+0
+0
+0
+0
+
+
+0
+0
+
+0
+
+1
+0
+
+0
+0
+
+0
+
+0
+0
+
+
+0 0
+0 0
+
+0 0
+
+1 0
+0 −1
+
+(2)
+
+First Ut (A4 ) evaluation representation
+(2)
+
+Let u ∈ C∗ . Consider the following representation Vu of Ut (A4 ) given in the basis {1, e1 , e2 , e3 , e4 , v1 , v2 , v3 , v4 , v5 }
+where 1 denotes the basis vector of the trivial representation of Uq (B2 ),
+√
+
+
+[2]t (−t2 +1−t−2 )
+0
+0
+0
+0
+0
+0
+0
+0
+0
+t2 +t−2
+
+
+ 0
+0
+0
+0
+0 p0
+0
+0
+0 0
+
+
+ 0
+
+0
+0
+0
+0
+[2]
+0
+0
+0
+0
+t
+
+
+p
+ 0
+0 0
+0
+0
+0
+0
+0
+[2]t p0
+ p
+
+− [2]
+0
+0
+0
+0
+0
+0
+[2]t 0 0
+t
+
+
+E0 = u 
+0
+0
+0
+0
+0
+0
+0
+0 0
+ 0
+
+ 0
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+
+√
+
+
+[2]t
+ 0
+
+0
+0
+0
+0
+0
+0
+0
+0
+2
+−2
+
+
+t +t
+√
+
+
+[2]t
+ 0
+
+0
+0
+0
+0
+0
+0
+0
+0
+2
+−2
+
+
+t +t
+√
+0
+
+0
+
+0
+
+[2]t
+t2 +t−2
+
+64
+
+0
+
+0
+
+0
+
+0
+
+0 0
+
+
+
+√
+[2]t (−t2 +1−t−2 )
+0
+0
+0
+0
+t2 +t−2
+ p
+− [2]t 0
+0
+0
+0
+
+ 0
+0
+0
+0
+0
+
+
+0
+0
+0
+0
+ 0
+1
+0
+0
+0
+0
+0
+
+p
+F0 = 
+u 0
+0
+[2]t p0
+0
+
+ 0
+0
+0
+[2]t
+
+√0
+
+[2]t
+ 0
+0
+0
+0
+t2 +t−2
+
+ 0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+
+0 0 0 0 0 0
+0 0 0 0
+0 −2 0 0 0 0
+0 0 0 0
+
+
+0 0 0 0 0 0
+
+0
+0
+0
+0
+
+
+0 0 0 0 0 0
+0 0 0 0
+
+
+0 0 0 0 2 0
+0 0 0 0
+
+
+H0 = 
+
+0
+0
+0
+0
+0
+−2
+0
+0
+0
+0
+
+
+0 0 0 0 0 0 −2 0 0 0
+
+
+0 0 0 0 0 0
+0 0 0 0
+
+
+0 0 0 0 0 0
+0 0 2 0
+0 0 0 0 0 0
+0 0 0 2
+
+
+0 0 0 0 0 0 0
+0
+0
+0
+0 0 1 0 0 0 0
+0
+0
+0
+
+
+
+0 0 0 0 0 0 0
+0
+0
+0
+
+
+0 0 0 0 1 0 0
+0
+0
+0
+
+
+0 0 0 0 0 0 0
+0
+0
+0
+
+
+E1 = 
+0
+0
+0
+
+0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 t2 + t−2
+0
+0
+
+
+2
+−2
+0 0 0 0 0 0 0
+0
+t +t
+0
+
+
+0 0 0 0 0 0 0
+0
+0
+0
+0 0 0 0 0 0 0
+0
+0
+0
+
+
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+
+
+0 1 0 0 0 0 0 0 0 0
+
+
+0 0 0 0 0 0 0 0 0 0
+
+
+0 0 0 1 0 0 0 0 0 0
+
+
+F1 = 
+
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+
+
+0 0 0 0 0 0 1 0 0 0
+
+
+0 0 0 0 0 0 0 1 0 0
+0 0 0 0 0 0 0 0 0 0
+
+65
+
+
+0
+0
+0
+0
+
+p
+
+0
+[2]t p
+0
+0
+
+
+[2]t (t2 + t−2 ) p
+0
+0
+0
+
+
+[2]t (t2 + t−2 )
+0
+0
+0
+
+0
+0
+0
+0
+
+
+
+0
+0
+0
+0
+
+
+0
+0
+0
+0
+
+
+
+0 0
+0
+0
+0
+
+
+0 0
+0
+0
+0
+0 0
+0
+0
+0
+
+0
+0
+0
+0
+0
+0
+0
+
+
+
+0
+0
+
+0
+
+0
+
+0
+H1 = 
+0
+
+0
+
+0
+
+0
+0
+
+0
+0
+
+0
+
+0
+
+0
+E2 = 
+0
+
+0
+
+0
+
+0
+0
+
+0
+0
+
+0
+
+0
+
+0
+F2 = 
+0
+
+0
+
+0
+
+0
+0
+
+0
+0
+
+0
+
+0
+
+0
+H2 = 
+0
+
+0
+
+0
+
+0
+0
+
+
+0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0
+
+0 −1 0 0 0 0 0 0 0
+
+0 0 1 0 0 0 0 0 0
+
+0 0 0 −1 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 2 0 0 0
+
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 −2 0
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+
+0 0 1 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 1 0 0 0
+
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 1
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0
+
+0 1 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 1 0 0 0 0
+
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0
+
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+
+0 1 0 0 0 0 0 0 0
+
+0 0 −1 0 0 0 0 0 0 
+
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 1 0 0 0 0
+
+0 0 0 0 0 −1 0 0 0 
+
+0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 1 0
+
+D.3.3
+
+Second Ut (A4 ) evaluation representation
+
+0 0
+
+0
+
+0 0
+
+0
+
+0 0 −1
+
+(2)
+
+(2)
+
+Let u ∈ C∗ . Consider the following representation Vu′ of Ut (A4 ) given in the basis {1, e1 , e2 , e3 , e4 }
+where 1 denotes the basis vector of the trivial representation of Uq (B2 ),
+
+66
+
+
+
+0
+ 0
+
+E0 = u 
+ 0
+ 0
+p
+[2]t
+
+0 0 0
+0 0 1
+
+E1 = 
+0 0 0
+0 0 0
+0 0 0
+
+0 0 0
+0 0 0
+
+E2 = 
+0 0 0
+0 0 0
+0 0 0
+
+−
+
+p
+
+[2]t
+0
+0
+0
+0
+
+0 0
+0 0
+
+0 0
+
+0 1
+0 0
+
+0 0
+0 0
+
+1 0
+
+0 0
+0 0
+
+0
+0
+0
+0
+0
+
+0
+0
+0
+0
+0
+
+
+0
+0
+
+0
+
+0
+0
+
+
+
+0 0
+p0
+− [2]t 0 0
+1
+F0 = 
+0
+0 0
+u
+ 0
+0 0
+0
+0 0
+
+
+0 0 0 0 0
+0 0 0 0 0
+
+
+
+F1 = 
+0 1 0 0 0
+0 0 0 0 0
+0 0 0 1 0
+
+
+0 0 0 0 0
+0 0 0 0 0
+
+
+
+F2 = 
+0 0 0 0 0
+0 0 1 0 0
+0 0 0 0 0
+
+0
+0
+0
+0
+0
+
+p
+
+
+[2]t
+0 
+
+0 
+
+0 
+0
+
+
+0
+0
+
+H0 = 
+0
+0
+0
+
+0
+0
+
+H1 = 
+0
+0
+0
+
+0
+0
+
+H2 = 
+0
+0
+0
+
+0
+−2
+0
+0
+0
+
+0
+0
+0
+0
+0
+
+[1] A. Lafay, A. M. Gainutdinov, and J. L. Jacobsen, “Uq (sln ) web models and Zn spin
+interfaces,” J. Stat. Mech. 2021 (2021) 053104, arXiv:2101.00282.
+[2] A. Lafay, A. M. Gainutdinov, and J. L. Jacobsen, “Uq (sl3 ) web models: Locality, phase
+diagram and geometrical defects,” Nucl. Phys. B 979 (2022) 115789, arXiv:2107.10106.
+[3] G. Kuperberg, “Spiders for rank 2 Lie algebras,” Comm. Math. Phys. 180 (1996) 109–151,
+arXiv:q-alg/9712003.
+[4] B. Nienhuis, “Critical behavior of two-dimensional spin models and charge asymmetry in the
+Coulomb gas,” J. Stat. Phys. 34 (1984) 731–761.
+[5] B. Nienhuis, “Coulomb gas formulation of two-dimensional phase transitions,” in Phase
+transitions and critical phenomena, C. Domb and J. Lebowitz, eds., vol. 11, pp. 1–53.
+Academic Press, London, 1987.
+[6] J. L. Jacobsen, “Conformal field theory applied to loop models,” in Polygons, polyominoes
+and polycubes, A. J. Guttmann, ed., vol. 775, pp. 347–424. Springer, Heidelberg, 2009.
+[7] A. M. Gainutdinov, J. L. Jacobsen, N. Read, H. Saleur, and R. Vasseur, “Logarithmic
+conformal field theory: a lattice approach,” J. Phys. A: Math. Theor. 46 (2013) 494012,
+arXiv:1303.2082.
+(2)
+
+[8] E. Vernier, J. L. Jacobsen, and H. Saleur, “Non compact conformal field theory and the a2
+(Izergin-Korepin) model in regime III,” J. Phys. A: Math. Theor. 47 (2014) 285202,
+arXiv:1404.4497.
+[9] E. Vernier, J. L. Jacobsen, and H. Saleur, “A new look at the collapse of two-dimensional
+polymers,” J. Stat. Mech.: Theor. Exp. 2015 (2015) 09001, arXiv:1404.4497.
+
+67
+
+
+0
+0
+
+0
+
+0
+2
+
+
+0 0 0 0
+1 0 0 0
+
+0 −1 0 0 
+
+0 0 1 0
+0 0 0 −1
+
+0 0 0 0
+0 0 0 0
+
+0 1 0 0
+
+0 0 −1 0
+0 0 0 0
+
+References
+
+[10] G. F. Lawler, “Schramm-Loewner evolution,” arXiv:0712.3256.
+
+0
+0
+0
+0
+0
+
+[11] J. Cardy, “SLE for theoretical physicists,” Ann. Phys. 318 (2005) 81–118,
+arXiv:cond-mat/0503313.
+[12] S. Sheffield, “Exploration trees and conformal loop ensembles,” Duke Math. J. 147 (2009)
+79–129, arXiv:math/0609167.
+[13] R. Rhodes and V. Vargas, “Gaussian multiplicative chaos and applications: a review,”
+Probab. Surveys 11 (2014) 315–392, arXiv:1305.6221.
+[14] A. Kupiainen, R. Rhodes, and V. Vargas, “Integrability of Liouville theory: proof of the
+DOZZ formula,” Ann. of Math. 191 (2020) 81–166, arXiv:1707.08785.
+[15] M. Ang and X. Sun, “Integrability of the conformal loop ensemble,” arXiv:2107.01788.
+[16] G. Delfino and J. Viti, “On three-point connectivity in two-dimensional percolation,”
+J. Phys. A: Math. Theor. 44 (2010) 032001, arXiv:1009.1314.
+[17] M. Picco, R. Santachiara, J. Viti, and G. Delfino, “Connectivities of Potts Fortuin–Kasteleyn
+clusters and time-like Liouville correlator,” Nucl. Phys. B 875 (2013) 719–737,
+arXiv:1304.6511.
+[18] J. L. Jacobsen and H. Saleur, “Bootstrap approach to geometrical four-point functions in the
+two-dimensional critical Q-state Potts model: A study of the s-channel spectra,” J. High
+Energ. Phys. 2019 (2019) 84, arXiv:1809.02191.
+[19] Y. He, J. L. Jacobsen, and H. Saleur, “Geometric four-point functions in the 2D critical
+Q-state Potts model: The interchiral conformal bootstrap,” J. High Energ. Phys. 2020
+(2020) 019, arXiv:2005.07258.
+[20] L. Grans-Samuelsson, R. Nivesvivat, J. L. Jacobsen, S. Ribault, and H. Saleur, “From
+combinatorial maps to correlation functions in loop models,” SciPost Phys. 15 (2023) 147,
+arXiv:2302.08168.
+[21] G. Takács, “Quantum affine symmetry and scattering amplitudes of the imaginary coupled
+(3)
+D4 affine Toda field theory,” Nucl. Phys. B 502 (1997) 629–648, arXiv:hep-th/9701118.
+(3)
+
+(1)
+
+[22] G. Takács, “The R-matrix of the Uq (D4 ) algebra and G2 affine Toda field theory,”
+Nucl. Phys. B 501 (1997) 711–727, arXiv:hep-th/9702196.
+[23] A. Lafay, A. M. Gainutdinov, and J. L. Jacobsen, “Coulomb Gas description of the A2 web
+models,” In preparation (2024) .
+[24] U. Grimm and S. O. Warnaar, “Yang-Baxter algebras based on the two-colour BWM
+algebra,” J. Phys. A: Math. Gen. 28 (1995) 7197–7207, arXiv:hep-th/9506119.
+[25] G. Kuperberg, “The quantum G2 link invariant,” Int. J. Math. 05 (1994) 61–85,
+arXiv:math/9201302.
+[26] P. Fendley and V. Krushkal, “Link invariants, the chromatic polynomial and the Potts
+model,” Adv. Theor. Math. Phys. 14 (2010) 507–540, arXiv:0806.3484.
+[27] R. Baxter, H. N. V. Temperley, and S. E. Ashley, “Triangular Potts model at its transition
+temperature, and related models,” Proc. Roy. Soc. London A 358 (1978) 535–559.
+68
+
+[28] J. L. Jacobsen, J. Salas, and A. D. Sokal, “Spanning forests and the q-state Potts model in
+the limit q → 0,” J. Stat. Phys. 119 (2005) 1153–1281, arXiv:cond-mat/0401026.
+[29] M. Jimbo, “Quantum R matrix for the generalized Toda system,”
+Comm. Math. Phys. 102 (1986) 537–547.
+[30] V. N. Tolstoy and S. M. Khoroshkin, “The universal R-matrix for quantum untwisted affine
+Lie algebras,” Funct. Analysis Appl. 26 (1992) 69–71.
+[31] I. Damiani, “The R-matrix for (twisted) affine quantum algebras,” arXiv:1111.4085.
+[32] R. B. Zhang, M. D. Gould, and A. J. Bracken, “From representations of the braid group to
+solutions of the Yang-Baxter equation,” Nucl. Phys. B 354 (1991) 625–652.
+[33] G. W. Delius, M. D. Gould, and Y.-Z. Zhang, “On the construction of trigonometric solutions
+of the Yang-Baxter equation,” Nucl. Phys. B 432 (1994) 377–403, arXiv:hep-th/9405030.
+[34] G. W. Delius, M. D. Gould, and Y.-Z. Zhang, “Twisted quantum affine algebras and
+solutions to the Yang-Baxter equation,” Int. J. Mod. Phys. A 11 (1996) 3415–3437,
+arXiv:q-alg/9508012.
+[35] B. Nienhuis, “Critical spin-1 vertex models and O(n) models,”
+Int. J. Mod. Phys. B 04 (1990) 929–942.
+[36] F. Y. Wu and K. Y. Lin, “On the triangular Potts model with two- and three-site
+interactions,” J. Phys. A: Math. Gen. 13 (1980) 629–636.
+[37] J. L. Jacobsen, J. Salas, and C. R. Scullard, “Phase diagram of the triangular-lattice Potts
+antiferromagnet,” J. Phys. A: Math. Theor. 50 (2017) 345002, arXiv:1702.02006.
+[38] A. Lafay, Geometrical lattice models, algebraic spiders and applications to random geometry.
+Thesis, Sorbonne Université, 2022.
+[39] Y. Ikhlef and J. Cardy, “Discretely holomorphic parafermions and integrable loop models,”
+J. Phys. A: Math. Theor. 42 (2009) 102001, arXiv:0810.5037.
+[40] Y. Ikhlef, R. Weston, M. Wheeler, and P. Zinn-Justin, “Discrete holomorphicity and
+quantized affine algebras,” J. Phys. A: Math. Theor. 46 (2013) 265205, arXiv:1302.4649.
+[41] V. Riva and J. Cardy, “Holomorphic parafermions in the Potts model and stochastic Loewner
+evolution,” J. Stat. Mech.: Theor. Exp. 2006 (2006) 12001, arXiv:cond-mat/0608496.
+[42] S. Smirnov, “Conformal invariance in random cluster models. I. holomorphic fermions in the
+Ising model,” Ann. Math. 172 (2010) 1435–1467.
+[43] D. Chelkak and S. Smirnov, “Universality in the 2D Ising model and conformal invariance of
+fermionic observables,” Invent. Math. 189 (2012) 515–580, arXiv:0910.2045.
+[44] S. Smirnov, “Critical percolation in the plane: conformal invariance, Cardy’s formula, scaling
+limits,”
+Comptes Rendus de l’Académie des Sciences – Series I – Mathematics 333 (2001) 239–244.
+[45] M. Khristoforov and S. Smirnov, “Percolation and O(1) loop model,” arXiv:2111.15612.
+
+69
+
+

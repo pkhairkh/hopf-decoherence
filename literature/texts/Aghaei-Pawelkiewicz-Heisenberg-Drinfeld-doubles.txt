@@ -1,0 +1,3940 @@
+arXiv:2411.01681v4 [math.QA] 24 Feb 2026
+
+Heisenberg and Drinfeld doubles of Uq (gl(1|1)) and
+Uq (osp(1|2)) super-algebras
+
+Nezhla Aghaeia,b M. K. Pawelkiewiczc
+a
+
+Section of Mathematics, University of Geneva, Rue du Conseil-Général 7-9, 1205 Geneva, Switzerland,
+Switzerland,
+b
+Centre for Quantum Mathematics Department of Mathematics and Computer Science (IMADA), Southern Denmark University (SDU), Campusvej 55, 5230 Odense, Denmark.
+c
+CentraleSupélec, LGPM, 3 Rue Joliot Curie, Plateau de Moulon, 91190 Gif-sur-Yvette, France.
+
+E-mail:
+
+Nezhla.Aghaei@unige.ch
+
+michal.pawelkiewicz@centralesupelec.fr
+
+Abstract: We study the Heisenberg double and the Drinfeld double of the Borel half of
+Uq (gl(1|1)) and of the Uq (gl(1|1)) when q is a root of unity. We also study the Borel half of
+Uq (osp(1|2)) for both cases when q is a root of unity and when it is not. We prove the isomorphism
+between the Heisenberg doubles and the handle algebras, which is missing in the literature, and
+extend the isomorphism to the graded Heisenberg doubles and the handle algebras in the context of
+the Z2 -graded generalisation of Alekseev-Schomerus combinatorial quantisation of Chern-Simons
+theory [1, 2], as well as illustrate it on the example of the Heisenberg double of the Uq (gl(1|1))
+Hopf algebra for q being a root of unity. In addition, we generalise an isomorphism between the
+Drinfeld double and the loop algebra from the Alekseev-Schomerus combinatorial quantisation to
+the graded setting.
+
+Contents
+1 Introduction
+
+1
+
+2 Heisenberg doubles
+
+5
+
+3 Drinfeld doubles
+
+12
+
+4 Heisenberg and Drinfeld doubles of the Borel half of Uq (gl(1|1)) (q a root of
+unity)
+19
+4.1 Heisenberg double of the Borel half of Uq (gl(1|1))
+19
+4.2 Drinfeld double of the Borel half of Uq (gl(1|1))
+21
+5 Heisenberg double of Uq (gl(1|1)) (q a root of unity)
+
+22
+
+6 Heisenberg and Drinfeld doubles of the Borel half of Uq (osp(1|2)) (q a root of
+unity)
+26
+6.1 Heisenberg double of the Borel half of Uq (osp(1|2))
+26
+6.2 Drinfeld double of the Borel half of Uq (osp(1|2))
+28
+7 Heisenberg and Drinfeld doubles of the Borel half of Uq (osp(1|2)) (q not a root
+of unity)
+29
+7.1 Heisenberg double of the Borel half of Uq (osp(1|2))
+29
+7.2 Drinfeld double of the Borel half of Uq (osp(1|2))
+31
+8 Outlook
+
+32
+
+A Heisenberg and Drinfeld doubles of the Borel half of Uq (sl(2)) (q not a root of
+unity)
+34
+A.1 Heisenberg double of the Borel half of Uq (sl(2))
+34
+A.2 Drinfeld double of the Borel half of Uq (sl(2))
+37
+
+1
+
+Introduction
+
+Hopf algebra Uq (g) have been initially defined by Drinfeld [3] and Jimbo [4] for finite-dimensional
+simple Lie algebras. Those Uq (g) constitute a 1-parameter deformation of the universal enveloping algebras U (g) of Lie algebras g, and this deformation extends to the representation theory
+— the irreducible finite-dimensional representations of universal enveloping algebras deform to
+irreducible representations of Hopf algebras when the deformation parameter q is not a root of
+unity.
+
+–1–
+
+The methods coming from the representation theory of Hopf algebra have found a wide range
+of applications to the mathematical and theoretical physics ([5] and its references). Readers who
+are not familiar with Hopf algebras we refer to [6, 7]. Hopf algebras are relevant in conformal
+field theory, where the algebras of screening charges and vertex operators satisfy the relations of
+q-deformed Lie algebras [8]. Moreover, in the context of quantum integrable systems a method of
+obtaining scattering matrices [9] has been developed which employs Hopf algebras. These systems
+admit an R-matrix which satisfies the Yang-Baxter equation [10, 11]
+R12 R13 R23 = R23 R13 R12 .
+
+(1.1)
+
+There exists a systematic procedure to obtain solutions to the Yang-Baxter equation, which
+is based on the mathematical construction known under the name of Drinfeld double construction
+[6, 12–15] and sometimes called quantum double in the literature. It allows to associate a new,
+quasi-triangular Hopf algebra D(A), i.e. a Hopf algebra that admits an universal R-matrix, which
+satisfies the Yang-Baxter equation, to an arbitrary given Hopf algebra A. The Drinfeld double
+construction has been generalised to Z2 -graded Hopf algebras in [16], and extended within the
+category theory framework to symmetric tensor categories. The generalisation to the setting of
+strictly braided categories has been obtained using double-bosonisation construction [17–20].
+Another existing double construction H(A), called the Heisenberg double construction [21,
+22], admits a canonical element W that satisfies not the Yang-Baxter equation, but rather a
+pentagon equation [23]
+W12 W13 W23 = W23 W12 .
+
+(1.2)
+
+The Heisenberg double construction has been generalised in categorical theory setting to Hopf
+algebroid instead of Hopf algebras [24].
+Using Heisenberg doubles one can construct Drinfeld doubles (and as a consequence - also
+design their representations), as one can embed the elements of the Drinfeld double into a tensor
+square of Heisenberg doubles [21, 22]. Using this algebra map one can construct the universal
+R-matrix in terms of the canonical elements of the Heisenberg doubles.
+Application of Heisenberg doubles and Drinfeld doubles in physics
+The Heisenberg and Drinfeld doubles for non-graded Hopf algebra find many applications in the
+non-supersymmetic physics setting, including Liouville theory, 3-dimensional quantum gravity,
+loop gravity and integrable systems. A limited number of those has been generalised to the
+Z2 -graded setting.
+• Mathematical structure behind 3-dimensional quantum gravity has attracted strong interest
+in mathematics — in particular, the relation of 3d gravity to the theory of link and knot
+invariants and the role of quantum groups and ribbon categories in the quantisation of
+it — see [25] for an overview. As Chern-Simons gauge theory is deeply connected to 3d
+quantum gravity, the former allowed one to employ gauge theoretical concepts and methods
+in the quantisation of the latter. Quantum group symmetries play an important role in the
+quantisation of gravity, as they appear in the Hamiltonian quantisation formalisms, e.g. in
+
+–2–
+
+the combinatorial approach to the quantisation of Chern-Simons theory due to AlekseevSchomerus [26–30] and Buffenoir and Roche [31, 32]. These structures are well-understood
+in the quantum Chern-Simons theories with compact gauge groups.
+One started the combinatorial quantisation from the (classical) Fock and Rosly’s description
+[33] of the Poisson structure on the moduli spaces of flat G-connections on Riemann surfaces. Imposing the flatness requirement requires applying Dirac’s constraint quantisation
+programme to Poisson structure on the moduli spaces of flat connections. The Poisson–Lie
+symmetries constitute the gauge symmetries of the classical theory and the classical r-matrix
+arising from Drinfeld doubles automatically satisfies the constraints to provide a phase space
+for (2+1)-dimensional gravity. As a consequence, the quantum double is believed to play
+an important role in (2+1)-dimensional quantum gravity.
+The Alekseev-Schomerus combinatorial quantisation of Chern-Simons theory proceeds in
+two steps. The first is the construction of the so-called graph algebra and its irreducible
+representations. The graph algebra is the quantum counterpart of Fock and Rosly’s Poisson
+algebra associated with a first homotopy group on a Riemann surface Σ. Because of the
+topological nature of the theory, observables associated to any paths can be obtained from
+the ones corresponding to the generators of the first homotopy group of the surface.
+In particular, the graph algebra for a Riemann surface of genus g = 1 and number of
+punctures n = 0 is known under the name of the handle algebra and is isomorphic to the
+Heisenberg double of the Hopf algebra associated to the gauge group G. Imposition of the
+gauge group symmetries implemented by a Hopf algebra Uq (g) then allows one to obtain
+the observable algebras and the Hilbert spaces of physical states.
+Moreover, of interest is the graph algebra for a Riemann surface of genus g = 0 and number
+of punctures n = 1, i.e. a 1-punctured sphere Σ0,1 , known as the loop algebra (or the
+monodromy algebra). Those loop algebras appear in the context of Chern-Simons theory
+[26–28] as well as the current algebras on periodic lattice [34]. The semi-direct product
+of loop algebra with the Hopf algebra Uq (g), called a gauged loop algebra, incorporates the
+action of the gauge group on the algebra of operators of the theory and a certain commutant
+within it corresponds to the algebra of observables, i.e. physically measurable operators. In
+the non-graded setting it has been proven that the gauged loop algebra is isomorphic to the
+Drinfeld double of the Hopf algebra Uq (g).
+The combinatorial quantisation has been extended to Z2 -graded, (possibly) non-semisimple
+quasi-triangular Hopf algebras in [1, 2]. In addition, it has been shown that the combinatorial quantisation of Chern–Simons theory for the Drinfeld double D(A) is equivalent
+to Kitaev’s lattice model [35] for a finite-dimensional semisimple Hopf algebra A. The
+equivalence of Kitaev models to combinatorial models shows that the former can indeed be
+interpreted as a Hopf algebra valued lattice gauge theory [36, 37].
+• Another application of Drinfeld doubles is in 2-dimensional physics, in particular in integrable systems. The deeper understanding of integrable systems afforded by quantum
+groups has allowed the construction of new integrable models including spin chains (for
+
+–3–
+
+more details c.f. [38]). The quantum double construction can be used to obtain a quasitriangular Hopf algebra associated with any classical Lie algebra and its universal R-matrix.
+The universal R-matrix together with the irreducible representations of the quantum double provide a family of solution to Yang-Baxter equation (possibly with continuous spectral
+parameters). When q is a root of unity, those irreducible representation are associated with
+spin chain Hamiltonians.
+• Heisenberg doubles and Drinfeld doubles appear not only in the context of finite-dimensional
+Hopf algebras, but also when the Hopf algebras are countably infinite or uncountably infinite. Physically, one can understand it as the associated physical system having, instead of
+a finite number of states, either countably infinite or continuous spectrum. While countably
+infinite spectrum is present in integrable systems, the continuous spectrum appears in the
+context of conformal field theory (CFT). In physics the Liouville equation defines one parameter family of models in CFT, which usually is identified with a model of 2-dimensional
+quantum gravity. The space of conformal blocks of the Liouville theory with its mapping
+class group representation is isomorphic to the space of states obtained by quantising the
+Teichmüller spaces of Riemann surfaces due to Verlinde and proved by Teschner [39–43].
+One aspect of the connection of the Liouville equation to the mapping class dynamics of
+the Teichmüller theory has been considered in the context of a specific discretised version
+of the Liouville equation both on classical and quantum levels [44–46].
+Quantum Teichmüller theory was studied in [47–50]. Heisenberg double appears in quantum Teichmüller theory, where the canonical element W satisfying the pentagon relation
+plays the role in one of the elementary moves as a mapping class group generator of Teichmüller theory — the so-called flip operator .
+• Heisenberg and Drinfeld doubles appeared also in the context of quantum computing, which
+leverages quantum mechanical bits (qbits) to perform computation. Yang-Baxter equation
+has been applied to the problem of quantum circuit compression [51] (i.e. in the problem
+of reducing the number of quantum gates in a quantum circuit) and that it solutions is a
+universal gate for quantum computing [52].
+The pentagon equation has also been used in the context of topological quantum computing
+[53, 54] as well as in the context of quantum circuit compression [55], where the element W
+sasisfing the pentagon equation can express circuits with non-local interactions (i.e. those
+for non-adjacent qubits) can be expressed as circuits with local ones.
+Outline of the paper
+The paper begins with a self-contained summary of Z2 -graded Heisenberg and Drinfeld doubles,
+with both basis-independent and basis-dependent, i.e. more convenient for physicists, descriptions. In the Section 2 we first re-call the definition of Heisenberg double of a Z2 -graded Hopf
+algebra A as a smash product algebra stemming from a left Hopf algebra action. Afterwards we
+provide a definition equivalent to the one above in a basis dependent way — in order to do that,
+we choose a basis of graded Hopf algebra A and a basis of a dual algebra A∗ which are dual
+to each other. We define the canonical element W which satisfies the graded pentagon relation.
+
+–4–
+
+Finally, we define the handle algebra appearing in the super generalisation [1, 2] of the combinatorial quantisation of Chern-Simons theories by Alekseev-Schomerus and prove that the graded
+Heisenberg double is isomorphic to the handle algebra and provide the exhaustive proof of this
+statement. This is a novel result, as the proof for non-graded algebras was also missing in the
+past literature concerning the non-graded combinatorial quantisation.
+In the Section 3 we re-call the definition of the Drinfeld double D(A) of a Z2 -graded Hopf
+algebra A and its associated R-matrix. As the Heisenberg double is not a Hopf algebra —
+in opposition to the Drinfeld double, which is a quasi-triangular Hopf algebra — they can be
+related to each other at most on the level of algebras. In fact, the non-graded relation that
+the Drinfeld double can be embedded into a tensor square of Heisenberg algebras extends to
+the graded case. Additionally, we define the loop algebra and its semi-direct product appearing
+in the super generalisation [1, 2] of the combinatorial quantisation of Chern-Simons theories by
+Alekseev-Schomerus [28] and show that the graded Drinfeld double is isomorphic to it, generalising
+the proof by Nill [56].
+The following sections constitute the main part of the novel content. In the Section 4 we construct finite-dimensional Heisenberg and Drinfeld doubles of the Borel half algebra of Uq (gl(1|1)),
+when q is a root of unity. In the Section 5 we construct the finite-dimensional Heisenberg double
+of Uq (gl(1|1)) at root of unity and discuss its connection to the handle algebra of the GL(1|1)
+Chern-Simons theory. In the Section 6 we construct finite-dimensional Heisenberg and Drinfeld
+doubles of the Borel half algebra of Uq (osp(1|2)), when q is a root of unity, and in the Section
+7 — Heisenberg and Drinfeld doubles of the Borel half algebra of Uq (osp(1|2)), when q is not a
+root of unity.
+Finally, in the outlook 8, we motivate the interest in the Heisenberg and Drinfeld constructions
+for the Z2 -graded Hopf algebras spanned by nondenumerably many basis elements. In addition,
+in the Appendix A we provide the construction of Heisenberg and Drinfeld doubles applied to the
+Borel half algebra of Uq (sl(2)), when q is not a root of unity (which is a standard, well known
+application) for pedagogical reasons and illustration purposes as well as to fix conventions used
+through.
+
+2
+
+Heisenberg doubles
+
+In this section we shortly describe the basic notions concerning Z2 -graded Heisenberg doubles
+and sketch how the Heisenberg double construction works. The exposition is structured in a way
+that is similar to [22], it is however we generalised it such that it works in the Z2 -graded setting.
+We start from a short description of Z2 -graded Hopf algebras, and using the Hopf action
+we will define a smash product of a Hopf algebra with its dual. We also discuss the connection
+between the Heisenberg double and the handle algebras of Chern-Simons theory as constructed
+using combinatorial quantisation due to Alekseev-Schomerus [26–30, 34] for the non-graded gauge
+groups and [1, 2] for the graded, (possibly) non-semisimple gauge groups.
+Let us consider a Z2 -graded Hopf-algebra (A, m, η, ∆, ϵ, γ), where A is a Z2 -graded vector
+space equipped with the multiplication m : A ⊗ A −→ A, an unit η : C −→ A, a co-multiplication
+∆ : A −→ A ⊗ A, a co-unit ϵ : A −→ C and an antipode γ : A −→ A. A decomposes into a direct
+sum of two sub-spaces A = A0 ⊕ A1 , which are called even and odd respectively. We denote the
+
+–5–
+
+degree of an element x ∈ Ai by |x| = i, and we will call an element x even if |x| = 0 and odd
+otherwise. The graded tensor product of two algebras A and B is then defined by the following
+equation for a1 , a2 ∈ A, b1 , b2 ∈ B,
+(a1 ⊗ b1 ) · (a2 ⊗ b2 ) = (−1)|b1 ||a2 | a1 a2 ⊗ b1 b2 .
+
+(2.1)
+
+The maps m and η are subjected to the associativity and unitality relations
+m ◦ (m ⊗ id) = m ◦ (id ⊗ m),
+
+(2.2)
+
+m ◦ (η ⊗ id) = id = m ◦ (id ⊗ η),
+
+(2.3)
+
+while maps ∆ and ϵ have to satisfy the co-associativity and co-unitality relations
+(∆ ⊗ id) ◦ ∆ = ∆ ◦ (id ⊗ ∆),
+
+(2.4)
+
+(ϵ ⊗ id) ◦ ∆ = id = (id ⊗ ϵ) ◦ ∆.
+
+(2.5)
+
+Moreover, the co-product ∆ and co-unit ϵ are algebra homomorphisms, and the antipode γ is a
+graded algebra anti-homomorphism and a graded co-algebra anti-homomorphism which satisfies
+the relations
+m ◦ (id ⊗ γ) ◦ ∆ = m ◦ (γ ⊗ id) ◦ ∆ = η ◦ ϵ.
+
+(2.6)
+
+All the above maps are grade preserving.
+ˆ ϵ̂, γ̂) which is dual to A. The Hopf
+Moreover, we consider a graded Hopf algebra (A∗ , m̂, η̂, ∆,
+∗
+algebras A and A are dual in a sense that the vector spaces A and A∗ are dual as vector spaces,
+and there exists a non-degenerate duality pairing (also called a Hopf pairing) (, ) : A × A∗ → C,
+for which the following relations are satisfied
+(x, f g) = (∆(x), f ⊗ g),
+
+ˆ )),
+(xy, f ) = (x ⊗ y, ∆(f
+
+(2.7)
+
+ϵ(x) = (x, η̂(1)),
+
+(2.8)
+
+between multiplications and co-multiplications,
+(η(1), f ) = ϵ̂(f ),
+between unit and co-unit maps,
+(γ(x), f ) = (x, γ̂(f )),
+
+(2.9)
+
+and between antipodes, where
+(x ⊗ y, f ⊗ g) = (−1)|y||f | (x, f )(y, g),
+for x, y ∈ A, f, g ∈ A∗ .
+The ordinary tensor product A∗ ⊗ A has a straight-forward product given by (1 ⊗ x)(f ⊗ 1) =
+f ⊗ x. However, in order to construct a Heisenberg double, we are interested in equipping the
+space A∗ ⊗ A with a non-trivial algebra structure between the elements which belong to the
+subalgebras A and A∗ . In order to achieve that, we will use the Hopf pairing (, ) to define a left
+
+–6–
+
+action of A on A∗ and consequently a smash product algebra A∗ ⋊ A.
+Using the duality pairing (, ) we can define a left action ▷ of a graded Hopf-algebra A on A∗
+given by
+X
+(−1)|f(1) ||f(2) | (x, f(2) )f(1) =: x ▷ f,
+(2.10)
+x ⊗ f 7→
+(f )
+
+ˆ ) = P f(1) ⊗ f(2) using the usual
+where x ∈ A, f ∈ A∗ and where we denote the co-product ∆(f
+(f )
+Sweedler notation [7]. The action (2.10) makes A∗ into a module algebra over the Hopf algebra
+A, i.e. the action is compatible with the multiplication in A∗ in the sense that
+X
+(−1)|f ||x(2) | (x(1) ▷ f ) (x(2) ▷ g),
+(2.11)
+x ▷ (f g) =
+(x)
+
+where x ∈ A and f, g ∈ A∗ . Using a left action ▷ one can construct a smash product algebra
+H(A) = A∗ ⋊ A by defining the multiplication
+X
+(f ⊗ x)(g ⊗ y) =
+(−1)|g||x(2) | f (x(1) ▷ g) ⊗ x(2) y,
+(2.12)
+(x)
+
+where x, y ∈ A, f, g ∈ A∗ .
+Definition 2.1. A Heisenberg double of a graded Hopf algebra A is the smash product algebra
+H(A) = A∗ ⋊ A with the multiplication given by the equation (2.12).
+The Heisenberg double has A and A∗ as subalgebras through canonical embeddings A∗ ∋
+f→
+7 f ⊗ 1 ∈ H(A) and A ∋ x 7→ 1 ⊗ x ∈ H(A).
+It is important to note that the Heisenberg double H(A) is not a Hopf algebra. The algebra
+ˆ defined on the initial
+structure given by (2.12) is not compatible with the co-products on ∆, ∆
+Hopf algebras A and A∗ . In this it differs from the Drinfeld double algebra (which will be discussed
+in Section 3), which is a (quasi-triangular) Hopf algebra and not only an algebra.
+It will be convenient to recast the definition above in a basis dependent way. In order to
+do that, we first choose a basis of A. The basis will be given by a collection of vectors {eα }α∈I ,
+where I is a set. Then, the multiplication and co-multiplication of the basis elements is given by
+X γ
+X
+∆(eα ) =
+µβγ
+(2.13)
+eα eβ =
+mαβ eγ ,
+α eβ ⊗ e γ ,
+γ∈I
+
+β,γ∈I
+
+where mγαβ and µβγ
+α are respectively multiplication and co-multiplication coefficients. With the
+choice of a basis {eα }α∈I of A∗ dual to {eα }α∈I in the sense
+(eα , eβ ) = δαβ ,
+
+(2.14)
+
+the multiplication and co-multiplication on A∗ are as follows
+X
+X
+γ
+ˆ α) =
+eα eβ =
+(−1)|α||β| µαβ
+∆(e
+(−1)|β||γ| mαβγ eβ ⊗ eγ .
+γ e ,
+γ∈I
+
+β,γ∈I
+
+–7–
+
+(2.15)
+
+The signs in the expressions above are the consequence of the properties of duality bracket. The
+Heisenberg double H(A) is thus spanned by a collection of basis elements {eα ⊗ eβ }α,β∈I , written
+in terms of the basis elements of A and A∗ . The multiplication (2.12) on basis elements eα ⊗ eβ
+has the following form
+X
+απ σ
+(eα ⊗ eβ )(eγ ⊗ eδ ) =
+(−1)|β||γ|+|π||ϵ|+|π||α|+|ϵ| mγπϵ mτρδ µϵρ
+(2.16)
+β µσ e ⊗ e τ .
+ϵ,π,ρ,σ,τ ∈I
+
+Although, as we have mentioned previously, the Heisenberg double is not a Hopf algebra, one
+is interested in a way to encode the co-products on the initial graded Hopf algebras A and A∗ .
+Definition 2.2. Let us define an element called the canonical element W ∈ H(A) ⊗ H(A) that
+has the following properties
+X
+
+W −1 (1 ⊗ 1) ⊗ (1 ⊗ eα ) W =
+µβγ
+α (1 ⊗ eβ ) ⊗ (1 ⊗ eγ ),
+β,γ∈I
+α
+
+
+
+W (e ⊗ 1) ⊗ (1 ⊗ 1) W
+
+−1
+
+=
+
+X
+
+(−1)|β||γ| mαβγ (eβ ⊗ 1) ⊗ (eγ ⊗ 1).
+
+(2.17)
+
+β,γ∈I
+
+Given the above definition, one can show that the following two propositions about the
+canonical element W are true.
+Proposition 2.1. The canonical element W defined above satisfies the graded pentagon relation
+W12 W13 W23 = W23 W12 ,
+
+(2.18)
+
+where we use a notation for which W12 = W ⊗(1⊗1), W23 = (1⊗1)⊗W and W13 = σ12 [(1⊗1)⊗W ],
+where σ is an exchange operator.
+Proposition 2.2. The canonical element W can be expressed in terms of basis elements in the
+following way
+X
+W =
+(−1)|α| (1 ⊗ eα ) ⊗ (eα ⊗ 1),
+(2.19)
+α∈I
+
+Remark 2.1. From Definition 2.1 follows that the Heisenberg double H(A∗ ) is spanned by a
+collection of elements {ẽα ⊗ ẽβ }α,β∈I subjected to the following relations
+X
+πδ β
+σ
+τ
+(ẽα ⊗ ẽβ )(ẽγ ⊗ ẽδ ) =
+(−1)|ρ||π|+|ρ||ϵ|+|π||δ| µρϵ
+(2.20)
+γ µτ mϵπ mαρ ẽσ ⊗ ẽ .
+ϵ,π,ρ,σ,τ ∈I
+
+We will denote the canonical element of this Heisenberg double as W̃ =
+It satisfies a “reversed” pentagon equation of the form
+
+P
+
+α∈I (ẽα ⊗ 1) ⊗ (1 ⊗ ẽ
+
+W̃12 W̃23 = W̃23 W̃13 W̃12 .
+
+α ).
+
+(2.21)
+
+We can relate those 2 algebras by the means of the following proposition:
+Proposition 2.3. There exists an algebra anti-isomorphism ξ : H(A∗ ) −→ H(A) given by
+X
+X
+ξ(ẽα ⊗ 1) =
+γαβ (1 ⊗ eβ ),
+ξ(1 ⊗ ẽα ) =
+(−1)|α| (γ −1 )αβ (eβ ⊗ 1).
+(2.22)
+β∈I
+
+β∈I
+
+Since H(A∗ ) ∋ x 7→ (−1)|x| x ∈ H(A∗ ) is a Heisenberg double isomorphism, the map H(A∗ ) ∋
+x 7→ (−1)|x| ξ(x) ∈ H(A) is also an algebra anti-isomorphism.
+
+–8–
+
+The anti-isomorphism can be implemented on representation spaces in terms of super-transposition
+(i.e. the graded analogue of ordinary transposition). The super-transposition for square even
+(n|m)-matrices, i.e. linear transformations belonging to the space of Hom(Cn|m , Cn|m ), is given
+by
+!
+!
+A B
+C D
+
+st
+
+=
+
+At C t
+−B t Dt
+
+,
+
+(2.23)
+
+where A ∈ Hom(Cn , Cn ), D ∈ Hom(Cm , Cm ) are even, B ∈ Hom(Cm , Cn ), C ∈ Hom(Cn , Cm ) are
+odd, and t denotes an ordinary, not graded matrix transposition.
+Remark 2.2. To keep the notation compact, from now on we will denote the elements 1 ⊗ eα and
+eα ⊗ 1 of the Heisenberg double H(A) simply as eα and eα respectively.
+Finally, we would like to make a connection between the Heisenberg double and the handle
+algebra of the Chern-Simons theory. While the Heisenberg double is defined for arbitrary Hopf
+algebras, for the purposes of investigating this connection we will restrict ourselves to A being
+a quasi-triangularity Hopf algebra, i.e. that it does admit an R-matrix. As mentioned in the
+introduction, the handle algebra arises as a graph algebra associated to the torus Σ1,0 in the
+context of the Chern-Simons theory with a gauge group G. To be precise, it can be defined in
+the following way.
+Definition 2.3. Let A be a quasi-triangular Z2 -graded Hopf algebra. The handle algebra T (A)
+associated to the graded Hopf algebra A is defined as an algebra spanned by the elements fai fbi
+such that the universal elements A, B ∈ A ⊗ T (A)
+X
+X
+(2.24)
+A=
+ei ⊗ fai ,
+B=
+ei ⊗ fbi ,
+i∈I
+
+i∈I
+
+satisfy the following quadratic equations
+A13 R12 A23 = R12 (∆ ⊗ id)A,
+
+(2.25)
+
+B13 R12 B23 = R12 (∆ ⊗ id)B,
+
+(2.26)
+
+−1
+′
+R12
+A13 R12 B23 = B23 R12
+A13 R12 .
+
+(2.27)
+
+While in the definition of the handle algebra we start from universal elements, the Heisenberg
+double H(A∗ ) also admits a description using its own universal elements, which are defined as
+follows.
+Definition 2.4. The universal element G ∈ A ⊗ A∗ ⊂ A ⊗ H(A∗ ) is defined by the equation
+X
+G=
+ei ⊗ e i ,
+(2.28)
+i∈I
+
+where ei ∈ A and ei ∈ H(A∗ ).
+Definition 2.5. The universal elements N± ∈ A ⊗ A ⊂ A ⊗ H(A∗ ) defined by
+N+ = (id ⊗ ι)R′
+
+N− = (id ⊗ ι)R−1 ,
+
+where ι : A −→ H(A∗ ) is the canonical embedding of A into H(A∗ ).
+
+–9–
+
+(2.29)
+
+Then, one can define an isomorphism between those two algebras on the level of universal
+elements, which descends directly to an isomorphism on the elements.
+Proposition 2.4. There exists an isomorphism φ : T (A) −→ H(A∗ ) defined by the equations
+(id ⊗ φ)A = N+ GN−−1 ,
+
+(id ⊗ φ)B = N+ N−−1 ,
+
+(2.30)
+
+between the handle algebra of the Z2 -graded Hopf algebra A and the Heisenberg double H(A∗ ).
+As the proof of this assertion was missing in the literature regarding even the non-graded
+case, we will give it below, after producing some additional propositions and lemmas.
+Proposition 2.5. The universal element G ∈ A ⊗ A∗ ⊂ A ⊗ H(A∗ ) defined in Definition 2.4
+satisfies the equation
+(∆ ⊗ id)G = G13 G23 .
+(2.31)
+Proof. Using the co-product for the elements ei and the product for the elements ei one gets
+X
+X
+X
+i
+(∆ ⊗ id)G =
+∆(ei ) ⊗ ei =
+ej ⊗ ek ⊗ µjk
+e
+=
+(−1)|j||k| ej ⊗ ek ⊗ ej ek =
+i
+i∈I
+
+i,j,k∈I
+
+j,k∈I
+
+X
+X
+=
+(ej ⊗ 1 ⊗ ej )
+(1 ⊗ ek ⊗ ek ) = G13 G23 .
+j∈I
+
+k∈I
+
+Proposition 2.6. The relations (2.20) are equivalent to the requirement that for all ξ ∈ A the
+universal element G ∈ A ⊗ A∗ ⊂ A ⊗ H(A∗ ) ought to satisfy
+G(1 ⊗ ι(ξ)) = (id ⊗ ι)∆op (ξ)G,
+
+(2.32)
+
+where ι : A −→ H(A∗ ) is a canonical embedding of A in H(A∗ ).
+Proof. Setting ξ = eγ and dropping ι for clarity one can calculate using the decomposition of the
+element G
+X
+LHS =
+eβ ⊗ e β eγ ,
+β∈I
+
+RHS =
+
+X
+
+ρ
+(−1)|σ||ϵ| µσϵ
+γ (eϵ ⊗ eσ )(eρ ⊗ e ) =
+
+X
+
+ρ
+(−1)|σ|(|ϵ|+|ρ|) µσϵ
+γ eϵ eρ ⊗ eσ e =
+
+ϵ,σ∈I
+
+ϵ,σ∈I
+
+X
+
+X
+
+
+=
+
+β
+ρ
+(−1)|σ|(|ϵ|+|ρ|) µσϵ
+γ mϵρ eβ ⊗ eσ e =
+
+β,ϵ,σ∈I
+
+β∈I
+
+eβ ⊗ 
+
+
+X
+
+β
+ρ
+(−1)|σ|(|ϵ|+|ρ|) µσϵ
+.
+γ mϵρ eσ e
+
+ϵ,σ∈I
+
+Because the basis elements eβ are linearly independent, the elements in the second tensor factor
+have to be equal for each β independently, which leads to the relation
+X
+β
+ρ
+eβ eγ =
+(−1)|σ|(|ϵ|+|ρ|) µσϵ
+γ mϵρ eσ e ,
+ϵ,σ∈I
+
+which was to be shown.
+
+– 10 –
+
+Lemma 2.7. The universal elements N+ , N− given in Definition 2.5 satisfy
+(∆ ⊗ id)(N± ) = (N± )23 (N± )13 .
+
+(2.33)
+
+Proof. This follows directly from the quasi-triangularity relations (3.11) for the R-matrix.
+Lemma 2.8. The universal elements N+ , N− satisfy
+R12 (N± )23 (N± )13 = (N± )13 (N± )23 R12 ,
+
+R12 (N+ )23 (N− )13 = (N− )13 (N+ )23 R12 .
+
+(2.34)
+
+Proof. The first equation follows directly from Lemma 2.7 and the fact that the R-matrix is an
+intertwiner (3.12). The second one can be obtained from the quasi-triangularity (3.11) and the
+intertwining property of the R-matrix.
+Lemma 2.9. The universal element N = N+ N−−1 satisfies the following relation
+R(∆ ⊗ id)N = N13 R12 N23 .
+
+(2.35)
+
+Proof. Using above lemmas, one can show that
+−1
+−1
+−1
+−1
+(∆ ⊗ id)N = (N+ )23 (N+ )13 (N− )−1
+13 (N+ )23 = R12 (N+ )13 (N+ )23 R12 (N− )13 (N+ )23 =
+−1
+−1
+−1
+(N+ )13 (N− )−1
+= R12
+13 R12 (N+ )23 (N+ )23 = R12 N13 R12 N23 ,
+
+which completes the proof.
+Proposition 2.10. The universal elements N+ , N− and G satisfy the following quadratic equations
+−1
+′
+G23 = G23 (N− )13 ,
+(2.36)
+(N+ )13 R12
+G23 = G23 (N+ )13 , (N− )13 R12
+Proof. Let us assume that the R matrix decomposes into elements fi , gi ∈ A as follows
+X
+X
+R=
+fi ⊗ gi ,
+R′ =
+(−1)|fi | gi ⊗ fi .
+i∈I
+
+i∈I
+
+Then, using the relation
+′
+′
+(id ⊗ ∆op )(R′ ) = R13
+R12
+,
+
+which follows from the left equation (3.11), as well as using Proposition 2.6 one can prove that
+X
+X
+G23 (N+ )13 =
+(−1)|fi | (1 ⊗ G)(gi ⊗ ι(fi )) =
+(−1)|fi | (gi ⊗ G)(1 ⊗ 1 ⊗ ι(fi )) =
+i∈I
+
+i∈I
+
+X
+=
+(−1)|fi | (gi ⊗ (id ⊗ ι)∆op (fi ))G23 =
+i∈I
+
+h
+
+i
+h
+i
+′
+′
+= (id ⊗ id ⊗ ι)(id ⊗ ∆op )(R′ ) G23 = (id ⊗ id ⊗ ι)R13
+R12
+G23 =
+′
+= (N+ )13 R12
+G23 .
+
+The second equation, with the use of the identity
+−1 −1
+(id ⊗ ∆op )(R−1 ) = R13
+R12 ,
+
+which follows from the right equation (3.11) can be show analogously.
+
+– 11 –
+
+Finally, we can prove Proposition 2.4.
+Proof (of Proposition 2.4). In order to do that, we need to show that the isomorphism φ preserves
+the defining relations (2.25)-(2.27). For the equation (2.25) we can perform the following chain
+of application of identities given above
+i
+h
+ih
+ih
+R12 (∆ ⊗ φ)A = R12 (∆ ⊗ id)(N+ GN−−1 ) = R12 (∆ ⊗ id)N+
+(∆ ⊗ id)G (∆ ⊗ id)N−−1 =
+|
+{z
+} | {z } |
+{z
+}
+=(N+ )23 (N+ )13
+
+=G13 G23
+
+−1
+=(N− )−1
+13 (N− )23
+
+−1
+−1
+−1
+= R12 (N+ )23 (N+ )13 G13 G23 (N− )−1
+13 (N− )23 = (N+ )13 (N+ )23 R12 G13 G23 (N− )13 (N− )23 =
+|
+{z
+}
+|
+{z
+}
+=R12 (N− )−1
+13 G23
+
+=(N+ )13 (N+ )23 R12
+
+−1
+−1
+−1
+= (N+ )13 (N+ )23 R12 G13 R12 (N− )−1
+13 G23 (N− )23 = (N+ )13 G13 (N+ )23 R12 (N− )13 G23 (N− )23 =
+|
+{z
+}
+|
+{z
+}
+=(N− )−1
+13 R12 (N+ )23
+
+=G13 (N+ )23
+
+−1
+= (N+ )13 G13 (N− )−1
+13 R12 (N+ )23 G23 (N− )23 = (id ⊗ id ⊗ φ)A13 R12 A23 .
+
+The equation (2.26) is a direct consequence of Lemma 2.9. Finally, the equation (2.27) is shown
+using the following chain of identities
+−1
+−1
+−1
+(N+ )13 G13 (N− )−1
+A13 R12 B23 = R12
+(id ⊗ id ⊗ φ)R12
+13 R12 (N+ )23 (N− )23 =
+|
+{z
+}
+=(N+ )23 R12 (N− )−1
+13
+
+−1
+−1
+(N+ )13 G13 (N+ )23 R12 (N− )−1
+= R12
+13 (N− )23 =
+| {z } |
+{z
+}
+=(N+ )23 R12 G13 =(N− )−1 (N− )−1 R12
+23
+13
+
+−1
+(N+ )13 (N+ )23 R12 G13 (N− )−1
+= R12
+(N− )−1
+13 R12 =
+|
+{z
+}
+|
+{z 23}
+−1
+=(N+ )23 (N+ )13 R12
+
+′ (N )−1 G
+=R12
+− 23
+13
+
+−1
+−1 ′
+−1
+′
+= (N+ )23 (N+ )13 R12
+(N− )−1
+23 G13 (N− )13 R12 = (N+ )23 (N− )23 R12 (N+ )13 G13 (N− )13 R12 =
+|
+{z
+}
+′
+=(N− )−1
+23 R12 (N+ )13
+
+′
+= (id ⊗ id ⊗ φ)B23 R12
+A13 R12 .
+
+This completes the proof of the proposition.
+
+3
+
+Drinfeld doubles
+
+In this section, we will present the definition of the Drinfeld double D(A) of a Z2 -graded Hopf
+algebra A and remind ourselves some facts about the universal element R satisfying the YangBaxter equation. Then, we will describe an algebra morphism between H(A) ⊗ H(A∗ ) and D(A),
+which constitutes a Z2 -graded generalisation of a morphism described in [22]. Furthermore, we
+state the relation between the universal elements of the Heisenberg doubles and the universal
+R-matrix of the Drinfeld double. We also discuss the connection between the Drinfeld double and
+the loop algebra L of Chern-Simons theory and its semi-direct product L̄ as constructed using
+combinatorial quantisation due to Alekseev-Schomerus [26–30] for the non-graded gauge groups
+and [1, 2] for the Z2 -graded, (possibly) non-semisimple gauge groups.
+
+– 12 –
+
+Let us consider again a Z2 -graded Hopf algebra (A, m, η, ∆, ϵ, γ), subjected to the axioms
+(2.2)-(2.6). With the choice of a basis {eα }α∈I which algebraically spans A we can describe the
+multiplication, co-multiplication and an antipode
+eα eβ =
+
+X
+
+mγαβ eγ ,
+
+∆(eα ) =
+
+γ∈I
+
+X
+
+µβγ
+α eβ ⊗ eγ ,
+
+γ(eα ) =
+
+β,γ∈I
+
+X
+
+γαβ eβ .
+
+(3.1)
+
+β∈I
+
+In addition to the algebra A we can consider the algebra A∗ , that is a Hopf algebra dual to A.
+In terms of a basis {eα }α∈I of A∗ the multiplication, co-multiplication and an antipode relations
+of this Hopf algebra are as follows
+eα eβ =
+
+X
+
+γ
+(−1)|α||β| µαβ
+γ e ,
+
+ˆ α) =
+∆(e
+
+γ∈I
+
+X
+
+(−1)|β||γ| mαβγ eβ ⊗ eγ ,
+
+γ̂(eα ) =
+
+β,γ∈I
+
+X
+
+γβα eβ .
+
+(3.2)
+
+β∈I
+
+They are dual to each other with respect to a duality bracket (, ) satisfying the relations (2.7)-(2.9),
+and given explicitly on the basis by (2.14).
+Given those two graded Hopf algebras, it is possible to define a quasi-triangular Hopf algebra
+as a double cross product of Hopf algebras (e.g. [6] for non-graded case). The definition for the
+Z2 -graded case is a straightforward generalisation of the non-graded Drinfeld double. Explicitly,
+we can consider a Hopf algebra D(A) = {x ⊗ f |x ∈ A, f ∈ A∗ } equipped with the product
+(x ⊗ f )(y ⊗ g) =
+
+X
+
+(−1)|y(1) ||f |+|y(2) |(|f(1) |+|f(2) |)+|y(3) ||f(1) |+|f(2) ||f(3) | ×
+
+(y),(f )
+
+× (−1)|f(1) |(|f(2) |+|f(3) |)+|x|(|y(1) |+|f(3) |)+|g|(|f(1) |+|x(3) |) ×
+
+(3.3)
+
+× (y(1) , γ̂ −1 (f(3) ))(y(3) , f(1) )xy(2) ⊗ f(2) g,
+the co-product
+∆(x ⊗ f ) =
+
+X
+
+(−1)|f(1) ||f(2) |+|x(2) ||f(2) | x(1) ⊗ f(2) ⊗ x(2) ⊗ f(1) ,
+
+(3.4)
+
+(x),(f )
+
+and the antipode
+γ(x ⊗ f ) = (−1)|x||f | (1 ⊗ γ̂ cop (f ))(γ(x) ⊗ 1),
+
+(3.5)
+
+where γ̂ cop = γ̂ −1 is the antipode of (A∗ )cop , i.e. the antipode of the Hopf algebra dual to A
+equipped with the opposite co-product. We also use the following notation for the co-product
+(∆ ⊗ id)∆(x) =
+
+X
+
+ˆ ⊗ id)∆(f
+ˆ )=
+(∆
+
+x(1) ⊗ x(2) ⊗ x(3) ,
+
+(x)
+
+X
+
+f(1) ⊗ f(2) ⊗ f(3) .
+
+(f )
+
+Definition 3.1. A Drinfeld double of a graded Hopf algebra A is a quasi-triangular Hopf algebra
+D(A) with the multiplication, co-multiplication and antipode given by the equations (3.3)-(3.5).
+The Hopf algebra D(A) has A and (A∗ )cop as subalgebras through canonical embeddings
+(A∗ )cop ∋ f 7→ 1 ⊗ f ∈ D(A) and A ∋ x 7→ x ⊗ 1 ∈ D(A).
+
+– 13 –
+
+eβ }
+
+In terms of a basis, the Drinfeld double D(A) is spanned by a collection of elements {eα ⊗
+α,β∈I which satisfy the following multiplication relations
+(eα ⊗ 1)(1 ⊗ eβ ) = eα ⊗ eβ ,
+X γ
+(eα ⊗ 1)(eβ ⊗ 1) =
+mαβ (eγ ⊗ 1),
+γ∈I
+α
+
+β
+
+(1 ⊗ e )(1 ⊗ e ) =
+
+X
+
+γ
+(−1)|α||β| µαβ
+γ (1 ⊗ e ),
+
+(3.6)
+
+γ∈I
+α
+
+(1 ⊗ e )(eβ ⊗ 1) =
+
+σν −1 δ
+γ
+(−1)|µ|(|σ|+|δ|)+|α|+|γ| mµνγ mαµδ µϵρ
+β µρ (γ )ϵ eσ ⊗ e ,
+
+X
+γ,δ,ϵ,
+µ,ν,ρ,σ∈I
+
+and co-multiplication relations
+X
+∆(eα ⊗ 1) =
+µβγ
+α (eβ ⊗ 1) ⊗ (eγ ⊗ 1),
+
+∆(1 ⊗ eα ) =
+
+β,γ∈I
+
+X
+
+mαγβ (1 ⊗ eβ ) ⊗ (1 ⊗ eγ ),
+
+(3.7)
+
+X
+
+(3.8)
+
+β,γ∈I
+
+and is equipped with the antipode
+X
+γαβ eβ ⊗ 1,
+γ(eα ⊗ 1) =
+
+γ(1 ⊗ eα ) =
+
+β∈I
+
+(γ̂ cop )βα 1 ⊗ eβ ,
+
+β∈I
+
+where (γ̂ cop )αβ = (γ −1 )αβ , which follows directly from (3.3)-(3.5). Equivalently, instead of the
+fourth exchange relation in (3.6) one can use the crossing relation
+X
+X
+β
+ρ
+ρ
+(−1)|β||σ|+|ρ| µσγ
+(−1)|ρ||γ|+|ρ| mβργ µγσ
+(3.9)
+α mγρ eσ ⊗ e =
+α (1 ⊗ e )(eσ ⊗ 1),
+γ,ρ,σ∈I
+
+γ,ρ,σ∈I
+
+which indeed defines the same algebra.
+Definition 3.2. In the case of Drinfeld double one has a canonical element R ∈ D(A) ⊗ D(A)
+called the universal R-matrix
+X
+R=
+(−1)|α| (eα ⊗ 1) ⊗ (1 ⊗ eα ).
+(3.10)
+α∈I
+
+Proposition 3.1. The universal R-matrix satisfies the quasi-triangularity relations
+(∆ ⊗ id)(R) = R13 R23 ,
+
+(id ⊗ ∆)(R) = R13 R12 ,
+
+(3.11)
+
+and it is an intertwiner between A and Acop , i.e.
+R∆(ξ) = ∆op (ξ)R,
+
+(3.12)
+
+for ξ ∈ D(A).
+Proposition 3.1 implies the following proposition.
+Proposition 3.2. The universal R-matrix satisfies the Yang-Baxter equation
+R12 R13 R23 = R23 R13 R12 .
+where we use a notation for which R12 = R⊗(1⊗1), R23 = (1⊗1)⊗R and R13 =
+1) ⊗ (1 ⊗ 1) ⊗ (1 ⊗ eα ).
+
+– 14 –
+
+(3.13)
+|α|
+α∈I (−1) (eα ⊗
+
+P
+
+Now we want to show that there exists an algebra embedding of the Drinfeld double D(A)
+in a tensor square of Heisenberg doubles H(A). The following proposition is true:
+Proposition 3.3. A map η : D(A) −→ H(A) ⊗ H(A∗ ) defined as follows
+X
+η (a,b) (eα ⊗ 1) =
+(−1)a|β|+b|γ| µβγ
+α (1 ⊗ eβ ) ⊗ (ẽγ ⊗ 1),
+β,γ∈I
+
+η
+
+(a,b)
+
+α
+
+(1 ⊗ e ) =
+
+X
+
+(−1)a|β|+(b+1)|γ| mαγβ (eβ ⊗ 1) ⊗ (1 ⊗ ẽγ ),
+
+(3.14)
+
+β,γ∈I
+
+for the parameters a, b = 0, 1 (which choice corresponds to composition with x 7→ (−1)|x| x for
+x ∈ H(A) or x ∈ H(A∗ )) is an algebra homomorphism.
+Corollary 3.4. From Propositions 2.3 and 3.3 directly follows that one has an algebra homomorphism ϕ : D(A) −→ H(A) ⊗ H(Aop,cop ) defined as follows
+X
+δ
+ϕ(a,b) (eα ⊗ 1) =
+(−1)a|β|+b|δ| µβγ
+α γγ (1 ⊗ eβ ) ⊗ (1 ⊗ eδ ),
+β,γ,δ∈I
+
+ϕ
+
+(a,b)
+
+α
+
+(1 ⊗ e ) =
+
+X
+
+(−1)a|β|+b|δ| (γ −1 )γδ mαγβ (eβ ⊗ 1) ⊗ (eδ ⊗ 1).
+
+(3.15)
+
+β,γ,δ∈I
+
+Using the morphism η from Proposition 3.3 in addition to the canonical element W for the
+Heisenberg double H(A) and the (flipped) canonical element W̃ for H(A∗ ), one can define the
+P
+P
+following two elements W ′ = α∈I (−1)(a+b+1)|α| (ẽα ⊗ 1)(1 ⊗ eα ) and W ′′ = α∈I (−1)(a+b)|α| (1 ⊗
+eα ) ⊗ (ẽα ⊗ 1). It can be shown that they satisfy a set of 6 pentagon-like equations
+′
+′
+′
+W12
+W13
+W23 = W23 W12
+,
+
+′
+′
+′
+W̃12 W23
+= W23
+W13
+W̃12 ,
+
+′′
+′′
+′′
+W12 W13
+W23
+= W23
+W12 ,
+
+′′
+′′
+′′
+W12
+W̃23 = W̃23 W13
+W12
+,
+
+′
+′′
+′′
+′
+W12
+W̃13 W23
+= W23
+W12
+,
+
+′′
+′
+′
+′′
+W12
+W23
+= W23
+W13 W12
+.
+
+(3.16)
+
+Then, we claim that one can construct the R-matrix of the Drinfeld double D(A) as follows
+Proposition 3.5. Under an algebra map η one has the following relation
+′′
+′
+(η (a,b) ⊗ η (a,b) )R = W14
+W13 W̃24 W23
+.
+
+(3.17)
+
+Remark 3.1. To keep the notation compact, from now on we will denote the elements 1 ⊗ eα and
+eα ⊗ 1 of the Drinfeld double D(A) simply as eα and eα respectively.
+Lastly, we want to comment about the relationship between the Drinfeld double and the graph
+algebra L̄ present in the combinatorial Chern-Simons theory (as defined, e.g., in the Definition 5
+in [34]). The isomorphism between those objects has been previously proven in the non-graded,
+semisimple setting [34, 56]. We generalise it to the graded setting below.
+In the combinatorial Chern-Simons theory one can define a gauged loop algebra, which is a
+semi-direct product of a loop algebra L with the quasi-triangular Hopf algebra A, associated with
+1-punctured sphere Σ0,1 , which we will denote by the symbol L̄.
+
+– 15 –
+
+Definition 3.3. Let A be a quasi-triangular Z2 -graded Hopf algebra. The gauged loop algebra L̄
+associated to the Hopf algebra A is defined as an algebra spanned by the elements f i g j such that
+the universal elements M0 , M1 ∈ A ⊗ L̄
+X
+X
+M0 =
+ei ⊗ f i ,
+M1 =
+ei ⊗ g i ,
+(3.18)
+i∈I
+
+i∈I
+
+satisfy the following quadratic equations
+(M0 )13 R12 (M0 )23 = R12 (∆ ⊗ id)M0 ,
+
+(3.19)
+
+(M1 )13R12 (M1 )23 = R12 (∆ ⊗ id)M1 ,
+
+(3.20)
+
+−1
+′
+R12
+(M1 )13 R12 (M0 )23 = (M0 )23 R12
+(M1 )13 (R′ )−1
+12 .
+
+(3.21)
+
+Remark 3.2. We would like to comment briefly about the difference between the above definition
+and the Definition 5 from [34], as well as the difference between the equation (3.21) and the equation (2.27), which distinguishes the algebra L̄ from the handle algebra T (A). The components f i
+span a subalgebra in L̄ which is isomorphic to A and therefore the algebra L̄ admits an embedding
+ι : A −→ span{f i }i∈I ⊂ L̄. The equation (3.21) is a consequence of the fact that this algebra acts
+as an adjoint on its compliment, i.e. the following holds
+[(id ⊗ ι)∆(x)]M1 = M1 [(id ⊗ ι)∆(x)],
+where x ∈ A. This explains how our definition is related to the one from [34]. Also, above is not
+the case for the handle algebra T (A).
+As in the case of Heisenberg double previously (i.e. Definitions 2.4 and 2.5), for Drinfeld
+double one can define the universal elements G, N+ and N− .
+Definition 3.4. The universal element G ∈ A ⊗ A∗ ⊂ A ⊗ D(A) is defined by the equation
+X
+G=
+(−1)|i| ei ⊗ ei ,
+(3.22)
+i∈I
+
+where ei ∈ A and ei ∈ D(A).
+Definition 3.5. The universal elements N± ∈ A ⊗ A ⊂ A ⊗ D(A) defined by
+N+ = (id ⊗ ι)R′
+
+N− = (id ⊗ ι)R−1 ,
+
+(3.23)
+
+where ι : A −→ D(A) is the canonical embedding of A into D(A).
+Then, one can define an isomorphism between those two algebras on the level of universal
+elements, which descends directly to an isomorphism on the elements.
+Proposition 3.6. There exists an isomorphism ψ : L̄ −→ D(A) defined by the equations
+(id ⊗ ψ)M1 = N+ G,
+
+(id ⊗ ψ)M0 = N+ N−−1 ,
+
+between the Drinfeld double D(A) and the algebra L̄.
+
+– 16 –
+
+(3.24)
+
+We provide the proof of this assertion for the graded Hopf algebras below. In order to do
+that, we first give some additional propositions and lemmas.
+Proposition 3.7. The universal element G ∈ A ⊗ A∗ ⊂ A ⊗ D(A) defined in Definition 3.4
+satisfies the equation
+(∆ ⊗ id)G = G13 G23 .
+(3.25)
+Proof. Analogous to the proof of Proposition 2.5.
+Proposition 3.8. The crossing relations (3.9) are equivalent to the requirement that for all ξ ∈ A
+the universal element G ∈ A ⊗ A∗ ⊂ A ⊗ D(A) ought to satisfy
+G(id ⊗ ι)∆(ξ) = (id ⊗ ι)∆op (ξ)G,
+
+(3.26)
+
+where ι : A −→ D(A) is a canonical embedding of A in D(A).
+Proof. Setting ξ = eα and dropping ι for clarity one can calculate using the decomposition of the
+element G
+X
+X
+ρ
+LHS =
+(−1)|ρ| ∆op (eα )(eρ ⊗ eρ ) =
+(−1)|γ||σ|+|ρ| µσγ
+α (eγ ⊗ eσ )(eρ ⊗ e ) =
+ρ∈I
+
+=
+
+γ,ρ,σ∈I
+
+X
+γ,ρ,σ∈I
+
+X
+
+RHS =
+
+X
+
+eβ ⊗ 
+
+
+X
+
+β
+ρ
+(−1)|β||σ|+|ρ| µσγ
+,
+α mγρ eσ e
+
+γ,ρ,σ∈I
+
+β∈I
+|ρ|
+
+(−1) (eρ ⊗ eρ )∆(eα ) =
+
+ρ∈I
+
+=
+
+X
+
+ρ
+(−1)|ρ| µγσ
+α (eρ ⊗ e )(eγ ⊗ eσ ) =
+
+γ,ρ,σ∈I
+
+X
+
+X
+
+ρ
+(−1)|γ||ρ|+|ρ| µγσ
+α eρ eγ ⊗ e eσ =
+
+γ,ρ,σ∈I
+
+=
+
+β∈I
+
+ρ
+(−1)|γ||ρ|+|ρ| mβργ µγσ
+α eβ ⊗ e eσ =
+
+β,γ,ρ,σ∈I
+
+
+X
+
+β
+ρ
+(−1)|γ||σ|+|ρ||σ|+|ρ| µσγ
+α mγρ eβ ⊗ eσ e =
+
+β,γ,ρ,σ∈I
+
+
+=
+
+X
+
+ρ
+(−1)|γ||σ|+|ρ||σ|+|ρ| µσγ
+α eγ eρ ⊗ eσ e ==
+
+eβ ⊗ 
+
+
+X
+
+ρ 
+(−1)|ρ||γ|+|ρ| mβργ µγσ
+α e eσ .
+
+γ,ρ,σ∈I
+
+Because the basis elements eβ are linearly independent, the elements in the second tensor factor
+have to be equal for each β independently, which leads to the relation
+X
+X
+β
+ρ
+ρ
+(−1)|β||σ|+|ρ| µσγ
+(−1)|ρ||γ|+|ρ| mβργ µγσ
+α mγρ eσ e =
+α e eσ ,
+γ,ρ,σ∈I
+
+γ,ρ,σ∈I
+
+which was to be proven.
+Lemma 3.9. The universal elements N+ , N− given in Definition 3.5 satisfy
+(∆ ⊗ id)(N± ) = (N± )23 (N± )13 .
+Proof. Analogous to the proof of Lemma 2.7.
+
+– 17 –
+
+Lemma 3.10. The universal elements N+ , N− satisfy
+R12 (N± )23 (N± )13 = (N± )13 (N± )23 R12 ,
+
+R12 (N+ )23 (N− )13 = (N− )13 (N+ )23 R12 .
+
+Proof. Analogous to the proof of Lemma 2.8.
+Lemma 3.11. The universal element N = N+ N−−1 satisfies the following relation
+R(∆ ⊗ id)N = N13 R12 N23 .
+Proof. Analogous to the proof of Lemma 2.9.
+Proposition 3.12. The universal elements N+ , N− and G satisfy the following quadratic equations
+′
+′
+(N+ )13 R12
+G23 = G23 R12
+(N+ )13 ,
+
+−1
+−1
+(N− )13 R12
+G23 = G23 R12
+(N− )13 ,
+
+(3.27)
+
+Proof. Let us assume that the R matrix decomposes into elements fi , gi ∈ A as follows
+R=
+
+X
+
+fi ⊗ gi ,
+
+R′ =
+
+i∈I
+
+X
+
+(−1)|fi | gi ⊗ fi .
+
+i∈I
+
+Then, using the relation
+′
+′
+(id ⊗ ∆op )(R′ ) = R13
+R12
+,
+
+which follows from the left equation (3.11), as well as using Proposition 3.8 one can prove that
+h
+i
+h
+i
+′
+′
+′
+G23 R12
+(N+ )13 = G23 (id ⊗ id ⊗ ι)R12
+R13
+= G23 (id ⊗ id ⊗ ι)(id ⊗ ∆)(R′ ) =
+X
+= G23
+(−1)|fi | (gi ⊗ (id ⊗ ι)∆(fi )) =
+i∈I
+
+X
+=
+(−1)|fi | (gi ⊗ (id ⊗ ι)∆op (fi ))G23 =
+i∈I
+
+h
+i
+h
+i
+′
+′
+= (id ⊗ id ⊗ ι)(id ⊗ ∆op )(R′ ) G23 = (id ⊗ id ⊗ ι)R13
+R12
+G23 =
+′
+= (N+ )13 R12
+G23 .
+
+The second equation, with the use of the identity
+−1 −1
+(id ⊗ ∆op )(R−1 ) = R13
+R12 ,
+
+which follows from the right equation (3.11) can be show analogously.
+At last, we can prove Proposition 3.6.
+Proof (of Proposition 3.6). In order to do that, we need to show that the isomorphism ψ preserves
+the defining relations (3.19)-(3.21). The equation (3.19) is a direct consequence of Lemma 3.11.
+
+– 18 –
+
+For the equation (3.20) we can perform the following chain of application of identities given
+above
+h
+ih
+i
+R12 (∆ ⊗ ψ)M1 = R12 (∆ ⊗ id)(N+ G) = R12 (∆ ⊗ id)N+
+(∆ ⊗ id)G =
+|
+{z
+} | {z }
+=(N+ )23 (N+ )13
+
+=G13 G23
+
+= R12 (N+ )23 (N+ )13 G13 G23 = (N+ )13 (N+ )23 R12 G13 G23 =
+|
+|
+{z
+}
+{z
+}
+=(N+ )13 (N+ )23 R12
+
+=G13 R12 (N+ )23
+
+= (N+ )13 G13 R12 (N+ )23 G23 = (id ⊗ id ⊗ ψ)(M1 )13 R12 (M1 )23 .
+Finally, the equation (3.21) is shown using the following chain of identities
+−1
+−1
+(id ⊗ id ⊗ ψ)R12
+(M1 )13 R12 (M0 )23 = R12
+(N+ )13 G13 R12 (N+ )23 (N− )−1
+23 =
+{z
+}
+|
+=(N+ )23 R12 G13
+
+−1
+= R12
+(N+ )13 (N+ )23 R12
+
+|
+
+{z
+
+−1
+=(N+ )23 (N+ )13 R12
+
+}
+
+G13 (N− )−1
+23
+|
+
+{z
+
+}
+
+′ (N )−1 G (R′ )−1
+=R12
+− 23
+13
+12
+
+′
+′ −1
+= (N+ )23 (N+ )13 R12
+(N− )−1
+23 G13 (R )12 =
+|
+{z
+}
+′
+=(N− )−1
+23 R12 (N+ )13
+
+′
+′ −1
+′
+′ −1
+= (N+ )23 (N− )−1
+23 R12 (N+ )13 G13 (R )12 = (id ⊗ id ⊗ ψ)(M0 )23 R12 (M1 )23 (R )12 .
+
+This completes the proof of the proposition.
+
+4
+
+Heisenberg and Drinfeld doubles of the Borel half of Uq (gl(1|1)) (q a root of
+unity)
+
+In this section, we illustrate general constructions of Heisenberg and Drinfeld doubles when applied
+to the Borel half of Uq (gl(1|1)) when the quantisation parameter q is a root of unity. We first
+consider the Heisenberg double, and then proceed to the Drinfeld double.
+4.1
+
+Heisenberg double of the Borel half of Uq (gl(1|1))
+
+We will consider a Heisenberg double of the Borel half of restricted Uq (gl(1|1)). The Borel half
+A = B(Uq (gl(1|1)) of Uq (gl(1|1)) is generated by two even elements kα , kβ and one odd element
+e+ which are subject to the (anti-)commutation relations
+kαp = kβp = 1,
+kα e+ = e+ kα ,
+
+kα kβ = kβ kα ,
+
+kβ e+ = qe+ kβ ,
+
+{e+ , e+ } = 0,
+
+(4.1)
+
+where q = e2πi/p is a root of unity and p ∈ 2Z>0 + 1 is an odd positive integer, a co-product
+∆(kα ) = kα ⊗ kα ,
+
+∆(kβ ) = kβ ⊗ kβ ,
+
+∆(e+ ) = e+ ⊗ 1 + kα−1 ⊗ e+ ,
+
+(4.2)
+
+and the antipode
+γ(kα ) = kα−1 ,
+
+γ(kβ ) = kβ−1 ,
+
+γ(e+ ) = −kα e+ .
+
+(4.3)
+
+Because of the first and last relation, the algebra A is finite-dimensional — it has 2p2 linearlyindependent elements and is spanned by a basis
+en,m,r = kαn kβm er+ ,
+
+– 19 –
+
+(4.4)
+
+where n, m = 0, . . . , p − 1 and r = 0, 1.
+With the use of multiplication and co-multiplication rules for the generators, one can obtain
+the multiplication and co-multiplication coefficients for the basis elements en,m,r which are as
+follows
+−m2 r1
+mn,m,r
+δn,n1 +n2 δm,m1 +m2 δr,r1 +r2 Θ(1 − r)Θ(1 − r1 )Θ(1 − r2 ),
+n1 ,m1 ,r1 ,n2 ,m2 ,r2 = q
+1 ,m1 ,r1 ,n2 ,m2 ,r2
+µnn,m,r
+= δn−r2 ,n1 δn,n2 δm,m1 δm,m2 δr,r1 +r2 Θ(1 − r)Θ(1 − r1 )Θ(1 − r2 ).
+
+Now one can move to the dual algebra A∗ . It is generated by two even elements k̂a, k̂β and
+one odd element e− which are subject to the (anti-)commutation relations
+k̂αp = k̂βp = 1,
+
+k̂α k̂β = k̂β k̂α ,
+
+k̂β e− = q −1 e− k̂β ,
+
+k̂α e− = e− k̂α ,
+
+{e− , e− } = 0,
+
+(4.5)
+
+where q = e2πi/p is the same root of unity as before, co-product
+ˆ k̂α ) = k̂α ⊗ k̂α ,
+∆(
+
+ˆ k̂β ) = k̂β ⊗ k̂β ,
+∆(
+
+ˆ − ) = e− ⊗ 1 + k̂α ⊗ e− ,
+∆(e
+
+(4.6)
+
+γ̂(e− ) = −e− k̂α−1 .
+
+(4.7)
+
+and the antipode is
+γ̂(k̂β ) = k̂β−1 ,
+
+γ̂(k̂α ) = k̂α−1 ,
+
+The algebra A∗ has 2p2 linearly-independent elements and is spanned by a dual basis
+p−1
+
+en,m,r =
+
+X
+′
+1
+′
+−1 r −r r
+(q
+−
+q
+)
+k̂
+e
+q nt +mt k̂α−t k̂β−t ,
+α −
+2
+p
+′
+
+(4.8)
+
+t,t =0
+
+where n, m = 0, . . . , p − 1 and r = 0, 1. One can show that the elements en,m,r and en,m,r are dual
+to each other w.r.t. a Hopf pairing
+(en1 ,m1 ,r1 , en2 ,m2 ,r2 ) = δn1 ,n2 δm1 ,m2 δr1 ,r2 .
+
+(4.9)
+
+The Heisenberg double H(A) is then given by the those elements which satisfy in addition the
+(anti-)commutation relations (2.12)
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+en,m,0 en ,m ,0 = en −n,m −m,0 en,m,0 ,
+′
+
+en,m,1 en ,m ,0 = en −n+1,m −m,0 en,m,1 ,
+′
+
+(4.10)
+
+′
+
+en,m,0 en ,m ,1 = q −m en −n,m −m,1 en,m,0 ,
+′
+
+′
+
+′
+
+′
+
+en,m,1 en ,m ,1 = en −n,m −m,0 en,m,0 − q −m en −n+1,m −m,1 en,m,1 ,
+where we dropped the trivial tensor products for simplicity of notation. Those relations can be
+translated into the relations between the generators kα , kβ , k̂α , k̂β , e+ , e−
+kα k̂α = k̂α kα ,
+
+kβ k̂β = k̂β kβ ,
+
+kβ k̂α = q k̂α kβ , kα e− = e− kα ,
+e+ k̂α = k̂α e+ ,
+
+kα k̂β = q k̂β kα ,
+kβ e− = q −1 e− kβ ,
+
+k̂α
+.
+e+ k̂β = q −1 k̂β , e+ , {e+ , e− } =
+q − q −1
+
+– 20 –
+
+(4.11)
+
+We note that the Heisenberg double H(A) has 4p4 elements spanned by elements
+′
+
+′
+
+{kαn kβm k̂αn k̂βm er+ es− }p−1;1
+n,n′ ,m,m′ =0;r,s=0 .
+
+(4.12)
+
+The canonical element W is given in terms of generators as
+W = 1 − (q − q
+4.2
+
+−1
+
+ 1
+)e+ ⊗ e− 2
+p
+
+p−1
+X
+
+′
+
+′
+
+′
+
+′
+
+q nm +mn kαn kβm ⊗ k̂α−n k̂β−m .
+
+(4.13)
+
+n,m,n′ ,m′ =0
+
+Drinfeld double of the Borel half of Uq (gl(1|1))
+
+We will now consider a Drinfeld double of the Borel half of restricted Uq (gl(1|1)). The Borel half
+A = B(Uq (gl(1|1)) of Uq (gl(1|1)) is generated by two even elements kα , kβ and one odd element
+e+ which are subject to the relations (4.1)-(4.3), with basis elements en,m,r given by (4.4).
+The dual algebra A∗ is generated by two even elements k̂a, k̂β and one odd element e− which
+are subject to the relations (4.5)-(4.7), with basis elements en,m,r given by (4.8). The elements
+en,m,r and en,m,r are dual to each other w.r.t. a Hopf pairing (4.9).
+The Drinfeld double D(A) is then given by the those elements which satisfy the (anti)commutation relations (3.3)
+en,m,0 er,s,0 = er,s,0 en,m,0 ,
+en,m,1 er,s,0 = er+1,s,0 en,m,1
+
+(4.14)
+
+en,m,0 er,s,1 = q −m er,s,1 en,m,0 ,
+en,m,1 er,s,1 = −q −m er+1,s,1 en,m,1 + er,s,0 en,m,0 − q −s en−1,m,0 er,s,0 ,
+
+where we dropped the trivial tensor products for simplicity of notation. Those relations can be
+translated into the relations between the generators kα , kβ , k̂α , k̂β , e+ , e−
+kα k̂α = k̂α kα , kβ k̂β = k̂β kβ ,
+
+kα k̂β = k̂β kα ,
+
+kβ k̂α = k̂α kβ , kα e− = e− kα ,
+
+kβ e− = q −1 e− kβ ,
+
+(4.15)
+
+k̂α − kα−1
+,
+e+ k̂α = k̂α e+ , e+ k̂β = q −1 k̂β , e+ , {e+ , e− } =
+q − q −1
+with co-product
+∆(kα ) = kα ⊗ kα , ∆(kβ ) = kβ ⊗ kβ , ∆(e+ ) = e+ ⊗ 1 + kα−1 ⊗ e+ ,
+∆(k̂α ) = k̂α ⊗ k̂α , ∆(k̂β ) = k̂β ⊗ k̂β , ∆(e− ) = e− ⊗ k̂α + 1 ⊗ e− ,
+
+(4.16)
+
+and the antipode
+γ(kα ) = kα−1 , γ(kβ ) = kβ−1 , γ(e+ ) = −kα e+ ,
+γ(k̂α ) = k̂α−1 , γ(k̂β ) = k̂β−1 , γ(e− ) = −e− k̂α−1 .
+
+(4.17)
+
+The Drinfeld double D(A) has 4p4 elements spanned by elements
+′
+
+′
+
+{kαn kβm k̂αn k̂βm er+ es− }p−1;1
+n,n′ ,m,m′ =0;r,s=0 .
+
+– 21 –
+
+(4.18)
+
+The universal R-matrix is given by
+R = 1 − (q − q −1 )e+ ⊗ e−
+
+ 1
+p2
+
+p−1
+X
+
+′
+
+′
+
+′
+
+′
+
+q nm +mn kαn kβm ⊗ k̂α−n k̂β−m .
+
+(4.19)
+
+n,m,n′ ,m′ =0
+
+From the corollary 3.4 one can derive an algebra homomorphism ϕ : D(A) −→ H(A)⊗H(Aop,cop ),
+which for generators of Uq (gl(1|1)) take the form
+ϕ(a,b) (kα ) = kα ⊗ kα−1 ,
+ϕ(a,b) (kβ ) = kβ ⊗ kβ−1 ,
+ϕ(a,b) (e+ ) = (−1)a e+ ⊗ 1 + (−1)b+1 kα−1 ⊗ kα e+ ,
+ϕ(a,b) (k̂α ) = k̂α ⊗ k̂α−1 ,
+
+(4.20)
+
+ϕ(a,b) (k̂β ) = k̂β ⊗ k̂β−1 ,
+ϕ(a,b) (e− ) = (−1)a e− ⊗ k̂α−1 + (−1)b+1 1 ⊗ e− .
+By taking a quotient
+k̂α = kα ,
+
+k̂β = kβ ,
+
+(4.21)
+
+one obtains from the Drinfeld double the standard relations for Uq (gl(1|1)), i.e.
+Uq (gl(1|1)) = D(B(Uq (gl(1|1))))/ ∼ .
+
+5
+
+(4.22)
+
+Heisenberg double of Uq (gl(1|1)) (q a root of unity)
+
+In this section, we will consider a Heisenberg double of the restricted Uq (gl(1|1)). when q is a
+root of unity. The A = Uq (gl(1|1)) is generated by two even elements kα , kβ and two odd element
+e+ , e− which are subject to the (anti-)commutation relations
+kαp = kβp = 1,
+
+kα kβ = kβ kα ,
+
+kα e± = e± kα , kβ e± = q ± e± kβ ,
+{e± , e± } = 0,
+
+(5.1)
+
+kα − kα−1
+{e+ , e− } =
+.
+q − q −1
+
+where q = e2πi/p is a root of unity and p ∈ 2Z>0 + 1 is an odd positive integer, and a co-product
+∆(kα ) = kα ⊗ kα , ∆(kβ ) = kβ ⊗ kβ ,
+∆(e+ ) = e+ ⊗ 1 + kα−1 ⊗ e+ , ∆(e− ) = e− ⊗ kα + 1 ⊗ e− ,
+
+(5.2)
+
+and the antipode is
+γ(kα ) = kα−1 ,
+
+γ(kβ ) = kβ−1 ,
+
+γ(e± ) = −kα± e± .
+
+(5.3)
+
+Because of the first and last relation, the algebra A is finite-dimensional — it has 4p2 linearlyindependent elements and is spanned by a basis
+en,m,r,s = kαn kβm er+ es− ,
+
+– 22 –
+
+(5.4)
+
+where n, m = 0, . . . , p − 1 and r, s = 0, 1.
+With the use of multiplication and co-multiplication rules for the generators, one can obtain
+the multiplication and co-multiplication coefficients for the basis elements en,m,r,s which are as
+follows
+m2 (s1 −r1 )
+Θ(1 − r)Θ(1 − r1 )Θ(1 − s)Θ(1 − s2 )×
+mn,m,r,s
+n1 ,m1 ,r1 ,s1 ,n2 ,m2 ,r2 ,s2 = q
+h
+× (−1)s1 r2 δn,n1 +n2 δr,r1 +r2 δs,s1 +r2 Θ(1 − r2 )Θ(1 − s1 )+
+i
+1
++
+(δ
+−
+δ
+)
+δm,m1 +m2 ,
+δ
+(δ
+δ
+δ
+n,n
++n
++1
+n,n
++n
+−1
+s,s
+s
+,1
+r
+,1
+r,r
+1
+2
+1
+2
+2
+1
+q − q −1 1 2
+1 ,m1 ,r1 ,s1 ,n2 ,m2 ,r2 ,s2
+µnn,m,r,s
+= (−1)s1 r2 δn1 +r2 ,n δn2 −s1 ,n δm,m1 δm,m2 δr,r1 +r2 δs,s1 +r2 ×
+
+× Θ(1 − r)Θ(1 − r1 )Θ(1 − r2 )Θ(1 − s)Θ(1 − s1 )Θ(1 − s2 ).
+Now one can move to the dual algebra A∗ . It is generated by two even elements lα , lβ and two
+odd element ζ± which are subject to the (anti-)commutation relations
+lαp = lβp = 1,
+
+lα lβ = lβ lα ,
+
+lα ζ± = ζ± lα , lβ ζ± = q −1 ζ± lβ ,
+
+(5.5)
+
+{ζ+ , ζ− } = {ζ± , ζ± } = 0.
+where q = e2πi/p is the same root of unity as before, co-product
+ˆ α ) = l α ⊗ lα ,
+∆(l
+
+ˆ ± ) = ζ± ⊗ lα∓1 + 1 ⊗ ζ± ,
+∆(ζ
+
+ˆ β ) = lβ ⊗ lβ + lβ ζ− ⊗ ζ+ lα lβ ,
+∆(l
+
+(5.6)
+
+and the antipode is
+γ̂(lβ ) = lβ−1 − (q − q −1 )ζ+ lβ−1 ζ− ,
+
+γ̂(lα ) = lα−1 ,
+
+γ̂(ζ± ) = −lα±1 ζ± .
+
+(5.7)
+
+The algebra A∗ has 4p2 linearly-independent elements and is spanned by a dual basis
+n,m,r,s
+
+e
+
+r 1
+= σr+s ζ+
+2
+
+p
+
+p−1
+X
+
+′
+
+′
+
+s
+,
+q nt +mt lα−t lβ−t ζ−
+
+(5.8)
+
+t,t′ =0
+
+where n, m = 0, . . . , p − 1 and r, s = 0, 1 and σ0 = σ1 = −σ2 = 1. One can show that the elements
+en,m,r,s and en,m,r,s are dual to each other w.r.t. a Hopf pairing:
+(en1 ,m1 ,r1 ,s1 , en2 ,m2 ,r2 ,s2 ) = δn1 ,n2 δm1 ,m2 δr1 ,r2 δrs1 ,s2 .
+
+(5.9)
+
+The Heisenberg double H(A) is then given by the those elements which satisfy in addition the
+(anti-)commutation relations
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+e1,0,0,0 en ,m ,r ,s = en −1,m ,r ,s e1,0,0,0 ,
+′
+
+′
+
+′
+
+′
+
+′
+
+e0,1,0,0 en ,m ,r ,s = q s −r en ,m −1,r ,s e0,1,0,0 ,
+′
+
+′
+
+′
+
+′
+
+′
+
+e0,0,1,0 en ,m ,r ,s = (−1)r +s en +1,m ,r ,s e0,0,1,0 +
+
+
+ ′
+
+1
+r′
+n −1,m′ ,r′ ,1
+n′ +1,m′ ,r′ ,1
+n′ ,m′ ,0,s′
+(−1) δs′ ,0 e
+−e
+− δr′ ,1 e
+e0,0,0,0 ,
++
+q − q −1
+′
+
+′
+
+′
+
+′
+
+e0,0,0,1 en ,m ,r ,s = (−1)r +s en ,m ,r ,s e0,0,0,1 + δs′ ,1 en ,m ,r ,0 e1,0,0,0 ,
+
+– 23 –
+
+where we dropped the trivial tensor products for simplicity of notation. Those relations can be
+translated into the relations between the generators kα , kβ , lα , lβ , e+ , e− , ζ+ , ζ−
+kα lα = lα kα , kα lβ = qlβ kα ,
+
+(5.10)
+
+kβ lβ = lβ kβ , kβ lα = qlα kβ ,
+and
+e− lα = lα e− , e− lβ = lβ e− ,
+
+(5.11)
+
+e+ lα = lα e+ , e+ lβ = q −1 lβ e+ + lβ ζ− ,
+and
+kα ζ± = ζ± kα , kβ ζ± = q ∓1 ζ± kβ ,
+
+(5.12)
+
+and
+{e− , ζ− } = kα , {e+ , ζ+ } = −1,
+{e− , ζ+ } = 0,
+
+(5.13)
+
+{e+ , ζ− } = 0.
+
+We note that the Heisenberg double H(A) has 8p4 elements and is spanned by a basis
+′
+
+′
+
+′
+
+′
+
+r
+s p−1;1
+{kαn kβm lαn lβm er+ es− ζ+
+, ζ−
+}n,n′ ,m,m′ =0;r,s,r′ ,s′ =0 .
+
+(5.14)
+
+The canonical element W is given in terms of generators as
+W =
+
+1
+p2
+
+p−1
+X
+
+
+
+′
+′
+q nt +mt kαn kβm ⊗ lα−t lβ−t ×
+
+(5.15)
+
+n,m,t,t′ =0
+
+× (1 − kα e+ ⊗ ζ+ − e− ⊗ ζ− − kα e+ e− ⊗ ζ+ ζ− )
+Finally, let us comment about the connection between the Heisenberg double of Uq (gl(1|1))
+and the handle algebra associated to the same super Hopf algebra. The elements ẽn,m,r,s and
+ẽn,m,r,s of H(A∗ ) satisfy the same multiplication and co-multiplication relations as their “untilded”
+counterparts, and they are generated by the “tilded” generators satisfying the relations (5.1)-(5.2)
+and (5.5)-(5.6) respectively. Then, the Heisenberg double H(A∗ ) is given by the elements which
+satisfy the (anti-)commutation relations
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+ẽn ,m ,r ,s ẽ1,0,0,0 = ẽ1,0,0,0 ẽn −1,m ,r ,s ,
+′
+
+ẽn ,m ,r ,s ẽ0,1,0,0 = ẽ0,1,0,0 ẽn ,m −1,r ,s ,
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+′
+
+ẽn ,m ,r ,s ẽ0,0,1,0 = (−1)r +s ẽ0,0,1,0 ẽn ,m ,r ,s + q −m δr′ ,1 ẽ−1,0,0,0 ẽn ,m ,0,s ,
+h
+′
+′ ′ ′
+′
+′
+′
+′ ′ ′
+′
+′
+′
+′ ′
+ẽn ,m ,r ,s ẽ0,0,0,1 = (−1)r +s ẽ0,0,0,1 ẽn −1,m ,r ,s + q m ẽ0,0,0,0 (−1)−r δs′ ,1 ẽn ,m ,r ,0 +
+ ′
+i
+1
+n −1,m′ ,1,s′
+n′ +1,m′ ,1,s′
+′ ,0 ẽ
++
+δ
+−
+ẽ
+.
+r
+q − q −1
+They translate into the commutation for the generators which have the form
+˜lα k̃α = k̃α ˜lα ,
+˜lβ k̃β = k̃β ˜lβ ,
+
+˜lα k̃β = q k̃β ˜lα ,
+˜lβ k̃α = q k̃α ˜lβ ,
+
+– 24 –
+
+(5.16)
+
+and
+
+˜lα ẽ+ = ẽ+ ˜lα ,
+˜lα ẽ− = ẽ− ˜lα ,
+
+˜lβ ẽ+ = ẽ+ ˜lβ ,
+˜lβ ẽ− = ẽ− ˜lβ + ζ̃+ ˜lα ˜lβ ,
+
+(5.17)
+
+as well as
+(5.18)
+
+ζ̃± k̃α = k̃α ζ̃± , ζ̃± k̃β = k̃β ζ̃± ,
+and the anti-commutation relations
+{ζ̃− , ẽ− } = ˜lα , {ζ̃+ , ẽ+ } = k̃α−1 ˜lα−1 ,
+{ζ̃+ , ẽ− } = 0,
+
+(5.19)
+
+{ζ̃− , ẽ+ } = 0.
+
+Under the isomorphism φ from Proposition 2.4, the above commutation relations are equivalent to the (anti-)commutation relations for the generators of the handle algebra T (Uq (gl(1|1))
+(a)
+(a)
+obtained in [1], which are as follows: the handle algebra is generated by the elements kα , kβ ,
+(a)
+
+(a)
+
+(b)
+
+(b)
+
+(b)
+
+(b)
+
+(a)
+
+(a)
+
+(a)
+
+(a)
+
+e+ , e− , kα , kβ , e+ , e− , and the generators kα , kβ , e+ , e− satisfy the Uq (gl(1|1)) (anti(b)
+
+(b)
+
+)commutation relations (5.1) between themselves. The same is true of the generators kα , kβ ,
+(b)
+
+(b)
+
+e+ , e− . The “mixed” commutation relations are given by the formulae
+2n (b) 2m
+2m (a) 2n
+(a) 2n (b) 2m
+(b) 2m (a) 2n
+kα(a)
+kα
+= kα(b)
+kα
+,
+= kβ
+kβ
+,
+kβ
+kβ
+
+2m (a) 2n
+(b)
+(a) 2n (b) 2m
+(a) 2n (b) 2m
+(kβ ) = q 2nm (kβ )2m (kα(a) )2n ,
+kα
+= q 2nm kα(b)
+kβ
+, kα
+kβ
+ (a) 2n (b) 
+(a) (a) 2n
+(a) 2n (b)
+(b) (a) 2n
+kβ
+, e+ = q n [n]q (q − q −1 )e+ kβ
+,
+,
+kβ
+e− = q −n e− kβ
+
+
+
+
+2n
+2n
+(b)
+(a)
+(a)
+(b)
+(b) 2n (a)
+(a) (b) 2n
+(5.20)
+kβ
+e− = q −n e− kβ
++
+kβ
+e+ = q 2n e+ kβ
+,
+
+−1
+(b) (b)
+− q −2n [n]q (q − q −1 )(kα(a) ) kα(b)
+e− (kβ )2n ,
+ (a) n (b) 
+ (b) n (a) 
+kα
+, e+ = 0,
+kα , e+ = 0,
+ (a) n (b) 
+ (b) n (a) 
+kα
+, e− = 0,
+kα , e− = 0,
+and the anti-commutation relations by
+(a)
+
+(b)
+
+(a)
+
+(b)
+
+{e+ , e+ } = 0,
+{e− , e− } = 0,
+
+(a)
+
+(b)
+
+{e+ , e− } = kα(b) (q − q −1 )−1 ,
+
+−1
+−2 
+(a) (b)
+{e− , e+ } = kα(a) − kα(a)
+− kα(a) kα(b)
+(q − q −1 )−1 ,
+(a)
+
+(a)
+
+(a)
+
+(5.21)
+
+(a)
+
+where the powers n, m = 0, . . . , p − 1. The generators kα , kβ , e+ , e− have a geometrical
+(b)
+
+(b)
+
+(b)
+
+(b)
+
+interpretation as associated to the a-cycle of a torus, while kα , kβ , e+ , e− are associated to
+the b-cycle.
+As a final remark, given that the isomorphism φ uses the universal element G, we would like
+to explicitly state that in the case of Uq (gl(1|1)) this universal element (2.28) has the following
+form
+p−1
+
+
+X
+1
+q nñ+mm̃ k̃αn k̃βm ⊗ ˜lβ−ñ ˜lα−m̃ ×
+G= 2
+p
+(5.22)
+n,m,ñ,m̃=0
+
+× (1 ⊗ 1 + k̃α ẽ+ ⊗ ξ˜+ + ẽ− ⊗ ξ˜− − k̃α ẽ− ẽ+ ⊗ ξ˜− ξ˜+ ).
+This universal element G has been first obtained from directly solving the quadratic relation
+(2.31) in [2]. Use of the defining equation (2.28) gives the same result, as one would expect.
+
+– 25 –
+
+6
+
+Heisenberg and Drinfeld doubles of the Borel half of Uq (osp(1|2)) (q a root
+of unity)
+
+In this section, we illustrate general constructions of Heisenberg and Drinfeld doubles when applied
+to the Borel half of Uq (osp(1|2)) when the quantisation parameter q is a root of unity. We first
+consider the Heisenberg double, and then proceed to the Drinfeld double.
+6.1
+
+Heisenberg double of the Borel half of Uq (osp(1|2))
+
+First, lets us consider a finite-dimensional Heisenberg double of the Borel half of Uq (osp(1|2)).
+n
+The Borel half algebra A = B(osp(1|2)))) = span{k m v (+) }p−1
+m,n=0 is generated by an even graded
+(+)
+element k and an odd graded element v
+with a commutation relation
+p
+
+k p = 1,
+
+v (+) = 0,
+
+kv (+) = qv (+) k,
+
+(6.1)
+
+a co-product
+∆(v (+) ) = v (+) ⊗ k −1 + 1 ⊗ v (+) ,
+
+∆(k) = k ⊗ k,
+
+(6.2)
+
+2
+
+where q = eiπb is the deformation parameter which is not a root of unity, the antipode as follows
+γ(k) = k −1 ,
+
+γ(v (+) ) = −v (+) k.
+
+(6.3)
+
+We can choose the basis elements of A in the following way
+n
+
+em,n = k m v (+) ,
+
+(6.4)
+
+and extend the the first index so that it is taken to be modulo p
+em+rp,n = em,n .
+
+(6.5)
+
+Using the properties of the generators k, v (+) and the binomial and q-binomial formulae
+n
+
+(g + h) =
+
+n  
+X
+n
+k=0
+
+k
+
+g
+
+n−k k
+
+h ,
+
+n
+
+(u + v) =
+
+n  
+X
+n
+k=0
+
+k
+
+un−k v k ,
+
+(6.6)
+
+q
+
+where gh = hg and uv = q −1 vu, one can find the multiplication and co-multiplication of the basis
+elements
+em,n ek,l = q −nk em+k,n+l Θ(p − 1 − n − l),
+n  
+X
+n
+∆(em,n ) =
+em,n−k ⊗ em+k−m,k .
+k −q
+
+(6.7)
+(6.8)
+
+k=0
+
+n
+
+The Borel half algebra A∗ = B(Uq (osp(1|2))) = span{k̂ m v (−) }p−1
+m,n=0 on the other hand is
+(−)
+generated by elements k̂, v
+which satisfy a commutation relation
+k̂ p = 1,
+
+p
+
+v (−) = 0,
+
+– 26 –
+
+k̂v (−) = q −1 v (−) k̂,
+
+(6.9)
+
+and have a co-product given by
+ˆ k̂) = k̂ ⊗ k̂,
+∆(
+
+ˆ (−) ) = v (−) ⊗ k̂ + 1 ⊗ v (−) ,
+∆(v
+
+(6.10)
+
+with the antipode
+γ̂(k̂) = k̂ −1 ,
+
+γ̂(v (−) ) = −v (−) k̂.
+
+(6.11)
+
+The basis elements for A∗ are given by
+p−1
+
+1
+
+em,n = (−1) 2 n(n+1) (−q)−1
+n
+
+1 X mr r (−) n
+q k̂ v
+,
+p
+
+(6.12)
+
+r=0
+
+where q-numbers (q)n are defined as (q)n = (1 − q) . . . (1 − q n ) and we extend the first index in
+the following way
+em+rp,n = em,n .
+(6.13)
+Their multiplication and co-multiplication are as follows
+
+
+m,n k,l
+nl n + l
+e e = (−1)
+δm,k+n em,n+l Θ(p − 1 − n − l),
+n
+−q
+ˆ m,n ) =
+∆(e
+
+m
+X
+
+(−1)k(n−k) q −(n−k)(m−r) er,n−k ⊗ em−r,k .
+
+(6.14)
+(6.15)
+
+k,r=0
+
+One can show that the elements em,n and em,n are dual to each other w.r.t. a Hopf pairing:
+(em1 ,n1 , em2 ,n2 ) = δm1 ,m2 δn1 ,n2 .
+
+(6.16)
+
+By inspection the multiplication and co-multiplication coefficients are equal to
+′′
+
+′′
+
+′
+
+,m
+−mn
+δn′′ ,n+n′ mod p δm′′ ,m+m′ Θ(p − 1 − m)Θ(p − 1 − m′ )Θ(p − 1 − m′′ ),
+mnn,m;n
+′ ,m′ = q
+ ′′ 
+m
+n,m;n′ ,m′
+δn,n′′ δn′′ ,n′ +m mod p δm′′ ,m+m′ Θ(m′′ − m)Θ(m′′ − m′ )Θ(p − 1 − m′′ ),
+=
+µn′′ ,m′′
+m −q
+
+and A and A∗ are dual as Hopf algebras. The Heisenberg double H(A) is then given by the
+those elements which satisfy the (anti-)commutation relations (2.12). One can calculate the
+(anti-)commutation relations for the lowest basis elements
+e1,0 en,m = q −m en−1,m e1,0
+e0,1 en,0 = en,0 e0,1
+
+(6.17)
+
+e0,1 e0,1 = e0,0 e−1,0 − e0,1 e0,1 ,
+where we dropped the trivial tensor products for simplicity of notation. Those relations can be
+translated into the relations between the even elements k and k̂ and the odd elements v (+) and
+v (−) satisfying (anti-)commutation relations
+k k̂ = q −1 k̂k,
+
+{v (+) , v (−) } = −(1 + q)k −1 ,
+
+kv (+) = qv (+) k, kv (−) = q −1 v (−) k,
+[k̂, v (+) ] = 0,
+
+k̂v (−) = q −1 v (−) k̂.
+
+– 27 –
+
+(6.18)
+
+The canonical element W is given in terms of generators as
+p−1
+
+1 X nr n
+q (k ⊗ k̂ r )(v (+) ⊗ v (−) ; −q)−1
+W =
+∞,
+p n,r
+
+(6.19)
+
+where the special function (x; q)∞ , known under a name of a compact quantum dilogarithm, is
+defined as
+(x; q)−1
+∞ =
+
+∞
+Y
+k=0
+
+∞
+
+X xk
+1
+.
+=
+(q)k
+1 − xq k
+
+(6.20)
+
+k=0
+
+Because (v (+) ⊗ v (−) )p = 0, the sum above has only a finite number of terms. Using the properties
+of the quantum dilogarithm function one can check explicitly that the pentagon equation is
+satisfied. In particular, it reduces to the identity
+(V ; −q)∞ (U ; −q)∞ = (U ; −q)∞ ((1 + q)−1 [U, V ]; −q)∞ (V ; −q)∞ ,
+
+(6.21)
+
+for U = 1 ⊗ v (+) ⊗ v (−) , V = v (+) ⊗ v (−) ⊗ 1, which was shown to be satisfied by the quantum
+dilogarithm (x; q)∞ [22]. The square brackets denote the commutator, and operators U and V
+satisfy the following algebraic relations
+W = U V + qV U,
+6.2
+
+[U, W ] = [V, W ] = 0.
+
+(6.22)
+
+Drinfeld double of the Borel half of Uq (osp(1|2))
+
+Let us follow the previous construction with a Drinfeld double of the Borel half of Uq (osp(1|2)).
+n
+The Borel half algebra A = B(osp(1|2)))) = span{k m v (+) }p−1
+m,n=0 is generated by an even graded
+element k and an odd graded element v (+) satisfying the relations (6.1)-(6.3), with basis elements
+em,n given by (6.4).
+n
+The Borel half algebra A∗ = B(Uq (osp(1|2))) = span{k̂ m v (−) }p−1
+m,n=0 is generated by elements
+(−)
+k̂, v
+which satisfy the relations (6.9)-(6.11), with basis elements em,n defined by (6.12).
+The multiplication and co-multiplication coefficients for the basis elements en,m and en,m
+were given in Section 6.1. A and A∗ are dual as Hopf algebras w.r.t. a Hopf pairing (6.16).
+The Drinfeld double D(A) is then given by the crossing relations, which for lowest basis
+elements have the form
+e1,0 en,0 = en,0 e1,0 ,
+e0,1 en,0 = en−1,0 e0,1 ,
+e1,0 e−1,1 = q −1 e−1,1 e1,0 ,
+
+(6.23)
+
+e0,1 e1,1 + e0,0 e0,0 = e0,0 e−1,0 − e0,1 e0,1 ,
+where we dropped the tensor products for simplicity. For the generators k, k̂, v (+) , v (−) , one has
+the following (anti-)commutation relations
+k k̂ = k̂k,
+
+{v (+) , v (−) } = (1 + q)(1 − k −1 ),
+
+kv (+) = qv (+) k, kv (−) = q −1 v (−) k,
+k̂v (+) = qv (+) k̂, k̂v (−) = q −1 v (−) k̂.
+
+– 28 –
+
+(6.24)
+
+with the co-product
+∆(k) = k ⊗ k, ∆(v (+) ) = v (+) ⊗ k −1 + 1 ⊗ v (+) ,
+∆(k̂) = k̂ ⊗ k̂, ∆(v (−) ) = v (−) ⊗ 1 + k̂ ⊗ v (−) ,
+
+(6.25)
+
+and the antipode
+γ(k) = k −1 , γ(v (+) ) = −v (+) k,
+γ(k̂) = k̂ −1 , γ(v (−) ) = −k̂ −1 v (−) .
+
+(6.26)
+
+The universal R-matrix is given by
+p−1
+
+1 X nr n
+R=
+q (k ⊗ k̂ r )(v (+) ⊗ v (−) ; −q)−1
+∞.
+p n,r
+
+(6.27)
+
+From the corollary 3.4 one can derive an algebra homomorphism ϕ : D(A) −→ H(A) ⊗
+H(Aop,cop ), which for generators of Uq (osp(1|2)) take the form
+ϕ(a,b) (k) = k ⊗ k −1 ,
+ϕ(a,b) (k̂) = k̂ ⊗ k̂ −1 ,
+ϕ(a,b) (v (+) ) = (−1)a v (+) ⊗ 1 + (−1)b+1 k −1 ⊗ v (+) k,
+
+(6.28)
+
+ϕ(a,b) (v (−) ) = (−1)a k̂v (−) ⊗ 1 + (−1)b+1 1 ⊗ v (−) k̂.
+
+7
+
+Heisenberg and Drinfeld doubles of the Borel half of Uq (osp(1|2)) (q not a
+root of unity)
+
+After considering the finite-dimensional version of the Borel half of Uq (osp(1|2)), we will illustrate general constructions of Heisenberg and Drinfeld doubles when applied to the Borel half of
+Uq (osp(1|2)) when the quantisation parameter q is a not root of unity, i.e. when the algebra has
+countably many basis elements. We first consider the Heisenberg double, and then proceed to the
+Drinfeld double. While this construction can be made mathematically precise, we do it mostly
+formally.
+7.1
+
+Heisenberg double of the Borel half of Uq (osp(1|2))
+
+Lets us consider a Heisenberg double of the Borel half of Uq (osp(1|2)) first. The Borel half algebra
+n
+A = B(osp(1|2)))) = span{H m v (+) }∞
+m,n=0 is generated by an even graded element H and an odd
+(+)
+graded element v
+with a commutation relation
+[H, v (+) ] = −ibv (+) ,
+
+(7.1)
+
+a co-product and the antipode as follows
+∆(H) = H ⊗ 1 + 1 ⊗ H,
+
+∆(v (+) ) = v (+) ⊗ eπbH + 1 ⊗ v (+) ,
+
+(7.2)
+
+γ(H) = −H,
+
+γ(v (+) ) = −v (+) e−πbH ,
+
+(7.3)
+
+– 29 –
+
+2
+
+where q = eiπb is the deformation parameter which is not a root of unity. We can choose the
+basis elements of A in the following way
+em,n = (−1)n(n+1)/2
+
+q n/2
+(ib−1 H)m (iv (+) )n .
+m!(−q)n
+
+(7.4)
+
+Using the properties of the generators H, v (+) and the binomial and q-binomial formulae (6.6)
+one can find the multiplication and co-multiplication of the basis elements
+
+
+k 
+X
+m+j
+n+l
+(−n)k−j
+nl
+em,n ek,l = (−1)
+em+j,n+l ,
+(7.5)
+j
+l
+−q (k − j)!
+j=0
+
+
+m X
+n X
+∞
+X
+(n−l)l k + p
+(n − l)p (−πib2 )p em−k,n−l ⊗ ek+p,l .
+(7.6)
+∆(em,n ) =
+(−1)
+k
+k=0 l=0 p=0
+
+n
+
+The Borel half algebra A∗ = B(Uq (osp(1|2))) = span{Ĥ m v (−) }∞
+m,n=0 on the other hand is gen(−)
+erated by elements Ĥ, v
+which satisfy a commutation relation
+[Ĥ, v (−) ] = +ibv (−) ,
+
+(7.7)
+
+and have a co-product given by
+ˆ Ĥ) = Ĥ ⊗ 1 + 1 ⊗ Ĥ,
+∆(
+
+ˆ (−) ) = v (−) ⊗ e−πbĤ + 1 ⊗ v (−) ,
+∆(v
+
+(7.8)
+
+with the antipode
+γ̂(Ĥ) = −Ĥ,
+
+γ̂(v (−) ) = −v (−) eπbĤ .
+
+(7.9)
+
+The basis elements for A∗ are given by
+em,n = (πbĤ)m (iv (−) )n ,
+and their multiplication and co-multiplication are as follows
+k  
+X
+k
+m,n k,l
+e e =
+(n)k−j (−πib2 )k−j em+j,n+l ,
+j
+j=0
+m X
+n X
+∞   
+X
+m n
+(−n + l)p m−k,n−l
+m,n
+ˆ
+∆(e ) =
+e
+⊗ ek+p,l .
+p!
+k
+l −q
+
+(7.10)
+
+(7.11)
+
+(7.12)
+
+k=0 l=0 p=0
+
+One can show that the elements em,n and em,n are dual to each other w.r.t. a Hopf pairing:
+(em1 ,n1 , em2 ,n2 ) = δm1 ,m2 δn1 ,n2 .
+
+(7.13)
+
+under which each degree subalgebra for A is matched by the appropriate degree subalgebra from
+A∗ . By inspection the multiplication and co-multiplication coefficients are equal to
+
+
+
+r
+n+l
+(−n)k−r+m
+r,s
+nl
+mm,n;k,l = (−1)
+Θ(r − m)Θ(k − r + m)δs,n+l ,
+r−m
+l
+−q (k − r + m)!
+
+
+k
+m,n;k,l
+nl
+µr,s
+= (−1)
+(n)k−r+m (−πib2 )k−r+m Θ(r − m)Θ(k − r + m)δs,n+l ,
+r−m
+
+– 30 –
+
+and A and A∗ are dual as Hopf algebras. The Heisenberg double H(A) is then given by the
+those elements which satisfy the (anti-)commutation relations (2.12). One can calculate the
+(anti-)commutation relations for the lowest basis elements
+e1,0 e1,0 = e0,0 e0,0 + e1,0 e1,0 ,
+e1,0 e0,1 = e0,1 e1,0 − e0,1 e0,0 ,
+e0,1 e1,0 = e1,0 e0,1 ,
+
+(7.14)
+
+e0,1 e0,1 = −e0,1 e0,1 + e0,0
+
+∞
+X
+
+(−πib2 )n en,0 ,
+
+n=0
+
+where we dropped the trivial tensor products for simplicity of notation. Those relations can be
+translated into the relations between the even elements H and Ĥ and the odd elements v (+) and
+v (−) satisfying (anti-)commutation relations
+1
+1
+1
+,
+{v (+) , v (−) } = eπbH (q 2 + q − 2 ),
+πi
+[H, v (+) ] = −ibv (+) , [H, v (−) ] = ibv (−) ,
+
+[H, Ĥ] =
+
+[Ĥ, v (+) ] = 0,
+
+(7.15)
+
+[Ĥ, v (−) ] = +ibv (−) .
+
+The canonical element W is given in terms of generators as
+1
+
+W = exp(πiH ⊗ Ĥ)(−q 2 v (+) ⊗ v (−) ; −q)−1
+∞.
+
+(7.16)
+
+Using the properties of the quantum dilogarithm function one can check explicitly that the pentagon equation (2.18) is satisfied.
+7.2
+
+Drinfeld double of the Borel half of Uq (osp(1|2))
+
+Let us follow the previous construction with a Drinfeld double of the Borel half of Uq (osp(1|2)).
+n
+The Borel half algebra A = B(osp(1|2)))) = span{H m v (+) }∞
+m,n=0 is generated by an even graded
+(+)
+element H and an odd graded element v
+satisfying the relations (7.1)-(7.3) with basis elements
+em,n given by (7.4).
+n
+The Borel half algebra A∗ = B(Uq (osp(1|2))) = span{Ĥ m v (−) }∞
+m,n=0 is generated by ele(−)
+ments Ĥ, v
+subjected to the relations (7.7)-(7.9) with basis elements em,n given by (7.10). The
+multiplication and co-multiplication coefficients for the basis elements en,m and en,m were given
+in Section 7.1. A and A∗ are dual as Hopf algebras w.r.t. a Hopf pairing (7.13).
+The Drinfeld double D(A) is then given by the crossing relations, which for lowest basis
+elements have the form
+e1,0 e1,0 + e0,0 e0,0 = e1,0 e1,0 + e0,0 e0,0 ,
+e0,1 e1,0 − πib2 e0,1 e0,0 = e1,0 e0,1 ,
+e1,0 e0,1 = e0,1 e1,0 − e0,1 e0,0 ,
+∞
+∞
+X
+X
+(−1)n n,0
+0,1
+0,1
+0,0
+e0,1 e + e0,0
+e = −e e0,1 + e
+(−πib2 )n en,0 ,
+n!
+n=0
+
+n=0
+
+– 31 –
+
+(7.17)
+
+where we dropped the tensor products for simplicity. Then, the generators H, Ĥ, v (+) , v (−) satisfy
+the (anti-)commutation relations as follows
+[H, v (+) ] = −ibv (+) ,
+
+[H, v (−) ] = +ibv (−) ,
+
+[Ĥ, v (+) ] = −ibv (+) ,
+
+[Ĥ, v (−) ] = +ibv (−) ,
+1
+2
+
+{v (+) , v (−) } = (q + q
+
+[H, Ĥ] = 0,
+
+(7.18)
+− 21
+
+)(eπbH − e−πbĤ ).
+
+with the co-product
+∆(H) = H ⊗ 1 + 1 ⊗ H, ∆(v (+) ) = v (+) ⊗ eπbH + 1 ⊗ v (+) ,
+∆(Ĥ) = Ĥ ⊗ 1 + 1 ⊗ Ĥ, ∆(v (−) ) = v (−) ⊗ 1 + e−πbĤ ⊗ v (−) ,
+
+(7.19)
+
+and the antipode
+γ(H) = −H, γ(v (+) ) = −v (+) e−πbH ,
+γ(Ĥ) = −Ĥ, γ(v (−) ) = −eπbĤ v (−) .
+
+(7.20)
+
+The universal R-matrix is given by
+1
+
+R = exp(πiH ⊗ Ĥ)(−q 2 v (+) ⊗ v (−) ; −q)−1
+∞,
+
+(7.21)
+
+which is the same form as has been previously obtained [57, 58], where the Uq (osp(1|2)) algebra
+has been obtained by directly quantising classical osp(1|2) while imposing that the coproduct
+ought to be co-associative, as opposed to Drinfeld double construction.
+From the corollary 3.4 one can derive an algebra homomorphism ϕ : D(A) −→ H(A) ⊗
+H(Aop,cop ), which for generators of Uq (osp(1|2)) take the form
+ϕ(a,b) (H) = H ⊗ 1 − 1 ⊗ H,
+ϕ(a,b) (Ĥ) = Ĥ ⊗ 1 − 1 ⊗ Ĥ,
+ϕ(a,b) (v (+) ) = (−1)a v (+) ⊗ eπbH + (−1)b+1 1 ⊗ v (+) e−πbH ,
+
+(7.22)
+
+ϕ(a,b) (v (−) ) = (−1)a v (−) ⊗ 1 + (−1)b+1 e−πbĤ ⊗ eπbĤ v (−) .
+
+8
+
+Outlook
+
+We would like to present three directions as the follow up of this work: one extending a setting where Heisenberg and Drinfeld doubles play an important role to finite-dimensional graded
+algebras and two concerned with generalising results to non-demumerably infinite graded Hopf
+algebras.
+The first one is in the context of lattice current algebras [34], which were introduced as a
+regularisation of the left and right moving degrees of freedom in the WZW models and, in the
+continuum limit, reproduce WZW current algebra.
+The Drinfeld double plays a role as a part of them. The representation categories of the
+lattice and the continuum theory coincide. The lattice current algebras and their representation
+
+– 32 –
+
+theory was studied for the non-graded, semisimple Hopf algebras. As such, one could investigate
+them for graded Hopf algebras, especially given the existing work on generalised WZW [59] for
+the GL(1|1) gauge group. The lattice current algebras for a finite-dimensional, graded, (possibly)
+non-semisimple Lie algebra G will be studied in a forthcoming work.
+The second direction for future work would be to extend those Heisenberg and Drinfeld
+constructions, in which we focused on the finite-dimensional or countably infinite-dimensional
+Hopf algebras, to the nondenumerably infinite-dimensional Hopf algebras which we believe have
+the super Hopf algebras generalisations, in the context of non-compact conformal field theories.
+The quantum deformed algebra Uq (sl(2, R)) is known to possess a very interesting self-dual
+series of infinite-dimensional representations. From the Heisenberg double of the quantum plane
+Kashaev obtained a class of representations of the Uq (sl(2, R)), as well as its associated R-matrix
+[47]. Those representations were identified to be the class of infinite-dimensional representations
+Pα studied [60, 61] in connection with the Liouville field theory, which constitutes a prototypical
+non-trivial example of the non-compact conformal field theory [40, 41].
+Using the means of harmonic analysis, Ponsot and Teschner investigated representations Pα .
+They have shown that the relation between the fusion category of the conformal field theory and
+the representation category of the Hopf algebra holds in the case of the Liouville field theory
+and the Uq (sl(2, R)). Moreover, the consistency of the bootstrap for the Liouville theory, i.e.
+the fact that the crossing-symmetry equation is satisfied by the three point correlation function,
+was verified [43, 60, 61]. The generators K, E, F of the Uq (sl(2, R)) Hopf algebra are realised
+as positive, self-adjoint operators. The family Pα is closed under the tensor product and the
+calculation of the 3j- and 6j-symbols allowed to make a connection with the fusion matrices of
+the Liouville theory.
+In the context of N = 1 supersymmetric Liouville theory, the attempt to find an Uq (osp(1|2))
+analogue of the representations Pα resulted obtaining the 6j-symbols which reproduce only the
+Neveu-Schwarz sector of the theory [62, 63]. We conjecture, being informed by [64], that the
+proper analogue of the representations Pα , i.e. the one which will encode the entirety of the
+structure of N = 1 supersymmetric Liouville theory, could be obtained using the Heisenberg
+double and Drinfeld double constructions for nondenumerably infinite Hopf algebras. It would
+be interesting to generalise the Heisenberg double and Drinfeld double constructions so that they
+can be applied to the nondenumerably infinite Hopf algebras.
+Finally, a third possible direction of future research could be to apply Heisenberg and Drinfeld
+double constructions to nondenumerably infinite-dimensional Hopf algebras in the context of
+Chern-Simons theory in 3-dimensional space and invariants thereof.
+Similarly to the compact Chern–Simons theory, its non-compact version is expected to produce invariants of 3-manifolds from representations of Hopf algebras. However, in contrast to
+the compact theory, which employed finite-dimensional representations at roots of unity, the noncompact case requires the use of positive, infinite-dimensional representations. The result considering infinite-dimensional representations of Uq (sl(2, R)) Hopf algebra exists, e.g. the Teichmüller
+topological quantum field theory [65], but, at the moment, positive representation theory for the
+graded Hopf algebras remains unexplored. In particular, it is expected that all known super quan-
+
+– 33 –
+
+tum group representations, and hence all 3-manifold and knot invariants procured from them, can
+be obtained via analytic continuation of the positive ones.
+
+Acknowledgments
+We are very grateful to Jörg Teschner for explanations, suggestions and many helpful discussions
+and comments on the draft. We also like to thank Simon Lentner for useful comments about the
+draft. We thank Rinat Kashaev, Volker Schomerus and Catherine Meusburger for stimulating
+discussions.
+The work of N.A. was supported by funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Sklodowska-Curie grant agreement No. 898759
+and ReNewQuantum ERC-2018-SyG No. 810573 hosted by Centre for Quantum Mathematics
+Department of Mathematics and Computer Science (IMADA), Southern Denmark University
+(SDU), Denmark and by NCCR SwissMAP, funded by the Swiss National Science Foundation
+at the University of Geneva, Switzerland. For the final part of this project, N.A. acknowledges
+partial support of the SNF Grant No. 20002-192080 and hosting of University of Zürich. The
+work of M.K.P. was supported by the European Research Council (advanced grant NuQFT).
+We also thank and acknowledge the AEC centre in France, University of Bern and Max
+Planck Institute of Mathematics (MPIM) in Bonn for their hospitality during the first stages of
+this project.
+
+A
+
+Heisenberg and Drinfeld doubles of the Borel half of Uq (sl(2)) (q not a root
+of unity)
+
+In this appendix we summarise Heisenberg and Drinfeld double constructions when applied to
+Uq (sl(2)) for q not being a root of unity. This is a thoroughly investigated example — previously
+studied both in terms of the Heisenberg double [22] as well as the Drinfeld double [12, 15] —
+however given its ubiquity it is worthwhile to include it to fix conventions as well as for pedagogical
+reasons as a “canonical” illustration of the constructions used.
+A.1
+
+Heisenberg double of the Borel half of Uq (sl(2))
+
+It can be instructive to apply the Heisenberg double construction to the Borel half of Uq (sl(2)).
+The Borel half algebra A = B(Uq (sl(2))) = span{H m E n }∞
+m,n=0 is generated by elements H, E
+with a commutation relation
+[H, E] = −ibE,
+
+(A.1)
+
+and a co-product as follows
+∆(E) = E ⊗ e2πbH + 1 ⊗ E,
+
+∆(H) = H ⊗ 1 + 1 ⊗ H,
+
+(A.2)
+
+2
+
+where q = eπib is the deformation parameter and q is not a root of unity. In addition, the
+antipode is
+γ(H) = −H,
+
+γ(E) = −Ee−2πbH .
+
+– 34 –
+
+(A.3)
+
+We can choose the basis elements of A in the following way
+em,n =
+
+qn
+(ib−1 H)m (iE)n ,
+m!(q 2 )n
+
+(A.4)
+
+where q-numbers (q)n are defined as (q)n = (1 − q) . . . (1 − q n ) and n, m ∈ N.
+Using the properties of the generators H, E and the binomial and q-binomial formulae (6.6)
+one can find the multiplication and co-multiplication of the basis elements
+
+
+k 
+X
+m+j
+n+l
+(−n)k−j
+em,n ek,l =
+em+j,n+l ,
+n > 0,
+j
+l
+2 (k − j)!
+q
+j=0
+
+
+
+m+k
+n+l
+em,0 ek,l =
+em+k,l ,
+k
+l
+q2
+
+m n−1
+∞ 
+X
+XX
+k+p
+∆(em,n ) =
+(n − l)p (−2πib2 )p em−k,n−l ⊗ ek+p,l +
+k
++
+
+k=0 l=0 p=0
+m
+X
+
+em−k,0 ⊗ ek,n ,
+
+k=0
+
+
+(q)n
+n
+k q = (q)k (q)n−k is a q-deformed binomial coefficient.
+The Borel half algebra A∗ = B(Uq (sl(2))) = span{Ĥ m F n }∞
+m,n=0 is generated by elements
+
+where
+
+n
+k
+
+
+
+is an ordinary and
+
+Ĥ, F which satisfy a commutation relation
+[Ĥ, F ] = +ibF,
+
+(A.5)
+
+and have a co-product and the antipode given by
+ˆ Ĥ) = Ĥ ⊗ 1 + 1 ⊗ Ĥ,
+∆(
+
+ˆ ) = F ⊗ e−2πbĤ + 1 ⊗ F,
+∆(F
+
+(A.6)
+
+γ̂(Ĥ) = −Ĥ,
+
+γ̂(F ) = −F e2πbĤ .
+
+(A.7)
+
+The basis elements for A∗ are given by
+em,n = (2πbĤ)m (iF )n ,
+
+(A.8)
+
+and their multiplication and co-multiplication is as follows
+e
+
+m,n k,l
+
+e
+
+k  
+X
+k
+=
+(n)k−j (−2πib2 )k−j em+j,n+l ,
+j
+
+n > 0,
+
+j=0
+
+em,0 ek,l = em+k,l ,
+m n−1
+∞   
+X
+XX
+m n
+(−n + l)p m−k,n−l
+e
+⊗ ek+p,l +
+k
+l q2
+p!
+k=0 l=0 p=0
+m  
+X
+m m−k,0
++
+e
+⊗ ek,n .
+k
+
+ˆ m,n ) =
+∆(e
+
+k=0
+
+– 35 –
+
+One can show that the elements em,n and em,n are dual to each other w.r.t. a Hopf pairing:
+(em1 ,n1 , em2 ,n2 ) = δm1 ,m2 δn1 ,n2 .
+
+(A.9)
+
+The multiplication and co-multiplication coefficients are equal to
+
+
+r
+n+l
+(−n)k−r+m
+Θ(r − m)Θ(k − r + m)δs,n+l ,
+l
+r−m
+q 2 (k − r + m)!
+
+
+r
+r,s
+mm,0;k,l =
+δr,m+k δs,l ,
+r−m
+
+
+k
+µm,n;k,l
+=
+(n)k−r+m (−2πib2 )k−r+m Θ(r − m)Θ(k − r + m)δs,n+l ,
+r,s
+r−m
+mr,s
+m,n;k,l =
+
+
+
+n > 0,
+
+n > 0,
+
+µm,0;k,l
+= δr,m+k δs,l ,
+r,s
+and A and A∗ are dual as Hopf algebras. The Heisenberg double H(A) is then given by the
+those elements which satisfy the (anti-)commutation relations (2.12). One can calculate the
+(anti-)commutation relations for the lowest basis elements
+e1,0 e1,0 = e0,0 e0,0 + e1,0 e1,0 ,
+e1,0 e0,1 = e0,1 e1,0 − e0,1 e0,0 ,
+e0,1 e1,0 = e1,0 e0,1 ,
+
+(A.10)
+
+e0,1 e0,1 = e0,1 e0,1 + e0,0
+
+∞
+X
+
+(−2πib2 )n en,0 ,
+
+n=0
+
+where we dropped the trivial tensor products for simplicity of notation. Those relations can be
+translated into the relations between the generators H, Ĥ, E, F , which are as follows
+[H, E] = −ibE,
+
+[H, F ] = +ibF,
+
+[Ĥ, E] = 0,
+1
+[H, Ĥ] =
+,
+2πi
+
+[Ĥ, F ] = +ibF,
+
+(A.11)
+
+[E, F ] = (q − q −1 )e2πbH .
+
+The canonical element W is given in terms of generators as
+W = exp(2πiH ⊗ Ĥ)(−qE ⊗ F ; q 2 )−1
+∞.
+
+(A.12)
+
+Using the properties of the quantum dilogarithm function one can check explicitly that the pentagon equation is satisfied. In particular, it reduces to the identity
+(V ; q 2 )∞ (U ; q 2 )∞ = (U ; q 2 )∞ ((1 − q 2 )−1 [U, V ]; q 2 )∞ (V ; q 2 )∞ ,
+
+(A.13)
+
+for U = −q1 ⊗ E ⊗ F, V = −qE ⊗ F ⊗ 1, where the operators U and V satisfy the following
+algebraic relations
+[U, U V − q 2 V U ] = [V, U V − q 2 V U ] = 0.
+
+– 36 –
+
+(A.14)
+
+A.2
+
+Drinfeld double of the Borel half of Uq (sl(2))
+
+We will consider now a Drinfeld double of the Borel half of Uq (sl(2)). The building blocks that we
+use are the same as for the Heisenberg double in the Appendix A.1. Let us remind that the Borel
+half algebra A = B(Uq (sl(2))) = span{H m E n }∞
+m,n=0 is generated by elements H, E subjected to
+the relations (A.1)-(A.3) with the basis elements em,n defined by (A.4)
+The dual Borel half algebra A∗ = B(Uq (sl(2))) = span{Ĥ m F n }∞
+m,n=0 is generated by elements
+m,n
+Ĥ, F satisfying relations (A.5)-(A.7) with the basis elements e
+defined by (A.8).
+The multiplication and co-multiplication coefficients for the basis elements en,m and en,m
+were given in Section A.1. A and A∗ are dual as Hopf algebras w.r.t. a Hopf pairing (A.9).
+The Drinfeld double D(A) is then given by the crossing relations, whose for lowest basis
+elements have the form
+e1,0 e1,0 + e0,0 e0,0 = e1,0 e1,0 + e0,0 e0,0 ,
+e0,1 e1,0 − 2πib2 e0,1 e0,0 = e1,0 e0,1 ,
+e1,0 e0,1 = e0,1 e1,0 − e0,1 e0,0 ,
+∞
+∞
+X
+X
+(−1)n n,0
+0,1
+0,1
+0,0
+e0,1 e + e0,0
+e = e e0,1 + e
+(−2πib2 )n en,0 ,
+n!
+n=0
+
+(A.15)
+
+n=0
+
+where we dropped the tensor products for simplicity. The generators H, Ĥ, E, F satisfy thus the
+commutation relations
+[H, E] = −ibE,
+
+[H, F ] = +ibF,
+
+[Ĥ, E] = −ibE,
+
+[Ĥ, F ] = +ibF,
+[E, F ] = (q − q
+
+[H, Ĥ] = 0,
+
+−1
+
+(A.16)
+)(e
+
+2πbH
+
+−e
+
+−2πbĤ
+
+),
+
+with the co-product
+∆(H) = H ⊗ 1 + 1 ⊗ H, ∆(E) = E ⊗ e2πbH + 1 ⊗ E,
+∆(Ĥ) = Ĥ ⊗ 1 + 1 ⊗ Ĥ, ∆(F ) = F ⊗ 1 + e−2πbĤ ⊗ F,
+
+(A.17)
+
+and the antipode
+γ(H) = −H, γ(E) = −Ee−2πbH ,
+γ(Ĥ) = −Ĥ, γ(F ) = −e2πbĤ F.
+
+(A.18)
+
+The universal R-matrix is given by
+R = exp(2πiH ⊗ Ĥ)(−qE ⊗ F ; q 2 )−1
+∞.
+
+(A.19)
+
+From the corollary 3.4 one can derive an algebra homomorphism ϕ : D(A) −→ H(A) ⊗
+H(Aop,cop ), which for generators of Uq (sl(2)) take the form
+ϕ(a,b) (H) = H ⊗ 1 − 1 ⊗ H,
+ϕ(a,b) (Ĥ) = Ĥ ⊗ 1 − 1 ⊗ Ĥ,
+ϕ(a,b) (E) = E ⊗ e2πbH + 1 ⊗ Ee−2πbH ,
+ϕ(a,b) (F ) = F ⊗ 1 + e−2πbĤ ⊗ e2πbĤ F.
+
+– 37 –
+
+(A.20)
+
+References
+[1] N. Aghaei, A. M. Gainutdinov, M. Pawelkiewicz and V. Schomerus, Combinatorial Quantization of
+GL(1|1) Chern-Simons Theory I: The Torus, [arXiv:1811.09123].
+[2] N. Aghaei, A. M. Gainutdinov, M. Pawelkiewicz and V. Schomerus, Combinatorial Quantization of
+GL(1|1) Chern-Simons Theory II : Higher genus, to appear.
+[3] V. G. Drinfeld, Hopf algebras and the quantum Yang-Baxter equation, Sov. Math. Dokl. 32 (1985),
+254-258.
+[4] M. Jimbo, A q difference analog of U (g) and the Yang-Baxter equation, Lett. Math. Phys. 10
+(1985), 63-69.
+[5] P. Etingof, V. Ginzburg, N. Guay, D. Hernandez, and A. Savage, Twenty-five years of
+representation theory of quantum groups, Final reports, BIRS, Banff, (2011).
+[6] S. Majid, Foundations of Quantum Group Theory publisher: Cambridge University Press.Online,
+Book ISBN: 9780511613104.
+[7] M. Sweedler, Hopf algebras, Band 44 von Mathematics lecture note series, Verlag W.A. Benjamin,
+1969, Book ISB:805392556, 9780805392555.
+[8] E. Witten, Gauge Theories, Vertex Models and Quantum Groups, Nucl.Phys. B330, (1990), 285.
+[9] A. Zamolodchikov, Factorized S-Matrices in Two Dimensions as the Exact Solutions of Certain
+Relativistic Quantum Field Theory Models, Annals of Physics 120, (1979), 253-291.
+[10] C. N. Yang, Some exact results for the many body problems in one dimension with repulsive delta
+function interaction, Phys. Rev. Lett. 19, (1967), 1312.
+[11] R. J. Baxter, Partition function of the eight vertex lattice model, Annals Phys. 70, (1972), 193,
+[arXiv:0903.3089].
+[12] V. Drinfeld, Quantum groups, In A. Gleason, editor, Proceedings of the ICM, Rhode Island,
+(1987), AMS. 798–820.
+[13] S. Majid, Doubles of quasitriangular Hopf algebras, Comm. Algebra 19:11, (1991), 3061-3073,
+[arXiv:q-alg/9701002].
+[14] S. Majid, Some remarks on the quantum double, Quantum groups and physics, Czechoslovak J.
+Phys. 44 (1994), 1059–1071, [arXiv:hep-th/9409056].
+[15] V.G. Drinfeld, Quantum groups, J. Math. Sci. 41, (1988) 898–915.
+[16] M. Gould, R. Zhang, AJ. Bracken, Quantum double construction for graded Hopf algebras, Bulletin
+of the Australian Mathematical Society. 1993;47(3):353-375.
+[17] S. Majid, Double-bosonization of braided groups and the construction of Uq (g), Math. Proc. Camb.
+Phil. Soc. 125 (1999), 151—192, [arXiv:q-alg/9511001].
+[18] S. Majid, More examples of bicrossproduct and double cross product Hopf algebras, Israel J. Math.
+72 (1990), 133—148.
+[19] S. Majid, New quantum groups by double-bosonisation, Quantum groups and integrable systems, II
+(Prague 1996), Czech. J. Phys. 47 (1) (1997), 79—90, [arXiv:q-alg/9610004].
+[20] R. Aziz and S.Majid, Co-double bosonisation and dual bases of cq[SL2] and cq[SL3], J. Algebra,
+518, 2019, 75-118, [arXiv:math/1703.03456].
+
+– 38 –
+
+[21] L. Jiang-Hua, On the Drinfeld double and the Heisenberg double of a Hopf algebra, Duke Math. J.
+74 no. 3, (1994), 763-776.
+[22] R. M. Kashaev, The Heisenberg double and the pentagon relation. Algebra in Analiz, 8:4 (1996),
+63–74, [arXiv:q-alg/9503005v1].
+[23] J. M. Maillet, On pentagon and Tetrahedron equations, Algebra in Analiz, 6 (1994), 206-214,
+[arXiv:hep-th/9312037].
+[24] P. Xu, Quantum groupoids, Commun. Math. Phys. 216 (2001), 539-581, [arXiv:math/9905192].
+[25] S. Carlip, Quantum gravity in 2+1 dimensions: The Case of a closed universe, Living Rev. Rel. 8
+(2005), 1, [arXiv:gr-qc/0409039].
+[26] A. Y. Alekseev, H. Grosse and V. Schomerus, Combinatorial quantisation of the Hamiltonian
+Chern-Simons theory, Comm. Math. Phys. 172 (1995), 317-358, [arXiv:hep-th/9403066].
+[27] A. Y. Alekseev, H. Grosse and V. Schomerus, Combinatorial quantisation of the Hamiltonian
+Chern-Simons theory. 2., Comm. Math. Phys. 174 (1995), 561-604, [arXiv:hep-th/9408097].
+[28] A. Y. Alekseev and V. Schomerus, Representation theory of Chern-Simons observables, Duke
+Math. J. 85 (1996), 447-510, [arXiv:q-alg/9503016].
+[29] A. Y. Alekseev and V. Schomerus, Quantum moduli spaces of flat connections, In Goslar 1996,
+Group theoretical methods in physics: 70, [arXiv:q-alg/9612037].
+[30] V. Schomerus, Deformed gauge symmetry in local quantum physics, Habilitation 1998, Institute for
+the theoretical physics at University of Hamburg.
+[31] E. Buffenoir and Ph. Roche, Two dimensional lattice gauge theory based on a quantum group,
+Commun. Math. Phys. 170.3 (1995), 669–698, [arXiv:hep-th/9405126].
+[32] E. Buffenoir and Ph. Roche, Link invariants and combinatorial quantization of hamiltonian
+Chern-Simons theory, Commun. Math. Phys. 181.2 (1996) 331–365, [arXiv:q-alg/9507001].
+[33] V. V. Fock and A. A. Rosly, Poisson structure on moduli of flat connections on Riemann surfaces
+and r matrix, Am. Math. Soc. Transl. 191 (1999), 67-86, [arXiv:math/9802054].
+[34] A. Y. Alekseev, L. D. Faddeev, J. Frohlich and V. Schomerus, Representation theory of lattice
+current algebras, Commun. Math. Phys. 191 (1998), 31-60, [arXiv:q-alg/9604017].
+[35] A. Y. Kitaev, Fault tolerant quantum computation by anyons, Annals Phys. 303 (2003), 2-30,
+[arXiv:quant-ph/9707021].
+[36] C. Meusburger, Kitaev Lattice Models as a Hopf Algebra Gauge Theory. Commun. Math. Phys.
+353, (2017), 413–468, [arXiv:1607.01144].
+[37] C. Meusburger and K. Wise, Hopf algebra gauge theory on a ribbon graph Reviews in Mathematical
+Physics 33, no. 5, (2021), [arXiv:1512.03966].
+[38] C. Gómez, M. Ruiz-Altaba and G. Sierra, Quantum Groups in Two-Dimensional Physics
+(Cambridge Monographs on Mathematical Physics) Cambridge Monographs on Mathematical
+Physics, Université de Genève, Cambridge University Press (2010), Book ISBN:9780511628825.
+[39] J. Teschner, Quantum Liouville theory versus quantized Teichmuller spaces, Fortsch. Phys. 51
+(2003), 865-872, [arXiv:hep-th/0212243].
+[40] J. Teschner, On the relation between quantum Liouville theory and the quantized Teichmüller
+spaces, Int. J. Mod. Phys. A. 19S2 (2004), 459, [arXiv:hep-th/0303149].
+
+– 39 –
+
+[41] J. Teschner, A Lecture on the Liouville vertex operators, Int. J. Mod. Phys. A19S2 (2004),
+436-458, [arXiv:hep-th/0303150].
+[42] J. Teschner, An Analog of a modular functor from quantized Teichmüller theory, in: “Handbook of
+Teichmüller theory”, (A. Papadopoulos, ed.) Volume I, EMS Publishing House, Zürich 2007,
+685–760, [arXiv:math/0510174].
+[43] J. Teschner, From Liouville theory to the quantum geometry of Riemann surfaces, Part of
+Mathematical physics. Proceedings, 14th International Congress, ICMP 2003, Lisbon, Portugal,
+[arXiv:hep-th/0308031].
+[44] L. D. Faddeev, R. M. Kashaev and A. Y. Volkov, Strongly coupled quantum discrete Liouville
+theory. 1. Algebraic approach and duality, Commun. Math. Phys. 219 (2001), 199-219,
+[arXiv:hep-th/0006156].
+[45] L. D. Faddeev and A. Y. Volkov, Discrete evolution for the zero-modes of the Quantum Liouville
+Model, J. Phys. A 41 (2008), 194008, [arXiv:0803.0230].
+[46] R. M. Kashaev, Discrete Liouville equation and Teichmüller theory, [arXiv:0810.4352].
+[47] R. M. Kashaev, On the Spectrum of Dehn Twists in Quantum Teichmüller Theory, Physics and
+Combinatorics, (2001), 63-81, [arXiv:math/0008148].
+[48] R. M. Kashaev, The quantum dilogarithm and Dehn twists in quantum Teichmüller theory,
+“Integrable structures of exactly solvable two-dimensional models of quantum field theory”, (Kiev,
+2000) 211-221, NATO Sci. Ser. II Math. Phys. Chem., 35, Kluwer Acad. Publ., Dordrecht, 2001.
+[49] R. M. Kashaev, Quantization of Teichmüller spaces and the quantum dilogarithm, Lett. Math.
+Phys. 43 (1998), 105, [arXiv:q-alg/9705021].
+[50] L. Chekhov and V. V. Fock, Quantum Teichmüller space, Theor. Math. Phys. 120 (1999), 1245,
+[arXiv:math/9908165].
+[51] B. Peng, S. Gulania, Y. Alexeev, and N. Govind, Quantum time dynamics employing the
+Yang-Baxter equation for circuit compression, Phys. Rev. A 106 (2022) no.1, 012412,
+[52] L. H. Kauffman and S. J. Lomonaco, Braiding operators are universal quantum gates, New J. Phys.
+6, 134 (2004), [arXiv:quant-ph/0401090].
+[53] A. Kitaev, Anyons in an exactly solved model and beyond, Ann. Phys. (N. Y.) 321, 2 (2006).
+[arXiv:cond-mat/0506438].
+[54] V. Kasirajan, Fundamentals of Quantum Computing (Springer International Publishing, 2021).
+[55] C. Aravanis, G. Korpas and J. Marecek, Transpiling Quantum Circuits using the Pentagon
+Equation, [arXiv:quant-ph/2209.14356].
+[56] F. Nill, On the structure of monodromy algebras and Drinfeld doubles, Rev. Math. Phys. 9 (1997),
+371-395, [arXiv:q-alg/9609020].
+[57] Kulish, P.P. Quantum superalgebra osp(1|2). J Math Sci 54, (1991) 923–930.
+[58] P. P. Kulish and N. Y. Reshetikhin, Universal R matrix of the quantum superalgebra osp(2|1), Lett.
+Math. Phys. 18 (1989), 143-149.
+[59] V. Schomerus and H. Saleur, The GL(1|1) WZW model: From supergeometry to logarithmic CFT,
+Nucl. Phys. B 734 (2006), 221-245, [arXiv:hep-th/0510032].
+[60] B. Ponsot and J. Teschner, Liouville bootstrap via harmonic analysis on a noncompact quantum
+group, [arXiv:hep-th/9911110].
+
+– 40 –
+
+[61] B. Ponsot and J. Teschner, Clebsch-Gordan and Racah-Wigner coefficients for a continuous series
+of representations of Uq (sl(2, R)), Commun. Math. Phys. 224, (2001), 613, [arXiv:math/0007097].
+[62] L. Hadasz, M. Pawelkiewicz and V. Schomerus, Self-dual Continuous Series of Representations for
+Uq (sl(2)) and Uq (osp(1|2)), JHEP 1410 (2014), 91, [arXiv:1305.4596].
+[63] M. Pawelkiewicz, V. Schomerus and P. Suchanek, The universal Racah-Wigner symbol for
+Uq (osp(1|2)) JHEP 1404 (2014), 079, [arXiv:1307.6866].
+[64] N. Aghaei, M. Pawelkiewicz and J. Teschner, Quantisation of super Teichmüller theory, Commun.
+Math. Phys. 353 (2017) no. 2, 597, [arXiv:1512.02617].
+[65] J. E. Andersen and R. Kashaev, The Teichmüller TQFT, Part of Proceedings, International
+Congress of Mathematicians (ICM 2018): Rio de Janeiro, Brazil, August 1-9, 2018,
+[arXiv:1811.06853].
+
+– 41 –
+
+

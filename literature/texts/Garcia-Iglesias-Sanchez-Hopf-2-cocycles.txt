@@ -1,0 +1,2197 @@
+ON THE COMPUTATION OF HOPF 2-COCYCLES, WITH AN
+EXAMPLE OF DIAGONAL TYPE
+
+arXiv:2108.11432v2 [math.QA] 21 Nov 2021
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+Abstract. We present a framework for the computation of the Hopf 2-cocycles
+involved in the deformations of Nichols algebras over semisimple Hopf algebras.
+We write down a recurrence formula and investigate the extent of the connection with invariant Hochschild cohomology in terms of exponentials.
+As an example, we present detailed computations leading to the explicit
+description of the Hopf 2-cocycles involved in the deformations of a Nichols
+algebra of Cartan type A2 with q = −1, a.k.a. the positive part of the small
+√ (sl3 ). We show that these cocycles are generically pure,
+quantum group u+
+-1
+that is they are not cohomologous to exponentials of Hochschild 2-cocycles.
+
+1. Introduction
+Let A = (A, m, ∆) be a Hopf algebra over a field k. A Hopf cocycle σ with
+coefficients in k for A is a linear map σ : A ⊗ A → k which is convolution invertible
+and satisfies
+σ(x(1) , y(1) )σ(x(2) y(2) , z) = σ(y(1) , z(1) )σ(x, y(2) z(2) ),
+
+x, y, z ∈ A.
+
+This condition allows to deform the multiplication m
+mσ = σ ∗ m ∗ σ −1 into
+a new associative product, so that the cocycle deformation Aσ = (A, mσ , ∆) is
+again a Hopf algebra. Introduced by Doi and Takeuchi in [DT], Hopf cocycles have
+evolved in recent years from a technical device to an inescapable and key tool in
+the classification program for non-semisimple Hopf algebras.
+Indeed, the classification of finite-dimensional pointed Hopf algebras over abelian groups is completely determined by Hopf cocycles. Each such Hopf algebra
+is a cocycle deformation of the bosonization B#H, where B = B(V ) is a finitedimensional Nichols algebra of diagonal type and H = kΓ is a commutative group
+algebra. This was first observed by Masuoka in [Ma], see also [GrM], for the Hopf
+algebras classified in [AS2], and proved in full generality in [AnG]. A similar statement is true for every known example of a finite-dimensional pointed Hopf algebra
+over H = kG, G non-necessarily abelian, cf. [GaM, GIM, GV1, GV2]. Moreover,
+the same holds for copointed Hopf algebras over H = kG , see [AV, FGM, GV2].
+It is important to remark that, despite the name, Hopf cocycles do not arise
+from a cohomology setup (unless the Hopf algebra is cocommutative, in which case
+there are no deformations in this sense). In fact, the set Z 2 (A) of Hopf cocycles
+in A is not a group. This is a major obstruction for a systematic construction of
+cocycles. There is, however, a notion of cohomologous cocycles, via an action of
+the group of convolution units in A∗ .
+As a matter of fact, the classification results bypass an explicit description of the
+cocycles involved and work with the algebraic counterpart of cleft objects. These
+are certain comodule algebras C endowed with a convolution invertible comodule
+isomorphism γ : A → C. Any pair (C, γ) defines a Hopf cocycle via
+(1.1)
+
+σ(a, b) = γ(a(1) )γ(b(1) )γ −1 (a(2) b(2) ),
+1
+
+a, b ∈ A.
+
+2
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+There is a more cohomological alternative to compute Hopf cocycles, rooted in
+the Hochschild cohomology H• (A, k) of A, as some Hopf cocycles can be obtained as
+exponentials of Hochschild 2-cocycles in Z2 (A, k). We also investigate this approach,
+which turns out to be rather limited. We say that a Hopf cocycle is pure when it
+is not cohomologous to an exponential.
+We propose to explicitly compute the Hopf cocycles involved in the classification
+by writing down the section for each cleft object and calculating the values of σ
+using (1.1). Also, we determine which of these cocycles are pure and which are
+exponentials.
+1.1. Setting. Motivated by the state-of-the-art of the classification program just
+described, we restrict ourselves to the following context
+• A = B#H, where H is a semisimple
+Hopf algebra and B ∈ H
+H YD is a (braided)
+L
+graded Hopf algebra B =
+B
+with
+B
+=
+k
+and
+generated
+by V := B1 .
+n
+0
+n≥0
+That is, B is a pre-Nichols algebra.
+• The Hopf cocycles σ for A belong to the set
+Z02 (A) := {σ ∈ Z 2 (A)|σ|H⊗H = ǫ}.
+In particular, they are determined by the set
+Z 2 (B)H := {σB ∈ Z 2 (B)|σ(h(1) · x, h(2) · y) = ǫ(h)σ(x, y), h ∈ H, x, y ∈ B}
+of H-linear cocycles σB for B, as a braided bialgebra, see (2.3), so that
+(1.2)
+
+σ(ah, bk) = σB (a, h · b)ǫ(k),
+
+a, b ∈ B, h, k ∈ H.
+
+Thus, σB = σ|B⊗B and σ is determined by its values on a basis of B. We write
+σ = σB #ǫ, so Z02 (A) ≃ Z 2 (B)H . See [AG] for details on braided cocycles.
+We develop some tools that reduce the number of calculations we need to perform
+to compute the cocycles, see Lemma 3.2.
+Ştefan shows in [St] that there is an action of H on Z• (B, M ), that descends
+to H• (B, M ), M ∈ B -bimod, in such a way that H• (A, M ) ≃ H• (B, M )H . This
+action is not explicit in loc.cit. We write down Ştefan’s Theorem in our context as
+Theorem 4.4: we present an element-based proof of it and show that the action is:
+(h ⇀ f )(x) = h(1) f (S(h(2) ) · x)S(h(3) ),
+for h ∈ H, f ∈ Zq (B, M ) ⊂ Homk (B ⊗ q , M ) and x ∈ B ⊗ q ; S denotes the antipode
+of H. See also [CGW] for H a group algebra. As well, we show that we can restrict
+the study of η ∈ Z2 (A, k) to cocycles in ηB ∈ Z2 (B, k)H , cf. (1.2). Finally, we show
+in Proposition 5.5 that eη ∈ Z 2 (B)H if and only if η ∈ Z2 (B, k)H .
+Now, the cleft objects in the classification arise as C = E#H, for E a cleft object
+for B in H -mod. In particular the section γ is given by γ = γB # idH , γB : B → E.
+Formula (1.1) extends to this context, see [AG].
+In this setting, our strategy runs as follows.
+(a) Compute the section γB : B → E in a basis B of B.
+(b) Write down the table of values of σ as in (1.1) in terms of B2 .
+(c) Compute the space Z2 (B, k)H of H-invariant Hochschild 2-cocycles and
+find necessary and sufficient conditions so that eη is a Hopf cocycle.
+(d) Determine those Hopf cocycles that are cohomologous to exponentials eη
+and those that are pure.
+
+EXPLICIT HOPF COCYCLES
+
+3
+
+1.2. An example of diagonal type. We perform all of these steps for a braiding
+q12 
+q = q−1
+21 −1
+of Cartan type A2 , with parameter q = q12 q21 = −1, and a principal YD-realization,
+see (2.10), in H
+H YD for a semisimple Hopf algebra H. We recall that
+B = {1, x1 , x2 , x12 , x2 x1 , x2 x12 , x12 x1 , x2 x12 x1 }
+is a PBW basis for the Nichols algebra B = Bq and that the deformations uq (λ)
+of A = B#H are classified by triplets λ = (λ1 , λ2 , λ12 ) ∈ k3 , subject to certain
+restrictions (depending on H), see §6. Our main results are Theorems 6.5 and 6.13,
+which can be summarized as follows.
+Theorem. Let q, H be as above. Any Hopf cocycle σ ∈ Z 2 (Bq )H is cohomologous
+to a cocycle σλ , λ = (λ1 , λ2 , λ12 ), as in the following table:
+σλ
+x1
+x2
+x12
+x2 x1
+x2 x12
+x12 x1
+x2 x12 x1
+
+x1
+λ1
+0
+0
+0
+0
+0
+0
+
+x2
+0
+λ2
+0
+0
+0
+2q12 λ1 λ2 + λ12
+0
+
+x12
+0
+0
+λ12
+0
+0
+0
+0
+
+x2 x1
+0
+0
+0
+−q21 λ1 λ2
+0
+0
+0
+
+x2 x12
+λ12
+0
+0
+0
+−q12 λ2 λ12
+0
+0
+
+x12 x1
+0
+2q12 λ1 λ2
+0
+0
+0
+q12 λ12 λ1 + 4λ21 λ2
+0
+
+x2 x12 x1
+0
+0
+0
+0
+0
+0
+q12 λ2 λ12 λ1
+
+In particular,
+uq (λ) ≃ (Bq #H)σλ #ǫ .
+In turn, the cocycle σλ is cohomologous to an exponential if and only if at most
+one of the parameters λ1 , λ2 , λ12 is nonzero.
+
+This table was computed by the second author in his Tesis de Licenciatura [S].
+1.3. About the exponential. The theorem above shows in particular that the
+exponential approach is far from optimal. Up to cohomology, only three non-trivial
+cocycles are exponentials, namely σ(1,0,0) , σ(0,1,0) and σ(0,0,1) .
+On the other hand, it is unclear which conditions on η are necessary to imply that
+the exponential eη is a Hopf cocycle. There are well-known sufficient commutation
+conditions (5.1) and (5.2) in the convolution algebra Hom(A⊗3 , k). As a byproduct
+of our calculations, we obtain in Lemma 6.11 that
+• There are Hochschild cocycles η that fail (5.1), (5.2) but still eη is a Hopf cocycle.
+• However, we show that in our examples such cocycles η are cohomologous to a
+cocycle satisfying those conditions. We are not aware if this a general fact.
+An important comment worth making is that, depending on the realization and
+certain normalization conditions, a pure cocycle deformation Aσ can be isomorphic
+to an exponential deformation Aeη , see Remark 6.2. Nevertheless, the corresponding cleft objects are not isomorphic.
+Some of these observations have already been implicitly pointed in [GaM], for
+cocycles related to pointed Hopf algebras over S4 . Nevertheless, the exponential
+Hopf cocycles obtained in loc.cit. considered a restricted class of Hochschild cocycles, namely those that are concentrated in degree one. We hope to obtain a full
+description of the missing pure cocycles in future work.
+On the other hand, those restrictions are enough to find all cocycles for pointed
+Hopf algebras over S3 ibid., as deformations of the Fomin-Kirillov algebra F K3 and
+copointed Hopf algebras over the dihedral groups D4m in [FGM]. In a forthcoming
+work [GS], we show that pure cocycles are indeed needed for pointed deformations
+of F K3 over more general groups G ։ S3 , or for copointed deformations over kS3 .
+
+4
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+It is also worth mentioning that, under certain conditions, some families of cocycles for the pointed Hopf algebras in [AS2] were described in [MW]. The example
+we treat in this article escapes those restrictions.
+1.4. Organization. The paper is organized as follows. In §2, we recall some preliminaries on Hopf algebras and deformations. In §3 we develop some tools and
+techniques to compute the cocycles. In §4 we study the Hochschild cohomology of
+the algebras in our setting §1.1, in particular the structure of the set of H-invariant
+2-cocycles. We also investigate the H-invariance introduced in [St] and give an explicit description of the action. We combine these analysis to study the exponential
+cocycles in §5. Finally, we apply all of these steps in §6 where we compute in detail
+the cocycles associated to a deformation of Cartan type A2 .
+Acknowledgments
+We thank Andrea Solotar for conversations in early stages of this work, particularly about the contents of [St].
+2. Preliminaries
+We work over an algebraically closed field of characteristic zero k. All tensor
+products, vector spaces and maps are assumed to be defined over k. If θ ∈ N, we
+set Iθ = {1, . . . , θ} ⊂ N.
+We let (H, m, ∆) be a Hopf algebra; we use Sweedler’s notation ∆(h) = h(1) ⊗h(2)
+for the comultiplication, similarly for comodules over H and the coaction. We set
+∆(2) = (∆ ⊗ id)∆(= (id ⊗∆)∆). We write G(H) for the set of group-like elements
+on H, P(H) for the primitive elements and U (H) for the units. We denote by H0
+the coradical of H. Recall that H is pointed when H0 = kG(H) and copointed
+when H0 = k G for some (finite) non-abelian group G.
+A (right) cleft object for H is a right comodule algebra C endowed with a
+convolution invertible comodule isomorphism γ : H → C. This map is called a
+section when γ(1) = 1. We let Cleft(H) denote the set of cleft objects up to
+isomorphism. Left, and bi-cleft, objects are defined similarly.
+2.1. Hopf cocycles. A Hopf 2-cocycle σ : H ⊗ H → k is a convolution-invertible
+linear map x ⊗ y 7→ σ(x, y) satisfying
+(2.1)
+
+σ(x(1) , y(1) )σ(x(2) y(2) , z) = σ(y(1) , z(1) )σ(x, y(2) z(2) ),
+
+x, y, z ∈ H.
+
+It follows that σ(1, 1) 6= 0 and σ(x, 1) = σ(1, x) = ǫ(x)σ(1, 1), x ∈ H, so by
+(2.2)
+
+σ ↔ σ(1, 1)−1 σ
+
+we can always assume that σ(x, 1) = σ(1, x) = ǫ(x). Such cocycles are called
+normalized. We shall denote by
+Z 2 (H) = {σ : H ⊗ H → k | (2.1) holds}
+the set of normalized Hopf 2-cocycles in H.
+We will use a coordinate-free version of (2.1), namely
+(2.3)
+
+(σ ⊗ ǫ) ∗ σ(m ⊗ id) = (ǫ ⊗ σ) ∗ σ(id ⊗ m).
+
+This allows us to consider a braided version of Hopf cocycles for any bialgebra in a
+braided category; see [AG] for details.
+
+EXPLICIT HOPF COCYCLES
+
+5
+
+2.1.1. Cocycle deformations. Let σ ∈ Z 2 (H). Then ·σ : H ⊗ H → H, given by
+(2.4)
+
+x ·σ y = σ(x(1) , y(1) )x(2) y(2) σ −1 (x(3) , y(3) ),
+
+x, y ∈ H,
+
+defines an associative product on the vector space H. Moreover, the collection
+(H, ·σ , ∆) is a Hopf algebra with antipode Sσ = f ∗ S ∗ f −1 , for f = σ ◦ (id ⊗ S) ◦ ∆.
+This Hopf algebra is denoted Hσ and referred to as a cocycle deformation of H.
+If σ ∈ Z 2 (H), then there is another deformation of the multiplication in H.
+Namely, ·(σ) : H ⊗ H → H, given by
+(2.5)
+
+x ·(σ) y = σ(x(1) , y(1) )x(2) y(2) ,
+
+x, y, ∈ H,
+
+also defines an associative product on the vector space H; we denote this new
+algebra by H(σ) . In this case, the comultiplication H → H ⊗ H defines coactions
+H(σ) → H(σ) ⊗ H and H(σ) → Hσ ⊗ H(σ) in such a way that C = H(σ) becomes a
+(Hσ , H)-bicleft object.
+Moreover, any (right) cleft object C for H (and hence any cocycle deformation
+Hσ ) arises in this way. If C is a cleft object with a normalized section γ : H → C,
+then C ≃ H(σ) ; for the cocycle σ : H ⊗ H → k determined by the formula
+(2.6)
+
+σ(x, y) = γ(x(1) )γ(y(1) )γ −1 (x(2) y(2) ),
+
+x, y ∈ H.
+
+We stress that formula (2.6) extends to cleft objects in braided categories, see [AG].
+Furthermore, it is possible to recover Hσ completely in terms of the cleft object
+C, as the so-called Schauenburg left Hopf algebra L(C, H); in particular, no cocycles
+are explicitly involved. See [Sc] for further details.
+2.1.2. Cohomologous Hopf cocycles. The group U (H ∗ ) of convolution units in H ∗
+acts on Z 2 (H) via
+(2.7)
+
+(α ⇀ σ)(x, y) = α(x(1) )α(y(1) )σ(x(2) , y(2) )α−1 (x(3) y(3) ).
+
+We write σ ∼α σ ′ when σ ′ = α ⇀ σ and set
+H 2 (H) := Z 2 (H)/U (H ∗ ) = {[σ] : σ ∈ Z 2 (H)}.
+Moreover, if σ ′ = α ⇀ σ, then Hσ ≃ Hσ′ as Hopf algebras. However, the
+converse is not true, see Remark 2.1 below.
+The equivalence does hold for H-cleft objects, namely (C, γ) ≃ (C ′ , γ ′ ) if and
+only if [σ] = [σ ′ ], for σ, σ ′ the Hopf 2-cocycles associated to γ, γ ′ respectively as in
+(2.6), so that C ≃ H(σ) and C ′ ≃ H(σ′ ) , see [D, Theorem 2.2]. That is, there is an
+equivalence
+Cleft(H) ←→ H 2 (H).
+We may always assume that such α as in (2.7) is such that α(1) = 1. Indeed,
+c = α(1) 6= 0 as α is convolution invertible and
+c−1 α ⇀ σ = c−1 (α ⇀ σ) ∼c−1 ǫ α ⇀ σ.
+Remark 2.1. Two cocycle deformations Hσ and Hσ′ may be isomorphic for two
+non-equivalent cocycles σ, σ ′ ∈ Z 2 (H).
+We briefly develop an example. Let H = khx, g : x2 = 0, g 2 = 1, gx = −xgi be
+the Taft algebra and let σλ , λ ∈ k, be the cocycle determined by σλ (x, x) = λ and
+σλ (xa g i , xb g j ) = (−1)bi σλ (xa , xb ),
+for a, b, i, j ∈ {0, 1}. It follows that Hσλ ≃ H for every λ ∈ k. If λ 6= 0, then
+σλ 6∼ σ1 , but σ1 6∼ σ0 = ǫ. Indeed, they determine the (non-isomorphic) cleft
+objects Cλ = khy, g : y 2 = λ, g 2 = 1, gy = −ygi, λ = 0, 1.
+
+6
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+2.2. Yetter-Drinfeld modules and Nichols algebras. We recall that the category H
+H YD of Yetter-Drinfeld modules over H is the category of all simultaneously
+left modules and left comodules M such that the action · and the coaction ρ are
+subject to
+ρ(h · m) = h(1) m(−1) S(h(3) ) ⊗ h(2) · m(0) ,
+
+m ∈ M, h ∈ H.
+
+When the antipode S of H is bijective this is a braided category, with braiding
+cM,N : M ⊗ N → N ⊗ M , m ⊗ n 7→ m(−1) · n ⊗ m(0); M, N ∈ H
+H YD, m ∈ M , n ∈ N .
+A braided vector space is a pair (V, c), where V is a vector space together with
+an invertible linear map c : V ⊗ V → V ⊗ V that satisfies the braid equation
+(c ⊗ id)(id ⊗ c)(c ⊗ id) = (id ⊗ c)(c ⊗ id)(id ⊗ c). In particular, any M ∈ H
+H YD is a
+braided vector space with c = cM,M . Conversely, a realization of (V, c) over H is a
+structure of Yetter-Drinfeld module on V so that c = cV,V ∈ H
+H YD.
+YD
+is
+an
+algebra,
+then
+one
+may
+use
+the
+braiding
+to define an algebra
+If B ∈ H
+H
+YD.
+A
+bialgebra,
+resp.
+Hopf
+algebra,
+in H
+structure on B ⊗ B ∈ H
+H YD is defined
+H
+under this convention. In this case, the bosonization B#H becomes a (Hopf)
+algebra. We recall that in this case the multiplication is defined via
+(b ⊗ h)(c ⊗ k) = b(h(1) · c) ⊗ h(2) k,
+
+b, c ∈ B, h, k ∈ H.
+
+We write bh for an element b#h of B#H. Notice that this is coherent with the
+multiplication just defined as
+B ≃ B ⊗ 1H ⊂ B#H
+
+and
+
+H ≃ 1B ⊗ H ⊂ B ⊗ H
+
+as algebras and (b ⊗ 1)(1 ⊗ h) = b ⊗ h. As well, notice that, for h ∈ H, b ∈ B:
+(2.8)
+
+hb = h(1) · bh(2) ,
+
+bh = h(2) (S −1 (h(1) ) · b),
+
+h(1) bS(h(2) ) = h · b.
+
+In turn, the comultiplication is given by the rule
+(2.9)
+
+∆(x#h) = x(1) #x(2)(−1) h(1) ⊗ x(2)(0) #h(2) .
+
+See [AS1] for details.
+A Nichols algebra is a connected graded Hopf algebra B = ⊕n≥0 Bn in H
+H YD
+generated by V = B1 and such that P(B) = V . We say that such a Hopf algebra is
+pre-Nichols when this last condition is not satisfied, so that V ( P(V ). We denote
+such Nichols algebra by B(V ), as it is completely determined by the braided vector
+space (V, c), independently of the realization in H
+H YD.
+A finite-dimensional braided vector space is of diagonal type when there is a
+basis {x1 , . . . , xθ } of V and a matrix q = (qij )i,j∈Iθ so that the braiding c = cq is
+given by c(xi ⊗ xj ) = qij xj ⊗ xi , i, j ∈ Iθ . In this setting B(V ) is also denoted Bq .
+A principal YD-realization of V over H is a family (χi , gi )i∈Iθ with gi ∈ G(H)
+and χi : H → k algebra maps so that
+χj (gi ) = qij
+
+and
+
+χi (h)g = χi (h(2) )h(1) gS(h(3) ),
+
+i, j ∈ Iθ , g ∈ G(H), h ∈ H. This determines a realization V ∈ H
+H YD via
+(2.10)
+
+ρ(xi ) = gi ⊗ xi ,
+
+h · xi = χi (h)xi ,
+
+h ∈ H, i ∈ Iθ .
+
+Remark 2.2. Diagonal braided vector spaces (V, cq ), or equivalently matrix braidings q, with finite-dimensional associated Nichols algebra, are classified in [H] in
+terms of decorated Dynkin diagrams. On top of that, the Nichols algebras Bq
+are presented by generators and relations in [An1, An2] as quotients of the tensor
+algebra T (V ). In turn, if H is a semisimple Hopf algebra with a principal YDrealization V ∈ H
+H YD, then all deformations of A = Bq #H are classified in [AnG],
+by defining an exhaustive family of cleft objects (Cλ )λ∈Λ for A in such a way that
+every deformation arises as the associated Schauenburg left Hopf algebra L(Cλ , A),
+
+EXPLICIT HOPF COCYCLES
+
+7
+
+which is presented by generators and relations as a quotient uq (λ) of T (V )#H. In
+particular, uq (λ) is a cocycle deformation of A.
+L
+L
+For any connected B = n≥0 Bn bialgebra and b ∈ B + := n≥1 Bn , we shall
+consider the restricted comultiplication:
+∆(b) := ∆(b) − b ⊗ 1 − 1 ⊗ b.
+
+(2.11)
+
+Also, we set ∆(1) = 1 ⊗ 1; and write ∆(b) = b(1) ⊗ b(2) , b ∈ B. We will use a similar
+notation ρ for coactions. A restricted version of coassociativity holds:
+(∆ ⊗ id)∆ = (id ⊗∆)∆.
+As usual, we write b(1)(1) ⊗ b(1)(2) ⊗ b(2) = b(1) ⊗ b(2)(1) ⊗ b(2)(2) = b(1) ⊗ b(2) ⊗ b(3) .
+3. Some tools to compute the cocycles
+Recall our setting from §1. Namely, H is a semisimple Hopf algebra, B ∈ H
+H YD,
+A = B#H and we consider Hopf cocycles
+σ ∈ Z02 (A) = {σ ∈ Z 2 (A)|σ|H⊗H = ǫ} ≃ Z 2 (B)H ,
+so σ = σB #ǫ, σB ∈ Z 2 (B)H , see (1.2). We let B be a homogeneous basis of B, set
+V := B1 and fix {x1 , . . . , xθ } ⊂ B a basis of V .
+In this section we collect some ideas that reduce the number of computations
+necessary to calculate the values
+{σ(b, b′ ) : b, b′ ∈ B}.
+We also investigate the orbit of σ under the action of U (A∗ ) in §3.1.
+The first result is straightforward.
+Lemma 3.1. Let (E, γ) be a cleft object for B in H -mod and let σ the associated
+cocycle as in (2.1). For each x ∈ P(B), b ∈ B + , we have
+σ(x, b) = γ(x(−1) · b(1) )γ −1 (x(0) b(2) ).
+Proof. Indeed, we have that
+∆(x ⊗ b) = x ⊗ b(1) ⊗ 1 ⊗ b(2) + 1 ⊗ x(−1) · b(1) ⊗ x(0) ⊗ b(2) .
+Hence we get
+σ(x, b) = γ(x)γ(b(1) )γ −1 (b(2) ) + γ(x(−1) · b(1) )γ −1 (x(0) b(2) )
+= γ(x(−1) · b(1) )γ −1 (x(0) b(2) ),
+by (2.1).
+
+
+
+Next lemma drastically reduces the number of computations, showing that the
+values {σ(b, b′ ) : b, b′ ∈ B} rely on the bialgebra structure of B in H
+H YD and the set:
+(3.1)
+
+Sσ := {σ(xi , b) : i ∈ Iθ ; b ∈ B}.
+
+Let (cp,q
+i,j ) i,j, ∈Iθ be the matrix coefficients of the braiding c : V ⊗ V
+p,q
+c(xi ⊗ xj ) =
+
+X
+
+cp,q
+i,j xp ⊗ xq ,
+
+→ V ⊗ V , so
+
+i, j ∈ Iθ .
+
+p,q∈Iθ
+
+Lemma 3.2. Let a = xa′ , b ∈ B + , x ∈ V , deg a′ > 0. If a is a monomial, then
+(3.2)
+
+σ(a, b) =σ(x, a′ b) + σ(a′ , b(1) )σ(x, b(2) ) + σ(a′(1) , a′(2)(−1) · b)σ(x, a′(2)(0) )
++ σ(a′(1) , a′(2)(−1) · b(1) )σ(x, a′(2)(0) b(2) ) − σ(x, a′(1) )σ(a′(2) , b).
+
+8
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+In particular, for each a, b ∈ B+ there is a subset Sσa,b ⊆ Sσ such that
+X
+(3.3)
+cs1 ...sℓ s1 s2 . . . sℓ .
+σ(a, b) =
+a,b
+si ∈Sσ
+
+for some (cs1 ...sℓ )si ∈Sσa,b ∈ Z[cp,q
+i,j ] i,j, ∈Iθ .
+p,q
+Proof. We proceed by induction on the degree deg(a) of a monomial a ∈ B. If
+deg(a) = 1, this is clear. Fix n > 1 and assume that such decomposition exists for
+elements of degree ≤ n − 1. If a ∈ B is of degree n, then there exists x ∈ V such
+that a = xa′ , where deg(a′ ) = n − 1. Hence we have ∆(x) = x ⊗ 1 + 1 ⊗ x and
+∆(a′ ) = a′ ⊗ 1 + 1 ⊗ a′ + a′(1) ⊗ a′(2) ,
+
+∆(b) = b ⊗ 1 + 1 ⊗ b + b(1) ⊗ b(2) ,
+
+cf. (2.11). In this case, (2.1) becomes:
+σ(x(1) , a′(1) )σ(x(2) a′(2) , b) = σ(a′(1) , b(1) )σ(x, a′(2) b(2) ).
+Now, the left hand side can be developed further and we get
+σ(x(1) , a′(1) )σ(x(2) a′(2) , b) = σ(x, a′ )σ(1, b) + σ(x, 1)σ(a′ , b) + σ(x, a′(1) )σ(a′(2) , b)
++ σ(1, x(−1) · a′ )σ(x(0) , b) + σ(1, 1)σ(xa′ , b) + σ(1, x(−1) · a′(1) )σ(x(0) a′(2) , b)
+= σ(a, b) + σ(x, a′(1) )σ(a′(2) , b),
+that is, σ(a, b) = σ(x(1) , a′(1) )σ(x(2) a′(2) , b) − σ(x, a′(1) )σ(a′(2) , b).
+Now we can develop the right hand side, and obtain:
+σ(a′(1) , b(1) )σ(x, a′(2) b(2) ) = σ(a′ , b)σ(x, 1) + σ(a′ , 1)σ(x, b) + σ(a′ , b(1) )σ(x, b(2) )
++ σ(1, a′(−1) · b)σ(x, a′(0) ) + σ(1, 1)σ(x, a′ b) + σ(1, a′(−1) · b(1) )σ(x, a′(0) b(2) )
++ σ(a′(1) , a′(2)(−1) · b)σ(x, a′(2)(0) ) + σ(a′(1) , 1)σ(x, a′(2) b)
++ σ(a′(1) , a′(2)(−1) · b(1) )σ(x, a′(2)(0) b(2) )
+= σ(x, a′ b) + σ(a′ , b(1) )σ(x, b(2) ) + σ(a′(1) , a′(2)(−1) · b)σ(x, a′(2)(0) )
++ σ(a′(1) , a′(2)(−1) · b(1) )σ(x, a′(2)(0) b(2) ).
+If a = xa′ , then we obtain (3.2). The conclusion is obtained by applying inductive
+hypothesis on each summand.
+
+Definition 3.3. The expression obtained in (3.3) via the recursive process (3.2) is
+the Hopf cocycle decomposition of σ in terms of the set Sσ from (3.1).
+Example 3.4. We exhibit explicitly the Hopf cocycle decomposition of a cocycle σ,
+in low degrees.
+Let x, y, w, z ∈ V and b ∈ B+ , then
+σ(xy, b) =σ(x, yb) + σ(x, b(2) )σ(y, b(1) ),
+σ(xyw, b) =σ(x, ywb) − σ(x, y)σ(w, b) + σ(y, w(−1) · b)σ(x, w(0) )
++ σ(y(−2) · w, y(−1) · b)σ(x, y(0) ) + σ(yw, b(1) )σ(x, b(2) )
++ σ(y, w(−1) · b(1) )σ(x, w(0) b(2) ) − σ(x, y(−1) · w)σ(y(0) , b)
++ σ(y(−2) · w, y(−1) · b(1) )σ(x, y(0) b(2) ),
+σ(xywz, b) =σ(x, ywzb) − σ(x, y)σ(wz, b) − σ(x, yw)σ(z, b)
+− σ(x, yw(−1) · z)σ(w(0) , b) − σ(x, y(−1) · (wz))σ(y(0) , b)
+− σ(x, y(−1) · w)σ(y(0) z, b) − σ(x, (y(−1) w(−1) ) · z)σ(y(0) w(0) , b)
++ σ(yw, z(−1) · b)σ(x, z(0) ) + σ(y(w(−2) · z), w(−1) · b)σ(x, w(0) )
+
+EXPLICIT HOPF COCYCLES
+
+9
+
++ σ(y, (w(−1) z(−1) ) · b)σ(x, w(0) z(0) ) + σ(ywz, b(1) )σ(x, b(2) )
++ σ(y(−2) · (wz), y(−1) · b)σ(x, y(0) )
++ σ(y(−2) · (wz), y(−1) · b(1) )σ(x, y(0) b(2) )
++ σ(y(−2) · w, (y(−1) z(−1) ) · b)σ(x, y(0) z(0) )
++ σ((y(−2) w(−2) ) · z, (y(−1) w(−1) ) · b)σ(x, y(0) w(0) )
++ σ(yw, z(−1) · b(1) )σ(x, z(0) b(2) )
++ σ(yw(−2) · z, w(−1) · b(1) )σ(x, w(0) b(2) )
++ σ(y, (w(−1) z(−1) ) · b(1) )σ(x, w(0) z(0) b(2) )
++ σ(y(−2) · w, (y(−1) z(−1) ) · b(1) )σ(x, y(0) z(0) b(2) )
++ σ((y(−2) w(−2) ) · z, (y(−1) w(−1) ) · b(1) )σ(x, y(0) w(0) b(2) ).
+We have the following straightforward but useful consequence of the decomposition exhibited in Lemma 3.2.
+Corollary 3.5. Let σ and σ ′ be two Hopf cocycles in B.
+(a) If σ(xi , b) = σ ′ (xi , b) for each i ∈ Iθ and every b ∈ B, then σ = σ ′ .
+(b) If α ∈ B ∗ is convolution invertible and α ⇀ σ(xi , b) = σ ′ (xi , b), for each
+i ∈ Iθ and every b ∈ B, then α ⇀ σ = σ ′ .
+
+3.1. Some remarks on α ⇀ σ. Let σ ∈ Z02 (A), α ∈ U (A∗ ), so that σ ′ := α ⇀ σ as
+in (2.7) is a Hopf cocycle cohomologous to σ. Moreover, we assume that σ ′ ∈ Z02 (A).
+Recall that we may assume α(1) = 1.
+Remark 3.6. γα := α ∗ γ : A → E is another section, with associated cocycle α ⇀ σ.
+Lemma 3.7. If α ⇀ σ = σ ′ , then α|H ∈ Alg(H, k). Hence α−1
+|H = (α ◦ S)|H .
+Proof. The cocycle σα associated to γα is σ ′ , which satisfies σ ′ (h, k) = ǫ(hk). But
+ǫ(hk) = σα (h, k) = α(h(1) )α(k(1) )α−1 (h(2) k(2) ),
+which shows that α(hk) = α(h)α(k), by uniqueness of the convolution inverse. 
+Lemma 3.8. We have α(xh) = α(x)α(h) and α(hx) = α(x)α(h).
+In particular, α|B : B → k is H-linear. That is,
+α = α′ #ϕ,
+
+for α′ ∈ HomH (B, k) and ϕ ∈ Alg(H, k).
+
+Proof. Notice that
+(3.4)
+
+ǫ(xh) = α ⇀ σ(x, h) = α(x(1) )α(h(1) )α−1 (x(2) h(2) ).
+
+Thus ψ(xh) = α(x)α(h) is a left convolution inverse to α−1 ; hence ψ = α. The
+other equality is similar, considering α ⇀ σ(h, x).
+Now, α|B (h · x) = α(h(1) xS(h2 )) = α(h(1) )α(x)α(S(h2 )) = ǫ(h)α(x).
+
+Lemma 3.9. We can assume, without loss of generality, that α|H = ǫ.
+Proof. Set ϕ := α|H ; if ϕ 6= ǫ, consider τ = ǫ#ϕ−1 and set α̃ := α ∗ τ . On the one
+hand, α̃|H = ǫ, and α̃(xh) = α(x)ǫ(h), α̃−1 (xh) = α−1 (x)ǫ(h). Now, observe that
+α̃ ⇀ σ(xh, yk) = α̃(x(1) h(1) )α̃(y(1) k(1) )σ(x(2) h(2) , y(2) k(2) )α̃−1 (x(3) h(3) y(3) k(3) )
+= α(x(1) )α(y(1) )σ(x(2) h(1) , y(2) )α̃−1 (x(3) h(2) · y(3) )ǫ(k)
+= α(x(1) )α(y(1) )σ(x(2) h(1) , y(2) )α−1 (x(3) h(2) · y(3) )ǫ(k)
+= α(x(1) )α(h(1) · y(1) )σ(x(2) , h(2) · y(2) )α−1 (x(3) h(3) · y(3) )ǫ(k)
+= σ ′ (x, h · y)ǫ(k) = σ ′ (xh, yk).
+Hence we can replace α by α̃.
+
+
+
+10
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+′
+Proposition 3.10. Let A = B#H. Fix σ = σB #ǫ, σ ′ = σB
+#ǫ ∈ Z 2 (A).
+′
+(a) If α′ : B → k is convolution invertible, H-linear, and α′ ⇀ σB = σB
+, then
+′
+′
+α ⇀ σ = σ , for α = α #ǫ.
+(b) If α : A → k is convolution invertible is such that α ⇀ σ = σ ′ , then we
+′
+have α|B ⇀ σB = σB
+.
+′
+Proof. (a) We have that α′ ⇀ σB = σB
+, that is for x, y ∈ B,
+′
+α′ (x(1) )α′ (x(3)(−2) x(2)(−1) · y(1) )σB (x(2)(0) , x(3)(−1) y(2) )α′−1 (x(3)(0) y(3) ) = σB
+(x, y).
+
+Here x(1) ⊗ x(2) = ∆B (x) stands for the coproduct in B. Recall that the coproduct
+∆(xh) = x(1) x(2)(−1) h(1) ⊗ x(2)(0) h(2) in A from (2.9) so
+∆(2) (xh) = x(1) x(2)(−1) x(3)(−2) h(1) ⊗ x(2)(0) x(3)(−1) h(2) ⊗ x(3)(0) h(3) .
+Now, α ⇀ σ(xh, yk) gives, using that that α′ is H-linear:
+α(x(1) x(2)(−1) x(3)(−2) h(1) )α(y(1) y(2)(−1) y(3)(−2) k(1) )
+× σ(x(2)(0) x(3)(−1) h(2) , y(2)(0) y(3)(−1) k(2) )α−1 (x(3)(0) h(3) y(3)(0) k(3) )
+= α′ (x(1) )α′ (y(1) )σB (x(2) , x(3)(−1) h(1) · y(2) )α′−1 (x(3)(0) h(2) y(3) )ǫ(k)
+= α′ (x(1) )α′ (x(3)(−2) x(2)(−1) h(1) · y(1) )
+× σB (x(2)(0) , x(3)(−1) h(2) y(2) )α′−1 (x(3)(0) h(3) y(3) )ǫ(k)
+′
+= σB
+(x, h · y)ǫ(k) = σ ′ (xh, yk).
+
+(b) Follows as (a), using that α′ is H-linear by Lemma 3.8 and the compatibility
+between ∆B (x) and ∆(x#1), see (2.9).
+
+Next lemma will also allow us to reduce computations when dealing with Hopf
+cocycles arising as exponentials of Hochschild cocycles.
+Lemma 3.11. Let τ, σ ∈ Z 2 (B)H and let α ∈ B ∗ be convolution invertible.
+(a) For any x ∈ V , b ∈ B, we have that
+α ⇀ τ (x, b) = α(x(−1) · b(1) )τ (x(0) , b(2) )α−1 (b(3) ) + α(x(−1) · b(1) )α−1 (x(0) b(2) ).
+(b) Assume that α ⇀ τ = σ. Then for any x, y ∈ V , we have that
+(3.5)
+
+α(x)α(y) − α(xy) = σ(x, y) − τ (x, y).
+
+Proof. (1) Let x ∈ V and b ∈ B, then
+(id ⊗∆)∆(x ⊗ b) = x ⊗ b(1) ⊗ 1 ⊗ b(2) ⊗ 1 ⊗ b(3)
++ 1 ⊗ x(−1) · b(1) ⊗ x(0) ⊗ b(2) ⊗ 1 ⊗ b(3)
++ 1 ⊗ x(−2) · b(1) ⊗ 1 ⊗ x(−1) · b(2) ⊗ x(0) ⊗ b(3) .
+When we act by α, we get
+α ⇀ τ (x, b) = α(x)α(b(1) )τ (1, b(2) )α−1 (b(3) ) + α(x(−1) · b(1) )τ (x(0) , b(2) )α−1 (b(3) )
++ α(x(−2) · b(1) )τ (1, x(−1) · b(2) )α−1 (x(0) b(3) )
+= α(x)α(b(1) )ǫ(b(2) )α−1 (b(2) ) + α(x(−1) · b(1) )τ (x(0) , b(2) )α−1 (b(3) )
++ α(x(−1) · b(1) )α−1 (x(0) b(2) )
+= α(x(−1) · b(1) )τ (x(0) , b(2) )α−1 (b(3) ) + α(x(−1) · b(1) )α−1 (x(0) b(2) ).
+(2) Use the formula in (1) to compute α ⇀ τ (x, y) = σ(x, y), then
+α(x(−1) · y)α−1 (x(0) ) + α−1 (xy) = σ(x, y) − τ (x, y).
+Now, as
+(3.6)
+
+α−1 (xy) = α(x)α(y) − α(x(−1) · y)α−1 (x(0) ) − α(xy),
+
+EXPLICIT HOPF COCYCLES
+
+11
+
+we obtain (3.5).
+
+
+4. Invariant Hochschild cohomology
+
+We let B, H, A = B#H be as in §1.1. Recall that {x1 , . . . , xθ } denotes a linear
+basis of V := B1 , contained in an homogeneous basis B of B.
+Let M be an A-bimodule; hence a B-bimodule by restriction. In this section
+we focus on the Hochschild cohomology H• of A with coefficients on M and the
+relation with H• (B, M ).
+In particular, we present a proof of a Theorem of Ştefan in [St], which shows that
+there is an action of H on H• (B, M ) in such a way that H• (A, M ) ≃ H• (B, M )H .
+We give an explicit description of this action in our context.
+As well, we will be particularly interested in the case M = k. We write Z• (A, M )
+for the space of cocycles and B• (A, M ) for the cobordisms. When M = k, we may
+simply write H• (A), Z• (A), B• (A). We denote by Z• (B)H ⊂ Z• (B) the subset of
+H-invariant cocycles. The subset Z2 (B)H will be of big relevance in our work.
+We refer the reader to [B] for details on Hochschild cohomology.
+L
+4.1. Hochschild 2-cocycles with coefficients in k. Let B + = n>0 Bn . We
+begin with an alternative description of the set Z2 (B, k).
+Lemma 4.1. Let η : B ⊗ B → k be a linear map. The following are equivalent.
+(a) η ∈ Z2 (B, k).
+(b) η : B ⊗ B → k satisfies, for a, c ∈ B + ,
+(4.1)
+
+η(a, 1) = η(1, c) = 0,
+
+(4.2)
+
+η(a, bc) = η(ab, c),
+
+b ∈ B.
+
+Similarly, η ∈ B2 (B, k) if and only if (4.1) holds and there is a linear map f : B → k
+such that η(1, 1) = f (1) and
+η(a, b) = −f (ab),
+
+a, b ∈ B + .
+
+Proof. Recall that η ∈ Z2 (B, k) if and only if, for a, b, c ∈ B:
+(4.3)
+
+ǫ(a)η(b, c) + η(a, bc) = η(ab, c) + η(a, b)ǫ(c).
++
+
+Now, if a, c ∈ B , then this becomes (4.2). On the other hand, if a = ǫ(a) ∈ B0 = k
+and c ∈ B + (or viceversa), then this is
+ǫ(a)η(b, c) + ǫ(a)η(1, bc) = ǫ(a)η(b, c) ⇒ η(1, bc) = 0
+
+(or η(ab, 1) = 0).
+
+If a, c ∈ B0 = k then (4.3) is tautological.
+Recall that η ∈ B2 (B, k) if and only if there is f : B → k in such a way that
+η(a, b) = ǫ(a)f (b) − f (ab) + f (a)ǫ(b).
+This is in turn equivalent to η(a, b) = −f (ab), a, b ∈ B + .
+
+
+
+We compute an easy example in (4.4) to fix some notation. We will apply Lemma
+4.1 to write down in §6.2 two more non-trivial examples in (6.8) and (6.9).
+Lemma 4.2. For each i, j ∈ Iθ , let ξji : B ⊗ B → k be the linear map defined by
+(4.4)
+Then ξji ∈ Z2 (B, k).
+
+ξji (b, b′ ) = δb,xj δxi ,b′ , b, b′ ∈ B.
+
+
+Remark 4.3. In the sense of Lemma 3.2, (4.2) states that η is determined by the
+values in the set {η(b, xi )|b ∈ B, i ∈ Iθ } ∪ {η(1, 1)}.
+
+12
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+4.2. Ştefan’s Theorem revisited. The following result, in general terms is due to
+Ştefan [St], and it is of central importance in our work. It is in fact a compendium
+of several results in loc.cit., which we have adapted to our setting, and this allows
+us to find explicit formulas that are implicit in Stefan’s work. It is our belief that
+it is in this shape that might evoke more interest in the scope of this article. In
+particular, we state it in terms of left actions because of this idea.
+Theorem 4.4. Let H be a Hopf algebra with bijective antipode and let B ∈ H
+H YD.
+Let A = B#H and let M be an A-bimodule.
+Then there is a left H-action ⇀ on Hq (B, M ), q ≥ 0.
+• For q = 0, this is
+(4.5)
+
+h ⇀ m = h(1) · m · S(h(2) ),
+for h ∈ H and m ∈ H0 (B, M ) = {m : b · m = m · b, ∀ b ∈ B} ⊆ M .
+• For q > 0, this is
+
+(4.6)
+
+(h ⇀ f )(x) = h(1) · f (S(h(2) ) · x) · S(h(3) ),
+
+for h ∈ H and f ∈ Zq (B, M ) ⊂ Homk (B ⊗ q , M ), x = (x1 , · · · , xq ) ∈ B ⊗ q .
+If H is semisimple, then
+Hn (A, k) ≃ Hn (B, k)H .
+
+(4.7)
+
+Proof. Following [St] we work, equivalently, with a right action. We update our
+equations and need to show that there is a right H-action ↼ on Hq (B, M ) so that
+• For q = 0, this is
+(4.5’)
+
+m ↼ h = S(h(1) ) · m · h(2) ,
+
+m ∈ H0 (B, M ), h ∈ H;
+
+• For q > 0, this is
+(4.6’)
+
+(f ↼ h)(x) = S(h(1) ) · f (h(2) · x) · h(3) ,
+
+f ∈ Zq (B, M ), x ∈ B ⊗ q .
+
+Observe that the left action h · b can also be interpreted as b · S −1 (h).
+First, recall that A is a right H-Galois object with coaction A → A ⊗ H given
+by b#h 7→ b#h(1) ⊗ h(2) , with Aco H ≃ B by [Sc, Theorem 2.2.7].
+We let can : A ⊗B A → A ⊗ H be the canonical isomorphism; in particular,
+X
+ℓi (h) ⊗ ri (h) := can−1 (1 ⊗ h) = S(h(1) ) ⊗ h(2) .
+For M ∈ A -bimod, we write · both for the left andPright action. By [St], the
+H-action ↼ on H 0 (B, M ) = M B is given by m ↼ h = ℓi (h) · m · ri (h), which in
+this case translates to (4.5’):
+m ↼ h = S(h(1) ) · m · h(2) .
+For left actions, this is (4.5).
+Assume this action (4.5’) has been extended to Hq (B, M ) (here we admit q = 0).
+Next paragraph is almost verbatim from the proof of [St, Proposition 2.4]. We
+refer the reader to loc.cit. and references therein for fuller details.
+If R : A -bimod → B -bimod is the functor given by restriction of scalars, then
+H• (A, −) ◦ R is a cohomological and coeffaceable δ-functor. Hence the morphisms
+ρh0 : H(A, −) ◦ R → H(A, −) ◦ R, h ∈ H, given by ρh0 (M )(m) = m ↼ h can be
+extended univocally to morphisms of δ-functors ρh• : H• (A, −) ◦ R → H• (A, −) ◦ R.
+We will describe this action explicitly in our context. For the content of this
+proof, we shall write, for shortness, H • (A, −) ◦ R(M ) = H • (M ), M ∈ A -bimod.
+We denote by dqM : Homk (B ⊗q , M ) → Homk (B ⊗q+1 , M ) the differential.
+Let us fix a short exact sequence
+ι
+
+π
+
+0 → M ′ −→ M −→ M ′′ → 0
+
+EXPLICIT HOPF COCYCLES
+
+13
+
+in A -bimod; we write M ∋ m ։ m̄ ∈ M ′′ for the projection.
+First, the fact that ρh• is a morphism of δ-functors establishes that
+ρhq+1 (δ(Hq (M ′′ ))) = δ(ρhq (Hq (M ′′ ))).
+In other words this is the recipe to extend the action, as it gives
+δ([f ]) ↼ h = δ([f ↼ h]),
+
+f : B ⊗q → M ′′ ∈ Zq (M ′′ ).
+
+We shall write, wlog, δ(f ) : B ⊗q → M ′ for an element in Zq+1 (M ′ ) such that
+[δ(f )] = δ([f ]). Now, the morphism δ : Hq (M ′′ ) → Hq+1 (M ′ ) is the usual connecting homomorphism for the long exact sequence in cohomology:
+Hq (π)
+
+δ
+
+Hq+1 (ι)
+
+· · · → Hq (M ) −→ Hq (M ′′ ) −→ Hq+1 (M ′ ) −→ Hq+1 (M ) → . . .
+Explicitly, for f ∈ Zq (M ′′ ) = ker dqM ′′ , let f˜: B ⊗q → M be such that π(f˜) = f , in
+the sense that f (b1 , . . . , bq )(π(m)) = f˜(b1 , . . . , bq )(m). Now we consider dqM (f˜) ∈
+Zq+1 (M ′′ ) and see that Hq+1 (π)([dqM (f˜)]) = dqM ′′ (Hq (π)(f˜)) = dqM ′′ (f ) = 0. That
+is [dqM (f˜)] ∈ ker Hq+1 (π) = img Hq+1 (ι) and we can consider [dqM (f˜)] as an element
+δ([f ]) ∈ Hq+1 (M ′ ). By abuse of notation we shall write δ(f ) = df .
+In our setting, if b = (b1 , . . . , bq+1 )
+(δ(f ) ↼ h)(b) = d(f ↼ h)(b)
+If q = 0, m ∈ M, b ∈ B , then dm(b) = b · m − m · b. Also, recall the commutations
+(2.8). The connection reads as
+(δ(m) ↼ h)(b) = d(m ↼ h)(b) = (d(S(h(1) ) · m · h(2) )(b))
+= b · S(h(1) ) · m · h(2) − S(h(1) ) · m · h(2) · b
+= (bS(h(1) )) · m · h(2) − S(h(1) ) · m · (h(2) b)
+= S(h(1) )(h(2) · b) · m · h(3) − S(h(1) ) · m · (h(2) · b)h(3)
+= S(h(1) ) · (h(2) · b · m − m · h(2) · b) · h(3)
+= S(h(1) ) · dm(h(2) · b) · h(3) ,
+so dm ↼ h is as in (4.5’).
+Now, we turn to q > 0. If b = b1 ⊗ · · · ⊗ bq+1 ∈ B ⊗ q+1 , then recall that we write
+b = b1 ⊗ b2 = bq ⊗ bq+1 and bi i+1 = b1 ⊗ · · · ⊗ bi bi+1 ⊗ · · · ⊗ bq+1 ∈ B ⊗ q , i ∈ Iq .
+Hence, we obtain, with commutations (2.8) as above:
+d(f ↼ h)(b) = b1 · (f ↼ h)(b2 ) − (f ↼ h)(b12 ) + (f ↼ h)(b23 )
++ · · · + (−1)n−1 (f ↼ h)(bq−1q ) + (−1)n (f ↼ h)(bq ) · bq+1
+= b1 · S(h(1) ) · f (h(2) · b2 ) · h(3) − S(h(1) ) · f (h(2) · b12 )h(3)
++ · · · + (−1)n S(h(1) ) · f (h(2) · bq ) · h(3) · bq+1
+= S(h(1) ) · h(2) · b1 · f (h(3) · b2 ) · h(3) − S(h(1) ) · f (h(2) · b12 )h(3)
++ · · · + (−1)n S(h(1) ) · f (h(2) · bq ) · h(3) · bq+1 · h(4)
+= S(h(1) ) · (h(2) · b)1 · f ((h(2) · b)2 ) · h(3) − S(h(1) ) · f ((h(2) · b)12 )h(3)
++ · · · + (−1)n S(h(1) ) · f ((h(2) · b)q ) · (h(2) · b)q+1 · h(3)
+= S(h(1) )df (h(2) · b)h(3) ,
+which shows (4.6’).
+By uniqueness of the extension; this shows that (4.6’) is indeed the action announced on [St, Proposition 2.4]; which implies (4.6) for the case of left actions.
+The identity (4.7) is [St, (3.6.1) in p.229].
+
+
+14
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+4.3. Invariant Hochschild 2-cocycles with coefficients in k. In this setting,
+the action ⇀ in (4.6) from Theorem 4.4 becomes
+h ⇀ η(x, y) = η(S(h(2) ) · x, S(h(1) ) · y).
+Since the antipode S is bijective, a cocycle η ∈ Z2 (B) is H-invariant when
+(4.8)
+
+η(h(1) · a, h(2) · b) = ǫ(h)η(a, b), a, b ∈ B.
+
+Similarly, if η ∈ Z 2 (B)H , then η extends to η ∈ Z2 (B#H) via the formula
+(4.9)
+
+η(a#h, y#k) = η(a, h · b)ǫ(k), a, b ∈ B, h, k ∈ H.
+
+Conversely, if η ∈ Z 2 (B#H) then the restriction
+η|B := η|B⊗B : B ⊗ B → k
+2
+
+R
+defines a cocycle η|B ∈ Z (B); this is not necessarily H-invariant.
+If
+∈ H is an
+R
+R
+2
+2
+H
+integral with ǫ( ) = 1, then we can project η ∈ Z (B) onto η ∈ Z (B) by
+R
+
+η (a, b) = η(∫ (1) · a, ∫ (2) · b),
+
+a, b ∈ B.
+
+5. Hopfschild cohomology
+Let (A, m, ∆) be a Hopf algebra and let η ∈ Z2 (A, k) be a Hochschild 2-cocycle
+with coefficients in k. Under certain conditions, it is possible to consider the exponential
+X 1
+eη :=
+η ∗k : A ⊗ A → k,
+k!
+k≥0
+
+which becomes a convolution invertible map with inverse e−η . For instance, this
+holds when η|A⊗A0 +A0 ⊗A = 0.
+We show that this map is always well-defined in our setting in §5.1.
+Moreover, there are occasions in which this exponential map is a Hopf 2-cocycle.
+A sufficient condition is given by the ∗-commutations in Hom(A⊗3 , k):
+(5.1)
+
+[η(id ⊗m), ǫ ⊗ η]∗ = 0,
+
+(5.2)
+
+[η(m ⊗ id), η ⊗ ǫ]∗ = 0.
+
+However, we observe the following:
+Remark 5.1. Conditions (5.1) and (5.2) are not necessary, see Lemma 6.11 in §6.
+On the other hand, under some hypothesis, these equations are equivalent to
+each other, see [GaM]. We investigate some of these instances in §5.2.
+The sufficiency of (5.1) and (5.2) is clear: for σ = eη , (2.3) becomes
+(5.2)
+
+(4.3)
+
+(σ ⊗ ǫ) ∗ σ(m ⊗ id) = eη⊗ǫ ∗ eη(m⊗id) = eη⊗ǫ+η(m⊗id) = eǫ⊗η+η(id ⊗ m)
+(5.1)
+
+= eǫ⊗η ∗ eη(id ⊗ m) = (ǫ ⊗ σ) ∗ σ(id ⊗ m).
+
+This is the content of [GrM, Lemma 4.1].
+Notice that, in terms of elements, (5.1) and (5.2) are, for x, y, z ∈ A:
+(5.3)
+
+η(x, y(1) z(1) )η(y(2) , z(2) ) = η(y(1) , z(1) )η(x, y(2) z(2) ),
+η(x(1) y(1) , z)η(x(2) , y(2) ) = η(x(1) , y(1) )η(x(2) y(2) , z).
+
+Based on our examples, we observe that Hopf cocycle deformations are generically determined by cocycles which do not arise as exponentials. Hence we introduce
+the following concept, to name and study this phenomenon.
+
+EXPLICIT HOPF COCYCLES
+
+15
+
+Definition 5.2. We say that a Hopf 2-cocycle σ ∈ Z 2 (A) is pure if it is not
+cohomologous to an exponential eη of a Hochschild 2-cocycle η ∈ Z2 (A, k).
+We shall speak of pure deformations and exponential deformations, as expected.
+5.1. Exponential and invariance. Let H, B ∈ H
+H YD, A = B#H be as in §1.1.
+We start with some simple though meaningful observations in Lemma 5.3. Let
+η ∈ Z2 (B, k)H be an H-invariant Hochschild 2-cocycle; and set η ∈ Z2 (A, k) the
+extension as in (4.9). Notice that
+η(x, h) = η(x, 1)ǫ(h) = 0,
+
+η(h, x) = η(1, h · x) = 0,
+
+so η|A+ ⊗A0 +A0 ⊗A+ = 0. Hence if η|A0 ⊗A0 = 0, then the exponential σ := eη is
+well-defined. Moreover, as in our case η(h, k) = ǫ(hk)η(1, 1), h, k ∈ H = A0 , it is
+enough to require
+(5.4)
+
+η(1, 1) = 0.
+
+Next lemma shows that we can always assume (5.4), without loss of generality.
+Lemma 5.3. Let η ∈ Z2 (B, k)H and set η ′ = η − η(1, 1)ǫ. Then
+(a) η ′ ∈ Z2 (B, k) and [η] = [η ′ ] in H2 (B, k).
+(b) η ′ (1, 1) = 0 and η ′ = η in B + ⊗ B + B ⊗ B + .
+′
+(c) eη : B ⊗ B → k is a normalized convolution invertible linear map and
+′
+
+eη = eη(1,1) eη .
+In particular, eη : B ⊗ B → k is a convolution invertible linear map.
+′
+(d) eη is a Hopf 2-cocycle if and only if eη is a (normalized) Hopf 2-cocycle.
+Proof. Let θ = η(1, 1)ǫ, then θ ∈ B2 (B, k) and (a) holds. Also, eθ = eη(1,1) ǫ. (b)
+′
+is clear and it implies that eη : B ⊗ B → k is well-defined normalized convolution
+′
+invertible linear map. As η ′ ∗ θ = θ ∗ η ′ , then eθ ∗ eη = eη , which proves (c). (d) is
+straightforward, cf. (2.2).
+
+Remark 5.4. If η(1, 1) = 0, then
+mx,y
+
+eη (x, y) =
+
+X 1
+k=0
+
+k!
+
+η ∗k (x, y),
+
+mx,y = min{deg(x), deg(y)}, x, y ∈ B.
+
+In particular,
+(5.5)
+
+eη (x, xi ) = η(x, xi ),
+
+x ∈ B, i ∈ Iθ .
+
+η
+
+In our setting, we require that σ = e satisfies (1.2). Next proposition shows
+that this is to require that η ∈ Z2 (B, k)H .
+Proposition 5.5. Let η ∈ Z2 (B, k) be a Hochschild 2-cocycle. Then eη is H-linear
+if and only if η ∈ Z2 (B, k)H .
+Proof. We show that eη ∈ Z 2 (B)H ⇒ η ∈ Z2 (B, k)H , the other implication is clear.
+We need to show that η(h(1) · x, h(2) · y) = ǫ(h)η(x, y). If deg y = 0, then this is
+automatic. If deg y = 1, say y = xi , then by (5.5) we have that
+η(h(1) · x, h(2) · xi ) = eη (h(1) · x, h(2) · xi ) = ǫ(h)eη (x, xi ) = ǫ(h)η(x, xi ).
+Now, for the general case, assume deg y = n > 1 and let us write y = y ′ xi ,
+deg y ′ = n − 1. Then
+η(h(1) · x, h(2) · y) = η(h(1) · x, h(2) · y ′ h(3) · xi ) = η(h(1) · xh(2) · y ′ , h(3) · xi )
+= η(h(1) · (xy ′ ), h(2) · xi ) = ǫ(h)η(xy ′ , xi ) = ǫ(h)η(x, y).
+Hence the result follows.
+
+
+
+16
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+Remark 5.6. Set τ = eη in Lemma 3.11 so τ (x, y) = eη (x, y) = η(x, y). In particular, (3.5) becomes
+(5.6)
+
+α(x)α(y) − α(xy) = σ(x, y) − η(x, y).
+
+If x = y, then this is
+α(x)2 − α(x2 ) = σ(x, x) − η(x, x).
+Assume that c(x ⊗ x) = −x ⊗ x, thus x2 is primitive and α−1 (x2 ) = −α(x2 ).
+If, moreover, α is H-linear, then
+(3.6)
+
+−α(x2 ) = α−1 (x2 ) = α(x)2 − α(x(−1) · x)α−1 (x(0) ) − α(x2 )
+= α(x)2 − ǫ(x(−1) )α(x)α−1 (x(0) ) − α(x2 )
+= α(x)2 − α(x)α−1 (x) − α(x2 ) = 2α(x)2 − α(x2 ).
+That is, α(x) = 0 and (5.6) becomes
+(5.7)
+
+α(xy) = η(x, y) − σ(x, y),
+
+x, y ∈ V.
+
+2
+
+In particular, if x = 0 (v.g. when B is a Nichols algebra) we obtain
+(5.8)
+
+σ(x, x) = η(x, x).
+
+In other words, η(x, x) = σ(x, x) is a necessary condition to eη ∼ σ.
+5.2. Equivalence of the commutation conditions. In [GaM], for a Hopf algebra A = B(V )#H, the authors work with cocycles η concentrated in degree (1, 1),
+that is η(An , Am ) = 0 if (n, m) 6= (1, 1) and show in [GaM, Lemma 2.3] that (5.1)
+and (5.2) are equivalent to each other and in turn to two other identities in V ⊗4 :
+(5.9)
+
+(η ⊗ η)(id ⊗c ⊗ id) = (η ⊗ η)(id ⊗c ⊗ id)(c ⊗ c),
+(η ⊗ η)(id ⊗c ⊗ id)(id ⊗ id ⊗c) = (η ⊗ η)(id ⊗c ⊗ id)(c ⊗ id ⊗ id).
+
+We are interested in finding more general contexts where this equivalence holds,
+to reduce the number of identities to check. We obtain some answers in Lemmas
+5.7 and 5.8 below.
+Lemma 5.7. Let A be a Hopf algebra. If η(x, y) = λ η(y, x) for every x, y ∈ A and
+some λ ∈ k, then (5.1) and (5.2) are equivalent.
+Proof. Interchange a and c in one of the lines from (5.3) to obtain the other.
+
+
+
+The following lemma is rather technical, see (6.17) for a concrete and detailed
+application.
+Lemma 5.8. Let A be a Hopf algebra and fix a linear basis B of A. Let η ∈ Z2 (A, k)
+be a Hochschild 2-cocycle. Fix T = k[τx : x ∈ B] the polynomial algebra on dim A
+variables given by the symbols τx := η(−, x) : A → k.
+In particular, for every y, z ∈ A, there are families of scalars (ux = ux (y, z))x∈B ,
+(dx = dx (y, z))x∈B ∈ k such that the following identities hold in T :
+X
+η(−, y(1) z(1) )η(y(2) , z(2) ) =
+ux (y, z)τx ,
+x∈B
+
+X
+
+η(y(1) , z(1) )η(−, y(2) z(2) ) =
+
+dx (y, z)τx .
+
+x∈B
+
+Assume that
+(5.10)
+
+ux (y, z) = dx (y, z),
+
+∀x, y, z ∈ B.
+
+Then (5.1) implies (5.2).
+The converse is also true, mutatis mutandis.
+
+EXPLICIT HOPF COCYCLES
+
+17
+
+Proof. Assume that (5.1) and (5.10) hold. Let us set ωz := η(−, z) : A → k, for
+each z ∈ B. Now, if x, y ∈ A, then
+X
+(5.10) X
+η(x(1) y(1) , −)η(x(2) , y(2) ) =
+uz (x, y)ωz =
+dz (x, y)ωz
+z∈B
+
+z∈B
+
+= η(x(1) , y(1) )η(x(2) y(2) , −).
+Which shows that (5.2) also holds.
+
+
+
+6. An example of abelian type
+In this section we consider the Nichols algebra Bq associated to a braided vector
+space (V, cq ) of Cartan type A2 , with parameter q = −1. The Dynkin diagram is
+−1
+
+◦
+
+−1
+
+−1
+
+◦
+
+and the braiding matrix q = (qij ) is such that q11 = q22 = −1 and q12 q21 = −1.
+We fix a basis k{x1 , x2 } associated to this matrix; then the relations defining the
+Nichols algebra are given by:
+(6.1)
+
+x21 = 0,
+
+x22 = 0,
+
+x212 = 0;
+
+where x12 := x1 x2 − q12 x2 x1 . A linear PBW basis for this algebra is given by
+(6.2)
+
+Bq = {1, x1 , x2 , x12 , x12 x1 , x2 x1 , x2 x12 , x2 x12 x1 }.
+
+We assume that there is a principal YD-realization (χi , gi )i∈I2 so that Bq ∈ H
+H YD
+for some Hopf algebra H, cf. (2.10). We set A = B#H and fix
+Γ := hg1 , g2 i ≤ G(H).
+
+(6.3)
+
+6.1. Hopf cocycles. The (braided) cleft objects for the Nichols algebra Bq are
+given by the family of algebras E(λ), λ = (λ1 , λ2 , λ12 ) ∈ k3 , generated by y1 , y2
+and relations
+(6.4)
+
+y12 = λ1 ,
+
+y22 = λ2 ,
+
+2
+= λ12 ;
+y12
+
+again, y12 := y1 y2 − q12 y2 x1 . The scalars λ1 , λ2 , λ12 ∈ k are subject to:
+(6.5)
+
+λi 6= 0 only if χ2i = ǫ, i ∈ I2 ;
+
+λ12 6= 0 only if (χ1 χ2 )2 = ǫ.
+
+This conditions can also be written as
+2
+λj qij
+= λj , i, j ∈ I2 ;
+
+2
+λ12 qij
+= λ12 , i 6= j ∈ I2 .
+
+This algebra inherits a basis as in (6.2).
+Remark 6.1. Observe that unless q12 = ±1, and thus q21 = ∓1, then we have
+λ1 = λ2 = λ12 = 0.
+For each triple λ = (λ1 , λ2 , λ12 ), the corresponding deformation of A = Bq #H
+is the quotient uq (λ) of T (V )#H modulo the relations
+(6.6) a21 = λ1 (1 − g12 ), a22 = λ2 (1 − g22 ), a212 = λ12 (1 − g12 g22 ) + 4q12 λ1 λ2 g22 (1 − g12 ).
+Here V = k{a1 , a2 } and a12 := a1 a2 − q12 a2 a1 .
+Remark 6.2. Notice that when gi2 = 0, i = 1, 2, we can normalize λi = 0 in the
+deformations (6.6), on top of the restriction (6.5). Idem for g12 g22 = 1 and λ12 .
+However, the cleft objects are not isomorphic, cf. (6.4).
+
+18
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+Henceforward, we will assume that
+(6.7)
+
+q12 = ±1,
+
+as we shall investigate Hopf 2-cocycles σλ associated to non-trivial deformations
+E(λ) and uq (λ).
+Lemma 6.3. The section γ : Bq → E(λ) is given by
+γ(xi ) = yi , i ∈ I2 ,
+γ(x12 x1 ) = y12 y1 − 2q21 λ1 y2 ,
+
+γ(x12 ) = y12 ,
+
+γ(x2 x1 ) = y2 y1 ,
+
+γ(x2 x12 ) = y2 y12 ,
+
+γ(x2 x12 x1 ) = y2 y12 y1 .
+
+The convolution inverse for γ is determined by
+γ −1 (xi ) = −yi , i ∈ I2 ,
+
+γ −1 (x12 ) = y12 + 2q12 y2 y1 ,
+
+γ −1 (x2 x1 ) = q21 y12 − y2 y1 ,
+
+γ −1 (x12 x1 ) = −y12 y1 + 2q21 λ1 y2 ,
+
+γ −1 (x2 x12 ) = −y2 y12 ,
+
+γ −1 (x2 x12 x1 ) = y2 y12 y1 − λ12 .
+
+Proof. The values for γ(xi ), γ(x12 ), γ(x2 x1 ) are straightforward. We see that
+∆(x12 x1 ) = −q21 x1 ⊗ x12 + x12 ⊗ x1 + 2x1 ⊗ x2 x1 ,
+ρ(y12 y1 ) = 2q21 λ1 1 ⊗ x2 − q21 y1 ⊗ x12 + x12 ⊗ x1 + 2y1 ⊗ x2 x1
+and thus setting γ(x12 x1 ) = (y12 y1 − 2q21 λ1 y2 ) gives (γ ⊗ id)∆(x12 x1 ) = ργ(x12 x1 )
+as expected. On the other hand, it is easy to see γ(x2 x12 ) = y2 y12 . Finally,
+2
+x1 ⊗ x2 x12 − q21 x12 ⊗ x2 x1
+∆(x2 x12 x1 ) = 2x2 x1 ⊗ x2 x1 − q21
+2
+− q21
+x12 x1 ⊗ x2 + x2 ⊗ x12 x1 − q21 x2 x1 ⊗ x12 + x2 x12 ⊗ x1 ,
+2
+y1 ⊗ x2 x12 − q21 y12 ⊗ x2 x1
+ρ(y2 y12 y1 ) = 2q21 λ1 y2 ⊗ x2 + 2y2 y1 ⊗ x2 x1 − q21
+2
+− q21
+y12 y1 ⊗ x2 + y2 ⊗ x12 x1 − q21 y2 y1 ⊗ x12 + y2 y12 ⊗ x1 .
+3
+So (γ ⊗ id)∆(x2 x12 x1 ) = ρ(y2 y12 y1 ) as (recall λ1 q21
+= λ1 q21 ):
+2
+(γ ⊗ id)∆(x2 x12 x1 ) = 2y2 y1 ⊗ x2 x1 − q21
+y1 ⊗ x2 x12 − q21 y12 ⊗ x2 x1
+2
+− q21
+(y12 y1 − 2q21 λ1 y2 ) ⊗ x2 + y2 ⊗ x12 x1 − q21 y2 y1 ⊗ x12 + y2 y12 ⊗ x1 .
+
+Now, to see that γ −1 is the convolution inverse of γ, we only need to verify that
+γ ∗ γ −1 (b) = 0 = γ −1 ∗ γ(b), for each b ∈ Bq . To illustrate this, we expose some
+calculations below.
+γ ∗ γ −1 (x12 x1 ) =γ(x12 x1 ) − q21 y1 (y12 + 2q12 y2 y1 ) − y12 y1 + 2y1 (q21 y12 − y2 y1 )
++ γ −1 (x12 x1 )
+= − y12 y1 + 2y1 y2 y1 − y12 y1 + 2y12 y1 − 2y1 y2 y1 = 0.
+2
+γ ∗ γ −1 (x2 x12 x1 ) =y2 y12 y1 + 2y2 y1 (q21 y12 − y2 y1 ) + q21
+y1 y2 y12 − y2 y12 y1
+2
+(y12 y1 − 2q21 λ1 y2 )y2 + y2 y12 y1
+− q21 y12 (q21 y12 − y2 y1 ) + q21
+2
+λ12 + y2 (−y12 y1 + 2q21 λ1 y2 ) − q21 y2 y1 (y12 + 2q12 y2 y1 )
+− q21
+2
+2
+λ12 + q21 y12 y2 y1
+=2q21 y2 y1 y12 + q21
+(y12 + q12 y2 y1 )y12 − q21
+2
+2
+y12 y1 y2 − 2q21 λ1 λ2 − q21
+λ12 + 2q21 λ1 λ2 − q21 y2 y1 y12
++ q21
+2
+=2y2 y12 y1 − q21 y2 y1 y12 + q21 y12 y2 y1 + q21
+y12 (y12 + q12 y2 y1 )
+2
+λ12 − y2 y12 y1
+− q21
+
+=y2 y12 y1 − y2 y12 y1 = 0.
+The rest of the computations, which are simpler, are left to the reader.
+
+
+
+EXPLICIT HOPF COCYCLES
+
+19
+
+Remark 6.4. Notice that γ : Bq → E(λ) as in Lemma 6.3 is H-linear. Indeed, it
+suffices to check this on γ(x12 x1 ) and this follows since
+λ1 h · y2 = λ1 χ2 (h)y2 = λ1 χ21 (h)χ2 (h)y2 ,
+
+h ∈ H.
+
+Theorem 6.5. Let λ = (λ1 , λ2 , λ12 ). The Hopf cocycle σλ := σ associated to the
+cleft object E(λ) is given by
+σ
+x1
+x2
+x12
+x2 x1
+x2 x12
+x12 x1
+x2 x12 x1
+
+x1
+λ1
+0
+0
+0
+0
+0
+0
+
+x2
+0
+λ2
+0
+0
+0
+2q12 λ1 λ2 + λ12
+0
+
+x12
+0
+0
+λ12
+0
+0
+0
+0
+
+x2 x1
+0
+0
+0
+−q21 λ1 λ2
+0
+0
+0
+
+x2 x12
+λ12
+0
+0
+0
+−q12 λ2 λ12
+0
+0
+
+x12 x1
+0
+2q12 λ1 λ2
+0
+0
+0
+q12 λ12 λ1 + 4λ21 λ2
+0
+
+x2 x12 x1
+0
+0
+0
+0
+0
+0
+q12 λ2 λ12 λ1
+
+Proof. In first place, we use Lemma 3.1 to calculate the elements of Sσ as in (3.1).
+Indeed, let i, j ∈ I2 , then
+σ(xi , xj ) = −qij yj yi + γ −1 (xi xj ) = δij λi ,
+here we use that γ −1 (xi xj ) = qij yj yi . It is easy to see that
+σ(xi , x12 ) = σ(xi , x2 x1 ) = 0.
+For the other hand, we show σ(x1 , x2 x12 ) and σ(x2 , x12 x1 ).
+σ(x1 ,x2 x12 ) = y2 y12 y2 − 2q12 y2 y1 γ −1 (x1 x2 ) − y2 γ −1 (x12 x1 ) − y12 γ −1 (x1 x2 )
++ γ −1 (x1 x2 x12 )
+=y2 y12 y2 − 2y2 y1 y2 y1 + y2 (y12 − 2q21 λ1 y2 ) − q12 y12 y2 y1 − y1 y12 y2 + λ12
+=y2 y12 y1 − 2y2 y12 y1 − 2q12 λ1 λ2 + y2 y12 y1 + 2q12 λ1 λ2 + λ12 = λ12 .
+2
+σ(x2 ,x12 x1 ) = q21
+(y12 y1 − 2q21 λ1 y2 )y2 + y1 y2 y12
+
+− q21 y12 γ −1 (x2 x1 ) + γ −1 (x2 x12 x1 )
+=y12 y1 y2 − 2q21 λ1 λ2 + λ12 − y2 y12 y1 − y12 y1 y2 + y2 y12 y1 + λ12 = 2q12 λ1 λ2 .
+The reader will have no difficulty to see that
+σ(x1 , x12 x1 ) = σ(x2 , x2 x12 ) = σ(xi , x1 x12 x2 ) = 0.
+Thus, Sσ = {0, λ1 , λ2 , λ12 , 2q12 λ1 λ2 }. From now on, we use the formulas of decomposition in Example 3.4 to get the others values of σ, following Lemma 3.2. In this
+p,q
+case, the matrix coefficients of the braiding (cp,q
+i,j ) i,j, ∈I are given by ci,j = δi,q δj,p qij
+p,q
+
+±1
+−1
+so Z[cp,q
+i,j ] i,j, ∈I = Z[q12 ] ≃ Z, as q11 = q22 = −1 and q21 = −q12 = ∓1.
+p,q
+
+One example of application is showed below.
+σ(x12 x1 ,x12 x1 ) = σ(x1 , x2 x1 x12 x1 ) + σ(x2 , g1 · (x12 x1 ))σ(x1 , x1 )
++ σ(g2 · x1 , g2 · (x12 x1 ))σ(x1 , x2 ) − σ(x1 , x2 )σ(x1 , x12 x1 )
+− σ(x1 , g2 · x1 )σ(x2 , x12 x1 ) + σ(x2 x1 , 2x1 )σ(x1 , x2 x1 )
+− σ(x2 x1 , q21 x1 )σ(x1 , x12 ) + σ(x2 x1 , x12 )σ(x1 , x1 )
++ σ(x2 , g1 · (2x1 ))σ(x1 , x1 x2 x1 ) − σ(x2 , g1 · (q21 x1 ))σ(x1 , x1 x12 x1 )
++ σ(x2 , g1 · x12 )σ(x1 , x21 ) + σ(g2 · x1 , g2 · (2x1 ))σ(x1 , x22 x1 )
+− σ(g2 · x1 , g2 · (q21 x1 ))σ(x1 , x2 x12 ) + σ(g2 · x1 , g2 · x12 )σ(x1 , x2 x1 )
+
+20
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+= q12 σ(x2 , x12 x1 )σ(x1 , x1 ) − q21 σ(x1 , x1 )σ(x2 , x12 x1 )
+− q21 σ(x1 , x1 )σ(x1 , x2 x12 )
+= 2q12 σ(x2 , x12 x1 )σ(x1 , x1 ) + q12 σ(x1 , x1 )σ(x1 , x2 x12 )
+= 4λ21 λ2 + q12 λ12 λ1 .
+The other values are computed analogously.
+
+
+2
+
+6.2. Hochschild cocycles. Recall the cocycles ξji ∈ Z (Bq , k), i, j ∈ I2 , from
+Example 4.2. Additionally, we denote ξ0 = ǫ ⊗ ǫ ∈ Z2 (Bq , k), the cocycle such that
+ξ0 (1, 1) = 1, and zero elsewhere.
+2
+1
+We shall consider two more Hochschild 2-cocycles ξ121
+, ξ212
+in Bq . Namely, let
+2
+ξ121 : Bq ⊗ Bq → k be the linear map given by
+(6.8)
+
+2
+2
+2
+2
+ξ121
+(x2 , x12 x1 ) = ξ121
+(x2 x12 , x1 ) = ξ121
+(x2 x1 , x2 x1 ) = ξ121
+(x12 , x12 ) = 1,
+2
+2
+ξ121
+(x12 , x2 x1 ) = ξ121
+(x2 x1 , x12 ) = −q12 .
+
+and zero elsewhere in the basis B ⊗ B. Following Lemma 4.1, it is an easy compu2
+1
+tation to check that ξ121
+∈ Z2 (Bq , k). As well, we define ξ212
+∈ Z2 (Bq , k) via
+(6.9)
+
+1
+1
+1
+ξ212
+(x1 , x2 x12 ) = ξ212
+(x12 , x12 ) = ξ212
+(x12 x1 , x2 ) = 1
+
+and zero elsewhere in B ⊗ B.
+2
+1
+We further note that ξ121
++ ξ212
+∈ B2 (B, k). Indeed, let f : B → k be the linear
+map defined on the basis B by f (x2 x12 x1 ) = 1 and zero elsewhere. Then
+2
+1
+(ξ121
+− ξ212
+)(b, b′ ) = f (bb′ ),
+
+(6.10)
+
+b, b′ ∈ B.
+
+Recall the group Γ ≤ G(H) from (6.3).
+1
+2
+.
+, ξ212
+Lemma 6.6. Z2 (Bq , k)Γ is spanned over k by ξ0 , ξ11 , ξ22 , ξ121
+Furthermore,
+(a) ξii ∈ Z2 (Bq , k)H if and only if χ2i = ǫ,
+j
+(b) ξiji
+∈ Z2 (Bq , k)H if and only if (χ1 χ2 )2 = ǫ; i, j ∈ I2 .
+
+Proof. By Lemma 4.1, see Remark 4.3, η ∈ Z2 (Bq , k) is determined by the values
+η(x1 , x1 ),
+
+η(x1 , x2 ),
+
+η(x1 , x12 ),
+
+η(x1 , x2 x12 ),
+
+η(x1 , x2 x1 ),
+
+η(x2 , x2 ),
+
+η(x2 , x1 ),
+
+η(x2 , x12 ),
+
+η(x2 , x12 x1 )
+
+η(1, 1).
+
+Furthermore, as x1 x2 x1 = x12 x1 and x2 x1 x2 = x2 x12 , we get
+η(x1 , x12 x1 ) = η(x2 , x2 x12 ) = 0.
+Also, it is easy to see that
+η(x1 , x2 x12 x1 ) = η(x2 , x2 x12 x1 ) = η(x2 , x2 x12 ) = η(x2 , x2 x1 ) = 0,
+η(x1 , x2 x1 ) = q21 η(x1 , x12 ).
+Now we let Γ act and obtain
+η(x1 , x2 ) = η(g1 · x1 , g1 · x2 ) = −q12 η(x1 , x2 )
+which forces q12 = −1 but also
+η(x1 , x2 ) = η(g2 · x1 , g2 · x2 ) = −q21 η(x1 , x2 ),
+which also gives q21 = −1, a contradiction to q12 q21 = −1. Thus η(x1 , x2 ) = 0,
+similarly η(x2 , x1 ) = 0. Similarly, we need to have
+2
+−q21
+η(x1 , x12 ) = η(x1 , x12 ),
+
+EXPLICIT HOPF COCYCLES
+
+21
+
+which gives η(x1 , x12 ) = 0; and similarly
+2
+2
+−q12
+η(x2 , x12 ) = η(x2 , x12 ), −q12
+η(x2 x1 , x2 ) = η(x2 x1 , x2 )
+
+so η(x12 , x2 ) = 0. That is, we are left with the values
+η(1, 1),
+
+η(x1 , x1 ),
+
+η(x2 , x2 ),
+
+η(x2 , x12 x1 ),
+
+η(x1 , x2 x12 )
+
+2
+1
+and therefore η ∈ k{ξ0 , ξ11 , ξ22 , ξ121
+, ξ212
+}.
+The second statement is straightforward; recall h·xi = χi (h)xi , h ∈ H, i ∈ Iθ . 
+
+6.3. Exponentials. Let η ∈ Z2 (Bq , k)H , we are interested in finding the conditions
+for η such that eη is a Hopf cocycle; set
+(6.11)
+
+2
+1
+η = η1 ξ11 + η2 ξ22 + η121 ξ121
++ η212 ξ212
+.
+
+In particular, η(xi , xi ) = ηi , i ∈ I2 , η(x2 , x12 x1 ) = η121 and η(x1 , x2 x12 ) = η212 .
+Next proposition characterizes the cocycles η that satisfy (5.1) and (5.2); so in
+particular eη is a Hopf cocycle. It is enough to assume that η ∈ Z2 (Bq , k)Γ .
+Proposition 6.7. A cocycle η ∈ Z2 (Bq , k)Γ satisfies (5.1) and (5.2) if and only if
+1
+2
+η ∈ C := {η1 ξ11 , η2 ξ22 , η121 ξ121
++ η212 ξ212
+: η1 , η2 , η121 , η212 ∈ k}.
+
+In particular if η ∈ C, then eη is a Hopf 2-cocycle.
+We will show in Lemma 6.11 that conditions (5.1) and (5.2) are not necessary
+for eη to be a Hopf 2-cocycle.
+2
+1
+Remark 6.8. Let η = η1 ξ11 + η2 ξ22 + η121 ξ121
++ η212 ξ212
+∈ Z2 (Bq , k)Γ . We can
+rephrase Proposition 6.7 as follows: η ∈ C if and only if
+
+(6.12)
+
+ηi ηj = ηi ηiji = ηi ηjij = 0,
+
+i 6= j ∈ I2 .
+
+Proof. Suppose that η verifies (5.1) and (5.2). That is for any x, y, z ∈ Bq ,
+(6.13)
+
+η(x, y(1) z(1) )η(y(2) , z(2) ) = η(x, y(2) z(2) )η(y(1) , z(1) ),
+
+(6.14)
+
+η(x(1) y(1) , z)η(x(2) , y(2) ) = η(x(2) y(2) , z)η(x(1) , y(1) ).
+
+Now, we see that if y = x2 x1 and z = x2 , then (6.13) gives
+(6.15)
+
+q21 η(x, x1 )η(x2 , x2 ) = q12 η(x, x1 )η(x2 , x2 ),
+
+for any x ∈ Bq .
+
+Similarly, if y = x1 x2 and z = x1 , then (6.13) gives
+(6.16)
+
+q21 η(x, x2 )η(x1 , x1 ) = q12 η(x, x2 )η(x1 , x1 ),
+
+for any x ∈ Bq .
+
+Thus, from (6.15) and (6.16), we obtain
+η(x1 , x1 )η(x2 , x2 ) = η(x2 , x12 x1 )η(x2 , x2 ) = η(x1 , x2 x12 )η(x1 , x1 ) = 0.
+If we suppose that η(x1 , x1 ) 6= 0, then η(x2 , x2 ) = η(x1 , x2 x12 ) = 0. Furthermore,
+if y = x12 x1 and z = x1 , then we obtain from (6.13) that
+η(x, x12 )η(x1 , x1 ) = −2q21 η(x1 , x1 )η(x, x2 x1 ) + η(x1 , x1 )η(x, x12 ),
+for any x ∈ Bq . Hence, we get that η(x2 , x12 x1 ) = 0. Through the same calculations for η(x2 , x2 ) 6= 0, we get that η(x1 , x1 ) = η(x2 , x12 x1 ) = η(x1 , x2 x12 ) = 0.
+Thus, η ∈ C.
+Conversely, suppose that η ∈ C. On one hand, if η = η1 ξii , i ∈ I2 , then by [GaM,
+Lemma 2.3.], we have the conclusion as η clearly satisfies (5.9).
+Now, we show that the hypothesis of Lemma 5.8 hold when
+(6.17)
+
+2
+1
+η = η121 ξ121
++ η212 ξ212
+.
+
+Let x, y, z ∈ Bq , such that deg(y), deg(z) are positive. In first place, note that if
+deg(y) + deg(z) < 4, then we obtain zero in both sides of (5.1) and thus ux (y, z) =
+dx (y, z) = 0. Now, if deg(y) + deg(z) = 4, then (5.1) becomes η(x, 1)η(y, z) and so,
+
+22
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+ux (y, z) = 0 = dx (y, z) when x 6= 1 and u1 (y, z) = η(y, z) = d1 (y, z). On the other
+hand, we explicitly show the most representative calculations below.
+deg(y) + deg(z) = 5:
+(i) y = x12 and z = x12 x1 :
+η(−, y1 z1 )η(y2 , z2 ) =2η(−, x1 )η(x2 , x12 x1 ) − 2q21 η(−, x1 )η(x12 , x2 x1 )
++ η(−, x1 )η(x12 , x12 ),
+η(y1 , z1 )η(−, y2 z2 ) =η(x12 , x12 )η(−, x1 ).
+Here
+• ux1 (x12 , x12 x1 ) = η(x12 , x12 ) = dx1 (x12 , x12 x1 ).
+• ux (x12 , x12 x1 ) = dx (x12 , x12 x1 ) = 0 for x 6= x1 .
+(ii) y = x12 and z = x2 x12 :
+η(−, y1 z1 )η(y2 , z2 ) =η(−, x2 )η(x1 , x2 x12 ) − q12 η(−, x2 )η(x2 x1 , x12 ),
+η(y1 , z1 )η(−, y2 z2 ) = − q21 η(x2 x1 , x12 )η(−, x2 ) + η(x1 , x2 x12 )η(−, x2 )
++ 2η(x2 x1 , x2 x1 )η(−, x2 ).
+Then
+• ux2 (x12 , x2 x12 ) = η(x12 , x12 ) = dx2 (x12 , x2 x12 ).
+• ux (x12 , x2 x12 ) = dx (x12 , x2 x12 ) = 0 for x 6= x2 .
+(iii) y = x2 x1 and z = x12 x1 :
+η(−, y1 z1 )η(y2 , z2 ) =q21 η(−, x1 )η(x2 , x12 x1 ) − 2q21 η(−, x1 )η(x2 x1 , x2 x1 )
++ η(−, x1 )η(x2 x1 , x12 ),
+η(y1 , z1 )η(−, y2 z2 ) =η(x2 x1 , x12 )η(−, x1 ) + q12 η(x2 , x12 x1 )η(−, x1 ).
+In this case ux (x12 , x2 x12 ) = 0 = dx (x12 , x2 x12 ) for any x ∈ Bq .
+(iv) y = x2 x1 and z = x2 x12 :
+η(−, y1 z1 )η(y2 , z2 ) =η(−, x2 )η(x1 , x2 x12 ) − q12 η(−, x2 )η(x2 x1 , x12 ),
+η(y1 , z1 )η(−, y2 z2 ) = − q21 η(x2 x1 , x12 )η(−, x2 ) + η(x1 , x2 x12 )η(−, x2 )
++ 2η(x2 x1 , x2 x1 )η(−, x2 ).
+Then,
+• ux2 (x2 x1 , x2 x12 ) = η(x12 , x12 ) = dx2 (x2 x1 , x2 x12 ).
+• ux (x2 x1 , x2 x12 ) = dx (x2 x1 , x2 x12 ) = 0 for x 6= x2 .
+(v) y = x2 and z = x2 x12 x1 :
+η(x, y1 z1 )η(y2 , z2 ) = − η(x, x2 )η(x2 , x12 x1 ),
+η(y1 , z1 )η(x, y2 z2 ) = − η(x2 , x12 x1 )η(x, x2 ).
+Then,
+• ux2 (x2 , x2 x12 x1 ) = −η(x2 , x12 x1 ) = dx2 (x2 , x2 x12 x1 ).
+• ux (x2 , x2 x12 x1 ) = dx (x2 , x2 x12 x1 ) = 0 for x 6= x2 .
+deg(y) + deg(z) = 6:
+(i) y = x12 and z = x2 x12 x1 :
+η(−, y1 z1 )η(y2 , z2 ) =q21 η(−, x2 x1 )η(x12 , x12 ),
+η(y1 , z1 )η(−, y2 z2 ) =η(x12 , x2 x1 )η(−, x2 x1 ) + q21 η(x1 , x2 x12 )η(−, x2 x1 ).
+Then,
+• ux2 x1 (x12 , x2 x12 x1 ) = q21 η(x12 , x12 ) = dx2 x1 (x12 , x2 x12 x1 ).
+• ux (x12 , x2 x12 x1 ) = dx (x12 , x2 x12 x1 ) = 0 for x 6= x2 x1 .
+
+EXPLICIT HOPF COCYCLES
+
+23
+
+(ii) y = x2 x1 and z = x2 x12 x1 :
+η(−, y1 z1 )η(y2 , z2 ) =η(−, x2 x1 )η(x1 , x2 x12 ) − q21 η(−, x12 )η(x2 , x12 x1 )
++ q21 η(−, x12 )η(x2 x1 , x2 x1 ),
+η(y1 , z1 )η(−, y2 z2 ) =η(x1 , x2 x12 )η(−, x2 x1 ).
+Thus,
+• ux2 x1 (x2 x1 , x2 x12 x1 ) = η(x1 , x2 x12 ) = dx2 x1 (x2 x1 , x2 x12 x1 ).
+• ux (x2 x1 , x2 x12 x1 ) = dx (x2 x1 , x2 x12 x1 ) = 0 for x 6= x2 x1 .
+(iii) y = x12 x1 and z = x2 x12 :
+η(−, y1 z1 )η(y2 , z2 ) = − 2q12 η(−, x1 x2 )η(x2 x1 , x12 ) − η(−, x1 x2 )η(x12 , x12 )
++ η(−, x12 )η(x1 , x2 x12 ),
+η(y1 , z1 )η(−, y2 z2 ) = − 2q12 η(x12 , x2 x1 )η(−, x1 x2 ) − η(x12 , x12 )η(−, x1 x2 )
++ η(x1 , x2 x12 )η(−, x12 ).
+Then,
+• ux12 (x12 x1 , x2 x12 ) = −q12 η(x2 x1 , x12 ) = dx12 (x12 x1 , x2 x12 ).
+• ux2 x1 (x12 x1 , x2 x12 ) = −η(x2 x1 , x12 ) = dx2 x1 (x12 x1 , x2 x12 ).
+• ux (x12 x1 , x2 x12 ) = dx (x12 x1 , x2 x12 ) = 0 for x 6= x12 , x2 x1 .
+(iv) y = x12 x1 = z or y = x2 x12 = z. In this cases, we obtain zero in both sides
+of (5.1) and so ux (y, z) = 0 = dx (y, z).
+deg(y) + deg(z) = 7:
+(i) y = x12 x1 and z = x2 x12 x1 :
+η(−, y1 z1 )η(y2 , z2 ) = − 4η(−, x1 x2 x1 )η(x2 x1 , x2 x1 ) + 2q21 η(−, x1 x12 )η(x2 x1 , x2 x1 )
++ 2q21 η(−, x1 x2 x1 )η(x2 x1 , x12 ) − η(−, x1 x12 )η(x12 , x2 x1 )
++ 2q21 η(−, x1 x2 x1 )η(x12 , x2 x1 ) − η(−, x1 x2 x1 )η(x12 , x12 )
++ η(−, x12 x1 )η(x1 , x2 x12 ) + η(−, x12 x1 )η(x12 x1 , x2 ),
+η(y1 , z1 )η(−, y2 z2 ) =η(x12 x1 , x2 )η(−, x12 x1 ) + η(x1 , x2 x12 )η(−, x12 x1 )
+− 2q12 η(x12 , x2 x1 )η(−, x1 x2 x1 ) − η(x12 , x12 )η(−, x1 x2 x1 )
+− η(x12 , x2 x1 )η(−, x1 x12 ).
+Here we have
+• ux12 x1 (x12 x1 , x2 x12 x1 ) = 2η(x1 , x2 x12 ) = dx12 x1 (x12 x1 , x2 x12 x1 ).
+• ux (x12 x1 , x2 x12 x1 ) = dx (x12 x1 , x2 x12 x1 ) = 0 for x 6= x12 x1 .
+(ii) y = x2 x12 and z = x2 x12 x1 :
+η(−, y1 z1 )η(y2 , z2 ) =q21 η(−, x12 x2 )η(x2 , x12 x1 ) − 2η(−, x2 x1 x2 )η(x2 , x12 x1 )
++ q21 η(−, x2 x12 )η(x12 , x2 x1 ) − η(−, x2 x12 )η(x2 x12 , x1 ),
+η(y1 , z1 )η(−, y2 z2 ) = − η(x2 x12 , x1 )η(−, x2 x12 ) − q21 η(x12 , x2 x1 )η(−, x2 x12 )
++ 2η(x2 x1 , x2 x1 )η(−, x2 x12 ) − q21 η(x12 , x2 x1 )η(−, x2 x12 ).
+Then,
+• ux2 x12 (x2 x12 , x2 x12 x1 ) = −η(x2 , x12 x1 ) = dx2 x12 (x2 x12 , x2 x12 x1 ).
+• ux (x2 x12 , x2 x12 x1 ) = dx (x2 x12 , x2 x12 x1 ) = 0 for x 6= x2 x12 .
+gr(y) + gr(z) = 8:
+(i) We obtain zero in both sides of (5.1), hence ux (y, z) = dx (y, z) = 0.
+The other cases are very similar. Now, we have that η verifies (5.1) and the
+hypothesis of the Lemma 5.8; hence η verifies (5.2) and eη is multiplicative.
+
+Lemma 6.9. Let σ = σλ be as in Theorem 6.5 and η ∈ Z2 (Bq , k)H as in (6.11).
+
+24
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+Assume that eη is a Hopf cocycle, cohomologous to σ. Then
+(6.18)
+
+λ1 = η1 ,
+
+λ2 = η2 ,
+
+η121 + η212 = λ12 + 2q12 λ1 λ2 .
+
+Moreover, if α ⇀ σ = eη , α ∈ U (B∗q ), then α(1) = 1 and
+(6.19)
+
+α(x1 ) = α(x2 ) = α(x12 ) = α(x2 x1 ) = α(x12 x1 ) = α(x2 x12 ) = 0,
+α(x2 x12 x1 ) = η212 − λ12 .
+
+Proof. Suppose that there exist α ∈ U (B∗q ) such that α ⇀ σ = eη . In first place,
+we may define α(1) = 1 and then Remark 5.6 gives us λ1 = η1 and λ2 = η2 . In
+particular, it follows that
+• α(x1 ) = α(x2 ) = 0.
+• α(xi xj ) = 0, for all i, j ∈ I2 with i 6= j.
+On the other hand, from the relations
+α ⇀ σ(xi , xj xi ) = eη (xi , xj xi ) = 0,
+
+α ⇀ σ(xi , x12 ) = eη (xi , x12 ) = 0,
+
+we obtain that α−1 (xi xj xi ) = 0, so α(xi xj xi ) = 0. Now we compute α(x2 x12 x1 ),
+expanding α ⇀ σ(x1 , x2 x12 ) = eη (x1 , x2 x12 ) and α ⇀ σ(x2 , x12 x1 ) = eη (x2 , x12 x1 ).
+For the first,
+α ⇀ σ(x2 , x12 x1 ) = η121
+σ(x2 , x12 x1 ) + α−1 (x2 x12 x1 ) = η121
+α−1 (x2 x12 x1 ) = η121 − 2q12 λ1 λ2 .
+For the second, we obtain:
+α ⇀ σ(x1 , x2 x12 ) = η212
+σ(x1 , x2 x12 ) − α−1 (x2 x12 x1 ) = η212
+α−1 (x2 x12 x1 ) = λ12 − η212 .
+Hence, as α−1 (x2 x12 x1 ) exists, then η121 + η212 = λ12 + 2q12 λ1 λ2 .
+2
+
+
+
+Γ
+
+Let C ⊂ Z (Bq , k) be the set defined by
+2
+1
+2
+1
+C := {ηi ξii + η121 ξ121
+− η121 ξ212
+, η121 ξ121
++ η212 ξ212
+: ηi , η121 , η212 ∈ k, i ∈ I2 }.
+
+Notice that η ∈ C if and only if
+(6.20)
+
+η1 η2 = η1 (η121 + η212 ) = η2 (η121 + η212 ) = 0.
+
+Remark 6.10. In particular, C ⊂ C and this inclusion is strict. However, they
+coincide up to cobordisms, see (6.10):
+2
+1
+C = C +k{ξ121
+− ξ212
+}.
+
+We have the following characterization of Hopf cocycles that are an exponential
+map of a Hochschild cocycle.
+Lemma 6.11. eη is a Hopf 2-cocycle if and only if η ∈ C.
+Proof. Let η ∈ Z2 (Bq , k)Γ be a Hochschild cocycle as in (6.11). Assume eη is a Hopf
+2-cocycle. We compute the values of eη in two ways. Namely, via the decomposition
+formulas in Example 3.4 and via the definition of an exponential map. We obtain a
+list of equations that imply that η ∈ C. We show below some of these calculations.
+eη (x2 x1 , x12 ): Using the decomposition formula, we obtain
+eη (x2 x1 , x12 ) = 2η1 η2 − q12 η121 ,
+but the definition of exponential map gives
+eη (x2 x1 , x12 ) = η1 η2 − q12 η121 .
+
+EXPLICIT HOPF COCYCLES
+
+25
+
+Thus, η1 η2 = 0. From now on, we suppose that this relations hold.
+eη (x12 x1 , x12 x1 ): We obtain:
+eη (x12 x1 , x12 x1 ) = q12 η1 η121 + q12 η1 η212 ,
+
+eη (x12 x1 , x12 x1 ) = 0.
+
+So, we get the relation η1 (η121 + η212 ) = 0.
+eη (x2 x12 , x2 x12 ): Here we get
+σ(x2 x12 , x2 x12 ) = −q12 η2 η121 − q12 η2 η212 ,
+
+eη (x2 x12 , x2 x12 ) = 0.
+
+Hence η2 (η121 + η212 ) = 0.
+Therefore, we see that η ∈ C.
+2
+1
++ η212 ξ212
+, then eη is a Hopf
+Conversely, suppose that η ∈ C. If η = η121 ξ121
+1
+2
+1
+cocycle by Proposition 6.7. Now, suppose that η = η1 ξ1 + η121 ξ121
+− η121 ξ212
+. The
+2
+2
+1
+case η = η2 ξ2 + η121 ξ121 − η121 ξ212 is analogous.
+We claim that, by definition, eη is given by the table
+eη
+x1
+x2
+x12
+x2 x1
+x2 x12
+x12 x1
+x2 x12 x1
+
+x1
+η1
+0
+0
+0
+η121
+0
+0
+
+x2
+0
+0
+0
+0
+0
+−η121
+0
+
+x12
+0
+0
+0
+−q12 η121
+0
+0
+0
+
+x2 x1
+0
+0
+−q12 η121
+η121
+0
+0
+0
+
+x2 x12
+−η121
+0
+0
+0
+0
+0
+0
+
+x12 x1
+0
+η121
+0
+0
+0
+0
+0
+
+x2 x12 x1
+0
+0
+0
+0
+0
+0
+2
+−η121
+
+Indeed, by Remark 5.4 and a degree argument, plus considering that η1 η2 = 0, we
+see that eη (x, y) = η(x, y) for deg x + deg y ≤ 4.
+On the other hand, if deg x + deg y = 5, then
+eη (x, y) = η(x, y) + η(x(1) , y(1) )η(x(2) , y(2) ),
+so eη (x, y) = 0 in this case. Now, when deg x + deg y = 6 and deg x 6= deg y, it
+follows that for each of the four possible cases, there are scalars (aij )i,j , depending
+on x, y, such that the following relation holds:
+X
+eη (x, y) = η(x, y) +
+aij η(xi , xi )η(xj , xij xj ).
+i,j∈I2 ,i≤j
+
+Thus eη (x, y) = 0 as η(x, y) = 0 and η(xj , xij xj ) = qij η(xj , xj xij ) = 0. If deg x =
+deg y = 3, then it follows that eη (x, y) = 0.
+If deg x + deg y = 7, then we see that eη (x, y) = 0. Finally, if x = y = x2 x12 x1 ,
+then it is easy to see that η ∗k (x, y) = 0 for k 6= 2 and
+η ∗2 (x, y) = − 4η(x2 x1 , x2 x1 )2 + 4q21 η(x2 x1 , x12 )η(x2 x1 , x2 x1 )
++ η(x1 , x2 x12 )η(x2 x12 , x1 ) + 2q21 η(x12 , x2 x1 )η(x2 x1 , x2 x1 )
+− η(x12 , x12 )η(x2 x1 , x2 x1 ) − η(x12 , x2 x1 )η(x2 x1 , x12 )
++ 2η(x12 x1 , x2 )η(x2 , x12 x1 ) + 2q21 η(x2 x1 , x2 x1 )η(x12 , x2 x1 )
+− η(x2 x1 , x12 )η(x12 , x2 x1 ) − η(x2 x1 , x2 x1 )η(x12 , x12 )
++ η(x2 x12 , x1 )η(x1 , x2 x12 )
+2
+2
+2
+2
+2
+= − 4η121
++ 4η121
++ η212 η121 + 2η121
+− η121
+− η212 η121 − η121
+2
+2
+2
++ 2η212 η121 + 2η121
+− η121
+− η121
+− η212 η121 + η121 η212
+= 2η212 η121 .
+2
+.
+Hence, recalling that η212 = −η121 , we obtain that eη (x, y) = 12 η ∗2 (x, y) = −η121
+
+26
+
+AGUSTÍN GARCÍA IGLESIAS AND JOSÉ IGNACIO SÁNCHEZ
+
+Now, let σ = ση1 ,0,0 as in Theorem 6.5 and α ∈ U (B∗q ) as in (6.19). Then
+α ⇀ ση1 ,0,0 (xi , b) = eη (xi , b), for any i ∈ I2 , b ∈ Bq , see Lemma 6.9. Next,
+we apply the decomposition formulas to compute all values of the Hopf cocycle
+α ⇀ ση1 ,0,0 and we obtain that α ⇀ σ = eη . Therefore, eη is a Hopf cocycle.
+
+Let Exp(C), Exp(C) ⊂ Z 2 (Bq ) be the subsets of Hopf cocycles that arise as
+exponential maps of elements of C and C respectively. Next, we show that it is
+enough to consider exponential cocycles in Exp(C).
+Lemma 6.12. Let σλ ∈ Z 2 (Bq ) be as in Theorem 6.5. Then σ is cohomologous
+to a cocycle in Exp(C) if and only σ is cohomologous to a cocycle in Exp(C).
+Proof. One implication is trivial. Assume σ ∼α eη , η ∈ C. That is, α ⇀ σ = eη .
+2
+1
+If η = η121 ξ121
++ η212 ξ212
+, then η ∈ C and we can take α = ǫ.
+1
+2
+1
+Fix now η = η1 ξ1 +η121 ξ121
+−η121 ξ212
+. By Lemma 6.9, (notice that η212 = −η121 )
+′
+if we define α by
+α′ (1) = 1,
+
+α′ (x) = 0, for 0 < deg x ≤ 3,
+
+α′ (x2 x12 x1 ) = η121 ,
+
+′
+
+′
+
+then α′ ⇀ eη = ση1 ,0,0 . But ση1 ,0,0 = eη and η ′ = η1 ξ11 ∈ C. Hence σ ∼β eη , for
+β = α′ ∗ α.
+
+The next theorem characterizes the cocycles that are co-homologous to an exponential map of a Hochschild cocycle.
+Theorem 6.13. Let σ = σλ be a Hopf 2-cocycle as in Theorem 6.5, σ 6= ǫ. Then
+the following are equivalent:
+(a) σ ∼ eη for some η ∈ Z2 (Bq , k)H .
+(b) There is a unique no null λ ∈ {λ1 , λ2 , λ12 }.
+(c) σ ∈ Exp(Z2 (Bq , k)H )
+In particular, any σ = σλ1 ,λ2 ,λ12 with at least two nonzero parameters is pure.
+Proof. First, notice that we can assume η ∈ C, by Lemma 6.12.
+(a) ⇒ (b). Combining Lemma 6.9 with equations (6.12), we obtain:
+λ1 λ2 = 0,
+
+λ1 λ12 = λ2 λ12 = 0.
+
+(b) ⇒ (c). By looking at the tables in Theorem 6.5 and in the proof of Lemma
+1
+2
+6.11, we see that this implication is clear as σ(λ,0,0) = eλξ1 . Similarly, σ(0,λ,0) = eλξ2 .
+1
+η
+Finally, if η = λξ212 , it follows from Lemma 6.9 that σ(0,0,λ) = e , as α = ǫ therein.
+(c) ⇒ (a). Clear.
+
+Remark 6.14. In the setting of Lemma 6.9, we see that if eη ∼ ǫ, then η1 = η2 = 0
+and η121 = −η212 . In other words, η ∈ B2 (B, k) as it is a scalar multiple of
+2
+1
+β := ξ121
+− ξ212
+, see (6.10). Conversely, eβ is a Hopf cocycle by Proposition 6.7 and
+Lemma 6.9 shows that eβ ∼ σ(0,0,0) = ǫ.
+We remark that eβ 6= ǫ, as shown in the table in the proof of Lemma 6.11.
+References
+[AG]
+[AS1]
+
+[AS2]
+[AV]
+
+N. Andruskiewitsch, A. Garcı́a Iglesias, Twisting Hopf algebras from cocycle deformations. Ann. Univ. Ferrara Sez. VII Sci. Mat. 63 (2017), no. 2, 221–247.
+Andruskiewitsch, N., Schneider, H.J., Pointed Hopf algebras, “New directions in Hopf
+algebras”, New directions in Hopf algebras, 1–68, Math. Sci. Res. Inst. Publ., 43, Cambridge Univ. Press, Cambridge, 2002.
+, On the classification of finite-dimensional pointed Hopf algebras, Ann. of Math.
+(2) 171 (2010), no. 1, 375–417.
+Andruskiewitsch, N., Vay, C., On a family of Hopf algebras of dimension 72, Bull.
+Belg. Math. Soc. Simon Stevin 19 (2012), no. 3, 415–443.
+
+EXPLICIT HOPF COCYCLES
+
+27
+
+[An1]
+
+Angiono, I., On Nichols algebras of diagonal type., J. Reine Angew. Math. 683 (2013),
+189–251.
+[An2]
+, A presentation by generators and relations of Nichols algebras of diagonal type
+and convex orders on root systems, J. Eur. Math. Soc. (JEMS) 17 (2015), no. 10, 2643–
+2671.
+[AnG] Angiono, I., Garcı́a Iglesias, A., Liftings of Nichols algebras of diagonal type II. All
+liftings are cocycle deformations. Selecta Math. 25, no. 1, Paper No. 5, 95 pp. (2019).
+[B]
+Brown K.S., Cohomology of Groups (Graduate Texts in Mathematics) - Springer-Verlag
+Berlin and Heidelberg GmbH & Co. (1982).
+[CGW] Cǎldǎraru, A, Giaquinto, A., Witherspoon, S., Algebraic deformations arising from
+orbifolds with discrete torsion., J. Pure Appl. Algebra 187 (2004), no. 1-3, 51–70.
+[D]
+Doi, Y. Equivalent crossed products for a Hopf algebra. Comm. Algebra 17 (1989), no.
+12, 3053–3085.
+[DT]
+Doi, Y., Takeuchi, M., Multiplication alteration by two-cocycles - the quantum version,
+Comm. Algebra 22 (1994), no. 14, 5715–5732.
+[FGM] Fantino, F., Garcı́a, G., Mastnak, M., On finite-dimensional copointed Hopf algebras
+over dihedral groups. J. Pure Appl. Algebra 223 (2019), no. 8, 3611–3634.
+[GaM] Garcı́a, G. A., Mastnak, M., Deformation by cocycles of pointed Hopf algebras over
+non-abelian groups, Math. Res. Lett. 22 (2015), 59–92.
+[GIM] Garcı́a Iglesias, A., Mombelli, M., Representations of the category of modules over
+pointed Hopf algebras over S3 and S4 , Pacific J. Math. 252 (2011), no. 2, 343–378.
+[GS]
+Garcı́a Iglesias, A., Sánchez, J., Hopf cocycles associated to pointed and copointed
+deformations over S3 , in progress.
+[GV1] Garcı́a Iglesias, A., Vay, C., Finite-dimensional Pointed or Copointed Hopf algebras
+over affine racks, J. Algebra 397 (2014), 379–406.
+, Copointed Hopf algebras over S4 . J. Pure Appl. Algebra 222 (2018), no. 9, 2784–
+[GV2]
+2809.
+[GrM] Grunelfelder, L., Mastnak, M., Pointed and copointed Hopf algebras as cocycle deformations, arXiv:0709.0120 (2007).
+[H]
+Heckenberger, I., Classification of arithmetic root systems. Adv. Math. 220 (2009),
+no. 1, 59–124.
+[MW] Mastnak, M. Witherspoon, S., Bialgebra cohomology, pointed Hopf algebras, and deformations. J. Pure Appl. Algebra 213 (2009), no. 7, 1399–1417
+[Ma]
+Masuoka, A., Abelian and non-abelian second cohomologies of quantized enveloping
+algebras. J. Algebra 320 (2008), no. 1, 1–47.
+[Mo]
+Montgomery, S., Hopf algebras and their action on rings, CBMS Regional Conference
+Series 82 (1993).
+[S]
+Sánchez, J., Álgebras de Hopf y deformaciones por cociclo. Tesis de Licenciatura. Universidad Nacional de Formosa, Argentina, (2020).
+[Sc]
+Schauenburg, P., Hopf-Galois and bi-Galois extensions. Galois theory, Hopf algebras,
+and semiabelian categories, 469–515, Fields Inst. Commun., 43, Amer. Math. Soc., Providence, RI, 2004.
+[St]
+Ştefan, D., Hochschild cohomology on Hopf Galois extensions. J. Pure Appl. Algebra
+103 (1995), no. 2, 221–233.
+A.G.I.: FaMAF-CIEM (CONICET), Medina Allende S/N, Universidad Nacional de
+Córdoba, Ciudad Universitaria, Córdoba (X5000HUA), República Argentina.
+Email address: agustingarcia@unc.edu.ar
+J.I.S.: FaMAF-CIEM (CONICET), Medina Allende S/N, Universidad Nacional de
+Córdoba, Ciudad Universitaria, Córdoba (X5000HUA), República Argentina.
+Email address: jose.ignacio.sanchez@mi.unc.edu.ar
+
+
