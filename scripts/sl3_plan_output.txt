@@ -1,0 +1,302 @@
+============================================================================
+PLANNING / FEASIBILITY:  HH²(u_q(sl_3), C) at ℓ = 3
+Project conjecture:  dim HH² = C(n+1, 2) + 2|Φ⁺| = C(3,2) + 2·3 = 3 + 6 = 9
+Generated:  W2-1a sub-agent   (sandbox: 4 GB RAM budget)
+============================================================================
+============================================================================
+1. DIMENSION OF u_q(sl_3) AT ℓ = 3
+============================================================================
+   PBW generators (8 total):
+     Cartan:        K1, K2                                  (rank 2)
+     Positive roots: E1, E12 = E1 E2 - q E2 E1, E2          (3)
+     Negative roots: F1, F21 = F2 F1 - q F1 F2, F2          (3)
+   Each PBW exponent ranges over 0..2 (since K_i^3=1, E_i^3=0, etc.)
+   dim u_q(sl_3) at ℓ = 3  =  3^8  =  6561
+   Formula check: ℓ^(#pos_roots + #neg_roots + rank) = ℓ^(3+3+2) = ℓ^8 = 6561
+   ✓  Matches task description 'dim = 3^(3+3+rank) = 3^8 = 6561'
+
+============================================================================
+2. WEIGHT SPACE DECOMPOSITION  (by (Z/ℓ)^2 = (Z/3)^2)
+============================================================================
+   Weight group: (Z/3)^2, order 9 = 9
+
+   Weight of K1^a K2^b E1^c E12^e E2^d F1^f F21^g F2^h:
+     E1  → α_1 = ( 1,  0)         F1  → -α_1 = (-1,  0) = (2, 0) mod 3
+     E12 → α_1+α_2 = ( 1,  1)     F21 → -(α_1+α_2) = (-1,-1) = (2, 2) mod 3
+     E2  → α_2 = ( 0,  1)         F2  → -α_2 = ( 0, -1) = (0, 2) mod 3
+     K1, K2 → (0, 0)
+
+   So weight of monomial = (c+e-f-g,  e+d-g-h) mod 3.
+
+   E-F part (3^6 = 729 = 729 monomials) distributes over 9 weights:
+     weight (0, 0): E-F dim = 81
+     weight (0, 1): E-F dim = 81
+     weight (0, 2): E-F dim = 81
+     weight (1, 0): E-F dim = 81
+     weight (1, 1): E-F dim = 81
+     weight (1, 2): E-F dim = 81
+     weight (2, 0): E-F dim = 81
+     weight (2, 1): E-F dim = 81
+     weight (2, 2): E-F dim = 81
+
+   Full weight space dims (× Cartan factor 3^2 = 9):
+     weight (0, 0): dim = 729
+     weight (0, 1): dim = 729
+     weight (0, 2): dim = 729
+     weight (1, 0): dim = 729
+     weight (1, 1): dim = 729
+     weight (1, 2): dim = 729
+     weight (2, 0): dim = 729
+     weight (2, 1): dim = 729
+     weight (2, 2): dim = 729
+   Sum = 6561  (must equal dim A = 6561)  ✓
+   Uniform distribution (each weight space dim = 729): True
+   (This is expected: the weight map (Z/3)^6 → (Z/3)^2 is a surjective
+    homomorphism with kernel of size 3^4 = 81, so each fiber has size 81;
+    times the Cartan factor 9 gives 729 = 6561 / 9.)
+
+============================================================================
+3. BAR COMPLEX BLOCK SIZES  (on full A = u_q(sl_3))
+============================================================================
+
+   The bar complex C^n(A, C) = Hom(A^{⊗n}, C) decomposes by total weight
+   in (Z/3)^2. The block of weight w has dimension:
+     dim C^n_w = Σ_{w_1+...+w_n = w}  ∏ dim(A_{w_i}).
+
+   Weight     dim C^1    dim C^2                dim C^3                   
+   ---------- ---------- ---------------------- --------------------------
+   (0, 0)     729        4,782,969              31,381,059,609            
+   (0, 1)     729        4,782,969              31,381,059,609            
+   (0, 2)     729        4,782,969              31,381,059,609            
+   (1, 0)     729        4,782,969              31,381,059,609            
+   (1, 1)     729        4,782,969              31,381,059,609            
+   (1, 2)     729        4,782,969              31,381,059,609            
+   (2, 0)     729        4,782,969              31,381,059,609            
+   (2, 1)     729        4,782,969              31,381,059,609            
+   (2, 2)     729        4,782,969              31,381,059,609            
+   TOTAL      6,561      43,046,721             282,429,536,481           
+   (Sanity check: dim^1=6,561, dim^2=43,046,721, dim^3=282,429,536,481)
+   Match: C¹ ✓, C² ✓, C³ ✓
+
+============================================================================
+4. MEMORY / TIME ESTIMATES  (direct bar complex on full A)
+============================================================================
+
+   Bar differential d^2: C³ → C².  Each row has ≤4 nonzeros:
+     (d² g)(a,b,c) = ε(a) g(b,c) - g(a·b, c) + g(a, b·c) - g(a,b) ε(c)
+   Sparse storage per nonzero: complex128 (16 B) + int32 index (4 B)
+                            = 20 B per nonzero.
+
+   Per-weight block (weight (0, 0) as representative, by symmetry all 9 blocks equal):
+     d² shape:           31,381,059,609 × 4,782,969
+     Nonzeros (sparse):  125,524,238,436
+     Sparse d² storage:  2.28 TB
+     Dense d²:           2184164.41 TB  (infeasible)
+     Dense Gram d²ᵀd²:   332.90 TB  (infeasible)
+
+   All 9 weights combined:
+     Total nonzeros: 1,129,718,145,924
+     Sparse storage: 20.55 TB
+
+   Time estimate (sparse iterative rank computation via ARPACK-style SVD):
+     Each matvec: ~125,524,238,436 flops  (125.5 s at 1 GFLOP/s)
+     ~10 matvecs per singular value
+     Need ~4,782,969 singular values (worst case, to count zeros)
+     Total: ~6,003,785,411,879,964,840 flops = ~6.00e+09 s = ~69488 days
+     → Infeasible (years of compute) even if matrix fit in memory.
+
+============================================================================
+5. TRACTABILITY ON A SINGLE 4 GB RAM MACHINE
+============================================================================
+
+   Sandbox RAM budget:  4 GB = 4.00 GB
+   Weight-0 d² sparse:  2.28 TB
+   All-9-weights d²:    20.55 TB
+
+   Max nonzeros storable in 4 GB:  214,748,364
+   Weight-0 d² requires:            125,524,238,436 nonzeros  (584.5× RAM)
+   All-9-weights d² requires:       1,129,718,145,924 nonzeros  (5260.7× RAM)
+
+   VERDICT:  Direct bar complex on full u_q(sl_3) at ℓ=3 is INTRACTABLE
+             in this sandbox (off by ~8× for weight-0 alone, ~70× for all weights).
+
+============================================================================
+6. COMPARISON WITH TRACTABLE CASES (already verified)
+============================================================================
+
+   (a) u_q(sl_2) at ℓ=3  — VERIFIED, dim HH² = 3  (matches conjecture 1 + 2 = 3)
+       dim A = 27, weight-0 block: C² = 243, C³ = 6561
+       Sparse d²: 512.6 KB;  Dense Gram: 922.6 KB
+       → Tractable; computed in seconds (verified in scripts/verify_sl2_hh2_fast.py)
+
+   (b) B⁺(u_q(sl_3)) at ℓ=3  — VERIFIED, dim HH² = 6  (matches 2|Φ⁺| = 6 for Borel)
+       dim B⁺ = 243, weight-0 block: C² = 6,561, C³ = 1,594,323
+       Sparse d²: 121.6 MB;  Dense Gram: 656.8 MB
+       → Tractable; computed in minutes (verified in scripts/verify_sl3_bplus_hh2.py)
+
+   (c) u_q(sl_3) at ℓ=3  — THIS TASK  (conjecture predicts dim HH² = 9)
+       dim A = 6561, weight-0 block: C² = 4,782,969, C³ = 31,381,059,609
+       Sparse d²: 2.28 TB;  Dense Gram: 332.90 TB
+       → INTRACTABLE on 4 GB RAM
+
+   Scaling ratios (weight-0 C³ size):
+     sl_3 / sl_2      =  4,782,969×  (31,381,059,609 / 6,561)
+     sl_3 / B⁺(sl_3)  =     19,683×  (31,381,059,609 / 1,594,323)
+
+============================================================================
+7. PRINCIPAL BLOCK u_0(sl_3) — SMALLEST POSSIBLE SUB-COMPUTATION
+============================================================================
+
+   Per W1-1c:  HH*(A, C) ≅ HH*(u_0, C)  (only the principal block contributes
+   to HH with trivial coefficients, because ε(e_λ) = δ_{λ,0}).
+
+   Claim:  u_0(sl_3) at ℓ=3 = weight-0 subspace of A  (as a subalgebra).
+   Reasoning:
+     • The principal block corresponds to the central idempotent
+       e_0 = (1/|G|) Σ_{g ∈ G} g,  where G = (Z/ℓ)^rank = (Z/3)^2 is the group
+       of grouplike elements (powers of K1, K2).  e_0 is precisely the projector
+       onto weight 0.
+     • Hence u_0 = e_0 A e_0 = e_0 A (e_0 central) = weight-0 subspace of A.
+     • dim u_0 = dim(weight-0 subspace) = 729 .
+
+   ✓  dim u_0(sl_3) at ℓ=3 = 729
+      (consistent with the heuristic dim u_0 ≈ ℓ^(2N) = 3^6 = 729,
+       where N = |Φ⁺| = 3 is the number of positive roots.)
+
+   For comparison, sl_2 at ℓ=3:  dim u_0 = ℓ^(2·1) = 9 = weight-0 subspace ✓.
+
+   Bar complex on u_0 (dim 729):
+     dim C¹ = 729
+     dim C² = 531,441
+     dim C³ = 387,420,489
+     Sparse d² storage: 28.87 GB
+     Dense d²:          2996.11 TB  (infeasible)
+     Dense Gram d²ᵀd²:  4.11 TB  (infeasible)
+
+   4 GB RAM feasibility: NO
+     (sparse d² needs 28.87 GB; budget = 4.00 GB)
+     Ratio: 7.2× over budget.
+
+   What would make the u_0 computation feasible?
+     • ~29 GB RAM for sparse d² storage (single precision)
+     • ~5 TB RAM for dense Gram (infeasible on any single machine)
+     • Alternative: sparse rank-revealing QR (e.g., SuiteSparse SPQR), needs ~29 GB
+     • Or: distributed computation across ~1 nodes × 128 GB RAM
+
+   Time estimate (sparse iterative rank computation, u_0 only):
+     Each matvec: ~1,549,681,956 flops (1.5 s)
+     ~10 matvecs per singular value, need ~531,441 singular values
+     Total: ~8.24e+06 s = ~95.3 days  (infeasible)
+
+============================================================================
+8. ALTERNATIVE APPROACHES  (recommended paths to verify the conjecture)
+============================================================================
+
+   The direct bar complex on u_q(sl_3) at ℓ=3 is INTRACTABLE in this sandbox.
+   Promising alternatives, in order of feasibility:
+
+   ─── (a) BGG-STYLE RESOLUTION (Hemelsoet–Voorhaar approach, adapted) ───
+     Hemelsoet–Voorhaar compute block cohomology via a BGG resolution,
+     which uses chain groups of size ~|W| × dim P(λ) instead of dim(A)^n.
+     For sl_3 at ℓ=3:  |W| = 6,  dim P(0) = 729,  so chain groups ~4374 dim.
+     This is ~10⁵× smaller than the bar complex.
+     Their software (github.com/RikVoorhaar/bgg-cohomology) computes self-coef
+     HH*(u_λ, u_λ); we would need to adapt it for trivial-coef HH*(u_q(g), C).
+     Status: Their principal-block s=2 case is EXPLICITLY EXCLUDED (Prop 5.1).
+     RECOMMENDED for W2-1b: adapt BGG software / theory for trivial coefficients.
+
+   ─── (b) EXPLICIT COCYCLE CONSTRUCTION (constructive proof) ───
+     The conjecture predicts dim HH² = 9 = 3 (Cartan) + 6 (root).
+     Construct 9 explicit candidate 2-cocycles:
+       • 3 Cartan cocycles:  ∂K1 ∧ ∂K2-type derivations from the (Z/3)² torus
+         (rank-2 exterior square of outer-derivation space = C(2,2) = 1 ...)
+         Wait — for full u_q(sl_3), the Cartan contribution is C(n+1, 2) = C(3,2) = 3.
+         These come from deformations of the Drinfeld-double's mixed
+         Cartan–Cartan relations, not from the Cartan subalgebra alone.
+       • 6 root cocycles:  2 per positive root (E1, E12, E2), one for the E-side
+         and one for the F-side of each root.
+     Verify:  d²(cocycle) = 0  and  linear independence mod im d¹.
+     Cost:  O(dim A × 9) per cocycle check  ≈ 60K ops; tractable in seconds.
+     RECOMMENDED for W2-1c: explicit cocycle construction.
+
+   ─── (c) MASTNAK–WITHERSPOON LONG EXACT SEQUENCE ───
+     For Drinfeld double D(B):
+       ... → HH^n(B) ⊕ HH^n(B*) → HH^n(D(B)) → HH^{n+1}(B ⊗ B*) → ...
+     Known: HH²(B⁺(sl_3), C) = 6 = 2|Φ⁺|  (verified).
+     By duality:  HH²(B⁺(sl_3)*, C) = 6.
+     LES gives HH²(D(B)) as an extension of 6 ⊕ 6 = 12 by something,
+     and the conjecture says HH²(D(B)) = 9.  The deficit 12 - 9 = 3 should
+     come from the connecting map HH²(D(B)) → HH³(B ⊗ B*) — needs computation.
+     LOWER PRIORITY; requires careful LES analysis (W1-1b flagged that
+     Schweigert–Woike do not provide an alternative to this LES).
+
+   ─── (d) MASSIVE COMPUTATION (out of scope) ───
+     TB-scale RAM, weeks of compute on a cluster.
+     Not feasible in this sandbox.
+
+============================================================================
+9. SMALLER SANITY CHECKS AVAILABLE IN THIS SANDBOX
+============================================================================
+
+   Although the full sl_3 ℓ=3 bar complex is intractable, smaller checks are
+   feasible and could provide partial verification of the conjecture:
+
+   (i) Cartan subalgebra HH²:  A_cart = C[K1, K2] / (K1³ - 1, K2³ - 1),  dim 9.
+       Over C,  x³ - 1 = (x-1)(x-ω)(x-ω²)  splits, so by CRT
+       A_cart ≅ C × C × ... × C  (9 copies)  ≅ C⁹.
+       C⁹ is semisimple commutative, so HH^n(C⁹, C) = 0 for all n ≥ 1.
+       → dim HH²(Cartan) = 0   (NOT 3 = C(3,2))
+       This shows that the Cartan contribution '3' in the conjecture is NOT
+       simply HH² of the Cartan subalgebra; it comes from the mixed
+       Cartan–root structure of the full Drinfeld double (the '3' counts
+       deformations of the cross-relations K_i E_j = q^{a_{ij}} E_j K_i, etc.).
+
+   (ii) B⁺(sl_3) ℓ=3 already verified:  HH² = 6 = 2|Φ⁺|   (✓ matches conjecture
+        for the Borel:  C(n+1,2) = 0 since Borel has no negative-root part,
+        so predicted = 0 + 2·3 = 6).
+
+   (iii) sl_2 ℓ=3 already verified:  HH² = 3 = C(2,2) + 2·1 = 1 + 2  ✓.
+
+   (iv) Attempt HH² of a 'Cartan × sl_2' subalgebra?
+        Not a natural subalgebra of u_q(sl_3); skipping.
+
+   (v)  Attempt a partial computation on a quotient / sub-block of u_q(sl_3)?
+        E.g., restrict to monomials with exponents in {0, 1} (not 2).
+        Dim = 2^8 = 256 (smaller).  BUT: this subspace is NOT closed under
+        multiplication (e.g., E1 × E1 should give E1² which has exponent 2),
+        so it's not a subalgebra.  Skipping.
+
+   CONCLUSION:  No smaller sub-computation of u_q(sl_3) at ℓ=3 verifies the
+   conjecture's full prediction '9'.  The full computation is intractable here.
+   The conjecture at sl_3, ℓ=3 must be verified via (a) BGG adaptation or
+   (b) explicit cocycle construction, in subsequent sub-tasks.
+
+============================================================================
+10. CONCLUSION  (summary for orchestrator)
+============================================================================
+
+   • dim u_q(sl_3) at ℓ=3 = 6561 (= 3^8).
+   • 9 weight spaces (Z/3)², each dim 729  (uniform distribution).
+   • Principal block u_0 = weight-0 subspace,  dim = 729.
+
+   • Direct bar complex on full A:
+       weight-0 block:  C² = 4,782,969,  C³ = 31,381,059,609
+       sparse d² storage: ~2 TB  (per weight, all 9 = ~9× more)
+       → INTRACTABLE in this sandbox.
+
+   • Direct bar complex on u_0 (smallest possible):
+       C² = 531,441,  C³ = 387,420,489
+       sparse d² storage: ~28 GB
+       → Still intractable on 4 GB RAM (exceeds by ~7.2×).
+
+   • Recommended next steps:
+       W2-1b:  Adapt Hemelsoet–Voorhaar BGG software to trivial coefficients
+               (chain groups ~4374-dim instead of 387M-dim).
+       W2-1c:  Construct 9 explicit cocycles and verify d² = 0 + linear independence.
+       W2-1d:  Mastnak–Witherspoon LES analysis (lower priority).
+
+   • The conjecture at sl_3, ℓ=3 remains UNVERIFIED after W2-1a.
+     Already-verified cases (sl_2 ℓ=3, B⁺(sl_3) ℓ=3) give partial support.
+
+
+Total wall-clock: 0.0 s

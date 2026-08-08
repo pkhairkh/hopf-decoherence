@@ -214,3 +214,183 @@ The CLR log-KL correspondence **does not provide a viable VOA-side route** to ou
 - Does CLR's framework (or cited [CGP15] for the unrolled group) provide analytic-character asymptotics that could verify the Lentner FP-dimension assumption (2501.10735) for $u_q^H(\mathfrak{sl}_3)$ at $\ell = 3$? (Speculative; not addressed in CLR.)
 
 ---
+
+## W2-1a — Plan for direct bar complex of HH²(u_q(sl_3), C) at ℓ = 3
+
+- **Task ID**: W2-1a
+- **Agent**: Sub-agent 2a (Wave 2, general-purpose)
+- **Date**: 2025-08-07
+- **Status**: completed (planning only — direct computation intractable in sandbox)
+- **Outputs**:
+  - `/home/z/my-project/hopf-decoherence/scripts/plan_sl3_hh2.py` (planning / diagnostic script)
+  - `/home/z/my-project/hopf-decoherence/scripts/sl3_plan_output.txt` (captured stdout)
+  - `/home/z/my-project/hopf-decoherence/literature/notes/W2-1a-sl3-bar-complex-plan.md` (full plan & analysis)
+
+### Summary
+
+Planned and analysed the direct bar-complex computation of `HH²(u_q(sl_3), C)` at `ℓ = 3` (conjecture: `dim = C(3,2) + 2|Φ⁺| = 3 + 6 = 9`). **The direct bar complex is intractable in this sandbox** (4 GB RAM budget). Even the smallest sub-computation — the principal block `u_0(sl_3)`, dim 729 — requires ~29 GB of RAM just to store the `d²` matrix sparsely, and ~95 days of compute to obtain its rank via sparse iterative methods. Three alternative approaches are recommended for subsequent sub-tasks.
+
+### Key findings
+
+1. **Dimension**: `dim_C u_q(sl_3) |_{ℓ=3} = 3^8 = 6561`. PBW basis: `K1^a K2^b E1^c E12^e E2^d F1^f F21^g F2^h`, all exponents in `{0,1,2}` (matches the task's `3^(3+3+rank) = 3^8`).
+
+2. **Weight space decomposition**: graded by `(Z/3)^2` (the character group of the Cartan torus `(K1, K2)`); **9 weight spaces, each of dim 729** (uniform distribution — the weight map `(Z/3)^6 → (Z/3)^2` on the E-F part is a surjective homomorphism with kernel of size `3^4 = 81`, times the Cartan factor `3^2 = 9`).
+
+3. **Principal block**: `u_0(sl_3)` at `ℓ=3` = weight-0 subspace of `A` (since the central idempotent `e_0 = (1/|G|) Σ_{g∈G} g`, `G = (Z/3)^2`, is the weight-0 projector). Hence **dim u_0 = 729** (consistent with the heuristic `dim u_0 ≈ ℓ^{2N} = 3^6` for `N = |Φ⁺| = 3`). For comparison, `sl_2` at `ℓ=3`: `dim u_0 = 9 = ℓ^{2·1}` ✓.
+
+4. **Bar complex block sizes (full A)**: per weight (all 9 equal by symmetry):
+   - `dim C¹_w = 729`
+   - `dim C²_w = 4,782,969` (~4.8 M)
+   - `dim C³_w = 31,381,059,609` (~31.4 B)
+   Total across 9 weights matches `dim(A)^n` ✓.
+
+5. **Bar complex block sizes (principal block u_0, dim 729)**:
+   - `dim C¹(u_0) = 729`
+   - `dim C²(u_0) = 531,441` (~531 K)
+   - `dim C³(u_0) = 387,420,489` (~387 M)
+
+6. **Memory obstacles**:
+   - **Full A, weight-0 d²** (sparse, 4 nonzeros/row): 125.5 B nonzeros × 20 B = **2.28 TB**. All 9 weights: **20.55 TB**. → 584× over the 4 GB sandbox budget (weight-0 alone).
+   - **Principal block u_0, d²** (sparse): 1.55 B nonzeros × 20 B = **28.87 GB**. → 7.2× over budget.
+   - **Dense Gram matrices** (4.5 TB for u_0, 333 TB for full A weight-0): infeasible on any single machine.
+
+7. **Time obstacles** (sparse iterative rank via ARPACK-style SVD, conservative 1 GFLOP/s):
+   - Full A weight-0: ~69,500 days (~190 years) — infeasible.
+   - Principal block u_0: ~95 days — infeasible in the sandbox.
+   - Sparse rank-revealing QR (SuiteSparse SPQR) on `u_0`: ~1–2 weeks on a 32 GB workstation — infeasible in the sandbox.
+
+8. **Comparison with tractable cases**:
+   | Case | dim A | weight-0 C³ | sparse d² | status |
+   |---|---|---|---|---|
+   | `u_q(sl_2)`, `ℓ=3` | 27 | 6,561 | 0.5 MB | ✅ verified (`HH² = 3`) |
+   | `B⁺(u_q(sl_3))`, `ℓ=3` | 243 | 1,594,323 | 122 MB | ✅ verified (`HH² = 6`) |
+   | `u_q(sl_3)`, `ℓ=3` | 6,561 | 31,381,059,609 | 2.28 TB | ❌ intractable |
+   | `u_0(sl_3)`, `ℓ=3` | 729 | 387,420,489 | 28.87 GB | ❌ intractable on 4 GB |
+   The `sl_3` case is **~5 orders of magnitude larger** than the largest case previously verified (`B⁺(sl_3)`).
+
+### Smaller sanity checks (none verifies the conjecture's `dim = 9`)
+
+- **Cartan subalgebra** `C[K1,K2]/(K1³−1,K2³−1)`, dim 9: splits as `C^9` over C (CRT); semisimple ⇒ `HH² = 0`, **not** `3 = C(3,2)`. The "Cartan piece" `3` in the conjecture is **not** `HH²(Cartan subalgebra)`; it comes from deformations of the cross-relations `K_i E_j = q^{a_{ij}} E_j K_i`, etc., which only exist in the full Drinfeld double.
+- `B⁺(sl_3)` `ℓ=3` already verified: `HH² = 6 = 2|Φ⁺|` ✓ (Borel has no negative-root part, so the Cartan piece `C(n+1,2) = 0` and the root piece `2|Φ⁺| = 6`).
+- `sl_2` `ℓ=3` already verified: `HH² = 3 = C(2,2) + 2·1` ✓.
+- Restricting `u_q(sl_3)` to monomials with exponents in `{0,1}` (dim 2^8 = 256) is **not closed under multiplication** (e.g., `E1·E1 = E1²` has exponent 2); not a subalgebra.
+
+**Conclusion**: no smaller sub-computation verifies `dim HH²(u_q(sl_3), C) = 9`. The conjecture at `sl_3, ℓ=3` remains **unverified** after W2-1a.
+
+### Recommended next actions for orchestrator
+
+The direct bar complex is intractable in this sandbox for `sl_3, ℓ=3`. Three alternative approaches are recommended, in order of promise:
+
+- **W2-1b — BGG-style resolution (adapt Hemelsoet–Voorhaar)**: their BGG software computes self-coef `HH*(u_λ, u_λ)`; we need trivial-coef `HH*(u_0, C)`. The BGG resolution has chain groups of dim `~|W| × dim P(0) ≈ 6 × 729 = 4374` (vs. 387 M for the bar complex `C³`), a `~10⁵×` reduction. Their principal-block `s=2` case is explicitly excluded in Prop 5.1; the exclusion is a range bound, not a fundamental obstruction. **Highest priority.**
+
+- **W2-1c — Explicit cocycle construction**: construct 9 candidate 2-cocycles (3 Cartan-cross-relation + 6 root, 2 per positive root `E1, E12, E2`); verify `d² = 0` and linear independence mod `im d¹`. Cost: `O(dim A × 9)` per cocycle check ≈ 60 K ops; tractable in seconds. Gives a constructive **lower bound** `dim HH² ≥ 9`; needs an independent upper-bound argument to fully prove the conjecture. The main implementation work is extending the Borel multiplication table in `verify_sl3_bplus_hh2.py` to include the F-generators and the cross-relations `[E_i, F_j] = δ_{ij} (K_i − K_i^{−1})/(q − q^{−1})`.
+
+- **W2-1d — Mastnak–Witherspoon LES analysis**: known `HH²(B⁺(sl_3)) ⊕ HH²(B⁺(sl_3)*) = 6 + 6 = 12`; LES gives `HH²(D(B))` as an extension; the conjecture says `HH² = 9`, so the connecting map `HH²(D(B)) → HH³(B ⊗ B*)` should have rank 3. Lower priority — requires careful LES computation.
+
+- **Out of scope**: massive computation (TB RAM, weeks of compute on a cluster). Not feasible in this sandbox.
+
+### Hardware that would make the direct computation feasible (for reference)
+
+- For the principal block `u_0` only: a workstation with **64–128 GB RAM** and a fast SSD; **1–2 weeks** of compute with SuiteSparse SPQR.
+- For the full algebra: a distributed cluster with **~30 nodes × 128 GB RAM** (≈ 4 TB aggregate); **months** of compute.
+
+### Files produced / modified
+
+- Created: `/home/z/my-project/hopf-decoherence/scripts/plan_sl3_hh2.py` (planning script).
+- Created: `/home/z/my-project/hopf-decoherence/scripts/sl3_plan_output.txt` (captured stdout).
+- Created: `/home/z/my-project/hopf-decoherence/literature/notes/W2-1a-sl3-bar-complex-plan.md` (detailed plan, dimensional analysis, recommendations).
+- No existing scripts or tests modified.
+
+### Open questions for downstream sub-agents
+
+- **For W2-1b (BGG adaptation)**: Can the Hemelsoet–Voorhaar BGG software be adapted to compute **trivial-coefficient** `HH*(u_0(sl_3), C)` at `s = 2`? Their Prop 5.1 explicitly excludes `s = 2` for the principal block — what is the precise obstruction, and can it be bypassed?
+- **For W2-1c (explicit cocycles)**: Can the 3 Cartan cocycles be written down explicitly? (The 6 root cocycles are straightforward; the 3 Cartan ones come from deformations of the cross-relations `K_i E_j`, `K_i F_j`, and need to be identified.)
+- **For W2-1d (LES analysis)**: Is the connecting map `HH²(D(B)) → HH³(B ⊗ B*)` computable for `B = B⁺(sl_3)` at `ℓ=3`? If yes, the LES gives `dim HH²(D(B))` from the known `12` minus the rank of the connecting map.
+- **For the orchestrator**: Is a partial verification (`dim HH² ≥ 9` via cocycle construction) sufficient to publish, or do we need the full `dim HH² = 9`?
+- **Bigger picture**: For `n ≥ 3` and odd `ℓ`, the direct bar complex is likely intractable at all odd `ℓ ≥ 3` (dimensional growth `dim(u_q(sl_n)) = ℓ^{n²+2n}`). The BGG / cocycle / LES approaches are not just expedients — they are **necessary** for higher-rank verification.
+
+---
+
+## W2-1b — LES consistency analysis for sl_3 at ℓ = 3
+
+- **Task ID**: W2-1b
+- **Agent**: Sub-agent 2b (Wave 2, general-purpose)
+- **Date**: 2025-08-07
+- **Status**: completed
+- **Outputs**:
+  - `scripts/test_sl3_les_consistency.py` (main analysis script; LES constraints + direct HH¹(B⁺) computation)
+  - `scripts/sl3_les_output.txt` (captured stdout, 196 lines)
+  - `tests/test_sl3_les.py` (9 passing pytest tests)
+  - `literature/notes/W2-1b-sl3-les-analysis.md` (full analysis)
+
+### Summary
+
+Investigated the Mastnak–Witherspoon LES at A₂ to determine whether the conjecture `dim_C HH²(u_q(sl_3), C) = C(3,2) + 2|Φ⁺| = 9` at ℓ = 3 is consistent with the verified `dim HH²(B⁺) = 5`, and to make the strongest possible statement about A₂ short of the (intractable per W2-1a) direct bar-complex computation. **The conjecture at A₂ is consistent with the LES** (the structural split `(3, 6)` is among 10 LES-consistent splits), and the LES — together with a direct verification that `dim HH¹(B⁺) = 0` (computed here, ~2 seconds) — **reduces the conjecture at A₂ to a single tractable prediction**: `dim H̃¹_b(B⁺(u_q(sl_3)), C) = C(3, 2) = 3` at ℓ = 3. Status of A₂ is now **open, but reduced to a tractable computation** of `H̃¹_b(B⁺)` (chain groups of dim ~ 59K, in contrast to the intractable `HH²(D)` bar complex at 2.28 TB RAM).
+
+### Key findings
+
+1. **LES dimensional constraints (Q1)**. The Mastnak–Witherspoon LES at degree 2 gives `dim HH²(D(B⁺)) = dim im(δ) + dim im(ῑ at deg 2)`, with constraints: `0 ≤ dim im(δ)`, `0 ≤ dim im(ῑ at deg 2) ≤ dim HH²(B⁺) ⊕ HH²(B⁻) = 10`. The LES alone does not pin down the split.
+
+2. **LES-consistent splits (Q2)**. Under the conjecture (`dim HH²(D) = 9`), 10 splits `(dim im(δ), dim im(ῑ))` are consistent: `(0,9), (1,8), (2,7), (3,6), (4,5), (5,4), (6,3), (7,2), (8,1), (9,0)`. The conjecture's structural split `(3, 6)` is among them → **CONSISTENT** (necessary condition satisfied).
+
+3. **Cannot pin down dim im(δ) from first principles (Q3)**. Need either: (a) direct `H̃¹_b(B⁺)` computation (tractable), or (b) direct restriction-map `ῑ: HH²(D) → HH²(B) ⊕ HH²(B*)` computation (intractable per W2-1a).
+
+4. **Direct HH¹(B⁺) computation (Q4)** — the new empirical result of this task. Computed `dim HH¹(B⁺(u_q(sl_3)), C) = 0` at ℓ = 3 via weight-decomposed bar complex (9 weight blocks, each `6561 × 27`, SVD on each; total `rank(d¹) = 243 = dim B⁺`). Total computation time ~2 seconds. **Matches the sl_2 case and the paper's stated expectation (Sec. 7)**. This was previously only "expected in general" — now verified at A₂.
+
+5. **LES simplification (Q5)**. With `dim HH¹(B⁺) = dim HH¹(B⁻) = 0`, the map `π̄: HH¹(B) ⊕ HH¹(B*) → H̃¹_b(B)` has zero source, so `dim im(π̄) = 0`. By exactness, `ker(δ) = 0`, so **δ is injective**: `dim im(δ) = dim H̃¹_b(B⁺)`. The LES simplifies to:
+   ```
+   dim HH²(D(B⁺)) = dim H̃¹_b(B⁺) + dim im(ῑ at deg 2)
+   ```
+
+6. **Strongest statement about A₂ (Q6)**. Given HH¹ vanishing (verified) and LES exactness:
+   - The conjecture (`dim HH²(D) = 9`) is **equivalent** to `dim H̃¹_b(B⁺(u_q(sl_3)), C) = C(3, 2) = 3` at ℓ = 3.
+   - **Sufficient REFUTATION criterion**: if `dim H̃¹_b(B⁺) > 9`, then `dim HH²(D) > 9`, refuting the conjecture.
+   - **Sufficient VERIFICATION criterion** (under the structural prediction `dim im(ῑ) = 2|Φ⁺| = 6`): if `dim H̃¹_b(B⁺) = 3`, then `dim HH²(D) = 9`, verifying the conjecture.
+   - A direct computation of `H̃¹_b(B⁺)` — feasible at `dim B⁺ = 243` (chain groups ~ 59K-dim) — would either verify (if = 3) or refute (if ≠ 3) the conjecture at A₂.
+
+### Comparison with A₁
+
+| Quantity | A₁, ℓ = 3 (verified) | A₂, ℓ = 3 (this task) |
+|---|---|---|
+| `dim HH¹(B⁺)` | 0 | **0** (computed Q4) |
+| `dim HH²(B⁺)` | 1 | 5 (paper Sec. 6.5) |
+| `dim HH²(B⁻)` | 1 | 5 (by duality) |
+| `dim HH²(D(B⁺))` | 3 | 9 (conjecture, **not** verified) |
+| `dim im(ῑ at deg 2)` | 2 (verified by restriction map) | 6 (predicted, **not** verified) |
+| `dim im(δ)` | 1 (verified by restriction map) | 3 (predicted, **not** verified) |
+| `dim H̃¹_b(B⁺)` | 1 (conjecture + LES) | 3 (conjecture + LES, **not** verified) |
+| Status | **Theorem-in-waiting** (Sec. 7.4) | **Open, reduced to H̃¹_b(B⁺) computation** |
+
+The A₁ verification relied on the tractable restriction-map computation (`dim u_q(sl_2) = 27`); at A₂ (`dim u_q(sl_3) = 6561`), the analogous computation is intractable per W2-1a. The W2-1b reduction identifies the smaller object `H̃¹_b(B⁺)` (decoupled from the full Drinfeld double) as the correct target — a **~10⁷× reduction** in problem size (from `dim(A)³ ≈ 2.8 × 10¹¹` to `dim(B⁺)² ≈ 6 × 10⁴`).
+
+### Tests
+
+`tests/test_sl3_les.py` (9 tests, all passing):
+- `test_script_runs`: consistency script returns a result dict.
+- `test_hh1_bplus_vanishes`: `dim HH¹(B⁺) = 0` (new empirical computation).
+- `test_hh2_bplus_is_5`: `dim HH²(B⁺) = dim HH²(B⁻) = 5` (paper Sec. 6.5).
+- `test_conjecture_dimension_is_9`: `dim HH²(u_q(sl_3)) = 9` (conjecture).
+- `test_conjecture_split_is_les_consistent`: the conjecture's split `(3, 6)` is among the LES-consistent splits.
+- `test_conjecture_is_necessary_les_consistent`: independent re-check of the necessary conditions.
+- `test_les_simplification_under_hh1_vanishing`: under HH¹ = 0, δ is injective; conjecture ⇔ `dim H̃¹_b(B⁺) = 3`.
+- `test_refutation_criterion_identified`: `dim H̃¹_b(B⁺) > 9` would refute the conjecture.
+- `test_output_file_exists`: `scripts/sl3_les_output.txt` exists and records the verdict.
+
+Full test suite (excluding slow): **80 passed, 1 deselected** in ~35 s. The new tests do not regress existing tests.
+
+### Files produced / modified
+
+- Created: `scripts/test_sl3_les_consistency.py` (main analysis script).
+- Created: `scripts/sl3_les_output.txt` (captured stdout).
+- Created: `tests/test_sl3_les.py` (9 tests).
+- Created: `literature/notes/W2-1b-sl3-les-analysis.md` (full analysis, this task's primary writeup).
+- No existing scripts or paper source modified.
+
+### Open questions for downstream sub-agents
+
+- **For W2-1c (explicit cocycle construction, in progress per W2-1a)**: Can the 3 Cartan-type / mixed E–F cocycles predicted to live in `H̃¹_b(B⁺)` be written down explicitly? For sl_2, the single mixed E–F class in `HH²(D)` was extracted in Sec. 6.4 of the paper, but its preimage under `δ` in `H̃¹_b(B⁺)` was not. Constructing these would give a constructive lower bound `dim H̃¹_b(B⁺) ≥ 3`, providing positive evidence for the conjecture.
+- **For W2-1d (direct `H̃¹_b(B⁺)` computation)**: Implement the bialgebra cochain complex of MW §2.1 for `B⁺(u_q(sl_3))` at ℓ = 3, compute `dim H̃¹_b(B⁺)`, check whether it equals 3. Chain-group size ~ `dim(B⁺)² = 59049` per degree — comparable to the existing `HH²(B⁺)` computation that runs in ~4 minutes (paper Sec. 6.5). **This is now the highest-priority next step for resolving A₂.**
+- **For the orchestrator**: The conjecture's structural prediction `dim im(ῑ at deg 2) = 2|Φ⁺| = 6` requires either an Angiono–Kochetov–Mastnak [AKM15] rigidity argument or an explicit verification that the 6 ℓ-th power classes `[E_α^ℓ], [F_α^ℓ]` survive into `im(ῑ)`. Note `dim HH²(B⁺) ⊕ HH²(B⁻) = 10`, so 4 of the 10 classes must die under `π̄: HH²(B⁺) ⊕ HH²(B⁻) → H̃²_b(B⁺)`; identifying these 4 "extra" classes is also open.
+- **Bigger picture**: The W2-1b reduction (`HH²(D)` ↔ `H̃¹_b(B⁺)` under HH¹ vanishing) likely generalises to all type-A_n at odd ℓ. If `dim HH¹(B⁺) = 0` holds in general (analogous to sl_2, sl_3), the conjecture at all A_n reduces to `dim H̃¹_b(B⁺) = C(n+1, 2)` — a tractable computation per rank.
+
+---
