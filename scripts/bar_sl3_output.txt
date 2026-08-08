@@ -1,0 +1,43 @@
+======================================================================
+W3-1a: Bar complex on PBW normal forms for u_q(sl_3) at ell = 3
+======================================================================
+
+Goal: compute dim HH^1(u_q(sl_3), C) via the bar complex,
+      verify dim HH^2(B^+) = 5 as a sanity check, and document
+      the intractability of dim HH^2(u_q(sl_3), C).
+
+Step 1: build L_g and R_g multiplication tables via IR reducer
+  Loaded cached L_g tables from /tmp/L_sl3_tables.pkl
+  Loaded cached R_g tables from /tmp/R_sl3_tables.pkl
+  Total build time: 0.2s
+    K1: L nnz=6561, R nnz=6561
+    K2: L nnz=6561, R nnz=6561
+    E1: L nnz=4374, R nnz=18468
+    E12: L nnz=4374, R nnz=26406
+    E2: L nnz=7290, R nnz=16038
+    F1: L nnz=16038, R nnz=6804
+    F21: L nnz=26730, R nnz=4374
+    F2: L nnz=18954, R nnz=4374
+
+Step 2: sanity checks on multiplication table
+  Sanity checks:
+    K1 * K1 = K1^2: True
+    K1^3 = 1: True
+    E1^3 = 0: True
+    F1^3 = 0: True
+    E12^3 = 0: True
+    E1 * K1 = q K1 E1: True
+    F1 * E1 = E1 F1 - alpha(K1 - K1^2): True
+  All sanity checks passed: True
+
+Step 3: compute dim HH^1 via weight-decomposed Gram matrix
+
+=== HH^1 via bar complex (weight-decomposed) ===
+  Weight-space sizes: [2187, 2187, 2187]
+    (Expected: 2187 per weight, total 6561)
+  ε-nonzero elements: 9 (expected 9)
+
+  Weight block w = 0:
+    dim C^1_w = 2187
+    weight pair (s=0, s2=0): 2187 x 2187 = 4782969 pairs
+      k #500: 117.5s elapsed, ~4273s remaining for this weight block
