@@ -1072,3 +1072,188 @@ Four required tests + 7 additional tests, all passing:
   `dim HH³` or for cross-checking `dim HH²` via the Anick
   differential (which needs `d_3`), a proper degree-3 enumeration is
   needed.
+
+---
+
+## LP-0a — Letterplace encoder: NC → commutative compilation
+
+- **Task ID**: LP-0a
+- **Agent**: Sub-agent 0a (letterplace programme, general-purpose)
+- **Date**: 2025-08-08
+- **Status**: completed
+- **Output**:
+  - `/home/z/my-project/hopf-decoherence/ir/letterplace.py` (~630 lines)
+  - `/home/z/my-project/hopf-decoherence/tests/test_letterplace.py` (~630 lines, 36 tests)
+
+### Summary
+
+Built the **letterplace encoder** that compiles noncommutative (NC)
+algebra problems into commutative algebra problems, enabling the use of
+sympy's commutative Gröbner basis machinery to compute syzygies and
+free resolutions for NC algebras. The encoder implements the
+letterplace correspondence (Cohen 1987; La Scala arXiv:1605.06944):
+
+  NC word `x_{i1}...x_{id}` at position `s`
+    ↔  commutative monomial `x_{i1,s} * x_{i2,s+1} * ... * x_{id,s+d-1}`
+
+  NC relation `LHS = RHS` at position `s`
+    ↔  commutative polynomial `encode(LHS, s) - encode(RHS, s)`
+
+  NC free resolution of `k` over `A`
+    ↔  commutative free resolution of `k` over `K[x_{i,s}]/I_lp`
+       (up to total NC degree `max_degree`).
+
+The new `LetterplaceEncoder` class lives in `ir/letterplace.py` and
+integrates with the existing `ir/parser.py` infrastructure
+(`QLaurent`, `Monomial`, `Polynomial`, `RewriteRule`, `Presentation`).
+
+### Key design choices
+
+1. **Variable naming**: commutative variables are `sympy.Symbol`s named
+   `f"x{i}_s{s}"` (e.g. `x0_s0`, `x1_s3`), created with default
+   assumptions (commutative=True). The encoder stores them in a 2D grid
+   `self._vars[i][s]` plus a flat list `self._all_vars` (i-major,
+   s-minor order) and a name→(i,s) reverse-lookup map for decoding.
+
+2. **Coefficient handling**: `QLaurent` coefficients (`Z[q, q^{-1}]`)
+   are converted to sympy expressions in a single symbolic
+   `sympy.Symbol('q')`. The `_qlaurent_to_sympy` helper builds
+   `sum(c_i * q**e_i)`; the inverse `_sympy_to_qlaurent` parses
+   `q`-powers back into the `{exponent: int_coeff}` dict form. The
+   `q_sym` is injectable (`q_sym=...`) so callers can substitute an
+   algebraic root of unity (e.g. `exp(2πi/3)`) or a `QQ(q)` algebraic
+   element without changing the encoder.
+
+3. **Gröbner basis computation**: `compute_groebner_basis(pres, order,
+   include_q)` calls `sympy.groebner`. Two modes:
+   - **Default** (`include_q=False`, `order='grevlex'`): `q` is a
+     symbolic coefficient (sympy uses the `EX` domain). Fastest.
+   - **Letterplace-friendly** (`include_q=True`, `order='lex'`): `q`
+     is the *last* variable. With lex order the leading term of each
+     encoded relation is the NC LHS monomial (e.g. `x0_s0*x1_s1`),
+     so commutative reduction mirrors NC rewriting. This is the mode
+     used for the integration tests.
+
+4. **Decoding**: `decode_monomial` handles `Symbol`, `Mul`, `Pow`
+   (raised for powers > 1, since letterplace monomials are squarefree),
+   and `Integer(1)` (empty word, convention `start=0`). It rejects
+   non-consecutive positions. `decode_polynomial` uses
+   `sp.Poly(comm_poly, *x_vars)` to split monomials (in x-vars) from
+   coefficients (in q), then groups terms by their minimum position
+   into a `dict[int, Polynomial]`.
+
+### Test results
+
+```
+$ pytest tests/test_letterplace.py -v
+============================== 36 passed in 1.83s ==============================
+```
+
+36 tests across 7 test classes (the spec required ≥6 tests; we
+delivered 36 to cover the full encode/decode round-trip and the
+letterplace-ideal correctness on the quantum plane):
+
+  - `TestEncodeWord` (6): basic, three-factor, yx, empty-is-one,
+    out-of-range raises, accepts `Monomial`.
+  - `TestEncodePolynomial` (5): single-term, two-term (the quantum
+    plane relation), non-zero start, zero poly, integer coeff.
+  - `TestEncodeRelation` (3): at s=0, at s=1, equals
+    `encode_word(lhs) - encode_polynomial(rhs)`.
+  - `TestEncodePresentation` (4): quantum plane generator count,
+    scaling with `max_degree`, multiple rules, LHS-too-long.
+  - `TestComputeGroebnerBasis` (5): non-empty, reduces encoded
+    relations to 0 (the defining property), lex-order leading terms
+    are NC LHS monomials, no-relations case, scaling with
+    `max_degree`.
+  - `TestDecodeMonomial` (6): basic round-trip, single symbol,
+    round-trip on 7 words, empty, rejects non-consecutive positions,
+    rejects powers > 1.
+  - `TestDecodePolynomial` (4): single position, multiple positions,
+    zero, round-trip.
+  - `TestLetterplaceIdeal` (3 integration): the letterplace Gröbner
+    basis reproduces NC rewriting — `xy → q·yx`, `xxy → q²·yxx`,
+    `yx` is already normal.
+
+The full IR test suite remains green:
+```
+$ pytest tests/test_ir_parser.py tests/test_ir_groebner.py tests/test_ir_uq_sl2.py tests/test_letterplace.py
+============================== 91 passed in 4.06s ==============================
+```
+
+### Quantum plane demo
+
+For `x·y = q·y·x` at `max_degree=3`, the letterplace ideal is
+generated by:
+```
+gen[0]: x0_s0*x1_s1 - q*x1_s0*x0_s1
+gen[1]: x0_s1*x1_s2 - q*x1_s1*x0_s2
+```
+The Gröbner basis (lex, q included last) is the same set, with leading
+terms `x0_s0*x1_s1` and `x0_s1*x1_s2` (the NC LHS monomials).
+Reducing `x0_s0*x1_s1` (NC `xy` at s=0) modulo the basis gives
+`q*x1_s0*x0_s1` (NC `q·yx` at s=0), reproducing the NC rewrite.
+Reducing `x0_s0*x0_s1*x1_s2` (NC `xxy`) gives `q²·x1_s0*x0_s1*x0_s2`
+(NC `q²·yxx`), reproducing the double-swap. Decoding the basis element
+`x0_s0*x1_s1 - q*x1_s0*x0_s1` recovers the NC polynomial
+`(0,1) - q·(1,0)` at start=0.
+
+### Limitations & open items for downstream sub-agents
+
+- **Saturation**: the encoder generates the letterplace ideal
+  `I_lp ⊂ K[q, x_{i,s}]` directly. For full correctness at roots of
+  unity (where `q^ℓ = 1`), the ideal must be *saturated* with respect
+  to `q` (or the root-of-unity minimal polynomial must be added as an
+  extra generator). The encoder does not yet do this; it is the
+  downstream sub-agent's responsibility to add the saturation or the
+  minimal polynomial.
+- **Negative q-powers**: `QLaurent` allows `q^{-k}` coefficients. The
+  encoder currently passes these to sympy as `q**(-k)`, which sympy
+  handles in the `EX` domain but which may slow Gröbner computation.
+  For production use, generators with negative q-powers should be
+  multiplied through by `q^k` to clear denominators (a future helper
+  `_clear_q_denominators` could do this).
+- **Free resolution**: this task built the *encoder*; the actual
+  computation of syzygies / free resolution (the next step in the
+  letterplace programme) is left to LP-0b. The encoder exposes
+  `compute_groebner_basis` which is the input to syzygy computation
+  via `sympy.matrices.normalform` or hand-rolled Schreyer-order
+  algorithms.
+- **Performance**: `sympy.groebner` with the `EX` domain is slow for
+  large variable counts. For `u_q(sl_3)` at `ℓ=3` (8 generators,
+  `max_degree ~ 6` → ~50 commutative variables), the Gröbner basis
+  may be intractable in pure sympy; a backend like Singular or
+  Macaulay2 (via `sympy.polys`'s optional `ground` domain) may be
+  needed. The encoder API is independent of the backend.
+- **Monomial order for the Anick correspondence**: the standard
+  letterplace correspondence uses a specific position-over-generator
+  order to make the commutative free resolution isomorphic to the NC
+  Anick resolution. We use generic `lex`/`grevlex`; matching the
+  exact La Scala–Levandovskyy order is left to LP-0b.
+
+### Files produced / modified
+
+- Created: `/home/z/my-project/hopf-decoherence/ir/letterplace.py` (~630 lines)
+- Created: `/home/z/my-project/hopf-decoherence/tests/test_letterplace.py` (~630 lines, 36 tests)
+- Modified: `/home/z/my-project/worklog.md` (appended this section)
+- No existing source files modified. `ir/parser.py`, `ir/groebner.py`,
+  `ir/qomega.py`, `ir/uq_sl2.py` are unchanged; `LetterplaceEncoder`
+  imports from `ir.parser` and is fully interoperable with the
+  existing `Presentation`/`RewriteRule`/`Polynomial` types.
+
+### Recommended next actions for the orchestrator
+
+- **LP-0b (syzygy computation)**: build on this encoder to compute the
+  syzygy module `Syz(I_lp)` via the Schreyer order on the Gröbner
+  basis. The free resolution of `k` over `K[x_{i,s}]/I_lp` is then
+  read off from iterated syzygy modules. The `decode_polynomial` method
+  here is the bridge back to NC polynomials.
+- **LP-0c (saturation at roots of unity)**: add the root-of-unity
+  minimal polynomial (e.g. `q^2 + q + 1` for `ℓ=3`) as an extra
+  letterplace generator, or implement q-saturation. This is required
+  for the encoder to reproduce the `QOmega3`-based `dim HH²` results
+  from `ir/uq_sl2.py` (which gives `dim HH² = 3` for `u_q(sl_2)` at
+  `ℓ=3`).
+- **LP-1 (validate on `u_q(sl_2)`)**: run the encoder on the
+  `u_q(sl_2)` presentation at `ℓ=3` (6 rules, from `ir/uq_sl2.py`) and
+  cross-check the letterplace `dim HH²` against the bar-complex value
+  of 3. This validates the full pipeline before tackling `u_q(sl_3)`.
