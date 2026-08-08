@@ -1,0 +1,20 @@
+
+=== H̃¹_b(B⁺(u_q(sl_2)), C) at ℓ = 3 ===
+dim B = 9, dim B̄ = 8
+q = (-0.4999999999999998+0.8660254037844387j)
+Mult table built: 0.00s
+Delta table built: 0.00s
+Coassoc max error: 0.00e+00
+Counital max error: 0.00e+00
+mult_bar nnz: 65
+delta_bar nnz: 13
+  shift 0: cols=22, rows_h=170, rows_c=170, rank=21, nullity=1  [0.00s]
+  shift 1: cols=21, rows_h=171, rows_c=171, rank=21, nullity=0  [0.00s]
+  shift 2: cols=21, rows_h=171, rows_c=171, rank=21, nullity=0  [0.00s]
+
+Total input dim (dim Hom(B̄,B̄)): 64
+Total rank of ∂_b:                63
+dim H̃¹_b(B⁺(u_q(sl_2)), C)  = dim ker(∂_b) = 1
+Expected (conjecture at A₁, ℓ=3): 1
+MATCH: True
+Total time: 0.0s

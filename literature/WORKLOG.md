@@ -394,3 +394,67 @@ Full test suite (excluding slow): **80 passed, 1 deselected** in ~35 s. The new 
 - **Bigger picture**: The W2-1b reduction (`HH²(D)` ↔ `H̃¹_b(B⁺)` under HH¹ vanishing) likely generalises to all type-A_n at odd ℓ. If `dim HH¹(B⁺) = 0` holds in general (analogous to sl_2, sl_3), the conjecture at all A_n reduces to `dim H̃¹_b(B⁺) = C(n+1, 2)` — a tractable computation per rank.
 
 ---
+
+## W3-1b — Extract MW bialgebra cochain equations (no implementation)
+
+- **Task ID**: W3-1b
+- **Agent**: Sub-agent 3b (Wave 3, general-purpose)
+- **Date**: 2025-08-07
+- **Status**: completed
+- **Output**: `literature/notes/W3-1b-mw-equations.md` (this task's primary writeup, ~13 sections)
+- **Predecessor**: W3-1a (crashed while attempting direct implementation; this sub-task is the focused "extract equations only" redo)
+- **Successor**: W3-1c (will implement the bialgebra cochain complex for `B⁺(u_q(sl_3))` at ℓ=3 using these equations)
+
+### Summary
+
+Read MW §2.1 (Bialgebra cohomology and deformations) and §3.4 (Morphisms in the LES) carefully and wrote down, in mathematical notation, the equations that W3-1c needs to implement. **No code written.** This is the foundation that W3-1c (the implementation) will use.
+
+### Key findings
+
+1. **Main target equation (the single most important fact for W3-1c)**: `H̃¹_b(B) = { h: B̄ → B̄ | ∂^h h = 0 AND ∂^c h = 0 } / 0`, where
+   - `∂^h h(a, b) = a·h(b) − h(a·b) + h(a)·b` (derivation condition),
+   - `∂^c h(c) = c₁ ⊗ h(c₂) − Δ(h(c)) + h(c₁) ⊗ c₂` (coderivation condition).
+   
+   This is the **i=1 case** of MW eq. (2.1.1) (MW displays it just before eq. 2.1.1 in the text). The coboundaries `B̃¹_b(B) = 0` because the source of `∂_b` at degree 1 in the truncated normalized complex is zero. **Hence `dim H̃¹_b(B) = dim ker(∂_b: Hom(B̄, B̄) → Hom(B̄², B̄) ⊕ Hom(B̄, B̄²))` is a single linear-algebra rank computation.**
+
+2. **The bialgebra 1-cocycle is a SINGLE linear map `h: B̄ → B̄`, NOT a pair `(f, g)`** — clarified the apparent confusion in the task description. The pair `(f, g)` with `f: B̄² → B̄` and `g: B̄ → B̄²` lives in `(B_+)^{2,1} ⊕ (B_+)^{1,2}`, which is `(Tot B⁰_+)³` and represents a class in `H̃²_b(B)` (NOT `H̃¹_b(B)`). The MW eqs. (2.1.1) and (2.1.2) describe `H̃²_b(B)`, which W3-1c does NOT compute directly (intractable, see W2-1b). For H̃¹_b, the only cocycle condition is the simultaneous derivation/coderivation condition on the single map `h`.
+
+3. **The three MW eq. (2.1.1) conditions on `(f, g)`** (for H̃²_b, written down for completeness):
+   - Equation 1 (Hochschild 2-cocycle on `f`): `a·f(b,c) + f(a,bc) = f(ab,c) + f(a,b)·c`.
+   - Equation 2 (Cartier 2-cocycle on `g`): `c₁ ⊗ g(c₂) + (1⊗Δ)g(c) = (Δ⊗1)g(c) + g(c₁) ⊗ c₂`.
+   - Equation 3 (Mixed compatibility, `∂^c f + ∂^h g = 0`): `f(a₁,b₁) ⊗ a₂b₂ − Δ(f(a,b)) + a₁b₁ ⊗ f(a₂,b₂) = −(Δa)g(b) + g(ab) − g(a)(Δb)`.
+   - Coboundary form (MW eq. 2.1.2): `(f, g) = (∂^h h, −∂^c h)` for some `h: B̄ → B̄`.
+
+4. **Sign trick for the total differential**: `∂_b|_{B^{p,q}} = ∂^h + (−1)^p ∂^c`. For `p=1` (relevant for H̃¹_b), the vertical component picks up a `−1` sign, giving `∂_b h = (∂^h h, −∂^c h)`. This explains the sign in MW eq. (2.1.2): `g(c) = −c₁ ⊗ h(c₂) + Δ(h(c)) − h(c₁) ⊗ c₂` (i.e., `g = −∂^c h`, with the `−1` from `(−1)^p` for `p=1`).
+
+5. **Notational clash in MW §3.4 resolved**: MW's "connecting homomorphism" (MW's `δ`) is the map `π̄: HH^i_h(B) ⊕ HH^i_h(X) → H̃^i_b(B)` — going INTO `H̃^i_b(B)`. The map the task wants (modern `δ`, going FROM `H̃^i_b(B)` to `HH^{i+1}_h(D(B))`) is MW's third arrow, given by MW eq. (3.4.4), NOT by MW eqs. (3.4.1) and (3.4.2). Wrote down all three formulas (MW eqs. 3.4.1, 3.4.2, 3.4.4) and clarified the direction conventions. **For our case** (`dim HH¹(B⁺) = dim HH¹(X) = 0`, verified by W2-1b): both sources of `π̄` at degree 1 are zero, so `π̄ = 0` and `δ_modern` is **injective**. Therefore `dim im(δ_modern) = dim H̃¹_b(B⁺)` automatically.
+
+6. **Concrete recipe for W3-1c** (Section 10 of the notes): 
+   - `dim H̃¹_b(B⁺) = 242² − rank(∂_b)`, where `∂_b` is a sparse `28344976 × 58564` matrix.
+   - Weight-decomposed into 9 blocks each of size `~39204 × 6561`, total computation time ~minutes, memory <4 GB.
+   - Expected rank under conjecture: `58561`, giving `dim H̃¹_b = 3 = C(3, 2)`.
+   - Cross-check: replicate for sl_2 at ℓ=3 (`dim B = 9, dim B̄ = 8`) — expected `dim H̃¹_b = 1`.
+   - Existing multiplication table in `verify_sl3_bplus_hh2.py` can be reused; **comultiplication table needs to be built new** using the Lusztig root-vector formula `Δ(E₁₂) = E₁₂⊗1 + K₁K₂⊗E₁₂ + (q⁻¹−q) K₂E₁⊗E₂`.
+
+7. **The map `δ_modern: H̃¹_b(B⁺) → HH²(D(B⁺))` does NOT need to be computed explicitly** — direct computation would require building 2-cochains on `D(B⁺)` of size `dim(D(B⁺))² = 6561² ≈ 4.3 × 10⁷`, which is the intractable W2-1a regime. The W3-1c computation works entirely on `B⁺` (dim 243) and uses the injectivity of `δ_modern` to deduce `dim im(δ_modern) = dim H̃¹_b(B⁺)` without computing `δ_modern` itself.
+
+### Comparison with W2-1b's open question
+
+W2-1b's "highest-priority next step" was:
+> "For W2-1d (direct `H̃¹_b(B⁺)` computation): Implement the bialgebra cochain complex of MW §2.1 for `B⁺(u_q(sl_3))` at ℓ = 3, compute `dim H̃¹_b(B⁺)`, check whether it equals 3. Chain-group size ~ `dim(B⁺)² = 59049` per degree — comparable to the existing `HH²(B⁺)` computation that runs in ~4 minutes (paper Sec. 6.5)."
+
+W3-1b confirms this is tractable and provides the precise equations for W3-1c (= W2-1d, renamed for Wave 3) to implement. The chain-group dimensions are even smaller than W2-1b's rough estimate: `Hom(B̄, B̄) = 242² = 58564` (not `243² = 59049`), since we work with the augmentation ideal `B̄ = ker ε` (dim 242), not the full algebra `B` (dim 243).
+
+### Files produced / modified
+
+- **Created**: `literature/notes/W3-1b-mw-equations.md` — 13-section writeup of the MW equations in both abstract and concrete (B⁺(u_q(sl_3)) at ℓ=3) form. Sections cover: bicomplex vertices and face maps, differentials, total differential with sign trick, truncated and normalized complexes, the H̃¹_b cocycle condition (the main target), the H̃²_b three-equation cocycle condition (for reference, NOT to be computed directly), concrete translation to our case, the connecting homomorphism (MW eqs. 3.4.1, 3.4.2, 3.4.4 with notation disambiguated), and a step-by-step recipe for W3-1c.
+- No code modified. No tests added.
+
+### Open questions for downstream sub-agents
+
+- **For W3-1c (implementation)**: All equations needed are now in `W3-1b-mw-equations.md` §6 (cocycles), §7 (coboundaries, for reference), §8 (concrete PBW-basis structure constants), §10 (recipe). Expected runtime ~minutes, memory <4 GB. **Highest-priority task in the project** — would establish the conjecture at A₂ (modulo the structural prediction `dim im(ῑ at deg 2) = 6`).
+- **For the orchestrator**: The chain W1 → W2 → W3-1b (equations) → W3-1c (computation) → conjecture verified at A₂ is now fully specified. If W3-1c yields `dim H̃¹_b = 3`, the conjecture at A₂ is established subject to the structural prediction `dim im(ῑ at deg 2) = 2|Φ⁺| = 6` (which itself requires either AKM rigidity or explicit verification of the 6 ℓ-th power classes).
+- **For W3-1d (explicit cocycle extraction, future)**: If W3-1c succeeds, the next step is to extract explicit basis cocycles `h₁, h₂, h₃: B̄ → B̄` (each a `242 × 242` matrix). The conjecture identifies these as "Cartan-type / mixed E–F" cocycles; their explicit form would give a constructive lower bound independent of the dimension-counting argument.
+- **Bigger picture**: The same equation `H̃¹_b(B) = {h: B̄ → B̄ | ∂^h h = ∂^c h = 0}` (with appropriate structure constants) generalises to all type-A_n at odd ℓ. The W3-1c implementation, once written, can be re-run for any `sl_n` at any odd ℓ with only the structure-constant tables swapped.
+
+---

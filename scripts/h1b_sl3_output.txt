@@ -1,0 +1,41 @@
+
+=== H̃¹_b(B⁺(u_q(sl_3)), C) at ℓ = 3 ===
+dim B = 243, dim B̄ = 242
+q = (-0.4999999999999998+0.8660254037844387j)
+Building multiplication table...
+  Mult table: 0.3s
+Building comultiplication table...
+  Delta table: 0.0s
+Verifying Δ(E12) = Δ(E1)Δ(E2) - q Δ(E2)Δ(E1)...
+  Δ(E12) check max error: 1.11e-16
+Verifying coassociativity on a sample...
+  Coassoc max error (sample of 30): 4.31e-15
+Verifying counitality...
+  Counital max error: 0.00e+00
+Building B̄ basis structure constants...
+  mult_bar nnz: 27671
+  delta_bar nnz: 2647
+  B̄ basis: 1.4s
+Precomputing inverse tables...
+  Inverse tables: 0.1s
+
+Computing ∂_b per shift (9 shifts)...
+  shift (0, 0): cols=19522, rows_h=4724162, rows_c=4724162, rank=19520, nullity=2  [enum=8.1s, build=1.8s, gram=1.5s, eig=6.7s]  total 19.3s
+  shift (0, 1): cols=0, rows_h=0, rows_c=0, rank=0, nullity=0  [enum=6.1s, build=0.0s, gram=0.0s, eig=0.0s]  total 6.1s
+  shift (0, 2): cols=0, rows_h=0, rows_c=0, rank=0, nullity=0  [enum=6.2s, build=0.0s, gram=0.0s, eig=0.0s]  total 6.2s
+  shift (1, 0): cols=0, rows_h=0, rows_c=0, rank=0, nullity=0  [enum=6.1s, build=0.0s, gram=0.0s, eig=0.0s]  total 6.1s
+  shift (1, 1): cols=19521, rows_h=4724163, rows_c=4724163, rank=19521, nullity=0  [enum=8.1s, build=1.7s, gram=1.5s, eig=11.0s]  total 23.5s
+  shift (1, 2): cols=0, rows_h=0, rows_c=0, rank=0, nullity=0  [enum=6.1s, build=0.0s, gram=0.0s, eig=0.0s]  total 6.1s
+  shift (2, 0): cols=0, rows_h=0, rows_c=0, rank=0, nullity=0  [enum=6.1s, build=0.0s, gram=0.0s, eig=0.0s]  total 6.1s
+  shift (2, 1): cols=0, rows_h=0, rows_c=0, rank=0, nullity=0  [enum=6.1s, build=0.0s, gram=0.0s, eig=0.0s]  total 6.1s
+  shift (2, 2): cols=19521, rows_h=4724163, rows_c=4724163, rank=19521, nullity=0  [enum=8.2s, build=1.7s, gram=1.4s, eig=12.0s]  total 24.5s
+
+Total input dim (dim Hom(B̄,B̄)): 58564
+Total rank of ∂_b:                58562
+dim H̃¹_b(B⁺(u_q(sl_3)), C)  = dim ker(∂_b) = 2
+Conjecture's structural prediction at A₂, ℓ=3:  3 (= C(3, 2))
+STATUS: STRUCTURAL PREDICTION REFUTED AT A₂ (true dim = 2 ≠ 3).
+        The full conjecture dim HH²(u_q(sl_3)) = 9 may still hold
+        (e.g. with structural split dim im(δ)=2, dim im(ῑ)=7),
+        but is not directly verifiable in this sandbox.
+Total time: 104.1s
