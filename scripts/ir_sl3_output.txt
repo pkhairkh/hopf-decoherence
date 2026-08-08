@@ -1,0 +1,18 @@
+u_q(sl_3) at ell=3: 8 generators, 36 rules
+  Step A: enumerating Anick chains
+  Anick V_0: 1 chains
+  Anick V_1: 36 chains
+  Anick V_2: 128 chains
+  Anick V_3: 750 chains
+  Step B: computing Anick differentials d_1, d_2, d_3
+  Step C: verifying d_1 \circ d_2 = 0 (chain complex)
+    d_1 \circ d_2 = 0: True (failures: 0, max_err: 0.00e+00)
+  Step D: computing d_3 (naive, on 750 3-chains)
+  Step E: dualizing to get delta^1, delta^2
+
+=== SUMMARY ===
+Anick V_0=1, V_1=36, V_2=128, V_3=750
+d1 o d2 = 0: True (verified)
+HH^0 = 1 (correct)
+HH^1 = 1 - 0 = 1 (from verified d1, d2)
+HH^2 = INVALID (d3 is buggy: dim ker(d3*) - dim im(d2*) = 1 - 35 = -34)

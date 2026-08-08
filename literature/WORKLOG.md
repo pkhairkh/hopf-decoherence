@@ -911,3 +911,164 @@ end-to-end quantum-plane reduction via the parser.
    `ER` class directly.  The modular-reduction infrastructure in
    `certify_a1_exact.py` (`reduce_mod`, `rank_mod_p`) is the model.
 
+
+---
+
+## W1-1a-IR — AST/IR framework validation: dim HH²(u_q(sl_2), C) = 3 via the IR
+
+- **Task ID**: W1-1a-IR (IR validation; distinct from the W1-1a Hemelsoet–Voorhaar literature read)
+- **Agent**: Sub-agent 1a (Wave 1, general-purpose)
+- **Date**: 2025-08-09
+- **Status**: completed
+- **Output**: `/home/z/my-project/hopf-decoherence/ir/qomega.py`, `/home/z/my-project/hopf-decoherence/ir/uq_sl2.py`, `/home/z/my-project/hopf-decoherence/scripts/verify_ir_sl2.py`, `/home/z/my-project/hopf-decoherence/scripts/ir_sl2_output.txt`, `/home/z/my-project/hopf-decoherence/tests/test_ir_uq_sl2.py`, `/home/z/my-project/hopf-decoherence/literature/notes/W1-1a-ir-sl2.md`
+
+### Summary
+
+Applied the AST/IR framework (built in W0-1a and W0-1b) to the small
+quantum group `u_q(sl_2)` at `ℓ = 3`, completing the rewrite system,
+verifying the 27-element PBW basis, enumerating the Anick resolution
+generators at degrees 0–2, and computing `dim HH²(u_q(sl_2), C) = 3`
+via the bar complex on PBW normal forms. The result matches the direct
+bar-complex computation in `scripts/verify_sl2_hh2.py` and the exact
+certification in `scripts/certify_a1_exact.py`, validating the IR
+framework end-to-end and unblocking its application to `u_q(sl_3)` (W2).
+
+### Key findings
+
+1. **Commutator division**: handled by specializing the coefficient ring
+   to `Q(omega)` at `ℓ = 3` (approach (a) in the task description).
+   Created `ir/qomega.py` with `QOmega3`, a `QLaurent` subclass storing
+   `a + b*omega` exactly as `Fraction` pairs, with field inverse
+   `1/(q - q^{-1}) = (-1 - 2*omega)/3`. Because `QOmega3` is a subclass
+   of `QLaurent`, the existing `NormalFormReducer` and KB completion
+   work with it unchanged (Python's subclass-priority rule for reflected
+   operators makes mixed-type arithmetic dispatch correctly).
+
+2. **6-rule PBW rewrite system**: K^3 → 1, E^3 → 0, F^3 → 0,
+   E K → omega*K E (q^{-2}=omega at ℓ=3), F K → omega²*K F (q²=omega²),
+   F E → E F - alpha*K + alpha*K² with alpha = 1/(q-q^{-1}).
+
+3. **Knuth-Bendix completion at ℓ = 3**: terminates after 1 iteration
+   with **0 new rules added** (the 6-rule system is already confluent).
+   All 21 critical pairs (upper-triangular i ≤ j over 6 rules) reduce
+   to zero in `Q(omega)`. This is the "Diamond Lemma for quantum
+   groups" phenomenon at a fixed root of unity. (Generically, over
+   `Z[q, q^{-1}]`, the system is *not* confluent — e.g., the critical
+   pair `E K^3` gives `(q^{-6} - 1) E`, which is nonzero generically
+   but zero at `ℓ = 3` since `q^3 = 1`. This is why we work over
+   `Q(omega)` rather than the generic ring.)
+
+4. **PBW basis verified**: 27 normal forms `K^a E^b F^c` with
+   `0 ≤ a, b, c ≤ 2`. All 27 are in normal form (no rule matches).
+   200 random monomials of length 0–8 all reduce to polynomials whose
+   terms are in the PBW basis.
+
+5. **Anick degree-2 syzygy count = 13**: 6 self-overlaps of the cubic
+   rules (K^4, K^5, E^4, E^5, F^4, F^5) + 7 cross-rule overlaps
+   (E K^3, F K^3, E^3 K, F E^3, F^3 K, F^3 E, F E K). Full listing
+   in the analysis note.
+
+6. **dim HH² = 3** via the bar complex on PBW normal forms
+   (homotopy-equivalent to the Anick resolution, hence computing the
+   same `Ext^*_A(k, k) ≅ HH^*(A, k)` for Hopf `A`):
+   - `rank(d^1) = 27`, `rank(d^2) = 699`
+   - `dim ker(d^2) = 729 - 699 = 30`
+   - `dim HH² = 30 - 27 = 3` ✓
+   Matches the conjecture `C(n+1, 2) + 2|Φ^+| = C(2,2) + 2·1 = 3`
+   for `A_1`, and matches `verify_sl2_hh2.py`'s direct bar-complex
+   value exactly.
+
+7. **Multiplication-table sanity** all pass: unit law, K^3 = 1,
+   E^3 = F^3 = 0, K E = q² E K, K F = q^{-2} F K,
+   [E, F] = (K - K^{-1})/(q - q^{-1}). This validates that the IR
+   normal-form reducer produces the correct algebra structure.
+
+### Why the bar complex and not the Anick differential
+
+For a Hopf algebra `A`, `HH^*(A, k) ≅ Ext^*_A(k, k)`, computed by
+either the bar resolution (free A-bimodule resolution of A) or the
+Anick resolution (free A-module resolution of k) — they are
+homotopy-equivalent. We use the bar complex on PBW normal forms for
+the actual rank computation because the bar differential depends only
+on the multiplication table and the counit (both immediate from the IR
+reducer), while the Anick differential requires following Anick's 1986
+construction with "chains", "tips", and recursive reductions on
+n-chains — a substantial implementation effort that is left for a
+future task.
+
+For `u_q(sl_2)` at `ℓ = 3` (`dim C^2 = 729`, `dim C^3 = 19683`), the
+bar complex runs in ~1.3 seconds. For `u_q(sl_3)` at `ℓ = 3`
+(`dim u_q(sl_3) = 6561`, `dim C^2 = 4.3 × 10^7`), the bar complex is
+intractable and the Anick differential (with `dim C_2` in the dozens)
+will be needed.
+
+### Test results
+
+```
+$ pytest tests/test_ir_uq_sl2.py -v
+============================= 11 passed in 2.10s ==============================
+
+$ pytest tests/test_ir_parser.py tests/test_ir_groebner.py tests/test_ir_uq_sl2.py
+============================= 55 passed in 2.29s ==============================
+```
+
+Four required tests + 7 additional tests, all passing:
+- `test_presentation_parses` — generators, 6 rules, R6 commutator sign
+- `test_pbw_basis_size` — 27 PBW normal forms, all in normal form
+- `test_anick_degree2_count` — 1, 6, 13 generators at degrees 0, 1, 2
+- `test_dim_hh2_is_3` — `dim HH² = 3` ✓
+
+### Recommended next actions for the orchestrator
+
+- **W2-1c (sl_3 via IR)**: Apply the IR framework to `u_q(sl_3)` at
+  `ℓ = 3`. The presentation has ~8 generators and ~20 relations; PBW
+  basis size 6561; expected `dim HH² = 9` (conjecture
+  `C(3,2) + 2·3 = 3 + 6 = 9`). The bar complex is intractable, so the
+  Anick differential must be implemented first. The 13-syzygy
+  enumeration at degree 2 for sl_2 generalizes to a similar (but
+  larger) syzygy enumeration for sl_3; the Anick degree-2 count for
+  sl_3 should be in the range 30–80.
+- **Anick differential implementation**: implement `d_1`, `d_2`, `d_3`
+  of the Anick resolution following Anick 1986 / Skryabin's survey.
+  `d_1` is straightforward; `d_2` requires expressing each syzygy's
+  reduction-difference as a combination of relations; `d_3` is more
+  intricate. Once implemented, the chain groups for sl_3 will be small
+  (dim ≤ ~100 in each degree ≤ 3), making `dim HH²` tractable.
+- **Exact rank certification**: replace the SVD-based numerical rank
+  with exact `Fraction` + `sympy.Matrix.rank()`, or modular
+  certification (extending `scripts/certify_a1_exact.py`). This
+  eliminates the `1e-9` numerical tolerance and gives a proof-grade
+  rank.
+
+### Files produced / modified
+
+- Created: `/home/z/my-project/hopf-decoherence/ir/qomega.py` (~300 lines)
+- Created: `/home/z/my-project/hopf-decoherence/ir/uq_sl2.py` (~600 lines)
+- Created: `/home/z/my-project/hopf-decoherence/scripts/verify_ir_sl2.py`
+- Created: `/home/z/my-project/hopf-decoherence/scripts/ir_sl2_output.txt`
+- Created: `/home/z/my-project/hopf-decoherence/tests/test_ir_uq_sl2.py` (~340 lines)
+- Created: `/home/z/my-project/hopf-decoherence/literature/notes/W1-1a-ir-sl2.md`
+- Modified: `/home/z/my-project/worklog.md` (appended this section)
+- No existing source files modified. `ir/parser.py` and `ir/groebner.py`
+  are unchanged; `QOmega3` is a `QLaurent` subclass that works with the
+  existing infrastructure via Python's subclass-priority rule for
+  reflected operators.
+
+### Open questions for downstream sub-agents
+
+- **(W2-1c prerequisite)** The Anick differential `d_2`: for each
+  critical pair `(M, R_i at p1, R_j at p2)`, the value `d_2(M, i, j)`
+  is the syzygy value expressed as a combination of relations. The
+  standard formula reduces `M` via `R_i` at `p1` (giving `poly1`) and
+  via `R_j` at `p2` (giving `poly2`); then `poly1 - poly2` is reduced
+  to zero, and the "reduction history" gives the syzygy coefficients.
+  A correct implementation needs to track this history carefully.
+- For `u_q(sl_3)` at `ℓ = 3`: is the 6-or-7-rule (per generator pair)
+  PBW system confluent without KB completion (as for sl_2), or does KB
+  completion add new rules? The sl_2 case (no new rules) is promising
+  but not conclusive for sl_3.
+- The Anick degree-3 enumeration in `ir/groebner.py` is currently
+  best-effort (capped at 100 entries, not properly verified). For
+  `dim HH³` or for cross-checking `dim HH²` via the Anick
+  differential (which needs `d_3`), a proper degree-3 enumeration is
+  needed.

@@ -33,7 +33,7 @@ Step 3: Reducing mod p and computing ranks over F_p for primes
      61     47          27         699           3      2.0s
      67     37          27         699           3      2.0s
      73     64          27         699           3      2.0s
-     79     23          27         699           3      2.0s
+     79     23          27         699           3      2.2s
      97     35          27         699           3      2.0s
 
 === Certification summary ===
