@@ -100,6 +100,7 @@ class LetterplaceEncoder:
         generators: list,
         max_degree: int,
         q_sym: Optional[sp.Symbol] = None,
+        q_value: Optional[sp.Expr] = None,
     ) -> None:
         if max_degree < 0:
             raise ValueError(
@@ -109,6 +110,12 @@ class LetterplaceEncoder:
         self.max_degree: int = int(max_degree)
         self.n_gens: int = len(self.generators)
         self.q_sym: sp.Symbol = q_sym if q_sym is not None else sp.Symbol("q")
+        # If q_value is set, all QLaurent / QOmega3 coefficients are converted
+        # to sympy expressions in which ``q`` has been replaced by ``q_value``
+        # (e.g. an algebraic number such as ``omega = exp(2*pi*i/3)``).  This
+        # lets us compute Groebner bases over the algebraic field Q(omega)
+        # rather than over the rational function field Q(q).
+        self.q_value: Optional[sp.Expr] = q_value
 
         # Variable grid: self._vars[i][s] = sympy.Symbol(f"x{i}_s{s}").
         # Variables are created with default assumptions (commutative=True),
@@ -189,13 +196,69 @@ class LetterplaceEncoder:
         ``QLaurent`` stores ``{exponent: int_coefficient}``; the result
         is ``sum(c * q**e)`` as a sympy :class:`Add`.  The zero
         :class:`QLaurent` maps to ``sympy.Integer(0)``.
+
+        Subclasses such as :class:`ir.qomega.QOmega3` use
+        :class:`fractions.Fraction` coefficients (not just ``int``); we
+        handle both via :func:`sympy.Rational` (which accepts ``int``,
+        ``Fraction``, and ``str`` representations).  If
+        :attr:`self.q_value` is set (e.g. an algebraic element such as
+        ``omega``), the expression is *evaluated* at ``q = q_value``
+        rather than kept symbolic in ``q_sym``; this lets the
+        downstream Groebner computation run over the algebraic field
+        ``Q(q_value)`` instead of the rational-function field
+        ``Q(q)``.
         """
         if coeff.is_zero():
             return sp.Integer(0)
         terms = []
         for e, c in coeff.terms.items():
-            terms.append(sp.Integer(int(c)) * self.q_sym ** sp.Integer(int(e)))
-        return sp.Add(*terms)
+            # Use sp.Rational to handle both int and Fraction coefficients.
+            coeff_sym = sp.Rational(c)
+            terms.append(coeff_sym * self.q_sym ** sp.Integer(int(e)))
+        expr = sp.Add(*terms)
+        if self.q_value is not None:
+            # q_value may be a QOmega3 object, a sympy expression, or a complex number.
+            # Convert it to a sympy expression first.
+            q_val_sympy = self._coerce_to_sympy(self.q_value)
+            if q_val_sympy is not None:
+                expr = expr.subs(self.q_sym, q_val_sympy)
+                expr = sp.simplify(expr)
+        return sp.expand(expr)
+
+    @staticmethod
+    def _coerce_to_sympy(val):
+        """Convert a value (QOmega3, complex, sympy expr, etc.) to a sympy expression."""
+        if val is None:
+            return None
+        if isinstance(val, sp.Expr):
+            return val
+        # QOmega3 / QLaurent: use to_complex() if available
+        if hasattr(val, 'to_complex'):
+            c = val.to_complex()
+            # nsimplify with real constants only, then express imaginary part
+            # For omega = e^{2pi*i/3} = -1/2 + i*sqrt(3)/2
+            real_part = c.real
+            imag_part = c.imag
+            r = sp.nsimplify(real_part, [sp.sqrt(3)])
+            i = sp.nsimplify(imag_part / sp.sqrt(3).evalf(), [sp.sqrt(3)]) * sp.sqrt(3)
+            return r + sp.I * i
+        # Complex/float
+        if isinstance(val, (complex, float)):
+            c = complex(val)
+            r = sp.nsimplify(c.real, [sp.sqrt(3)])
+            i = sp.nsimplify(c.imag / sp.sqrt(3).evalf(), [sp.sqrt(3)]) * sp.sqrt(3)
+            return r + sp.I * i
+        # Try direct sympify
+        try:
+            return sp.sympify(val)
+        except Exception:
+            pass
+        # Last resort: evaluate as complex and nsimplify
+        try:
+            c = complex(val)
+            return sp.nsimplify(c, [sp.sqrt(3), sp.I])
+        except Exception:
+            return None
 
     def _sympy_to_qlaurent(self, expr: sp.Expr) -> QLaurent:
         """Convert a sympy expression in ``q`` (integer coeffs) to :class:`QLaurent`.
@@ -376,6 +439,7 @@ class LetterplaceEncoder:
         pres: Presentation,
         order: str = "grevlex",
         include_q: bool = False,
+        domain=None,
     ) -> list:
         """Encode the presentation and compute the commutative Groebner basis.
 
@@ -396,6 +460,11 @@ class LetterplaceEncoder:
             a variable rather than a coefficient).  If False (default),
             ``q_sym`` is treated as a symbolic coefficient (sympy uses
             the ``EX`` expression domain).
+        domain : sympy domain, optional
+            If set (e.g. ``sympy.QQ.algebraic_field(omega)``), the
+            Groebner basis is computed over this coefficient domain.
+            This requires that ``self.q_value`` be set so that
+            coefficients are already elements of the domain.
 
         Returns
         -------
@@ -411,7 +480,10 @@ class LetterplaceEncoder:
             all_vars = self.full_variable_list()
         else:
             all_vars = list(self._all_vars)
-        gb = sp.groebner(gens, *all_vars, order=order)
+        if domain is not None:
+            gb = sp.groebner(gens, *all_vars, order=order, domain=domain)
+        else:
+            gb = sp.groebner(gens, *all_vars, order=order)
         return [sp.expand(p) for p in gb]
 
     # ------------------------------------------------------------------

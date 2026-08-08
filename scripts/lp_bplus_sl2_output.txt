@@ -1,0 +1,11 @@
+=== Letterplace Resolution of B+(sl_2) at ℓ=3 ===
+GB size: 17
+Minimal GB size: 14
+Computing syzygies of minimal GB (14 elements)...
+Syzygies: 91
+Minimal syzygy matrix: (91, 14), rank = 10
+β_0=1, β_1=14, β_2=91
+r_1=0, r_2=10
+HH^0 = 1 - 0 = 1
+HH^1 = β_1 - r_1 - r_2 = 14 - 0 - 10 = 4
+Expected: HH^0=1, HH^1=0, HH^2=1
