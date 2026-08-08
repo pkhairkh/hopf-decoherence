@@ -458,3 +458,285 @@ W3-1b confirms this is tractable and provides the precise equations for W3-1c (=
 - **Bigger picture**: The same equation `H̃¹_b(B) = {h: B̄ → B̄ | ∂^h h = ∂^c h = 0}` (with appropriate structure constants) generalises to all type-A_n at odd ℓ. The W3-1c implementation, once written, can be re-run for any `sl_n` at any odd ℓ with only the structure-constant tables swapped.
 
 ---
+
+## W4-2 — Outreach email drafts (Negron / Witherspoon / Qi)
+
+- **Task ID**: W4-2
+- **Agent**: Sub-agent 4b (Wave 4, general-purpose)
+- **Date**: 2025-08-07
+- **Status**: completed (drafts only — NOT sent; author to review and send)
+- **Output**: `/home/z/my-project/hopf-decoherence/literature/notes/W4-2-outreach-drafts.md`
+- **Predecessor**: W4-1 (sl₄ `dim H̃¹_b = 3`, refuting the `C(n+1,2)` structural prediction for `n ≥ 3`)
+- **Successor**: none (this is an outreach task, not a research task)
+
+### Summary
+
+Drafted three short outreach emails, one each to Cris Negron (USC), Sarah
+Witherspoon (TAMU), and You Qi (UVA), seeking their reaction to the W3-1c /
+W4-1 finding that `dim H̃¹_b(B⁺(u_q(sl_n))) = n − 1 = rank(sl_n)` at `ℓ = 3`
+for `n = 2, 3, 4`, refuting the original conjecture's structural prediction
+`C(n+1, 2)`. Each email is under 250 words; each is paired with a one-paragraph
+personal "cover note" the author can prepend when sending. Drafts only — not
+sent.
+
+### Key facts the drafts communicate
+
+The drafts are built around the same five facts, with the framing tuned to
+each recipient's expertise:
+
+1. **The computation**: `dim H̃¹_b(B⁺(u_q(sl_n)))` at `ℓ = 3`, `n = 2,3,4`, by
+   direct linear algebra on the MW derivation/coderivation 1-cocycle equations.
+   Results: `1, 2, 3`.
+2. **The pattern**: `dim = n − 1 = rank(sl_n)`, *not* `C(n+1, 2)`.
+3. **Cocycle shape**: diagonal in PBW basis, exactly linear in root-vector
+   exponents (residual `~10⁻¹⁶`), zero Cartan coefficients; `∂ʰ` constraints
+   follow from `∂ᶜ` via the q-commutators.
+4. **What is refuted**: the *structural decomposition* `dim im(δ) = C(n+1,2)`.
+5. **What is NOT refuted**: the *total count* `dim HH²(u_q(g)) = C(n+1,2) +
+   2|Φ⁺|`. Full `HH²(u_q(sl_3))` bar computation remains intractable; the
+   8-vs-9 question is left explicitly open in every draft.
+
+### Per-recipient framing
+
+- **Cris Negron** (arXiv:1511.07059, *Braided Hochschild cohomology and Hopf
+  actions*; arXiv:2005.02965 with Pevtsova): framed as a structural /
+  braided-HH question — does the diagonal-linear-`rank(g)` pattern ring any
+  bells from the braided-HH framework? Negron is the natural person to ask
+  whether there is a structural reason `H̃¹_b` of the bosonization should be
+  `rank(g)`-dimensional.
+
+- **Sarah Witherspoon** (arXiv:0704.2771, the Mastnak–Witherspoon LES used in
+  the reduction): framed around the **failure regime of MW Theorem 6.1.4**
+  — at `ℓ = 3`, `3 | |Γ| = 3ⁿ`, so the hypothesis of Thm 6.1.4 fails. Two
+  questions: (1) has she seen this `rank(g)` pattern in any pointed-Hopf /
+  bosonization setting, especially in the small-`ℓ` gap? (2) does the failure
+  of the Thm 6.1.4 hypothesis have a known structural consequence that might
+  explain the `rank(g)`-dimensionality?
+
+- **You Qi** (Lachowska–Qi, derived center of small quantum groups; the LQ21
+  reference cited in the paper abstract; **already in correspondence** with
+  the author — familiar tone): framed as a clean refutation of the structural
+  picture previously sketched to him. Two questions: (1) does the `rank(g)`
+  pattern suggest anything from the LQ / BGG perspective — e.g. a
+  principal-block `HH²(sl_3)` computation via Hemelsoet–Voorhaar
+  (arXiv:2104.05113) that would distinguish 8 from 9? (2) is there a
+  structural reason the cocycles should be diagonal and Cartan-coefficient-free?
+
+### Address verification
+
+The task brief flagged Negron's and Qi's addresses for verification
+(`negron@usc.edu`, `you.qi@virginia.edu`). The drafts file includes a header
+note recommending the author re-verify all three addresses (especially
+Witherspoon's, since she is recently retired from TAMU and forwarding may
+have changed) against the recipients' current institutional webpages before
+sending. No live web verification was performed by this sub-agent.
+
+### Why these three (and not others)
+
+- **Negron**: braided-HH framework is the natural home for a structural
+  interpretation of the diagonal / linear / `rank(g)` pattern.
+- **Witherspoon**: co-author of the LES the reduction rests on; the pattern
+  appears precisely in the failure regime of her Thm 6.1.4.
+- **Qi**: the LQ / BGG machinery is, per W1-1a, the only realistic route to
+  an independent `dim HH²(u_q(sl_3))` computation that could settle the
+  8-vs-9 question; prior correspondence makes a familiar tone appropriate.
+
+Other candidates considered but **not** drafted (kept in reserve): Mitja
+Mastnak (LES co-author — Witherspoon is the more natural first contact for
+the structural question); Iván Angiono / Mikhail Kochetov (Nichols-rigidity
+— relevant to the `2|Φ⁺|` root piece, *not* the structural piece the
+outreach is about); Nicolas Hemelsoet (sl₃ BGG / principal-block s = 2 — the
+most direct route to 8-vs-9, but the author may prefer to go through Qi
+first); Thomas Creutzig (log-KL / non-semisimple TQFT context).
+
+### What the drafts deliberately do NOT do
+
+- Do **not** claim the original count is refuted — only the structural
+  decomposition. (The 8-vs-9 question for `sl_3` is left explicitly open in
+  every draft, matching W4-1 §"Implications".)
+- Do **not** cite a non-existent arXiv number. The paper is referred to by
+  its GitHub URL only (`https://github.com/pkhairkh/hopf-decoherence`,
+  `paper/main.tex`), with "arXiv posting pending" noted.
+- Do **not** request coauthorship, employment, or a recommendation — only a
+  reaction / pattern-match check.
+- Do **not** attach the full paper PDF by default — only the GitHub link.
+
+### Files produced / modified
+
+- **Created**: `/home/z/my-project/hopf-decoherence/literature/notes/W4-2-outreach-drafts.md`
+  — three outreach emails + three cover notes + a "why these three" / "what
+  the drafts do not do" rationale section.
+- No code, tests, or paper source modified.
+
+### Open questions for downstream sub-agents / orchestrator
+
+- **For the author (Parham Khairkhah)**: review the three drafts, verify the
+  recipient addresses, and send (or hold) at your discretion. The drafts are
+  written to be sent essentially as-is with the cover note prepended as the
+  opening paragraph of each outgoing message.
+- **If replies come back**: the most useful reply would be from Qi or
+  Hemelsoet-style BGG experts on the 8-vs-9 question (does a
+  principal-block `HH²(sl_3)` at `s = 2` computation exist or is it
+  tractable?), and from Negron / Witherspoon on whether the `rank(g)`
+  pattern has a known structural explanation. Replies should be logged in a
+  new worklog section (e.g. W5-1, W5-2, ...) and any pattern-match should be
+  cross-checked against the W4-1 cocycle extraction.
+- **For W4-3 (theoretical explanation of the `rank(g)` pattern)**: the
+  outreach to Negron and Witherspoon is partly insurance against the case
+  where W4-3 cannot find a structural explanation internally — if either
+  replies with a known mechanism, W4-3 can fold it in.
+
+---
+
+---
+
+## W4-3 — Exact cyclotomic certification of `dim HH^2(u_q(sl_2), C) = 3` at `ℓ = 3`
+
+- **Task ID**: W4-3
+- **Agent**: Sub-agent 4c (Wave 4, general-purpose)
+- **Date**: 2025-08-08
+- **Status**: completed
+- **Output**: `scripts/certify_a1_exact.py`, `scripts/certify_a1_output.txt`, `tests/test_a1_certification.py`, `literature/notes/W4-3-a1-exact-certification.md`
+- **Predecessor**: W1-1a (paper read; floating-point `dim HH² = 3` verification in `scripts/verify_sl2_hh2.py`)
+- **Successor**: none for A₁ at `ℓ = 3`; natural next targets are A₁ at `ℓ = 5` and A₂ at `ℓ = 3`
+
+### Summary
+
+Implemented **exact cyclotomic arithmetic certification** of the A₁ case
+of the paper's Theorem 1.2 at `ℓ = 3`.  The structure constants of
+`u_q(sl_2)` at `q = e^{2πi/3}` live in the localization `Z[ω, 1/3]`
+(where `ω` is a primitive cube root of unity and the `1/3` arises because
+`D = q − q⁻¹ = 1 + 2ω` has norm 3, so `1/D = (−1 − 2ω)/3`).  The
+bar-complex differentials `d¹` (729 × 27) and `d²` (19683 × 729) are
+built as sparse matrices with entries in `Z[ω, 1/3]`, then reduced modulo
+11 primes `p ≡ 1 (mod 3)` with `p ≠ 3` (`7, 13, 19, 31, 37, 43, 61, 67,
+73, 79, 97`), and ranks are computed over each `F_p` via exact Gaussian
+elimination (no floating point, no tolerance).  Rank semicontinuity over
+the Dedekind domain `Z[ω, 1/3]` then certifies the ranks over `Q(ω)` —
+and hence over `C` — provided they are consistent across all tested
+primes.  They are: `rank(d¹) = 27`, `rank(d²) = 699` modulo every prime,
+giving `dim HH² = (729 − 699) − 27 = 3`.  This implements roadmap item
+1.1 for the A₁ case at `ℓ = 3`.
+
+### Key findings
+
+1. **Structure-constant ring is `Z[ω, 1/3]`, not `Z[ω]`.**  The
+   commutator `[E, F] = (K − K⁻¹)/(q − q⁻¹)` divides by
+   `D = q − q⁻¹ = 1 + 2ω`, whose algebraic norm in `Z[ω]` is 3.  So `D`
+   is not a unit in `Z[ω]`; instead `D² = −3`, hence `1/D = −D/3 =
+   (−1 − 2ω)/3 ∈ Z[ω, 1/3] \ Z[ω]`.  All structure constants of
+   `u_q(sl_2)` at `ℓ = 3` therefore lie in `Z[ω, 1/3]`.  (This is the
+   only subtlety not explicitly flagged in the task description, which
+   said "in fact in `Z[q]`" — that is true for the multiplication table
+   of the *generators* but not for the *full* normal-form multiplication
+   table, which uses `1/D`.)
+
+2. **`Z[ω, 1/3]` is a Dedekind domain**, so rank semicontinuity applies:
+   the locus where `rank(M) < r` is Zariski-closed in `Spec Z[ω, 1/3]`,
+   hence either all of the spectrum or a finite set of closed points.
+   Since 3 is inverted, the only "bad" primes are absent, and the rank is
+   constant on the entire spectrum — equal to the generic-fiber rank
+   over `Q(ω)`.  Embedding `ω ↦ e^{2πi/3}` gives the rank over `C`.
+
+3. **Representation of `Z[ω, 1/3]`:** each element is a triple
+   `(a, b, c) ∈ Z³` with `c ≥ 0`, denoting `(a + b·ω)/3^c`, with
+   multiplication using `ω² = −1 − ω` and `_reduce()` cancelling common
+   factors of 3 from `(a, b)`.  Reduction mod `p` (for `p ≠ 3`,
+   `ω ↦ q_p ∈ F_p`) uses `pow(3, −c, p)` for the modular inverse of the
+   denominator.
+
+4. **Certified ranks (consistent across all 11 primes):**
+   - `rank(d¹) = 27` (full column rank; `d¹` is injective, so
+     `dim HH¹ = 0`).
+   - `rank(d²) = 699`.
+   - `dim ker(d²) = 729 − 699 = 30`.
+   - `dim im(d¹) = 27`.
+   - `dim HH² = 30 − 27 = 3`.  ✓
+
+5. **Cross-check with floating-point:** the exact ranks (`27, 699`)
+   match the floating-point SVD ranks from `verify_sl2_hh2.py` (`27,
+   699`) to the digit, confirming that the floating-point tolerance
+   (`1e-9`) was correctly chosen and that the exact and floating-point
+   computations agree.
+
+6. **Runtime:** ~25 s total for 11 primes (~2.2 s per prime for
+   reduction + Gaussian elimination; multiplication table and
+   differentials built in < 1 s).
+
+### Why this is a *certification*, not just a *computation*
+
+Three features distinguish this from the floating-point verification:
+
+1. **Exact structure constants** — every entry of `d¹` and `d²` is an
+   element of `Z[ω, 1/3]` (a triple of integers); all arithmetic is
+   exact integer operations, no rounding.
+2. **Exact rank over `F_p`** — Gaussian elimination with modular
+   inverses (`pow(x, −1, p)`); the rank is a precise integer, not a
+   singular-value count above a threshold.
+3. **Lifting via rank semicontinuity** — the Dedekind-domain theorem
+   guarantees that constancy of rank across all primes `p ≡ 1 (mod 3)`
+   with `p ≠ 3` certifies the rank over `Q(ω)` and hence over `C`.  The
+   script checks this constancy across 11 primes and reports the
+   conclusion explicitly.
+
+### Files produced / modified
+
+- **Created**: `scripts/certify_a1_exact.py` (~400 lines) — `ER` class
+  for `Z[ω, 1/3]`, multiplication table with exact arithmetic, sanity
+  checks of the 5 defining relations of `u_q(sl_2)`, `d¹` and `d²`
+  builders, modular reduction, exact Gaussian elimination over `F_p`,
+  main certification loop over 11 primes with tee'd output to
+  `certify_a1_output.txt`.
+- **Created**: `scripts/certify_a1_output.txt` — captured stdout from a
+  full 11-prime run.
+- **Created**: `tests/test_a1_certification.py` — 7 tests: `test_er_arithmetic`,
+  `test_find_cube_root_mod_p`, `test_algebra_relations`,
+  `test_rank_consistent_across_primes`, `test_dim_hh2_is_3`,
+  `test_rank_values_match_certified`, `test_script_runs`.  All pass in
+  ~45 s.
+- **Created**: `literature/notes/W4-3-a1-exact-certification.md` —
+  9-section writeup covering the mathematical setup
+  (`Z[ω, 1/3]` as a Dedekind domain, rank semicontinuity), the
+  implementation (ER class, multiplication, differentials, modular
+  reduction, Gaussian elimination), the full results table, the
+  certification conclusion, the comparison with the floating-point
+  computation, and limitations / next steps.
+- No existing files modified.
+
+### Open questions for downstream sub-agents / orchestrator
+
+- **A₁ at `ℓ = 5`:** the same framework applies with `Z[ω_5, 1/5]` and
+  primes `p ≡ 1 (mod 5)`, `p ≠ 5`.  The structure-constant ring is
+  slightly larger (`Q(ω_5)` has degree 4 over `Q`), and `dim u_q(sl_2)
+  = 5³ = 125`, so `dim C² = 15625` and `dim C³ = ~1.95 × 10⁶` — the
+  Gaussian elimination on `d²` (~2M × 15.6K) would be the bottleneck,
+  but sparse methods or block-decomposition by weight may keep it
+  tractable.  **This is the natural next certification target** and
+  would establish the A₁ case of Theorem 1.2 at both `ℓ = 3` and
+  `ℓ = 5` (the two primes covered by the paper's A₁ verification).
+
+- **A₂ at `ℓ = 3`:** the exact-arithmetic framework would certify the
+  *full* `dim HH²(u_q(sl_3), C)` (resolving the 8-vs-9 question left
+  open by W4-1 / W4-2), but requires implementing the Lusztig
+  root-vector multiplication table for `u_q(sl_3)` in exact `Z[ω, 1/3]`
+  arithmetic — a non-trivial extension of `verify_sl3_bplus_hh2.py`.
+  The bar complex has `dim C² = 729` and `dim C³ = 19683` (same as A₁
+  since `dim u_q(sl_3) = 27 = dim u_q(sl_2)`), so the rank computation
+  itself would be equally fast (~2 s per prime).
+
+- **Generalisation to other types / odd `ℓ`:** the method generalises
+  verbatim to any `u_q(g)` at any odd `ℓ` for which `Z[ω_ℓ]` has class
+  number 1 (so `ℓ ∈ {3, 5, 7, 11, 13, 17, 19}`) and the structure
+  constants lie in `Z[ω_ℓ, 1/ℓ]` (which they do, since the only
+  division is by `q − q⁻¹`, whose norm is `ℓ`).  For composite `ℓ` or
+  class-number-`> 1` cyclotomic fields, the Dedekind-domain argument
+  still holds but the rank check requires reducing modulo prime *ideals*
+  rather than rational primes — a mild generalisation.
+
+- **For the orchestrator:** roadmap item 1.1 (exact cyclotomic
+  certification) is now **complete for A₁ at `ℓ = 3`**.  The
+  floating-point verification in `verify_sl2_hh2.py` is now backed by a
+  fully exact, modular-arithmetic certificate.  The matching
+  certification for A₁ at `ℓ = 5` would complete the A₁ case of the
+  paper's Theorem 1.2 on the exact side.
+

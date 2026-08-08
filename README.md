@@ -3,13 +3,13 @@
 **Hochschild cohomology of small quantum groups at roots of unity — companion code**
 
 **Author:** Parham Khairkhah (ORCID [0009-0000-7048-1397](https://orcid.org/0009-0000-7048-1397))
-**Repository version:** 1.1.0
+**Repository version:** 1.2.0
 **Code license:** MIT  ·  **Paper license:** CC-BY-4.0
 
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](./LICENSE)
 [![License: CC-BY-4.0](https://img.shields.io/badge/paper-CC--BY--4.0-green.svg)](./paper/LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-69%20passing-brightgreen.svg)](#installation)
+[![Tests](https://img.shields.io/badge/tests-88%20passing-brightgreen.svg)](#installation)
 
 ---
 
@@ -38,14 +38,17 @@ The repository contains:
 
 | Type | Rank $n$ | $|\Phi^+|$ | Predicted $\dim\mathrm{HH}^2$ | Status |
 |---|---|---|---|---|
-| $A_1$ | 1 | 1 | 3 | **Theorem** (bar complex, $\ell=3, 5$; LES verified at $\ell=3$) |
-| $A_2$ | 2 | 3 | 9 | Open (LES framework predicts the path; $B^+_{\mathfrak{sl}_3} = 5$ verified) |
+| $A_1$ | 1 | 1 | 3 | **Theorem** (bar complex + exact cyclotomic certification, $\ell=3$; floating-point at $\ell=5$) |
+| $A_2$ | 2 | 3 | 9 | **Open / in doubt** — structural prediction $\dim\operatorname{im}\delta = \binom{3}{2} = 3$ REFUTED (computed $= 2$). Count $9$ vs alternative $8$ unresolved. |
+| $A_3$ | 3 | 6 | 18 | **Open / in doubt** — structural prediction $\dim\operatorname{im}\delta = \binom{4}{2} = 6$ REFUTED (computed $= 3$). Count $18$ vs alternative $15$ unresolved. |
 | $B_2$ | 2 | 4 | 11 | Structural |
 | $G_2$ | 2 | 6 | 15 | Structural |
-| $A_n$ | $n$ | $n(n+1)/2$ | $3n(n+1)/2$ | Conjecture |
+| $A_n$ | $n$ | $n(n+1)/2$ | $3n(n+1)/2$ | Conjecture (in doubt for $n \geq 3$) |
 | $E_8$ | 8 | 120 | 276 | Conjecture |
 
-The universal formula is stated as **Conjecture 1.1** in the paper. The $A_1$ case is **Theorem 1.2** (verified by the bar-complex script at $\ell = 3$ and $\ell = 5$). The $A_2$ case remains **open**: §3 of the paper proposed a Cartan-type structural mechanism, but direct computation of $\dim\mathrm{HH}^2(B^+(u_q(\mathfrak{sl}_3)), \mathbb{C}) = 5$ (instead of the predicted 6) shows that mechanism is **false** as stated. The Mastnak–Witherspoon long exact sequence (3.3.1) now provides the correct framework (see new §7 of the paper): the conjecture's count $\binom{n+1}{2} + 2|\Phi^+|$ decomposes as $\dim\mathrm{im}\,\bar{\pi} + \dim\mathrm{im}\,\delta$ where $\bar{\pi}: \mathrm{HH}^2(D(B^+)) \to \mathrm{HH}^2(B^+) \oplus \mathrm{HH}^2(B^-)$ is the restriction map and $\delta: \tilde{H}^1_b(B^+) \to \mathrm{HH}^2(D(B^+))$ is the connecting homomorphism from degree-1 bialgebra cohomology of the bosonization. This decomposition is verified numerically at $A_1$ (2 + 1 = 3) and reduces the conjecture to computing $\tilde{H}^1_b(B^+)$ at small odd $\ell$ — the regime where the Mastnak–Witherspoon Theorem 6.1.4 hypothesis on prime divisors of $|\Gamma|$ fails, and where explicit cocycle constructions are still missing.
+**Key finding (v1.2):** Direct computation of $\dim \tilde{H}^1_b(B^+(u_q(\mathfrak{sl}_n)), \mathbb{C})$ at $\ell = 3$ for $n = 2, 3, 4$ gives $1, 2, 3$ respectively. The pattern is $\dim \tilde{H}^1_b = n - 1$, NOT the originally predicted $\binom{n+1}{2}$. This refutes the structural decomposition $\dim \operatorname{im}\delta = \binom{n+1}{2}$ for $n \geq 3$ and casts doubt on the full conjecture's count at $A_2$ and higher (alternative count: $(n-1) + 2|\Phi^+|$). See new Section 8 of the paper for the full analysis.
+
+The universal formula is stated as **Conjecture 1.1** in the paper. The $A_1$ case is **Theorem 1.2** (verified by the bar-complex script at $\ell = 3$ and $\ell = 5$, with the $\ell = 3$ result now certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$ via rank computation over 11 finite fields). The $A_2$ and $A_3$ cases remain **open with structural predictions refuted**: the LES framework (Mastnak–Witherspoon long exact sequence (3.3.1)) is verified correct, but the structural prediction $\dim \operatorname{im}\delta = \binom{n+1}{2}$ is wrong for $n \geq 3$ (computed $= n - 1$). The full count $\dim \HH^2 = \binom{n+1}{2} + 2|\Phi^+|$ is consequently in doubt at $A_2$ and higher.
 
 The original §3 of the paper proposed that the third $A_1$ class is a "Cartan-type" class supported on $K$-$K$ pairs. Direct cocycle extraction (`scripts/analyze_cocycles.py`) shows this is false: none of the three $\mathrm{HH}^2$ cocycles has significant $K$-$K$ support, and the third class is a mixed $E$-$F$ class. This is now understood as the **empirical signature of the connecting homomorphism $\delta$**: the Cartan-type classes live in $\tilde{H}^1_b(B^+)$, and $\delta$ maps them through the cross-relations of the Drinfeld double, producing the mixed support observed in the image (see new §6.3 of the paper).
 

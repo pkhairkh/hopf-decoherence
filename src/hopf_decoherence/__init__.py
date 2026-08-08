@@ -32,7 +32,7 @@ Author
 Parham Khairkhah <pkhairkh@icloud.com>
 """
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 __author__ = "Parham Khairkhah"
 __email__ = "pkhairkh@icloud.com"
 __license__ = "MIT"

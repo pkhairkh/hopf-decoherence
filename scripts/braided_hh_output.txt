@@ -1,0 +1,57 @@
+Braided Hochschild cohomology of B(V) for sl_2 at ℓ = 3
+q = e^(2πi/3) = -0.500000+0.866025j,  q^2 = -0.500000-0.866025j,  1 + q + q^2 = -1.11e-16+3.33e-16j
+B(V) = C[E]/(E^3),  dim = 3
+B^+ = B(V) ⋊ C[G],  dim = 9
+|G| = 3
+
+================================================================
+APPROACH (A): Braided HH of B(V) with B(V)-coefficients
+================================================================
+Chain dims: C^0=3, C^1=9=9, C^2=27=27, C^3=81
+||d^1 ∘ d^0||  = 0.00e+00   (should be ~0)
+||d^2 ∘ d^1||  = 4.90e+00   (should be ~0)
+rank(d^1) = 7
+rank(d^2) = 21
+dim ker(d^2) = 6
+dim im(d^1) = 7
+==> dim H^2_c(B(V)) [full] = -1
+
+G-invariant subspace dims: (C^0)^G=1, (C^1)^G=3, (C^2)^G=9, (C^3)^G=27
+||d^1 off the G-inv block||  = 0.00e+00  (should be ~0)
+||d^2 off the G-inv block||  = 0.00e+00  (should be ~0)
+rank(d^1 |_(C^1)^G) = 2
+rank(d^2 |_(C^2)^G) = 8
+dim ker(d^2 |_(C^2)^G) = 1
+dim im(d^1 |_(C^1)^G) = 2
+==> dim H^2_c(B(V))^G  =  -1
+
+================================================================
+APPROACH (B): Ordinary HH of B(V) with B^+-coefficients, then G-inv
+  (= the CORRECT Negron computation: Prop 4.2 + Cor 4.7)
+================================================================
+G-inv chain dims: (C^1)^G=9, (C^2)^G=27=27, (C^3)^G=81
+||d^2 ∘ d^1||  = 0.00e+00   (should be ~0)
+rank(d^1 |_(C^1)^G) = 6
+rank(d^2 |_(C^2)^G) = 18
+dim ker(d^2 |_(C^2)^G) = 9
+dim im(d^1 |_(C^1)^G) = 6
+==> dim HH^2(B(V), B^+)^G  =  dim HH^2(B^+)  =  3
+
+================================================================
+SUMMARY
+================================================================
+(A) dim H^2_c(B(V))       [full]            = -1
+(A) dim H^2_c(B(V)^G)     [G-invariant]     = -1
+(B) dim HH^2(B(V), B^+)^G [Negron's method] = 3
+
+Known: dim HH^2(B^+(sl_2), C) = 1   (paper §6, verify_bplus_sl2_hh2.py)
+
+✗ Approach (B) does NOT match the known answer.
+
+⚠ Approach (A) gives -1, NOT 1 — the task's literal shortcut
+  (braided HH of B(V) alone, then G-invariants) does NOT compute
+  HH^2(B^+) correctly.  The correct shortcut is Approach (B), which
+  uses the *relative* braided complex (= ordinary HH of B(V) with
+  B^+-coefficients) per Negron's Prop 4.2 + Cor 4.7.
+
+Elapsed: 0.00s

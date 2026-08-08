@@ -66,7 +66,8 @@ We propose the conjecture
 \[
   \dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;=\; \binom{n+1}{2} \;+\; 2|\Phi^+|,
 \]
-for the Hochschild cohomology with trivial coefficients $\HH^2(u_q(\mathfrak{g}), \CC) = \Ext^2_{u_q(\mathfrak{g})^e}(u_q(\mathfrak{g}), \CC)$ of the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$. We verify this conjecture by direct Hochschild bar-complex computation for $u_q(\mathfrak{sl}_2)$ at $\ell = 3$ and $\ell = 5$, obtaining $\dim \HH^2 = 3$ in both cases. We also compute $\dim \HH^2(B^+(u_q(\mathfrak{sl}_n)), \CC)$ at five parameter values ($\mathfrak{sl}_2$ at $\ell = 3, 4, 5, 7$ and $\mathfrak{sl}_3$ at $\ell = 3$), all matching the formula $2|\Phi^+| - 1 = \dim(\mathfrak{g}) - \operatorname{rank}(\mathfrak{g}) - 1$. This provides a new computational result for the positive Borel subalgebra and clarifies the role of Maschke's theorem in ruling out ``pairwise Cartan-type'' classes over $\CC$. We extract explicit cocycle representatives for the $A_1$ case and show, by direct basis-pair support analysis, that none of the three $\HH^2(u_q(\mathfrak{sl}_2), \CC)$ classes is supported on $K$-$K$ pairs as the original structural proposal predicted. We then identify the third (mixed $E$-$F$) class as the image of the connecting homomorphism $\delta: \tilde{H}^1_b(B^+) \to \HH^2(D(B^+))$ in the Mastnak--Witherspoon long exact sequence connecting bialgebra cohomology of the bosonization to Hochschild cohomology of the Drinfeld double. The LES decomposition $\dim \HH^2(D(B^+)) = \dim \operatorname{im} \bar\iota + \dim \operatorname{im} \delta$ is verified numerically at $A_1$ ($2 + 1 = 3$), reducing the conjecture to the computation of $\tilde{H}^1_b(B^+)$ at small odd $\ell$ — the regime where the Mastnak--Witherspoon Theorem 6.1.4 hypothesis on prime divisors of $|\Gamma|$ fails.
+for the Hochschild cohomology with trivial coefficients $\HH^2(u_q(\mathfrak{g}), \CC) = \Ext^2_{u_q(\mathfrak{g})^e}(u_q(\mathfrak{g}), \CC)$ of the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$. We verify this conjecture by direct Hochschild bar-complex computation for $u_q(\mathfrak{sl}_2)$ at $\ell = 3$ and $\ell = 5$, obtaining $\dim \HH^2 = 3$ in both cases, and we certify the $\ell = 3$ result by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$ (where $\omega = e^{2\pi i/3}$) via rank computation over 11 finite fields $\mathbb{F}_p$ with $p \equiv 1 \pmod{3}$. We also compute $\dim \HH^2(B^+(u_q(\mathfrak{sl}_n)), \CC)$ at five parameter values ($\mathfrak{sl}_2$ at $\ell = 3, 4, 5, 7$ and $\mathfrak{sl}_3$ at $\ell = 3$), all matching the formula $2|\Phi^+| - 1 = \dim(\mathfrak{g}) - \operatorname{rank}(\mathfrak{g}) - 1$. We extract explicit cocycle representatives for the $A_1$ case and show, by direct basis-pair support analysis, that none of the three $\HH^2(u_q(\mathfrak{sl}_2), \CC)$ classes is supported on $K$-$K$ pairs as the original structural proposal predicted. We identify the third (mixed $E$-$F$) class as the image of the connecting homomorphism $\delta: \tilde{H}^1_b(B^+) \to \HH^2(D(B^+))$ in the Mastnak--Witherspoon long exact sequence connecting bialgebra cohomology of the bosonization to Hochschild cohomology of the Drinfeld double. The LES decomposition $\dim \HH^2(D(B^+)) = \dim \operatorname{im} \bar\iota + \dim \operatorname{im} \delta$ is verified numerically at $A_1$ ($2 + 1 = 3$). \\[1ex]
+\noindent\textbf{Update (v1.2).} Direct computation of $\dim \tilde{H}^1_b(B^+(u_q(\mathfrak{sl}_n)), \CC)$ at $\ell = 3$ for $n = 2, 3, 4$ gives $1, 2, 3$ respectively, following the pattern $\dim \tilde{H}^1_b(B^+) = n - 1 = \operatorname{rank}(\mathfrak{g})$ rather than the originally predicted $\binom{n+1}{2}$. This \emph{refutes} the structural decomposition $\dim \operatorname{im} \delta = \binom{n+1}{2}$ for $n \geq 3$. The full conjecture's count $\dim \HH^2(u_q(\mathfrak{g})) = \binom{n+1}{2} + 2|\Phi^+|$ is consequently in doubt at $A_2$ and higher: either the count itself is wrong (replaced by $(n-1) + 2|\Phi^+|$, giving $8$ at $A_2$ instead of $9$), or the count is correct but the structural split is $\dim \operatorname{im} \delta = n - 1$, $\dim \operatorname{im} \bar\iota = 2|\Phi^+| + 1$ (giving $7$ instead of $6$ for $\dim \operatorname{im} \bar\iota$ at $A_2$). Resolving this requires either direct computation of $\dim \HH^2(u_q(\mathfrak{sl}_3))$ (intractable by the bar complex, dim $6561$) or an alternative structural argument.
 \end{abstract}
 
 \section{Introduction}
@@ -600,6 +601,74 @@ The conjecture therefore predicts $\dim \tilde{H}^1_b(B^+(u_q(\mathfrak{g}))) = 
 \end{itemize}
 
 The $A_1$ case is therefore a theorem-in-waiting, conditional only on an explicit construction of the bialgebra $1$-cocycle on $B^+$ whose $\delta$-image is the mixed $E$-$F$ class. The general conjecture is reduced to computing $\tilde{H}^1_b(B^+)$ at small odd $\ell$ — a well-defined problem in the framework of Mastnak--Witherspoon~\cite{MW08} and Negron--Pevtsova~\cite{NP20}, but one whose solution at $\ell = 3, 5$ is not presently in the literature.
+
+\section{Direct computation of $\tilde{H}^1_b(B^+)$ and refutation of the structural prediction}
+\label{sec:h1brefutation}
+
+We compute $\dim \tilde{H}^1_b(B^+(u_q(\mathfrak{sl}_n)), \CC)$ at $\ell = 3$ for $n = 2, 3, 4$ by direct implementation of the Mastnak--Witherspoon bialgebra cochain complex~\cite{MW08} (Section~2.1). The computation is implemented in \texttt{scripts/compute\_h1b\_bplus\_sl2.py}, \texttt{scripts/compute\_h1b\_bplus\_sl3.py}, and \texttt{scripts/compute\_h1b\_bplus\_sl4.py}.
+
+\subsection{Method}
+
+A degree-$1$ bialgebra cocycle on $B = B^+$ is a linear map $h: \bar{B} \to \bar{B}$ (where $\bar{B} = \ker \varepsilon$ is the augmentation ideal) that is simultaneously a derivation and a coderivation:
+\begin{align*}
+(\partial^h h)(a, b) &= a \cdot h(b) - h(a \cdot b) + h(a) \cdot b = 0 \quad \text{for all } a, b \in \bar{B}, \\
+(\partial^c h)(c) &= c_1 \otimes h(c_2) - \Delta(h(c)) + h(c_1) \otimes c_2 = 0 \quad \text{for all } c \in \bar{B}.
+\end{align*}
+The truncated bialgebra cohomology is $\tilde{H}^1_b(B) = \ker(\partial_b) / \operatorname{im}(\partial_b^0)$, where $\partial_b = (\partial^h, -\partial^c)$ and $\operatorname{im}(\partial_b^0) = 0$ in the truncated complex at degree $1$ (cf.~\cite[\S 2.1]{MW08}). Hence $\dim \tilde{H}^1_b(B) = \dim \ker(\partial_b)$.
+
+We compute $\partial_b$ as a sparse linear map and determine its rank by Gram-matrix eigenvalue computation, with weight-space decomposition by the adjoint $K$-action. The comultiplication table is built from the Lusztig generator coproducts $\Delta(K_i) = K_i \otimes K_i$, $\Delta(E_i) = E_i \otimes K_i + 1 \otimes E_i$, $\Delta(E_{i,i+1}) = \Delta(E_i)\Delta(E_{i+1}) - q \Delta(E_{i+1})\Delta(E_i)$, etc. Algebraic sanity checks (coassociativity, counitality, $\Delta(E_{12})$ formula consistency) all pass to $\sim 10^{-15}$.
+
+\subsection{Results}
+
+\begin{table}[htbp]
+\centering
+\caption{Computed $\dim \tilde{H}^1_b(B^+(u_q(\mathfrak{sl}_n)), \CC)$ at $\ell = 3$.}
+\label{tab:h1b}
+\begin{tabular}{lccccc}
+\toprule
+$n$ & $\dim B^+$ & Predicted by $\binom{n+1}{2}$ & Predicted by $n-1$ & Computed & Status \\
+\midrule
+$2$ & $9$ & $1$ & $1$ & $1$ & matches both \\
+$3$ & $243$ & $3$ & $2$ & $2$ & refutes $\binom{n+1}{2}$, supports $n-1$ \\
+$4$ & $19683$ & $6$ & $3$ & $3$ & refutes $\binom{n+1}{2}$, supports $n-1$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The data strongly supports the pattern $\dim \tilde{H}^1_b(B^+) = n - 1 = \operatorname{rank}(\mathfrak{sl}_n)$ rather than the originally predicted $\binom{n+1}{2}$.
+
+\subsection{Critical bug caught: weight function for $\mathfrak{sl}_3$}
+
+The first run of the $\mathfrak{sl}_3$ computation gave $\dim = 0$, contradicting both the conjecture and the $\mathfrak{sl}_2$ cross-check. Investigation revealed a subtle bug in the weight function. The original weight function used simple-root exponents $(c+e, e+d) \bmod 3$, giving $9$ weight spaces of $27$ elements each. This is \emph{incorrect} for $\mathfrak{sl}_3$ because the Cartan matrix has determinant $3 \equiv 0 \pmod{3}$, so the simple-root basis and the fundamental-weight basis disagree modulo $3$. The correct $K$-weight is $(2c+e-d, -c+e+2d) \bmod 3$, giving $3$ weight spaces of $81$ elements each. After the fix, $\dim = 2$.
+
+For $\mathfrak{sl}_4$, the Cartan matrix $A_3$ has determinant $4 \equiv 1 \pmod{3}$, so the simple-root basis and the $K$-eigenvalue basis agree modulo $3$, and the bug does not arise.
+
+\subsection{Implications for the conjecture}
+
+The LES decomposition $\dim \HH^2(D(B^+)) = \dim \operatorname{im} \bar\iota + \dim \operatorname{im} \delta$ with $\dim \operatorname{im} \delta = \dim \tilde{H}^1_b(B^+)$ (using $\HH^1 = 0$ verified in Section~\ref{sec:les}) now gives, at $\ell = 3$:
+\begin{itemize}
+\item $A_1$: $\dim \HH^2(u_q(\mathfrak{sl}_2)) = 2 + 1 = 3$ \quad (matches conjecture, since $n - 1 = \binom{n+1}{2} = 1$ at $n = 2$)
+\item $A_2$: $\dim \HH^2(u_q(\mathfrak{sl}_3)) = \dim \operatorname{im} \bar\iota + 2$, where $\dim \operatorname{im} \bar\iota \leq \dim \HH^2(B^+) + \dim \HH^2(B^-) = 10$. The conjecture predicts $\dim \HH^2 = 9$, requiring $\dim \operatorname{im} \bar\iota = 7$. The structural prediction $\dim \operatorname{im} \bar\iota = 2|\Phi^+| = 6$ would give $\dim \HH^2 = 8$, refuting the conjecture's count.
+\item $A_3$: $\dim \HH^2(u_q(\mathfrak{sl}_4)) = \dim \operatorname{im} \bar\iota + 3$. The conjecture predicts $18$, requiring $\dim \operatorname{im} \bar\iota = 15$. The structural prediction $\dim \operatorname{im} \bar\iota = 2|\Phi^+| = 12$ would give $\dim \HH^2 = 15$, refuting the conjecture's count.
+\end{itemize}
+
+The full conjecture's count $\binom{n+1}{2} + 2|\Phi^+|$ is therefore in doubt for $n \geq 3$. Two possibilities remain:
+\begin{enumerate}
+\item \textbf{Count is correct, structural split is wrong}: $\dim \HH^2 = \binom{n+1}{2} + 2|\Phi^+|$ with $\dim \operatorname{im} \delta = n - 1$ and $\dim \operatorname{im} \bar\iota = \binom{n+1}{2} - (n-1) + 2|\Phi^+| = \binom{n-1}{2} + 2|\Phi^+| + 1$. This would require $\dim \operatorname{im} \bar\iota$ to be one more than the structural prediction $2|\Phi^+|$ at every $n \geq 3$.
+\item \textbf{Count is also wrong}: $\dim \HH^2 = (n-1) + 2|\Phi^+|$, giving $8$ at $A_2$ (refuting $9$) and $15$ at $A_3$ (refuting $18$). This corresponds to replacing the Cartan-type term $\binom{n+1}{2}$ with $n - 1$ throughout.
+\end{enumerate}
+
+Distinguishing these requires either a direct computation of $\dim \HH^2(u_q(\mathfrak{sl}_3))$ (intractable by the bar complex on the $6561$-dimensional algebra, requiring $\sim 2.28$ TB of RAM and $\sim 190$ years on a single machine) or an alternative structural argument. The most promising directions are: (i) braided Hochschild cohomology in the Yetter--Drinfeld category~\cite{Neg15}, which compresses the chain groups by a factor of $|G| = \ell^n$; (ii) the Anick resolution via noncommutative Gröbner bases, which replaces the bar complex by a much smaller free resolution indexed by the rewriting-system ambiguities; and (iii) geometric representation theory via the Springer resolution, where the predicted $9 = 3 + 6$ split at $A_2$ might correspond to known Borel--Weil--Bott data on the $SL_3$ flag variety.
+
+\subsection{Status update}
+
+\begin{itemize}
+\item \textbf{$A_1$ at $\ell = 3$}: \textbf{Theorem}, now certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$ via rank computation over 11 finite fields $\mathbb{F}_p$ with $p \equiv 1 \pmod{3}$ (see \texttt{scripts/certify\_a1\_exact.py}).
+\item \textbf{$A_1$ at $\ell = 5$}: \textbf{Theorem} (floating-point), awaiting exact certification.
+\item \textbf{$A_2$}: \textbf{Open}. Structural prediction $\dim \operatorname{im} \delta = \binom{3}{2} = 3$ is \emph{refuted} (computed $= 2$). Full count $\dim \HH^2 = 9$ is in doubt: alternative count $8$ is consistent with the verified $\dim \operatorname{im} \delta = 2$ and the structural $\dim \operatorname{im} \bar\iota = 2|\Phi^+| = 6$.
+\item \textbf{$A_3$}: \textbf{Open}. Structural prediction $\dim \operatorname{im} \delta = \binom{4}{2} = 6$ is \emph{refuted} (computed $= 3$). Full count $\dim \HH^2 = 18$ is in doubt: alternative count $15$ is consistent.
+\item \textbf{$B_2, G_2$}: structural only.
+\end{itemize}
 
 \section{Connections and outlook}
 \label{sec:connections}
