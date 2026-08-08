@@ -740,3 +740,174 @@ Three features distinguish this from the floating-point verification:
   certification for A₁ at `ℓ = 5` would complete the A₁ case of the
   paper's Theorem 1.2 on the exact side.
 
+
+---
+
+## W0-1a — AST/IR framework part 1: parser + normal forms
+
+- **Task ID**: W0-1a
+- **Agent**: Sub-agent 0a (Wave 0, general-purpose)
+- **Date**: 2025-08-08
+- **Status**: completed
+- **Output**: `/home/z/my-project/hopf-decoherence/ir/parser.py`, `/home/z/my-project/hopf-decoherence/ir/__init__.py`, `/home/z/my-project/hopf-decoherence/tests/test_ir_parser.py`
+
+### Summary
+
+Built the foundational layer of the AST/IR framework for the
+hopf-decoherence project: a `Z[q, q^{-1}]` coefficient ring (`QLaurent`),
+free-algebra `Monomial` / `Term` / `Polynomial` classes, `RewriteRule`
+with `matches` / `apply`, `Presentation` with a recursive-descent string
+parser, and `NormalFormReducer` using a leftmost-match strategy.  All 31
+unit tests pass, including the quantum-plane integration test
+(`x*y = q*y*x`) which verifies `x*y -> q*y*x`, `x*y*x -> q*y*x*x`,
+`x*x*y -> q^2*y*x*x`, `x*y*x*y -> q^3*y*y*x*x`, `x^4*y^3 -> q^12*y^3*x^4`,
+and `x*y - q*y*x -> 0`.
+
+### Why a new coefficient ring instead of reusing ER
+
+The `ER` class in `scripts/certify_a1_exact.py` is hardcoded to the
+cube roots of unity (`omega^3 = 1`, `Z[omega, 1/3]`).  The AST/IR
+framework needs to work over `Z[q, q^{-1}]` *generically* — without
+fixing `q^N = 1` — so that:
+
+1. Knuth-Bendix completion (W0-1b) can compare monomials by length-lex
+   order over the *free* coefficient ring, without worrying about
+   torsion from a specific root of unity.
+2. The same IR can be specialised to `ell = 3` (`sl_3`), `ell = 5`
+   (`sl_4`), or any other root, by reducing the `QLaurent` coefficients
+   modulo the appropriate cyclotomic ring at certification time (the
+   Anick-resolution cohomology rank is itself certified by reduction
+   modulo many primes, mirroring the `ER`-based modular method).
+3. Structure constants of `u_q(sl_n)` at a root of unity live in
+   `Z[q, q^{-1}]` *before* quotienting by the cyclotomic relation,
+   which is exactly the ring the rewrite rules are stated over.
+
+`QLaurent` is a sparse Laurent polynomial (`{exponent: coefficient}`
+dict with no zero coefficients).  It supports `+`, `-`, `*`, `==`,
+`hash`, `is_zero`, `is_one`, plus the helpers `qpow(n)` and
+`qint(n)`.  The display routine renders `2*q^3 - q + 5` as
+`QLaurent(2*q^3 - q + 5)`.
+
+### Design choices
+
+1. **Monomial order**: length-lex (shorter first, then lexicographic on
+   the tuple of generator indices), exposed via `Monomial.order_key()`.
+   The reducer itself is *independent* of the monomial order — it just
+   finds the leftmost match — but `Polynomial.normalize()` uses
+   length-lex to give a canonical term ordering for `==` and `hash`.
+   Knuth-Bendix completion (W0-1b) will use this order (or a
+   user-supplied refinement) to orient rules.
+
+2. **Reducer strategy**: leftmost-match, recursive.  At each step,
+   `find_match` scans the monomial from left to right; at the first
+   position where any rule matches, the first matching rule (in the
+   order given in `Presentation.rules`) is applied.  The result is a
+   polynomial; each term is recursively reduced, scaled by the original
+   term's coefficient.  For a confluent + terminating rewrite system
+   this yields the unique normal form.  Non-terminating systems may
+   recurse forever — Knuth-Bendix completion (W0-1b) is responsible for
+   guaranteeing termination.
+
+3. **Parser grammar** (whitespace-insensitive):
+
+   ```
+   polynomial := ['+'|'-'] term (('+'|'-') term)*
+   term       := factor ('*' factor)*
+   factor     := int | 'q' ['^' ['-'] int] | generator_name | '(' polynomial ')'
+   ```
+
+   Integer and `q` factors multiply to give the term's coefficient;
+   generator factors concatenate to give the term's monomial.
+   Parenthesized sub-polynomials may appear as factors (so
+   `(q + 1) * x` parses correctly).  Unknown names raise `ValueError`.
+
+4. **Polynomial equality**: `==` normalizes both sides (combine like
+   monomials, drop zero coefficients, sort by length-lex) and compares
+   the resulting term lists.  `hash` is consistent with `==`.
+
+5. **RewriteRule.apply**: returns `prefix * RHS * suffix` where
+   `prefix = monomial[:position]` and `suffix = monomial[position+len(lhs):]`.
+   If RHS is the zero polynomial, the entire match (including prefix
+   and suffix) becomes zero — this is the correct algebraic behaviour
+   (e.g., `x*x = 0` implies `y*x*x*z = 0`).
+
+### Files
+
+- `/home/z/my-project/hopf-decoherence/ir/__init__.py` (new): package
+  docstring + `__version__ = "0.1.0-w0-1a"`.
+- `/home/z/my-project/hopf-decoherence/ir/parser.py` (new, ~700 lines):
+  the full module.  All public symbols are listed in `__all__`.
+- `/home/z/my-project/hopf-decoherence/tests/test_ir_parser.py` (new,
+  ~370 lines): 31 tests in 7 classes (`TestQLaurent`, `TestMonomial`,
+  `TestPolynomial`, `TestRewriteRule`, `TestPresentation`,
+  `TestQuantumPlane`, `TestNoRules`).
+- No existing files modified.
+
+### Test results
+
+```
+$ pytest tests/test_ir_parser.py -v
+============================= 31 passed in 0.12s ==============================
+```
+
+All 5 required tests are present and passing:
+
+- `test_monomial_basic` (in `TestMonomial`): length, indexing, slicing,
+  concatenation, equality, hash, empty-monomial identity.
+- `test_polynomial_addition` (in `TestPolynomial`): like monomials
+  combine, cancellation drops zero-coefficient terms.
+- `test_rewrite_rule_match` (in `TestRewriteRule`): `matches` at
+  correct positions, `apply` produces the right polynomial.
+- `test_quantum_plane_normal_form` (in `TestQuantumPlane`): the
+  integration test — all four reductions verified
+  (`x*y -> q*y*x`, `x*y*x -> q*y*x*x`, `x*x*y -> q^2*y*x*x`,
+  `x*y*x*y -> q^3*y*y*x*x`).
+- `test_presentation_parse` (in `TestPresentation`): parses
+  `"q^2 * K * E - E * K"` to the correct polynomial.
+
+Plus 26 additional tests covering: `QLaurent` arithmetic (addition,
+multiplication, distributivity, negation, zero/one identities, hash
+equality), `Monomial` length-lex ordering, polynomial scalar
+multiplication, polynomial-polynomial multiplication, polynomial
+negation, rewrite-rule error handling (mismatch, empty LHS), parser
+edge cases (no spaces, negative exponents, integer coefficients,
+parentheses, leading minus, single generator, unknown names), and
+end-to-end quantum-plane reduction via the parser.
+
+### Open questions / handoff notes for W0-1b (Knuth-Bendix completion)
+
+1. **Monomial order**: length-lex is exposed via `Monomial.order_key()`
+   and is already used by `Polynomial.normalize()`.  If W0-1b needs a
+   different order (e.g., weight order, or a path order for proving
+   termination), it can subclass `Monomial` or wrap `order_key`.  The
+   reducer does not depend on the order.
+
+2. **Critical pairs**: to find overlaps of two rules `L1 -> R1` and
+   `L2 -> R2`, W0-1b will need to enumerate all positions where a
+   non-trivial suffix of `L1` equals a non-trivial prefix of `L2` (and
+   vice versa).  This is a helper function on `Monomial`, not provided
+   here — W0-1b should add it (e.g., as a free function
+   `overlaps(m1, m2)` returning a list of `(offset, overlap_length)`).
+
+3. **Termination check**: the reducer does NOT detect infinite loops.
+   W0-1b should either (a) wrap `NormalFormReducer` with a
+   max-iterations counter, or (b) prove termination for each completed
+   system before reducing (the Knuth-Bendix completion itself can fail
+   to terminate — that's the undecidable side of the problem).
+
+4. **Performance**: the recursive reducer is fine for monomials of
+   length up to ~20.  For the Anick resolution on `u_q(sl_3)` (basis
+   size 27, monomials of length up to ~5 in `B+`), this is more than
+   sufficient.  For `u_q(sl_4)` (basis size 125, monomials of length
+   up to ~7), still fine.  If monomials get much longer, an iterative
+   reducer with memoization would help.
+
+5. **Coefficient ring extensions**: the `QLaurent` ring is
+   `Z[q, q^{-1}]`.  When W0-1b or later sub-agents need to specialise
+   to `ell = 3` (cube roots), they should either (a) reduce
+   `QLaurent` coefficients modulo `q^2 + q + 1` to get
+   `Z[omega]` (and then to `Z[omega, 1/3]` if the commutator
+   `[E, F] = (K - K^{-1})/(q - q^{-1})` is involved), or (b) use the
+   `ER` class directly.  The modular-reduction infrastructure in
+   `certify_a1_exact.py` (`reduce_mod`, `rank_mod_p`) is the model.
+
