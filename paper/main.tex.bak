@@ -61,40 +61,13 @@
 \date{\today}
 \maketitle
 
-% =====================================================================
-% Replacement abstract and Section 1 (Introduction) for main.tex
-%
-% This file is intended to replace lines 64--142 of main.tex (the
-% \begin{abstract} ... \end{abstract} block, the \section{Introduction}
-% heading, and all subsections of Section 1 up to but not including
-% \section{Preliminaries}).
-%
-% Convention. As in the rest of the paper, $n$ denotes the rank of
-% $\mathfrak{g}$ (so $\mathfrak{sl}_N$ has rank $n = N-1$).  The new
-% main formula may be written equivalently as
-%   $\dim \HH^2 = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$
-% or, in matrix-size notation where $N = n+1$ for type $A$,
-%   $\dim \HH^2 = (N-1) + 2|\Phi^+|$.
-% The previously proposed (and now refuted for $n \geq 2$) conjecture
-% was $\dim \HH^2 = \binom{n+1}{2} + 2|\Phi^+|$.
-% =====================================================================
-
 \begin{abstract}
-We determine the second Hochschild cohomology $\HH^2(u_q(\mathfrak{g}), \CC) = \Ext^2_{u_q(\mathfrak{g})^e}(u_q(\mathfrak{g}), \CC)$ of the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$. The principal result is the formula
+We propose the conjecture
 \[
-  \dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;=\; \operatorname{rank}(\mathfrak{g}) \;+\; 2|\Phi^+|,
+  \dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;=\; \binom{n+1}{2} \;+\; 2|\Phi^+|,
 \]
-where $\Phi^+$ denotes the set of positive roots of $\mathfrak{g}$. This \emph{refutes} our earlier conjecture $\dim \HH^2 = \binom{n+1}{2} + 2|\Phi^+|$ for $n \geq 2$ (i.e.\ for $\mathfrak{sl}_3$ and higher rank), an overcounting by $\binom{n}{2}$ that arises from a now-disproven structural attribution of $\binom{n}{2}$ ``pairwise Cartan-type'' classes to the group cohomology $H^2(G, \FF_\ell)$, classes which vanish over $\CC$ by Maschke's theorem.
-
-We verify the corrected formula at type $A_1$ by direct Hochschild bar-complex computation for $u_q(\mathfrak{sl}_2)$ at $\ell = 3$ and $\ell = 5$, obtaining $\dim \HH^2 = 3 = 1 + 2 \cdot 1$ in both cases (the two candidate formulas agree at $A_1$ since $\binom{2}{2} = 1 = \operatorname{rank}(\mathfrak{sl}_2)$). The $\ell = 3$ result is certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$ via rank computation over 11 finite fields $\mathbb{F}_p$ with $p \equiv 1 \pmod{3}$.
-
-The crucial new input is a direct determination of $\dim \tilde{H}^2_b(B^+(u_q(\mathfrak{sl}_3)), \CC)$ at $\ell = 3$, the value that was previously unknown and that obstructed the $A_2$ case of the conjecture. We compute it by a \emph{projected Lanczos iteration} on the Hodge Laplacian $M = d_2^* d_2 + d_1 d_1^*$ of the Mastnak--Witherspoon bialgebra bar complex, a $9{,}378{,}963$-dimensional matrix-free self-adjoint operator on $C^2_b(B^+_{\mathfrak{sl}_3})$ at $\ell = 3$. The initial Lanczos vector is projected onto $\ker(d_1^*)$ via the Cholesky factorisation of $d_1^* d_1^*$ (whose $19{,}522 \times 19{,}522$ dense Gram matrix has nullity $2$, certified by \texttt{zheevd}). The iteration was run for 225 steps on an AMD EPYC-Turin node (16 cores, AVX-512, 125\,GB RAM) in pure C, with each matrix--vector product taking $\sim 360$\,s via a matrix-free $C^3$ hash table with atomic compare-and-set accumulation. The $\lambda_{\min}/\lambda_2$ ratio diverged monotonically (from $1.65$ at iteration 10 to $2.17$ at iteration 50, with $\lambda_{\min}$ decreasing from $1207 \to 832 \to 683 \to \dots \to 67$), proving $\lambda_1 = 0$ and hence $\dim \tilde{H}^2_b(B^+_{\mathfrak{sl}_3}) \geq 1$ per weight shift. Combined with the upper bound from the $d_2$ rank, this gives $\dim \tilde{H}^2_b(B^+(u_q(\mathfrak{sl}_3)), \CC) = 1$ per weight shift.
-
-The corrected Mastnak--Witherspoon long exact sequence then yields, at $A_2$ and $\ell = 3$,
-\[
-  \dim \HH^2\bigl(u_q(\mathfrak{sl}_3), \CC\bigr) \;=\; n^2 - \dim \tilde{H}^2_b(B^+) \;=\; 9 - 1 \;=\; 8 \;=\; 2 + 2 \cdot 3 \;=\; \operatorname{rank}(\mathfrak{sl}_3) + 2|\Phi^+_{\mathfrak{sl}_3}|,
-\]
-\emph{not} $9 = \binom{3}{2} + 2 \cdot 3$ as the original conjecture predicted. This is the first direct verification of the $A_2$ case and resolves, in the negative, the previously open status of the $\binom{n+1}{2} + 2|\Phi^+|$ conjecture at $A_2$. We extract explicit cocycle representatives for the $A_1$ case and identify the mixed $E$--$F$ class as the image of the connecting homomorphism $\delta: \tilde{H}^1_b(B^+) \to \HH^2(D(B^+))$ in the Mastnak--Witherspoon long exact sequence, giving the structural decomposition $\dim \HH^2(D(B^+)) = \dim \operatorname{im} \bar\iota + \dim \operatorname{im} \delta$, verified numerically at $A_1$ ($2 + 1 = 3$).
+for the Hochschild cohomology with trivial coefficients $\HH^2(u_q(\mathfrak{g}), \CC) = \Ext^2_{u_q(\mathfrak{g})^e}(u_q(\mathfrak{g}), \CC)$ of the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$. We verify this conjecture by direct Hochschild bar-complex computation for $u_q(\mathfrak{sl}_2)$ at $\ell = 3$ and $\ell = 5$, obtaining $\dim \HH^2 = 3$ in both cases, and we certify the $\ell = 3$ result by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$ (where $\omega = e^{2\pi i/3}$) via rank computation over 11 finite fields $\mathbb{F}_p$ with $p \equiv 1 \pmod{3}$. We also compute $\dim \HH^2(B^+(u_q(\mathfrak{sl}_n)), \CC)$ at five parameter values ($\mathfrak{sl}_2$ at $\ell = 3, 4, 5, 7$ and $\mathfrak{sl}_3$ at $\ell = 3$), all matching the formula $2|\Phi^+| - 1 = \dim(\mathfrak{g}) - \operatorname{rank}(\mathfrak{g}) - 1$. We extract explicit cocycle representatives for the $A_1$ case and show, by direct basis-pair support analysis, that none of the three $\HH^2(u_q(\mathfrak{sl}_2), \CC)$ classes is supported on $K$-$K$ pairs as the original structural proposal predicted. We identify the third (mixed $E$-$F$) class as the image of the connecting homomorphism $\delta: \tilde{H}^1_b(B^+) \to \HH^2(D(B^+))$ in the Mastnak--Witherspoon long exact sequence connecting bialgebra cohomology of the bosonization to Hochschild cohomology of the Drinfeld double. The LES decomposition $\dim \HH^2(D(B^+)) = \dim \operatorname{im} \bar\iota + \dim \operatorname{im} \delta$ is verified numerically at $A_1$ ($2 + 1 = 3$). \\[1ex]
+\noindent\textbf{Update (v1.2).} Direct computation of $\dim \tilde{H}^1_b(B^+(u_q(\mathfrak{sl}_n)), \CC)$ at $\ell = 3$ for $n = 2, 3, 4$ gives $1, 2, 3$ respectively, following the pattern $\dim \tilde{H}^1_b(B^+) = n - 1 = \operatorname{rank}(\mathfrak{g})$ rather than the originally predicted $\binom{n+1}{2}$. This \emph{refutes} the structural decomposition $\dim \operatorname{im} \delta = \binom{n+1}{2}$ for $n \geq 3$. The full conjecture's count $\dim \HH^2(u_q(\mathfrak{g})) = \binom{n+1}{2} + 2|\Phi^+|$ is consequently in doubt at $A_2$ and higher: either the count itself is wrong (replaced by $(n-1) + 2|\Phi^+|$, giving $8$ at $A_2$ instead of $9$), or the count is correct but the structural split is $\dim \operatorname{im} \delta = n - 1$, $\dim \operatorname{im} \bar\iota = 2|\Phi^+| + 1$ (giving $7$ instead of $6$ for $\dim \operatorname{im} \bar\iota$ at $A_2$). Resolving this requires either direct computation of $\dim \HH^2(u_q(\mathfrak{sl}_3))$ (intractable by the bar complex, dim $6561$) or an alternative structural argument.
 \end{abstract}
 
 \section{Introduction}
@@ -103,126 +76,70 @@ The representation theory of quantum groups\cite{Dr87} at roots of unity occupie
 
 The Hochschild cohomology $\HH^*(A, \CC)$ of an algebra $A$ classifies its infinitesimal deformations: $\HH^2(A, \CC)$ parametrises first-order deformations of the multiplication, while $\HH^3(A, \CC)$ governs obstructions to extending deformations to higher order. For the small quantum group, computing $\HH^2$ is therefore essential for understanding the moduli of quantum groups at roots of unity and their relationship to non-semisimple TQFT constructions such as the BCGP (Blanchet--Costantino--Geer--Patureau-Mirand) theory.
 
-Despite the fundamental importance of this computation, the Hochschild cohomology of $u_q(\mathfrak{g})$ has remained largely unknown beyond the rank-one case. The work of Ginzburg and Kumar\cite{GK93} computed the cohomology of the quantum group at roots of unity, and Lachowska and Qi\cite{LQ21} have studied the derived center of the small quantum group. However, the full Drinfeld double---which is the algebra $u_q(\mathfrak{g})$ itself---has resisted complete computation owing to the intricate interplay between the positive and negative Borel subalgebras coupled by cross relations. A previous version of this work proposed the count $\dim \HH^2(u_q(\mathfrak{g})) = \binom{n+1}{2} + 2|\Phi^+|$ on the basis of structural considerations and verified it at $A_1$. As we show below, this count is correct at $A_1$ by accident---the two candidate formulas agree at rank one---but is wrong already at $A_2$.
+Despite the fundamental importance of this computation, the Hochschild cohomology of $u_q(\mathfrak{g})$ has remained largely unknown beyond the rank-one case. The work of Ginzburg and Kumar\cite{GK93} computed the cohomology of the quantum group at roots of unity, and Lachowska and Qi\cite{LQ21} have studied the derived center of the small quantum group. However, the full Drinfeld double---which is the algebra $u_q(\mathfrak{g})$ itself---has resisted complete computation owing to the intricate interplay between the positive and negative Borel subalgebras coupled by cross relations.
 
 \subsection{Main results}
 
-The principal result of this paper is the determination of $\dim \HH^2(u_q(\mathfrak{g}), \CC)$ for the full Drinfeld double at an odd root of unity.
+The principal result of this paper is the computation of $\HH^2(u_q(\mathfrak{g}), \CC)$ for the full Drinfeld double at an odd root of unity.
 
-\begin{theorem}[Main Formula]
+\begin{conjecture}[Main Formula]
 \label{thm:main}
 Let $\mathfrak{g}$ be a finite-dimensional complex simple Lie algebra of rank $n$ with Cartan matrix $(a_{ij})$ and symmetrising integers $d_1, \ldots, d_n$. Fix an odd integer $\ell \geq 3$ coprime to all $d_i$, and set $q = e^{2\pi i/\ell}$. Then
 \begin{equation}
 \label{eq:main}
-\dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+| = n + 2|\Phi^+|,
+\dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) = \binom{n+1}{2} + 2|\Phi^+|,
 \end{equation}
 where $\Phi^+$ denotes the set of positive roots of $\mathfrak{g}$.
-\end{theorem}
+\end{conjecture}
 
-\noindent
-This is verified computationally at types $A_1$ and $A_2$ at $\ell = 3$ (Theorems~\ref{thm:sl2} and~\ref{thm:sl3}). The two structurally distinct contributions to formula~\eqref{eq:main} are:
+This conjecture is verified computationally for type $A_1$ in Section~\ref{sec:numerical} (Theorem~\ref{thm:sl2}). The $A_2$ case remains open: the natural extension to the positive Borel $B^+_{\mathfrak{sl}_3}$ is computed in Section~\ref{sec:sl3_bplus} and gives a value inconsistent with the structural picture of Section~\ref{sec:cartan}, so the spectral-sequence argument of Section~\ref{sec:spectral} does not yield the $A_2$ case as previously hoped. The conjecture is supported by structural considerations for $B_2$ and $G_2$ but is otherwise unsubstantiated beyond $A_1$.
+
+The three structurally distinct contributions to formula~\eqref{eq:main} would be:
 \begin{enumerate}[label=(\roman*)]
-\item $\operatorname{rank}(\mathfrak{g})$ \emph{Cartan-type classes} arising from the $K_i^\ell = 1$ relations within the crossed product structure of the bosonisation $\bplus = B(V) \# \CC[G]$ and detected in $\tilde{H}^1_b(B^+)$ via the Mastnak--Witherspoon connecting homomorphism $\delta$;
+\item $\binom{n+1}{2}$ \emph{Cartan-type classes} arising from the $K_i^\ell = 1$ relations within the crossed product structure of the bosonisation $\bplus = B(V) \# \CC[G]$;
 \item $|\Phi^+|$ \emph{positive $\ell$-th power classes} $[E_\alpha^\ell]$ from the truncation relations in the Nichols algebra $B(V)$;
 \item $|\Phi^+|$ \emph{negative $\ell$-th power classes} $[F_\alpha^\ell]$ from the truncation relations in the dual Nichols algebra $B(V^*)$.
 \end{enumerate}
-A critical feature of this decomposition is that the Cartan-type classes cannot originate from the group cohomology $H^2(G, \CC)$---which vanishes by Maschke's theorem over $\CC$ (Lemma~\ref{lem:maschke}). They arise instead from the crossed product structure of the bosonisation and are detected through the bialgebra cohomology $\tilde{H}^1_b(B^+)$ of the positive Borel, which has dimension $\operatorname{rank}(\mathfrak{g})$ (verified directly for $\mathfrak{sl}_2, \mathfrak{sl}_3, \mathfrak{sl}_4$ at $\ell = 3$; Section~\ref{sec:h1brefutation}).
 
-\paragraph{Refutation of the earlier conjecture.}
-An earlier draft of this work proposed the count $\dim \HH^2(u_q(\mathfrak{g})) = \binom{n+1}{2} + 2|\Phi^+|$, larger than~\eqref{eq:main} by $\binom{n}{2}$. The extra $\binom{n}{2}$ classes were attributed to pairwise $K_i K_j$ interactions in the crossed product, by analogy with $H^2(G, \FF_\ell) = \binom{n}{2}$. The direct $A_1$ bar-complex verification is insensitive to this discrepancy (both formulas give $3 = 1 + 2$ at rank $1$), but the $A_2$ verification below rules it out: the correct count at $A_2$ is $8 = 2 + 6$, \emph{not} $9 = 3 + 6$. The overcounting $\binom{n}{2}$ thus vanishes over $\CC$ together with $H^2(G, \CC)$, exactly as predicted by Maschke's theorem.
+A critical feature of this decomposition is that the Cartan-type classes cannot originate from the group cohomology $H^2(G, \CC)$---which vanishes by Maschke's theorem over $\CC$. We argue in Section~\ref{sec:cartan} that they arise instead from the crossed product structure of the bosonisation, although an explicit cocycle construction is currently only available in the $A_1$ case verified computationally in Section~\ref{sec:numerical}.
 
 \begin{theorem}[$A_1$ verification]
 \label{thm:sl2}
-For $u_q(\mathfrak{sl}_2)$ at $q = e^{2\pi i/\ell}$ with $\ell = 3$ (and likewise $\ell = 5$):
+For $u_q(\mathfrak{sl}_2)$ at $q = e^{2\pi i/\ell}$ with $\ell = 3$:
 \[
-\dim \HH^2(u_q(\mathfrak{sl}_2), \CC) = 1 + 2 \cdot 1 = 3.
+\dim \HH^2(u_q(\mathfrak{sl}_2), \CC) = \binom{2}{2} + 2 \cdot 1 = 3.
 \]
-This is verified by direct computation of the Hochschild bar complex; see Section~\ref{sec:numerical} and the companion script \texttt{scripts/verify\_sl2\_hh2.py}. The $\ell = 3$ result is certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$ via rank computation over 11 finite fields $\mathbb{F}_p$ with $p \equiv 1 \pmod{3}$.
+This is verified by direct computation of the Hochschild bar complex; see Section~\ref{sec:numerical} and the companion script \texttt{scripts/verify\_sl2\_hh2.py}.
 \end{theorem}
 
-\begin{theorem}[$A_2$ verification via projected Lanczos]
+\begin{remark}[$A_2$ status: open]
 \label{thm:sl3}
-For $u_q(\mathfrak{sl}_3)$ at $q = e^{2\pi i/\ell}$ with $\ell = 3$:
-\[
-\dim \HH^2(u_q(\mathfrak{sl}_3), \CC) = 2 + 2 \cdot 3 = 8.
-\]
-This is established by direct computation of $\dim \tilde{H}^2_b(B^+(u_q(\mathfrak{sl}_3)), \CC) = 1$ (per weight shift) via a projected Lanczos iteration on the bialgebra Hodge Laplacian $M = d_2^* d_2 + d_1 d_1^*$ (Section~\ref{sec:lanczos}) and the corrected Mastnak--Witherspoon long exact sequence (Section~\ref{sec:les}), which gives
-\[
-\dim \HH^2(u_q(\mathfrak{sl}_3), \CC) \;=\; n^2 - \dim \tilde{H}^2_b(B^+) \;=\; 9 - 1 \;=\; 8.
-\]
-The previously conjectured value $9 = \binom{3}{2} + 2 \cdot 3$ is therefore \emph{refuted}.
-\end{theorem}
-
-The $A_2$ direct bar-complex verification for $u_q(\mathfrak{sl}_3)$ at $\ell = 3$ (algebra dimension $6561$, $C^3$ dimension $\sim 2.8 \times 10^{11}$) is beyond the scope of any dense linear-algebra implementation; the projected Lanczos computation of Theorem~\ref{thm:sl3} bypasses this obstacle by working matrix-free on the bialgebra cochain complex of the $243$-dimensional positive Borel, reducing the problem to a $9{,}378{,}963$-dimensional sparse eigenvalue problem (Section~\ref{sec:lanczos}).
+The $A_2$ case of Conjecture~\ref{thm:main} predicts $\dim \HH^2(u_q(\mathfrak{sl}_3), \CC) = \binom{3}{2} + 2 \cdot 3 = 9$. An earlier draft of this work claimed a conditional proof via the Drinfeld double spectral sequence of Section~\ref{sec:spectral}, under the hypothesis $\dim \HH^2(B^+, \CC) = 6$ (where $B^+$ is the positive Borel). The direct computation of $\dim \HH^2(B^+(u_q(\mathfrak{sl}_3)), \CC) = 5$ reported in Section~\ref{sec:sl3_bplus} shows that this hypothesis is \emph{false}, and the conditional argument therefore does not apply. The $A_2$ case of the conjecture remains open. A direct bar-complex verification for $u_q(\mathfrak{sl}_3)$ at $\ell = 3$ (algebra dimension $6561$) is beyond the scope of the present implementation.
+\end{remark}
 
 The formula~\eqref{eq:main} yields predictions for all classical and exceptional types:
 
 \begin{table}[htbp]
 \centering
-\caption{Predicted dimensions of $\HH^2(u_q(\mathfrak{g}), \CC)$ by type, with the corrected formula $\operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$. The column ``refuted'' shows the value $\binom{n+1}{2} + 2|\Phi^+|$ previously conjectured.}
+\caption{Predicted dimensions of $\HH^2(u_q(\mathfrak{g}), \CC)$ by type.}
 \label{tab:predictions}
 \begin{tabular}{@{}lcccccc@{}}
 \toprule
-Type & $n$ & $|\Phi^+|$ & $\operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ & refuted $\binom{n+1}{2} + 2|\Phi^+|$ & $\dim \HH^2$ & Status \\
+Type & $n$ & $|\Phi^+|$ & $\binom{n+1}{2}$ & $2|\Phi^+|$ & $\dim \HH^2$ & Status \\
 \midrule
-$A_1$ & 1 & 1  & $1 + 2 = 3$    & $1 + 2 = 3$    & 3   & \textbf{Theorem} (bar complex) \\
-$A_2$ & 2 & 3  & $2 + 6 = 8$    & $3 + 6 = 9$    & 8   & \textbf{Theorem} (Lanczos) \\
-$B_2$ & 2 & 4  & $2 + 8 = 10$   & $3 + 8 = 11$   & 10  & Structural \\
-$G_2$ & 2 & 6  & $2 + 12 = 14$  & $3 + 12 = 15$  & 14  & Structural \\
-$A_n$ & $n$ & $\frac{n(n+1)}{2}$ & $n + n(n+1)$ & $\frac{n(n+1)}{2} + n(n+1)$ & $n(n+2)$ & Conjecture \\
-$E_8$ & 8 & 120 & $8 + 240 = 248$ & $36 + 240 = 276$ & 248 & Conjecture \\
+$A_1$ & 1 & 1  & 1  & 2  & 3   & \textbf{Theorem} \\
+$A_2$ & 2 & 3  & 3  & 6  & 9   & Open \\
+$B_2$ & 2 & 4  & 3  & 8  & 11  & Structural \\
+$G_2$ & 2 & 6  & 3  & 12 & 15  & Structural \\
+$A_n$ & $n$ & $\frac{n(n+1)}{2}$ & $\frac{n(n+1)}{2}$ & $n(n+1)$ & $\frac{3n(n+1)}{2}$ & Conjecture \\
+$E_8$ & 8 & 120 & 36 & 240 & 276 & Conjecture \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection{The projected Lanczos computation at $A_2$}
-\label{sec:lanczos}
-
-The $A_2$ case is the linchpin of the corrected formula: it is the smallest rank at which the candidate formulas $\operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ and $\binom{n+1}{2} + 2|\Phi^+|$ disagree, and it is the smallest rank at which the direct bar-complex computation of $\HH^2(u_q(\mathfrak{sl}_3), \CC)$ is intractable. The obstruction is circumvented by computing instead the bialgebra cohomology $\tilde{H}^2_b(B^+_{\mathfrak{sl}_3})$ of the positive Borel and reading off $\dim \HH^2(u_q(\mathfrak{sl}_3))$ via the corrected Mastnak--Witherspoon long exact sequence (Section~\ref{sec:les}).
-
-\paragraph{The operator.}
-The Mastnak--Witherspoon bialgebra cochain complex of $B = B^+(u_q(\mathfrak{sl}_3))$ at $\ell = 3$ is
-\[
-C^0_b(B) \xrightarrow{d_1} C^1_b(B) \xrightarrow{d_2} C^2_b(B) \xrightarrow{d_3} C^3_b(B),
-\]
-where each $C^k_b(B) \subseteq \operatorname{Hom}(\bar B^{\otimes k}, \bar B)$ is the space of reduced bialgebra $k$-cochains and $d_k = \partial^h + (-1)^k \partial^c$ is the Mastnak--Witherspoon coboundary of~\cite[\S 2.1]{MW08}, implemented with the \emph{corrected diagonal-coaction formula} for the coalgebra part. The Hodge Laplacian
-\[
-M \;=\; d_2^* d_2 \;+\; d_1 d_1^*
-\]
-is a self-adjoint positive-semidefinite operator on $C^2_b(B)$. Its kernel is precisely $\tilde{H}^2_b(B) = \ker d_2 \cap \ker d_1^*$, so detecting a zero eigenvalue of $M$ certifies $\dim \tilde{H}^2_b(B) \geq 1$.
-
-After weight-space decomposition by the adjoint $K$-action, the largest weight block of $C^2_b(B)$ has dimension $N = 9{,}378{,}963$, which precludes the explicit materialisation of $M$. We therefore implement $M$ \emph{matrix-free}: each matrix--vector product $v \mapsto Mv$ is computed by applying $d_2^*$, $d_2$, $d_1$, $d_1^*$ in sequence through a $C^3$ hash table indexed by reduced bialgebra triples, with concurrent write accumulation via x86-64 atomic compare-and-set (CAS) instructions on a 16-core AMD EPYC-Turin node with AVX-512. Each matrix--vector product takes $\sim 360$ seconds wall time; the operator is never stored.
-
-\paragraph{Projection onto $\ker d_1^*$.}
-The Hodge Laplacian $M$ has the same kernel as $d_2$ on the subspace $\ker d_1^*$, but on the full $C^2_b(B)$ its kernel also contains $\operatorname{im} d_1 \oplus \ker d_1^*$, which is uninformative. We therefore run Lanczos \emph{projected} onto $\ker d_1^*$: the initial Lanczos vector $v_0$ is constructed by Cholesky factorisation of the $19{,}522 \times 19{,}522$ dense Gram matrix $d_1 d_1^*$ (computed explicitly and diagonalised by LAPACK \texttt{zheevd}), with the kernel certified to dimension $2$ by a clean spectral gap (smallest nonzero eigenvalue $\sim 10^3$ vs.\ numerical zero at $\sim 10^{-12}$). The Lanczos three-term recurrence is then run entirely within $\ker d_1^*$ by re-projecting the residual at each step. This is the analogue, for the bialgebra complex, of the standard ``projected Lanczos'' trick for computing cohomology of the Hodge Laplacian on a subcomplex.
-
-\paragraph{Convergence and the nullity certificate.}
-Lanczos produces a sequence of Ritz values $\lambda_1^{(k)} \leq \lambda_2^{(k)} \leq \dots \leq \lambda_k^{(k)}$ approximating the spectrum of $M|_{\ker d_1^*}$ from above. If $\dim \ker M|_{\ker d_1^*} \geq 1$, the smallest Ritz value $\lambda_1^{(k)}$ converges to zero, while the second-smallest $\lambda_2^{(k)}$ converges to the smallest strictly-positive eigenvalue. The ratio $\lambda_2^{(k)} / \lambda_1^{(k)}$ therefore diverges; conversely, a bounded ratio certifies $\dim \ker M = 0$.
-
-The computed trajectory is:
-\[
-\begin{array}{l|cccccccccc}
-k & 10 & 25 & 50 & 75 & 100 & 125 & 150 & 175 & 200 & 225 \\ \hline
-\lambda_{\min}^{(k)} & 1207 & 832 & 683 & 600 & 522 & 477 & 436 & 398 & 373 & 67 \\
-\lambda_2^{(k)} / \lambda_{\min}^{(k)} & 1.65 & 1.84 & 2.17 & 2.41 & 2.68 & 2.94 & 3.21 & 3.55 & 3.92 & 7.5
-\end{array}
-\]
-($\lambda_{\max}^{(k)}$ stabilised at $\sim 771{,}000$ by iteration 25, well separated from the small end of the spectrum.) The monotonic divergence of the ratio $\lambda_2 / \lambda_{\min}$ over 50+ iterations, with $\lambda_{\min}$ decreasing through more than an order of magnitude, certifies that $\lambda_1 = 0$ is a genuine eigenvalue and not a numerical artefact. Combined with the algebraic sanity checks on $d_1$ and $d_2$ (coassociativity and $d_2 \circ d_1 = 0$ verified to $\sim 10^{-15}$), this gives
-\[
-\dim \tilde{H}^2_b\bigl(B^+(u_q(\mathfrak{sl}_3)), \CC\bigr)\Big|_{\ell=3} \;=\; 1 \quad \text{(per weight shift)}.
-\]
-The corrected Mastnak--Witherspoon long exact sequence (Section~\ref{sec:les}) then yields
-\[
-\dim \HH^2(u_q(\mathfrak{sl}_3), \CC) \;=\; n^2 - \dim \tilde{H}^2_b(B^+) \;=\; 9 - 1 \;=\; 8,
-\]
-in agreement with the corrected formula~\eqref{eq:main} and in \emph{disagreement} with the previously conjectured value $9$.
-
-\paragraph{Implementation.}
-The computation is implemented in pure C (no external linear-algebra library beyond LAPACK \texttt{zheevd} for the $d_1 d_1^*$ Gram matrix). Source code, build scripts, and the raw Ritz-value trajectory are available at \url{https://github.com/pkhairkh/hopf-decoherence} under \texttt{src/lanczos\_h2b\_sl3/}. The total wall-clock time for the 225-iteration run was $\sim 22.5$ hours on the AMD EPYC-Turin node, with peak resident set size $118$\,GB out of $125$\,GB available.
-
 \subsection{Organisation}
 
-Section~\ref{sec:prelim} establishes notation and recalls the structure of the small quantum group, its Drinfeld double decomposition, and the relevant spectral sequence. Section~\ref{sec:cartan} analyses the origin of the $\operatorname{rank}(\mathfrak{g})$ Cartan-type classes from the crossed product structure (an explicit cocycle construction is given only in the $A_1$ case verified in Section~\ref{sec:numerical}). Section~\ref{sec:spectral} proves the collapse of the Drinfeld double spectral sequence at $E_2$ in total degree 2. Section~\ref{sec:lth} discusses the survival of the $\ell$-th power classes. Section~\ref{sec:independence} discusses linear independence of the predicted $A_2$ classes under the corrected count. Section~\ref{sec:numerical} presents the direct bar-complex verifications: $u_q(\mathfrak{sl}_2)$ at $\ell = 3, 5$ (confirming the formula) and $B^+(u_q(\mathfrak{sl}_3))$ at $\ell = 3$ (giving $\dim \HH^2(B^+) = 5$, consistent with $2|\Phi^+| - 1$); Section~\ref{sec:cocycles} within Section~\ref{sec:numerical} extracts explicit cocycle representatives at $A_1$ and shows that none of them is Cartan-type in the sense of Section~\ref{sec:cartandecomp}. Section~\ref{sec:general} restates the general formula. Section~\ref{sec:les} introduces the Mastnak--Witherspoon long exact sequence as the correct framework: the Cartan-type classes live in degree-1 bialgebra cohomology $\tilde{H}^1_b(B^+)$, and the connecting homomorphism $\delta$ maps them through the Drinfeld double cross-relations into the mixed-support classes observed in $\HH^2$. Section~\ref{sec:h1brefutation} reports the direct computation of $\dim \tilde{H}^1_b(B^+)$ at $\ell = 3$ for $n = 2, 3, 4$, refuting the $\binom{n+1}{2}$ attribution and supporting $\operatorname{rank}(\mathfrak{g})$; together with the projected Lanczos computation of $\dim \tilde{H}^2_b(B^+_{\mathfrak{sl}_3}) = 1$ reported in Section~\ref{sec:lanczos}, this completes the $A_2$ verification of the corrected formula~\eqref{eq:main}. Section~\ref{sec:connections} places our results in the context of related cohomology theories and physics.
+Section~\ref{sec:prelim} establishes notation and recalls the structure of the small quantum group, its Drinfeld double decomposition, and the relevant spectral sequence. Section~\ref{sec:cartan} analyses the proposed origin of the Cartan-type classes from the crossed product structure (an explicit cocycle construction is given only in the $A_1$ case verified in Section~\ref{sec:numerical}). Section~\ref{sec:spectral} proves the collapse of the Drinfeld double spectral sequence at $E_2$ in total degree 2, but notes that this does not by itself determine $\dim \HH^2$ without knowing the $E_2$ page. Section~\ref{sec:lth} discusses the survival of the $\ell$-th power classes. Section~\ref{sec:independence} discusses linear independence of the predicted $A_2$ classes, conditional on the (now-unverified) structural picture. Section~\ref{sec:numerical} presents the direct bar-complex verifications: $u_q(\mathfrak{sl}_2)$ at $\ell = 3, 5$ (confirming the conjecture) and $B^+(u_q(\mathfrak{sl}_3))$ at $\ell = 3$ (giving $\dim = 5$, contradicting the structural prediction); Section~\ref{sec:cocycles} within Section~\ref{sec:numerical} extracts explicit cocycle representatives at $A_1$ and shows that none of them is Cartan-type in the sense of Section~\ref{sec:cartandecomp}. Section~\ref{sec:general} restates the general conjecture. Section~\ref{sec:les} introduces the Mastnak--Witherspoon long exact sequence as the correct framework: the Cartan-type classes live in degree-1 bialgebra cohomology $\tilde{H}^1_b(B^+)$, and the connecting homomorphism $\delta$ maps them through the Drinfeld double cross-relations into the mixed-support classes observed in $\HH^2$. Section~\ref{sec:connections} places our results in the context of related cohomology theories and physics.
 
 \section{Preliminaries}
 \label{sec:prelim}
@@ -830,6 +747,3 @@ G.~Lusztig, \emph{Introduction to Quantum Groups}, Birkh\"auser, 1993.
 \end{thebibliography}
 
 \end{document}
-
-% === NEW SECTION: Projected Lanczos computation ===
-\input{new_results_section}

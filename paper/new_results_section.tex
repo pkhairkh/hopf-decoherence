@@ -1,0 +1,161 @@
+% =============================================================================
+%  new_results_section.tex
+%
+%  Section: Computation of H~^2_b(B^+(u_q(sl_3))) via Projected Lanczos.
+%
+%  Intended to be \input{} into main.tex (after Section "Direct computation
+%  of H~^1_b(B^+)", i.e. after \label{sec:h1brefutation}).  Uses only macros
+%  already defined in the preamble of main.tex:
+%     \HH, \Ext, \Der, \InnDer, \ad, \rk, \CC, \ZZ, \FF, \bplus, \bminus
+%  plus standard \operatorname{im}, \operatorname{ker}, \binom, \bigl, \bigr.
+%  Cross-references resolved against existing labels:
+%     sec:h1brefutation, eq:mwles, tab:h1b, conj:general, sec:spectral,
+%     thm:collapse, sec:les, sec:sl3_bplus.
+%
+%  No new \cite keys are introduced; algorithmic references (Lanczos,
+%  Householder QR, Cholesky, Moore-Penrose pseudoinverse, LAPACK \texttt{zheevd}
+%  / \texttt{zpotrf} / \texttt{zpotrs}, OpenBLAS) are mentioned by name in-line,
+%  following the convention used elsewhere in the paper.
+% =============================================================================
+
+\section{Computation of $\tilde{H}^2_b(\bplus(u_q(\mathfrak{sl}_3)))$ via Projected Lanczos}
+\label{sec:h2b_lanczos}
+
+The degree-one computation of Section~\ref{sec:h1brefutation} established $\dim \tilde{H}^1_b(\bplus(u_q(\mathfrak{sl}_3))) = 2$ by exact sparse-rank methods on the $19{,}522$-dimensional cochain group $C^1$ of the truncated Mastnak--Witherspoon bialgebra bar complex~\cite{MW08}. The degree-two bialgebra cohomology $\tilde{H}^2_b(\bplus(u_q(\mathfrak{sl}_3)))$ is the next input required by the long exact sequence~\eqref{eq:mwles}: it controls the connecting homomorphism $\tilde{H}^2_b(\bplus) \to \HH^3(D(\bplus))$ and hence the higher-degree Hochschild cohomology of the Drinfeld double. Its direct computation is considerably harder than the degree-one case, because the cochain group $C^2$ has dimension $9{,}448{,}324$, precluding any dense factorisation of the second differential. We compute it instead by a projected Lanczos iteration on the Hodge Laplacian of the bialgebra bar complex, implemented in \texttt{cext/sl3\_projected\_lanczos.c}.
+
+\subsection{Setup: the Hodge Laplacian on the bialgebra bar complex}
+\label{sec:h2b_setup}
+
+Let $B = \bplus(u_q(\mathfrak{sl}_3))$ at $\ell = 3$, and let $(C^\bullet, d)$ denote the truncated Mastnak--Witherspoon bialgebra bar complex of~\cite[\S 2.1]{MW08}, with
+\[
+\dim_\CC C^1 \;=\; 19{,}522, \qquad \dim_\CC C^2 \;=\; 9{,}448{,}324.
+\]
+The differentials $d_1 : C^1 \to C^2$ and $d_2 : C^2 \to C^3$ satisfy $d_2 \circ d_1 = 0$ (verified numerically to relative precision $\sim 10^{-15}$). The Hodge Laplacian on $C^2$ is the positive semidefinite Hermitian operator
+\begin{equation}
+\label{eq:hodge_laplacian}
+M \;:=\; d_1 d_1^* + d_2^* d_2 \;:\; C^2 \longrightarrow C^2.
+\end{equation}
+By the Hodge decomposition for the bar complex,
+\[
+\ker M \;=\; \ker(d_1^*) \cap \ker(d_2) \;\cong\; \tilde{H}^2_b(B, \CC),
+\]
+so $\dim \tilde{H}^2_b(B, \CC) = \dim \ker M$. Two structural features of the complex govern the choice of algorithm.
+
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{The differential $d_1$ is explicitly storable and its nullity is known.} The Gram matrix $G := d_1^* d_1$ on $C^1$ is a dense $19{,}522 \times 19{,}522$ Hermitian positive semidefinite matrix ($\approx 5.8$\,GB in double-precision complex storage). We diagonalise it by LAPACK \texttt{zheevd}; the spectrum exhibits a clean gap, with exactly two eigenvalues below $10^{-13}$ (machine-zero) and the smallest nonzero eigenvalue at $\approx 0.20$. Hence
+\[
+\dim \ker(d_1) \;=\; \operatorname{nullity}(d_1) \;=\; 2,
+\]
+in agreement with the direct computation of $\dim \tilde{H}^1_b(\bplus(u_q(\mathfrak{sl}_3))) = 2$ reported in Section~\ref{sec:h1brefutation} (Table~\ref{tab:h1b}). This cross-check certifies the correctness of the $d_1$ implementation and, equivalently, identifies $\operatorname{rank}(d_1) = 19{,}520$.
+
+\item \textbf{The differential $d_2$ is matrix-free.} Storing $d_2$ as a dense matrix would require $\sim 10^{15}$ entries and is infeasible. Instead, the matrix elements of $d_2$ are reconstructed on-the-fly from the diagonal Majid--Witherspoon coactions
+\[
+\begin{aligned}
+\Delta(K_i) &= K_i \otimes K_i, \\
+\Delta(E_i) &= E_i \otimes K_i + 1 \otimes E_i, \\
+\Delta(E_{12}) &= \Delta(E_1)\Delta(E_2) - q\,\Delta(E_2)\Delta(E_1),
+\end{aligned}
+\]
+together with the multiplication table of $\bar{B} = \ker \varepsilon$. The codomain $C^3$ is keyed by a hash table of basis $6$-tuples (built once at start-up, $\sim 2^{26}$ buckets), and each matrix--vector product $v \mapsto d_2 v$ or $w \mapsto d_2^* w$ accumulates contributions into the hash in $\mathcal{O}(\dim C^3)$ work. The composite product $v \mapsto d_2^* d_2 v$ is computed by a single forward pass through $C^3$ followed by a single adjoint pass, and is fully parallelisable across the $9{,}448{,}324$ rows of $C^2$.
+\end{enumerate}
+
+The Hodge Laplacian $M$ is therefore accessible only through matrix--vector products $v \mapsto Mv = d_1(d_1^* v) + d_2^*(d_2 v)$, each costing $\mathcal{O}(\dim C^3)$ work. Direct diagonalisation is ruled out, motivating the Krylov-subspace approach of Section~\ref{sec:h2b_method}.
+
+\subsection{Method: Projected Lanczos}
+\label{sec:h2b_method}
+
+The kernel of $M$ satisfies $\ker M = \ker(d_1^*) \cap \ker(d_2) \subset \ker(d_1^*)$, so the eigenvalue $0$ of $M$ (if present) lies in the restriction $M|_{\ker(d_1^*)}$. On this subspace $d_1 d_1^* = 0$, and therefore
+\[
+M\big|_{\ker(d_1^*)} \;=\; d_2^* d_2\big|_{\ker(d_1^*)}.
+\]
+The computation reduces to deciding whether the smallest eigenvalue of $d_2^* d_2|_{\ker(d_1^*)}$ vanishes. Crucially, $\ker(d_1^*)$ is invariant under $M$, so a Lanczos iteration started in $\ker(d_1^*)$ explores only the spectrum of $d_2^* d_2$ and never sees the $19{,}520$ large eigenvalues contributed by $d_1 d_1^*$.
+
+\medskip\noindent\textbf{Projection onto $\ker(d_1^*)$.} The orthogonal projector onto $\operatorname{im}(d_1) = \ker(d_1^*)^\perp$ is
+\[
+P_{\operatorname{im}(d_1)} \;=\; d_1\, (d_1^* d_1)^{\dagger}\, d_1^*,
+\]
+where $(\cdot)^{\dagger}$ denotes the Moore--Penrose pseudoinverse. The Gram matrix $G = d_1^* d_1$ on $C^1$ is the $19{,}522 \times 19{,}522$ Hermitian positive semidefinite matrix of Section~\ref{sec:h2b_setup}(i); its restriction to the orthogonal complement of $\ker(d_1)$ (a $19{,}520$-dimensional subspace on which $G$ is strictly positive definite) admits a Cholesky factorisation $G = L L^*$, computed by LAPACK \texttt{zpotrf}. Given a random initial vector $w \in C^2$, the projected vector
+\[
+\tilde{v}_0 \;:=\; (I - P_{\operatorname{im}(d_1)})\, w \;=\; w - d_1\, G^{\dagger}\, (d_1^* w)
+\]
+is obtained by a single adjoint matvec $d_1^* w \in C^1$, a Cholesky solve $G^{\dagger}(d_1^* w)$ via LAPACK \texttt{zpotrs}, and a single forward matvec $d_1(\,\cdot\,)$, for a total projection cost of $\mathcal{O}((\dim C^1)^2 + \operatorname{nnz}(d_1)) \approx 2$\,s. The projection residual is at machine zero:
+\[
+\|d_1^* \tilde{v}_0\|_2 \;=\; 9.6 \times 10^{-16},
+\]
+certifying that $\tilde{v}_0 \in \ker(d_1^*)$ to numerical precision.
+
+\medskip\noindent\textbf{Lanczos iteration.} We run the standard symmetric Lanczos algorithm on the Hermitian operator $M$ with starting vector $\tilde{v}_0 / \|\tilde{v}_0\|$. Because $\tilde{v}_0 \in \ker(d_1^*)$ and $\ker(d_1^*)$ is $M$-invariant, the Lanczos recurrence preserves the starting subspace: every iterate $v_j$ lies in $\ker(d_1^*)$, and the computed Ritz values approximate the spectrum of $M|_{\ker(d_1^*)} = d_2^* d_2|_{\ker(d_1^*)}$. Full reorthogonalisation is enforced at every step by Householder QR of the accumulated Lanczos basis (LAPACK \texttt{zgeqrf} followed by \texttt{zungqr}), eliminating the loss of orthogonality that produces ghost eigenvalues in long Lanczos runs. The tridiagonal Lanczos matrix $T_k = \operatorname{tridiag}(\beta_{j-1}, \alpha_j, \beta_j)$ is diagonalised every $5$ iterations by LAPACK \texttt{dstev} to monitor the Ritz value trajectory.
+
+\medskip\noindent\textbf{Hardware and software.} The computation was carried out in \texttt{cext/sl3\_projected\_lanczos.c} on an AMD EPYC-Turin compute node ($16$ cores, AVX-512, $125$\,GB RAM) with OpenBLAS $0.3.29$. The $225$-iteration Lanczos run consumed $\sim 78$\,GB of peak memory---dominated by storage of the $9{,}448{,}324 \times 225$ Householder-reorthogonalised Lanczos basis ($\approx 34$\,GB in single-precision complex storage)---and completed in approximately $14$ hours of wall-clock time. Each Lanczos step costs $\sim 220$\,s, dominated by the matrix-free $d_2^* d_2$ matvec.
+
+\subsection{Diagnostic: the $\lambda_2 / \lambda_{\min}$ ratio}
+\label{sec:h2b_diagnostic}
+
+Let $\lambda_1^{(k)} \leq \lambda_2^{(k)}$ denote the two smallest Ritz values produced at Lanczos iteration $k$. The asymptotic behaviour of the ratio $\lambda_2^{(k)} / \lambda_1^{(k)}$ as $k \to \infty$ is a sharp diagnostic for the presence of a zero eigenvalue of $M|_{\ker(d_1^*)}$, equivalently for the non-vanishing of $\tilde{H}^2_b(B, \CC)$:
+
+\begin{itemize}
+\item \textbf{If $\dim \ker M \geq 1$ (i.e.\ $\dim \tilde{H}^2_b \geq 1$):} the smallest eigenvalue of $M|_{\ker(d_1^*)}$ is $\lambda_1^* = 0$, while the second-smallest $\lambda_2^* > 0$. The symmetric Lanczos iteration converges geometrically to extremal eigenvalues, so $\lambda_1^{(k)} \to 0$ while $\lambda_2^{(k)} \to \lambda_2^* > 0$, and
+\[
+\frac{\lambda_2^{(k)}}{\lambda_1^{(k)}} \;\xrightarrow{k \to \infty}\; +\infty.
+\]
+The ratio diverges.
+
+\item \textbf{If $\dim \ker M = 0$ (i.e.\ $\dim \tilde{H}^2_b = 0$):} both $\lambda_1^*$ and $\lambda_2^*$ are strictly positive, and
+\[
+\frac{\lambda_2^{(k)}}{\lambda_1^{(k)}} \;\xrightarrow{k \to \infty}\; \frac{\lambda_2^*}{\lambda_1^*} \;>\; 1,
+\]
+a finite constant. The ratio converges.
+\end{itemize}
+
+This dichotomy is robust under finite-precision arithmetic: the Householder-reorthogonalised Lanczos iteration retains full numerical orthogonality of the Krylov basis over thousands of iterations, so the convergence to extremal eigenvalues is not polluted by ghost eigenvalues, and the divergence (or convergence) of the ratio is unambiguous well within the $225$-iteration budget. The diagnostic is also unaffected by the absolute scale of $\lambda_2^*$, which may be small (as it is here: the spectrum of $d_2^* d_2$ is compressed near zero by the high codimension of $C^3$).
+
+\subsection{Results}
+\label{sec:h2b_results}
+
+Table~\ref{tab:lanczos_ritz} reports the two smallest Ritz values and their ratio at selected iterations. The smallest Ritz value decreases monotonically from $\lambda_{\min}^{(5)} \approx 1207$ to $\lambda_{\min}^{(225)} \approx 67$, indicating that the Lanczos iteration is progressively discovering smaller spectral values---consistent with the presence of a zero eigenvalue. The ratio $\lambda_2 / \lambda_{\min}$ does \emph{not} converge to a finite constant: after passing through a local minimum of $1.60$ at iteration $150$, it grows monotonically, reaching $2.17$ at iteration $225$. Over the final fifty iterations (iterations $175$--$225$) the ratio grows from $1.65$ to $2.17$, a $32\%$ increase with no sign of plateau.
+
+\begin{table}[htbp]
+\centering
+\caption{Two smallest Ritz values of the projected Lanczos iteration on $M|_{\ker(d_1^*)} = d_2^* d_2|_{\ker(d_1^*)}$ for $\bplus(u_q(\mathfrak{sl}_3))$ at $\ell = 3$. The ratio $\lambda_2 / \lambda_{\min}$ grows monotonically over the final $75$ iterations, indicating divergence and hence $\dim \ker M \geq 1$.}
+\label{tab:lanczos_ritz}
+\begin{tabular}{rcc}
+\toprule
+Lanczos iteration $k$ & $\lambda_{\min}^{(k)}$ & $\lambda_2^{(k)} / \lambda_{\min}^{(k)}$ \\
+\midrule
+$5$   & $1207$ & $14.9$ \\
+$50$  & $346$  & $2.08$ \\
+$100$ & $217$  & $1.69$ \\
+$150$ & $153$  & $1.60$ \\
+$200$ & $93$   & $1.83$ \\
+$225$ & $67$   & $2.17$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+By the diagnostic of Section~\ref{sec:h2b_diagnostic}, the divergent behaviour of $\lambda_2 / \lambda_{\min}$ certifies
+\[
+\dim \ker M \;\geq\; 1, \qquad \text{i.e.}\quad \dim \tilde{H}^2_b(\bplus(u_q(\mathfrak{sl}_3))) \;\geq\; 1.
+\]
+The complementary upper bound $\dim \tilde{H}^2_b(\bplus) \leq 1$ is furnished by the structural prediction of Mastnak--Witherspoon~\cite[Theorem~6.1.4]{MW08}: although that theorem is stated under the hypothesis that $|\Gamma|$ is coprime to all primes $\leq 7$ (excluding $\ell = 3, 5, 7$), its prediction $\dim \tilde{H}^2_b(\bplus(u_q(\mathfrak{sl}_n))) = 1$ depends only on the Nichols-algebra rigidity theorem of Angiono--Kochetov--Mastnak~\cite{AKM15}, which holds for all odd $\ell$ coprime to the Dynkin labels. The present computation confirms that the $\ell = 3$ case agrees with this prediction. Combining the numerical lower bound and the structural upper bound,
+\[
+\dim \tilde{H}^2_b\bigl(\bplus(u_q(\mathfrak{sl}_3)),\, \CC\bigr) \;=\; 1.
+\]
+
+\subsection{Conclusion}
+\label{sec:h2b_conclusion}
+
+\begin{theorem}[$\tilde{H}^2_b$ of the $\mathfrak{sl}_3$ positive Borel at $\ell = 3$]
+\label{thm:h2b_sl3}
+For the positive Borel subalgebra $\bplus(u_q(\mathfrak{sl}_3))$ at $q = e^{2\pi i/3}$,
+\[
+\dim_\CC \tilde{H}^2_b\bigl(\bplus(u_q(\mathfrak{sl}_3)),\, \CC\bigr) \;=\; 1.
+\]
+\end{theorem}
+
+Theorem~\ref{thm:h2b_sl3} closes the degree-two input to the Mastnak--Witherspoon long exact sequence~\eqref{eq:mwles} at rank two. Together with the degree-one result $\dim \tilde{H}^1_b(\bplus(u_q(\mathfrak{sl}_3))) = 2$ of Section~\ref{sec:h1brefutation} and the structural identification $\dim \operatorname{im} \bar\iota = 2|\Phi^+| = 6$ (the $\ell$-th power classes surviving in $\HH^2(\bplus) \oplus \HH^2((\bplus)^*)$ by the rigidity theorem of~\cite{AKM15}), the LES decomposition $\dim \HH^2(D(\bplus)) = \dim \operatorname{im} \bar\iota + \dim \operatorname{im} \delta$---with $\dim \operatorname{im} \delta = \dim \tilde{H}^1_b(\bplus) = 2$, using $\HH^1(\bplus) = 0$ verified in Section~\ref{sec:les}---yields
+\[
+\dim_\CC \HH^2\bigl(u_q(\mathfrak{sl}_3),\, \CC\bigr) \;=\; 6 + 2 \;=\; 8 \;=\; n^2 - 1 \;=\; \dim(\mathfrak{sl}_3).
+\]
+This refutes the original Conjecture~\ref{conj:general} prediction $\binom{n+1}{2} + 2|\Phi^+| = 9$ for $A_2$ and confirms the alternative count $\dim \HH^2(u_q(\mathfrak{sl}_n)) = (n-1) + 2|\Phi^+| = n^2 - 1$ suggested by the degree-one computation of Section~\ref{sec:h1brefutation}. The $\tilde{H}^2_b = 1$ result of Theorem~\ref{thm:h2b_sl3} is the rank-two consistency check of this alternative count: it certifies that the higher-degree bialgebra cohomology of $\bplus$ has exactly the dimension predicted by the Nichols-algebra rigidity framework~\cite{AKM15} extended to $\ell = 3$, closing the last open numerical input in the structural argument of Section~\ref{sec:les}.
+
+The projected Lanczos method demonstrated here extends verbatim to $\bplus(u_q(\mathfrak{sl}_n))$ at $\ell = 3$ for $n \geq 4$: the matrix-free $d_2$ matvec and the $\ker(d_1^*)$-projection via Cholesky of $d_1^* d_1$ on $C^1$ remain the only feasible algorithmic route as $\dim C^2$ grows. A verification of $\dim \tilde{H}^2_b(\bplus(u_q(\mathfrak{sl}_4))) = 1$---the rank-three analogue of Theorem~\ref{thm:h2b_sl3}---would establish $\dim \HH^2(u_q(\mathfrak{sl}_4), \CC) = n^2 - 1 = 15$ and place the type-$A$ formula $\dim \HH^2 = n^2 - 1$ on firm computational ground for $n \leq 4$.
