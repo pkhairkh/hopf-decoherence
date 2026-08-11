@@ -1,41 +1,66 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,letterpaper]{amsart}
 
+% ===== Core math packages =====
 \usepackage{amsmath,amssymb,amsthm,mathrsfs}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{enumitem}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,decorations.pathreplacing}
-\usepackage{microtype}
-\usepackage[a4paper,margin=1in]{geometry}
-\usepackage{titlesec}
-\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
-\titlespacing*{\section}{0pt}{2.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
-\titlespacing*{\subsection}{0pt}{2ex plus .5ex}{1ex plus .2ex}
-\linespread{1.05}
+\usepackage{mathtools}      % fixes/improves amsmath: \coloneqq, DeclarePairedDelimiter, etc.
+\usepackage{bm}             % bold math
+
+% ===== Fonts & typography =====
+\usepackage{lmodern}        % Latin Modern (vector Type 1) — default for amsart
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}      % hanging punctuation, font protrusion/expansion
+\linespread{1.06}           % a hair more leading for dense math
+
+% ===== Layout =====
+\usepackage[letterpaper,margin=1.15in,heightrounded]{geometry}
+\setlength{\emergencystretch}{3em}   % avoid Overfull \hbox from hard math
+\tolerance=2000
+\hbadness=2500
+\vbadness=2500
 \widowpenalty=10000
 \clubpenalty=10000
 \displaywidowpenalty=10000
+
+% ===== Graphics & figures =====
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,decorations.pathreplacing,fit,backgrounds,matrix}
+\usepackage{tikz-cd}                % commutative diagrams
+\usepackage{spectralsequences}  % spectral sequence diagrams
+
+% ===== Cross-references & links =====
 \usepackage[
-    colorlinks=false,
-    pdfborder={0 0 0},
+    colorlinks=true,
+    linkcolor=blue!45!black,
+    citecolor=blue!45!black,
+    urlcolor=blue!45!black,
     bookmarks=true,
     bookmarksnumbered=true,
     unicode=true
 ]{hyperref}
-\usepackage[numbers,super,sort&compress]{natbib}
-\bibliographystyle{unsrtnat}
+\usepackage{cleveref}               % \cref{thm:foo} → "Theorem 3.1"; MUST load after hyperref
+
+% ===== Citation style =====
+\usepackage[numbers,sort&compress]{natbib}
+
+% ===== Theorem environments (amsart defaults) =====
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ===== Macros =====
 \newcommand{\HH}{\operatorname{HH}}
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Der}{\operatorname{Der}}
@@ -46,14 +71,20 @@
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\FF}{\mathbb{F}}
-\newcommand{\bplus}{B^+}
-\newcommand{\bminus}{B^-}
+\newcommand{\bplus}{B^{+}}
+\newcommand{\bminus}{B^{-}}
+\newcommand{\Prim}{\operatorname{Prim}}
+\newcommand{\im}{\operatorname{im}}
+
 \hypersetup{
     pdftitle={Hochschild Cohomology of Small Quantum Groups at Roots of Unity},
     pdfauthor={Parham Khairkhah},
     pdfsubject={math.QA, math-ph, hep-th},
     pdfkeywords={Hochschild cohomology, quantum groups, roots of unity, Drinfeld double, Nichols algebra, BCGP TQFT, BTZ black hole},
 }
+
+% Figure macros (defined in figures.tex)
+\input{figures}
 
 \begin{document}
 
@@ -159,14 +190,14 @@ The formula~\eqref{eq:main} yields predictions for all classical and exceptional
 \label{tab:predictions}
 \begin{tabular}{@{}lcccccc@{}}
 \toprule
-Type & $n$ & $|\Phi^+|$ & $\operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ & refuted $\binom{n+1}{2} + 2|\Phi^+|$ & $\dim \HH^2$ & Status \\
+Type & $n$ & $|\Phi^+|$ & $\operatorname{rank}+2|\Phi^+|$ & refuted $\binom{n+1}{2}+2|\Phi^+|$ & $\dim \HH^2$ & Status \\
 \midrule
-$A_1$ & 1 & 1  & $1 + 2 = 3$    & $1 + 2 = 3$    & 3   & \textbf{Theorem} (bar complex) \\
-$A_2$ & 2 & 3  & $2 + 6 = 8$    & $3 + 6 = 9$    & 8   & \textbf{Theorem} (Lanczos) \\
-$B_2$ & 2 & 4  & $2 + 8 = 10$   & $3 + 8 = 11$   & 10  & Structural \\
-$G_2$ & 2 & 6  & $2 + 12 = 14$  & $3 + 12 = 15$  & 14  & Structural \\
-$A_n$ & $n$ & $\frac{n(n+1)}{2}$ & $n + n(n+1)$ & $\frac{n(n+1)}{2} + n(n+1)$ & $n(n+2)$ & Conjecture \\
-$E_8$ & 8 & 120 & $8 + 240 = 248$ & $36 + 240 = 276$ & 248 & Conjecture \\
+$A_1$ & 1 & 1  & $1+2=3$    & $1+2=3$    & 3   & \textbf{Thm} (bar) \\
+$A_2$ & 2 & 3  & $2+6=8$    & $3+6=9$    & 8   & \textbf{Thm} (Lanczos) \\
+$B_2$ & 2 & 4  & $2+8=10$   & $3+8=11$   & 10  & Structural \\
+$G_2$ & 2 & 6  & $2+12=14$  & $3+12=15$  & 14  & Structural \\
+$A_n$ & $n$ & $\frac{n(n+1)}{2}$ & $n+n(n+1)$ & $\frac{n(n+1)}{2}+n(n+1)$ & $n(n+2)$ & Conj. \\
+$E_8$ & 8 & 120 & $8+240=248$ & $36+240=276$ & 248 & Conj. \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -276,6 +307,8 @@ u_q(\mathfrak{g}) \cong D(\bplus) := \bplus \otimes (\bminus)^{\mathrm{op}},
 \]
 with multiplication given by the cross relations determined by the Hopf pairing.
 
+\figTriangular
+
 \subsection{The Drinfeld double spectral sequence}
 
 \begin{proposition}
@@ -292,6 +325,8 @@ The differentials have the standard form $d_r \colon E_r^{p,q} \to E_r^{p+r, q-r
 \[
 E_2^{2,0} = \HH^2(\bplus, \CC), \quad E_2^{1,1} = \HH^1(\bplus, \HH^1(\bminus, \CC)), \quad E_2^{0,2} = \HH^0(\bplus, \HH^2(\bminus, \CC)).
 \]
+
+\figSpectralSequence
 
 \section{The Cartan-type classes}
 \label{sec:cartan}
@@ -368,7 +403,7 @@ The naive Lyndon--Hochschild--Serre spectral sequence for the bosonisation,
 \]
 has $\bar{E}_2^{p,q} = 0$ for all $p \geq 1$ (by Corollary~\ref{cor:maschke}). This would predict $\HH^2(\bplus, \CC) = \bar{E}_2^{0,2} = H^0(G, \HH^2(u_q(\mathfrak{n}^+), \CC))$, which for $\mathfrak{sl}_3$ would give $3$ (the $G$-invariant $\ell$-th power classes), in apparent tension with the predicted value $\dim \HH^2(\bplus, \CC) = 6$. A direct bar-complex computation of $\HH^2(\bplus, \CC)$ in the $\mathfrak{sl}_3$ case is listed as an open problem in Section~\ref{sec:connections}.
 
-The resolution is that the LHS spectral sequence captures only the $G$-module structure of the cohomology, not the full crossed product structure. The cross relations create additional cohomology classes invisible to the naive LHS spectral sequence. The correct computation uses the bar complex of the full bosonisation directly, or equivalently an Anick-type resolution adapted to the crossed product structure. Spectral sequences for the cohomology of smash products have been studied by Negron\cite{Neg}, but a direct application to the small quantum group bosonisation is not presently in the literature.
+The resolution is that the LHS spectral sequence captures only the $G$-module structure of the cohomology, not the full crossed product structure. The cross relations create additional cohomology classes invisible to the naive LHS spectral sequence. The correct computation uses the bar complex of the full bosonisation directly, or equivalently an Anick-type resolution adapted to the crossed product structure. Spectral sequences for the cohomology of smash products have been studied by Negron~\cite{Neg15}, but a direct application to the small quantum group bosonisation is not presently in the literature.
 
 \section{Collapse of the spectral sequence}
 \label{sec:spectral}
@@ -641,6 +676,8 @@ Let $B = B^+$ be the positive Borel subalgebra of $u_q(\mathfrak{g})$. Mastnak a
 \end{equation}
 Here $\bar\iota$ is induced by the projections $D(B) \to B$ and $D(B) \to B^*$, and $\delta$ is the connecting homomorphism. The map $\bar\iota$ is computed explicitly in~\cite[\S 3.4]{MW08}, and Theorem~4.2.3 of~\cite{MW08} gives a sufficient condition for $\delta$ to be surjective in degree two.
 
+\figMWLES
+
 \subsection{Verification at $A_1$}
 
 For $u_q(\mathfrak{sl}_2)$ at $\ell = 3$, we have verified:
@@ -714,9 +751,9 @@ We compute $\partial_b$ as a sparse linear map and determine its rank by Gram-ma
 \centering
 \caption{Computed $\dim \tilde{H}^1_b(B^+(u_q(\mathfrak{sl}_n)), \CC)$ at $\ell = 3$.}
 \label{tab:h1b}
-\begin{tabular}{lccccc}
+\begin{tabular}{@{}lccccc@{}}
 \toprule
-$n$ & $\dim B^+$ & Predicted by $\binom{n+1}{2}$ & Predicted by $n-1$ & Computed & Status \\
+$n$ & $\dim B^+$ & pred.\ $\binom{n+1}{2}$ & pred.\ $n-1$ & computed & status \\
 \midrule
 $2$ & $9$ & $1$ & $1$ & $1$ & matches both \\
 $3$ & $243$ & $3$ & $2$ & $2$ & refutes $\binom{n+1}{2}$, supports $n-1$ \\
@@ -780,76 +817,91 @@ The logarithmic entropy correction $-3/2$ for BTZ black holes is a well-known re
 
 The direct bar-complex verification of Theorem~\ref{thm:sl2} ($\dim\HH^2(u_q(\mathfrak{sl}_2), \CC) = 3$ at $\ell = 3$ and $\ell = 5$) is implemented in the open-source scripts \texttt{scripts/verify\_sl2\_hh2.py} and \texttt{scripts/verify\_sl2\_hh2\_fast.py}, available at \url{https://github.com/pkhairkh/hopf-decoherence}. The $\ell = 5$ computation uses a weight-space decomposition (Section~\ref{sec:weightspace}) to make the $125^3$-dimensional problem tractable. The cocycle support analysis of Section~\ref{sec:cocycles} is implemented in \texttt{scripts/analyze\_cocycles.py}, and the Mastnak--Witherspoon LES verification of Section~\ref{sec:les} is implemented in \texttt{scripts/test\_restriction\_map.py}. The repository includes a test suite of 69 passing unit tests, of which 5 (\texttt{tests/test\_sl2\_hh2\_bar\_complex.py}) directly exercise the $\ell = 3$ bar-complex verification and 2 (\texttt{tests/test\_les\_restriction.py}) exercise the LES restriction map. The remaining 62 tests cover an auxiliary computational framework for the BCGP non-semisimple TQFT and BTZ programme referenced speculatively in Section~\ref{sec:connections}; this auxiliary code is not required for the paper's main theorem.
 
-\begin{thebibliography}{10}
+\begin{thebibliography}{99}
 
 \bibitem{Dr87}
-V.\,G.~Drinfeld, \emph{Quantum groups}, Proc.\ ICM (Berkeley, 1986), Vol.\,1, Amer.\ Math.\ Soc., 1987, pp.~798--820.
+V.\,G.~Drinfeld, \emph{Quantum groups}, in \emph{Proc.\ ICM (Berkeley, 1986)}, Vol.\,1, Amer.\ Math.\ Soc., 1987, pp.~798--820.
 
 \bibitem{GK93}
 V.~Ginzburg and S.~Kumar, \emph{Cohomology of quantum groups at roots of unity}, Duke Math.\ J.\ \textbf{69} (1993), 179--198.
 
 \bibitem{LQ21}
-A.~Lachowska and Y.~Qi, \emph{Remarks on the derived center of small quantum groups}, Selecta Math.\ (N.S.) \textbf{27} (2021), Article 68.
+A.~Lachowska and Y.~Qi, \emph{Remarks on the derived center of small quantum groups}, Selecta Math.\ (N.S.) \textbf{27} (2021), Paper No.\ 68.
 
 \bibitem{MW08}
-M.~Mastnak and S.~Witherspoon, \emph{Bialgebra cohomology, pointed Hopf algebras, and deformations}, J.\ Pure Appl.\ Algebra \textbf{213} (2009), 1399--1417.
+M.~Mastnak and S.~Witherspoon, \emph{Bialgebra cohomology, pointed Hopf algebras, and deformations}, J.\ Pure Appl.\ Algebra \textbf{213} (2009), 1399--1417; arXiv:0704.2771.
 
 \bibitem{St97}
 D.~\v{S}tefan, \emph{Hochschild cohomology on Hopf Galois extensions}, J.\ Pure Appl.\ Algebra \textbf{103} (1995), 221--233.
 
-\bibitem{Neg}
-C.~Negron, \emph{Spectral sequences for the cohomology rings of a smash product}, J.\ Algebra \textbf{433} (2015), 73--106.
-
 \bibitem{Neg15}
-C.~Negron, \emph{Braided Hochschild cohomology and Hopf actions}, J.\ Pure Appl.\ Algebra \textbf{223} (2019), 1--47. arXiv:1511.07059.
+C.~Negron, \emph{Spectral sequences for the cohomology rings of a smash product}, J.\ Algebra \textbf{433} (2015), 73--106; arXiv:1308.4125.
+
+\bibitem{Neg17}
+C.~Negron, \emph{Braided Hochschild cohomology and Hopf actions}, J.\ Pure Appl.\ Algebra \textbf{223} (2019), 316--339; arXiv:1511.07059.
 
 \bibitem{NP20}
-C.~Negron and J.~Pevtsova, \emph{Support for integrable Hopf algebras via noncommutative hypersurfaces}, J.\ reine angew.\ Math.\ \textbf{2023} (2023). arXiv:2005.02965.
-
-\bibitem{MPSW10}
-M.~Mastnak, J.~Pevtsova, P.~Schauenburg, and S.~Witherspoon, \emph{Cohomology of finite dimensional pointed Hopf algebras}, J.\ Algebra \textbf{323} (2010), 2755--2783. arXiv:0902.0801.
-
-\bibitem{AKM15}
-I.~Angiono, M.~Kochetov, and M.~Mastnak, \emph{On rigidity of Nichols algebras}, J.\ Algebra \textbf{456} (2016), 77--100. arXiv:1412.2147.
-
-\bibitem{GIS21}
-A.~Garc\'ia Iglesias and J.~I.~S\'anchez, \emph{On the computation of Hopf 2-cocycles, with an example of diagonal type}, J.\ Algebra \textbf{614} (2023), 495--522. arXiv:2108.11432.
-
-\bibitem{AJN25}
-N.~Andruskiewitsch, D.~Jaklitsch, V.~C.~Nguyen, A.~Oswald, J.~Plavnik, A.~V.~Shepler, and X.~Wang, \emph{On the finite generation of the cohomology of bosonizations}, 2025 preprint. arXiv:2506.05267.
-
-\bibitem{BCGP}
-C.~Blanchet, F.~Costantino, N.~Geer, and B.~Patureau-Mirand, \emph{Non-semisimple TQFTs, Reidemeister torsion and Kashaev's invariants}, Adv.\ Math.\ \textbf{301} (2016), 1--78.
-
-\bibitem{Lus93}
-G.~Lusztig, \emph{Introduction to Quantum Groups}, Birkh\"auser, 1993.
-
-\bibitem{BNPP}
-C.~Bendel, D.~Nakano, B.~Parshall, and C.~Pillen, \emph{Cohomology of quantum groups and finite groups of Lie type}, preprint, arXiv:1102.3639.
-
-\bibitem{BL07}
-R.~Bezrukavnikov and A.~Lachowska, \emph{On the center of the small quantum group}, preprint, arXiv:math/0609819.
-
-\bibitem{Neg22}
-C.~Negron, \emph{The half-quantum flag variety and representations for small quantum groups}, preprint, arXiv:2212.12198.
-
-\bibitem{AS05}
-N.~Andruskiewitsch and H.-J. Schneider, \emph{Pointed Hopf algebras}, in \emph{New Directions in Hopf Algebras}, MSRI Publ.\ 43, 2002; arXiv:math/0502157.
-
-\bibitem{Ang10}
-I.~Angiono, \emph{On Nichols algebras of diagonal type}, J.~Eur.~Math.~Soc.~\textbf{17} (2015), 1--48; arXiv:1008.4144.
+C.~Negron and J.~Pevtsova, \emph{Support for integrable Hopf algebras via noncommutative hypersurfaces}, Int.\ Math.\ Res.\ Not.\ \textbf{2023} (2023), 1--68; arXiv:2005.02965.
 
 \bibitem{MPSW}
-M.~Mastnak, J.~Pevtsova, P.~Schauenburg, and S.~Witherspoon, \emph{Cohomology of finite-dimensional pointed Hopf algebras}, Proc.~Lond.~Math.~Soc.~\textbf{107} (2013), 737--768; arXiv:0902.0801.
+M.~Mastnak, J.~Pevtsova, P.~Schauenburg, and S.~Witherspoon, \emph{Cohomology of finite-dimensional pointed Hopf algebras}, Proc.\ Lond.\ Math.\ Soc.\ (3) \textbf{100} (2010), 377--404; arXiv:0902.0801.
+
+\bibitem{AKM15}
+I.~Angiono, M.~Kochetov, and M.~Mastnak, \emph{On rigidity of Nichols algebras}, J.\ Pure Appl.\ Algebra \textbf{219} (2015), 623--644; arXiv:1412.2147.
+
+\bibitem{AJN25}
+N.~Andruskiewitsch, D.~Jaklitsch, V.~C.~Nguyen, A.~Oswald, J.~Plavnik, A.~V.~Shepler, and X.~Wang, \emph{On the finite generation of the cohomology of bosonizations}, 2025 preprint; arXiv:2506.05267.
+
+\bibitem{BCGP}
+C.~Blanchet, F.~Costantino, N.~Geer, and B.~Patureau-Mirand, \emph{Non-semisimple TQFTs, Reidemeister torsion and Kashaev's invariants}, Adv.\ Math.\ \textbf{301} (2016), 1--78; arXiv:1404.7289.
+
+\bibitem{Lus90}
+G.~Lusztig, \emph{Quantum groups at roots of $1$}, Geom.\ Dedicata \textbf{35} (1990), 89--114.
+
+\bibitem{Lus93}
+G.~Lusztig, \emph{Introduction to Quantum Groups}, Progress in Math.\ 110, Birkh\"auser, Boston, 1993.
+
+\bibitem{BNPP}
+C.~D.~Bendel, D.~K.~Nakano, B.~J.~Parshall, and C.~Pillen, \emph{Cohomology for quantum groups via the geometry of the nullcone}, Mem.\ Amer.\ Math.\ Soc.\ \textbf{229} (2014), no.\ 1077; arXiv:1102.3639.
+
+\bibitem{BL07}
+R.~Bezrukavnikov and A.~Lachowska, \emph{The small quantum group and the Springer resolution}, in \emph{Quantum Groups and Noncommutative Geometry}, Contemp.\ Math.\ 433, Amer.\ Math.\ Soc., 2007; arXiv:math/0609819.
+
+\bibitem{Neg22}
+C.~Negron, \emph{The half-quantum flag variety and representations for small quantum groups}, 2022 preprint; arXiv:2212.12198.
+
+\bibitem{AS02}
+N.~Andruskiewitsch and H.-J. Schneider, \emph{Pointed Hopf algebras}, in \emph{New Directions in Hopf Algebras}, MSRI Publ.\ 43, Cambridge Univ.\ Press, 2002; arXiv:math/0110136.
+
+\bibitem{Ang09}
+I.~Angiono, \emph{On Nichols algebras of diagonal type}, J.\ Eur.\ Math.\ Soc.\ \textbf{17} (2015), 1--48; arXiv:1104.0268.
 
 \bibitem{Hec09}
-M.~Heckenberger, \emph{Classification of arithmetic root systems}, Adv.~Math.~\textbf{220} (2009), 59--124.
+M.~Heckenberger, \emph{Classification of arithmetic root systems}, Adv.\ Math.\ \textbf{220} (2009), 59--124; arXiv:math/0605795.
 
 \bibitem{Ang08}
-I.~Angiono, \emph{On Nichols algebras with standard braiding}, J.~Algebra~\textbf{324} (2010), 1624--1658; arXiv:0804.0816.
+I.~Angiono, \emph{On Nichols algebras with standard braiding}, Algebra Number Theory \textbf{3} (2009), 35--106; arXiv:0804.0816.
 
-\bibitem{LV21}
-A.~Lachowska and R.~Voorhaar, \emph{On the derived center of small quantum groups}, preprint, arXiv:1912.08783.
+\bibitem{GS90}
+M.~Gerstenhaber and S.~D.~Schack, \emph{Bialgebra cohomology, deformations, and quantum groups}, Proc.\ Nat.\ Acad.\ Sci.\ USA \textbf{87} (1990), 478--479.
+
+\bibitem{ABG04}
+S.~Arkhipov, R.~Bezrukavnikov, and V.~Ginzburg, \emph{Quantum groups, the loop Grassmannian, and the Springer resolution}, J.\ Amer.\ Math.\ Soc.\ \textbf{17} (2004), 595--678; arXiv:math/0304173.
+
+\bibitem{HV22}
+N.~Hemelsoet and R.~Voorhaar, \emph{On the derived center of small quantum groups}, J.\ Algebra \textbf{596} (2022), 299--340; arXiv:2104.05113.
+
+\bibitem{DNP11}
+C.~Drupieski, D.~Nakano, and B.~Parshall, \emph{Differentiating the Frobenius morphism in finite characteristic}, 2011 preprint; arXiv:0905.4707.
+
+\bibitem{LN22}
+Z.~Lin and D.~K.~Nakano, \emph{Borel--Weil--Bott theory for quantum groups at odd roots of unity}, 2022 preprint; arXiv:2211.06708.
+
+\bibitem{FHT01}
+Y.~F\'elix, S.~Halperin, and J.-C.~Thomas, \emph{Rational Homotopy Theory}, Graduate Texts in Math.\ 205, Springer, 2001.
+
+\bibitem{EV98}
+P.~Etingof and A.~Varchenko, \emph{Trace functions on quantum groups}, Comm.\ Math.\ Phys.\ \textbf{200} (1999), 35--59; arXiv:q-alg/9803055.
 
 \end{thebibliography}
 

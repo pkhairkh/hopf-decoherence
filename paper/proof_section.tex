@@ -35,6 +35,10 @@ Consequently:
 
 The proof occupies Sections~\ref{sec:rankproof}--\ref{sec:imageproof}. The formula~\eqref{eq:mainformula} is verified by direct computation for $\mathfrak{sl}_3$ at $\ell = 3$ (Section~\ref{sec:sl3verification}): $\dim \HH^2 = 8 = 2 + 6 = \operatorname{rank}(\mathfrak{sl}_3) + 2|\Phi^+(\mathfrak{sl}_3)|$.
 
+\figDecomposition
+
+\figRootAtwo
+
 \subsection{The rank theorem for bialgebra cohomology}
 \label{sec:rankproof}
 
@@ -289,7 +293,7 @@ where $\mathcal{N} \subset \mathfrak{g}$ is the nilpotent cone, $\CC[\mathcal{N}
 \end{proposition}
 
 \begin{remark}[What Ginzburg--Kumar actually proves]
-The Ginzburg--Kumar theorem~\cite{GK93} (see also~\cite{BNPP, LV21}) states that for $\ell > h$:
+The Ginzburg--Kumar theorem~\cite{GK93} (see also~\cite{BNPP, HV22}) states that for $\ell > h$:
 \[
 H^{\mathrm{even}}(u_q(\mathfrak{g}), \CC) \cong \CC[\mathcal{N}] \quad \text{as graded algebras,} \qquad H^{\mathrm{odd}}(u_q(\mathfrak{g}), \CC) = 0,
 \]
@@ -327,17 +331,18 @@ Via the Ginzburg--Kumar isomorphism (Proposition~\ref{prop:georank}, valid for $
 \centering
 \caption{Status of the main formula $\dim \HH^2 = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$.}
 \label{tab:proofstatus}
-\begin{tabular}{@{}lll@{}}
+\small
+\begin{tabular}{@{}p{0.32\linewidth}p{0.22\linewidth}p{0.40\linewidth}@{}}
 \toprule
 Component & Status & Method \\
 \midrule
-$\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$ & \textbf{Theorem (rigorous)} & Euler derivation argument (Sec.~\ref{sec:rankproof}) \\
-$\operatorname{Prim}(B^+) = 0 \Rightarrow B^1_b = 0$ & \textbf{Lemma (rigorous)} & MW Lemma 5.0.17(ii) + Angiono Thm 5.25 \\
-$\delta$ injective & \textbf{Proposition (rigorous)} & $\HH^1(B^\pm) = 0$ (Sec.~\ref{sec:injectivity}) \\
+$\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$ & \textbf{Theorem (rigorous)} & Euler derivation argument (\S\ref{sec:rankproof}) \\
+$\Prim(B^+) = 0 \Rightarrow B^1_b = 0$ & \textbf{Lemma (rigorous)} & MW Lemma 5.0.17(ii) + Angiono Thm 5.25 \\
+$\delta$ injective & \textbf{Proposition (rigorous)} & $\HH^1(B^\pm) = 0$ (\S\ref{sec:injectivity}) \\
 $2|\Phi^+|$ $\ell$-th power classes survive & \textbf{Proposition (rigorous)} & Root lattice grading (Claim 1) \\
-No other classes in $\operatorname{im}(\bar\iota)$ & \textbf{Structural argument} & LHS spectral sequence + $A_2$ verification (Claim 2) \\
-$\dim \HH^2 = 8$ at $\mathfrak{sl}_3, \ell = 3$ & \textbf{Theorem (computational)} & Projected Lanczos, $225$ iter. (Sec.~\ref{sec:sl3verification}) \\
-Formula for all $\mathfrak{g}, \ell$ & \textbf{Conditional theorem} & Rigorous for $A_1, A_2$; structural argument for general $\mathfrak{g}$ \\
+No other classes in $\im(\bar\iota)$ & \textbf{Structural argument} & LHS spectral sequence + $A_2$ verification (Claim 2) \\
+$\dim \HH^2 = 8$ at $\mathfrak{sl}_3, \ell = 3$ & \textbf{Theorem (computational)} & Projected Lanczos, $225$ iter.\ (\S\ref{sec:sl3verification}) \\
+Formula for all $\mathfrak{g}, \ell$ & \textbf{Conditional theorem} & Rigorous for $A_1, A_2$; structural for general $\mathfrak{g}$ \\
 Geometric interpretation via $H^2(BT)$ & \textbf{Conditional on $\ell > h$} & Ginzburg--Kumar isomorphism (Prop.~\ref{prop:georank}) \\
 \bottomrule
 \end{tabular}
