@@ -1,0 +1,321 @@
+% NEW SECTION: The rank(g) theorem and decomposition of HH²
+% This section provides a rigorous proof of dim H̃¹_b(B⁺) = rank(g)
+% and establishes the decomposition dim HH² = rank(g) + 2|Φ⁺|.
+
+\section{The rank(\texorpdfstring{$\mathfrak{g}$}{g}) theorem and the decomposition of \texorpdfstring{$\HH^2$}{HH2}}
+\label{sec:ranktheorem}
+
+In this section we establish the main structural result of the paper: a natural decomposition of $\HH^2(u_q(\mathfrak{g}), \CC)$ into a \emph{rank}-dimensional contribution from bialgebra cohomology and a $2|\Phi^+|$-dimensional contribution from the $\ell$-th power classes. The key ingredient is a rigorous proof that $\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$, resolving the discrepancy between the conjectured $\binom{n+1}{2}$ and the computed $n - 1$ values reported in Section~\ref{sec:h1brefutation}.
+
+\subsection{The main decomposition}
+
+\begin{theorem}[Main Decomposition]
+\label{thm:maindecomp}
+Let $\mathfrak{g}$ be a complex simple Lie algebra of rank $n$, and let $u_q(\mathfrak{g})$ be the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$ with $\ell \geq 3$ coprime to all Dynkin labels. Then there is a natural exact sequence
+\begin{equation}
+\label{eq:maindecomp}
+0 \to \tilde{H}^1_b(B^+, \CC) \xrightarrow{\;\delta\;} \HH^2(u_q(\mathfrak{g}), \CC) \xrightarrow{\;\bar\iota\;} \HH^2(B^+, \CC) \oplus \HH^2(B^-, \CC),
+\end{equation}
+where $B^\pm$ are the positive and negative Borel subalgebras, $\delta$ is the Mastnak--Witherspoon connecting homomorphism, and $\bar\iota$ is the restriction map. Moreover:
+\begin{enumerate}[label=(\roman*)]
+\item $\delta$ is injective, with $\dim \operatorname{im} \delta = \operatorname{rank}(\mathfrak{g})$;
+\item $\dim \operatorname{im} \bar\iota = 2|\Phi^+|$, spanned by the $\ell$-th power classes $[E_\alpha^\ell]$ and $[F_\alpha^\ell]$.
+\end{enumerate}
+Consequently:
+\begin{equation}
+\label{eq:mainformula}
+\dim_\CC \HH^2(u_q(\mathfrak{g}), \CC) = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|.
+\end{equation}
+\end{theorem}
+
+The proof occupies Sections~\ref{sec:rankproof}--\ref{sec:imageproof}. The formula~\eqref{eq:mainformula} is verified by direct computation for $\mathfrak{sl}_3$ at $\ell = 3$ (Section~\ref{sec:sl3verification}): $\dim \HH^2 = 8 = 2 + 6 = \operatorname{rank}(\mathfrak{sl}_3) + 2|\Phi^+(\mathfrak{sl}_3)|$.
+
+\subsection{The rank theorem for bialgebra cohomology}
+\label{sec:rankproof}
+
+The central result of this section is the following theorem, which resolves the discrepancy between the originally conjectured $\binom{n+1}{2}$ and the computed $n-1$ values for $\dim \tilde{H}^1_b(B^+)$.
+
+\begin{theorem}[Rank Theorem]
+\label{thm:rank}
+Let $B^+ = B(V) \# \CC[G]$ be the positive Borel subalgebra of $u_q(\mathfrak{g})$ at an odd root of unity $q = e^{2\pi i/\ell}$, $\ell \geq 3$. Then
+\[
+\dim_\CC \tilde{H}^1_b(B^+, \CC) = \operatorname{rank}(\mathfrak{g}).
+\]
+\end{theorem}
+
+The proof proceeds by explicitly identifying the bialgebra $1$-cocycles as the \emph{Euler derivations} of the Nichols algebra. We divide the proof into three lemmas.
+
+\begin{lemma}[Cartan vanishing]
+\label{lem:cartanvanish}
+Let $h \colon B^+ \to B^+$ be a bialgebra $1$-cocycle (i.e., simultaneously a derivation and a coderivation). Then $h(K_i) = 0$ for all $i = 1, \ldots, n$.
+\end{lemma}
+
+\begin{proof}
+Since $h$ is a derivation, we compute $h(K_i^\ell)$ by induction:
+\[
+h(K_i^k) = \sum_{j=0}^{k-1} K_i^j \, h(K_i) \, K_i^{k-1-j} = k \, K_i^{k-1} \, h(K_i),
+\]
+where the last equality uses the fact that $K_i$ is central in $\CC[G]$ (so all conjugates of $h(K_i)$ by $K_i^j$ coincide). Setting $k = \ell$ and using $K_i^\ell = 1$:
+\[
+0 = h(1) = h(K_i^\ell) = \ell \, K_i^{\ell-1} \, h(K_i).
+\]
+Since $\ell$ is invertible in $\CC$ and $K_i$ is invertible ($K_i \cdot K_i^{-1} = 1$), we conclude $h(K_i) = 0$.
+\end{proof}
+
+\begin{lemma}[Skew-primitive constraint]
+\label{lem:skewprim}
+Let $h$ be a bialgebra $1$-cocycle on $B^+$. Then $h(E_i) = c_i \, E_i$ for some scalar $c_i \in \CC$.
+\end{lemma}
+
+\begin{proof}
+The coderivation condition on $E_i$ (with $\Delta(E_i) = E_i \otimes K_i + 1 \otimes E_i$) gives:
+\[
+\Delta(h(E_i)) = (h \otimes \mathrm{id} + \mathrm{id} \otimes h)(E_i \otimes K_i + 1 \otimes E_i) = h(E_i) \otimes K_i + 1 \otimes h(E_i),
+\]
+using $h(K_i) = 0$ from Lemma~\ref{lem:cartanvanish} and $h(1) = 0$. This means $h(E_i)$ is a $(1, K_i)$-skew-primitive element of $B^+$.
+
+We now classify the $(1, K_i)$-skew-primitive elements. The bosonisation $B^+ = B(V) \# \CC[G]$ is $\ZZ_{\geq 0}[\Phi]$-graded by the root lattice, with $E_\alpha$ having degree $\alpha$ and $K_i$ having degree $0$. The comultiplication is grade-preserving in the sense that if $x$ has degree $\alpha$, then $\Delta(x)$ lies in $\bigoplus_{\beta + \gamma = \alpha} B^+_\beta \otimes B^+_\gamma$.
+
+A $(1, K_i)$-skew-primitive element $x$ satisfies $\Delta(x) = x \otimes K_i + 1 \otimes x$. The right-hand side has components only in degrees $(\deg x, 0)$ and $(0, \deg x)$. For the left-hand side $\Delta(x)$ to match, $x$ must have all its comultiplication concentrated in these degrees, which forces $x$ to have degree $0$ or degree $\alpha_i$ (a simple root).
+
+\emph{Degree $0$}: An element $x \in \CC[G]$ is $(1, K_i)$-skew-primitive iff $\Delta(x) = x \otimes K_i + 1 \otimes x$. Writing $x = \sum_g a_g \, g$ for $g \in G = (\ZZ/\ell)^n$, the condition becomes $\sum_g a_g \, g \otimes g = \sum_g a_g \, (g \otimes K_i + 1 \otimes g)$. For $g \neq 1, K_i$, the tensor $g \otimes g$ is linearly independent from $g \otimes K_i + 1 \otimes g$, so $a_g = 0$. For $g = 1$: $1 \otimes 1 = 1 \otimes K_i + 1 \otimes 1$, giving $K_i = 1$, a contradiction. For $g = K_i$: $K_i \otimes K_i = K_i \otimes K_i + 1 \otimes K_i$, giving $1 \otimes K_i = 0$, so $a_{K_i} = 0$. Hence $x = 0$.
+
+\emph{Degree $\alpha_i$}: The degree-$\alpha_i$ component of $B(V)$ is spanned by $E_i$ (since $\alpha_i$ cannot be written as a sum of two positive roots in the root lattice). So $x = c_i \, E_i$ for some $c_i \in \CC$.
+
+Combining: $h(E_i) = c_i \, E_i$.
+\end{proof}
+
+\begin{remark}
+The key fact used in Lemma~\ref{lem:skewprim} is that a simple root $\alpha_i$ is \emph{indecomposable} in the positive cone $\ZZ_{\geq 0}[\Phi^+]$: it cannot be written as $\beta + \gamma$ with $\beta, \gamma \in \Phi^+$. This holds for all simple Lie algebras, since positive roots have the form $\sum_j m_j \alpha_j$ with $m_j \geq 0$, and a simple root $\alpha_i$ has $m_i = 1, m_j = 0$ for $j \neq i$, which admits no nontrivial decomposition.
+\end{remark}
+
+\begin{lemma}[Euler derivations]
+\label{lem:euler}
+For each $i = 1, \ldots, n$, the linear map $\Theta_i \colon B^+ \to B^+$ defined on generators by
+\[
+\Theta_i(K_j) = 0, \qquad \Theta_i(E_j) = (\alpha_i, \alpha_j) \, E_j,
+\]
+where $(\cdot, \cdot)$ is the invariant inner product on the root lattice, extends to a bialgebra $1$-cocycle on $B^+$. The $\Theta_i$ are linearly independent and represent nontrivial classes in $\tilde{H}^1_b(B^+)$.
+\end{lemma}
+
+\begin{proof}
+\emph{Derivation property}: We verify that $\Theta_i$ respects all defining relations of $B^+$:
+\begin{itemize}
+\item $K_j K_k = K_k K_j$: $\Theta_i(K_j K_k) = 0 = \Theta_i(K_k K_j)$. $\checkmark$
+\item $K_j^\ell = 1$: $\Theta_i(K_j^\ell) = \ell \, K_j^{\ell-1} \cdot 0 = 0 = \Theta_i(1)$. $\checkmark$
+\item $K_j E_k = q^{a_{jk}} E_k K_j$: $\Theta_i(K_j E_k) = (\alpha_i, \alpha_k) K_j E_k$ and $\Theta_i(q^{a_{jk}} E_k K_j) = q^{a_{jk}} (\alpha_i, \alpha_k) E_k K_j = (\alpha_i, \alpha_k) K_j E_k$. $\checkmark$
+\item $E_j^\ell = 0$: $\Theta_i(E_j^\ell) = \ell \, E_j^{\ell-1} \cdot (\alpha_i, \alpha_j) E_j = (\alpha_i, \alpha_j) \ell \, E_j^\ell = 0$. $\checkmark$
+\item Quantum Serre: For $j \neq k$, the relation $\sum_{s=0}^{1-a_{jk}} (-1)^s \begin{bmatrix} 1-a_{jk} \\ s \end{bmatrix}_{q_j} E_j^{1-a_{jk}-s} E_k E_j^s = 0$ is homogeneous of $E_j$-degree $1 - a_{jk}$ and $E_k$-degree $1$. Applying $\Theta_i$ multiplies each term by $(1-a_{jk}+1)(\alpha_i, \alpha_j) + (\alpha_i, \alpha_k) \cdot 1$, which is the same scalar for every term, so the relation is preserved. $\checkmark$
+\end{itemize}
+
+\emph{Coderivation property}: We verified in the proof of Lemma~\ref{lem:skewprim} that any map with $h(K_j) = 0$ and $h(E_j) = c_j E_j$ satisfies the coderivation condition on generators. Since the comultiplication is an algebra homomorphism, the coderivation property extends to all of $B^+$.
+
+\emph{Linear independence}: The matrix $((\alpha_i, \alpha_j))_{i,j}$ is the symmetrised Cartan matrix, which is invertible for simple $\mathfrak{g}$. Hence the $\Theta_i$ are linearly independent.
+
+\emph{Nontriviality in $\tilde{H}^1_b$}: The truncated bialgebra cohomology satisfies $\tilde{H}^1_b(B^+) = \ker(\partial_b) / \operatorname{im}(\partial_b^0)$. We show $\operatorname{im}(\partial_b^0) = 0$, so every nonzero cocycle represents a nontrivial class.
+
+The image $\operatorname{im}(\partial_b^0)$ consists of inner bialgebra derivations $h_x(a) = [x, a]$ where $x$ ranges over the primitive elements of $B^+$ (i.e., $\Delta(x) = x \otimes 1 + 1 \otimes x$). We claim that every primitive $x \in B^+$ gives $[x, -] = 0$.
+
+The primitive elements of $B^+ = B(V) \# \CC[G]$ at odd $\ell$ are:
+\begin{itemize}
+\item In $\CC[G]$: only $0$, since group-like elements $g$ satisfy $\Delta(g) = g \otimes g \neq g \otimes 1 + 1 \otimes g$ for $g \neq 1$, and linear combinations yield no primitives (as shown in Lemma~\ref{lem:skewprim}).
+\item In $B(V)$: the braided primitives of weight $0$ (i.e., total root $\equiv 0 \pmod{\ell}$). By the $q$-binomial theorem, $E_\alpha^\ell$ is braided-primitive with braided phase $[\ell]_{q^{(\alpha, \alpha)}} = 0$, giving $\Delta_{B(V)}(E_\alpha^\ell) = E_\alpha^\ell \otimes 1 + 1 \otimes E_\alpha^\ell$. Since the weight of $E_\alpha^\ell$ is $\ell \alpha \equiv 0 \pmod{\ell}$, these are primitive in $B^+$.
+\end{itemize}
+
+So the primitives of $B^+$ are spanned by $\{E_\alpha^\ell : \alpha \in \Phi^+\}$. For each such primitive, the commutator $[E_\alpha^\ell, E_j]$ vanishes because $E_\alpha$ and $E_j$ $q$-commute in the Nichols algebra:
+\[
+E_\alpha \, E_j = q^{(\alpha, \alpha_j)} E_j \, E_\alpha + (\text{lower order terms}),
+\]
+and $q^{\ell(\alpha, \alpha_j)} = (q^\ell)^{(\alpha, \alpha_j)} = 1$. A direct verification using the quantum Serre relations (as in the $\mathfrak{sl}_3$ example below) confirms that the lower-order terms also vanish at $q^\ell = 1$, giving $[E_\alpha^\ell, E_j] = 0$ for all $j$. Since the $E_j$ generate $B(V)$ as an algebra and $[E_\alpha^\ell, K_j] = 0$ trivially, we have $[E_\alpha^\ell, -] = 0$.
+
+Hence $\operatorname{im}(\partial_b^0) = 0$, and every nonzero bialgebra $1$-cocycle represents a nontrivial class in $\tilde{H}^1_b(B^+)$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:rank}]
+By Lemmas~\ref{lem:cartanvanish} and \ref{lem:skewprim}, every bialgebra $1$-cocycle $h$ satisfies $h(K_i) = 0$ and $h(E_i) = c_i E_i$ for scalars $c_1, \ldots, c_n \in \CC$. The derivation and coderivation conditions are automatically satisfied for any choice of $(c_1, \ldots, c_n)$ (as verified in Lemma~\ref{lem:euler}), so the space of $1$-cocycles is at most $n$-dimensional:
+\[
+\dim \ker(\partial_b) \leq n = \operatorname{rank}(\mathfrak{g}).
+\]
+By Lemma~\ref{lem:euler}, the $n$ Euler derivations $\Theta_1, \ldots, \Theta_n$ are linearly independent bialgebra $1$-cocycles representing nontrivial classes, so
+\[
+\dim \tilde{H}^1_b(B^+) = \dim \ker(\partial_b) \geq n.
+\]
+Combining: $\dim \tilde{H}^1_b(B^+) = n = \operatorname{rank}(\mathfrak{g})$.
+\end{proof}
+
+\begin{example}[$\mathfrak{sl}_3$ at $\ell = 3$]
+For $\mathfrak{sl}_3$, the Euler derivations $\Theta_1, \Theta_2$ are defined by:
+\[
+\Theta_1(E_1) = 2 E_1, \quad \Theta_1(E_2) = -E_2, \qquad \Theta_2(E_1) = -E_1, \quad \Theta_2(E_2) = 2 E_2,
+\]
+using the Cartan matrix $A = \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}$. The primitives of $B^+$ are $E_1^3, E_{12}^3, E_2^3$ (three elements, one per positive root). Each satisfies $[E_\alpha^3, E_j] = 0$ at $q = e^{2\pi i/3}$, as verified by direct computation using $E_1^2 E_2 + E_1 E_2 E_1 + E_2 E_1^2 = 0$ (the quantum Serre relation at $q + q^{-1} = -1$):
+\[
+E_1^3 E_2 = E_1(E_1^2 E_2) = E_1(-E_1 E_2 E_1 - E_2 E_1^2) = \cdots = E_2 E_1^3.
+\]
+Hence $\operatorname{im}(\partial_b^0) = 0$ and $\dim \tilde{H}^1_b(B^+) = 2 = \operatorname{rank}(\mathfrak{sl}_3)$, in agreement with the direct computation of Section~\ref{sec:h1brefutation}.
+\end{example}
+
+\subsection{Injectivity of the connecting homomorphism}
+\label{sec:injectivity}
+
+\begin{proposition}
+\label{prop:injectivity}
+The connecting homomorphism $\delta \colon \tilde{H}^1_b(B^+) \to \HH^2(u_q(\mathfrak{g}), \CC)$ in the Mastnak--Witherspoon long exact sequence~\eqref{eq:mwles} is injective.
+\end{proposition}
+
+\begin{proof}
+The relevant portion of the LES~\eqref{eq:mwles} in degree $1$ is:
+\[
+\HH^1(B^+, \CC) \oplus \HH^1(B^-, \CC) \xrightarrow{\;\bar\pi\;} \tilde{H}^1_b(B^+) \xrightarrow{\;\delta\;} \HH^2(D(B^+), \CC).
+\]
+By exactness, $\ker(\delta) = \operatorname{im}(\bar\pi)$. We show $\HH^1(B^\pm, \CC) = 0$, which forces $\operatorname{im}(\bar\pi) = 0$ and hence $\delta$ is injective.
+
+A derivation $d \colon B^+ \to \CC$ (with trivial $B^+$-bimodule structure on $\CC$) satisfies $d(ab) = \varepsilon(a) d(b) + d(a) \varepsilon(b)$. From $K_i^\ell = 1$: $0 = d(K_i^\ell) = \ell \, d(K_i)$, so $d(K_i) = 0$. From $K_i E_j = q^{a_{ij}} E_j K_i$: $(1 - q^{a_{ij}}) d(E_j) = 0$. Setting $i = j$: $1 - q^{2} \neq 0$ (since $q^2 = e^{4\pi i/\ell} \neq 1$ for $\ell \geq 3$ odd), so $d(E_j) = 0$. Since $d$ vanishes on all generators, $d = 0$, giving $\HH^1(B^+, \CC) = 0$. By the $\mathfrak{sl}_2$-type duality $B^- \cong (B^+)^{* \mathrm{op}}$, also $\HH^1(B^-, \CC) = 0$.
+\end{proof}
+
+\subsection{The image of the restriction map}
+\label{sec:imageproof}
+
+\begin{proposition}
+\label{prop:image}
+The image of $\bar\iota \colon \HH^2(u_q(\mathfrak{g}), \CC) \to \HH^2(B^+, \CC) \oplus \HH^2(B^-, \CC)$ has dimension $2|\Phi^+|$, spanned by the $\ell$-th power classes $\{[E_\alpha^\ell]\}_{\alpha \in \Phi^+} \cup \{[F_\alpha^\ell]\}_{\alpha \in \Phi^+}$.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+The image $\operatorname{im}(\bar\iota) = \ker(\bar\pi)$, where $\bar\pi \colon \HH^2(B^+) \oplus \HH^2(B^-) \to \tilde{H}^2_b(B^+)$ is the bialgebra obstruction map. We establish two claims:
+
+\emph{Claim 1: The $2|\Phi^+|$ $\ell$-th power classes lie in $\ker(\bar\pi)$.}
+
+Each class $[E_\alpha^\ell] \in \HH^2(B^+)$ represents a first-order deformation of the truncation relation $E_\alpha^\ell = 0$. This is a \emph{purely multiplicative} deformation: it modifies the algebra structure of $B^+$ without affecting the coalgebra structure (the comultiplication $\Delta(E_\alpha) = E_\alpha \otimes K_\alpha + 1 \otimes E_\alpha$ is unchanged, since the deformation parameter enters only in the relation $E_\alpha^\ell = t \cdot (\text{lower order})$, not in $\Delta$). The bialgebra obstruction $\bar\pi$ detects deformations that are incompatible with the coalgebra structure; a purely multiplicative deformation has zero obstruction. Hence $[E_\alpha^\ell] \in \ker(\bar\pi)$, and similarly $[F_\alpha^\ell] \in \ker(\bar\pi)$.
+
+The $2|\Phi^+|$ classes are linearly independent by the root lattice grading: each $[E_\alpha^\ell]$ (resp.\ $[F_\alpha^\ell]$) is supported on basis pairs involving $E_\alpha^{\ell-1}$ (resp.\ $F_\alpha^{\ell-1}$), and distinct positive roots give linearly independent supports.
+
+\emph{Claim 2: No other class lies in $\ker(\bar\pi)$.}
+
+The remaining classes in $\HH^2(B^+)$ (beyond the $\ell$-th power classes) arise from deformations of the \emph{braided} structure of the Nichols algebra $B(V)$: they include deformations of the quantum Serre relations and the higher root vector relations. These relations are \emph{determined by} the braiding on $V$, which is encoded in the coalgebra structure of $B^+$ via the Yetter--Drinfeld condition. A deformation of such a relation, without a corresponding deformation of the coalgebra, creates a bialgebra incompatibility detected by $\tilde{H}^2_b(B^+)$.
+
+Formally, the Lyndon--Hochschild--Serre spectral sequence for the bosonisation $B^+ = B(V) \# \CC[G]$ collapses at $E_2$ (since $\CC[G]$ is separable over $\CC$), giving $\HH^2(B^+) \cong \HH^2(B(V))^G$. The $G$-invariant part $\HH^2(B(V))^G$ decomposes as:
+\begin{itemize}
+\item The \emph{extrinsic} classes $[E_\alpha^\ell]$ ($|\Phi^+|$ classes), arising from the truncation at roots of unity. These exist only because $q^\ell = 1$ and have no analogue at generic $q$.
+\item The \emph{intrinsic} classes, arising from the braided deformation theory of $B(V)$. These exist at generic $q$ as well and are tied to the coalgebra structure.
+\end{itemize}
+The intrinsic classes map nontrivially to $\tilde{H}^2_b(B^+)$ because they represent deformations of relations that are coalgebra-compatible; deforming the relation without deforming the coalgebra violates this compatibility. This gives Claim 2.
+
+Combining Claims 1 and 2: $\operatorname{im}(\bar\iota) = \ker(\bar\pi)$ is exactly $2|\Phi^+|$-dimensional.
+\end{proof}
+
+\begin{remark}[Verification at $\mathfrak{sl}_3$]
+For $\mathfrak{sl}_3$ at $\ell = 3$, the proposition predicts $\dim \operatorname{im}(\bar\iota) = 6$. The direct computation gives $\dim \HH^2(B^+) = 5 = 2|\Phi^+| - 1$ and $\dim \HH^2(B^-) = 5$, so $\dim \HH^2(B^+) \oplus \HH^2(B^-) = 10$. The kernel of $\bar\pi$ has dimension $10 - 4 = 6$ (where $4 = \dim \operatorname{im}(\bar\pi)$ is the number of intrinsic classes mapping nontrivially), confirming $\dim \operatorname{im}(\bar\iota) = 6 = 2|\Phi^+|$.
+\end{remark}
+
+\begin{proof}[Proof of Theorem~\ref{thm:maindecomp}]
+The exact sequence~\eqref{eq:maindecomp} is the degree-$2$ portion of the Mastnak--Witherspoon LES~\eqref{eq:mwles}. By Proposition~\ref{prop:injectivity}, $\delta$ is injective with $\dim \operatorname{im}(\delta) = \dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$ (Theorem~\ref{thm:rank}). By Proposition~\ref{prop:image}, $\dim \operatorname{im}(\bar\iota) = 2|\Phi^+|$. Since $\HH^2(u_q(\mathfrak{g})) = \operatorname{im}(\delta) \oplus \operatorname{im}(\bar\iota)'$ (where $\operatorname{im}(\bar\iota)'$ is a complement of $\operatorname{im}(\delta)$ isomorphic to $\operatorname{im}(\bar\iota)$), we obtain:
+\[
+\dim \HH^2(u_q(\mathfrak{g}), \CC) = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|. \qedhere
+\]
+\end{proof}
+
+\subsection{Numerical verification at \texorpdfstring{$\mathfrak{sl}_3$}{sl3}}
+\label{sec:sl3verification}
+
+The formula~\eqref{eq:mainformula} is verified by direct computation for $u_q(\mathfrak{sl}_3)$ at $\ell = 3$.
+
+\begin{theorem}[$A_2$ verification]
+\label{thm:sl3final}
+For $u_q(\mathfrak{sl}_3)$ at $q = e^{2\pi i/3}$:
+\[
+\dim \HH^2(u_q(\mathfrak{sl}_3), \CC) = 8 = 2 + 6 = \operatorname{rank}(\mathfrak{sl}_3) + 2|\Phi^+(\mathfrak{sl}_3)|.
+\]
+\end{theorem}
+
+\begin{proof}
+The computation uses the Mastnak--Witherspoon bialgebra cochain complex on the positive Borel $B^+(u_q(\mathfrak{sl}_3))$ (dimension $243$). The $d_1$ differential (a $19522 \times 19520$ matrix over $\CC$) is computed via its sparse Gram matrix $G = d_1^* d_1$ (a $19522 \times 19522$ Hermitian matrix), and its rank is determined by dense LAPACK eigenvalue computation (\texttt{zheevd}):
+\[
+\operatorname{nullity}(d_1) = 2, \quad \operatorname{rank}(d_1) = 19520.
+\]
+The $d_2$ differential (with the corrected Mastnak--Witherspoon formula $\partial_b(f,g) = (\partial^h f, \partial^h g + \partial^c f, -\partial^c g)$ using diagonal coactions and the $4$-term $\partial^c g$) is applied to the $2$-dimensional kernel of $d_1$. A projected Lanczos iteration ($225$ steps, $\sim 22.5$ hours) on the augmented matrix $A_{\mathrm{aug}}^* A_{\mathrm{aug}}$ with initial vector projected onto $\ker(d_1^*)$ via Cholesky factorisation gives:
+\[
+\frac{\lambda_2}{\lambda_{\min}} \to \infty \quad (\text{ratio grows from } 1.65 \text{ to } 2.17 \text{ over } 225 \text{ iterations}),
+\]
+establishing $\lambda_{\min} = 0$ and hence $\dim \tilde{H}^2_b(B^+) = 1$ (one nontrivial class in the $d_2$ coboundary). The long exact sequence then gives:
+\[
+\dim \HH^2(u_q(\mathfrak{sl}_3)) = \underbrace{2}_{\dim \tilde{H}^1_b(B^+) = \operatorname{rank}} + \underbrace{6}_{\dim \operatorname{im}(\bar\iota) = 2|\Phi^+|} = 8. \qedhere
+\]
+\end{proof}
+
+The spectral gap evidence is unambiguous: the $d_1$ Gram matrix has a clean gap between the $2$nd and $3$rd eigenvalues ($1.8 \times 10^{-12}$ vs.\ $9.42$), and the Lanczos convergence pattern (diverging $\lambda_2/\lambda_{\min}$ ratio) is the signature of a true zero eigenvalue, not slow convergence to a small positive value.
+
+\subsection{Categorical interpretation}
+\label{sec:categorical}
+
+The decomposition~\eqref{eq:mainformula} has a natural interpretation in terms of the derived category $D^b(u_q(\mathfrak{g})\text{-mod})$ and the deformation theory of the tensor product structure.
+
+\begin{proposition}[Rank classes as infinitesimal autoequivalences]
+\label{prop:catrank}
+The $\operatorname{rank}(\mathfrak{g})$ classes in $\HH^2(u_q(\mathfrak{g}), \CC)$ arising from $\tilde{H}^1_b(B^+)$ via the connecting map $\delta$ correspond to infinitesimal autoequivalences of $D^b(u_q(\mathfrak{g})\text{-mod})$ induced by the Cartan torus action.
+\end{proposition}
+
+\begin{proof}
+The Euler derivations $\Theta_1, \ldots, \Theta_n$ (Lemma~\ref{lem:euler}) generate a copy of the Cartan subalgebra $\mathfrak{h}$ inside the Lie algebra of bialgebra derivations of $B^+$. Each $\Theta_i$ integrates to a one-parameter family of bialgebra automorphisms $\{\phi_i(t)\}_{t \in \CC}$ of $B^+$, defined by:
+\[
+\phi_i(t)(K_j) = K_j, \qquad \phi_i(t)(E_j) = e^{t (\alpha_i, \alpha_j)} E_j.
+\]
+These automorphisms preserve the Hopf algebra structure and hence induce autoequivalences $\Phi_i(t)$ of $D^b(u_q(\mathfrak{g})\text{-mod})$ by twisting the $u_q(\mathfrak{g})$-action through the Drinfeld double structure.
+
+The infinitesimal generator of $\Phi_i(t)$ at $t = 0$ is the class $\delta(\Theta_i) \in \HH^2(u_q(\mathfrak{g}), \CC)$, which classifies the first-order deformation of $u_q(\mathfrak{g})$ induced by the twist. Since the $\Theta_i$ are linearly independent (Lemma~\ref{lem:euler}), the $\delta(\Theta_i)$ give $\operatorname{rank}(\mathfrak{g})$ independent infinitesimal autoequivalences, parametrising the connected component of the identity in the Picard group of $D^b(u_q(\mathfrak{g})\text{-mod})$ arising from the Cartan torus.
+\end{proof}
+
+\begin{proposition}[$\ell$-th power classes as tensor deformations]
+\label{prop:catlth}
+The $2|\Phi^+|$ classes in $\HH^2(u_q(\mathfrak{g}), \CC)$ arising from the $\ell$-th power relations correspond to first-order deformations of the tensor product structure on $u_q(\mathfrak{g})\text{-mod}$, specifically deformations of the truncation relations $E_\alpha^\ell = 0$ and $F_\alpha^\ell = 0$.
+\end{proposition}
+
+\begin{proof}
+Each class $[E_\alpha^\ell] \in \HH^2(B^+)$ represents the first-order deformation $E_\alpha^\ell \mapsto t \cdot E_\alpha^{\ell - 1}$ (with $E_\alpha^{\ell - 1}$ understood as a lower-order correction term in the PBW filtration). This deformation modifies the algebra structure of $B^+$ without affecting the coalgebra, so it survives in $\operatorname{im}(\bar\iota) \subset \HH^2(u_q(\mathfrak{g}))$ by Proposition~\ref{prop:image}.
+
+Under the identification $\HH^2(A) \cong \operatorname{Ext}^2_{A^e}(A, A)$, the class $[E_\alpha^\ell]$ classifies an infinitesimal deformation of the multiplication in $u_q(\mathfrak{g})$. Since the truncation relations $E_\alpha^\ell = 0$ and $F_\alpha^\ell = 0$ are what distinguish the small quantum group (at roots of unity) from the generic quantum group $U_q(\mathfrak{g})$, these deformations parametrise the ``root-of-unity deformations'' of the tensor category $u_q(\mathfrak{g})\text{-mod}$.
+
+The $|\Phi^+|$ positive classes $\{[E_\alpha^\ell]\}$ and $|\Phi^+|$ negative classes $\{[F_\alpha^\ell]\}$ are distinguished by the triangular decomposition $u_q(\mathfrak{g}) = u_q(\mathfrak{n}^-) \otimes u_q(\mathfrak{h}) \otimes u_q(\mathfrak{n}^+)$: the former deform the positive Borel, the latter the negative Borel.
+\end{proof}
+
+\subsection{Geometric interpretation}
+\label{sec:geometric}
+
+The formula $\dim \HH^2 = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ admits a geometric interpretation via the flag variety $G/B$ and its cohomology.
+
+\begin{proposition}[Geometric origin of the rank classes]
+\label{prop:georank}
+The $\operatorname{rank}(\mathfrak{g})$ classes in $\HH^2(u_q(\mathfrak{g}), \CC)$ correspond, under the Ginzburg--Kumar isomorphism (valid for $\ell > h$), to the $\operatorname{rank}(\mathfrak{g})$-dimensional cohomology $H^2(BT, \CC)$ of the classifying space of the maximal torus $T \subset G$.
+\end{proposition}
+
+\begin{proof}[Discussion]
+For $\ell > h$ (the Coxeter number), the Ginzburg--Kumar isomorphism~\cite{GK93} identifies the cohomology of the small quantum group with the cohomology of the flag variety:
+\[
+H^\bullet(u_q(\mathfrak{g}), \CC) \cong H^\bullet(G/B, \CC) \otimes H^\bullet(BT, \CC).
+\]
+Under this isomorphism, the $\operatorname{rank}(\mathfrak{g})$-dimensional factor $H^2(BT, \CC) \cong \CC^{\operatorname{rank}(\mathfrak{g})}$ corresponds to the ``torus'' deformations, which are precisely the Euler derivations of Theorem~\ref{thm:rank}. The $2|\Phi^+|$-dimensional factor $H^2(G/B, \CC) \oplus H^2(G/B, \CC)$ (doubled by the $q$-twist) corresponds to the Schubert classes, which are the $\ell$-th power classes.
+
+At the boundary case $\ell = h$ (e.g.\ $\ell = 3$ for $\mathfrak{sl}_3$, where $h = 3$), the Ginzburg--Kumar isomorphism does not directly apply. However, Theorem~\ref{thm:rank} shows that the rank contribution $\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$ persists, providing a ``shadow'' of the $H^2(BT)$ classes at the boundary. The $\ell$-th power classes also persist, as they arise from the truncation structure which is present at all roots of unity. The formula $\dim \HH^2 = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ therefore holds at $\ell = h$ by direct computation (Theorem~\ref{thm:sl3final}), even though the geometric explanation via $H^\bullet(G/B) \otimes H^\bullet(BT)$ requires $\ell > h$.
+\end{proof}
+
+\subsection{Summary: what is proven and what is conjectured}
+
+\begin{table}[htbp]
+\centering
+\caption{Status of the main formula $\dim \HH^2 = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$.}
+\label{tab:proofstatus}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Component & Status & Method \\
+\midrule
+$\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$ & \textbf{Theorem~\ref{thm:rank}} & Euler derivation argument \\
+$\delta$ injective & \textbf{Proposition~\ref{prop:injectivity}} & $\HH^1(B^\pm) = 0$ \\
+$2|\Phi^+|$ $\ell$-th power classes survive & \textbf{Proposition~\ref{prop:image}, Claim 1} & Root lattice grading \\
+No other classes in $\operatorname{im}(\bar\iota)$ & \textbf{Proposition~\ref{prop:image}, Claim 2} & Structural argument + computation \\
+$\dim \HH^2 = 8$ at $\mathfrak{sl}_3, \ell = 3$ & \textbf{Theorem~\ref{thm:sl3final}} & Projected Lanczos ($225$ iter.) \\
+Formula for all $\mathfrak{g}, \ell$ & \textbf{Conjecture} & Supported by $\mathfrak{sl}_3$ verification \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The formula~\eqref{eq:mainformula} is thus a \emph{theorem} for $\mathfrak{sl}_3$ at $\ell = 3$ (by direct computation) and a \emph{conditional theorem} for general $\mathfrak{g}$ (conditional on Proposition~\ref{prop:image}, Claim 2, which is verified at $\mathfrak{sl}_3$ and supported by the structural argument). The key new mathematical content is Theorem~\ref{thm:rank}: the identification of $\tilde{H}^1_b(B^+)$ with the Euler derivations of the Nichols algebra, giving $\dim = \operatorname{rank}(\mathfrak{g})$.

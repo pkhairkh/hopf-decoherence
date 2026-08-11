@@ -35,6 +35,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{example}[theorem]{Example}
 \newcommand{\HH}{\operatorname{HH}}
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Der}{\operatorname{Der}}
@@ -737,10 +738,13 @@ Theorem~\ref{thm:sl3} settles $A_2$: $\dim \HH^2 = 8$, confirming the corrected 
 \begin{itemize}
 \item \textbf{$A_1$ at $\ell = 3$}: \textbf{Theorem}, now certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$ via rank computation over 11 finite fields $\mathbb{F}_p$ with $p \equiv 1 \pmod{3}$ (see \texttt{scripts/certify\_a1\_exact.py}).
 \item \textbf{$A_1$ at $\ell = 5$}: \textbf{Theorem} (floating-point), awaiting exact certification.
-\item \textbf{$A_2$}: \textbf{Verified (Theorem~\ref{thm:sl3})}. $\dim \HH^2 = 8$.
-\item \textbf{$A_3$}: \textbf{Open}. Structural prediction $\dim \operatorname{im} \delta = \binom{4}{2} = 6$ is \emph{refuted} (computed $= 3$). Full count $\dim \HH^2 = 18$ is in doubt: alternative count $15$ is consistent.
-\item \textbf{$B_2, G_2$}: structural only.
+\item \textbf{$A_2$}: \textbf{Verified (Theorem~\ref{thm:sl3})}. $\dim \HH^2 = 8$. The rank theorem (Theorem~\ref{thm:rank}) explains the computed $\dim \tilde{H}^1_b = 2 = \operatorname{rank}(\mathfrak{sl}_3)$.
+\item \textbf{$A_3$}: \textbf{Open}. The structural prediction $\dim \operatorname{im} \delta = \binom{4}{2} = 6$ was \emph{refuted} (computed $= 3$). Theorem~\ref{thm:rank} resolves this: $\dim \operatorname{im} \delta = \operatorname{rank}(\mathfrak{sl}_4) = 3$. The predicted full count is $\dim \HH^2 = 3 + 12 = 15$.
+\item \textbf{$B_2, G_2$}: Theorem~\ref{thm:maindecomp} predicts $\dim \HH^2 = 10$ and $14$ respectively.
 \end{itemize}
+
+% Insert the rigorous proof of the rank theorem and main decomposition
+\input{proof_section}
 
 \section{Connections and outlook}
 \label{sec:connections}
