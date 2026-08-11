@@ -14,27 +14,27 @@ Step 1b: Sanity checks (defining relations of u_q(sl_2)) ...
   K E = q^2 E K, [E,F] = (K - K^{-1})/(q - q^{-1}))
 
 Step 2a: Building d^1 over Z[omega, 1/3] ...
-  done in 0.0s, nonzero entries: 1071
+  done in 0.1s, nonzero entries: 1071
   d^1 shape: 729 rows x 27 cols
 Step 2b: Building d^2 over Z[omega, 1/3] ...
-  done in 0.3s, nonzero entries: 56212
+  done in 0.5s, nonzero entries: 56212
   d^2 shape: 19683 rows x 729 cols
 
 Step 3: Reducing mod p and computing ranks over F_p for primes
   p ≡ 1 (mod 3), p ≠ 3: [7, 13, 19, 31, 37, 43, 61, 67, 73, 79, 97]
 
       p    q_p   rank(d^1)   rank(d^2)    dim HH^2      time
-      7      4          27         699           3      2.1s
-     13      3          27         699           3      2.0s
-     19      7          27         699           3      2.0s
-     31     25          27         699           3      2.0s
-     37     26          27         699           3      2.0s
-     43     36          27         699           3      2.0s
-     61     47          27         699           3      2.0s
-     67     37          27         699           3      2.0s
-     73     64          27         699           3      2.0s
-     79     23          27         699           3      2.2s
-     97     35          27         699           3      2.0s
+      7      4          27         699           3      5.1s
+     13      3          27         699           3      4.7s
+     19      7          27         699           3      4.8s
+     31     25          27         699           3      5.6s
+     37     26          27         699           3      6.0s
+     43     36          27         699           3      5.1s
+     61     47          27         699           3      4.9s
+     67     37          27         699           3      5.0s
+     73     64          27         699           3      4.6s
+     79     23          27         699           3      5.3s
+     97     35          27         699           3      5.1s
 
 === Certification summary ===
   rank(d^1) values: [27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27]

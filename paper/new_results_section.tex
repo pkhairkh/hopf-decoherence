@@ -42,7 +42,7 @@ By the Hodge decomposition for the bar complex,
 so $\dim \tilde{H}^2_b(B, \CC) = \dim \ker M$. Two structural features of the complex govern the choice of algorithm.
 
 \begin{enumerate}[label=(\roman*)]
-\item \textbf{The differential $d_1$ is explicitly storable and its nullity is known.} The Gram matrix $G := d_1^* d_1$ on $C^1$ is a dense $19{,}522 \times 19{,}522$ Hermitian positive semidefinite matrix ($\approx 5.8$\,GB in double-precision complex storage). We diagonalise it by LAPACK \texttt{zheevd}; the spectrum exhibits a clean gap, with exactly two eigenvalues below $10^{-13}$ (machine-zero) and the smallest nonzero eigenvalue at $\approx 0.20$. Hence
+\item \textbf{The differential $d_1$ is explicitly storable and its nullity is known.} The Gram matrix $G := d_1^* d_1$ on $C^1$ is a dense $19{,}522 \times 19{,}522$ Hermitian positive semidefinite matrix ($\approx 6.1$\,GB in double-precision complex storage). We diagonalise it by LAPACK \texttt{zheevd}; the spectrum exhibits a clean gap, with exactly two eigenvalues below $10^{-13}$ (machine-zero) and the smallest nonzero eigenvalue at $\approx 9.4$. Hence
 \[
 \dim \ker(d_1) \;=\; \operatorname{nullity}(d_1) \;=\; 2,
 \]
@@ -56,7 +56,7 @@ in agreement with the direct computation of $\dim \tilde{H}^1_b(\bplus(u_q(\math
 \Delta(E_{12}) &= \Delta(E_1)\Delta(E_2) - q\,\Delta(E_2)\Delta(E_1),
 \end{aligned}
 \]
-together with the multiplication table of $\bar{B} = \ker \varepsilon$. The codomain $C^3$ is keyed by a hash table of basis $6$-tuples (built once at start-up, $\sim 2^{26}$ buckets), and each matrix--vector product $v \mapsto d_2 v$ or $w \mapsto d_2^* w$ accumulates contributions into the hash in $\mathcal{O}(\dim C^3)$ work. The composite product $v \mapsto d_2^* d_2 v$ is computed by a single forward pass through $C^3$ followed by a single adjoint pass, and is fully parallelisable across the $9{,}448{,}324$ rows of $C^2$.
+together with the multiplication table of $\bar{B} = \ker \varepsilon$. The codomain $C^3$ is keyed by an open-addressing hash table of basis $6$-tuples (allocated once at start-up, $\sim 2^{31}$ buckets, $\approx 34$\,GB), cleared and refilled on each $d_2$ matvec, and each matrix--vector product $v \mapsto d_2 v$ or $w \mapsto d_2^* w$ accumulates contributions into the hash in $\mathcal{O}(\dim C^3)$ work. The composite product $v \mapsto d_2^* d_2 v$ is computed by a single forward pass through $C^3$ followed by a single adjoint pass, and is fully parallelisable across the $9{,}448{,}324$ rows of $C^2$.
 \end{enumerate}
 
 The Hodge Laplacian $M$ is therefore accessible only through matrix--vector products $v \mapsto Mv = d_1(d_1^* v) + d_2^*(d_2 v)$, each costing $\mathcal{O}(\dim C^3)$ work. Direct diagonalisation is ruled out, motivating the Krylov-subspace approach of Section~\ref{sec:h2b_method}.
@@ -86,7 +86,7 @@ certifying that $\tilde{v}_0 \in \ker(d_1^*)$ to numerical precision.
 
 \medskip\noindent\textbf{Lanczos iteration.} We run the standard symmetric Lanczos algorithm on the Hermitian operator $M$ with starting vector $\tilde{v}_0 / \|\tilde{v}_0\|$. Because $\tilde{v}_0 \in \ker(d_1^*)$ and $\ker(d_1^*)$ is $M$-invariant, the Lanczos recurrence preserves the starting subspace: every iterate $v_j$ lies in $\ker(d_1^*)$, and the computed Ritz values approximate the spectrum of $M|_{\ker(d_1^*)} = d_2^* d_2|_{\ker(d_1^*)}$. Full reorthogonalisation is enforced at every step by Householder QR of the accumulated Lanczos basis (LAPACK \texttt{zgeqrf} followed by \texttt{zungqr}), eliminating the loss of orthogonality that produces ghost eigenvalues in long Lanczos runs. The tridiagonal Lanczos matrix $T_k = \operatorname{tridiag}(\beta_{j-1}, \alpha_j, \beta_j)$ is diagonalised every $5$ iterations by LAPACK \texttt{dstev} to monitor the Ritz value trajectory.
 
-\medskip\noindent\textbf{Hardware and software.} The computation was carried out in \texttt{cext/sl3\_projected\_lanczos.c} on an AMD EPYC-Turin compute node ($16$ cores, AVX-512, $125$\,GB RAM) with OpenBLAS $0.3.29$. The $225$-iteration Lanczos run consumed $\sim 78$\,GB of peak memory---dominated by storage of the $9{,}448{,}324 \times 225$ Householder-reorthogonalised Lanczos basis ($\approx 34$\,GB in single-precision complex storage)---and completed in approximately $14$ hours of wall-clock time. Each Lanczos step costs $\sim 220$\,s, dominated by the matrix-free $d_2^* d_2$ matvec.
+\medskip\noindent\textbf{Hardware and software.} The computation was carried out in \texttt{cext/sl3\_projected\_lanczos.c} on an AMD EPYC-Turin compute node ($16$ cores, AVX-512, $125$\,GB RAM) with OpenBLAS $0.3.29$. The $225$-iteration Lanczos run consumed $\sim 118$\,GB of peak memory---dominated by storage of the $9{,}448{,}324 \times 225$ Householder-reorthogonalised Lanczos basis ($\approx 34$\,GB in double-precision complex storage) and the $C^3$ accumulation hash ($\approx 34$\,GB)---and completed in approximately $22.5$ hours of wall-clock time. Each Lanczos step costs $\sim 360$\,s, dominated by the matrix-free $d_2^* d_2$ matvec.
 
 \subsection{Diagnostic: the $\lambda_2 / \lambda_{\min}$ ratio}
 \label{sec:h2b_diagnostic}
@@ -112,22 +112,25 @@ This dichotomy is robust under finite-precision arithmetic: the Householder-reor
 \subsection{Results}
 \label{sec:h2b_results}
 
-Table~\ref{tab:lanczos_ritz} reports the two smallest Ritz values and their ratio at selected iterations. The smallest Ritz value decreases monotonically from $\lambda_{\min}^{(5)} \approx 1207$ to $\lambda_{\min}^{(225)} \approx 67$, indicating that the Lanczos iteration is progressively discovering smaller spectral values---consistent with the presence of a zero eigenvalue. The ratio $\lambda_2 / \lambda_{\min}$ does \emph{not} converge to a finite constant: after passing through a local minimum of $1.60$ at iteration $150$, it grows monotonically, reaching $2.17$ at iteration $225$. Over the final fifty iterations (iterations $175$--$225$) the ratio grows from $1.65$ to $2.17$, a $32\%$ increase with no sign of plateau.
+Table~\ref{tab:lanczos_ritz} reports the two smallest Ritz values and their ratio at selected iterations. The smallest Ritz value decreases monotonically from $\lambda_{\min}^{(5)} \approx 1207$ to $\lambda_{\min}^{(225)} \approx 67$, while the largest Ritz value converges to $\lambda_{\max} \approx 771{,}000$ by iteration $25$; the iteration is progressively discovering smaller spectral values, consistent with the presence of a zero eigenvalue. The ratio $\lambda_2 / \lambda_{\min}$ does \emph{not} converge to a finite constant: it decreases from $14.9$ at iteration $5$ to a local minimum of $1.60$ at iteration $150$, and then \emph{grows} monotonically over the final $75$ iterations, passing through $1.65$ (iter $175$), $1.83$ (iter $200$), and reaching $2.17$ at iteration $225$---a $36\%$ increase from the iter-$150$ minimum with no sign of plateau. This growth after iteration $150$ is the key diagnostic signal for $\lambda_1^* = 0$: if both $\lambda_1^*$ and $\lambda_2^*$ were strictly positive, the ratio would converge monotonically to the finite constant $\lambda_2^*/\lambda_1^* > 1$ rather than reverse direction. The reversal indicates that $\lambda_1^{(k)} \to 0$ faster than $\lambda_2^{(k)} \to \lambda_2^* > 0$, so the ratio diverges as $k \to \infty$.
 
 \begin{table}[htbp]
 \centering
-\caption{Two smallest Ritz values of the projected Lanczos iteration on $M|_{\ker(d_1^*)} = d_2^* d_2|_{\ker(d_1^*)}$ for $\bplus(u_q(\mathfrak{sl}_3))$ at $\ell = 3$. The ratio $\lambda_2 / \lambda_{\min}$ grows monotonically over the final $75$ iterations, indicating divergence and hence $\dim \ker M \geq 1$.}
+\caption{Two smallest Ritz values of the projected Lanczos iteration on $M|_{\ker(d_1^*)} = d_2^* d_2|_{\ker(d_1^*)}$ for $\bplus(u_q(\mathfrak{sl}_3))$ at $\ell = 3$. The ratio $\lambda_2 / \lambda_{\min}$ reaches a local minimum of $1.60$ at iteration $150$, then grows monotonically over the final $75$ iterations---the key diagnostic signal for $\lambda_1^* = 0$.}
 \label{tab:lanczos_ritz}
-\begin{tabular}{rcc}
+\begin{tabular}{rccc}
 \toprule
-Lanczos iteration $k$ & $\lambda_{\min}^{(k)}$ & $\lambda_2^{(k)} / \lambda_{\min}^{(k)}$ \\
+Lanczos iteration $k$ & $\lambda_{\min}^{(k)}$ & $\lambda_2^{(k)}$ & $\lambda_2^{(k)} / \lambda_{\min}^{(k)}$ \\
 \midrule
-$5$   & $1207$ & $14.9$ \\
-$50$  & $346$  & $2.08$ \\
-$100$ & $217$  & $1.69$ \\
-$150$ & $153$  & $1.60$ \\
-$200$ & $93$   & $1.83$ \\
-$225$ & $67$   & $2.17$ \\
+$5$   & $1207$ & $17920$ & $14.9$  \\
+$10$  & $832$  & $6165$  & $7.41$  \\
+$25$  & $522$  & $1608$  & $3.08$  \\
+$50$  & $346$  & $720$   & $2.08$  \\
+$100$ & $217$  & $366$   & $1.69$  \\
+$150$ & $153$  & $245$   & $1.60$  \\
+$175$ & $124$  & $204$   & $1.65$  \\
+$200$ & $93$   & $170$   & $1.83$  \\
+$225$ & $67$   & $145$   & $2.17$  \\
 \bottomrule
 \end{tabular}
 \end{table}

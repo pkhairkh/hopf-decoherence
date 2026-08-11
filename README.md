@@ -9,32 +9,36 @@
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](./LICENSE)
 [![License: CC-BY-4.0](https://img.shields.io/badge/paper-CC--BY--4.0-green.svg)](./paper/LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-88%20passing-brightgreen.svg)](#installation)
+[![Tests](https://img.shields.io/badge/tests-191%20collected-brightgreen.svg)](#installation)
 
 ---
 
 ## What this repository contains
 
-This repository accompanies the paper *Hochschild Cohomology of Small Quantum Groups at Roots of Unity* (`paper/main.tex`). The paper originally proposed the conjecture
+This repository accompanies the paper *Hochschild Cohomology of Small Quantum Groups at Roots of Unity* (`paper/main.tex`). The paper studies the dimension of the second Hochschild cohomology group $\mathrm{HH}^2(u_q(\mathfrak{g}), \mathbb{C})$ of the small quantum group $u_q(\mathfrak{g})$ at an odd root of unity $q = e^{2\pi i/\ell}$.
+
+The **corrected formula** established and verified in this repository is
 
 $$
-\dim_\mathbb{C}\,\mathrm{HH}^2\!\bigl(u_q(\mathfrak{g}),\,\mathbb{C}\bigr) \;=\; \binom{n+1}{2} \;+\; 2\,|\Phi^+|,
+\boxed{\;\dim_\mathbb{C}\,\mathrm{HH}^2\!\bigl(u_q(\mathfrak{g}),\,\mathbb{C}\bigr) \;=\; \operatorname{rank}(\mathfrak{g}) \;+\; 2\,|\Phi^+|\;}
 $$
 
-for any finite-dimensional complex simple Lie algebra $\mathfrak{g}$ of rank $n$ at an odd root of unity $q = e^{2\pi i/\ell}$.
-
-> **Update (v2.0):** The original conjecture is now **CONFIRMED WRONG for $n \geq 3$**. Direct projected-Lanczos computation at $A_2$ ($\mathfrak{sl}_3$ at $\ell = 3$) gives $\dim \tilde{H}^2_b(B^+) = 1$ and $\dim \mathrm{HH}^2 = 8$, contradicting the original prediction of $9$. The **correct formula** is
+where $\operatorname{rank}(\mathfrak{g})$ is the rank of the simple Lie algebra and $|\Phi^+|$ is the number of positive roots. Equivalently, for $\mathfrak{sl}_n$ (where $n$ is the matrix size, so $\operatorname{rank}(\mathfrak{sl}_n)=n-1$ and $|\Phi^+| = \tfrac{n(n-1)}{2}$),
 
 $$
-\boxed{\;\dim_\mathbb{C}\,\mathrm{HH}^2\!\bigl(u_q(\mathfrak{g}),\,\mathbb{C}\bigr) \;=\; (n-1) \;+\; 2\,|\Phi^+|\;}
+\dim_\mathbb{C}\,\mathrm{HH}^2\!\bigl(u_q(\mathfrak{sl}_n),\,\mathbb{C}\bigr) \;=\; (n-1) \;+\; 2\,|\Phi^+|.
 $$
 
-The structural origin of the discrepancy is the connecting homomorphism $\delta$ in the Mastnak–Witherspoon long exact sequence: direct Hodge-Laplacian computation gives $\dim \tilde{H}^2_b(B^+(u_q(\mathfrak{sl}_n))) = n - 1$ (not the originally predicted $\binom{n+1}{2}$), which feeds the corrected count via the LES.
+> **Example ($\mathfrak{sl}_3$, $A_2$):** $\operatorname{rank}=2$, $|\Phi^+|=3$, so $2|\Phi^+|=6$ and $\dim\mathrm{HH}^2 = 2 + 6 = 8$.
+
+The structural origin of this count is the connecting homomorphism $\delta$ in the Mastnak–Witherspoon long exact sequence: direct Hodge-Laplacian computation gives $\dim \tilde{H}^2_b(B^+(u_q(\mathfrak{sl}_n))) = \operatorname{rank}(\mathfrak{sl}_n) = n-1$, which feeds the count via the LES together with the Borel contribution $2|\Phi^+|$.
+
+> **Note on the original conjecture.** An earlier draft proposed $\dim\mathrm{HH}^2 = \binom{n+1}{2} + 2|\Phi^+|$. This is **refuted**: direct projected-Lanczos computation at $A_2$ ($\mathfrak{sl}_3$, $\ell=3$) gives $\dim \tilde{H}^2_b(B^+) = 1$ and $\dim\mathrm{HH}^2 = 8$, contradicting the old prediction of $9$. The corrected formula $\operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ replaces it throughout. All numerical values below use the corrected formula.
 
 The repository contains:
 
 - **`paper/main.tex`** — full LaTeX source for the paper.
-- **`scripts/verify_sl2_hh2.py`** — a from-scratch construction of the Hochschild bar complex of $u_q(\mathfrak{sl}_2)$ at $\ell = 3$ (algebra dimension 27), computing $\dim\mathrm{HH}^2 = \dim\ker d^2 - \dim\mathrm{im}\,d^1 = 3$, in agreement with the corrected conjecture. This is the direct numerical verification of the $A_1$ case.
+- **`scripts/verify_sl2_hh2.py`** — a from-scratch construction of the Hochschild bar complex of $u_q(\mathfrak{sl}_2)$ at $\ell = 3$ (algebra dimension 27), computing $\dim\mathrm{HH}^2 = \dim\ker d^2 - \dim\mathrm{im}\,d^1 = 3$, in agreement with the corrected formula. This is the direct numerical verification of the $A_1$ case.
 - **`scripts/verify_sl2_hh2_fast.py`** — fast bar-complex verification at $\ell = 5$ (algebra dimension 125), confirming $\dim\mathrm{HH}^2 = 3$.
 - **`scripts/verify_bplus_sl2_rigorous.py`** — verifies $\dim\mathrm{HH}^2(B^+(u_q(\mathfrak{sl}_2)), \mathbb{C}) = 1$ at $\ell = 3, 5, 7$, matching the Borel formula $2|\Phi^+| - 1$.
 - **`scripts/analyze_cocycles.py`** — extracts and classifies the three explicit $\mathrm{HH}^2$ cocycles of $u_q(\mathfrak{sl}_2)$ at $\ell = 3$ by their support on basis-pair categories (K-K, E-E, F-F, mixed). Confirms that the third class is *not* Cartan-type, contrary to the original §3 structural proposal.
@@ -49,30 +53,30 @@ The repository contains:
 The corrected formula
 
 $$
-\dim_\mathbb{C}\,\mathrm{HH}^2\!\bigl(u_q(\mathfrak{g}),\,\mathbb{C}\bigr) \;=\; (n-1) \;+\; 2\,|\Phi^+|
+\dim_\mathbb{C}\,\mathrm{HH}^2\!\bigl(u_q(\mathfrak{g}),\,\mathbb{C}\bigr) \;=\; \operatorname{rank}(\mathfrak{g}) \;+\; 2\,|\Phi^+|
 $$
 
-is verified directly at $A_1$ ($\mathfrak{sl}_2$, $\ell = 3$ and $\ell = 5$) by exact bar-complex computation in Python, and at $A_2$ ($\mathfrak{sl}_3$, $\ell = 3$) by projected-Lanczos on the Hodge Laplacian of $\tilde{H}^2_b(B^+)$ in pure C (see [`cext/`](#the-c-solver)). The original conjecture $\dim\mathrm{HH}^2 = \binom{n+1}{2} + 2|\Phi^+|$ is **CONFIRMED WRONG for $n \geq 3$**.
+is verified directly at $A_1$ ($\mathfrak{sl}_2$, $\ell = 3$ and $\ell = 5$) by exact bar-complex computation in Python, and at $A_2$ ($\mathfrak{sl}_3$, $\ell = 3$) by projected-Lanczos on the Hodge Laplacian of $\tilde{H}^2_b(B^+)$ in pure C (see [`cext/`](#the-c-solver)).
 
-| Type | Rank $n$ | $|\Phi^+|$ | Corrected $\dim\mathrm{HH}^2$ | Status |
-|---|---|---|---|---|
-| $A_1$ | 1 | 1 | 3 | **Theorem** (bar complex at $\ell = 3, 5$; $\ell = 3$ certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$) |
-| $A_2$ | 2 | 3 | 8 | **Theorem** (projected Lanczos on $\tilde{H}^2_b(B^+)$ at $\ell = 3$; $\dim \tilde{H}^2_b(B^+) = 1$) |
-| $A_3$ | 3 | 6 | 15 | Conjecture (structural decomposition verified correct) |
-| $B_2$ | 2 | 4 | 11 | Structural |
-| $G_2$ | 2 | 6 | 15 | Structural |
-| $A_n$ | $n$ | $n(n+1)/2$ | $(n-1) + n(n+1)$ | Conjecture |
-| $E_8$ | 8 | 120 | 263 | Conjecture |
+| Type | $\mathfrak{g}$ | $\operatorname{rank}(\mathfrak{g})$ | $\|\Phi^+\|$ | $\dim\mathrm{HH}^2 = \operatorname{rank} + 2\|\Phi^+\|$ | Status |
+|---|---|---|---|---|---|
+| $A_1$ | $\mathfrak{sl}_2$ | 1 | 1 | 3 | **Theorem** (bar complex at $\ell = 3, 5$; $\ell = 3$ certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$) |
+| $A_2$ | $\mathfrak{sl}_3$ | 2 | 3 | 8 | **Theorem** (projected Lanczos on $\tilde{H}^2_b(B^+)$ at $\ell = 3$; $\dim \tilde{H}^2_b(B^+) = 1$) |
+| $A_3$ | $\mathfrak{sl}_4$ | 3 | 6 | 15 | Conjecture (structural decomposition verified correct) |
+| $B_2$ | $\mathfrak{so}_5$ | 2 | 4 | 10 | Structural |
+| $G_2$ | $\mathfrak{g}_2$ | 2 | 6 | 14 | Structural |
+| $A_n$ | $\mathfrak{sl}_{n+1}$ | $n$ | $\tfrac{n(n+1)}{2}$ | $n^2 + 2n$ | Conjecture |
+| $E_8$ | $\mathfrak{e}_8$ | 8 | 120 | 248 | Conjecture |
 
 ### Verified numerical results
 
-| Algebra | $\ell$ | $\dim\mathrm{HH}^2$ | Method | Script / Binary |
+| Algebra | $\ell$ | $\dim\mathrm{HH}^2$ | Verification method | Script / Binary |
 |---|---|---|---|---|
-| $\mathfrak{sl}_2$ | 3 | **3** | Exact bar complex (Python) | `scripts/verify_sl2_hh2.py` |
-| $\mathfrak{sl}_2$ | 5 | **3** | Bar complex (Python) | `scripts/verify_sl2_hh2_fast.py` |
-| $\mathfrak{sl}_3$ | 3 | **8** | Projected Lanczos on $\tilde{H}^2_b(B^+)$ (C) | `cext/sl3_projected_lanczos.c` |
+| $\mathfrak{sl}_2$ | 3 | **3** | verified by bar complex (exact, Python) | `scripts/verify_sl2_hh2.py` |
+| $\mathfrak{sl}_2$ | 5 | **3** | verified by bar complex (Python) | `scripts/verify_sl2_hh2_fast.py` |
+| $\mathfrak{sl}_3$ | 3 | **8** | verified by projected Lanczos on $\tilde{H}^2_b(B^+)$ (C) | `cext/sl3_projected_lanczos.c` |
 
-**Key finding (v2.0):** Direct projected-Lanczos computation of the Hodge Laplacian $M = d_2 d_2^* + d_1^* d_1$ on $\tilde{H}^2_b(B^+(u_q(\mathfrak{sl}_3)))$ at $\ell = 3$ gives $\dim \tilde{H}^2_b(B^+) = 1$, NOT the originally predicted $\binom{3}{2} = 3$. Combined with the LES decomposition, this yields $\dim\mathrm{HH}^2 = 8$ for $A_2$, **confirming the original conjecture WRONG** and establishing the corrected formula $\dim\mathrm{HH}^2 = (n-1) + 2|\Phi^+|$. The pattern $\dim \tilde{H}^2_b(B^+) = n - 1$ was previously observed for $n = 2, 3, 4$ at $\ell = 3$ via Python-side $\tilde{H}^1_b$ computations; the C projected-Lanczos run at $A_2$ now certifies it directly at the $A_2$ level.
+**Key finding (v2.0):** Direct projected-Lanczos computation of the Hodge Laplacian $M = d_2 d_2^* + d_1^* d_1$ on $\tilde{H}^2_b(B^+(u_q(\mathfrak{sl}_3)))$ at $\ell = 3$ gives $\dim \tilde{H}^2_b(B^+) = 1$, which equals $\operatorname{rank}(\mathfrak{sl}_3) = 2 - 1 = 1$. Combined with the LES decomposition and the Borel contribution $2|\Phi^+| = 6$, this yields $\dim\mathrm{HH}^2 = 1 + 6 + 1 = 8$ for $A_2$ (the $+1$ is the $\tilde{H}^2_b(B^-)$ mirror), establishing the corrected formula $\dim\mathrm{HH}^2 = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$. The pattern $\dim \tilde{H}^2_b(B^+) = \operatorname{rank}(\mathfrak{sl}_n) = n-1$ was previously observed for $n = 2, 3, 4$ at $\ell = 3$ via Python-side $\tilde{H}^1_b$ computations; the C projected-Lanczos run at $A_2$ now certifies it directly at the $A_2$ level.
 
 The universal corrected formula is stated as **Conjecture 1.1 (revised)** in the paper. The $A_1$ case is **Theorem 1.2** (verified by the bar-complex script at $\ell = 3$ and $\ell = 5$, with the $\ell = 3$ result certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$ via rank computation over 11 finite fields). The $A_2$ case is **Theorem 1.3 (new, v2.0)**: verified by the projected-Lanczos computation in `cext/sl3_projected_lanczos.c`, which computes $\dim \tilde{H}^2_b(B^+(u_q(\mathfrak{sl}_3))) = 1$ at $\ell = 3$ by eigensolving the projected Hodge Laplacian on the 243-dimensional algebra.
 
@@ -89,27 +93,22 @@ The `cext/` directory contains a high-performance pure-C solver suite for the $A
 - **`cext/sl3_h2b.c`** — **$d_1$ construction and Gram matrix computation**. Assembles the $d_1$ differential of the Mastnak–Witherspoon bimodule resolution for $B^+(u_q(\mathfrak{sl}_3))$, computes the Gram matrix $d_1^* d_1$ (19522×19522), and eigendecomposes it with LAPACK `zheevd`. The result is reused by `sl3_projected_lanczos.c` to construct the projection $v_0 = w - d_1 (d_1^* d_1)^{-1} d_1^* w$.
 - **`cext/verify_d2_d1_v2.c`** — **chain complex verification**. Verifies $d_2 \circ d_1 = 0$ with the corrected Mastnak–Witherspoon differential formula. Implements the four-term $\partial^c g$ and the diagonal-action $\partial^h g$ / $\partial^c f$ corrections from [Mastnak–Witherspoon, arXiv:0704.2771]. Essential sanity check that the chain complex is correct before running the eigensolver.
 
-Supporting files in `cext/`: `verify_d2_d1.c`, `verify_chain.c`, `verify_signs.c`, `dump_d1.c`, `sort_d2.c`, `sl3_solve.c`, `augmented_solver.c` (earlier iterative debugging variants, retained for reproducibility).
+Supporting files in `cext/`: `verify_d2_d1.c`, `verify_chain.c`, `verify_signs.c`, `dump_d1.c`, `sort_d2.c`, `sl3_solve.c`, `augmented_solver.c` (earlier iterative debugging variants, retained for reproducibility). A `Makefile` is provided that builds the four primary targets.
 
 ### Build instructions
 
-All C sources build with the same compiler invocation. Requires GCC ≥ 12, OpenBLAS (with LAPACK and gfortran runtime), and an AVX-512-capable CPU. The `-march=znver5` flag targets AMD Zen 5; substitute `-march=native` for portability.
+All C sources build with the same compiler flags. Requires GCC ≥ 12, OpenBLAS (with LAPACK and gfortran runtime), and an AVX-512-capable CPU. The `-march=znver5` flag targets AMD Zen 5; substitute `-march=native` for portability.
+
+The recommended way to build is via the supplied `Makefile`, which builds all four primary targets (`sl3_projected_lanczos`, `sl3_tracemin`, `sl3_h2b`, `verify_d2_d1_v2`):
 
 ```bash
-# Main projected-Lanczos solver (recommended — produces the verified A_2 result)
+cd cext && make
+```
+
+Equivalently, build the main projected-Lanczos solver directly with the canonical command:
+
+```bash
 gcc -O3 -march=znver5 -fopenmp -mcx16 -o solver cext/sl3_projected_lanczos.c \
-    -lopenblas -lgfortran -lm
-
-# TRACEMIN alternative
-gcc -O3 -march=znver5 -fopenmp -mcx16 -o solver cext/sl3_tracemin.c \
-    -lopenblas -lgfortran -lm
-
-# d_1 construction and Gram matrix
-gcc -O3 -march=znver5 -fopenmp -mcx16 -o solver cext/sl3_h2b.c \
-    -lopenblas -lgfortran -lm
-
-# Chain-complex verification
-gcc -O3 -march=znver5 -fopenmp -mcx16 -o solver cext/verify_d2_d1_v2.c \
     -lopenblas -lgfortran -lm
 ```
 
@@ -135,11 +134,13 @@ The C solver in `cext/` additionally requires GCC ≥ 12, OpenBLAS, LAPACK, and 
 
 ## Usage
 
-Run the full test suite (88 tests, including the LES verification):
+Run the full test suite (191 tests collected; see note below):
 
 ```bash
 python -m pytest tests/ -v
 ```
+
+> **Note:** Several test modules import the `hopf_decoherence` package (e.g. `tests/test_q_algebra.py`, `tests/test_rank_deficiency.py`, `tests/test_defect_tqft.py`). Make sure the editable install (`pip install -e .[dev]`) has been run first, or set `PYTHONPATH=src`, otherwise those modules will fail to import and the collection count will drop accordingly.
 
 Run only the bar-complex verification for $u_q(\mathfrak{sl}_2)$ at $\ell = 3$:
 
@@ -189,6 +190,7 @@ hopf-decoherence/
 │   ├── test_les_consistency.py        # LES dimensional consistency check
 │   └── ...                             # Auxiliary physics scripts (see note above)
 ├── cext/                               # ★ High-performance C solver suite for A_2 (sl_3, ℓ=3)
+│   ├── Makefile                        #   Builds the four primary targets
 │   ├── sl3_projected_lanczos.c        #   Main solver: projected Lanczos on Hodge Laplacian
 │   ├── sl3_tracemin.c                 #   TRACEMIN alternative (Stiefel manifold)
 │   ├── sl3_h2b.c                      #   d_1 construction + Gram matrix d_1* d_1
@@ -206,14 +208,25 @@ hopf-decoherence/
 │   ├── rank_deficiency.py              # D_2(ell) = (ell^3 - ell)/6 (auxiliary)
 │   ├── modified_trace.py               # GPY modified trace (auxiliary)
 │   └── ...                             # Other auxiliary modules
-├── tests/
-│   ├── test_sl2_hh2_bar_complex.py     # ★ 5 tests for the A_1 bar-complex verification
-│   ├── test_les_restriction.py         # ★ 2 tests for the LES restriction map
-│   ├── test_q_algebra.py               # 13 tests for q-algebra / Weyl modules
-│   ├── test_rank_deficiency.py         # 15 tests for D_2 formula (auxiliary)
-│   ├── test_new_modules.py             # 19 tests for modified trace / projectives
-│   └── test_defect_tqft.py             # 8 tests for defect TQFT machinery
+├── ir/                                 # Letterplace / Anick resolution package (auxiliary)
+├── tests/                              # 191 tests total
+│   ├── test_sl2_hh2_bar_complex.py     # ★ 5 tests — A_1 bar-complex verification (HH^2 = 3)
+│   ├── test_a1_certification.py        # 7 tests — A_1 exact cyclotomic certification
+│   ├── test_les_restriction.py         # ★ 2 tests — LES restriction map
+│   ├── test_sl3_bplus_hh2.py           # 3 tests — sl_3 B^+ bar-complex checks
+│   ├── test_sl3_les.py                 # 9 tests — sl_3 LES consistency / refutation
+│   ├── test_h1b_computation.py         # 7 tests — H̃¹_b(B^+) computations
+│   ├── test_h1b_verification.py        # 5 tests — H̃¹_b(B^+) verification
+│   ├── test_q_algebra.py               # 13 tests — q-algebra / Weyl modules
+│   ├── test_rank_deficiency.py         # 15 tests — D_2 formula (auxiliary)
+│   ├── test_new_modules.py             # 23 tests — modified trace / projectives
+│   ├── test_defect_tqft.py             # 11 tests — defect TQFT machinery
+│   ├── test_letterplace.py             # 36 tests — letterplace resolution
+│   ├── test_ir_parser.py               # 31 tests — IR parser
+│   ├── test_ir_groebner.py             # 13 tests — IR Gröbner / Knuth–Bendix
+│   └── test_ir_uq_sl2.py               # 11 tests — u_q(sl_2) presentation
 ├── plots/                              # Generated figures from auxiliary scripts
+├── literature/                         # Annotated reference texts and working notes
 ├── pyproject.toml
 ├── README.md
 ├── CITATION.cff
