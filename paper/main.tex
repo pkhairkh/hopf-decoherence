@@ -753,7 +753,7 @@ Theorem~\ref{thm:sl3} settles $A_2$: $\dim \HH^2 = 8$, confirming the corrected 
 \label{sec:connections}
 \subsection{Relation to Gerstenhaber--Schack cohomology}
 
-The Gerstenhaber--Schack cohomology $H_{\mathrm{GS}}^*(u_q(\mathfrak{g}))$ computes the deformation theory of $u_q(\mathfrak{g})$ as a Hopf algebra (rather than merely as an algebra). Mastnak and Witherspoon\cite{MW08} have developed the surrounding long-exact-sequence machinery relating bialgebra cohomology to Hochschild cohomology for pointed Hopf algebras, though a complete computation of $H_{\mathrm{GS}}^*(u_q(\mathfrak{g}))$ itself is not presently available. The derived center studied by Lachowska and Qi\cite{LQ21} concerns $\HH^0$ and the higher derived center as an algebra, and does not directly determine the Gerstenhaber--Schack side. There is a natural forgetful map $\HH^*(u_q(\mathfrak{g}), \CC) \to H_{\mathrm{GS}}^*(u_q(\mathfrak{g}))$, and the classes we compute may or may not survive in the Hopf-algebraic deformation theory. Determining which of the $\binom{n+1}{2} + 2|\Phi^+|$ algebraic deformations are compatible with the Hopf structure is a natural next step.
+The Gerstenhaber--Schack cohomology $H_{\mathrm{GS}}^*(u_q(\mathfrak{g}))$ computes the deformation theory of $u_q(\mathfrak{g})$ as a Hopf algebra (rather than merely as an algebra). Mastnak and Witherspoon\cite{MW08} have developed the surrounding long-exact-sequence machinery relating bialgebra cohomology to Hochschild cohomology for pointed Hopf algebras, though a complete computation of $H_{\mathrm{GS}}^*(u_q(\mathfrak{g}))$ itself is not presently available. The derived center studied by Lachowska and Qi\cite{LQ21} concerns $\HH^0$ and the higher derived center as an algebra, and does not directly determine the Gerstenhaber--Schack side. There is a natural forgetful map $\HH^*(u_q(\mathfrak{g}), \CC) \to H_{\mathrm{GS}}^*(u_q(\mathfrak{g}))$, and the classes we compute may or may not survive in the Hopf-algebraic deformation theory. Determining which of the $\operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ algebraic deformations are compatible with the Hopf structure is a natural next step.
 
 \subsection{Connection to non-semisimple TQFT}
 
@@ -766,10 +766,10 @@ The logarithmic entropy correction $-3/2$ for BTZ black holes is a well-known re
 \subsection{Open problems}
 
 \begin{enumerate}
-\item \textbf{Beyond type A}: Direct numerical verification of formula~\eqref{eq:main} for $B_2$ ($\dim \HH^2 = 11$) and $G_2$ ($\dim \HH^2 = 15$) via bar complex computation on the respective Nichols algebras.
-\item \textbf{Higher Hochschild cohomology}: The same crossed product mechanism likely creates Cartan-type classes in $\HH^k$ for $k \geq 3$, with dimensions related to $H^k(G, \FF_\ell)$.
-\item \textbf{Anick resolution}: A complete cohomological calculation producing exactly $\binom{n+1}{2}$ Cartan-type classes from the crossed product structure via an Anick resolution or Groebner basis computation.
-\item \textbf{Hopf deformations}: Determining which of the $\binom{n+1}{2} + 2|\Phi^+|$ algebraic deformations are compatible with the Hopf algebra structure.
+\item \textbf{Beyond type A}: Direct numerical verification of formula~\eqref{eq:main} for $B_2$ ($\dim \HH^2 = 10$) and $G_2$ ($\dim \HH^2 = 14$) via bar complex computation on the respective Nichols algebras.
+\item \textbf{Higher Hochschild cohomology}: The Euler derivation mechanism likely creates Cartan-type classes in $\HH^k$ for $k \geq 3$, with dimensions related to $\operatorname{rank}(\mathfrak{g})$ and the higher bialgebra cohomology $\tilde{H}^{k-1}_b(B^+)$.
+\item \textbf{Anick resolution}: A complete cohomological calculation producing exactly $\operatorname{rank}(\mathfrak{g})$ Cartan-type classes from the Euler derivation structure via an Anick resolution or Groebner basis computation.
+\item \textbf{Hopf deformations}: Determining which of the $\operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ algebraic deformations are compatible with the Hopf algebra structure.
 \item \textbf{Physical interpretation}: Understanding the physical meaning of the $\ell$-th power classes in the TQFT and their role in black hole entropy corrections at higher rank.
 \end{enumerate}
 
