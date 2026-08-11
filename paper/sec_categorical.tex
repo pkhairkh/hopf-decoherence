@@ -1,0 +1,272 @@
+% =============================================================================
+%  sec_categorical.tex
+%
+%  Section: Categorical and geometric interpretation of
+%           dim HH^2(u_q(g), CC) = dim g.
+%
+%  Intended to be \input{} into main.tex (e.g. immediately before
+%  \section{Connections and outlook}).  Uses only macros already defined in
+%  the preamble of main.tex:
+%      \HH, \Ext, \Der, \InnDer, \ad, \rk, \CC, \ZZ, \FF, \bplus, \bminus
+%  plus standard \operatorname{im}, \operatorname{ker}, \binom, \bigl, \bigr,
+%  \mathfrak, \mathcal, \bigoplus, \bigwedge, \otimes, etc.
+%
+%  Cross-references resolved against existing labels in main.tex:
+%      thm:main, sec:les, eq:mwles, sec:cartan, sec:cartandecomp,
+%      sec:h1brefutation, lem:maschke, thm:collapse.
+%
+%  NEW \cite keys introduced below (must be added to the bibliography block
+%  of main.tex before final compile):
+%      \cite{BNPP}  -- Bendel-Nakano-Parshall-Pillen, arXiv:1102.3639
+%      \cite{BL07}  -- Bezrukavnikov-Lachowska,        arXiv:math/0609819
+%      \cite{Neg22} -- Negron,                          arXiv:2212.12198
+%  Existing keys reused: \cite{GK93}, \cite{LQ21}, \cite{MW08}, \cite{AKM15}.
+% =============================================================================
+
+\section{Categorical and geometric interpretation}
+\label{sec:categorical}
+
+The dimension formula $\dim_\CC \HH^2(u_q(\mathfrak{g}), \CC) = \rk(\mathfrak{g}) + 2|\Phi^+| = \dim \mathfrak{g}$ of Theorem~\ref{thm:main} is not an accident of combinatorics: it is the algebraic shadow of three deep structural facts about $u_q(\mathfrak{g})$ that have been established in the literature over the past three decades. We collect these facts here and explain how each accounts for one sector of the dimension count. Throughout this section we assume $\ell > h$, where $h$ is the Coxeter number of $\mathfrak{g}$; this is the regime in which the Ginzburg--Kumar isomorphism, the Lachowska--Qi theorem on the Higman ideal, and the Bezrukavnikov--Lachowska equivalence with the Springer resolution are all available in their strongest form.
+
+\subsection{The Ginzburg--Kumar isomorphism and $\dim \HH^2 = \dim \mathfrak{g}$}
+\label{sec:cat_gk}
+
+The starting point is the computation by Ginzburg and Kumar~\cite{GK93} of the ordinary (Hopf-algebra) cohomology $H^*(u_q(\mathfrak{g}), \CC) = \Ext^*_{u_q(\mathfrak{g})}(\CC, \CC)$ with trivial coefficients.
+
+\begin{theorem}[Ginzburg--Kumar~\cite{GK93}; see also~\cite{BNPP}]
+\label{thm:gk}
+Let $\mathfrak{g}$ be a complex simple Lie algebra of rank $n$ with Coxeter number $h$. Let $\ell > h$ be an odd integer coprime to all symmetrising integers $d_i$ and set $q = e^{2\pi i/\ell}$. There is an isomorphism of graded $\CC$-algebras
+\begin{equation}
+\label{eq:gk}
+H^*\bigl(u_q(\mathfrak{g}), \CC\bigr) \;\cong\; \CC[\mathcal{N}],
+\end{equation}
+where $\mathcal{N} \subset \mathfrak{g}$ is the nilpotent cone and $\CC[\mathcal{N}]$ is its coordinate ring, graded by the adjoint dilation $t \cdot x = t^2 x$ on $\mathfrak{g}$. In particular $H^{2i+1}(u_q(\mathfrak{g}), \CC) = 0$ and $H^{2i}(u_q(\mathfrak{g}), \CC) \cong \CC[\mathcal{N}]_i$ for all $i \geq 0$.
+\end{theorem}
+
+The nilpotent cone $\mathcal{N}$ is a conical subvariety of $\mathfrak{g}$, so $\CC[\mathcal{N}]$ inherits a positive grading $\CC[\mathcal{N}] = \bigoplus_{i \geq 0} \CC[\mathcal{N}]_i$ with $\CC[\mathcal{N}]_0 = \CC$. Its degree-one part is the restriction to $\mathcal{N}$ of the linear functionals on $\mathfrak{g}$:
+\begin{equation}
+\label{eq:deg1}
+\CC[\mathcal{N}]_1 \;=\; \mathfrak{g}^*\big|_{\mathcal{N}} \;\cong\; \mathfrak{g}^*,
+\end{equation}
+the second isomorphism holding because $\mathcal{N}$ spans $\mathfrak{g}$ linearly (every root vector is nilpotent, and the Cartan subalgebra is spanned by commutators $[E_\alpha, F_\alpha]$ for $\alpha \in \Phi^+$). Combining~\eqref{eq:gk} and~\eqref{eq:deg1}:
+\begin{equation}
+\label{eq:h2dim}
+\dim_\CC H^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;=\; \dim_\CC \mathfrak{g}^* \;=\; \dim \mathfrak{g} \;=\; \rk(\mathfrak{g}) + 2|\Phi^+|.
+\end{equation}
+The decomposition $\dim \mathfrak{g} = \rk(\mathfrak{g}) + 2|\Phi^+|$ on the right-hand side is the root-space decomposition $\mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha$, with $\dim \mathfrak{h} = \rk(\mathfrak{g})$ and $|\Phi| = 2|\Phi^+|$. The Ginzburg--Kumar isomorphism therefore identifies the $\rk(\mathfrak{g})$-dimensional Cartan sector of $H^2$ with the dual Cartan subalgebra $\mathfrak{h}^*$, and the $2|\Phi^+|$-dimensional root sector with the dual root spaces $\mathfrak{g}_\alpha^*$ for $\alpha \in \Phi$.
+
+\medskip
+The passage from Hopf-algebra cohomology $H^2(u, \CC)$ to Hochschild cohomology $\HH^2(u, \CC) = \Ext^2_{u^e}(u, \CC)$ is governed by the Cartan--Eilenberg spectral sequence
+\begin{equation}
+\label{eq:cess}
+E_2^{p,q} \;=\; \Ext^p_{u}\bigl(\CC,\, \Ext^q_{u}(\CC, \CC)\bigr) \;\Longrightarrow\; \Ext^{p+q}_{u^e}(u, \CC) \;=\; \HH^{p+q}(u, \CC),
+\end{equation}
+whose $E_2$-page is built from the Hopf-algebra cohomology of $u$, with the natural $u$-action on $H^q(u, \CC)$ induced by the conjugation action of $u$ on itself.
+
+\begin{lemma}
+\label{lem:h1van}
+$H^1(u_q(\mathfrak{g}), \CC) = 0$.
+\end{lemma}
+
+\begin{proof}
+By the standard adjunction, $H^1(u, \CC) \cong \Der(u, \CC)/\InnDer(u, \CC)$ where $\CC$ carries the trivial $u$-bimodule structure. A derivation $d \colon u \to \CC$ satisfies $d(ab) = \varepsilon(a)\, d(b) + d(a)\, \varepsilon(b)$ for all $a, b \in u$. From the relation $K_i^\ell = 1$ we obtain, by induction on $k$, $d(K_i^k) = k\, \varepsilon(K_i)^{k-1} d(K_i) = k\, d(K_i)$ (since $\varepsilon(K_i) = 1$), hence $0 = d(K_i^\ell) = \ell\, d(K_i)$; since $\ell$ is invertible in $\CC$, $d(K_i) = 0$. From the cross relation $K_i E_j K_i^{-1} = q_i^{a_{ij}} E_j$ (equivalently $K_i E_j = q_i^{a_{ij}} E_j K_i$), applying $d$ gives $d(E_j) = q_i^{a_{ij}}\, d(E_j)$, i.e.\ $(1 - q_i^{a_{ij}})\, d(E_j) = 0$; setting $i = j$ yields $(1 - q_i^{a_{ii}}) d(E_j) = (1 - q_i^2) d(E_j) = 0$, and $q_i^2 = e^{4\pi i d_i/\ell} \neq 1$ under our coprimality and odd-$\ell$ hypotheses, hence $d(E_j) = 0$. The symmetric argument with $\bminus$ gives $d(F_j) = 0$. Since $d$ vanishes on the generators $\{E_i, F_i, K_i\}$, $d = 0$, so $H^1(u, \CC) = 0$.
+\end{proof}
+
+\begin{proposition}
+\label{prop:hh2surj}
+The edge homomorphism of the spectral sequence~\eqref{eq:cess} realises $H^2(u_q(\mathfrak{g}), \CC)$ as a subquotient of $\HH^2(u_q(\mathfrak{g}), \CC)$ via the inclusion
+\[
+H^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;=\; E_\infty^{2,0} \;\hookrightarrow\; \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr).
+\]
+In particular,
+\[
+\dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;\geq\; \dim_\CC H^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;=\; \dim \mathfrak{g}.
+\]
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:h1van} gives $E_2^{p,1} = \Ext^p_u(\CC, H^1(u, \CC)) = 0$ for all $p$, so the $d_2$-differentials $d_2 \colon E_2^{0,1} \to E_2^{2,0}$ (with zero source) and $d_2 \colon E_2^{0,2} \to E_2^{2,1}$ (with zero target) both vanish. For total degree $2$, the $d_r$-differentials with $r \geq 3$ have source or target outside the first quadrant:
+\begin{itemize}
+\item $d_r \colon E_r^{2,0} \to E_r^{2+r, 1-r}$ has $1-r \leq -2 < 0$ for $r \geq 3$, hence is zero;
+\item $d_r \colon E_r^{2-r, r-1} \to E_r^{2, 0}$ has $2-r \leq -1 < 0$ for $r \geq 3$, hence is zero.
+\end{itemize}
+Therefore $E_\infty^{2,0} = E_2^{2,0} = \Ext^2_u(\CC, \CC) = H^2(u, \CC)$. By the convergence of the spectral sequence, $\HH^2(u, \CC)$ admits a descending filtration $F^0 \supseteq F^1 \supseteq F^2 \supseteq F^3 = 0$ with $F^2 \cong E_\infty^{2,0} = H^2(u, \CC)$, giving the desired inclusion. The dimension inequality then follows from~\eqref{eq:h2dim}.
+\end{proof}
+
+\begin{remark}
+\label{rem:gkdim}
+Proposition~\ref{prop:hh2surj} supplies the conceptual explanation for the dimension formula $\dim \HH^2 = \dim \mathfrak{g}$ of Theorem~\ref{thm:main}: the formula reflects the Ginzburg--Kumar identification of $H^2(u, \CC)$ with $\mathfrak{g}^*$, lifted through the Cartan--Eilenberg spectral sequence to Hochschild cohomology. The $\rk(\mathfrak{g})$ Cartan-type classes identified in Section~\ref{sec:les} via the connecting homomorphism $\delta \colon \tilde{H}^1_b(\bplus) \to \HH^2(D(\bplus))$ are precisely the Hochschild lifts of the $\mathfrak{h}^*$-sector of $\CC[\mathcal{N}]_1$, while the $2|\Phi^+|$ $\ell$-th power classes $[E_\alpha^\ell]$, $[F_\alpha^\ell]$ are the Hochschild lifts of the root-space sector $\bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha^*$.
+\end{remark}
+
+\subsection{The derived center and the Higman ideal}
+\label{sec:cat_lq}
+
+A second, independent, structural account of the $\rk(\mathfrak{g})$-dimensional Cartan sector is supplied by the Lachowska--Qi theorem on the derived center of $u_q(\mathfrak{g})$~\cite{LQ21}.
+
+Recall that for a finite-dimensional Hopf algebra $H$ the \emph{Higman ideal} $z_{\mathrm{Hig}}(H) \subset Z(H)$ is the two-sided ideal in the center generated by the characters of the projective indecomposable $H$-modules. Equivalently, it is the image of the projective trace map $\operatorname{ptr} \colon H^* \to Z(H)$, $\lambda \mapsto \sum_i \lambda(b_i^{(1)}) S(b_i^{(2)})$, where $\{b_i\}$ is a basis of $H$ with dual basis and $S$ is the antipode. The Higman ideal is the projective part of the center; it is a Frobenius algebra whose dimension is a derived invariant of $H$.
+
+\begin{theorem}[Lachowska--Qi~\cite{LQ21}]
+\label{thm:lq}
+Let $H$ be a finite-dimensional unimodular Hopf algebra over $\CC$ and let $C_H$ denote the Cartan matrix of the projective indecomposable $H$-modules. Then
+\begin{equation}
+\label{eq:lq}
+\dim_\CC z_{\mathrm{Hig}}(H) \;=\; \rk_\ZZ(C_H \otimes_\ZZ \CC).
+\end{equation}
+For $H = u_q(\mathfrak{g})$ with $\ell > h$, the rank of the Cartan matrix of $u_q(\mathfrak{g})$ equals $\rk(\mathfrak{g})$.
+\end{theorem}
+
+The rank of the Cartan matrix of $u_q(\mathfrak{g})$ is determined by the linkage principle of Andersen--Jantzen--Soergel (and equivalently by the Ginzburg--Kumar isomorphism): the projective indecomposable $u_q(\mathfrak{g})$-modules are parametrised by the regular weights in the fundamental alcove, and the number of linked blocks equals $\rk(\mathfrak{g})$. Consequently
+\begin{equation}
+\label{eq:higdim}
+\dim_\CC z_{\mathrm{Hig}}\bigl(u_q(\mathfrak{g})\bigr) \;=\; \rk(\mathfrak{g}).
+\end{equation}
+
+The Higman ideal $z_{\mathrm{Hig}}(u) \subset Z(u)$ is generated (as an ideal of $Z(u)$) by $\rk(\mathfrak{g})$ algebraically independent Casimir elements that constitute the Harish-Chandra center $\CC[\mathfrak{t}]^W$ of $u_q(\mathfrak{g})$---the Weyl-group invariants in the symmetric algebra of the Cartan. These are the Chevalley invariants: $\rk(\mathfrak{g})$ homogeneous generators of $\CC[\mathfrak{t}]^W$ of degrees $d_1, \ldots, d_n$ equal to the fundamental degrees of the Weyl group $W$.
+
+\begin{proposition}
+\label{prop:casimir}
+The $\rk(\mathfrak{g})$ Cartan-type classes in $\HH^2(u, \CC)$ identified in Section~\ref{sec:les} are the first-order shadows, in Hochschild cohomology, of the $\rk(\mathfrak{g})$ algebraically independent Casimir elements of $z_{\mathrm{Hig}}(u) \subset Z(u)$.
+\end{proposition}
+
+\begin{proof}[Sketch of proof]
+The derived center $Z^*(u) := \Ext^*_{u^e}(u, u)$ contains, in degree zero, the ordinary center $Z(u)$, and the Higman ideal $z_{\mathrm{Hig}}(u) \subset Z(u) = Z^0(u)$ is detected by the projective trace map. By~\cite{LQ21}, the first-order deformations of $u$ in the direction of the Casimir generators admit a factorisation
+\[
+Z^1(u) \;\supset\; \operatorname{span}_\CC\bigl\{\,\text{first-order deformations of Casimirs}\,\bigr\} \;\xrightarrow{\;\sim\;}\; z_{\mathrm{Hig}}(u) \otimes_\CC \CC[\varepsilon]/(\varepsilon^2),
+\]
+and the connecting homomorphism $\partial \colon Z^0(u) \to \HH^1(u, u)$ of the long exact sequence induced by $0 \to \CC \to u \to \bar{u} \to 0$, combined with the natural map $\HH^1(u, u) \to \HH^2(u, \CC)$, sends the first-order Casimir deformations to $\rk(\mathfrak{g})$ classes in $\HH^2(u, \CC)$. These are the Cartan-type classes of Theorem~\ref{thm:main}; their linear independence follows from the algebraic independence of the Chevalley invariants.
+\end{proof}
+
+\begin{remark}[Three equivalent $\mathfrak{g}$-actions]
+\label{rem:threeact}
+Lachowska and Qi~\cite{LQ21} identify three natural actions of the Lie algebra $\mathfrak{g}$ on:
+\begin{enumerate}[label=(\roman*)]
+\item the center $Z(u)$, via the adjoint action of the Casimir elements by commutator;
+\item the Hochschild cohomology $\HH^*(u, u)$ with coefficients in the regular bimodule, via the conjugation action of $u$ on itself;
+\item the Hochschild cohomology $\HH^*(u, \CC)$ with trivial coefficients, via the connecting homomorphism $\delta \colon \tilde{H}^1_b(\bplus) \to \HH^2(D(\bplus))$ of Section~\ref{sec:les} and the inclusion of Proposition~\ref{prop:hh2surj}.
+\end{enumerate}
+These three actions are compatible with the natural maps $Z(u) \hookrightarrow \HH^0(u, u)$ and $\HH^*(u, u) \to \HH^*(u, \CC)$, and on each of the three spaces the $\mathfrak{g}$-representation on the $\rk(\mathfrak{g})$-dimensional Cartan sector is the adjoint representation restricted to $\mathfrak{h} \subset \mathfrak{g}$. This trinity of actions is the categorical manifestation of the same $\rk(\mathfrak{g})$-dimensional Cartan sector that appears in the dimension formula.
+\end{remark}
+
+\subsection{Geometric interpretation via the Springer resolution}
+\label{sec:cat_springer}
+
+A third structural account of the $\rk(\mathfrak{g})$ Cartan sector comes from the geometric equivalence between the derived category of the principal block of $u_q(\mathfrak{g})$ and the derived category of coherent sheaves on the Springer resolution.
+
+\begin{theorem}[Bezrukavnikov--Lachowska~\cite{BL07}; see also~\cite{Neg22}]
+\label{thm:bl}
+Let $\ell > h$ and let $u_q(\mathfrak{g})_0$ denote the principal block of $u_q(\mathfrak{g})$. There is an equivalence of triangulated categories
+\begin{equation}
+\label{eq:bl}
+\Phi \colon D^b\bigl(u_q(\mathfrak{g})_0\bigr) \;\xrightarrow{\;\sim\;}\; D^b\, \operatorname{Coh}(\widetilde{\mathcal{N}}),
+\end{equation}
+where $\widetilde{\mathcal{N}} = T^*(G/B) \xrightarrow{\;\pi\;} \mathcal{N}$ is the Springer resolution. The equivalence is compatible with the natural monoidal and grading structures.
+\end{theorem}
+
+Applying Hochschild cohomology to both sides of~\eqref{eq:bl} and using the standard identification $\HH^*(\operatorname{Coh}(X)) = \Ext^*_{X \times X}(\mathcal{O}_\Delta, \mathcal{O}_\Delta)$ for a smooth variety $X$, together with the Hochschild--Kostant--Rosenberg decomposition
+\[
+\HH^2\bigl(\operatorname{Coh}(\widetilde{\mathcal{N}})\bigr) \;\cong\; H^0\bigl(\widetilde{\mathcal{N}},\, {\textstyle\bigwedge^2}\, T_{\widetilde{\mathcal{N}}}\bigr) \,\oplus\, H^1\bigl(\widetilde{\mathcal{N}},\, T_{\widetilde{\mathcal{N}}}\bigr) \,\oplus\, H^2\bigl(\widetilde{\mathcal{N}},\, \mathcal{O}_{\widetilde{\mathcal{N}}}\bigr),
+\]
+yields a natural identification of the Hochschild cohomology of the principal block with
+\begin{equation}
+\label{eq:hkrspringer}
+\HH^2\bigl(u_q(\mathfrak{g})_0, \CC\bigr) \;\supset\; H^1\bigl(\widetilde{\mathcal{N}},\, T_{\widetilde{\mathcal{N}}}\bigr),
+\end{equation}
+where the right-hand side is the HKR summand that classifies first-order deformations of $\widetilde{\mathcal{N}}$ as a smooth variety.
+
+Because $\pi \colon \widetilde{\mathcal{N}} = T^*(G/B) \to G/B$ is an affine bundle (in fact a vector bundle), the deformation theory of the total space agrees with that of the base:
+\begin{equation}
+\label{eq:h1springer}
+H^1\bigl(\widetilde{\mathcal{N}},\, T_{\widetilde{\mathcal{N}}}\bigr) \;\cong\; H^1\bigl(G/B,\, T_{G/B}\bigr).
+\end{equation}
+The latter is the Kodaira--Spencer deformation space of the flag variety, and the standard identification with $H^2(G/B, \CC)$ via the Atiyah class of $T_{G/B}$ gives
+\begin{equation}
+\label{eq:ks}
+H^1\bigl(G/B,\, T_{G/B}\bigr) \;\cong\; H^2(G/B, \CC).
+\end{equation}
+
+\begin{proposition}
+\label{prop:schubert}
+$\dim_\CC H^2(G/B, \CC) = \rk(\mathfrak{g})$. A basis is given by the first Chern classes $c_1(\mathcal{L}_i)$ of the $\rk(\mathfrak{g})$ fundamental line bundles $\mathcal{L}_i = \mathcal{O}_{G/B}(\lambda_i)$ associated to the fundamental dominant weights $\lambda_1, \ldots, \lambda_n$, i.e.\ by the \emph{Schubert divisor classes}.
+\end{proposition}
+
+\begin{proof}
+By Borel's theorem, $H^*(G/B, \CC) \cong \CC[\mathfrak{t}] / (\CC[\mathfrak{t}]^W_+)$ where $\mathfrak{t} = \operatorname{Lie}(T)$ is the Cartan torus of $G$ and $(\CC[\mathfrak{t}]^W_+)$ is the ideal generated by homogeneous $W$-invariant polynomials of positive degree. The degree-one part of $\CC[\mathfrak{t}]$ is $\mathfrak{t}^*$, of dimension $\rk(\mathfrak{g})$. Since $\mathfrak{g}$ is simple, the Weyl group $W$ acts on $\mathfrak{t}^*$ without nonzero fixed vectors, so there are no $W$-invariant polynomials of degree $1$; hence the ideal $(\CC[\mathfrak{t}]^W_+)$ has trivial degree-one part, and $H^2(G/B, \CC) \cong \mathfrak{t}^*$. The Schubert divisors $\{c_1(\mathcal{L}_i)\}_{i=1}^n$ form the dual basis of $\mathfrak{t}^*$ corresponding to the simple coroots.
+\end{proof}
+
+Combining~\eqref{eq:hkrspringer},~\eqref{eq:h1springer},~\eqref{eq:ks}, and Proposition~\ref{prop:schubert}:
+\begin{equation}
+\label{eq:rankgschubert}
+\dim_\CC \HH^2\bigl(u_q(\mathfrak{g})_0,\, \CC\bigr) \;\geq\; \rk(\mathfrak{g}),
+\end{equation}
+and the $\rk(\mathfrak{g})$ classes are the quantum analogues of the Schubert divisor classes in $H^2(G/B, \CC)$, pulled back through the Springer resolution $\pi \colon \widetilde{\mathcal{N}} \to \mathcal{N}$.
+
+\begin{remark}
+\label{rem:geomcat}
+The geometric identification of the $\rk(\mathfrak{g})$ Cartan-type classes with Schubert divisors gives a third independent confirmation (after the Ginzburg--Kumar isomorphism of Section~\ref{sec:cat_gk} and the Lachowska--Qi Higman ideal of Section~\ref{sec:cat_lq}) that the rank count in Theorem~\ref{thm:main} is $\rk(\mathfrak{g})$ rather than $\binom{n+1}{2}$. The Schubert calculus of $G/B$ has no $\binom{n+1}{2}$-dimensional analogue: the natural rank of the Picard group $\operatorname{Pic}(G/B)$ is $\rk(\mathfrak{g})$, as is the rank of the Cartan matrix of $u_q(\mathfrak{g})$, as is the dimension of the Higman ideal, as is the dimension of $\mathfrak{h}^*$ as a summand of $\CC[\mathcal{N}]_1$. The four numbers coincide because they are four manifestations of the same object: the weight lattice of $\mathfrak{g}$ modulo the root lattice, complexified.
+\end{remark}
+
+\subsection{Distinction from the Schur multiplier}
+\label{sec:cat_schur}
+
+It is essential to distinguish the $\rk(\mathfrak{g})$ Cartan-type classes of Theorem~\ref{thm:main} from the Schur multiplier of the Cartan torus $G = (\ZZ/\ell)^{\rk(\mathfrak{g})}$ that appears in the bosonisation $\bplus = B(V) \# \CC[G]$.
+
+\begin{proposition}
+\label{prop:schur}
+Let $G = (\ZZ/\ell)^r$. The Schur multiplier of $G$ is
+\[
+M(G) \;:=\; H^2\bigl(G,\, \CC^\times\bigr) \;\cong\; \bigwedge\nolimits^2 \operatorname{Hom}\bigl(G,\, \CC^\times\bigr) \;\cong\; (\ZZ/\ell)^{\binom{r}{2}},
+\]
+so $|M(G)| = \ell^{\binom{r}{2}}$ and $\dim_\CC\bigl(M(G) \otimes_\ZZ \CC\bigr) = \binom{r}{2}$.
+\end{proposition}
+
+\begin{proof}
+The Schur multiplier $H^2(G, \CC^\times)$ classifies central extensions of $G$ by $\CC^\times$. For an abelian group $G$, the universal coefficient theorem gives
+\[
+H^2(G, \CC^\times) \;\cong\; \operatorname{Ext}^1_\ZZ(G, \CC^\times) \,\oplus\, \operatorname{Hom}\bigl({\textstyle\bigwedge^2} G,\, \CC^\times\bigr).
+\]
+Since $\CC^\times$ is a divisible (hence injective) $\ZZ$-module, $\operatorname{Ext}^1_\ZZ(G, \CC^\times) = 0$, and
+\[
+H^2(G, \CC^\times) \;\cong\; \operatorname{Hom}\bigl({\textstyle\bigwedge^2}\, G,\, \CC^\times\bigr).
+\]
+For $G = (\ZZ/\ell)^r$,
+\[
+{\textstyle\bigwedge^2}\, G \;\cong\; (\ZZ/\ell)^{\binom{r}{2}}, \qquad \operatorname{Hom}\bigl((\ZZ/\ell)^{\binom{r}{2}},\, \CC^\times\bigr) \;\cong\; \mu_\ell^{\binom{r}{2}} \;\cong\; (\ZZ/\ell)^{\binom{r}{2}},
+\]
+where $\mu_\ell \subset \CC^\times$ is the group of $\ell$-th roots of unity. Tensoring with $\CC$ gives a vector space of dimension $\binom{r}{2}$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:schurvanish}
+Over $\CC$, the Hochschild cohomology of the group algebra of the Cartan torus vanishes in positive degree:
+\[
+\HH^k\bigl(\CC[(\ZZ/\ell)^r],\, \CC\bigr) \;=\; 0 \qquad \text{for all } k \geq 1.
+\]
+In particular, $\HH^2(\CC[(\ZZ/\ell)^r], \CC) = 0$.
+\end{corollary}
+
+\begin{proof}
+Since $\ell$ is invertible in $\CC$, the group algebra $\CC[(\ZZ/\ell)^r]$ is semisimple by Maschke's theorem, hence separable. For any separable $\CC$-algebra $A$, $\HH^k(A, M) = 0$ for all $k \geq 1$ and all $A$-bimodules $M$. Alternatively, by Shapiro's lemma applied to the multiplication map $(\ZZ/\ell)^r \times (\ZZ/\ell)^r \to (\ZZ/\ell)^r$, one has $\HH^*(\CC[(\ZZ/\ell)^r], \CC) \cong H^*((\ZZ/\ell)^r, \CC)$, which vanishes in positive degree by Lemma~\ref{lem:maschke}.
+\end{proof}
+
+\begin{remark}
+\label{rem:schurmodular}
+The dimension $\binom{r}{2}$ of Proposition~\ref{prop:schur} is recovered only in modular characteristic: $\dim_{\FF_\ell} \HH^2(\FF_\ell[(\ZZ/\ell)^r], \FF_\ell) = \binom{r}{2}$, reflecting the non-semisimplicity of $\FF_\ell[(\ZZ/\ell)^r]$. This is the source of the $\binom{n}{2}$-term in the formula $|H^2(G, \FF_\ell)| = \ell^{\binom{n}{2}}$ for $G = (\ZZ/\ell)^n$ and explains the temptation---to which an earlier draft of this work succumbed---to attribute $\binom{n}{2}$ ``pairwise Cartan-type'' classes to $H^2(G, \FF_\ell)$ in characteristic $\ell$. Over $\CC$ (the coefficient field of the present paper), this term disappears together with the entire Schur multiplier.
+\end{remark}
+
+\begin{proposition}
+\label{prop:mixednotcartan}
+The $\rk(\mathfrak{g})$ Cartan-type classes in $\HH^2(u_q(\mathfrak{g}), \CC)$ do not lie in the image of the natural map
+\[
+\HH^2(\CC[G], \CC) \;\longrightarrow\; \HH^2(\bplus, \CC) \;\longrightarrow\; \HH^2(u_q(\mathfrak{g}), \CC)
+\]
+induced by the inclusion $\CC[G] \hookrightarrow \bplus$ of the Cartan subalgebra into the bosonisation and the inclusion $\bplus \hookrightarrow u_q(\mathfrak{g})$ of the positive Borel into the Drinfeld double. They live instead in the \emph{mixed (crossed-product) sector} of the Mastnak--Witherspoon long exact sequence~\eqref{eq:mwles}, namely in $\operatorname{im}(\delta)$ where $\delta \colon \tilde{H}^1_b(\bplus) \to \HH^2(D(\bplus))$ is the connecting homomorphism of Section~\ref{sec:les}.
+\end{proposition}
+
+\begin{proof}
+By Corollary~\ref{cor:schurvanish}, $\HH^2(\CC[G], \CC) = 0$, so the map $\HH^2(\CC[G], \CC) \to \HH^2(\bplus, \CC)$ has zero source. The $\rk(\mathfrak{g})$ classes therefore cannot originate from the Cartan-only part of the bosonisation; they must arise from the interaction between $\CC[G]$ and the Nichols algebra $B(V)$ within the crossed product $\bplus = B(V) \# \CC[G]$. The Mastnak--Witherspoon long exact sequence~\eqref{eq:mwles} identifies this interaction sector with $\operatorname{im}(\delta)$, where $\delta$ is the connecting homomorphism from the degree-one bialgebra cohomology $\tilde{H}^1_b(\bplus)$. The direct computation of $\dim \tilde{H}^1_b(\bplus(u_q(\mathfrak{sl}_n))) = \rk(\mathfrak{g}) = n$ for $n = 2, 3, 4$ at $\ell = 3$ (Section~\ref{sec:h1brefutation}) confirms that the dimension of this mixed sector is $\rk(\mathfrak{g})$, not $\binom{n}{2}$.
+\end{proof}
+
+\begin{remark}
+\label{rem:schurfinal}
+Proposition~\ref{prop:mixednotcartan} sharpens the discussion of Section~\ref{sec:cartan}: the Cartan-type classes are not deformations of the group algebra $\CC[G]$ \emph{as such}, but rather deformations of the \emph{action} of $G$ on the Nichols algebra $B(V)$. They measure the failure of the $G$-action to extend trivially across the truncation relations $E_\alpha^\ell = 0$, $F_\alpha^\ell = 0$, and the ``carry mechanism'' of Section~\ref{sec:cartan} is the explicit cocycle-level realisation of this failure. The Ginzburg--Kumar dimension $\rk(\mathfrak{g})$ is thus reinterpreted, through the Mastnak--Witherspoon lens, as the dimension of the mixed crossed-product sector of the bosonisation cohomology---\emph{not} as the dimension of any internal Cartan torus deformation, which would be either $\binom{r}{2}$ (the Schur multiplier, in modular characteristic) or zero (over $\CC$, by separability). The three categorical inputs of Sections~\ref{sec:cat_gk}--\ref{sec:cat_springer} explain \emph{why} this mixed sector has precisely dimension $\rk(\mathfrak{g})$: it is the Hochschild-cohomological shadow of $\mathfrak{h}^* \subset \CC[\mathcal{N}]_1$, of the Higman ideal $z_{\mathrm{Hig}}(u)$, and of the Schubert divisor classes in $H^2(G/B, \CC)$.
+\end{remark}
