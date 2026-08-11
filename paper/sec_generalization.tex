@@ -12,24 +12,13 @@
 %  \bigl, \bigr, \checkmark (from amssymb, loaded in main.tex).
 %
 %  Cross-references resolved against existing labels:
-%     eq:main, thm:main, thm:sl2, thm:sl3, conj:general,
+%     eq:main, thm:main, thm:sl2, thm:sl3,
 %     sec:les, sec:h1brefutation, sec:h2b_lanczos, sec:lth, sec:cartandecomp.
 %
-%  Bibliography keys used: \cite{AS05} (NEW), \cite{Ang10} (NEW),
-%  \cite{Hec09} (NEW), \cite{AKM15} (existing), \cite{MW08} (existing).
-%  The three NEW \bibitem entries below MUST be appended to the
-%  thebibliography block of main.tex (currently lines 775--819):
-%
-%     \bibitem{AS05}
-%     N.~Andruskiewitsch and H.-J.~Schneider, \emph{Pointed Hopf algebras},
-%     in \emph{New Directions in Hopf Algebras} (S.~Montgomery and
-%     H.-J.~Schneider, eds.), MSRI Publ.\ \textbf{43}, Cambridge Univ.\
-%     Press, 2002, pp.~1--68. arXiv:math/0502157.
-%
-%     \bibitem{Ang10}
-%     I.~Angiono, \emph{On Nichols algebras with finite root system},
-%     Trans.\ Amer.\ Math.\ Soc.\ \textbf{366} (2014), 5371--5407.
-%     arXiv:1008.4144.
+%  Bibliography keys used: \cite{AS05}, \cite{Ang10}, \cite{Hec09} (NEW),
+%  \cite{AKM15}, \cite{MW08}, \cite{GK93}. The single NEW \bibitem
+%  entry below MUST be appended to the thebibliography block of main.tex
+%  (currently lines 775--834):
 %
 %     \bibitem{Hec09}
 %     I.~Heckenberger, \emph{The Weyl groupoid of a Nichols algebra of
@@ -39,12 +28,30 @@
 %     groupoid}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{369} (2017),
 %     2429--2463, arXiv:0909.0293.
 %
+%  IMPORTANT: this section distinguishes theorems from conjectures.
+%  -- Theorem (Ginzburg--Kumar): dim HH^2(u_q(g), C) = dim g = rk(g) + 2|Phi^+|.
+%  -- Theorem (Mastnak--Witherspoon, coprime range): the full formula
+%     of MW Theorem 6.1.4, of which |Phi^+| is a SPECIAL CASE only.
+%  -- Theorem (Angiono--Kochetov--Mastnak): BRAIDED rigidity of B(V),
+%     strictly weaker than ordinary bialgebra rigidity of the bosonization.
+%  -- Conjecture (this section): the same decomposition extends to all
+%     finite-dimensional pointed Hopf algebras of diagonal type with
+%     finite root system, in the doubled triangular form.
+%
 % =============================================================================
 
 \section{Generalization to pointed Hopf algebras}
 \label{sec:generalization}
 
-The corrected formula $\dim_\CC \HH^2(u_q(\mathfrak{g}), \CC) = \rk(\mathfrak{g}) + 2|\Phi^+|$ of Theorem~\ref{thm:main} was stated and verified for the small quantum group at an odd root of unity. We now argue that the same numerical pattern persists in substantially greater generality: it applies to \emph{every} finite-dimensional pointed Hopf algebra whose Nichols algebra is of diagonal type with finite root system. The two structural pillars of this extension are the Andruskiewitsch--Schneider classification programme~\cite{AS05} and the Angiono--Kochetov--Mastnak rigidity theorem~\cite{AKM15} for Nichols algebras of diagonal type.
+The main formula $\dim_\CC \HH^2(u_q(\mathfrak{g}), \CC) = \rk(\mathfrak{g}) + 2|\Phi^+_\mathfrak{g}|$ of Theorem~\ref{thm:main} was established for the small quantum group at an odd root of unity and verified by direct computation at types $A_1$ and $A_2$ (Theorems~\ref{thm:sl2} and~\ref{thm:sl3}). A natural question is whether the same numerical pattern persists in greater generality, across the Andruskiewitsch--Schneider class of finite-dimensional pointed Hopf algebras. The purpose of this section is to give a precise --- and honest --- answer.
+
+We emphasise at the outset the distinction between what is a \emph{theorem} and what is a \emph{conjecture}:
+\begin{itemize}
+\item For \emph{small quantum groups} $u_q(\mathfrak{g})$ at an odd root of unity satisfying the standard coprimality hypotheses of~\cite{GK93}, the formula $\dim \HH^2 = \rk(\mathfrak{g}) + 2|\Phi^+_\mathfrak{g}|$ is a \textbf{theorem} of Ginzburg--Kumar~\cite{GK93}, equivalent to $\dim \HH^2 = \dim \mathfrak{g}$.
+\item For a \emph{single} (non-doubled) bosonization $B(V) \# \CC[\Gamma]$ within the coprimality range of~\cite{MW08}, the bialgebra cohomology $\tilde{H}^2_b(B(V))$ is computed by Theorem~6.1.4 of~\cite{MW08} as a \textbf{theorem}. The simplification $\dim \tilde{H}^2_b(B(V)) = |\Phi^+_{B(V)}|$ is a \emph{special case}, requiring additional hypotheses; it is \emph{not} a general formula.
+\item For a \emph{doubled} triangular construction $H = \bminus \cdot \CC[\Gamma] \cdot \bplus$ of a general Nichols algebra of diagonal type, the analogous formula $\dim \HH^2(H, \CC) = \dim V + 2|\Phi^+_{B(V)}|$ is a \textbf{conjecture} (Conjecture~\ref{conj:pointed} below), supported by the structural pillars of~\cite{AS05,AKM15,MW08} but \emph{not} a consequence of them.
+\end{itemize}
+We are careful to flag explicitly the places where our $\ell = 3$ computations fall outside the published hypotheses of~\cite{MW08}.
 
 \subsection{The Andruskiewitsch--Schneider framework}
 \label{sec:as_framework}
@@ -56,35 +63,60 @@ H \;\cong\; B(V)\, \#\, \CC[\Gamma],
 \end{equation}
 where $V \in {}^{\Gamma}_{\Gamma}\mathcal{YD}$ is a Yetter--Drinfeld module of diagonal type and $B(V)$ denotes its Nichols algebra. The Nichols algebra $B(V)$ is a connected $\ZZ_{\geq 0}$-graded braided Hopf algebra generated in degree one; its defining relations are entirely determined by the braiding matrix $(q_{ij})_{i,j=1}^{\theta}$, where $\theta = \dim V$, and the diagonal type hypothesis amounts to a simultaneous diagonalisation of the $\Gamma$-action on $V$. Finite-dimensionality of $B(V)$ forces a finite root system $\Phi_{B(V)} \subset \ZZ^\theta$, classified in complete combinatorial detail by Heckenberger~\cite{Hec09} and Angiono~\cite{Ang10}: the resulting data --- a generalised Cartan matrix $A = (a_{ij})$ of finite type together with a finite Weyl groupoid and a finite set of positive roots $\Phi^+_{B(V)}$ --- reduce the structure theory of $B(V)$ to that of a small quantum group of the corresponding (generalised) Kac--Moody type.
 
-Two features of this framework are essential for our purposes. First, the root system $\Phi_{B(V)}$ is the direct generalisation of the positive-root system $\Phi^+_\mathfrak{g}$ of a simple Lie algebra: when $B(V) = \bplus(u_q(\mathfrak{g}))$ is the positive Borel of a small quantum group, one has $\Phi^+_{B(V)} = \Phi^+_\mathfrak{g}$ and $\theta = \rk(\mathfrak{g})$. Second, the bosonization decomposition~\eqref{eq:aslifting} is exactly the structure used by Mastnak and Witherspoon in~\cite{MW08} to construct their long exact sequence
+Two features of this framework are essential for our purposes. First, the root system $\Phi_{B(V)}$ is the direct generalisation of the positive-root system $\Phi^+_\mathfrak{g}$ of a simple Lie algebra: when $B(V) = \bplus(u_q(\mathfrak{g}))$ is the positive Borel of a small quantum group, one has $\Phi^+_{B(V)} = \Phi^+_\mathfrak{g}$ and $\theta = \rk(\mathfrak{g})$. Second, the bosonization decomposition~\eqref{eq:aslifting} is the structural input used by Mastnak and Witherspoon in~\cite{MW08} to construct their long exact sequence, to which we now turn.
+
+\subsection{The Mastnak--Witherspoon long exact sequence and its computational range}
+\label{sec:mw_les}
+
+For any finite-dimensional Hopf algebra $H$ with a finite-dimensional Hopf subalgebra $B \subseteq H$ and the Drinfeld double $D(B)$, Mastnak and Witherspoon~\cite[Eq.~(3.3.1)]{MW08} construct a long exact sequence (cf.\ \eqref{eq:mwles} in Section~\ref{sec:les})
 \[
 \cdots \to \HH^i(D(B), \CC) \xrightarrow{\bar\iota} \HH^i(B, \CC) \oplus \HH^i(B^*, \CC) \xrightarrow{\bar\pi} \tilde{H}^i_b(B) \xrightarrow{\delta} \HH^{i+1}(D(B), \CC) \to \cdots,
 \]
-which holds for \emph{all} pointed Hopf algebras $H \cong B(V) \# \CC[\Gamma]$ in the Andruskiewitsch--Schneider class, with no assumption beyond the diagonal type of $V$ and the coprimality of $|\Gamma|$ with the primes $\leq 7$. In particular, the entire Mastnak--Witherspoon apparatus --- the LES, the connecting homomorphism $\delta$, and the bialgebra cohomology $\tilde{H}^\bullet_b(B(V))$ --- is available without modification in this generality. Theorem~6.1.4 of~\cite{MW08}, which gives $\dim \tilde{H}^2_b(B(V))$ in terms of the positive-root count $|\Phi^+_{B(V)}|$, therefore applies verbatim to every Nichols algebra of diagonal type with finite root system.
+connecting Hochschild cohomology of $B$, $B^*$, and $D(B)$ with the bialgebra cohomology $\tilde{H}^\bullet_b(B)$ of~\cite{MW08}. \textbf{This long exact sequence is a theorem of Hopf-algebraic homological algebra and requires no coprimality hypothesis on $|\Gamma|$}; it is available without modification for every finite-dimensional Hopf algebra, including the small quantum groups at $\ell = 3$ that are the subject of Theorems~\ref{thm:sl2} and~\ref{thm:sl3}.
 
-\subsection{Nichols algebra rigidity}
+What \emph{is} subject to coprimality restrictions is the \emph{computational} content of~\cite{MW08}. Theorems~6.1.4 and~6.2.7 of~\cite{MW08}, which identify the bialgebra cohomology $\tilde{H}^2_b(B(V))$ with explicit combinatorial data of the root system $\Phi^+_{B(V)}$, are proved under the hypothesis that $|\Gamma|$ is coprime to all primes $\leq 7$ (in several statements, to all primes $< 11$). At the root of unity $\ell = 3$ of Theorems~\ref{thm:sl2} and~\ref{thm:sl3}, this coprimality is \emph{violated}: $3$ divides $|\Gamma| = \ell^{\rk(\mathfrak{g})}$. Our projected-Lanczos computation of Section~\ref{sec:h2b_lanczos} therefore operates \emph{beyond} the published range of the Mastnak--Witherspoon computational theorems: the long exact sequence itself is available, but the closed-form identification of its terms with root-system combinatorics is \emph{not} a theorem at $\ell = 3$, and must be rederived by direct computation.
+
+For Nichols algebras \emph{within} the coprimality range, Theorem~6.1.4 of~\cite{MW08} computes $\tilde{H}^2_b(B(V))$ as
+\begin{equation}
+\label{eq:mw_thm_614}
+\dim_\CC \tilde{H}^2_b(B(V), \CC) \;=\; \bigl|\bigl\{\alpha \in \Phi^+_{B(V)} : \chi_\alpha^{N_\alpha} = \varepsilon\bigr\}\bigr| \;+\; \bigl|\bigl\{(i,j) : i \nsim j,\; \chi_i\chi_j = \varepsilon\bigr\}\bigr|,
+\end{equation}
+where $\chi_i : \Gamma \to \CC^\times$ is the character by which $\Gamma$ acts on the $i$-th simple root vector, $\chi_\alpha = \prod_i \chi_i^{\langle \alpha, \alpha_i^\vee \rangle}$ is the corresponding character for the root vector $E_\alpha$ of the positive root $\alpha$, $N_\alpha$ is the Cartan integer (root order) of $\alpha$, $i \sim j$ denotes adjacency in the Dynkin diagram of $A$, and $\varepsilon$ is the trivial character. The first term counts the \emph{root vector cocycles} that survive $\Gamma$-invariance; the second term counts the \emph{linking cocycles} between disconnected simple-root components of the Dynkin diagram.
+
+The simplification
+\begin{equation}
+\label{eq:mw_special_case}
+\dim_\CC \tilde{H}^2_b(B(V), \CC) \;=\; \bigl|\Phi^+_{B(V)}\bigr|
+\end{equation}
+holds only as a \textbf{special case} of~\eqref{eq:mw_thm_614}: it requires (i) that \emph{every} root vector cocycle survive $\Gamma$-invariance, i.e.\ $\chi_\alpha^{N_\alpha} = \varepsilon$ for all $\alpha \in \Phi^+_{B(V)}$, and (ii) that the Dynkin diagram of $A$ be \emph{connected}, so that there are no linking cocycles. For the standard small quantum groups $u_q(\mathfrak{g})$ at roots of unity satisfying the relevant coprime hypotheses, condition (i) holds by construction and condition (ii) holds when $\mathfrak{g}$ is simple; in these cases one recovers~\eqref{eq:mw_special_case}. The identity $\dim \tilde{H}^2_b(B(V), \CC) = |\Phi^+_{B(V)}|$ is therefore \emph{not} a general theorem for all Nichols algebras of diagonal type; it is the special case~\eqref{eq:mw_special_case} of the full Mastnak--Witherspoon formula~\eqref{eq:mw_thm_614}, valid only under the two additional hypotheses above.
+
+\subsection{Braided rigidity of Nichols algebras}
 \label{sec:akm_rigidity}
 
-The second structural pillar is the rigidity theorem of Angiono--Kochetov--Mastnak~\cite{AKM15}: the Nichols algebra $B(V)$ admits \emph{no nontrivial graded deformations as a braided bialgebra}, for every diagonal type Nichols algebra with finite root system. Equivalently, the second cohomology of the braided bialgebra $B(V)$ that controls its graded deformations vanishes, and every graded deformation of $B(V)$ is equivalent to a twist (a 2-cocycle deformation that preserves the algebra structure). This theorem is the natural generalisation, to \emph{all} Nichols algebras of diagonal type with finite root system, of the classical rigidity statement for the positive part $U_q(\mathfrak{n}^+)$ of a quantised enveloping algebra --- it is not restricted to the Nichols algebras arising from finite-dimensional simple Lie algebras.
+The second structural pillar is the rigidity theorem of Angiono--Kochetov--Mastnak~\cite{AKM15} (Theorem~6.4 of that paper): for every Nichols algebra $B(V)$ of diagonal type with finite root system, the Nichols algebra admits \emph{no nontrivial graded deformations as a braided bialgebra in the Yetter--Drinfeld category} ${}^{\Gamma}_{\Gamma}\mathcal{YD}$. Equivalently, the second cohomology of $B(V)$ that controls its graded deformations \emph{as a braided bialgebra} vanishes: every graded braided bialgebra deformation of $B(V)$ is equivalent to a twist (a 2-cocycle deformation preserving the algebra structure).
 
-The consequence for Hochschild cohomology is decisive. Within a single bosonization $H = B(V) \# \CC[\Gamma]$, the only surviving $\HH^2$-classes are the \emph{root vector cocycles}, one per positive root: each root vector $E_\alpha$ of $B(V)$, indexed by a positive root $\alpha \in \Phi^+_{B(V)}$, contributes one truncation-type class to $\HH^2(H, \CC)$, and rigidity certifies that no further classes are present. Concretely,
+It is essential to be precise about the sense in which this is rigidity. The theorem of~\cite{AKM15} is a statement about \emph{braided} bialgebra deformations, that is, deformations within the category ${}^{\Gamma}_{\Gamma}\mathcal{YD}$ that preserve the braided Hopf algebra structure. It is \emph{not} a statement about deformations of the bosonization $B(V) \# \CC[\Gamma]$ as an ordinary Hopf algebra in $\mathrm{Vec}$. Indeed, such deformations patently exist: the Andruskiewitsch--Schneider liftings of~\eqref{eq:aslifting} are themselves nontrivial deformations of the bosonization, parametrised by a variety that is in general positive-dimensional. Braided rigidity of $B(V)$ is therefore \emph{strictly weaker} than ordinary bialgebra rigidity of the bosonization, and does \emph{not} by itself imply the absence of Hochschild $2$-classes for $H = B(V) \# \CC[\Gamma]$.
+
+What braided rigidity \emph{does} imply, in combination with the long exact sequence of Section~\ref{sec:mw_les}, is the following. Within the graded setting and \emph{within the coprimality range} of the Mastnak--Witherspoon computational theorems, the only contributions to $\tilde{H}^2_b(B(V))$ are the root vector cocycles and the linking cocycles of~\eqref{eq:mw_thm_614}: no additional graded braided deformations of $B(V)$ contribute, because braided rigidity forces the relevant second cohomology to vanish. The conceptual content of~\cite{AKM15}, for our purposes, is therefore to certify that the root-vector and linking counts in~\eqref{eq:mw_thm_614} are \emph{complete}. It does not, by itself, produce the closed-form count $|\Phi^+_{B(V)}|$ (that requires the additional hypotheses of~\eqref{eq:mw_special_case}), and it does not control the doubled construction.
+
+\subsection{The Ginzburg--Kumar theorem for small quantum groups}
+\label{sec:gk_theorem}
+
+For the special case of the small quantum group $u_q(\mathfrak{g})$ at a root of unity (with $\mathfrak{g}$ a complex semisimple Lie algebra and $q$ a primitive $\ell$-th root of unity satisfying the standard coprimality hypotheses of~\cite{GK93}), the dimension of $\HH^2$ is a \textbf{theorem} of Ginzburg and Kumar~\cite{GK93}:
 \begin{equation}
-\label{eq:hh2_single_bos}
-\dim_\CC \HH^2\bigl(B(V)\,\#\,\CC[\Gamma],\, \CC\bigr) \;=\; \bigl|\Phi^+_{B(V)}\bigr|,
+\label{eq:gk}
+\dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;=\; \dim_\CC \mathfrak{g} \;=\; \rk(\mathfrak{g}) \;+\; 2\bigl|\Phi^+_\mathfrak{g}\bigr|.
 \end{equation}
-the entire Hochschild cohomology of the bosonized algebra being accounted for by the root vector cocycles. This recovers the classical computation of Mastnak--Witherspoon~\cite[Theorem~6.1.4]{MW08} and provides its conceptual explanation in terms of braided rigidity.
+This is the result that Theorem~\ref{thm:main} recovers, by the projected-Lanczos computation of Section~\ref{sec:h2b_lanczos}, for $\mathfrak{g} = \mathfrak{sl}_2, \mathfrak{sl}_3$ at $\ell = 3$; the Ginzburg--Kumar theorem provides the conceptual explanation of the decomposition $\rk(\mathfrak{g}) + 2|\Phi^+_\mathfrak{g}|$ into $\rk(\mathfrak{g})$ Cartan-type classes and $2|\Phi^+_\mathfrak{g}|$ root vector classes. The formula of Theorem~\ref{thm:main} is therefore \emph{not} a conjecture for small quantum groups: it is a special case of the Ginzburg--Kumar theorem, verified at types $A_1$ and $A_2$ by independent computation.
 
-For a doubled construction $H = \bminus \cdot \CC[\Gamma] \cdot \bplus$ with triangular decomposition, the situation mirrors that of the small quantum group $u_q(\mathfrak{g}) = \bminus \cdot \CC[\Gamma] \cdot \bplus$ analysed in Sections~\ref{sec:les}--\ref{sec:h2b_lanczos}: the $2\bigl|\Phi^+_{B(V)}\bigr|$ root vector cocycles survive in $\HH^2(\bplus) \oplus \HH^2(\bminus)$ by rigidity, contributing to $\operatorname{im} \bar\iota$, while the $\theta$ Cartan-type classes are detected in $\tilde{H}^1_b(\bplus)$ and mapped into $\HH^2(H)$ by the connecting homomorphism $\delta$. The resulting dimension formula is
-\begin{equation}
-\label{eq:hh2_doubled}
-\dim_\CC \HH^2(H, \CC) \;=\; \theta \;+\; 2\bigl|\Phi^+_{B(V)}\bigr|,
-\end{equation}
-where $\theta = \dim V$ is the rank of the generalised Cartan matrix $A$ associated to $B(V)$. The three structurally distinct contributions mirror those of formula~\eqref{eq:main}: $\theta$ Cartan-type classes from the bosonized crossed product, $\bigl|\Phi^+_{B(V)}\bigr|$ positive $\ell$-th power classes from the truncation relations in $\bplus$, and $\bigl|\Phi^+_{B(V)}\bigr|$ negative $\ell$-th power classes from the dual truncation in $\bminus$. The Cartan-type contribution cannot originate from $H^2(\Gamma, \CC) = 0$ (which vanishes by Maschke's theorem over $\CC$); it is detected instead through the bialgebra cohomology $\tilde{H}^1_b(\bplus)$, exactly as in the quantum group case studied in Section~\ref{sec:h1brefutation}.
+A technical caveat: the standard hypotheses of~\cite{GK93} require $\ell$ to be coprime to the bad primes of $\mathfrak{g}$. For types $A_n, B_n, C_n, D_n$ the only bad prime is $2$, so $\ell = 3$ is admissible. For the exceptional types $G_2$ and $F_4$, the bad primes are $2$ and $3$, so the published form of the Ginzburg--Kumar theorem at $\ell = 3$ requires additional care; the corresponding rows of Table~\ref{tab:predictions} are therefore to be read as predictions of Conjecture~\ref{conj:pointed} rather than as direct consequences of~\eqref{eq:gk}.
 
-\subsection{General conjecture}
+\subsection{A general conjecture}
 \label{sec:general_conjecture}
 
-Combining the Andruskiewitsch--Schneider classification~\cite{AS05,Ang10,Hec09}, the Mastnak--Witherspoon long exact sequence~\cite{MW08}, and the Angiono--Kochetov--Mastnak rigidity theorem~\cite{AKM15}, we propose the following uniform formula for the second Hochschild cohomology of every finite-dimensional pointed Hopf algebra of diagonal type.
+The Ginzburg--Kumar decomposition~\eqref{eq:gk} into ``Cartan-type'' and ``root vector'' contributions is so structurally suggestive that one is led to ask whether the same pattern persists across the entire Andruskiewitsch--Schneider class. The structural evidence is encouraging: the Mastnak--Witherspoon long exact sequence (Section~\ref{sec:mw_les}) decomposes $\HH^2(H)$ into the same conceptual ingredients (Cartan-type contributions detected by the connecting homomorphism $\delta$ on bialgebra cohomology; root vector contributions surviving in $\HH^2(\bplus) \oplus \HH^2(\bminus)$); the Angiono--Kochetov--Mastnak braided rigidity theorem (Section~\ref{sec:akm_rigidity}) certifies that no further graded braided deformations of $B(V)$ contribute; and the root-system combinatorics of Heckenberger and Angiono reduces $\Phi^+_{B(V)}$ to a finite, classified object.
+
+However, this evidence does \emph{not} constitute a proof. The Mastnak--Witherspoon theorems in their full computational form require coprimality of $|\Gamma|$ with the primes $\leq 7$, and our $\ell = 3$ computations fall outside this range (Section~\ref{sec:mw_les}). The braided rigidity of $B(V)$ is strictly weaker than ordinary bialgebra rigidity of the bosonization (Section~\ref{sec:akm_rigidity}), and does not preclude the AS liftings. The simplification from the full formula~\eqref{eq:mw_thm_614} to $|\Phi^+_{B(V)}|$ requires additional hypotheses on $\Gamma$-invariance and connectedness. We therefore state the extension as a \emph{conjecture}, not as a theorem.
 
 \begin{conjecture}[Pointed Hopf algebra formula]
 \label{conj:pointed}
@@ -92,40 +124,43 @@ Let $H$ be a finite-dimensional pointed Hopf algebra over $\CC$ with triangular 
 \[
 H \;=\; \bminus \cdot \CC[\Gamma] \cdot \bplus, \qquad \bplus \cong B(V),\quad \bminus \cong B(V)^{\mathrm{coop}},
 \]
-over an abelian group $\Gamma$ whose order is coprime to all primes $\leq 7$. Suppose that the Yetter--Drinfeld module $V \in {}^{\Gamma}_{\Gamma}\mathcal{YD}$ is of diagonal type and that the Nichols algebra $B(V)$ has finite root system $\Phi_{B(V)}$. Then
+over an abelian group $\Gamma$. Suppose that the Yetter--Drinfeld module $V \in {}^{\Gamma}_{\Gamma}\mathcal{YD}$ is of diagonal type and that the Nichols algebra $B(V)$ has finite root system $\Phi_{B(V)}$. Suppose further that the simplifying hypotheses of~\eqref{eq:mw_special_case} are in force, i.e.\ every root vector cocycle survives $\Gamma$-invariance and the Dynkin diagram is connected. Then
 \begin{equation}
 \label{eq:pointed_formula}
-\dim_\CC \HH^2(H, \CC) \;=\; \dim V \;+\; 2\bigl|\Phi^+_{B(V)}\bigr|,
+\dim_\CC \HH^2(H, \CC) \;=\; \dim V \;+\; 2\bigl|\Phi^+_{B(V)}\bigr|.
 \end{equation}
-where $\dim V = \theta$ is the rank of the generalised Cartan matrix associated to $B(V)$ and $\bigl|\Phi^+_{B(V)}\bigr|$ is the number of positive roots of the Nichols algebra.
 \end{conjecture}
 
 \noindent
-Conjecture~\ref{conj:pointed} specialises to the main formula~\eqref{eq:main} of Theorem~\ref{thm:main} in the case of a small quantum group $u_q(\mathfrak{g})$, where $\dim V = \rk(\mathfrak{g})$ and $\Phi^+_{B(V)} = \Phi^+_\mathfrak{g}$. It extends that formula to \emph{all} finite-dimensional pointed Hopf algebras of diagonal type: not just the standard small quantum groups $u_q(\mathfrak{sl}_N)$, $u_q(\mathfrak{so}_{2n+1})$, $u_q(\mathfrak{sp}_{2n})$, $u_q(\mathfrak{so}_{2n})$, $u_q(\mathfrak{g}_2)$, $u_q(\mathfrak{f}_4)$, but also the genuinely exotic Nichols algebras appearing in the Heckenberger classification~\cite{Hec09} --- for instance, those of \emph{super} type and the rank-three exotic cases that do not correspond to any finite-dimensional simple Lie algebra. The two contributions in~\eqref{eq:pointed_formula} admit the same structural interpretation as in the quantum group case (cf.\ Section~\ref{sec:cartandecomp}): $\dim V$ Cartan-type classes detected by the connecting homomorphism $\delta : \tilde{H}^1_b(\bplus) \to \HH^2(H)$, generalising the $\rk(\mathfrak{g})$ Cartan classes of $u_q(\mathfrak{g})$ that survive despite $H^2(\Gamma, \CC) = 0$ by Maschke's theorem; and $2\bigl|\Phi^+_{B(V)}\bigr|$ root vector classes surviving in $\HH^2(\bplus) \oplus \HH^2(\bminus)$ by the rigidity theorem~\cite{AKM15}. The conjecture therefore identifies the formula of Theorem~\ref{thm:main} as the rank-$\rk(\mathfrak{g})$, type-$\mathfrak{g}$ specialisation of a uniform pattern valid across the entire Andruskiewitsch--Schneider class.
+Conjecture~\ref{conj:pointed} specialises to a theorem in two regimes. \emph{(i)} For small quantum groups $u_q(\mathfrak{g})$ at roots of unity satisfying the hypotheses of~\cite{GK93}, it is the Ginzburg--Kumar theorem~\eqref{eq:gk}, where $\dim V = \rk(\mathfrak{g})$ and $\Phi^+_{B(V)} = \Phi^+_\mathfrak{g}$; Theorems~\ref{thm:sl2} and~\ref{thm:sl3} verify this at types $A_1, A_2$ by independent computation. \emph{(ii)} For a single (non-doubled) bosonization $B(V) \# \CC[\Gamma]$ within the coprimality range of the Mastnak--Witherspoon theorems and under the simplifying hypotheses of~\eqref{eq:mw_special_case}, the formula $\dim \tilde{H}^2_b(B(V), \CC) = |\Phi^+_{B(V)}|$ is the special case of Theorem~6.1.4 of~\cite{MW08}. Outside these two regimes --- in particular, for the \emph{doubled} triangular decomposition of an exotic Nichols algebra, for any bosonization outside the coprimality range, or for a disconnected Dynkin diagram --- formula~\eqref{eq:pointed_formula} is a \emph{conjecture}, supported by the structural evidence of Sections~\ref{sec:as_framework}--\ref{sec:akm_rigidity} but not a consequence of any published theorem.
+
+Conjecture~\ref{conj:pointed} extends the formula of Theorem~\ref{thm:main} beyond standard small quantum groups to the genuinely exotic Nichols algebras appearing in the Heckenberger classification~\cite{Hec09,Ang10}: not only the standard types $A_n, B_n, C_n, D_n, G_2, F_4$, but also the \emph{super} types and the rank-three exotic cases that do not correspond to any finite-dimensional simple Lie algebra. The two contributions in~\eqref{eq:pointed_formula} admit the same structural interpretation as in the quantum group case (cf.\ Section~\ref{sec:cartandecomp}): $\dim V$ Cartan-type classes detected by the connecting homomorphism $\delta : \tilde{H}^1_b(\bplus) \to \HH^2(H)$, generalising the $\rk(\mathfrak{g})$ Cartan classes of $u_q(\mathfrak{g})$ that survive despite $H^2(\Gamma, \CC) = 0$ by Maschke's theorem; and $2|\Phi^+_{B(V)}|$ root vector classes surviving in $\HH^2(\bplus) \oplus \HH^2(\bminus)$. The conjecture therefore identifies the formula of Theorem~\ref{thm:main} as the rank-$\rk(\mathfrak{g})$, type-$\mathfrak{g}$ specialisation of a uniform pattern \emph{conjectured} to hold across the entire Andruskiewitsch--Schneider class.
 
 \subsection{Predictions}
 \label{sec:predictions}
 
-Conjecture~\ref{conj:pointed} produces concrete numerical predictions for the second Hochschild cohomology of a range of pointed Hopf algebras. Table~\ref{tab:predictions} records the predicted value $\dim V + 2\bigl|\Phi^+_{B(V)}\bigr|$ together with the current verification status. The first two rows (types $A_1$ and $A_2$) are the verifications of Theorems~\ref{thm:sl2} and~\ref{thm:sl3}, the latter established by the projected Lanczos computation of Section~\ref{sec:h2b_lanczos}. The Taft row concerns the rank-one Nichols algebra $B(V) \cong \CC[x]/(x^n)$ with primitive braiding $x \mapsto \zeta\, x \otimes x$ for a primitive $n$-th root of unity $\zeta$; the resulting bosonization $T_n(\zeta) = B(V) \# \CC[\ZZ_n]$ is the Taft algebra, whose Hochschild cohomology was computed in~\cite{MW08} and gives $\dim \HH^2(T_n(\zeta), \CC) = 1 = \bigl|\Phi^+_{B(V)}\bigr|$, in agreement with formula~\eqref{eq:hh2_single_bos} for a single (non-doubled) bosonization. The Taft case is the minimal nontrivial instance of the rigidity count, confirming the root vector cocycle attribution in the rank-one setting.
+Conjecture~\ref{conj:pointed} produces concrete numerical predictions for the second Hochschild cohomology of a range of pointed Hopf algebras. Table~\ref{tab:predictions} records the predicted value $\dim V + 2|\Phi^+_{B(V)}|$ together with the current verification status. The first two rows (types $A_1$ and $A_2$) are the verifications of Theorems~\ref{thm:sl2} and~\ref{thm:sl3}, the latter established by the projected Lanczos computation of Section~\ref{sec:h2b_lanczos}; these rows are also covered by the Ginzburg--Kumar theorem~\eqref{eq:gk}. The Taft row concerns the rank-one Nichols algebra $B(V) \cong \CC[x]/(x^n)$ with primitive braiding $x \mapsto \zeta\, x \otimes x$ for a primitive $n$-th root of unity $\zeta$; the resulting bosonization $T_n(\zeta) = B(V) \# \CC[\ZZ_n]$ is the Taft algebra, whose Hochschild cohomology was computed in~\cite{MW08} and gives $\dim \HH^2(T_n(\zeta), \CC) = 1 = |\Phi^+_{B(V)}|$, in agreement with the single-bosonization special case~\eqref{eq:mw_special_case} of Theorem~6.1.4 of~\cite{MW08} (within the coprimality range). The Taft case is the minimal nontrivial instance of the root vector cocycle count in the rank-one setting.
 
 \begin{table}[htbp]
 \centering
-\caption{Predictions of Conjecture~\ref{conj:pointed} for selected finite-dimensional pointed Hopf algebras of diagonal type. The doubled-construction formula $\dim \HH^2 = \dim V + 2|\Phi^+_{B(V)}|$ of~\eqref{eq:hh2_doubled} is verified at types $A_1, A_2$ and (in the single-bosonization form~\eqref{eq:hh2_single_bos}) for the Taft algebra; the remaining rows are predictions.}
+\caption{Status of the formula $\dim \HH^2(H, \CC) = \dim V + 2|\Phi^+_{B(V)}|$ for selected finite-dimensional pointed Hopf algebras of diagonal type. The doubled-construction form~\eqref{eq:pointed_formula} is a theorem (Ginzburg--Kumar~\eqref{eq:gk}) for small quantum groups satisfying the coprime hypotheses of~\cite{GK93}, and is verified by independent computation at types $A_1, A_2$ (Theorems~\ref{thm:sl2},~\ref{thm:sl3}). The single-bosonization form~\eqref{eq:mw_special_case} is a theorem (Theorem~6.1.4 of~\cite{MW08}, coprime range) for the Taft algebra. The $G_2$ row at $\ell = 3$ falls outside the standard hypotheses of~\cite{GK93} (since $3$ is a bad prime for $G_2$) and is therefore a prediction of Conjecture~\ref{conj:pointed}.}
 \label{tab:predictions}
 \begin{tabular}{lcccc}
 \toprule
 Hopf algebra $H$ & $\dim V$ & $|\Phi^+_{B(V)}|$ & $\dim \HH^2(H, \CC)$ & Status \\
 \midrule
-$u_q(\mathfrak{sl}_2)$       & $1$ & $1$ & $3$  & \checkmark verified (Thm.~\ref{thm:sl2}) \\
-$u_q(\mathfrak{sl}_3)$       & $2$ & $3$ & $8$  & \checkmark verified (Thm.~\ref{thm:sl3}) \\
-$u_q(\mathfrak{sl}_4)$       & $3$ & $6$ & $15$ & predicted \\
-$u_q(\mathfrak{so}_5) \;(B_2)$ & $2$ & $4$ & $10$ & predicted \\
-$u_q(\mathfrak{g}_2)$        & $2$ & $6$ & $14$ & predicted \\
-Taft algebra $T_n(\zeta)$\textsuperscript{$\dagger$} & $1$ & $1$ & $1$ & \checkmark verified~\cite{MW08} \\
+$u_q(\mathfrak{sl}_2)$       & $1$ & $1$ & $3$  & \checkmark theorem (Thm.~\ref{thm:sl2}; Ginzburg--Kumar) \\
+$u_q(\mathfrak{sl}_3)$       & $2$ & $3$ & $8$  & \checkmark theorem (Thm.~\ref{thm:sl3}; Ginzburg--Kumar) \\
+$u_q(\mathfrak{sl}_4)$       & $3$ & $6$ & $15$ & \checkmark theorem (Ginzburg--Kumar; not independently verified at $\ell = 3$) \\
+$u_q(\mathfrak{so}_5) \;(B_2)$ & $2$ & $4$ & $10$ & \checkmark theorem (Ginzburg--Kumar; not independently verified at $\ell = 3$) \\
+$u_q(\mathfrak{g}_2)$        & $2$ & $6$ & $14$ & predicted (Conjecture~\ref{conj:pointed}; $\ell=3$ bad for $G_2$) \\
+Taft algebra $T_n(\zeta)$\textsuperscript{$\dagger$} & $1$ & $1$ & $1$ & \checkmark theorem~\cite{MW08} \\
 \bottomrule
 \end{tabular}\\[2pt]
-\footnotesize\textsuperscript{$\dagger$}~Single bosonization $T_n(\zeta) = B(V)\,\#\,\CC[\ZZ_n]$; the value $|\Phi^+_{B(V)}| = 1$ uses formula~\eqref{eq:hh2_single_bos} rather than the doubled formula~\eqref{eq:hh2_doubled}.
+\footnotesize\textsuperscript{$\dagger$}~Single bosonization $T_n(\zeta) = B(V)\,\#\,\CC[\ZZ_n]$; the value $|\Phi^+_{B(V)}| = 1$ uses the single-bosonization special case~\eqref{eq:mw_special_case} of Theorem~6.1.4 of~\cite{MW08}, not the doubled formula~\eqref{eq:pointed_formula}.
 \end{table}
 
 \noindent
-The three unverified rows of Table~\ref{tab:predictions} are predictions. The $u_q(\mathfrak{sl}_4)$ case is the next rank beyond the verification of Theorem~\ref{thm:sl3}; the projected Lanczos method of Section~\ref{sec:h2b_lanczos} extends in principle to $\bplus(u_q(\mathfrak{sl}_4))$ at $\ell = 3$, though the $C^2$ dimension of the Mastnak--Witherspoon bialgebra bar complex grows to $\sim 4 \times 10^{9}$, demanding a high-performance C implementation on the scale of the $\mathfrak{sl}_3$ computation. The $B_2$ and $G_2$ cases probe types beyond $A$, where $\bigl|\Phi^+_{B(V)}\bigr|$ is no longer equal to $\binom{\theta+1}{2}$; the predicted values $\dim \HH^2(u_q(\mathfrak{so}_5), \CC) = 10$ and $\dim \HH^2(u_q(\mathfrak{g}_2), \CC) = 14$ constitute the first proposed Hochschild cohomology counts for these algebras at odd roots of unity. Beyond the standard quantum groups, the Heckenberger classification~\cite{Hec09,Ang10} provides a finite list of additional diagonal type Nichols algebras with finite root system --- including the \emph{super} types and the exotic rank-three cases --- to each of which Conjecture~\ref{conj:pointed} assigns the value $\dim V + 2\bigl|\Phi^+_{B(V)}\bigr|$. We leave the projected-Lanczos verification of the $u_q(\mathfrak{sl}_4)$, $u_q(\mathfrak{so}_5)$, and $u_q(\mathfrak{g}_2)$ predictions, as well as the cohomological analysis of the exotic Heckenberger types, to subsequent work.
+Beyond the rows of Table~\ref{tab:predictions}, the Heckenberger classification~\cite{Hec09,Ang10} provides a finite list of additional diagonal type Nichols algebras with finite root system --- including the \emph{super} types and the exotic rank-three cases that do not correspond to any finite-dimensional simple Lie algebra --- to each of which Conjecture~\ref{conj:pointed} assigns the value $\dim V + 2|\Phi^+_{B(V)}|$; for these exotic types the conjecture is genuinely open, as neither the Ginzburg--Kumar theorem nor the Mastnak--Witherspoon computational theorems apply directly.
+
+The $u_q(\mathfrak{sl}_4)$ and $u_q(\mathfrak{so}_5)$ rows are theorems by the Ginzburg--Kumar theorem~\eqref{eq:gk} (the bad primes of types $A$ and $B$ are just $2$, so $\ell = 3$ is admissible); an independent computational verification by the projected-Lanczos method of Section~\ref{sec:h2b_lanczos} would extend the direct check of Theorems~\ref{thm:sl2} and~\ref{thm:sl3} to the next ranks, though the $C^2$ dimension of the Mastnak--Witherspoon bialgebra bar complex grows to $\sim 4 \times 10^{9}$ for $\bplus(u_q(\mathfrak{sl}_4))$ at $\ell = 3$, demanding a high-performance C implementation on the scale of the $\mathfrak{sl}_3$ computation. The $u_q(\mathfrak{g}_2)$ row at $\ell = 3$ falls outside the standard hypotheses of~\cite{GK93} ($3$ is a bad prime for $G_2$) and is therefore a prediction of Conjecture~\ref{conj:pointed}, not a theorem; the proposed value $\dim \HH^2(u_q(\mathfrak{g}_2), \CC) = 14$ would constitute the first proposed Hochschild cohomology count for $G_2$ at $\ell = 3$ and awaits either an extension of the Ginzburg--Kumar theorem to bad primes or a direct projected-Lanczos verification. We leave the projected-Lanczos verification of the $u_q(\mathfrak{sl}_4)$, $u_q(\mathfrak{so}_5)$, and $u_q(\mathfrak{g}_2)$ cases, as well as the cohomological analysis of the exotic Heckenberger types, to subsequent work.
