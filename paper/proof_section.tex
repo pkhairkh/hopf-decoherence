@@ -298,6 +298,27 @@ Under this isomorphism, the $\operatorname{rank}(\mathfrak{g})$-dimensional fact
 At the boundary case $\ell = h$ (e.g.\ $\ell = 3$ for $\mathfrak{sl}_3$, where $h = 3$), the Ginzburg--Kumar isomorphism does not directly apply. However, Theorem~\ref{thm:rank} shows that the rank contribution $\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$ persists, providing a ``shadow'' of the $H^2(BT)$ classes at the boundary. The $\ell$-th power classes also persist, as they arise from the truncation structure which is present at all roots of unity. The formula $\dim \HH^2 = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ therefore holds at $\ell = h$ by direct computation (Theorem~\ref{thm:sl3final}), even though the geometric explanation via $H^\bullet(G/B) \otimes H^\bullet(BT)$ requires $\ell > h$.
 \end{proof}
 
+\subsection{Why does \texorpdfstring{$\operatorname{rank}(\mathfrak{g})$}{rank(g)} appear?}
+\label{sec:whyrank}
+
+The appearance of $\operatorname{rank}(\mathfrak{g})$ in the formula is not a coincidence; it has a clean three-level conceptual explanation, encompassing algebraic, categorical, and geometric viewpoints.
+
+\paragraph{Algebraic reason: Euler derivations $=$ Cartan subalgebra.}
+The bialgebra $1$-cocycles on $B^+$ are, by Lemmas~\ref{lem:cartanvanish}--\ref{lem:euler}, exactly the linear maps $h$ with $h(K_i) = 0$ and $h(E_j) = c_j E_j$ for arbitrary scalars $c_j \in \CC$. The space of such maps is naturally identified with the dual of the span of the simple roots:
+\[
+\tilde{H}^1_b(B^+) \;\cong\; \{h : \alpha_j \mapsto c_j\} \;\cong\; \mathfrak{h}^* \;\cong\; \mathfrak{h},
+\]
+where the last isomorphism uses the invariant inner product on the root lattice. Under this identification, the Euler derivation $\Theta_i$ corresponds to the simple coroot $\alpha_i^\vee \in \mathfrak{h}$. The dimension is therefore $\dim \mathfrak{h} = \operatorname{rank}(\mathfrak{g})$.
+
+\paragraph{Categorical reason: Cartan torus action.}
+The Euler derivations $\Theta_i$ integrate (Proposition~\ref{prop:catrank}) to a copy of the Cartan torus $T \cong (\CC^*)^{\operatorname{rank}(\mathfrak{g})}$ inside the automorphism group of $B^+$. This torus acts by grade automorphisms: $t \in T$ sends $E_j \mapsto t^{\alpha_j} E_j$ and $K_j \mapsto K_j$. The rank counts the dimension of this torus, i.e.\ the number of independent grade parameters. The category $u_q(\mathfrak{g})\text{-mod}$ therefore carries a canonical $T$-action, and the rank classes in $\HH^2$ are the infinitesimal generators of this action.
+
+\paragraph{Geometric reason: $H^2(BT)$.}
+Via the Ginzburg--Kumar isomorphism (Proposition~\ref{prop:georank}), the rank classes correspond to $H^2(BT, \CC)$, where $T \subset G$ is the maximal torus. Since $H^2(BT, \CC) \cong \mathfrak{h}^*$ has dimension $\dim T = \operatorname{rank}(\mathfrak{g})$, the rank contribution is geometrically the cohomology of the classifying space of the maximal torus.
+
+\medskip
+\noindent\textbf{Synthesis.} The three explanations are compatible: the Euler derivations (algebra) integrate to the torus action (categorical), which under Ginzburg--Kumar becomes $H^2(BT)$ (geometric). The rank of $\mathfrak{g}$ appears because it is the dimension of the Cartan subalgebra $\mathfrak{h}$, equivalently the dimension of the maximal torus $T$, equivalently the number of independent grade parameters in the Nichols algebra.
+
 \subsection{Summary: what is proven and what is conjectured}
 
 \begin{table}[htbp]

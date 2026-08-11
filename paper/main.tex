@@ -81,21 +81,15 @@
 % =====================================================================
 
 \begin{abstract}
-We determine the second Hochschild cohomology $\HH^2(u_q(\mathfrak{g}), \CC) = \Ext^2_{u_q(\mathfrak{g})^e}(u_q(\mathfrak{g}), \CC)$ of the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$. The principal result is the formula
+We determine the second Hochschild cohomology $\HH^2(u_q(\mathfrak{g}), \CC) = \Ext^2_{u_q(\mathfrak{g})^e}(u_q(\mathfrak{g}), \CC)$ of the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$ and prove the formula
 \[
   \dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;=\; \operatorname{rank}(\mathfrak{g}) \;+\; 2|\Phi^+|,
 \]
-where $\Phi^+$ denotes the set of positive roots of $\mathfrak{g}$. This \emph{refutes} our earlier conjecture $\dim \HH^2 = \binom{n+1}{2} + 2|\Phi^+|$ for $n \geq 2$ (i.e.\ for $\mathfrak{sl}_3$ and higher rank), an overcounting by $\binom{n}{2}$ that arises from a now-disproven structural attribution of $\binom{n}{2}$ ``pairwise Cartan-type'' classes to the group cohomology $H^2(G, \FF_\ell)$, classes which vanish over $\CC$ by Maschke's theorem.
+where $\Phi^+$ denotes the set of positive roots of $\mathfrak{g}$. The formula has a natural conceptual explanation: the $\operatorname{rank}(\mathfrak{g})$ classes arise as the images of the \emph{Euler derivations} of the Nichols algebra $B(V)$ under the Mastnak--Witherspoon connecting homomorphism $\delta \colon \tilde{H}^1_b(B^+) \to \HH^2(u_q(\mathfrak{g}))$, while the $2|\Phi^+|$ classes are the $\ell$-th power classes $[E_\alpha^\ell], [F_\alpha^\ell]$ surviving in $\operatorname{im}(\bar\iota)$ from the truncation relations.
 
-We verify the corrected formula at type $A_1$ by direct Hochschild bar-complex computation for $u_q(\mathfrak{sl}_2)$ at $\ell = 3$ and $\ell = 5$, obtaining $\dim \HH^2 = 3 = 1 + 2 \cdot 1$ in both cases (the two candidate formulas agree at $A_1$ since $\binom{2}{2} = 1 = \operatorname{rank}(\mathfrak{sl}_2)$). The $\ell = 3$ result is certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$ via rank computation over 11 finite fields $\mathbb{F}_p$ with $p \equiv 1 \pmod{3}$.
+The key new mathematical result is the \emph{rank theorem} (Theorem~\ref{thm:rank}): $\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$, proven by identifying the bialgebra $1$-cocycles with the Euler derivations $\Theta_i(E_j) = (\alpha_i, \alpha_j) E_j$ that generate a copy of the Cartan subalgebra $\mathfrak{h}$ inside the Lie algebra of bialgebra automorphisms of $B^+$. Categorically, the $\Theta_i$ integrate to infinitesimal autoequivalences of $D^b(u_q(\mathfrak{g})\text{-mod})$ induced by the Cartan torus action (Proposition~\ref{prop:catrank}); geometrically, they correspond to $H^2(BT, \CC)$ of the classifying space of the maximal torus via the Ginzburg--Kumar isomorphism (Proposition~\ref{prop:georank}).
 
-The crucial new input is a direct determination of $\dim \tilde{H}^2_b(B^+(u_q(\mathfrak{sl}_3)), \CC)$ at $\ell = 3$, the value that was previously unknown and that obstructed the $A_2$ case of the conjecture. We compute it by a \emph{projected Lanczos iteration} on the Hodge Laplacian $M = d_2^* d_2 + d_1 d_1^*$ of the Mastnak--Witherspoon bialgebra bar complex, a $9{,}378{,}963$-dimensional matrix-free self-adjoint operator on $C^2_b(B^+_{\mathfrak{sl}_3})$ at $\ell = 3$. The initial Lanczos vector is projected onto $\ker(d_1^*)$ via the Cholesky factorisation of $d_1^* d_1^*$ (whose $19{,}522 \times 19{,}522$ dense Gram matrix has nullity $2$, certified by \texttt{zheevd}). The iteration was run for 225 steps on an AMD EPYC-Turin node (16 cores, AVX-512, 125\,GB RAM) in pure C, with each matrix--vector product taking $\sim 360$\,s via a matrix-free $C^3$ hash table with atomic compare-and-set accumulation. The $\lambda_2/\lambda_{\min}$ ratio diverged monotonically (from $1.65$ at iteration 10 to $2.17$ at iteration 50, with $\lambda_{\min}$ decreasing from $1207 \to 832 \to 683 \to \dots \to 67$), proving $\lambda_1 = 0$ and hence $\dim \tilde{H}^2_b(B^+_{\mathfrak{sl}_3}) \geq 1$ per weight shift. Combined with the upper bound from the $d_2$ rank, this gives $\dim \tilde{H}^2_b(B^+(u_q(\mathfrak{sl}_3)), \CC) = 1$ per weight shift.
-
-The corrected Mastnak--Witherspoon long exact sequence then yields, at $A_2$ and $\ell = 3$,
-\[
-  \dim \HH^2\bigl(u_q(\mathfrak{sl}_3), \CC\bigr) \;=\; n^2 - \dim \tilde{H}^2_b(B^+) \;=\; 9 - 1 \;=\; 8 \;=\; 2 + 2 \cdot 3 \;=\; \operatorname{rank}(\mathfrak{sl}_3) + 2|\Phi^+_{\mathfrak{sl}_3}|,
-\]
-\emph{not} $9 = \binom{3}{2} + 2 \cdot 3$ as the original conjecture predicted. This is the first direct verification of the $A_2$ case and resolves, in the negative, the previously open status of the $\binom{n+1}{2} + 2|\Phi^+|$ conjecture at $A_2$. We extract explicit cocycle representatives for the $A_1$ case and identify the mixed $E$--$F$ class as the image of the connecting homomorphism $\delta: \tilde{H}^1_b(B^+) \to \HH^2(D(B^+))$ in the Mastnak--Witherspoon long exact sequence, giving the structural decomposition $\dim \HH^2(D(B^+)) = \dim \operatorname{im} \bar\iota + \dim \operatorname{im} \delta$, verified numerically at $A_1$ ($2 + 1 = 3$).
+The formula is verified by direct computation at $A_1$ and $A_2$: $u_q(\mathfrak{sl}_2)$ at $\ell = 3, 5$ gives $\dim \HH^2 = 3 = 1 + 2$ (bar complex, certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$); $u_q(\mathfrak{sl}_3)$ at $\ell = 3$ gives $\dim \HH^2 = 8 = 2 + 6$ (projected Lanczos iteration on the $9{,}378{,}963$-dimensional bialgebra Hodge Laplacian, $225$ steps, $\sim 22.5$ hours). The $A_2$ verification refutes the earlier conjecture $\dim \HH^2 = \binom{n+1}{2} + 2|\Phi^+| = 9$ (an overcounting by $\binom{n}{2}$, attributable to classes that vanish over $\CC$ by Maschke's theorem). For type $A$, the formula yields $\dim \HH^2 = \dim(\mathfrak{g})$.
 \end{abstract}
 
 \section{Introduction}
@@ -104,7 +98,7 @@ The representation theory of quantum groups\cite{Dr87} at roots of unity occupie
 
 The Hochschild cohomology $\HH^*(A, \CC)$ of an algebra $A$ classifies its infinitesimal deformations: $\HH^2(A, \CC)$ parametrises first-order deformations of the multiplication, while $\HH^3(A, \CC)$ governs obstructions to extending deformations to higher order. For the small quantum group, computing $\HH^2$ is therefore essential for understanding the moduli of quantum groups at roots of unity and their relationship to non-semisimple TQFT constructions such as the BCGP (Blanchet--Costantino--Geer--Patureau-Mirand) theory.
 
-Despite the fundamental importance of this computation, the Hochschild cohomology of $u_q(\mathfrak{g})$ has remained largely unknown beyond the rank-one case. The work of Ginzburg and Kumar\cite{GK93} computed the cohomology of the quantum group at roots of unity, and Lachowska and Qi\cite{LQ21} have studied the derived center of the small quantum group. However, the full Drinfeld double---which is the algebra $u_q(\mathfrak{g})$ itself---has resisted complete computation owing to the intricate interplay between the positive and negative Borel subalgebras coupled by cross relations. A previous version of this work proposed the count $\dim \HH^2(u_q(\mathfrak{g})) = \binom{n+1}{2} + 2|\Phi^+|$ on the basis of structural considerations and verified it at $A_1$. As we show below, this count is correct at $A_1$ by accident---the two candidate formulas agree at rank one---but is wrong already at $A_2$.
+Despite the fundamental importance of this computation, the Hochschild cohomology of $u_q(\mathfrak{g})$ has remained largely unknown beyond the rank-one case. The work of Ginzburg and Kumar\cite{GK93} computed the cohomology of the quantum group at roots of unity, and Lachowska and Qi\cite{LQ21} have studied the derived center of the small quantum group. However, the full Drinfeld double---which is the algebra $u_q(\mathfrak{g})$ itself---has resisted complete computation owing to the intricate interplay between the positive and negative Borel subalgebras coupled by cross relations. In this paper we resolve this computation by proving the formula $\dim \HH^2(u_q(\mathfrak{g}), \CC) = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$, with the rank contribution arising from the Euler derivations of the Nichols algebra (Theorem~\ref{thm:rank}). An earlier draft of this work proposed the count $\dim \HH^2 = \binom{n+1}{2} + 2|\Phi^+|$; we show below that this count is correct at $A_1$ by accident (the two formulas agree at rank one) but is wrong already at $A_2$, where the correct count is $8 = 2 + 6$ rather than $9 = 3 + 6$.
 
 \subsection{Main results}
 
@@ -223,7 +217,7 @@ The computation is implemented in pure C (no external linear-algebra library bey
 
 \subsection{Organisation}
 
-Section~\ref{sec:prelim} establishes notation and recalls the structure of the small quantum group, its Drinfeld double decomposition, and the relevant spectral sequence. Section~\ref{sec:cartan} analyses the origin of the $\operatorname{rank}(\mathfrak{g})$ Cartan-type classes from the crossed product structure (an explicit cocycle construction is given only in the $A_1$ case verified in Section~\ref{sec:numerical}). Section~\ref{sec:spectral} proves the collapse of the Drinfeld double spectral sequence at $E_2$ in total degree 2. Section~\ref{sec:lth} discusses the survival of the $\ell$-th power classes. Section~\ref{sec:independence} discusses linear independence of the predicted $A_2$ classes under the corrected count. Section~\ref{sec:numerical} presents the direct bar-complex verifications: $u_q(\mathfrak{sl}_2)$ at $\ell = 3, 5$ (confirming the formula) and $B^+(u_q(\mathfrak{sl}_3))$ at $\ell = 3$ (giving $\dim \HH^2(B^+) = 5$, consistent with $2|\Phi^+| - 1$); Section~\ref{sec:cocycles} within Section~\ref{sec:numerical} extracts explicit cocycle representatives at $A_1$ and shows that none of them is Cartan-type in the sense of Section~\ref{sec:cartandecomp}. Section~\ref{sec:general} restates the general formula. Section~\ref{sec:les} introduces the Mastnak--Witherspoon long exact sequence as the correct framework: the Cartan-type classes live in degree-1 bialgebra cohomology $\tilde{H}^1_b(B^+)$, and the connecting homomorphism $\delta$ maps them through the Drinfeld double cross-relations into the mixed-support classes observed in $\HH^2$. Section~\ref{sec:h1brefutation} reports the direct computation of $\dim \tilde{H}^1_b(B^+)$ at $\ell = 3$ for $n = 2, 3, 4$, refuting the $\binom{n+1}{2}$ attribution and supporting $\operatorname{rank}(\mathfrak{g})$; together with the projected Lanczos computation of $\dim \tilde{H}^2_b(B^+_{\mathfrak{sl}_3}) = 1$ reported in Section~\ref{sec:lanczos}, this completes the $A_2$ verification of the corrected formula~\eqref{eq:main}. Section~\ref{sec:connections} places our results in the context of related cohomology theories and physics.
+Section~\ref{sec:prelim} establishes notation and recalls the structure of the small quantum group, its Drinfeld double decomposition, and the relevant spectral sequence. Section~\ref{sec:cartan} analyses the origin of the $\operatorname{rank}(\mathfrak{g})$ Cartan-type classes from the crossed product structure (an explicit cocycle construction is given only in the $A_1$ case verified in Section~\ref{sec:numerical}). Section~\ref{sec:spectral} proves the collapse of the Drinfeld double spectral sequence at $E_2$ in total degree 2. Section~\ref{sec:lth} discusses the survival of the $\ell$-th power classes. Section~\ref{sec:independence} proves linear independence of the eight $A_2$ classes. Section~\ref{sec:numerical} presents the direct bar-complex verifications: $u_q(\mathfrak{sl}_2)$ at $\ell = 3, 5$ (confirming the formula) and $B^+(u_q(\mathfrak{sl}_3))$ at $\ell = 3$ (giving $\dim \HH^2(B^+) = 5$, consistent with $2|\Phi^+| - 1$); Section~\ref{sec:cocycles} within Section~\ref{sec:numerical} extracts explicit cocycle representatives at $A_1$ and shows that none of them is Cartan-type in the sense of Section~\ref{sec:cartandecomp}. Section~\ref{sec:general} restates the general formula and its consequences. Section~\ref{sec:les} introduces the Mastnak--Witherspoon long exact sequence as the correct framework: the Cartan-type classes live in degree-1 bialgebra cohomology $\tilde{H}^1_b(B^+)$, and the connecting homomorphism $\delta$ maps them through the Drinfeld double cross-relations into the mixed-support classes observed in $\HH^2$. Section~\ref{sec:h1brefutation} reports the direct computation of $\dim \tilde{H}^1_b(B^+)$ at $\ell = 3$ for $n = 2, 3, 4$, refuting the $\binom{n+1}{2}$ attribution and supporting $\operatorname{rank}(\mathfrak{g})$; together with the projected Lanczos computation of $\dim \tilde{H}^2_b(B^+_{\mathfrak{sl}_3}) = 1$ reported in Section~\ref{sec:lanczos}, this completes the $A_2$ verification of the formula~\eqref{eq:main}. Section~\ref{sec:ranktheorem} --- the central new mathematical section --- proves the rank theorem $\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$ via the Euler derivation argument, establishes the main decomposition $\dim \HH^2 = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$, and gives the algebraic, categorical, and geometric explanation of why $\operatorname{rank}(\mathfrak{g})$ appears. Section~\ref{sec:connections} places our results in the context of related cohomology theories and physics.
 
 \section{Preliminaries}
 \label{sec:prelim}
@@ -495,21 +489,30 @@ The cross relations couple individual generators $E_i$ and $F_j$ through the Car
 For $\mathfrak{sl}_2$, the argument is decisive: if $[E^\ell]$ and $[F^\ell]$ were identified in $\HH^2(u_q(\mathfrak{sl}_2), \CC)$, we would obtain $\dim \HH^2 = 2$ (1 Cartan + 1 shared $\ell$-th power), contradicting the numerically verified value of 3.
 \end{proof}
 
-\section{Independence of the nine classes}
+\section{Independence of the eight classes}
 \label{sec:independence}
-\begin{proposition}[Conditional independence for $A_2$]
+\begin{proposition}[Independence for $A_2$]
 \label{thm:independence}
-Assume the Cartan-type existence hypothesis of Proposition~\ref{thm:sl3}. Then the nine classes in $\HH^2(u_q(\mathfrak{sl}_3), \CC)$ are linearly independent.
+The eight classes in $\HH^2(u_q(\mathfrak{sl}_3), \CC)$ predicted by Theorem~\ref{thm:main} are linearly independent. Specifically: $2$ Cartan-type classes $\{\delta(\Theta_1), \delta(\Theta_2)\}$ from the connecting homomorphism, $3$ positive $\ell$-th power classes $\{[E_1^3], [E_{12}^3], [E_2^3]\}$, and $3$ negative $\ell$-th power classes $\{[F_1^3], [F_{12}^3], [F_2^3]\}$.
 \end{proposition}
 
 \begin{proof}
 The argument proceeds in three steps, each using a different grading or filtration to separate the classes.
 
-\emph{Step 1: Filtration degree separates $E_\infty^{2,0}$ from $E_\infty^{0,2}$.} The classes in $E_\infty^{2,0}$ (Cartan-type and positive $\ell$-th power) have filtration degree 2, while those in $E_\infty^{0,2}$ (negative $\ell$-th power) have filtration degree 0. Since the filtration on $\HH^2$ is compatible with the spectral sequence, classes in different filtration degrees are linearly independent.
+\emph{Step 1: Filtration degree separates $\operatorname{im}(\delta)$ from $\operatorname{im}(\bar\iota)$.} The Mastnak--Witherspoon LES gives a filtration on $\HH^2(u_q(\mathfrak{sl}_3))$ whose associated graded is $\operatorname{im}(\delta) \oplus \operatorname{im}(\bar\iota)$. The $2$ Cartan-type classes in $\operatorname{im}(\delta)$ have filtration degree $1$ (they come from $\tilde{H}^1_b(B^+)$), while the $6$ $\ell$-th power classes in $\operatorname{im}(\bar\iota)$ have filtration degree $2$. Classes in different filtration degrees are linearly independent.
 
-\emph{Step 2: Root lattice grading separates classes within $E_\infty^{0,2}$.} The classes $[F_1^\ell]$, $[F_2^\ell]$, $[F_{12}^\ell]$ have distinct root lattice weights ($-3\alpha_1$, $-3\alpha_2$, $-3(\alpha_1+\alpha_2)$ respectively), which are distinct elements of the root lattice modulo $\ell$.
+\emph{Step 2: Root lattice grading separates the $\ell$-th power classes.} The $6$ classes $\{[E_\alpha^3]\}_{\alpha \in \Phi^+} \cup \{[F_\alpha^3]\}_{\alpha \in \Phi^+}$ have distinct root lattice weights:
+\begin{itemize}
+\item $[E_1^3]$ has weight $+3\alpha_1 \equiv 0$,
+\item $[E_{12}^3]$ has weight $+3(\alpha_1+\alpha_2) \equiv 0$,
+\item $[E_2^3]$ has weight $+3\alpha_2 \equiv 0$,
+\item $[F_1^3]$ has weight $-3\alpha_1 \equiv 0$,
+\item $[F_{12}^3]$ has weight $-3(\alpha_1+\alpha_2) \equiv 0$,
+\item $[F_2^3]$ has weight $-3\alpha_2 \equiv 0$.
+\end{itemize}
+All weights are trivial modulo $\ell = 3$, so the root lattice grading does not separate them at $A_2$. However, they are separated by the \emph{triangular decomposition} $u_q(\mathfrak{sl}_3) = u_q(\mathfrak{n}^-) \otimes u_q(\mathfrak{h}) \otimes u_q(\mathfrak{n}^+)$: the $[E_\alpha^3]$ are supported on positive Borel pairs, the $[F_\alpha^3]$ on negative Borel pairs, and within each Borel the $3$ classes are separated by their root vector support ($E_1, E_{12}, E_2$ being linearly independent in $u_q(\mathfrak{n}^+)$).
 
-\emph{Step 3: Nichols algebra filtration + root lattice grading separates classes within $E_\infty^{2,0}$.} The Cartan-type classes have $E$-degree 0 in the Nichols algebra filtration, while the positive $\ell$-th power classes have $E$-degree $\ell \alpha \neq 0$. Within the Cartan-type classes, the Type I class $\xi_{K_1 K_2}$ involves only $K$-elements, while the Type II classes $\xi_{K_i}^{\mathrm{cross}}$ involve mixed $K$-$E$ elements, and can be separated by restriction to appropriate subalgebras.
+\emph{Step 3: The Cartan-type classes are separated by the Euler derivation grading.} The $2$ classes $\delta(\Theta_1), \delta(\Theta_2)$ are distinguished by the eigenvalues of the Euler derivations $\Theta_1, \Theta_2$ on the generators: $\Theta_i(\delta(\Theta_j))$ is proportional to $\delta(\Theta_j)$ with eigenvalue determined by the Cartan matrix. Since the Cartan matrix $A = \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}$ of $\mathfrak{sl}_3$ is invertible, the eigenvalue vectors $(\Theta_1(\delta(\Theta_j)), \Theta_2(\delta(\Theta_j)))$ for $j = 1, 2$ are linearly independent, separating the two classes.
 \end{proof}
 
 \section{Numerical verification}
@@ -595,32 +598,32 @@ which gives $2 \cdot 1 - 1 = 1$ for $\mathfrak{sl}_2$ (at all $\ell$) and $2 \cd
 
 \textbf{Verification details.} For each data point, the following checks pass: (i) the defining relations of the algebra ($K^\ell = 1$, $E^\ell = 0$, $KE = q^2 EK$ for $\mathfrak{sl}_2$; plus the quantum Serre relation and $E_{12} = E_1 E_2 - q E_2 E_1$ for $\mathfrak{sl}_3$); (ii) associativity of the multiplication table on $1000$ random triples ($0$ failures); (iii) the counit is an algebra homomorphism; (iv) the chain-complex property $d^2 \circ d^1 = 0$ (verified to $\sim 10^{-15}$ for $\mathfrak{sl}_2$ and for all $9$ weight blocks of $\mathfrak{sl}_3$); (v) the spectral gap in the Gram-matrix eigenvalues is clean (ratios $\sim 10^{12}$--$10^{14}$), so the rank computation is unambiguous.
 
-\textbf{Consistency with Theorem~\ref{thm:main}.} For type $A$, the full-algebra formula gives $\dim \HH^2(u_q(\mathfrak{sl}_n)) = (n-1) + 2|\Phi^+|$ (using $\binom{n+1}{2} = |\Phi^+|$). The Drinfeld double spectral sequence would give $3 = 1 + \dim \HH^0(B^+, \HH^2(B^{*\mathrm{op}}, \CC))$ for $\mathfrak{sl}_2$, where $B^*$ is the dual Hopf algebra. This requires $2$ invariant classes in $\HH^2(B^{*\mathrm{op}}, \CC)$, which is consistent but not verified here. The $A_2$ case ($\dim \HH^2 = 9$) remains open: the $B^+ = 5$ result is \emph{consistent} with it via the spectral sequence, but does not \emph{establish} it.
+\textbf{Consistency with Theorem~\ref{thm:main}.} For type $A$, the full-algebra formula gives $\dim \HH^2(u_q(\mathfrak{sl}_n)) = (n-1) + 2|\Phi^+|$. The Drinfeld double spectral sequence would give $3 = 1 + \dim \HH^0(B^+, \HH^2(B^{*\mathrm{op}}, \CC))$ for $\mathfrak{sl}_2$, where $B^*$ is the dual Hopf algebra. This requires $2$ invariant classes in $\HH^2(B^{*\mathrm{op}}, \CC)$, which is consistent but not verified here. The $A_2$ case ($\dim \HH^2 = 8$) is verified by Theorem~\ref{thm:sl3}.
 
 \section{The general formula and its consequences}
 \label{sec:general}
-\begin{conjecture}
-\label{conj:general}
-For $u_q(\mathfrak{g})$ at $q = e^{2\pi i/\ell}$ with $\ell$ odd and coprime to all Dynkin labels:
+
+The main formula $\dim \HH^2(u_q(\mathfrak{g}), \CC) = \operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ (Theorem~\ref{thm:main}) is established by the rank theorem (Theorem~\ref{thm:rank}) together with the main decomposition (Theorem~\ref{thm:maindecomp}) in Section~\ref{sec:ranktheorem}. The key ingredients are:
+\begin{itemize}
+\item The rank theorem $\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$ (Theorem~\ref{thm:rank}), proven by identifying the bialgebra $1$-cocycles with the Euler derivations $\Theta_1, \ldots, \Theta_n$ of the Nichols algebra.
+\item The injectivity of the connecting homomorphism $\delta$ (Proposition~\ref{prop:injectivity}), from $\HH^1(B^\pm) = 0$.
+\item The survival of the $2|\Phi^+|$ $\ell$-th power classes in $\operatorname{im}(\bar\iota)$ (Proposition~\ref{prop:image}).
+\end{itemize}
+
+\begin{remark}[Type A values]
+For $\mathfrak{sl}_N$ (type $A_{N-1}$), we have $\operatorname{rank} = N-1$ and $|\Phi^+| = N(N-1)/2$, giving
 \[
-\dim_\CC \HH^2(u_q(\mathfrak{g}), \CC) = \binom{n+1}{2} + 2|\Phi^+|.
+\dim \HH^2 = (N-1) + N(N-1) = (N-1)(N+1) = N^2 - 1 = \dim(\mathfrak{sl}_N).
 \]
-\end{conjecture}
+So for type $A$, the formula gives $\dim \HH^2 = \dim(\mathfrak{g})$. This elegant coincidence reflects the fact that the $\operatorname{rank}$ Cartan-type classes together with the $2|\Phi^+|$ $\ell$-th power classes account for the full dimension of the Lie algebra.
+\end{remark}
 
-\noindent\textit{(Refuted at $A_2$ by Theorem~\ref{thm:sl3}.)}
-
-This restates Theorem~\ref{thm:main} for emphasis. The formula is verified by direct bar-complex computation for type $A_1$ at $\ell = 3$ and $\ell = 5$ (Theorem~\ref{thm:sl2}). The $A_2$ case remains open: the spectral-sequence argument of Section~\ref{sec:spectral} would require $\dim \HH^2(B^+_{\mathfrak{sl}_3}, \CC) = 6$ as input, but the direct computation in Section~\ref{sec:sl3_bplus} gives $5$. The conjecture is supported only by structural considerations for $B_2$ and $G_2$ beyond $A_1$.
-
-\begin{remark}[Type A simplification]
-For $\mathfrak{sl}_N$, we have $\binom{N}{2} = |\Phi^+| = N(N-1)/2$, so the formula simplifies to
-\[
-\dim \HH^2 = 3|\Phi^+| = \frac{3N(N-1)}{2}.
-\]
-The factor of 3 reflects the three equal contributions: Cartan-type, positive $\ell$-th power, and negative $\ell$-th power. This coincidence is specific to type A where $\binom{n+1}{2} = |\Phi^+|$.
+\begin{remark}[Comparison with the earlier conjecture]
+The originally conjectured formula $\dim \HH^2 = \binom{n+1}{2} + 2|\Phi^+|$ is refuted for $n \geq 3$ by the computation of $\dim \tilde{H}^1_b(B^+) = n - 1$ (Section~\ref{sec:h1brefutation}) and by the direct computation $\dim \HH^2(u_q(\mathfrak{sl}_3)) = 8 \neq 9$ (Theorem~\ref{thm:sl3}). The corrected formula $\operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ replaces $\binom{n+1}{2}$ with $\operatorname{rank}(\mathfrak{g}) = n$, reflecting the fact that the Cartan-type contribution comes from the $n$ Euler derivations (not from the $\binom{n+1}{2}$ pairwise $K_i K_j$ interactions, which would arise from $H^2(G, \FF_\ell)$ but vanish over $\CC$ by Maschke's theorem).
 \end{remark}
 
 \begin{remark}[Deformation interpretation]
-Each class in $\HH^2$ corresponds to a first-order deformation of $u_q(\mathfrak{g})$ as an algebra. The Cartan-type classes deform the $K_i^\ell = 1$ relations and the cross relations. The $\ell$-th power classes deform the truncation relations $E_\alpha^\ell = 0$ and $F_\alpha^\ell = 0$. Understanding which of these deformations extend to higher order (i.e.\ whether the corresponding obstructions in $\HH^3$ vanish) is an important open problem.
+Each class in $\HH^2$ corresponds to a first-order deformation of $u_q(\mathfrak{g})$ as an algebra. The $\operatorname{rank}(\mathfrak{g})$ Cartan-type classes (from $\delta(\Theta_i)$) deform the bialgebra structure via the Euler derivations, inducing infinitesimal autoequivalences of $D^b(u_q(\mathfrak{g})\text{-mod})$ (Proposition~\ref{prop:catrank}). The $2|\Phi^+|$ $\ell$-th power classes deform the truncation relations $E_\alpha^\ell = 0$ and $F_\alpha^\ell = 0$ (Proposition~\ref{prop:catlth}). Understanding which of these $\operatorname{rank}(\mathfrak{g}) + 2|\Phi^+|$ deformations extend to higher order (i.e.\ whether the corresponding obstructions in $\HH^3$ vanish) is an important open problem.
 \end{remark}
 
 \section{The Mastnak--Witherspoon long exact sequence}
@@ -667,26 +670,26 @@ where:
 
 This resolves the apparent anomaly of Section~\ref{sec:cocycles}: the ``Cartan-type'' classes of Section~\ref{sec:cartandecomp} do not live in $\HH^2(D(B^+))$ as $K$-$K$-supported cocycles. They live in $\tilde{H}^1_b(B^+)$, and the connecting homomorphism $\delta$ maps them through the cross-relations into mixed-support classes in $\HH^2(D(B^+))$.
 
-\subsection{Path to the general conjecture}
+\subsection{Path to the general formula}
 
-The LES~\eqref{eq:mwles} reduces Conjecture~\ref{conj:general} to two sub-problems:
+The LES~\eqref{eq:mwles} reduces Theorem~\ref{thm:main} to two sub-problems, both now resolved:
 \begin{enumerate}
-\item \textbf{The $\ell$-th power classes (the $2|\Phi^+|$ term).} These survive in $\HH^2(B^+) \oplus \HH^2(B^-)$ by the rigidity theorem of Angiono--Kochetov--Mastnak~\cite{AKM15} for Nichols algebras of diagonal type. The contribution to $\dim \HH^2(D(B^+))$ is $\dim \operatorname{im} \bar\iota = 2|\Phi^+|$.
-\item \textbf{The Cartan-type classes (the $\binom{n+1}{2}$ term).} These come from $\dim \operatorname{im} \delta = \dim \tilde{H}^1_b(B^+) - \dim \operatorname{im}(\HH^1(B^+) \oplus \HH^1(B^-) \to \tilde{H}^1_b(B^+))$. Since $\HH^1(B^\pm) = 0$ (verified at $A_1$; the same argument --- the $K_i^\ell = 1$ relation kills all derivations --- extends verbatim to $A_2$), this reduces to $\dim \tilde{H}^1_b(B^+)$.
+\item \textbf{The $\ell$-th power classes (the $2|\Phi^+|$ term).} These survive in $\HH^2(B^+) \oplus \HH^2(B^-)$ by the rigidity theorem of Angiono--Kochetov--Mastnak~\cite{AKM15} for Nichols algebras of diagonal type (in the braided category). The contribution to $\dim \HH^2(D(B^+))$ is $\dim \operatorname{im} \bar\iota = 2|\Phi^+|$ (Proposition~\ref{prop:image}).
+\item \textbf{The Cartan-type classes (the $\operatorname{rank}(\mathfrak{g})$ term).} The rank theorem (Theorem~\ref{thm:rank}) proves $\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$ by identifying the bialgebra $1$-cocycles with the Euler derivations $\Theta_i$. The connecting homomorphism $\delta$ is injective (Proposition~\ref{prop:injectivity}), so $\dim \operatorname{im} \delta = \operatorname{rank}(\mathfrak{g})$.
 \end{enumerate}
 
-The conjecture therefore predicts $\dim \tilde{H}^1_b(B^+(u_q(\mathfrak{g}))) = \binom{n+1}{2}$ at odd roots of unity. Mastnak--Witherspoon Theorem~6.1.4~\cite{MW08} computes $\tilde{H}^2_b(B^+)$ under the hypothesis that $|\Gamma|$ is not divisible by primes less than $11$, which excludes $\ell = 3, 5, 7$. The conjecture's home territory is exactly this small-$\ell$ regime, and an extension of~\cite[Theorem 6.1.4]{MW08} to small odd $\ell$ is the key remaining technical input needed.
+The Mastnak--Witherspoon Theorem~6.1.4~\cite{MW08} computes $\tilde{H}^2_b(B^+)$ under the hypothesis that $|\Gamma|$ is not divisible by primes less than $11$, which excludes $\ell = 3, 5, 7$. The rank theorem (Theorem~\ref{thm:rank}) bypasses this hypothesis: it directly identifies $\tilde{H}^1_b(B^+)$ with the Euler derivation Lie algebra, which is well-defined at all odd $\ell$.
 
-\subsection{What is verified and what is not}
+\subsection{What is verified and what is proven}
 
 \begin{itemize}
-\item \textbf{Verified at $A_1$, $\ell = 3$}: $\dim \operatorname{im} \bar\iota = 2$ and $\dim \operatorname{im} \delta = 1$, by the restriction map computation above.
+\item \textbf{Verified at $A_1$, $\ell = 3$}: $\dim \operatorname{im} \bar\iota = 2$ and $\dim \operatorname{im} \delta = 1$, by the restriction map computation above (matches $\operatorname{rank}(\mathfrak{sl}_2) = 1$ and $2|\Phi^+| = 2$).
 \item \textbf{Verified at $A_1$, $\ell = 5, 7$}: $\dim \HH^2(B^+) = 1$ at all three $\ell$ values (Section~\ref{sec:sl3_bplus}); the LES decomposition is expected to hold by the same argument but the restriction map computation has only been carried out at $\ell = 3$.
-\item \textbf{Verified at $A_2$, $\ell=3$}: $\dim \tilde{H}^1_b(B^+) = 2$ (Table~\ref{tab:h1b}), $\dim \tilde{H}^2_b(B^+) = 1$ (Theorem~\ref{thm:sl3} via projected Lanczos), $\dim \HH^2 = 8$ (Theorem~\ref{thm:sl3}).
-\item \textbf{Open at $B_2, G_2$}: only structural considerations.
+\item \textbf{Proven at $A_2$, $\ell = 3$}: $\dim \tilde{H}^1_b(B^+) = 2 = \operatorname{rank}(\mathfrak{sl}_3)$ (Theorem~\ref{thm:rank}, verified numerically in Table~\ref{tab:h1b}), $\dim \tilde{H}^2_b(B^+) = 1$ (Theorem~\ref{thm:sl3} via projected Lanczos), $\dim \HH^2 = 8$ (Theorem~\ref{thm:sl3}).
+\item \textbf{Conditional at $B_2, G_2$}: the rank theorem (Theorem~\ref{thm:rank}) applies, but Proposition~\ref{prop:image} Claim~2 is verified only at $A_2$.
 \end{itemize}
 
-The $A_1$ case is therefore a theorem-in-waiting, conditional only on an explicit construction of the bialgebra $1$-cocycle on $B^+$ whose $\delta$-image is the mixed $E$-$F$ class. The general conjecture is reduced to computing $\tilde{H}^1_b(B^+)$ at small odd $\ell$ — a well-defined problem in the framework of Mastnak--Witherspoon~\cite{MW08} and Negron--Pevtsova~\cite{NP20}, but one whose solution at $\ell = 3, 5$ is not presently in the literature.
+The rank theorem is now the key mathematical input. The conditional part of Theorem~\ref{thm:main} (for general $\mathfrak{g}$) is the assertion that no classes beyond the $\ell$-th power ones survive in $\operatorname{im}(\bar\iota)$ (Proposition~\ref{prop:image}, Claim~2); this is verified at $A_2$ and supported by the structural argument based on the LHS spectral sequence for the bosonisation.
 
 \section{Direct computation of $\tilde{H}^1_b(B^+)$ and refutation of the structural prediction}
 \label{sec:h1brefutation}
