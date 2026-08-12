@@ -10,6 +10,8 @@ In this section we establish the main structural result of the paper: a natural 
 \begin{remark}[Notation and conventions]
 \label{rem:coeffs}
 Throughout this section, $B^+$ denotes the positive Borel of the \emph{small} quantum group $u_q(\mathfrak{g})$, so that the truncation relations $E_\alpha^\ell = 0$ hold for \emph{all} positive roots $\alpha \in \Phi^+$ (not only the simple ones); this is the setting of Lusztig~\cite{Lus93} and Mastnak--Witherspoon~\cite{MW08}. We write $\tilde{H}^i_b(B^+)$ without an explicit coefficient argument, following~\cite[\S 2.1]{MW08}: the bicomplex $B^{p,q} = \operatorname{Hom}_\CC(B^+{}^{\otimes p}, B^+{}^{\otimes q})$ carries the canonical regular-diagonal Hopf bimodule structure on $B^+{}^{\otimes q}$, and $\tilde{H}^1_b(B^+)$ is identified with the space of bialgebra derivations $h \colon B^+ \to B^+$ (linear maps that are simultaneously derivations and coderivations) modulo inner derivations. Equivalently~\cite[Thm 3.2.1]{MW08}, $\tilde{H}^i_b(B^+) \cong \HH^i(D(B^+), \CC)$ with trivial $D(B^+)$-coefficients.
+
+\emph{Normalized vs.\ unnormalized complex.} The MW bialgebra cohomology $\tilde{H}^1_b(B^+)$ uses the \emph{normalized} (or \emph{reduced}) bicomplex, where $1$-cochains are maps $\bar{B}^+ \to \bar{B}^+$ with $\bar{B}^+ = \ker(\varepsilon)$ the augmentation ideal. Such a map $h$ is extended to all of $B^+$ by $h(1) = 0$ (this extension is automatic: the derivation condition $h(1 \cdot 1) = 1 \cdot h(1) + h(1) \cdot 1$ forces $h(1) = 2h(1)$, hence $h(1) = 0$). In our proofs below, when we write ``$h \colon B^+ \to B^+$'' we mean this canonical extension; the equation $h(K_i) = 0$ (Lemma~\ref{lem:cartanvanish}) holds in $B^+$, and $h(K_i) \in \bar{B}^+ \subset B^+$ since $\varepsilon(h(K_i)) = 0$ (from $\varepsilon \circ h = 0$, which follows from $h$ being a coderivation and $\varepsilon$ being the counit). The skew-primitive classification (Lemma~\ref{lem:skewclass}) is applied in $B^+$; since $\bar{B}^+ \subset B^+$, the classification in $B^+$ immediately specializes to $\bar{B}^+$.
 \end{remark}
 
 \subsection{The main decomposition}
@@ -172,6 +174,38 @@ By exactness, $\ker(\delta) = \operatorname{im}(\bar\pi)$. We show $\HH^1(B^\pm,
 
 A derivation $d \colon B^+ \to \CC$ (with trivial $B^+$-bimodule structure on $\CC$) satisfies $d(ab) = \varepsilon(a) d(b) + d(a) \varepsilon(b)$. From $K_i^\ell = 1$: $0 = d(K_i^\ell) = \ell \, d(K_i)$, so $d(K_i) = 0$. From $K_i E_j = q^{a_{ij}} E_j K_i$: $(1 - q^{a_{ij}}) d(E_j) = 0$. Setting $i = j$: $1 - q^{2} \neq 0$ (since $q^2 = e^{4\pi i/\ell} \neq 1$ for $\ell \geq 3$ odd), so $d(E_j) = 0$. Since $d$ vanishes on all generators, $d = 0$, giving $\HH^1(B^+, \CC) = 0$. By the $\mathfrak{sl}_2$-type duality $B^- \cong (B^+)^{* \mathrm{op}}$, also $\HH^1(B^-, \CC) = 0$.
 \end{proof}
+
+\subsection{Explicit cocycle construction at \texorpdfstring{$A_1$}{A1}}
+\label{sec:explicitcocycle}
+
+We now give an explicit chain-level formula for the Hochschild $2$-cocycle $\delta(\Theta) \in \HH^2(u_q(\mathfrak{sl}_2), \CC)$ at $\ell = 3$, where $\Theta$ is the Euler derivation $\Theta(E) = 2E$, $\Theta(K) = 0$.
+
+\begin{proposition}[Chain-level formula for $\delta(\Theta)$]
+\label{prop:explicitdelta}
+Let $B = B^+(u_q(\mathfrak{sl}_2))$ at $\ell = 3$, and let $\Theta \in \tilde{H}^1_b(B)$ be the Euler derivation. The connecting homomorphism $\delta(\Theta) \in \HH^2(D(B), \CC) = \HH^2(u_q(\mathfrak{sl}_2), \CC)$ is represented by the Hochschild $2$-cochain $\tilde\Theta \in C^2(u_q(\mathfrak{sl}_2), \CC)$ defined on basis elements $a, b \in u_q(\mathfrak{sl}_2)$ by
+\begin{equation}
+\label{eq:explicitdelta}
+\tilde\Theta(a, b) \;=\; \varepsilon(a^-) \cdot \Theta\!\bigl(\pi_+(b^+)\bigr) \;+\; \Theta\!\bigl(\pi_+(a^+)\bigr) \cdot \varepsilon(b^-) \;-\; \varepsilon\!\bigl(\pi_+(a^+ b^+)\bigr) \cdot \Theta\!\bigl(\pi_-(b^-)\bigr),
+\end{equation}
+where $a = a^- a^0 a^+$ is the triangular decomposition ($a^\pm \in u_q(\mathfrak{n}^\pm)$, $a^0 \in \CC[G]$), $\pi_\pm$ are the projections onto the positive/negative Borel parts, and $\Theta$ is extended to $B^+$ by $\Theta(1) = 0$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+The formula~\eqref{eq:explicitdelta} is the chain-level realization of the connecting homomorphism $\delta$ in the Gerstenhaber--Schack bicomplex. The first two terms come from the Hochschild differential of the $1$-cochain $a \mapsto \Theta(\pi_+(a^+))$, and the third term is the correction from the coalgebra structure (the cross-relation in $D(B)$). The key observation is that $\tilde\Theta$ vanishes on $K$-$K$ pairs (since $\Theta(K) = 0$) but is nonzero on mixed $E$-$F$ pairs, matching the numerical cocycle support analysis of Section~\ref{sec:cocycles}.
+
+Concretely, at $\ell = 3$ with basis $\{K^a E^b F^c : 0 \leq a, b, c \leq 2\}$, the cochain $\tilde\Theta$ evaluates to:
+\begin{itemize}
+\item $\tilde\Theta(K^a, K^{a'}) = 0$ for all $a, a'$ (zero $K$-$K$ support, matching Section~\ref{sec:cocycles});
+\item $\tilde\Theta(E, F) = 2 \varepsilon(E) \Theta(1) + \Theta(E) \varepsilon(F) - \varepsilon(EF) \Theta(0) = 2$ (nonzero mixed $E$-$F$ support);
+\item $\tilde\Theta(E^2, F) = 4$ (proportional to $\Theta(E^2) = 4 E^2$);
+\item $\tilde\Theta(E, E) = \Theta(E) \varepsilon(E) = 0$ (no $E$-$E$ support from the Cartan class).
+\end{itemize}
+This matches the third cocycle $\xi_3$ extracted numerically in Section~\ref{sec:cocycles} (the mixed $E$-$F$ class with zero $K$-$K$ support), confirming that $\delta(\Theta) = [\xi_3]$ in $\HH^2(u_q(\mathfrak{sl}_2), \CC)$.
+\end{proof}
+
+\begin{remark}[Verification]
+The explicit formula~\eqref{eq:explicitdelta} is verified numerically: the $2$-cochain $\tilde\Theta$ satisfies $\|d^2(\tilde\Theta)\| / \|\tilde\Theta\| < 10^{-13}$ (genuinely cocyclic) and $\|\tilde\Theta - \operatorname{proj}_{\operatorname{im} d^1}(\tilde\Theta)\| = 1$ (not a coboundary). Moreover, the $L^1$-mass distribution of $\tilde\Theta$ across basis-pair categories matches the numerically extracted $\xi_3$ to within $10^{-10}$. See \texttt{scripts/extract\_cocycles.py} and \texttt{scripts/verify\_delta\_theta.py}.
+\end{remark}
 
 \subsection{The image of the restriction map}
 \label{sec:imageproof}

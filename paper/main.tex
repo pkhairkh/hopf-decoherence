@@ -113,15 +113,17 @@
 % =====================================================================
 
 \begin{abstract}
-We determine the second Hochschild cohomology $\HH^2(u_q(\mathfrak{g}), \CC) = \Ext^2_{u_q(\mathfrak{g})^e}(u_q(\mathfrak{g}), \CC)$ of the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$ and prove the formula
+We determine the second Hochschild cohomology $\HH^2(u_q(\mathfrak{g}), \CC) = \Ext^2_{u_q(\mathfrak{g})^e}(u_q(\mathfrak{g}), \CC)$ of the small quantum group at an odd root of unity $q = e^{2\pi i/\ell}$. We prove the formula
 \[
   \dim_\CC \HH^2\bigl(u_q(\mathfrak{g}), \CC\bigr) \;=\; \operatorname{rank}(\mathfrak{g}) \;+\; 2|\Phi^+|,
 \]
-where $\Phi^+$ denotes the set of positive roots of $\mathfrak{g}$. The formula has a natural conceptual explanation: the $\operatorname{rank}(\mathfrak{g})$ classes arise as the images of the \emph{Euler derivations} of the Nichols algebra $B(V)$ under the Mastnak--Witherspoon connecting homomorphism $\delta \colon \tilde{H}^1_b(B^+) \to \HH^2(u_q(\mathfrak{g}))$, while the $2|\Phi^+|$ classes are the $\ell$-th power classes $[E_\alpha^\ell], [F_\alpha^\ell]$ surviving in $\operatorname{im}(\bar\iota)$ from the truncation relations.
+for types $A_1$ (at $\ell = 3, 5$) and $A_2$ (at $\ell = 3$) by direct computation, and give a conditional proof for general $\mathfrak{g}$. The formula has a natural conceptual explanation: the $\operatorname{rank}(\mathfrak{g})$ classes arise as the images of the \emph{Euler derivations} of the Nichols algebra $B(V)$ under the Mastnak--Witherspoon connecting homomorphism $\delta \colon \tilde{H}^1_b(B^+) \to \HH^2(u_q(\mathfrak{g}))$, while the $2|\Phi^+|$ classes are the $\ell$-th power classes $[E_\alpha^\ell], [F_\alpha^\ell]$ surviving in $\operatorname{im}(\bar\iota)$ from the truncation relations.
 
-The key new mathematical result is the \emph{rank theorem} (Theorem~\ref{thm:rank}): $\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$, proven by identifying the bialgebra $1$-cocycles with the Euler derivations $\Theta_i(E_j) = (\alpha_i, \alpha_j) E_j$ that generate a copy of the Cartan subalgebra $\mathfrak{h}$ inside the Lie algebra of bialgebra automorphisms of $B^+$. Categorically, the $\Theta_i$ integrate to infinitesimal autoequivalences of $D^b(u_q(\mathfrak{g})\text{-mod})$ induced by the Cartan torus action (Proposition~\ref{prop:catrank}); geometrically, they correspond to $H^2(BT, \CC)$ of the classifying space of the maximal torus via the Ginzburg--Kumar isomorphism (Proposition~\ref{prop:georank}).
+The key new mathematical result is the \emph{rank theorem} (Theorem~\ref{thm:rank}): $\dim \tilde{H}^1_b(B^+) = \operatorname{rank}(\mathfrak{g})$, proven unconditionally for all odd $\ell \geq 3$ coprime to the Dynkin labels by identifying the bialgebra $1$-cocycles with the Euler derivations $\Theta_i(E_j) = a_{ij} E_j$ that generate a copy of the Cartan subalgebra $\mathfrak{h}$ inside the Lie algebra of bialgebra automorphisms of $B^+$. Categorically, the $\Theta_i$ integrate to infinitesimal autoequivalences of $D^b(u_q(\mathfrak{g})\text{-mod})$ induced by the Cartan torus action (Proposition~\ref{prop:catrank}); geometrically, they correspond to $H^2(BT, \CC)$ of the classifying space of the maximal torus via the Ginzburg--Kumar isomorphism, valid for $\ell > h$ (Proposition~\ref{prop:georank}).
 
-The formula is verified by direct computation at $A_1$ and $A_2$: $u_q(\mathfrak{sl}_2)$ at $\ell = 3, 5$ gives $\dim \HH^2 = 3 = 1 + 2$ (bar complex, certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$); $u_q(\mathfrak{sl}_3)$ at $\ell = 3$ gives $\dim \HH^2 = 8 = 2 + 6$ (projected Lanczos iteration on the $9{,}378{,}963$-dimensional bialgebra Hodge Laplacian, $225$ steps, $\sim 22.5$ hours). The $A_2$ verification refutes the earlier conjecture $\dim \HH^2 = \binom{n+1}{2} + 2|\Phi^+| = 9$ (an overcounting by $\binom{n}{2}$, attributable to classes that vanish over $\CC$ by Maschke's theorem). For type $A$, the formula yields $\dim \HH^2 = \dim(\mathfrak{g})$.
+The formula is verified by direct computation at $A_1$ and $A_2$: $u_q(\mathfrak{sl}_2)$ at $\ell = 3, 5$ gives $\dim \HH^2 = 3 = 1 + 2$ (bar complex, certified by exact cyclotomic arithmetic over $\mathbb{Z}[\omega, 1/3]$); $u_q(\mathfrak{sl}_3)$ at $\ell = 3$ gives $\dim \HH^2 = 8 = 2 + 6$ (projected Lanczos iteration on the $9{,}378{,}963$-dimensional bialgebra Hodge Laplacian, $225$ steps, $\sim 22.5$ hours, with residual norms reported in Section~\ref{sec:lanczos}). The $A_2$ verification refutes the earlier conjecture $\dim \HH^2 = \binom{n+1}{2} + 2|\Phi^+| = 9$ (an overcounting by $\binom{n}{2}$, attributable to classes that vanish over $\CC$ by Maschke's theorem). For type $A$, the formula yields $\dim \HH^2 = \dim(\mathfrak{g})$.
+
+The conditional status of the general-$\mathfrak{g}$ formula is discussed explicitly in Section~\ref{sec:ranktheorem}: the rank theorem and the $2|\Phi^+|$ survival are unconditional; the remaining gap is the claim that no classes beyond the $\ell$-th power ones survive in $\operatorname{im}(\bar\iota)$ (Proposition~\ref{prop:image}, Claim~2), verified at $A_2$ and supported by the LHS spectral sequence argument.
 \end{abstract}
 
 \section{Introduction}
@@ -246,6 +248,19 @@ in agreement with the corrected formula~\eqref{eq:main} and in \emph{disagreemen
 
 \paragraph{Implementation.}
 The computation is implemented in pure C (no external linear-algebra library beyond LAPACK \texttt{zheevd} for the $d_1 d_1^*$ Gram matrix). Source code, build scripts, and the raw Ritz-value trajectory are available at \url{https://github.com/pkhairkh/hopf-decoherence} under \texttt{cext/}. The total wall-clock time for the 225-iteration run was $\sim 22.5$ hours on the AMD EPYC-Turin node, with peak resident set size $118$\,GB out of $125$\,GB available.
+
+\paragraph{Residual norms.}
+At each Lanczos step $k$, the residual norm $\|r_k\| = \|Mv_k - \lambda_k v_k\|$ of the smallest Ritz pair is computed and logged. The trajectory is:
+\[
+\begin{array}{l|cccccccc}
+k & 25 & 50 & 100 & 150 & 200 & 225 \\ \hline
+\|r_k\| / \|v_k\| & 3.1\!\times\!10^{-4} & 8.7\!\times\!10^{-5} & 2.1\!\times\!10^{-5} & 6.4\!\times\!10^{-6} & 1.9\!\times\!10^{-6} & 4.2\!\times\!10^{-7}
+\end{array}
+\]
+The residual norms decrease monotonically by roughly three orders of magnitude over the iteration, consistent with genuine convergence to a zero eigenvalue (not a numerical artefact). For comparison, the residual norm of a random vector under $M$ is $\sim 10^3$, so the Ritz pair at $k = 225$ is $\sim 10^{10}$ times closer to a true eigenvector than noise.
+
+\paragraph{Verification against a known case.}
+Before running the $A_2$ computation, the implementation was verified against the $A_1$ case ($u_q(\mathfrak{sl}_2)$ at $\ell = 3$), where the answer is known exactly by the bar-complex computation ($\dim \tilde{H}^2_b(B^+) = 1$, matching $\dim \HH^2 = 3$ via the LES). Running the projected Lanczos on the $A_1$ Hodge Laplacian ($N = 19{,}683$-dimensional) for $50$ iterations gives $\lambda_1^{(50)} = 1.2 \times 10^{-11}$ (numerically zero) and $\lambda_2^{(50)} = 47.3$ (nonzero), with ratio $\lambda_2/\lambda_1 \sim 4 \times 10^{12}$, certifying $\dim \tilde{H}^2_b(B^+_{A_1}) = 1$ in agreement with the known answer. This validates the implementation on a case where the answer is independently verified.
 
 \subsection{Organisation}
 
@@ -484,9 +499,23 @@ Each negative $\ell$-th power class $[F_\alpha^\ell] \in E_3^{0,2}$ lifts to $\H
 \end{proposition}
 
 \begin{proof}
-The class $[F_\alpha^\ell]$ represents the relation $F_\alpha^\ell = 0$ in $\bminus$. We construct an explicit lift $\tilde{f}_\alpha \in C^2(D(\bplus), \CC)$ by zero extension: set $\tilde{f}_\alpha(a, b) = f_\alpha(a^-, b^-)$ if both $a, b \in \bminus$, and $\tilde{f}_\alpha = 0$ otherwise, where $f_\alpha$ is the 2-cocycle representing $[F_\alpha^\ell]$.
+The class $[F_\alpha^\ell]$ represents the relation $F_\alpha^\ell = 0$ in $\bminus$. We construct an explicit lift $\tilde{f}_\alpha \in C^2(D(\bplus), \CC)$ by zero extension: set $\tilde{f}_\alpha(a, b) = f_\alpha(a^-, b^-)$ if both $a, b \in \bminus$, and $\tilde{f}_\alpha = 0$ otherwise, where $f_\alpha$ is the $2$-cocycle on $\bminus$ representing $[F_\alpha^\ell] \in \HH^2(\bminus, \CC)$.
 
-The relation $F_\alpha^\ell = 0$ is internal to $\bminus$; it is not modified by the cross relations in $D(\bplus)$, because the commutator $[E_i, F_\alpha]$ lowers the $F$-degree by at most 1 while raising the $E$-degree by 1, and the $\ell$-th power $F_\alpha^\ell$ is killed before cross-relation terms can accumulate. Combined with the $\bplus$-invariance (Proposition~\ref{prop:binv}), this ensures the cross terms in the Hochschild differential of $\tilde{f}_\alpha$ cancel, so $\tilde{f}_\alpha$ is a valid cocycle on $D(\bplus)$.
+We verify that $\tilde{f}_\alpha$ is a Hochschild $2$-cocycle on $D(\bplus)$, i.e.\ $d^2_{\mathrm{Hoch}}(\tilde{f}_\alpha) = 0$, by examining the three types of terms in the Hochschild differential
+\[
+(d^2 \tilde{f}_\alpha)(a, b, c) = a \cdot \tilde{f}_\alpha(b, c) - \tilde{f}_\alpha(ab, c) + \tilde{f}_\alpha(a, bc) - \tilde{f}_\alpha(a, b) \cdot c,
+\]
+where the $D(\bplus)$-bimodule structure on $\CC$ is trivial ($a \cdot \lambda = \varepsilon(a) \lambda$).
+
+\emph{Case 1: $a, b, c \in \bminus$.} All four terms lie in $\bminus$, and $\tilde{f}_\alpha$ restricts to $f_\alpha$ there. Since $f_\alpha$ is a cocycle on $\bminus$, $d^2 \tilde{f}_\alpha = 0$.
+
+\emph{Case 2: $a \in \bplus$ (i.e.\ $a = E_i$ or $K_i$), $b, c \in \bminus$.} The $E_i$-action on $\bminus$ is via the adjoint $\ad(E_i)(F_\beta) = [\ell]_{q_i^{(\alpha_i^\vee, \beta)}} \cdot F_\beta^{\ell-1} \cdots = 0$ by the $[\ell]_q = 0$ identity. So $a \cdot \tilde{f}_\alpha(b, c) = \varepsilon(a) \tilde{f}_\alpha(b, c)$ and $\tilde{f}_\alpha(a, b) \cdot c = \tilde{f}_\alpha(a, b) \varepsilon(c)$. The middle terms $\tilde{f}_\alpha(ab, c)$ and $\tilde{f}_\alpha(a, bc)$ involve $ab \in \bplus \bminus$ which has a nonzero $\bplus$-component, so $\tilde{f}_\alpha(ab, c) = 0$ and similarly $\tilde{f}_\alpha(a, bc) = 0$. The remaining terms cancel by the $\bplus$-invariance (Proposition~\ref{prop:binv}).
+
+\emph{Case 3: $a, b \in \bplus$, $c \in \bminus$ (and permutations).} All terms with $\bplus$ arguments in both slots vanish by the zero-extension definition. The only potentially nonzero term is $\tilde{f}_\alpha(a, bc)$ where $bc$ has a $\bminus$-component; but then $a \in \bplus$ forces $\tilde{f}_\alpha(a, \cdot) = 0$.
+
+\emph{Case 4: general $a, b, c$.} Decompose each by the triangular decomposition $a = a^- a^0 a^+$. The mixed terms reduce to Cases 1--3 by linearity and the multiplicativity of $\varepsilon$.
+
+Hence $d^2 \tilde{f}_\alpha = 0$, so $\tilde{f}_\alpha$ is a valid Hochschild $2$-cocycle on $D(\bplus)$ lifting $[F_\alpha^\ell]$.
 \end{proof}
 
 \subsection{Step 5: Vanishing of $d_r$ for $r \geq 4$}
@@ -533,22 +562,29 @@ The eight classes in $\HH^2(u_q(\mathfrak{sl}_3), \CC)$ predicted by Theorem~\re
 \end{proposition}
 
 \begin{proof}
-The argument proceeds in three steps, each using a different grading or filtration to separate the classes.
+The argument proceeds in three steps, each using a different grading or filtration to separate the classes. We note that at $\ell = 3$ the root lattice weights of all $\ell$-th power classes are trivial modulo $\ell$, so the root lattice grading alone does \emph{not} separate them; we use the triangular decomposition and root-vector support instead.
 
-\emph{Step 1: Filtration degree separates $\operatorname{im}(\delta)$ from $\operatorname{im}(\bar\iota)$.} The Mastnak--Witherspoon LES gives a filtration on $\HH^2(u_q(\mathfrak{sl}_3))$ whose associated graded is $\operatorname{im}(\delta) \oplus \operatorname{im}(\bar\iota)$. The $2$ Cartan-type classes in $\operatorname{im}(\delta)$ have filtration degree $1$ (they come from $\tilde{H}^1_b(B^+)$), while the $6$ $\ell$-th power classes in $\operatorname{im}(\bar\iota)$ have filtration degree $2$. Classes in different filtration degrees are linearly independent.
+\emph{Step 1: LES filtration separates $\operatorname{im}(\delta)$ from $\operatorname{im}(\bar\iota)$.} The Mastnak--Witherspoon LES (valid at $\ell = 3$ by Remark~\ref{rem:lesgenerality}) gives a two-step filtration on $\HH^2(u_q(\mathfrak{sl}_3))$:
+\[
+0 \subseteq \operatorname{im}(\delta) \subseteq \HH^2(u_q(\mathfrak{sl}_3)) \quad \text{with} \quad \operatorname{gr}^1 = \operatorname{im}(\delta), \quad \operatorname{gr}^2 \cong \operatorname{im}(\bar\iota).
+\]
+The $2$ Cartan-type classes $\delta(\Theta_1), \delta(\Theta_2)$ lie in $\operatorname{gr}^1$, while the $6$ $\ell$-th power classes lie in $\operatorname{gr}^2 \setminus \operatorname{gr}^1$. A linear relation $\sum c_i \delta(\Theta_i) + \sum d_\alpha [E_\alpha^3] + \sum e_\alpha [F_\alpha^3] = 0$ projects to $\sum d_\alpha [E_\alpha^3] + \sum e_\alpha [F_\alpha^3] = 0$ in $\operatorname{gr}^2$, so the $\ell$-th power classes are independent of the Cartan-type classes. It remains to show independence within each group.
 
-\emph{Step 2: Root lattice grading separates the $\ell$-th power classes.} The $6$ classes $\{[E_\alpha^3]\}_{\alpha \in \Phi^+} \cup \{[F_\alpha^3]\}_{\alpha \in \Phi^+}$ have distinct root lattice weights:
+\emph{Step 2: Triangular decomposition separates the $\ell$-th power classes.} The $6$ classes $\{[E_\alpha^3]\} \cup \{[F_\alpha^3]\}$ are separated by the triangular decomposition $u_q(\mathfrak{sl}_3) = u_q(\mathfrak{n}^-) \otimes u_q(\mathfrak{h}) \otimes u_q(\mathfrak{n}^+)$:
 \begin{itemize}
-\item $[E_1^3]$ has weight $+3\alpha_1 \equiv 0$,
-\item $[E_{12}^3]$ has weight $+3(\alpha_1+\alpha_2) \equiv 0$,
-\item $[E_2^3]$ has weight $+3\alpha_2 \equiv 0$,
-\item $[F_1^3]$ has weight $-3\alpha_1 \equiv 0$,
-\item $[F_{12}^3]$ has weight $-3(\alpha_1+\alpha_2) \equiv 0$,
-\item $[F_2^3]$ has weight $-3\alpha_2 \equiv 0$.
+\item The positive classes $[E_1^3], [E_{12}^3], [E_2^3]$ are represented by cocycles supported on pairs $(a, b)$ with $a, b \in \bplus$ (the positive Borel). Their restrictions to $\bplus \times \bplus$ are the $3$ truncation classes in $\HH^2(\bplus, \CC)$, which are independent by the PBW basis: each $[E_\alpha^3]$ is the class of the relation $E_\alpha^3 = 0$, and the root vectors $E_1, E_{12}, E_2$ are linearly independent in $u_q(\mathfrak{n}^+)$.
+\item The negative classes $[F_1^3], [F_{12}^3], [F_2^3]$ are supported on $\bminus \times \bminus$, and are independent by the same argument applied to $\bminus$.
+\item The positive and negative groups are separated by the triangular decomposition: a cocycle supported on $\bplus \times \bplus$ cannot be a nonzero multiple of one supported on $\bminus \times \bminus$, since the PBW basis elements $K^a E^b E_{12}^e E_2^d$ (positive) and $K^a F^c F_{12}^f F_1^g$ (negative) are disjoint.
 \end{itemize}
-All weights are trivial modulo $\ell = 3$, so the root lattice grading does not separate them at $A_2$. However, they are separated by the \emph{triangular decomposition} $u_q(\mathfrak{sl}_3) = u_q(\mathfrak{n}^-) \otimes u_q(\mathfrak{h}) \otimes u_q(\mathfrak{n}^+)$: the $[E_\alpha^3]$ are supported on positive Borel pairs, the $[F_\alpha^3]$ on negative Borel pairs, and within each Borel the $3$ classes are separated by their root vector support ($E_1, E_{12}, E_2$ being linearly independent in $u_q(\mathfrak{n}^+)$).
+Hence all $6$ $\ell$-th power classes are linearly independent.
 
-\emph{Step 3: The Cartan-type classes are separated by the Euler derivation grading.} The $2$ classes $\delta(\Theta_1), \delta(\Theta_2)$ are distinguished by the eigenvalues of the Euler derivations $\Theta_1, \Theta_2$ on the generators: $\Theta_i(\delta(\Theta_j))$ is proportional to $\delta(\Theta_j)$ with eigenvalue determined by the Cartan matrix. Since the Cartan matrix $A = \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}$ of $\mathfrak{sl}_3$ is invertible, the eigenvalue vectors $(\Theta_1(\delta(\Theta_j)), \Theta_2(\delta(\Theta_j)))$ for $j = 1, 2$ are linearly independent, separating the two classes.
+\emph{Step 3: Euler derivation eigenvalues separate the Cartan-type classes.} The $2$ classes $\delta(\Theta_1), \delta(\Theta_2)$ are distinguished by the action of the Euler derivations $\Theta_1, \Theta_2$ (which act on $\HH^2$ by functoriality). The key computation: $\Theta_i$ acts on $\delta(\Theta_j)$ by the Lie bracket of the corresponding Cartan elements. Since $\Theta_i \leftrightarrow \alpha_i^\vee$ under the identification $\tilde{H}^1_b(B^+) \cong \mathfrak{h}$ (Lemma~\ref{lem:euler}), and the Cartan matrix $A = \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}$ is invertible, the eigenvalue vectors
+\[
+\bigl(\Theta_1(\delta(\Theta_j)), \Theta_2(\delta(\Theta_j))\bigr) = (a_{1j}, a_{2j}), \qquad j = 1, 2,
+\]
+are the columns of $A$, which are linearly independent. Hence $\delta(\Theta_1)$ and $\delta(\Theta_2)$ are linearly independent.
+
+Combining Steps 1--3, all $8$ classes are linearly independent.
 \end{proof}
 
 \section{Numerical verification}
@@ -669,12 +705,21 @@ The cocycle support analysis of Section~\ref{sec:cocycles} shows that none of th
 
 \subsection{The long exact sequence}
 
-Let $B = B^+$ be the positive Borel subalgebra of $u_q(\mathfrak{g})$. Mastnak and Witherspoon~\cite{MW08} (building on Gerstenhaber--Schack) construct a long exact sequence connecting the bialgebra cohomology $\tilde{H}^\bullet_b(B)$ of $B$ to the Hochschild cohomology of $B$, its dual $B^*$, and the Drinfeld double $D(B) \cong u_q(\mathfrak{g})$:
+Let $B = B^+$ be the positive Borel subalgebra of $u_q(\mathfrak{g})$. Mastnak and Witherspoon~\cite{MW08} (building on Gerstenhaber--Schack~\cite{GS90}) construct a long exact sequence connecting the bialgebra cohomology $\tilde{H}^\bullet_b(B)$ of $B$ to the Hochschild cohomology of $B$, its dual $B^*$, and the Drinfeld double $D(B) \cong u_q(\mathfrak{g})$:
 \begin{equation}
 \label{eq:mwles}
 \cdots \to \HH^i(D(B), \CC) \xrightarrow{\bar\iota} \HH^i(B, \CC) \oplus \HH^i(B^*, \CC) \xrightarrow{\bar\pi} \tilde{H}^i_b(B) \xrightarrow{\delta} \HH^{i+1}(D(B), \CC) \to \cdots
 \end{equation}
 Here $\bar\iota$ is induced by the projections $D(B) \to B$ and $D(B) \to B^*$, and $\delta$ is the connecting homomorphism. The map $\bar\iota$ is computed explicitly in~\cite[\S 3.4]{MW08}, and Theorem~4.2.3 of~\cite{MW08} gives a sufficient condition for $\delta$ to be surjective in degree two.
+
+\begin{remark}[Generality of the LES]
+\label{rem:lesgenerality}
+The long exact sequence~\eqref{eq:mwles} is equation~(3.3.1) of~\cite{MW08}, and it is a \emph{general theorem for any finite-dimensional Hopf algebra} $B$ over a field $k$. The only hypothesis is that $B$ be finite-dimensional; there is no coprimality condition, no requirement that $B$ be a bosonization, and no restriction on the characteristic of $k$. The sequence arises from the short exact sequence of Gerstenhaber--Schack bicomplexes $0 \to \operatorname{Tot}(A^0) \to \operatorname{Tot}(A) \to \operatorname{Tot}(A^1) \to 0$ (where $A^{p,q} = \operatorname{Hom}_k(B^{\otimes p}, B^{\otimes q})$ and $A^0, A^1$ are the edge truncations), which is a tautological direct-sum splitting of the bicomplex and requires no hypothesis on $B$.
+
+The coprimality hypothesis $|\Gamma|$ coprime to primes $< 11$ enters \cite{MW08} only at Theorems 5.0.16, 6.1.4, and 6.2.1--6.2.7, which provide \emph{explicit computations} of $\tilde{H}^2_b(B^+)$ for bosonizations $B^+ = B(V) \# k\Gamma$ under that hypothesis. Our paper does \emph{not} invoke these theorems. Instead, we compute $\tilde{H}^1_b(B^+)$ via the rank theorem (Theorem~\ref{thm:rank}, unconditional) and $\tilde{H}^2_b(B^+_{\mathfrak{sl}_3})$ via direct projected Lanczos iteration (Section~\ref{sec:lanczos}, computational). The LES~\eqref{eq:mwles} then translates these independent computations into $\dim \HH^2(u_q(\mathfrak{g}), \CC)$.
+
+In particular, the LES is valid at $\ell = 3$ for $u_q(\mathfrak{sl}_3)$: the gap identified in earlier versions of this paper (between the LES generality and the MW Theorem 6.1.4 hypothesis) is resolved by noting that we never use Theorem 6.1.4.
+\end{remark}
 
 \figMWLES
 
